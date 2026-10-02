@@ -543,7 +543,7 @@
 </style>
 </head>
 <body>
-<div class="wrap" id="app"></div>
+<main class="wrap" id="app" role="main"></main>
 
 <script>
 /* ======================= DATA ======================= */
@@ -612,22 +612,22 @@ const CATEGORIES = [
     {a:'der',n:'Kohl',ar:'كرنب',note:'الجمع Kohle نادر الاستخدام (يشير لأنواع الكرنب المختلفة)',pl:'die Kohle',s:'Im Winter kochen viele Menschen Suppe mit Kohl.',sar:'في الشتاء يطبخ كثير من الناس حساءً بالكرنب.'},
     {a:'der',n:'Paprika',ar:'فلفل رومي',note:'الجمع الرسمي نفس الكلمة بلا تغيير، ويصح أيضًا Paprikas',pl:'die Paprika',s:'Der rote Paprika schmeckt süßlich und knackig.',sar:'الفلفل الرومي الأحمر طعمه حلو ومقرمش.'},
     {a:'die',n:'Aubergine',ar:'باذنجان',pl:'die Auberginen',s:'Die dunkle Aubergine wird im Ofen gebraten.',sar:'الباذنجان الداكن يُشوى في الفرن.'},
-    {a:'der',n:'Spinat',ar:'سبانخ',note:'الجمع Spinate نادر الاستخدام (يشير لأنواع السبانخ)',pl:'die Spinate',s:'Frischer Spinat enthält viele gesunde Mineralien.',sar:'السبانخ الطازج يحتوي على العديد من المعادن الصحية.'},
+    {a:'der',n:'Spinat',ar:'سبانخ',note:'الجمع Spinate نادر الاستخدام (يشير لأنواع السبانخ)',pl:null,s:'Frischer Spinat enthält viele gesunde Mineralien.',sar:'السبانخ الطازج يحتوي على العديد من المعادن الصحية.'},
     {a:'die',n:'Bohne',ar:'فاصوليا',pl:'die Bohnen',s:'Die grüne Bohne schmeckt gekocht mit Butter.',sar:'الفاصوليا الخضراء طعمها طيب مسلوقة مع الزبدة.'},
     {a:'der',n:'Salat',ar:'خس',pl:'die Salate',s:'Zum Mittagessen gibt es einen frischen Salat.',sar:'على الغداء توجد سلطة خضراء طازجة.'},
     {a:'die',n:'Zucchini',ar:'كوسة',note:'جمعها نفس الكلمة بلا تغيير',pl:'die Zucchini',s:'Die grüne Zucchini wächst schnell im Garten.',sar:'الكوسة الخضراء تنمو بسرعة في الحديقة.'},
     {a:'der',n:'Brokkoli',ar:'بروكلي',pl:'die Brokkolis',s:'Gedämpfter Brokkoli ist gesund und schmackhaft.',sar:'البروكلي المطهو على البخار صحي ولذيذ.'},
     {a:'der',n:'Pilz',ar:'فطر',pl:'die Pilze',s:'Im Herbst sammeln wir Pilze im Wald.',sar:'في الخريف نجمع الفطر في الغابة.'},
-    {a:'der',n:'Mais',ar:'ذرة',note:'الجمع Maise نادر الاستخدام (يشير لأنواع الذرة)',pl:'die Maise',s:'Gegrillter Mais schmeckt mit etwas Salz vorzüglich.',sar:'الذرة المشوية طعمها رائع مع القليل من الملح.'},
+    {a:'der',n:'Mais',ar:'ذرة',note:'الجمع Maise نادر الاستخدام (يشير لأنواع الذرة)',pl:null,s:'Gegrillter Mais schmeckt mit etwas Salz vorzüglich.',sar:'الذرة المشوية طعمها رائع مع القليل من الملح.'},
     {a:'die',n:'Erbse',ar:'بازلاء',pl:'die Erbsen',s:'Die kleine grüne Erbse schmeckt süßlich.',sar:'البازلاء الخضراء الصغيرة طعمها مائل للحلاوة.'},
     {a:'der',n:'Rettich',ar:'فجل',pl:'die Rettiche',s:'Der weiße Rettich schmeckt scharf und knackig.',sar:'الفجل الأبيض طعمه لاذع ومقرمش.'},
     {a:'die',n:'Rote Bete',ar:'بنجر',note:'لا يوجد لها جمع شائع؛ تُستخدم بنفس الصيغة للمفرد والجمع',pl:null,s:'Rote Bete färbt die Hände tiefrot.',sar:'البنجر يصبغ اليدين باللون الأحمر الداكن.'},
     {a:'der',n:'Sellerie',ar:'كرفس',note:'الجمع die Sellerie أو die Selleries، وفي النمسا Sellerien',pl:'die Sellerie',s:'Frischer Sellerie passt gut in jede Gemüsesuppe.',sar:'الكرفس الطازج يناسب كل أنواع حساء الخضار.'},
     {a:'die',n:'Süßkartoffel',ar:'بطاطا حلوة',pl:'die Süßkartoffeln',s:'Die Süßkartoffel kann man wie Pommes frittieren.',sar:'البطاطا الحلوة يمكن قليها مثل البطاطس المقرمشة.'},
     {a:'der',n:'Kürbis',ar:'يقطين',pl:'die Kürbisse',s:'Aus dem Kürbis machen wir eine wärmende Suppe.',sar:'من اليقطين نصنع حساءً دافئاً.'},
-    {a:'der',n:'Lauch',ar:'كراث',note:'الجمع Lauche نادر الاستخدام جدًا',pl:'die Lauche',s:'Der Lauch schmeckt herzhaft in Aufläufen.',sar:'الكراث طعمه شهي في صواني الفرن.'},
+    {a:'der',n:'Lauch',ar:'كراث',note:'الجمع Lauche نادر الاستخدام جدًا',pl:null,s:'Der Lauch schmeckt herzhaft in Aufläufen.',sar:'الكراث طعمه شهي في صواني الفرن.'},
     {a:'der',n:'Rosenkohl',ar:'كرنب بروكسل',note:'ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد',pl:null,s:'Rosenkohl wird traditionell im Winter serviert.',sar:'كرنب بروكسل يُقدَّم تقليدياً في الشتاء.'},
-    {a:'der',n:'Blumenkohl',ar:'قرنبيط',note:'الجمع Blumenkohle نادر الاستخدام',pl:'die Blumenkohle',s:'Gekochter Blumenkohl schmeckt mild und zart.',sar:'القرنبيط المسلوق طعمه خفيف وطري.'},
+    {a:'der',n:'Blumenkohl',ar:'قرنبيط',note:'الجمع Blumenkohle نادر الاستخدام',pl:null,s:'Gekochter Blumenkohl schmeckt mild und zart.',sar:'القرنبيط المسلوق طعمه خفيف وطري.'},
     {a:'der',n:'Fenchel',ar:'شمر',note:'ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد',pl:null,s:'Der Fenchel hat einen aromatischen Anisgeschmack.',sar:'الشمر له نكهة يانسون عطرية.'},
     {a:'die',n:'Artischocke',ar:'خرشوف',pl:'die Artischocken',s:'Die Artischocke gilt als besondere Delikatesse.',sar:'الخرشوف يُعتبر طعاماً شهياً فاخراً.'},
     {a:'die',n:'Okra',ar:'بامية',pl:'die Okras',s:'Die Okra wird in vielen orientalischen Gerichten gekocht.',sar:'البامية تُطبخ في العديد من الأطباق الشرقية.'},
@@ -655,21 +655,21 @@ const CATEGORIES = [
     {a:'der',n:'Sauerampfer',ar:'حميض',note:'عشب ورقي حامض الطعم يُستخدم في الشوربات؛ جمعه نفس الكلمة بلا تغيير',pl:'die Sauerampfer',s:'Sauerampfer verleiht der Frühlingssuppe einen säuerlichen Geschmack.',sar:'الحميض يمنح حساء الربيع مذاقاً حامضياً طيباً.'}
   ]},
   { id:'milch', ar:'منتجات الألبان', de:'Milchprodukte', hasArticles:true, words:[
-    {a:'die',n:'Milch',ar:'حليب',note:'الجمع Milche نادر جدًا (لغة متخصصة، يشير لأنواع الحليب)',pl:'die Milche',s:'Das Kind trinkt morgens ein Glas warme Milch.',sar:'يشرب الطفل في الصباح كأساً من الحليب الدافئ.'},
+    {a:'die',n:'Milch',ar:'حليب',note:'الجمع Milche نادر جدًا (لغة متخصصة، يشير لأنواع الحليب)',pl:null,s:'Das Kind trinkt morgens ein Glas warme Milch.',sar:'يشرب الطفل في الصباح كأساً من الحليب الدافئ.'},
     {a:'der',n:'Käse',ar:'جبن',note:'الجمع نفس الكلمة بلا تغيير (يشير لأنواع الجبن)',pl:'die Käse',s:'Zum Brot essen wir leckeren Käse.',sar:'مع الخبز نأكل جبناً لذيذاً.'},
     {a:'der',n:'Joghurt',ar:'زبادي',pl:'die Joghurts',s:'Ich esse Joghurt mit frischen Früchten.',sar:'آكل الزبادي مع الفواكه الطازجة.'},
     {a:'die',n:'Butter',ar:'زبدة',note:'ليس لها جمع',pl:null,s:'Ich streiche frische Butter auf das Brot.',sar:'أدهن زبدة طازجة على الخبز.'},
     {a:'die',n:'Sahne',ar:'قشدة',note:'ليس لها جمع',pl:null,s:'Zum Erdbeerkuchen gehört geschlagene Sahne.',sar:'كعكة الفراولة تناسبها القشدة المخفوقة.'},
     {a:'der',n:'Quark',ar:'جبن قريش',note:'ليس له جمع',pl:null,s:'Quark mit Kräutern schmeckt gut zu Pellkartoffeln.',sar:'جبن القريش بالأعشاب لذيذ مع البطاطس المسلوقة.'},
-    {a:'die',n:'Buttermilch',ar:'حليب مخيض',note:'الجمع Buttermilche نادر جدًا',pl:'die Buttermilche',s:'Kalte Buttermilch ist ein erfrischendes Getränk.',sar:'الحليب المخيض البارد مشروب منعش.'},
+    {a:'die',n:'Buttermilch',ar:'حليب مخيض',note:'الجمع Buttermilche نادر جدًا',pl:null,s:'Kalte Buttermilch ist ein erfrischendes Getränk.',sar:'الحليب المخيض البارد مشروب منعش.'},
     {a:'der',n:'Frischkäse',ar:'جبنة كريمية',note:'الجمع نفس الكلمة بلا تغيير (يشير لأنواعه)',pl:'die Frischkäse',s:'Frischkäse schmeckt cremig auf dunklem Brot.',sar:'الجبنة الكريمية لذيذة على الخبز الأسمر.'},
     {a:'das',n:'Eis',ar:'آيس كريم',note:'ليس له جمع؛ للتفريق بين الأنواع تُستخدم كلمة Eissorten',pl:null,s:'Im Sommer essen die Kinder gerne süßes Eis.',sar:'في الصيف يحب الأطفال تناول الآيس كريم الحلو.'},
     {a:'die',n:'Kondensmilch',ar:'حليب مكثف',note:'الجمع Kondensmilche نادر جدًا',pl:'die Kondensmilche',s:'Kondensmilch macht den Kaffee besonders cremig.',sar:'الحليب المكثف يجعل القهوة غنية وكريمية.'},
     {a:'der',n:'Mozzarella',ar:'موتزاريلا',pl:'die Mozzarellas',s:'Mozzarella mit Tomaten ist eine beliebte Vorspeise.',sar:'الموتزاريلا مع الطماطم مقبلات محبوبة.'},
     {a:'der',n:'Kefir',ar:'كفير',note:'ليس له جمع',pl:null,s:'Kefir fördert eine gesunde Verdauung.',sar:'الكفير يعزز الهضم الصحي.'},
     {a:'der',n:'Skyr',ar:'سكير',note:'ليس له جمع',pl:null,s:'Skyr enthält viel Eiweiß und wenig Fett.',sar:'السكير يحتوي على بروتين عالٍ ودهون قليلة.'},
-    {a:'die',n:'Kaffeesahne',ar:'كريمة القهوة',pl:'die Kaffeesahnen',s:'Er gießt etwas Kaffeesahne in seine Tasse.',sar:'هو يصب قليلاً من كريمة القهوة في فنجانه.'},
-    {a:'die',n:'Sojamilch',ar:'حليب الصويا',note:'الجمع Sojamilchen نادر جدًا',pl:'die Sojamilchen',s:'Viele Menschen trinken Sojamilch als pflanzliche Alternative.',sar:'كثير من الناس يشربون حليب الصويا كبديل نباتي.'},
+    {a:'die',n:'Kaffeesahne',ar:'كريمة القهوة',pl:null,s:'Er gießt etwas Kaffeesahne in seine Tasse.',sar:'هو يصب قليلاً من كريمة القهوة في فنجانه.'},
+    {a:'die',n:'Sojamilch',ar:'حليب الصويا',note:'الجمع Sojamilchen نادر جدًا',pl:null,s:'Viele Menschen trinken Sojamilch als pflanzliche Alternative.',sar:'كثير من الناس يشربون حليب الصويا كبديل نباتي.'},
     {a:'der',n:'Camembert',ar:'جبن كممبير',pl:'die Camemberts',s:'Französischer Camembert reift zu einem weichen Kern.',sar:'جبن الكممبير الفرنسي ينضج ليصبح طرياً من الداخل.'}
   ]},
   { id:'tiere', ar:'الحيوانات', de:'Tiere', hasArticles:true, words:[
@@ -852,7 +852,7 @@ const CATEGORIES = [
     {a:'der',n:'Rock',ar:'تنورة',pl:'die Röcke',s:'Der Rock schwingt beim Tanzen im Takt der Musik.',sar:'التنورة تتأرجح أثناء الرقص على إيقاع الموسيقى.'},
     {a:'die',n:'Jacke',ar:'جاكيت',pl:'die Jacken',s:'Bei kaltem Wind zieht er eine warme Jacke an.',sar:'عند هبوب رياح باردة يرتدي سترة دافئة.'},
     {a:'der',n:'Mantel',ar:'معطف',pl:'die Mäntel',s:'Im tiefen Winter braucht man einen dicken Mantel.',sar:'في ذروة الشتاء يحتاج المرء إلى معطف ثقيل.'},
-    {a:'die',n:'Schuhe',ar:'حذاء',pl:null,s:'Er putzt jeden Samstag seine ledernen Schuhe.',sar:'هو ينظف كل سبت حذاءه الجلدي.'},
+    {a:'der',n:'Schuh',ar:'حذاء',pl:'die Schuhe',s:'Er putzt jeden Samstag seinen ledernen Schuh.',sar:'هو ينظف كل سبت حذاءه الجلدي.'},
     {a:'die',n:'Socke',ar:'جورب',pl:'die Socken',s:'In den neuen Schuhen trägt er eine warme Socke.',sar:'في الحذاء الجديد يرتدي جورباً دافئاً.'},
     {a:'der',n:'Hut',ar:'قبعة',pl:'die Hüte',s:'Ein eleganter Hut schützt vor der starken Sonne.',sar:'قبعة أنيقة تحمي من حرارة الشمس القوية.'},
     {a:'die',n:'Mütze',ar:'طاقية',pl:'die Mützen',s:'Die gestrickte Mütze wärmt den Kopf im Schnee.',sar:'الطاقية الصوفية تدفئ الرأس وسط الثلوج.'},
@@ -1082,7 +1082,7 @@ const CATEGORIES = [
     {a:'das',n:'Fahrrad',ar:'دراجة',pl:'die Fahrräder',s:'In der Stadt fahre ich am liebsten mit dem Fahrrad.',sar:'في المدينة أفضل التنقل بالدراجة الهوائية.'},
     {a:'das',n:'Flugzeug',ar:'طائرة',pl:'die Flugzeuge',s:'Das Flugzeug startet vom Frankfurter Flughafen nach Tokio.',sar:'الطائرة تقلع من مطار فرانكفورت متجهة إلى طوكيو.'},
     {a:'das',n:'Schiff',ar:'سفينة',pl:'die Schiffe',s:'Das große Schiff gleitet ruhig über den Rhein.',sar:'السفينة الكبيرة تنساب بهدوء عبر نهر الراين.'},
-    {a:'die',n:'U-Bahn',ar:'مترو',pl:'die U-Bahnen',s:'Die Straßenbahn fährt im Zehn-Minuten-Takt durch die Innenstadt.',sar:'الترام يسير كل عشر دقائق عبر وسط المدينة.'},
+    {a:'die',n:'U-Bahn',ar:'مترو',pl:'die U-Bahnen',s:'Die U-Bahn fährt schnell und pünktlich unter den belebten Straßen der Stadt.',sar:'يسير المترو بسرعة وانتظام تحت شوارع المدينة المزدحمة.'},
     {a:'das',n:'Taxi',ar:'تاكسي',pl:'die Taxis',s:'Weil die letzte Bahn verpasst wurde, rief er sich nachts ein Taxi.',sar:'لأنه فاته القطار الأخير، طلب لنفسه سيارة أجرة ليلاً.'},
     {a:'der',n:'Lastwagen',ar:'شاحنة',pl:'die Lastwagen',s:'Der schwere Lastwagen transportiert frische Lebensmittel von der Fabrik zum Supermarkt.',sar:'الشاحنة الثقيلة تنقل المواد الغذائية الطازجة من المصنع إلى السوبرماركت.'},
     {a:'das',n:'Motorrad',ar:'موتوسيكل',pl:'die Motorräder',s:'Er fährt mit seinem schnellen Motorrad gern auf kurvigen Landstraßen.',sar:'هو يحب القيادة بدراجته النارية السريعة على الطرق الريفية المتعرجة.'},
@@ -1329,20 +1329,20 @@ const CATEGORIES = [
     {n:'euphorisch',ar:'في قمة النشوة',s:'Nach dem Sieg war die gesamte Mannschaft euphorisch.',sar:'بعد الفوز كان الفريق بأكمله في قمة النشوة والابتهاج.'}
   ]},
   { id:'gewuerze', ar:'التوابل', de:'Gewürze', hasArticles:true, words:[
-    {a:'der',n:'Pfeffer',ar:'فلفل أسود',pl:'die Pfeffer',s:'Er würzt die Suppe mit einer Prise schwarzem Pfeffer.',sar:'هو يتبل الحساء برشة من الفلفل الأسود.'},
+    {a:'der',n:'Pfeffer',ar:'فلفل أسود',pl:null,s:'Er würzt die Suppe mit einer Prise schwarzem Pfeffer.',sar:'هو يتبل الحساء برشة من الفلفل الأسود.'},
     {a:'das',n:'Salz',ar:'ملح',note:'الجمع Salze نادر الاستخدام (يشير لأنواع الملح)',pl:'die Salze',s:'Ohne Salz schmeckt selbst das beste Essen fad.',sar:'بدون الملح يبدو حتى أشهى طعام بلا طعم.'},
     {a:'der',n:'Zimt',ar:'قرفة',note:'الجمع Zimte نادر الاستخدام (يشير لأنواع القرفة)',pl:'die Zimte',s:'Im Winter duften die Plätzchen herrlich nach süßem Zimt.',sar:'في الشتاء تفوح رائحة البسكويت بالقرفة الحلوة الرائعة.'},
     {a:'der',n:'Kümmel',ar:'كراوية',note:'كراوية (Caraway)، وهي مختلفة عن Kreuzkümmel (الكمون الحقيقي)',pl:'die Kümmel',s:'Kümmel macht schwere Kohlgerichte viel bekömmlicher.',sar:'الكراوية تجعل أطباق الكرنب الدسمة أسهل هضماً.'},
     {a:'der',n:'Kreuzkümmel',ar:'كمون',note:'الكمون الحقيقي (Cumin)، مختلف تمامًا عن Kümmel رغم تشابه الاسم',pl:'die Kreuzkümmel',s:'Kreuzkümmel ist ein unverzichtbares Gewürz in der orientalischen Küche.',sar:'الكمون بهار لا غنى عنه في المطبخ الشرقي.'},
     {a:'der',n:'Ingwer',ar:'زنجبيل',pl:'die Ingwer',s:'Frischer Ingwer verleiht dem warmen Tee eine angenehme Schärfe.',sar:'الزنجبيل الطازج يعطي الشاي الدافئ حرارة مستحبة.'},
-    {a:'die',n:'Petersilie',ar:'بقدونس',note:'الجمع Petersilien نادر الاستخدام',pl:'die Petersilien',s:'Gehackte grüne Petersilie streut man frisch über die Kartoffeln.',sar:'البقدونس الأخضر المفروم يُرش طازجاً فوق البطاطس.'},
+    {a:'die',n:'Petersilie',ar:'بقدونس',note:'الجمع Petersilien نادر الاستخدام',pl:null,s:'Gehackte grüne Petersilie streut man frisch über die Kartoffeln.',sar:'البقدونس الأخضر المفروم يُرش طازجاً فوق البطاطس.'},
     {a:'der',n:'Koriander',ar:'كزبرة',pl:'die Koriander',s:'Frischer Koriander gibt asiatischen Suppen ihr typisches Aroma.',sar:'الكزبرة الطازجة تمنح الشوربات الآسيوية نكهتها المميزة.'},
-    {a:'die',n:'Kurkuma',ar:'كركم',pl:'die Kurkumen',s:'Die gelbe Kurkuma verleiht dem Reisgericht eine schöne goldene Farbe.',sar:'الكركم الأصفر يمنح طبق الأرز لوناً ذهبياً جميلاً.'},
+    {a:'die',n:'Kurkuma',ar:'كركم',pl:null,s:'Die gelbe Kurkuma verleiht dem Reisgericht eine schöne goldene Farbe.',sar:'الكركم الأصفر يمنح طبق الأرز لوناً ذهبياً جميلاً.'},
     {a:'das',n:'Chili',ar:'شطة',pl:'die Chilis',s:'Vorsicht, das rote Chili brennt scharf auf der Zunge.',sar:'احذر، فالشطة الحمراء تلسع بحرارة على اللسان.'},
     {a:'die',n:'Minze',ar:'نعناع',pl:'die Minzen',s:'Frische Minze kühlt und erfrischt an heißen Sommertagen.',sar:'النعناع الطازج يبرد وينعش في أيام الصيف الحارة.'},
     {a:'der',n:'Sesam',ar:'سمسم',pl:'die Sesams',s:'Knuspriger Sesam verfeinert das frische Fladenbrot.',sar:'السمسم المقرمش يزين الخبز المفرود الطازج.'},
     {a:'die',n:'Vanille',ar:'فانيليا',pl:'die Vanillen',s:'Echte Vanille verleiht dem Pudding einen edlen Geschmack.',sar:'الفانيليا الأصلية تمنح المهلبية نكهة راقية.'},
-    {a:'der',n:'Knoblauchpulver',ar:'بودرة ثوم',pl:'die Knoblauchpulver',s:'Knoblauchpulver lässt sich beim Kochen praktisch dosieren.',sar:'بودرة الثوم يسهل معايرتها عملياً أثناء الطبخ.'},
+    {a:'das',n:'Knoblauchpulver',ar:'بودرة ثوم',pl:'die Knoblauchpulver',s:'Knoblauchpulver lässt sich beim Kochen praktisch dosieren.',sar:'بودرة الثوم يسهل معايرتها عملياً أثناء الطبخ.'},
     {a:'der',n:'Lorbeer',ar:'ورق لورا',pl:'die Lorbeeren',s:'Ein getrocknetes Blatt Lorbeer kocht in der Brühe mit.',sar:'ورقة لورا مجففة تُطهى في المرق.'},
     {a:'das',n:'Paprikapulver',ar:'بابريكا مطحونة',pl:'die Paprikapulver',s:'Paprikapulver gibt dem herzhaften Gulasch die kräftige rote Farbe.',sar:'البابريكا المطحونة تعطي حساء الغولاش لونه الأحمر القوي.'},
     {a:'die',n:'Muskatnuss',ar:'جوزة الطيب',pl:'die Muskatnüsse',s:'Geriebene Muskatnuss gehört unbedingt in ein gutes Kartoffelpüree.',sar:'جوزة الطيب المبشورة ضرورية في بيوريه البطاطس الجيد.'},
@@ -1366,7 +1366,7 @@ const CATEGORIES = [
     {a:'der',n:'Senf',ar:'خردل',note:'الجمع Senfe نادر الاستخدام',pl:'die Senfe',s:'Zur Bratwurst isst man in Deutschland traditionell scharfen Senf.',sar:'مع السجق المشوي يؤكل في ألمانيا تقليدياً الخردل الحار.'},
     {a:'der',n:'Ketchup',ar:'كاتشب',pl:'die Ketchups',s:'Die Kinder essen ihre knusprigen Pommes am liebsten mit Ketchup.',sar:'الأطفال يفضلون تناول البطاطس المقرمشة مع الكاتشب.'},
     {a:'die',n:'Mayonnaise',ar:'مايونيز',pl:'die Mayonnaisen',s:'Cremige Mayonnaise schmeckt vorzüglich im klassischen Kartoffelsalat.',sar:'المايونيز الكريمي طعمه رائع في سلطة البطاطس الكلاسيكية.'},
-    {a:'der',n:'Zucker',ar:'سكر',pl:'die Zucker',s:'Er trinkt seinen heißen Morgentee am liebsten ganz ohne Zucker.',sar:'هو يفضل شرب شاي الصباح الساخن تماماً بدون سكر.'},
+    {a:'der',n:'Zucker',ar:'سكر',pl:null,s:'Er trinkt seinen heißen Morgentee am liebsten ganz ohne Zucker.',sar:'هو يفضل شرب شاي الصباح الساخن تماماً بدون سكر.'},
     {a:'die',n:'Hefe',ar:'خميرة',pl:'die Hefen',s:'Frische Hefe lässt den weichen Brotteig wunderbar aufgehen.',sar:'الخميرة الطازجة تجعل عجينة الخبز الطرية تختمر بشكل رائع.'},
     {a:'das',n:'Backpulver',ar:'بيكنج باودر',pl:'die Backpulver',s:'Ein Päckchen Backpulver macht den süßen Rührkuchen schön locker.',sar:'كيس من البيكنج باودر يجعل الكعكة هشة وإسفنجية.'},
     {a:'der',n:'Sternanis',ar:'يانسون نجمي',pl:'die Sternanise',s:'Der hübsche Sternanis sieht aus wie ein kleiner hölzerner Stern.',sar:'اليانسون النجمي الجميل يبدو كنجمة خشبية صغيرة.'},
@@ -1493,7 +1493,7 @@ const CATEGORIES = [
     {a:'der',n:'Bonbon',ar:'حلوى',pl:'die Bonbons',s:'Das Kind lutscht fröhlich an einem süßen Bonbon.',sar:'الطفل يمتص فرحاً حبة حلوى سكرية.'},
     {a:'das',n:'Popcorn',ar:'فشار',pl:null,s:'Im Kino gehört eine große Tüte warmes Popcorn dazu.',sar:'في السينما لا غنى عن كيس كبير من الفشار الدافئ.'},
     {a:'die',n:'Chips',ar:'شيبسي',pl:null,s:'Beim Fernsehabend knabbern wir gerne knusprige Chips.',sar:'أثناء سهرة التلفاز نحب قرمشة رقائق البطاطس.'},
-    {a:'der',n:'Honig',ar:'عسل',note:'الجمع "Honige" يُستخدم للإشارة إلى أنواع مختلفة من العسل حسب Duden',pl:'die Honige',s:'Goldener Honig von fleißigen Bienen schmeckt wunderbar süß.',sar:'العسل الذهبي من النحل النشيط طعمه حلو ورائع.'},
+    {a:'der',n:'Honig',ar:'عسل',note:'الجمع "Honige" يُستخدم للإشارة إلى أنواع مختلفة من العسل حسب Duden',pl:null,s:'Goldener Honig von fleißigen Bienen schmeckt wunderbar süß.',sar:'العسل الذهبي من النحل النشيط طعمه حلو ورائع.'},
     {a:'die',n:'Marmelade',ar:'مربى',pl:'die Marmeladen',s:'Zum Frühstück streicht er süße Erdbeer-Marmelade aufs Brot.',sar:'في الإفطار يدهن مربى الفراولة الحلوة على الخبز.'},
     {a:'das',n:'Karamell',ar:'كراميل',pl:null,s:'Weiches Karamell zieht sich herrlich in der Schokolade.',sar:'الكراميل الطري يتمطط بروعة داخل الشوكولاتة.'},
     {a:'die',n:'Waffel',ar:'وافل',pl:'die Waffeln',s:'Frisch gebackene belgische Waffeln duften herrlich und schmecken warm mit Puderzucker.',sar:'الوافل البلجيكي المخبوز طازجاً تفوح منه رائحة زكية ويؤكل دافئاً مع السكر البودرة.'},
@@ -1510,7 +1510,7 @@ const CATEGORIES = [
     {a:'die',n:'Pistazie',ar:'فستق',pl:'die Pistazien',s:'Gesalzene Pistazien aus dem Orient lassen sich leicht aus der Schale knacken.',sar:'الفستق المملح من الشرق يسهل تقشيره من قشرته الخارجية.'},
     {a:'die',n:'Cashewnuss',ar:'كاجو',pl:'die Cashewnüsse',s:'Die milde Cashewnuss hat einen angenehm weichen Biss und einen sahnigen Geschmack.',sar:'حبة الكاجو المعتدلة لها قرمشة طرية محببة ومذاق كريمي ناعم.'},
     {a:'der',n:'Nougat',ar:'نوجا',note:'اسم غير معدود عادة؛ الجمع "Nougats" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden',pl:null,s:'Heller weicher Nougat schmilzt zart im Mund und schmeckt herrlich nussig.',sar:'حلوى النوجا البيضاء الطرية تذوب بنعومة في الفم ولها مذاق مكسرات رائع.'},
-    {a:'die',n:'Gummibärchen',ar:'حلوى الدببة الصمغية',note:'من أشهر الحلوى الألمانية على الإطلاق (Haribo)',pl:'die Gummibärchen',s:'Kinder teilen sich gern eine große bunte Tüte mit fruchtigen Gummibärchen.',sar:'الأطفال يحبون تقاسم كيس كبير ملون من حلوى الدببة الصمغية بنكهة الفواكه.'},
+    {a:'das',n:'Gummibärchen',ar:'حلوى الدببة الصمغية',note:'من أشهر الحلوى الألمانية على الإطلاق (Haribo)',pl:'die Gummibärchen',s:'Kinder teilen sich gern eine große bunte Tüte mit fruchtigen Gummibärchen.',sar:'الأطفال يحبون تقاسم كيس كبير ملون من حلوى الدببة الصمغية بنكهة الفواكه.'},
     {a:'der',n:'Schokoriegel',ar:'بار شوكولاتة',pl:'die Schokoriegel',s:'Für die kurze Wanderpause steckt er sich einen nahrhaften Schokoriegel in den Rucksack.',sar:'لاستراحة المشي القصيرة يضع في حقيبة ظهره بار شوكولاتة مغذياً.'},
     {a:'die',n:'Zuckerwatte',ar:'غزل البنات',note:'غالبًا اسم غير معدود؛ الجمع "Zuckerwatten" نادر',pl:'die Zuckerwatten',s:'Auf dem Jahrmarkt freuen sich die Kinder über riesige rosafarbene Zuckerwatte.',sar:'في الملاهي يفرح الأطفال بغزل البنات الوردي الضخم على العصا.'},
     {a:'das',n:'Gebäck',ar:'حلويات مخبوزة',note:'اسم غير معدود عادة؛ الجمع "Gebäcke" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden',pl:null,s:'Zur nachmittäglichen Teestunde serviert die Gastgeberin feines frisches Gebäck.',sar:'في ساعة الشاي بعد الظهر تقدم المضيفة حلويات مخبوزة طازجة وفاخرة.'},
@@ -1664,7 +1664,7 @@ const CATEGORIES = [
     {a:'das',n:'Cembalo',ar:'هاربسيكورد',note:'يقبل أيضًا الجمع الإيطالي "Cembali"',pl:'die Cembalos',s:'Im Barockzeitalter begleitete das feine Cembalo viele Gesangsstücke.',sar:'في عصر الباروك كان الهاربسيكورد يرافق العديد من المقطوعات الغنائية.'},
     {a:'die',n:'Orgel',ar:'أرغن',pl:'die Orgeln',s:'Die mächtige Orgel füllt die ganze Kathedrale mit majestätischem Klang.',sar:'الأرغن الضخم يملأ الكاتدرائية بأكملها بصوت مهيب.'},
     {a:'das',n:'Banjo',ar:'بانجو',pl:'die Banjos',s:'In der Bluegrass-Band zupft der Musiker schnell auf dem Banjo.',sar:'في فرقة البلوغراس يعزف الموسيقي بسرعة على أوتار البانجو.'},
-    {a:'die',n:'Panflöte',ar:'فلوت الباعوض',pl:'die Panflöten',s:'Mit sanftem Atem entlockt er der Panflöte mystische Naturklänge.',sar:'بنَفَس لطيف يستخرج من فلوت الباعوض أنغاماً طبيعية ساحرة.'},
+    {a:'die',n:'Panflöte',ar:'ناي بان (مزمار بان)',pl:'die Panflöten',s:'Mit sanftem Atem entlockt er der Panflöte mystische Naturklänge.',sar:'بنَفَس لطيف يستخرج من ناي بان أنغاماً طبيعية ساحرة.'},
     {a:'das',n:'Glockenspiel',ar:'جرس موسيقي',pl:'die Glockenspiele',s:'Das zarte Glockenspiel klingt glockenhell wie funkelnde Sterne.',sar:'الجرس الموسيقي الرقيق يرن نقياً كالنجوم اللامعة.'},
     {a:'die',n:'Rassel',ar:'خشخيشة',pl:'die Rasseln',s:'Das Baby schüttelt neugierig die bunte Rassel in seiner Hand.',sar:'الرضيع يهز بفضول الخشخيشة الملونة في يده.'},
     {a:'der',n:'Gong',ar:'جونج',pl:'die Gongs',s:'Ein tiefer Schlag auf den bronzenen Gong beendete die Meditation.',sar:'ضربة عميقة على الجونج البرونزي أنهت جلسة التأمل.'},
@@ -2760,7 +2760,7 @@ function renderHome(){
     <!-- Smart SRS Daily Review Card -->
     <div class="cat-card card-srs-review" id="srsReviewCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #2C6E49;cursor:pointer;${srsDuePool().length===0?'filter:none;':''}">
       <div style="text-align:right;">
-        <h3 style="margin:0 0 4px;color:#1B5E20;">📅 مراجعة اليوم الذكية (SRS)</h3>
+        <h2 style="margin:0 0 4px;font-size:16px;color:#1B5E20;">📅 مراجعة اليوم الذكية (SRS)</h2>
         <span class="de" style="display:block;font-size:13px;color:#42403b;">${srsDuePool().length > 0 ? `${srsDuePool().length} كلمة مستحقة للمراجعة اليوم بحسب فترات النسيان` : 'تمت مراجعة كل كلمات اليوم بنجاح 🎉'}</span>
       </div>
       <button class="backbtn" style="white-space:nowrap;background:#2C6E49;color:#fff;border-color:#1B5E20;">ابدأ المراجعة</button>
@@ -2769,21 +2769,21 @@ function renderHome(){
     <!-- Starred Words Bank Card -->
     <div class="cat-card" id="starredBankCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #B45309;cursor:pointer;${starredPool().length===0?'filter:none;':''}">
       <div style="text-align:right;">
-        <h3 style="margin:0 0 4px;color:#78350F;">⭐ بنك الكلمات المميزة</h3>
+        <h2 style="margin:0 0 4px;font-size:16px;color:#78350F;">⭐ بنك الكلمات المميزة</h2>
         <span class="de" style="display:block;font-size:13px;color:#42403b;">${starredPool().length > 0 ? `${starredPool().length} كلمة مميزة بنجمة لحفظها ومراجعتها الخاصة` : 'لم تقم بتمييز أي كلمات بعد — اضغط ⭐ بجانب أي كلمة لحفظها هنا'}</span>
       </div>
       <button class="backbtn" style="white-space:nowrap;">عرض الكلمات</button>
     </div>
     <div class="cat-card" id="globalReviewCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #1E1E1E;cursor:pointer;${poolCount===0?'filter:grayscale(30%);':''}">
       <div style="text-align:right;">
-        <h3 style="margin:0 0 4px;">🔁 مراجعة شاملة لكل الكلمات</h3>
+        <h2 style="margin:0 0 4px;font-size:16px;">🔁 مراجعة شاملة لكل الكلمات</h2>
         <span class="de" style="display:block;font-size:13px;color:#42403b;">${poolCount > 0 ? `${poolCount} كلمة اتعلمتها من كل الأقسام مع بعض` : 'لسه فاضية — ابدأ تدرّب على أي قسم وهتتملى تلقائي'}</span>
       </div>
       <button class="backbtn" style="white-space:nowrap;">ابدأ المراجعة</button>
     </div>
     <div class="cat-card" id="difficultBankCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;border:2px solid #C8342A;cursor:pointer;${diffCount===0?'filter:grayscale(30%);':''}">
       <div style="text-align:right;">
-        <h3 style="margin:0 0 4px;">🎯 بنك الكلمات الصعبة</h3>
+        <h2 style="margin:0 0 4px;font-size:16px;">🎯 بنك الكلمات الصعبة</h2>
         <span class="de" style="display:block;font-size:13px;color:#42403b;">${diffCount > 0 ? `${diffCount} كلمة لسه بتغلط فيها — يستاهلوا تركيز أكتر` : 'مفيش كلمات صعبة دلوقتي 🎉'}</span>
       </div>
       <button class="backbtn" style="white-space:nowrap;">ذاكرها</button>

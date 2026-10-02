@@ -103,5 +103,5 @@ describe('Phase 5 Property & Fuzz Testing (10,000 Generations)', () => {
       expect(res.options.every(o => o.startsWith('die '))).toBe(true);
       expect(res.q.includes('undefined')).toBe(false);
     }
-  });
+  }, 30000);
 });

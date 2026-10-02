@@ -507,7 +507,7 @@
         "n": "Spinat",
         "ar": "سبانخ",
         "note": "الجمع Spinate نادر الاستخدام (يشير لأنواع السبانخ)",
-        "pl": "die Spinate",
+        "pl": null,
         "s": "Frischer Spinat enthält viele gesunde Mineralien.",
         "sar": "السبانخ الطازج يحتوي على العديد من المعادن الصحية."
       },
@@ -557,7 +557,7 @@
         "n": "Mais",
         "ar": "ذرة",
         "note": "الجمع Maise نادر الاستخدام (يشير لأنواع الذرة)",
-        "pl": "die Maise",
+        "pl": null,
         "s": "Gegrillter Mais schmeckt mit etwas Salz vorzüglich.",
         "sar": "الذرة المشوية طعمها رائع مع القليل من الملح."
       },
@@ -616,7 +616,7 @@
         "n": "Lauch",
         "ar": "كراث",
         "note": "الجمع Lauche نادر الاستخدام جدًا",
-        "pl": "die Lauche",
+        "pl": null,
         "s": "Der Lauch schmeckt herzhaft in Aufläufen.",
         "sar": "الكراث طعمه شهي في صواني الفرن."
       },
@@ -634,7 +634,7 @@
         "n": "Blumenkohl",
         "ar": "قرنبيط",
         "note": "الجمع Blumenkohle نادر الاستخدام",
-        "pl": "die Blumenkohle",
+        "pl": null,
         "s": "Gekochter Blumenkohl schmeckt mild und zart.",
         "sar": "القرنبيط المسلوق طعمه خفيف وطري."
       },
@@ -866,7 +866,7 @@
         "n": "Milch",
         "ar": "حليب",
         "note": "الجمع Milche نادر جدًا (لغة متخصصة، يشير لأنواع الحليب)",
-        "pl": "die Milche",
+        "pl": null,
         "s": "Das Kind trinkt morgens ein Glas warme Milch.",
         "sar": "يشرب الطفل في الصباح كأساً من الحليب الدافئ."
       },
@@ -919,7 +919,7 @@
         "n": "Buttermilch",
         "ar": "حليب مخيض",
         "note": "الجمع Buttermilche نادر جدًا",
-        "pl": "die Buttermilche",
+        "pl": null,
         "s": "Kalte Buttermilch ist ein erfrischendes Getränk.",
         "sar": "الحليب المخيض البارد مشروب منعش."
       },
@@ -980,7 +980,7 @@
         "a": "die",
         "n": "Kaffeesahne",
         "ar": "كريمة القهوة",
-        "pl": "die Kaffeesahnen",
+        "pl": null,
         "s": "Er gießt etwas Kaffeesahne in seine Tasse.",
         "sar": "هو يصب قليلاً من كريمة القهوة في فنجانه."
       },
@@ -989,7 +989,7 @@
         "n": "Sojamilch",
         "ar": "حليب الصويا",
         "note": "الجمع Sojamilchen نادر جدًا",
-        "pl": "die Sojamilchen",
+        "pl": null,
         "s": "Viele Menschen trinken Sojamilch als pflanzliche Alternative.",
         "sar": "كثير من الناس يشربون حليب الصويا كبديل نباتي."
       },
@@ -2392,11 +2392,11 @@
         "sar": "في ذروة الشتاء يحتاج المرء إلى معطف ثقيل."
       },
       {
-        "a": "die",
-        "n": "Schuhe",
+        "a": "der",
+        "n": "Schuh",
         "ar": "حذاء",
-        "pl": null,
-        "s": "Er putzt jeden Samstag seine ledernen Schuhe.",
+        "pl": "die Schuhe",
+        "s": "Er putzt jeden Samstag seinen ledernen Schuh.",
         "sar": "هو ينظف كل سبت حذاءه الجلدي."
       },
       {
@@ -4186,8 +4186,8 @@
         "n": "U-Bahn",
         "ar": "مترو",
         "pl": "die U-Bahnen",
-        "s": "Die Straßenbahn fährt im Zehn-Minuten-Takt durch die Innenstadt.",
-        "sar": "الترام يسير كل عشر دقائق عبر وسط المدينة."
+        "s": "Die U-Bahn fährt schnell und pünktlich unter den belebten Straßen der Stadt.",
+        "sar": "يسير المترو بسرعة وانتظام تحت شوارع المدينة المزدحمة."
       },
       {
         "a": "das",
@@ -6075,7 +6075,7 @@
         "a": "der",
         "n": "Pfeffer",
         "ar": "فلفل أسود",
-        "pl": "die Pfeffer",
+        "pl": null,
         "s": "Er würzt die Suppe mit einer Prise schwarzem Pfeffer.",
         "sar": "هو يتبل الحساء برشة من الفلفل الأسود."
       },
@@ -6128,7 +6128,7 @@
         "n": "Petersilie",
         "ar": "بقدونس",
         "note": "الجمع Petersilien نادر الاستخدام",
-        "pl": "die Petersilien",
+        "pl": null,
         "s": "Gehackte grüne Petersilie streut man frisch über die Kartoffeln.",
         "sar": "البقدونس الأخضر المفروم يُرش طازجاً فوق البطاطس."
       },
@@ -6144,7 +6144,7 @@
         "a": "die",
         "n": "Kurkuma",
         "ar": "كركم",
-        "pl": "die Kurkumen",
+        "pl": null,
         "s": "Die gelbe Kurkuma verleiht dem Reisgericht eine schöne goldene Farbe.",
         "sar": "الكركم الأصفر يمنح طبق الأرز لوناً ذهبياً جميلاً."
       },
@@ -6181,7 +6181,7 @@
         "sar": "الفانيليا الأصلية تمنح المهلبية نكهة راقية."
       },
       {
-        "a": "der",
+        "a": "das",
         "n": "Knoblauchpulver",
         "ar": "بودرة ثوم",
         "pl": "die Knoblauchpulver",
@@ -6390,7 +6390,7 @@
         "a": "der",
         "n": "Zucker",
         "ar": "سكر",
-        "pl": "die Zucker",
+        "pl": null,
         "s": "Er trinkt seinen heißen Morgentee am liebsten ganz ohne Zucker.",
         "sar": "هو يفضل شرب شاي الصباح الساخن تماماً بدون سكر."
       },
@@ -7331,7 +7331,7 @@
         "n": "Honig",
         "ar": "عسل",
         "note": "الجمع \"Honige\" يُستخدم للإشارة إلى أنواع مختلفة من العسل حسب Duden",
-        "pl": "die Honige",
+        "pl": null,
         "s": "Goldener Honig von fleißigen Bienen schmeckt wunderbar süß.",
         "sar": "العسل الذهبي من النحل النشيط طعمه حلو ورائع."
       },
@@ -7468,7 +7468,7 @@
         "sar": "حلوى النوجا البيضاء الطرية تذوب بنعومة في الفم ولها مذاق مكسرات رائع."
       },
       {
-        "a": "die",
+        "a": "das",
         "n": "Gummibärchen",
         "ar": "حلوى الدببة الصمغية",
         "note": "من أشهر الحلوى الألمانية على الإطلاق (Haribo)",
@@ -8724,10 +8724,10 @@
       {
         "a": "die",
         "n": "Panflöte",
-        "ar": "فلوت الباعوض",
+        "ar": "ناي بان (مزمار بان)",
         "pl": "die Panflöten",
         "s": "Mit sanftem Atem entlockt er der Panflöte mystische Naturklänge.",
-        "sar": "بنَفَس لطيف يستخرج من فلوت الباعوض أنغاماً طبيعية ساحرة."
+        "sar": "بنَفَس لطيف يستخرج من ناي بان أنغاماً طبيعية ساحرة."
       },
       {
         "a": "das",
