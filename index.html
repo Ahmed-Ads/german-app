@@ -1,25 +1,64 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="تطبيق ويب تقدمي (PWA) تفاعلي لمتحدثي العربية لإتقان 1160 كلمة ألمانية وقواعدها مع صيغ الجمع والتكرار المتباعد">
 <meta name="theme-color" content="#171512">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="تعلّم الألمانية">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23171512'/><circle cx='65' cy='35' r='18' fill='%23C8342A'/><rect x='22' y='52' width='26' height='26' rx='4' transform='rotate(15 35 65)' fill='%23EBB111'/><circle cx='42' cy='42' r='14' fill='%231E4FA3'/></svg>">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="fonts/fonts.css">
 <script>
   if('serviceWorker' in navigator){
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW reg error:', err));
+      navigator.serviceWorker.register('./sw.js').then(reg => {
+        reg.addEventListener('updatefound', () => {
+          const newW = reg.installing;
+          if(newW){
+            newW.addEventListener('statechange', () => {
+              if(newW.state === 'installed' && navigator.serviceWorker.controller){
+                if(typeof showToast === 'function') {
+                  showToast('🔄 يوجد تحديث جديد للتطبيق متوفر! أعد تحميل الصفحة للتحديث.');
+                }
+              }
+            });
+          }
+        });
+      }).catch(err => console.log('SW reg error:', err));
     });
   }
 </script>
 <title>تعلّم الألمانية · Deutsch lernen</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
+  :focus-visible { outline: 3px solid #1E4FA3 !important; outline-offset: 2px !important; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #121110;
+      --ink: #F5F3EC;
+      --card: #1E1C18;
+      --line: rgba(255,255,255,0.14);
+    }
+    .cat-card, .qcard, .done-card, .opt, .wl-row, .stat-card, .backup-box, .goal-selector-box {
+      background: var(--card) !important;
+      color: var(--ink) !important;
+      border-color: var(--line) !important;
+    }
+    .opt:hover:not(.disabled) {
+      background: rgba(255,255,255,0.08) !important;
+    }
+  }
+
   :root{
     --paper:#F7F4EC;
     --ink:#171512;
@@ -57,7 +96,7 @@
   .brand-mark .c2{ width:16px;height:16px; background:var(--yellow); bottom:0; left:2px; border-radius:2px; transform:rotate(20deg); }
   .brand-mark .c3{ width:12px;height:12px; background:var(--blue); bottom:2px; right:8px; border-radius:50%; }
   .brand h1{ font-size:19px; margin:0; font-weight:800; }
-  .brand p{ margin:2px 0 0; font-size:12.5px; color:#6b6a66; }
+  .brand p{ margin:2px 0 0; font-size:12.5px; color:#42403b; }
   .backbtn{
     border:1.5px solid var(--ink); background:transparent; color:var(--ink);
     font-family:'Cairo',sans-serif; font-weight:700; font-size:14px;
@@ -78,15 +117,15 @@
   .cat-card:hover{ transform:translateY(-2px); border-color:var(--ink); }
   .cat-shape{ width:26px; height:26px; margin-bottom:14px; border-radius:50%; }
   .cat-card h3{ margin:0 0 2px; font-size:16px; font-weight:700; }
-  .cat-card .de{ display:block; font-size:13px; color:#6b6a66; margin-bottom:12px; }
+  .cat-card .de{ display:block; font-size:13px; color:#42403b; margin-bottom:12px; }
   .bar-bg{ height:5px; border-radius:3px; background:var(--line); overflow:hidden; }
   .bar-fill{ height:100%; border-radius:3px; }
-  .cat-meta{ font-size:11px; color:#8a8983; margin-top:6px; }
+  .cat-meta{ font-size:11px; color:#42403b; margin-top:6px; }
 
   /* ---------- Mode picker ---------- */
   .cat-title{ text-align:center; margin-bottom:26px; }
   .cat-title h2{ margin:0; font-size:24px; font-weight:800; }
-  .cat-title .de{ display:block; font-size:16px; color:#6b6a66; margin-top:4px; }
+  .cat-title .de{ display:block; font-size:16px; color:#42403b; margin-top:4px; }
   .wordcount-row{
     display:flex; align-items:center; justify-content:space-between;
     background:var(--card); border:1.5px solid var(--line); border-radius:10px;
@@ -111,11 +150,11 @@
   .wl-speak svg{ width:16px; height:16px; fill:currentColor; }
   .wl-text{ flex:1; display:flex; flex-direction:column; }
   .wl-de{ font-size:16px; font-weight:600; }
-  .wl-ar{ font-size:13px; color:#6b6a66; margin-top:1px; }
-  .wl-note{ font-size:12px; color:#8a8983; margin-top:3px; }
+  .wl-ar{ font-size:13px; color:#42403b; margin-top:1px; }
+  .wl-note{ font-size:12px; color:#42403b; margin-top:3px; }
   .wl-num{ font-size:12px; color:#b3b1a8; font-family:'Space Grotesk',sans-serif; }
   .wl-divider{
-    text-align:center; font-size:12.5px; color:#8a8983; background:rgba(23,21,18,0.05);
+    text-align:center; font-size:12.5px; color:#42403b; background:rgba(23,21,18,0.05);
     border-radius:8px; padding:8px 12px; margin:6px 0 2px;
   }
   .mode-btn{
@@ -125,7 +164,7 @@
   }
   .mode-btn:hover{ border-color:var(--ink); }
   .mode-btn .mt{ font-size:17px; font-weight:700; }
-  .mode-btn .ms{ font-size:12.5px; color:#6b6a66; margin-top:2px; }
+  .mode-btn .ms{ font-size:12.5px; color:#42403b; margin-top:2px; }
   .mode-icon{ width:30px; height:30px; flex-shrink:0; border-radius:8px; }
 
   /* ---------- Exercise ---------- */
@@ -136,9 +175,9 @@
     background:var(--card); border:1.5px solid var(--line); border-radius:14px;
     padding:34px 26px; text-align:center; margin-bottom:20px;
   }
-  .qlabel{ font-size:12.5px; color:#8a8983; margin-bottom:10px; letter-spacing:.02em;}
+  .qlabel{ font-size:12.5px; color:#42403b; margin-bottom:10px; letter-spacing:.02em;}
   .qmain{ font-size:26px; font-weight:800; margin-bottom:6px; }
-  .qsub{ font-size:14px; color:#6b6a66; }
+  .qsub{ font-size:14px; color:#42403b; }
   .speak-row{ display:flex; justify-content:center; margin-top:16px; }
   .speak-btn{
     width:46px; height:46px; border-radius:50%; border:1.5px solid var(--ink);
@@ -188,7 +227,7 @@
   .feedback{ margin-top:16px; text-align:center; font-size:14.5px; min-height:20px; font-weight:700; }
   .feedback.ok{ color:var(--green); }
   .feedback.bad{ color:var(--red); }
-  .fbnote{ margin-top:8px; font-weight:400; font-size:13px; color:#6b6a66; }
+  .fbnote{ margin-top:8px; font-weight:400; font-size:13px; color:#42403b; }
 
   .next-row{ display:flex; justify-content:center; margin-top:14px; }
   .next-btn{
@@ -200,9 +239,9 @@
 
   .done-card{ text-align:center; padding:50px 20px; }
   .done-card h2{ font-size:22px; margin-bottom:8px; }
-  .done-card p{ color:#6b6a66; font-size:14.5px; }
+  .done-card p{ color:#42403b; font-size:14.5px; }
 
-  .footnote{ text-align:center; font-size:12px; color:#9a9990; margin-top:36px; line-height:1.9; }
+  .footnote{ text-align:center; font-size:12px; color:#42403b; margin-top:36px; line-height:1.9; }
 
   /* ---------- Streak & Header Actions ---------- */
   .head-actions{ display:flex; align-items:center; gap:8px; }
@@ -216,7 +255,7 @@
   .streak-badge:hover{ transform:translateY(-1px); border-color:var(--red); box-shadow:0 2px 8px rgba(200,52,42,0.15); }
   .streak-badge .streak-flame{ font-size:16px; line-height:1; }
   .streak-badge .streak-num{ font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--red); }
-  .streak-badge .streak-lbl{ font-size:12px; color:#6b6a66; }
+  .streak-badge .streak-lbl{ font-size:12px; color:#42403b; }
   .stats-btn{
     display:flex; align-items:center; gap:6px;
     background:var(--card); border:1.5px solid var(--line); border-radius:999px;
@@ -241,7 +280,7 @@
     flex:1; border:none; background:transparent; font-family:'Cairo',sans-serif;
     font-size:15px; font-weight:600; color:var(--ink); outline:none; direction:rtl;
   }
-  .search-input-box input::placeholder{ color:#9a9990; font-weight:400; }
+  .search-input-box input::placeholder{ color:#42403b; font-weight:400; }
   .search-clear-btn{
     background:rgba(23,21,18,0.08); border:none; border-radius:50%; width:22px; height:22px;
     display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:12px;
@@ -253,7 +292,7 @@
     margin-top:10px; max-height:450px; overflow-y:auto; box-shadow:0 8px 24px rgba(0,0,0,0.08);
   }
   .search-res-header{
-    padding:10px 16px; font-size:12.5px; color:#8a8983; border-bottom:1px solid var(--line);
+    padding:10px 16px; font-size:12.5px; color:#42403b; border-bottom:1px solid var(--line);
     display:flex; justify-content:space-between; align-items:center; background:rgba(23,21,18,0.02);
   }
   .search-res-list{ display:flex; flex-direction:column; }
@@ -268,13 +307,13 @@
   .search-res-word{ display:flex; align-items:center; gap:8px; margin-bottom:3px; }
   .search-res-de{ font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700; direction:ltr; }
   .search-res-ar{ font-size:14.5px; font-weight:600; color:var(--ink); }
-  .search-res-sentence{ font-size:12.5px; color:#6b6a66; margin-top:2px; }
+  .search-res-sentence{ font-size:12.5px; color:#42403b; margin-top:2px; }
   .search-res-sentence .de{ color:var(--blue); font-weight:500; }
   .search-res-cat{
     font-size:11.5px; padding:4px 10px; border-radius:999px; background:rgba(23,21,18,0.06);
     color:#4a4944; white-space:nowrap; flex-shrink:0; font-weight:600;
   }
-  .search-no-results{ padding:30px 20px; text-align:center; color:#8a8983; font-size:14px; }
+  .search-no-results{ padding:30px 20px; text-align:center; color:#42403b; font-size:14px; }
 
   /* ---------- Word List Highlight Pulse ---------- */
   @keyframes wlPulse {
@@ -288,7 +327,7 @@
   }
   .wl-sentence{
     margin-top:6px; padding-top:6px; border-top:1px dashed var(--line);
-    font-size:12.5px; color:#6b6a66; line-height:1.4;
+    font-size:12.5px; color:#42403b; line-height:1.4;
   }
   .wl-sentence-de{ color:var(--blue); font-weight:600; display:flex; align-items:center; gap:4px; }
   .wl-sentence-ar{ color:#7a7974; margin-top:2px; }
@@ -324,7 +363,7 @@
   /* ---------- Statistics Screen ---------- */
   .stats-header{ text-align:center; margin-bottom:24px; }
   .stats-header h2{ margin:0 0 4px; font-size:24px; font-weight:800; }
-  .stats-header p{ margin:0; font-size:14px; color:#6b6a66; }
+  .stats-header p{ margin:0; font-size:14px; color:#42403b; }
   .stats-hero-grid{
     display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:14px; margin-bottom:24px;
@@ -335,10 +374,10 @@
   }
   .stat-card-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
   .stat-card-icon{ font-size:22px; }
-  .stat-card-tag{ font-size:11px; padding:2px 8px; border-radius:999px; background:rgba(23,21,18,0.06); color:#6b6a66; font-weight:600; }
+  .stat-card-tag{ font-size:11px; padding:2px 8px; border-radius:999px; background:rgba(23,21,18,0.06); color:#42403b; font-weight:600; }
   .stat-val{ font-size:28px; font-weight:800; line-height:1.1; margin-bottom:4px; font-family:'Space Grotesk',sans-serif; }
   .stat-lbl{ font-size:14px; font-weight:700; color:var(--ink); }
-  .stat-sub{ font-size:12px; color:#8a8983; margin-top:4px; line-height:1.4; }
+  .stat-sub{ font-size:12px; color:#42403b; margin-top:4px; line-height:1.4; }
   .stat-streak-msg{
     background:rgba(235,177,17,0.12); border:1.5px solid var(--yellow);
     border-radius:10px; padding:12px 16px; margin-bottom:20px; text-align:center;
@@ -354,11 +393,11 @@
   .stat-cat-row:hover{ border-color:var(--ink); transform:translateY(-1px); }
   .stat-cat-info{ flex:1; text-align:right; }
   .stat-cat-name{ font-size:14.5px; font-weight:700; display:flex; align-items:center; gap:6px; }
-  .stat-cat-sub{ font-size:12px; color:#8a8983; margin-top:2px; }
+  .stat-cat-sub{ font-size:12px; color:#42403b; margin-top:2px; }
   .stat-cat-bar-wrap{ width:120px; display:flex; flex-direction:column; align-items:flex-end; gap:4px; }
   .stat-cat-bar{ width:100%; height:6px; background:var(--line); border-radius:3px; overflow:hidden; }
   .stat-cat-bar-fill{ height:100%; border-radius:3px; }
-  .stat-cat-pct{ font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:#6b6a66; }
+  .stat-cat-pct{ font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:#42403b; }
 
   /* ---------- Gender Color-Coding & Badges ---------- */
   :root {
@@ -404,7 +443,7 @@
     background:rgba(235,177,17,0.12); border:1px solid rgba(235,177,17,0.35);
     border-radius:8px; padding:6px 14px; font-size:14px; margin-bottom:8px;
   }
-  .fb-plural-badge .pl-label{ font-weight:700; color:#6b6a66; font-size:12.5px; }
+  .fb-plural-badge .pl-label{ font-weight:700; color:#42403b; font-size:12.5px; }
   .fb-plural-badge .pl-text{ font-weight:700; font-size:15px; color:var(--ink); }
   .fb-plural-uncountable{ background:rgba(0,0,0,0.04); border-color:var(--line); }
 
@@ -444,7 +483,7 @@
     padding:26px; text-align:center; border-radius:12px;
   }
   .fc-back{ transform:rotateY(180deg); background:#FAF7F0; }
-  .fc-hint{ font-size:12px; color:#8a8983; margin-top:14px; }
+  .fc-hint{ font-size:12px; color:#42403b; margin-top:14px; }
   .fc-controls{ display:flex; justify-content:center; gap:12px; margin-top:18px; flex-wrap:wrap; }
   .fc-btn{
     font-family:'Cairo',sans-serif; font-weight:700; font-size:14px;
@@ -1746,20 +1785,112 @@ function coreCountFor(cat){ return cat.core || Math.min(20, cat.words.length); }
 const ORDERED_CATEGORIES = CATEGORIES.slice().sort((a,b) => (a.order||999) - (b.order||999));
 
 
-/* Storage fallback: if window.storage is not available (e.g. running in standard browser), fallback to localStorage */
-if(typeof window !== 'undefined' && !window.storage && typeof window.localStorage !== 'undefined'){
-  window.storage = {
-    get: async (key) => {
-      try {
-        const v = window.localStorage.getItem(key);
-        return v !== null ? { value: v } : null;
-      } catch(e) { return null; }
-    },
-    set: async (key, val) => {
-      try { window.localStorage.setItem(key, val); } catch(e){}
+/* ======================= UNIFIED ROBUST STORAGE LAYER ======================= */
+const STORAGE_KEYS = {
+  PROGRESS: 'german-arabic-progress-v1',
+  STATS: 'german-arabic-stats-v1',
+  STARRED: 'deutsch_starred_v1',
+  SRS: 'deutsch_srs_v1',
+  DAILY_GOAL: 'deutsch_daily_goal_v1',
+  SCHEMA: 'deutsch_schema_version'
+};
+
+let isStorageFallback = false;
+const memoryStore = new Map();
+
+function getStorageBackend() {
+  try {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      window.localStorage.setItem('__test_storage__', '1');
+      window.localStorage.removeItem('__test_storage__');
+      return window.localStorage;
     }
-  };
+  } catch (e) {
+    isStorageFallback = true;
+  }
+  return null;
 }
+
+const backend = getStorageBackend();
+
+const appStorage = {
+  isFallback: isStorageFallback || !backend,
+  get(key) {
+    if (this.isFallback) return memoryStore.has(key) ? memoryStore.get(key) : null;
+    try {
+      return backend.getItem(key);
+    } catch (e) {
+      this.isFallback = true;
+      return memoryStore.has(key) ? memoryStore.get(key) : null;
+    }
+  },
+  set(key, val) {
+    const s = String(val);
+    if (this.isFallback) {
+      memoryStore.set(key, s);
+      return;
+    }
+    try {
+      backend.setItem(key, s);
+    } catch (e) {
+      this.isFallback = true;
+      memoryStore.set(key, s);
+      showStorageWarningOnce();
+    }
+  },
+  remove(key) {
+    if (this.isFallback) {
+      memoryStore.delete(key);
+      return;
+    }
+    try {
+      backend.removeItem(key);
+    } catch (e) {
+      memoryStore.delete(key);
+    }
+  },
+  clear() {
+    memoryStore.clear();
+    if (!this.isFallback && backend) {
+      try { backend.clear(); } catch(e) {}
+    }
+  }
+};
+
+let storageWarningShown = false;
+function showStorageWarningOnce() {
+  if (storageWarningShown) return;
+  storageWarningShown = true;
+  if(typeof showToast === 'function') {
+    showToast('⚠️ وضع التصفح الخاص أو التخزين معطل. سيبقى تقدمك محفوظاً خلال هذه الجلسة فقط.');
+  }
+}
+if (appStorage.isFallback) {
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(showStorageWarningOnce, 1500);
+  });
+}
+
+// Automatic legacy migration
+try {
+  if (!appStorage.get(STORAGE_KEYS.PROGRESS) && appStorage.get('deutsch_lern_v1')) {
+    appStorage.set(STORAGE_KEYS.PROGRESS, appStorage.get('deutsch_lern_v1'));
+  }
+  if (!appStorage.get(STORAGE_KEYS.STATS) && appStorage.get('deutsch_stats_v1')) {
+    appStorage.set(STORAGE_KEYS.STATS, appStorage.get('deutsch_stats_v1'));
+  }
+} catch(e) {}
+
+// Bridge for window.storage
+window.storage = {
+  get: async (key) => {
+    const v = appStorage.get(key);
+    return v !== null ? { value: v } : null;
+  },
+  set: async (key, val) => {
+    appStorage.set(key, val);
+  }
+};
 
 /* ======================= STATE (persisted via window.storage) ======================= */
 // progress[catId][mode] = { unlocked:Number, counts:{ wordIndex:Number } }
@@ -1807,9 +1938,12 @@ function todayStr(){
 }
 
 function daysBetween(d1, d2){
-  const a = new Date(d1 + 'T00:00:00');
-  const b = new Date(d2 + 'T00:00:00');
-  return Math.round((b - a) / 86400000);
+  if(!d1 || !d2) return 0;
+  const [y1, m1, day1] = d1.split('-').map(Number);
+  const [y2, m2, day2] = d2.split('-').map(Number);
+  const utc1 = Date.UTC(y1, m1 - 1, day1);
+  const utc2 = Date.UTC(y2, m2 - 1, day2);
+  return Math.round((utc2 - utc1) / 86400000);
 }
 
 // The streak the learner should actually SEE right now — if it's been more
@@ -2050,6 +2184,77 @@ function sentenceLine(w){
       </div>
       <div class="fb-sentence-ar">${w.sar || ''}</div>
     </div>`;
+}
+
+/* ======================= HTML ESCAPING & EVALUATION HELPERS ======================= */
+function escapeHtml(s){
+  if(s === null || s === undefined) return '';
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+function escapeAttr(s){
+  return escapeHtml(s);
+}
+
+function evaluateWrittenAnswer(inputVal, targetWord, category){
+  const val = (inputVal || '').trim();
+  if(!val) return { ok: false, empty: true };
+
+  const given = normalizeDe(val).replace(/\s+/g, ' ');
+  const wantArticle = category.hasArticles && Boolean(targetWord.a);
+  const correctWithArt = wantArticle ? `${targetWord.a} ${targetWord.n}` : targetWord.n;
+  const normCorrectWithArt = normalizeDe(correctWithArt);
+  const normWordOnly = normalizeDe(targetWord.n);
+
+  let ok = false;
+  let casingNotice = false;
+
+  const articleRegex = /^(der|die|das)\s+/i;
+  const matchArt = val.match(articleRegex);
+
+  // Check if answer matches target word OR any synonymous word sharing the same Arabic gloss in this category
+  const matchingWords = category.words ? category.words.filter(w => w.ar.trim() === targetWord.ar.trim()) : [targetWord];
+
+  for(const mw of matchingWords){
+    const mwWantArticle = category.hasArticles && Boolean(mw.a);
+    const mwCorrectWithArt = mwWantArticle ? `${mw.a} ${mw.n}` : mw.n;
+    const mwNormWithArt = normalizeDe(mwCorrectWithArt);
+    const mwNormOnly = normalizeDe(mw.n);
+
+    if(mwWantArticle){
+      if(matchArt){
+        const typedArt = matchArt[1].toLowerCase();
+        if(typedArt === mw.a.toLowerCase() && given === mwNormWithArt){
+          ok = true;
+          break;
+        }
+      } else {
+        if(given === mwNormOnly){
+          ok = true;
+          break;
+        }
+      }
+    } else {
+      if(given === mwNormOnly){
+        ok = true;
+        break;
+      }
+    }
+  }
+
+  // Educational hint for lowercase German nouns
+  if(ok && targetWord.n && /^[A-ZÄÖÜ]/.test(targetWord.n)){
+    const nounPart = matchArt ? val.slice(matchArt[0].length).trim() : val.trim();
+    if(nounPart.length > 0 && /^[a-zäöü]/.test(nounPart)){
+      casingNotice = true;
+    }
+  }
+
+  return { ok, casingNotice };
 }
 
 /* ======================= SPEECH ======================= */
@@ -2329,7 +2534,7 @@ function buildFeedbackHtml(w, cat, ok, correctText, isPluralMode, context){
       pluralLine = `
         <div class="fb-plural-badge fb-plural-uncountable">
           <span class="pl-label">صيغة الجمع:</span>
-          <span class="pl-text" style="color:#6b6a66;font-size:13px;">(لا جمع له — اسم غير معدود)</span>
+          <span class="pl-text" style="color:#42403b;font-size:13px;">(لا جمع له — اسم غير معدود)</span>
         </div>`;
     }
   }
@@ -2374,21 +2579,6 @@ function speakText(cat){ return cat.speak || cat.de; }
 
 function noteLine(w){ return w.note ? `<div class="fbnote">💡 ${w.note}</div>` : ''; }
 
-function sentenceLine(w){
-  if(!w || !w.s) return '';
-  const safeText = (w.s || '').replace(/'/g, "\\'");
-  return `
-    <div class="fb-sentence">
-      <div class="fb-sentence-de de">
-        <span>${w.s}</span>
-        <button class="mini-speak" onclick="event.stopPropagation();speak('${safeText}')" title="استمع للجملة">
-          ${MINI_SPEAK_SVG}
-        </button>
-      </div>
-      <div class="fb-sentence-ar">${w.sar || ''}</div>
-    </div>`;
-}
-
 function pluralReady(cat){ return cat.hasArticles && cat.words.every(w => w.pl !== undefined); }
 
 function applyUmlaut(word){
@@ -2400,23 +2590,23 @@ function applyUmlaut(word){
   return word.slice(0, lastIdx) + rep + word.slice(lastIdx+1);
 }
 
-function pluralDistractors(singular, correctFull){
-  const correct = correctFull ? correctFull.replace(/^die\s+/i,'') : '';
-  const forms = [
-    singular,
-    singular + 'n',
-    singular + 'en',
-    singular + 's',
-    singular + 'e',
-    singular + 'er',
-    applyUmlaut(singular),
-    applyUmlaut(singular) + 'e',
-    applyUmlaut(singular) + 'er'
-  ];
-  return Array.from(new Set(forms))
-    .filter(f => f && f !== correct && f !== singular)
-    .slice(0, 3)
-    .map(f => 'die ' + f);
+function pluralDistractors(targetWord, cat){
+  const correct = (targetWord && targetWord.pl ? targetWord.pl : '').trim();
+  const distractors = [];
+  const catPlurals = (cat ? cat.words : [])
+    .filter(cw => cw.pl && cw.pl.trim() !== correct)
+    .map(cw => cw.pl.trim());
+  const globalPlurals = CATEGORIES
+    .filter(c => c.hasArticles)
+    .flatMap(c => c.words.filter(cw => cw.pl && cw.pl.trim() !== correct).map(cw => cw.pl.trim()));
+  const pool = Array.from(new Set([...shuffle(catPlurals), ...shuffle(globalPlurals)]));
+  for(const pl of pool){
+    if(pl !== correct && !distractors.includes(pl)){
+      distractors.push(pl);
+      if(distractors.length >= 3) break;
+    }
+  }
+  return distractors;
 }
 
 function go(v){
@@ -2565,36 +2755,36 @@ function renderHome(){
       <div id="searchResults" class="search-results-panel" style="display:none;"></div>
     </div>
 
-    <p style="color:#6b6a66;font-size:14px;margin-bottom:18px;">اختر قسمًا لتبدأ التدريب على كلماته</p>
+    <p style="color:#42403b;font-size:14px;margin-bottom:18px;">اختر قسمًا لتبدأ التدريب على كلماته</p>
     
     <!-- Smart SRS Daily Review Card -->
-    <div class="cat-card card-srs-review" id="srsReviewCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #2C6E49;cursor:pointer;${srsDuePool().length===0?'opacity:0.85;':''}">
+    <div class="cat-card card-srs-review" id="srsReviewCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #2C6E49;cursor:pointer;${srsDuePool().length===0?'filter:none;':''}">
       <div style="text-align:right;">
-        <h3 style="margin:0 0 4px;color:#2C6E49;">📅 مراجعة اليوم الذكية (SRS)</h3>
-        <span class="de" style="display:block;font-size:13px;color:#6b6a66;">${srsDuePool().length > 0 ? `${srsDuePool().length} كلمة مستحقة للمراجعة اليوم بحسب فترات النسيان` : 'تمت مراجعة كل كلمات اليوم بنجاح 🎉'}</span>
+        <h3 style="margin:0 0 4px;color:#1B5E20;">📅 مراجعة اليوم الذكية (SRS)</h3>
+        <span class="de" style="display:block;font-size:13px;color:#42403b;">${srsDuePool().length > 0 ? `${srsDuePool().length} كلمة مستحقة للمراجعة اليوم بحسب فترات النسيان` : 'تمت مراجعة كل كلمات اليوم بنجاح 🎉'}</span>
       </div>
-      <button class="backbtn" style="white-space:nowrap;background:#2C6E49;color:#fff;border-color:#2C6E49;">ابدأ المراجعة</button>
+      <button class="backbtn" style="white-space:nowrap;background:#2C6E49;color:#fff;border-color:#1B5E20;">ابدأ المراجعة</button>
     </div>
 
     <!-- Starred Words Bank Card -->
-    <div class="cat-card" id="starredBankCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #B45309;cursor:pointer;${starredPool().length===0?'opacity:0.85;':''}">
+    <div class="cat-card" id="starredBankCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #B45309;cursor:pointer;${starredPool().length===0?'filter:none;':''}">
       <div style="text-align:right;">
-        <h3 style="margin:0 0 4px;color:#B45309;">⭐ بنك الكلمات المميزة</h3>
-        <span class="de" style="display:block;font-size:13px;color:#6b6a66;">${starredPool().length > 0 ? `${starredPool().length} كلمة مميزة بنجمة لحفظها ومراجعتها الخاصة` : 'لم تقم بتمييز أي كلمات بعد — اضغط ⭐ بجانب أي كلمة لحفظها هنا'}</span>
+        <h3 style="margin:0 0 4px;color:#78350F;">⭐ بنك الكلمات المميزة</h3>
+        <span class="de" style="display:block;font-size:13px;color:#42403b;">${starredPool().length > 0 ? `${starredPool().length} كلمة مميزة بنجمة لحفظها ومراجعتها الخاصة` : 'لم تقم بتمييز أي كلمات بعد — اضغط ⭐ بجانب أي كلمة لحفظها هنا'}</span>
       </div>
       <button class="backbtn" style="white-space:nowrap;">عرض الكلمات</button>
     </div>
-    <div class="cat-card" id="globalReviewCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #1E1E1E;cursor:pointer;${poolCount===0?'opacity:0.6;':''}">
+    <div class="cat-card" id="globalReviewCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #1E1E1E;cursor:pointer;${poolCount===0?'filter:grayscale(30%);':''}">
       <div style="text-align:right;">
         <h3 style="margin:0 0 4px;">🔁 مراجعة شاملة لكل الكلمات</h3>
-        <span class="de" style="display:block;font-size:13px;color:#6b6a66;">${poolCount > 0 ? `${poolCount} كلمة اتعلمتها من كل الأقسام مع بعض` : 'لسه فاضية — ابدأ تدرّب على أي قسم وهتتملى تلقائي'}</span>
+        <span class="de" style="display:block;font-size:13px;color:#42403b;">${poolCount > 0 ? `${poolCount} كلمة اتعلمتها من كل الأقسام مع بعض` : 'لسه فاضية — ابدأ تدرّب على أي قسم وهتتملى تلقائي'}</span>
       </div>
       <button class="backbtn" style="white-space:nowrap;">ابدأ المراجعة</button>
     </div>
-    <div class="cat-card" id="difficultBankCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;border:2px solid #C8342A;cursor:pointer;${diffCount===0?'opacity:0.6;':''}">
+    <div class="cat-card" id="difficultBankCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;border:2px solid #C8342A;cursor:pointer;${diffCount===0?'filter:grayscale(30%);':''}">
       <div style="text-align:right;">
         <h3 style="margin:0 0 4px;">🎯 بنك الكلمات الصعبة</h3>
-        <span class="de" style="display:block;font-size:13px;color:#6b6a66;">${diffCount > 0 ? `${diffCount} كلمة لسه بتغلط فيها — يستاهلوا تركيز أكتر` : 'مفيش كلمات صعبة دلوقتي 🎉'}</span>
+        <span class="de" style="display:block;font-size:13px;color:#42403b;">${diffCount > 0 ? `${diffCount} كلمة لسه بتغلط فيها — يستاهلوا تركيز أكتر` : 'مفيش كلمات صعبة دلوقتي 🎉'}</span>
       </div>
       <button class="backbtn" style="white-space:nowrap;">ذاكرها</button>
     </div>
@@ -2701,8 +2891,21 @@ function renderHome(){
   const sbc = document.getElementById('starredBankCard');
   if(sbc) sbc.addEventListener('click', ()=> go({screen:'starredList'}));
   document.getElementById('resetBtn').addEventListener('click', ()=>{
-    if(confirm('هل أنت متأكد أنك عايز تصفّر كل التقدّم في كل الأقسام؟')){
-      resetAllProgress();
+    const msg = 'هل أنت متأكد من تصفير كافة بياناتك؟\n\nسيتم حذف:\n- تقدّم جميع الأقسام (30 قسماً)\n- السلسلة اليومية والإحصائيات بالكامل\n- بنك الكلمات المفضلة ⭐\n- جدولة المراجعة الذكية (SRS)\n- الهدف اليومي';
+    if(confirm(msg)){
+      progress = {};
+      stats = { lastDate:null, current:0, longest:0, totalAnswered:0, totalCorrect:0, todayCount:0 };
+      starredSet = new Set();
+      srsStore = {};
+      dailyGoal = 20;
+
+      appStorage.remove(STORAGE_KEYS.PROGRESS);
+      appStorage.remove(STORAGE_KEYS.STATS);
+      appStorage.remove(STORAGE_KEYS.STARRED);
+      appStorage.remove(STORAGE_KEYS.SRS);
+      appStorage.remove(STORAGE_KEYS.DAILY_GOAL);
+
+      showToast('تم تصفير جميع بيانات التقدم بنجاح 🔄');
       render();
     }
   });
@@ -2741,7 +2944,7 @@ function renderStats(){
         <div class="stat-cat-name">
           <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};"></span>
           <span>${c.ar}</span>
-          <span class="de" style="font-size:12.5px;color:#8a8983;">${c.de}</span>
+          <span class="de" style="font-size:12.5px;color:#42403b;">${c.de}</span>
         </div>
         <div class="stat-cat-sub">${catMastered} من ${c.words.length} كلمة متقنة</div>
       </div>
@@ -2784,7 +2987,7 @@ function renderStats(){
           <span class="stat-card-icon">🌟</span>
           <span class="stat-card-tag">${masteredPct}% إتقان</span>
         </div>
-        <div class="stat-val" style="color:var(--green);">${masteredCount} <span style="font-size:16px;color:#8a8983;">/ ${totalWords}</span></div>
+        <div class="stat-val" style="color:var(--green);">${masteredCount} <span style="font-size:16px;color:#42403b;">/ ${totalWords}</span></div>
         <div class="stat-lbl">الكلمات المتقنة كليًا</div>
         <div class="stat-sub">أتقنت في جميع الأوضاع المطلوبة</div>
       </div>
@@ -2813,7 +3016,7 @@ function renderStats(){
     <!-- Daily Goal Selector -->
     <div class="goal-selector-box">
       <div style="font-weight:700;font-size:15px;margin-bottom:4px;">🎯 تحديد الهدف اليومي</div>
-      <div style="font-size:12.5px;color:#6b6a66;">اختر عدد الكلمات التي ترغب في إتقانها أو مراجعتها كل يوم:</div>
+      <div style="font-size:12.5px;color:#42403b;">اختر عدد الكلمات التي ترغب في إتقانها أو مراجعتها كل يوم:</div>
       <div class="goal-btns">
         ${[10, 20, 30, 50].map(g => `
           <button class="goal-sel-btn ${getDailyGoal()===g ? 'active' : ''}" onclick="setDailyGoal(${g})">${g} كلمة</button>
@@ -2824,7 +3027,7 @@ function renderStats(){
     <!-- Backup & Restore Box -->
     <div class="backup-box">
       <div style="font-weight:700;font-size:15px;margin-bottom:4px;">💾 النسخ الاحتياطي ونقل التقدّم</div>
-      <div style="font-size:12.5px;color:#6b6a66;">احفظ بيانات تقدمك وسلسلتك في ملف خارجي لنقله إلى جهاز آخر أو استعادته لاحقاً:</div>
+      <div style="font-size:12.5px;color:#42403b;">احفظ بيانات تقدمك وسلسلتك في ملف خارجي لنقله إلى جهاز آخر أو استعادته لاحقاً:</div>
       <div class="backup-actions">
         <button class="backup-btn" id="exportBtnStats">📥 تصدير نسخة احتياطية (JSON)</button>
         <button class="backup-btn" id="importBtnStats">📤 استعادة نسخة سابقة (JSON)</button>
@@ -2987,19 +3190,26 @@ function renderWordList(){
 
 
 /* ------------ exercise engine ------------ */
-function pickQuestionIndex(catId, mode){
+function pickQuestionIndex(catId, mode, lastIdx){
   maybeUnlockMore(catId, mode);
   const active = activeIndices(catId, mode);
   const mastered = masteredUnlockedIndices(catId, mode);
   if(active.length === 0 && mastered.length === 0) return null; // done entirely
-  // 20% chance to review an already-mastered (unlocked) word if any exist
+
+  // Never pick the exact same word twice in a row when alternatives are available
   if(mastered.length > 0 && active.length > 0 && Math.random() < 0.2){
-    return { idx: mastered[Math.floor(Math.random()*mastered.length)], review:true };
+    let pool = mastered;
+    if(pool.length > 1 && lastIdx !== undefined && lastIdx !== null) pool = pool.filter(i => i !== lastIdx);
+    return { idx: pool[Math.floor(Math.random()*pool.length)], review:true };
   }
   if(active.length === 0){
-    return { idx: mastered[Math.floor(Math.random()*mastered.length)], review:true };
+    let pool = mastered;
+    if(pool.length > 1 && lastIdx !== undefined && lastIdx !== null) pool = pool.filter(i => i !== lastIdx);
+    return { idx: pool[Math.floor(Math.random()*pool.length)], review:true };
   }
-  return { idx: active[Math.floor(Math.random()*active.length)], review:false };
+  let pool = active;
+  if(pool.length > 1 && lastIdx !== undefined && lastIdx !== null) pool = pool.filter(i => i !== lastIdx);
+  return { idx: pool[Math.floor(Math.random()*pool.length)], review:false };
 }
 
 function normalizeDe(s){
@@ -3201,7 +3411,7 @@ function renderGlobalReviewModes(){
   const pool = learnedPool();
   app.innerHTML = `
     ${headerHtml(true,'رجوع للرئيسية')}
-    <div class="cat-title"><h2>🔁 مراجعة شاملة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">${pool.length} كلمة اتعلمتها من كل الأقسام مع بعض — بتتحدّث أول ما تتعلّم كلمة جديدة</span></div>
+    <div class="cat-title"><h2>🔁 مراجعة شاملة</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">${pool.length} كلمة اتعلمتها من كل الأقسام مع بعض — بتتحدّث أول ما تتعلّم كلمة جديدة</span></div>
     <div class="modes">
       <div class="mode-btn" data-gmode="mcq">
         <div><div class="mt">اختيار من متعدد</div><div class="ms">MCQ · اختار الكلمة الألمانية الصحيحة</div></div>
@@ -3250,7 +3460,7 @@ function renderGlobalReviewStep(actualMode){
     const pct = Math.round((exState.correct / total) * 100);
     app.innerHTML = `
       ${headerHtml(true,'رجوع للرئيسية')}
-      <div class="cat-title"><h2>🔁 مراجعة شاملة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">نتيجة وضع ${modeLabel(actualMode)}</span></div>
+      <div class="cat-title"><h2>🔁 مراجعة شاملة</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">نتيجة وضع ${modeLabel(actualMode)}</span></div>
       <div class="done-card">
         <h2>${exState.correct} / ${total} إجابة صحيحة (${pct}%)</h2>
         <p>${exState.wrongCount ? `${exState.wrongCount} سؤال غلط رجّع كلماته للتدريب العادي في قسمها عشان تراجعها.` : 'ممتاز! أجبت صح على كل حاجة 🎉'}</p>
@@ -3272,7 +3482,7 @@ function renderGlobalReviewStep(actualMode){
 
   app.innerHTML = `
     ${headerHtml(true,'رجوع للرئيسية')}
-    <div class="cat-title"><h2>🔁 مراجعة شاملة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">وضع ${modeLabel(actualMode)} · كلمة ${exState.pos+1} / ${queue.length} · من قسم «${realCat.ar}»</span></div>
+    <div class="cat-title"><h2>🔁 مراجعة شاملة</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">وضع ${modeLabel(actualMode)} · كلمة ${exState.pos+1} / ${queue.length} · من قسم «${realCat.ar}»</span></div>
     <div id="qzone"></div>
   `;
   document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
@@ -3286,7 +3496,7 @@ function renderDifficultModes(){
   const writtenN = difficultPool('written').length;
   app.innerHTML = `
     ${headerHtml(true,'رجوع للرئيسية')}
-    <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">الكلمات اللي لسه مش متقنها، مرتبة الأصعب الأول — بتتحدّث أول ما تجاوب غلط أو صح</span></div>
+    <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">الكلمات اللي لسه مش متقنها، مرتبة الأصعب الأول — بتتحدّث أول ما تجاوب غلط أو صح</span></div>
     <div class="modes">
       <div class="mode-btn" data-dmode="mcq">
         <div><div class="mt">اختيار من متعدد</div><div class="ms">MCQ · ${mcqN} كلمة محتاجة مراجعة</div></div>
@@ -3334,7 +3544,7 @@ function renderDifficultStep(actualMode){
     const pct = Math.round((exState.correct / total) * 100);
     app.innerHTML = `
       ${headerHtml(true,'رجوع للرئيسية')}
-      <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">نتيجة وضع ${modeLabel(actualMode)}</span></div>
+      <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">نتيجة وضع ${modeLabel(actualMode)}</span></div>
       <div class="done-card">
         <h2>${exState.correct} / ${total} إجابة صحيحة (${pct}%)</h2>
         <p>${exState.wrongCount ? `${exState.wrongCount} كلمة لسه محتاجة شغل أكتر — هتفضل في البنك لحد ما تتقنها.` : 'جامد! ذاكرت كل الكلمات الصعبة صح 🎉'}</p>
@@ -3356,7 +3566,7 @@ function renderDifficultStep(actualMode){
 
   app.innerHTML = `
     ${headerHtml(true,'رجوع للرئيسية')}
-    <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">وضع ${modeLabel(actualMode)} · كلمة ${exState.pos+1} / ${queue.length} · من قسم «${realCat.ar}»</span></div>
+    <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">وضع ${modeLabel(actualMode)} · كلمة ${exState.pos+1} / ${queue.length} · من قسم «${realCat.ar}»</span></div>
     <div id="qzone"></div>
   `;
   document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
@@ -3380,7 +3590,7 @@ function renderReviewScreen(opts){
     const pct = Math.round((exState.correct / exState.totalQ) * 100);
     app.innerHTML = `
       ${headerHtml(true, opts.backLabel)}
-      <div class="cat-title"><h2>${opts.headerTitle}</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">نتيجة المراجعة</span></div>
+      <div class="cat-title"><h2>${opts.headerTitle}</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">نتيجة المراجعة</span></div>
       <div class="done-card">
         <h2>${exState.correct} / ${exState.totalQ} إجابة صحيحة (${pct}%)</h2>
         <p>${exState.wrongCount ? `${exState.wrongCount} سؤال غلط رجّع كلماته للتدريب العادي عشان تراجعها.` : 'ممتاز! أجبت صح على كل حاجة في المراجعة 🎉'}</p>
@@ -3401,7 +3611,7 @@ function renderReviewScreen(opts){
 
   app.innerHTML = `
     ${headerHtml(true, opts.backLabel)}
-    <div class="cat-title"><h2>${opts.headerTitle}</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">${opts.headerSub} · كلمة ${exState.pos+1} / ${queue.length}${stageLabel}</span></div>
+    <div class="cat-title"><h2>${opts.headerTitle}</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">${opts.headerSub} · كلمة ${exState.pos+1} / ${queue.length}${stageLabel}</span></div>
     <div id="qzone"></div>
   `;
   document.getElementById('backBtn').addEventListener('click', ()=> go({screen: opts.backScreen}));
@@ -3420,7 +3630,7 @@ function renderReviewScreen(opts){
 
   if(exState.stage === 0){
     const correctText = cat.hasArticles ? `${w.a} ${w.n}` : w.n;
-    const pool = cat.words.filter((_,i)=>i!==idx);
+    const pool = cat.words.filter((d,i)=> i!==idx && d.ar.trim() !== w.ar.trim());
     let distractors = shuffle(pool).slice(0,3).map(d => cat.hasArticles ? `${d.a} ${d.n}` : d.n);
     if(distractors.length < 3){
       const others = CATEGORIES.filter(c => c.id!==cat.id && c.hasArticles===cat.hasArticles)
@@ -3430,7 +3640,7 @@ function renderReviewScreen(opts){
     const options = shuffle([correctText, ...distractors]);
     const willBeLastStep = !cat.hasArticles && isLast;
     const srcTag = item.sources && item.sources.length
-      ? `<div style="font-size:12px;color:#8a8983;margin-top:6px;">📍 اتعلمتها في: ${item.sources.map(modeLabel).join(' + ')}</div>` : '';
+      ? `<div style="font-size:12px;color:#42403b;margin-top:6px;">📍 اتعلمتها في: ${item.sources.map(modeLabel).join(' + ')}</div>` : '';
     zone.innerHTML = `
       <div class="qcard">
         <div class="qlabel">ما هي الكلمة الألمانية الصحيحة؟</div>
@@ -3469,7 +3679,7 @@ function renderReviewScreen(opts){
   let correctText, options;
   if(w.pl){
     correctText = w.pl;
-    const distractors = pluralDistractors(w.n, correctText);
+    const distractors = pluralDistractors(w, cat);
     options = shuffle([correctText, ...distractors]);
   } else {
     correctText = NO_PLURAL_LABEL;
@@ -3728,7 +3938,7 @@ function renderSrsReviewStep(){
 
   app.innerHTML = `
     ${headerHtml(true,'رجوع للرئيسية')}
-    <div class="cat-title"><h2>📅 مراجعة اليوم الذكية (SRS)</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">كلمة ${exState.pos+1} / ${queue.length} · الصندوق ${item.box || 1} · من قسم «${realCat.ar}»</span></div>
+    <div class="cat-title"><h2>📅 مراجعة اليوم الذكية (SRS)</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">كلمة ${exState.pos+1} / ${queue.length} · الصندوق ${item.box || 1} · من قسم «${realCat.ar}»</span></div>
     <div id="qzone"></div>
   `;
   document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
@@ -3778,7 +3988,7 @@ function renderStarredReviewStep(){
 
   app.innerHTML = `
     ${headerHtml(true,'رجوع للمميزة')}
-    <div class="cat-title"><h2>⭐ تدريب الكلمات المميزة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">كلمة ${exState.pos+1} / ${queue.length} · من قسم «${realCat.ar}»</span></div>
+    <div class="cat-title"><h2>⭐ تدريب الكلمات المميزة</h2><span style="display:block;font-size:14px;color:#42403b;margin-top:4px;">كلمة ${exState.pos+1} / ${queue.length} · من قسم «${realCat.ar}»</span></div>
     <div id="qzone"></div>
   `;
   document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'starredList'}));
@@ -3800,7 +4010,7 @@ function renderQuestion(cat, mode, idx, w){
       <div class="qcard">
         <div class="qlabel">استمع للصوت واختر المعنى العربي الصحيح</div>
         <button class="listen-hero-btn" id="listenPlayBtn" title="استمع مجددًا">${MINI_SPEAK_SVG}</button>
-        <div style="font-size:13px;color:#8a8983;">اضغط على الزر أو حرف [R] للاستماع مرة أخرى</div>
+        <div style="font-size:13px;color:#42403b;">اضغط على الزر أو حرف [R] للاستماع مرة أخرى</div>
       </div>
       <div class="options">
         ${options.map((o,i)=>`<div class="opt" data-val="${o}"><span>${o}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
@@ -3877,14 +4087,14 @@ function renderQuestion(cat, mode, idx, w){
     zone.innerHTML = `
       <div class="qcard">
         <div class="qlabel">اكتب الكلمة بالألمانية</div>
-        <div class="qmain">${w.ar}</div>
-        <div class="qsub">${cat.hasArticles ? 'يمكنك كتابتها بدون أداة التعريف' : ''}</div>
+        <div class="qmain">${escapeHtml(w.ar)}</div>
+        <div class="qsub">${cat.hasArticles ? 'يمكنك كتابتها مع أو بدون أداة التعريف' : ''}</div>
       </div>
       <div class="write-row">
-        <input type="text" id="wIn" autocomplete="off" placeholder="..." />
+        <input type="text" id="wIn" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="de" dir="ltr" inputmode="text" placeholder="..." />
         <button class="submit-btn" id="wSub">تحقق <span class="kbd-key">↵</span></button>
       </div>
-      <div class="feedback" id="fb"></div>
+      <div class="feedback" id="fb" aria-live="polite"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">التالي ← <span class="kbd-key">↵</span></button></div>
     `;
     const input = document.getElementById('wIn');
@@ -3895,16 +4105,16 @@ function renderQuestion(cat, mode, idx, w){
       const val = input.value.trim();
       if(!val) return;
       exState.answered = true;
-      const given = normalizeDe(val).replace(/\s+/g,' ');
-      const wantArticle = cat.hasArticles && w.a;
-      const noArticleTyped = !/^(der|die|das)\s+/.test(given);
-      const ok = wantArticle
-        ? given === normalizeDe(correctText)
-        : (noArticleTyped && given === normalizeDe(w.n));
+      const evalRes = evaluateWrittenAnswer(val, w, cat);
+      const ok = evalRes.ok;
       applyResult(cat.id, mode, idx, ok);
       speak(correctText);
       const fb = document.getElementById('fb');
-      fb.innerHTML = buildFeedbackHtml(w, cat, ok, correctText, false);
+      let fbHtml = buildFeedbackHtml(w, cat, ok, correctText, false);
+      if(ok && evalRes.casingNotice){
+        fbHtml += `<div class="fbnote" style="margin-top:6px;background:rgba(235,177,17,0.12);border-right:3px solid var(--yellow);padding:8px 12px;border-radius:4px;font-size:12.5px;">💡 تذكير نحوي: الأسماء في الألمانية تبدأ دائماً بحرف كبير (Großschreibung)، مثلاً: <b>${escapeHtml(w.n)}</b> وليس ${escapeHtml(val.toLowerCase())}.</div>`;
+      }
+      fb.innerHTML = fbHtml;
       input.disabled = true;
       document.getElementById('wSub').disabled = true;
       const nb = document.getElementById('nextBtn');

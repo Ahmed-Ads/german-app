@@ -12,3 +12,5 @@ __pycache__/
 *.log
 .vscode/
 .idea/
+node_modules/
+*.bak

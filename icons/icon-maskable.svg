@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#171512"/>
+  <!-- Safe zone graphics centered (80% scale) -->
+  <g transform="translate(10, 10) scale(0.8)">
+    <circle cx="50" cy="50" r="48" fill="#171512"/>
+    <circle cx="65" cy="35" r="18" fill="#C8342A"/>
+    <rect x="22" y="52" width="26" height="26" rx="4" transform="rotate(15 35 65)" fill="#EBB111"/>
+    <circle cx="42" cy="42" r="14" fill="#1E4FA3"/>
+  </g>
+</svg>
