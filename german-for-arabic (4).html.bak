@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تعلّم الألمانية · Deutsch lernen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F4EC;
+    --ink:#171512;
+    --blue:#1E4FA3;
+    --red:#C8342A;
+    --yellow:#EBB111;
+    --green:#2C6E49;
+    --line: rgba(23,21,18,0.14);
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Cairo', sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:28px 16px 60px;
+  }
+  .de{ font-family:'Space Grotesk', sans-serif; direction:ltr; unicode-bidi: isolate; }
+  .wrap{ width:100%; max-width:760px; }
+
+  /* ---------- Header ---------- */
+  header.app-head{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:26px;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand-mark{ width:34px; height:34px; position:relative; flex-shrink:0; }
+  .brand-mark span{ position:absolute; border-radius:50%; }
+  .brand-mark .c1{ width:20px;height:20px; background:var(--red); top:0; right:0; border-radius:50%; }
+  .brand-mark .c2{ width:16px;height:16px; background:var(--yellow); bottom:0; left:2px; border-radius:2px; transform:rotate(20deg); }
+  .brand-mark .c3{ width:12px;height:12px; background:var(--blue); bottom:2px; right:8px; border-radius:50%; }
+  .brand h1{ font-size:19px; margin:0; font-weight:800; }
+  .brand p{ margin:2px 0 0; font-size:12.5px; color:#6b6a66; }
+  .backbtn{
+    border:1.5px solid var(--ink); background:transparent; color:var(--ink);
+    font-family:'Cairo',sans-serif; font-weight:700; font-size:14px;
+    padding:8px 16px; border-radius:999px; cursor:pointer;
+  }
+  .backbtn:hover{ background:var(--ink); color:var(--paper); }
+
+  /* ---------- Home grid ---------- */
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+    gap:14px;
+  }
+  .cat-card{
+    background:var(--card); border:1.5px solid var(--line); border-radius:10px;
+    padding:16px; cursor:pointer; text-align:right; position:relative; overflow:hidden;
+    transition:transform .12s ease, border-color .12s ease;
+  }
+  .cat-card:hover{ transform:translateY(-2px); border-color:var(--ink); }
+  .cat-shape{ width:26px; height:26px; margin-bottom:14px; border-radius:50%; }
+  .cat-card h3{ margin:0 0 2px; font-size:16px; font-weight:700; }
+  .cat-card .de{ display:block; font-size:13px; color:#6b6a66; margin-bottom:12px; }
+  .bar-bg{ height:5px; border-radius:3px; background:var(--line); overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:3px; }
+  .cat-meta{ font-size:11px; color:#8a8983; margin-top:6px; }
+
+  /* ---------- Mode picker ---------- */
+  .cat-title{ text-align:center; margin-bottom:26px; }
+  .cat-title h2{ margin:0; font-size:24px; font-weight:800; }
+  .cat-title .de{ display:block; font-size:16px; color:#6b6a66; margin-top:4px; }
+  .wordcount-row{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--card); border:1.5px solid var(--line); border-radius:10px;
+    padding:12px 16px; margin-bottom:16px; font-size:13.5px;
+  }
+  .wordcount-row .backbtn{ padding:6px 14px; font-size:12.5px; }
+  .modes{ display:flex; flex-direction:column; gap:12px; }
+
+  /* ---------- Word list ---------- */
+  .wl-list{ display:flex; flex-direction:column; gap:8px; }
+  .wl-row{
+    display:flex; align-items:center; gap:12px;
+    background:var(--card); border:1.5px solid var(--line); border-radius:10px;
+    padding:10px 14px;
+  }
+  .wl-speak{
+    width:36px; height:36px; border-radius:50%; border:1.5px solid var(--ink);
+    background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; color:var(--ink);
+  }
+  .wl-speak:hover{ background:var(--ink); color:var(--paper); }
+  .wl-speak svg{ width:16px; height:16px; fill:currentColor; }
+  .wl-text{ flex:1; display:flex; flex-direction:column; }
+  .wl-de{ font-size:16px; font-weight:600; }
+  .wl-ar{ font-size:13px; color:#6b6a66; margin-top:1px; }
+  .wl-note{ font-size:12px; color:#8a8983; margin-top:3px; }
+  .wl-num{ font-size:12px; color:#b3b1a8; font-family:'Space Grotesk',sans-serif; }
+  .wl-divider{
+    text-align:center; font-size:12.5px; color:#8a8983; background:rgba(23,21,18,0.05);
+    border-radius:8px; padding:8px 12px; margin:6px 0 2px;
+  }
+  .mode-btn{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--card); border:1.5px solid var(--line); border-radius:10px;
+    padding:18px 20px; cursor:pointer; text-align:right;
+  }
+  .mode-btn:hover{ border-color:var(--ink); }
+  .mode-btn .mt{ font-size:17px; font-weight:700; }
+  .mode-btn .ms{ font-size:12.5px; color:#6b6a66; margin-top:2px; }
+  .mode-icon{ width:30px; height:30px; flex-shrink:0; border-radius:8px; }
+
+  /* ---------- Exercise ---------- */
+  .progress-dots{ display:flex; justify-content:center; gap:8px; margin-bottom:22px; }
+  .dot{ width:34px; height:6px; border-radius:3px; background:var(--line); position:relative; overflow:hidden; }
+  .dot i{ position:absolute; inset:0; border-radius:3px; }
+  .qcard{
+    background:var(--card); border:1.5px solid var(--line); border-radius:14px;
+    padding:34px 26px; text-align:center; margin-bottom:20px;
+  }
+  .qlabel{ font-size:12.5px; color:#8a8983; margin-bottom:10px; letter-spacing:.02em;}
+  .qmain{ font-size:26px; font-weight:800; margin-bottom:6px; }
+  .qsub{ font-size:14px; color:#6b6a66; }
+  .speak-row{ display:flex; justify-content:center; margin-top:16px; }
+  .speak-btn{
+    width:46px; height:46px; border-radius:50%; border:1.5px solid var(--ink);
+    background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .speak-btn:hover{ background:var(--ink); }
+  .speak-btn:hover svg{ fill:var(--paper); }
+  .speak-btn svg{ width:20px; height:20px; fill:var(--ink); }
+
+  .mini-speak{
+    width:22px; height:22px; border-radius:50%; border:1.3px solid var(--ink);
+    background:transparent; display:inline-flex; align-items:center; justify-content:center;
+    cursor:pointer; vertical-align:middle; margin-inline-start:6px; padding:0;
+  }
+  .mini-speak svg{ width:10px; height:10px; fill:var(--ink); }
+  .mini-speak:hover{ background:var(--ink); }
+  .mini-speak:hover svg{ fill:var(--paper); }
+
+  .options{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .opt{
+    font-family:'Space Grotesk',sans-serif; direction:ltr; text-align:center;
+    background:var(--card); border:1.5px solid var(--line); border-radius:10px;
+    padding:16px 10px; font-size:16px; font-weight:600; cursor:pointer;
+  }
+  .opt:hover{ border-color:var(--blue); }
+  .opt.correct{ background:var(--green); border-color:var(--green); color:#fff; }
+  .opt.wrong{ background:var(--red); border-color:var(--red); color:#fff; }
+  .opt.disabled{ pointer-events:none; }
+
+  .article-options{ display:flex; gap:10px; justify-content:center; }
+  .article-options .opt{ flex:1; max-width:140px; }
+
+  .write-row{ display:flex; gap:10px; }
+  .write-row input{
+    flex:1; font-family:'Space Grotesk',sans-serif; direction:ltr; text-align:center;
+    font-size:18px; padding:14px; border-radius:10px; border:1.5px solid var(--line);
+    background:var(--card); color:var(--ink);
+  }
+  .write-row input:focus{ outline:none; border-color:var(--blue); }
+  .submit-btn{
+    font-family:'Cairo',sans-serif; font-weight:700; font-size:15px;
+    background:var(--ink); color:var(--paper); border:none; border-radius:10px;
+    padding:0 22px; cursor:pointer;
+  }
+  .submit-btn:disabled{ opacity:.4; cursor:default; }
+
+  .feedback{ margin-top:16px; text-align:center; font-size:14.5px; min-height:20px; font-weight:700; }
+  .feedback.ok{ color:var(--green); }
+  .feedback.bad{ color:var(--red); }
+  .fbnote{ margin-top:8px; font-weight:400; font-size:13px; color:#6b6a66; }
+
+  .next-row{ display:flex; justify-content:center; margin-top:14px; }
+  .next-btn{
+    font-family:'Cairo',sans-serif; font-weight:700; font-size:14px;
+    background:transparent; border:1.5px solid var(--ink); border-radius:999px;
+    padding:9px 22px; cursor:pointer; display:none;
+  }
+  .next-btn.show{ display:inline-block; }
+
+  .done-card{ text-align:center; padding:50px 20px; }
+  .done-card h2{ font-size:22px; margin-bottom:8px; }
+  .done-card p{ color:#6b6a66; font-size:14.5px; }
+
+  .footnote{ text-align:center; font-size:12px; color:#9a9990; margin-top:36px; line-height:1.9; }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+/* ======================= DATA ======================= */
+const PALETTE = ['#C8342A','#1E4FA3','#EBB111','#2C6E49'];
+
+const CATEGORIES = [
+  { id:'obst', ar:'الفواكه', de:'Obst', order:8, hasArticles:true, words:[
+    {a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel'},{a:'die',n:'Banane',ar:'موزة',pl:'die Bananen'},{a:'die',n:'Orange',ar:'برتقالة',pl:'die Orangen'},
+    {a:'die',n:'Traube',ar:'عنبة',pl:'die Trauben'},{a:'die',n:'Erdbeere',ar:'فراولة',pl:'die Erdbeeren'},{a:'die',n:'Kirsche',ar:'كرزة',pl:'die Kirschen'},
+    {a:'die',n:'Birne',ar:'كمثرى',pl:'die Birnen'},{a:'die',n:'Zitrone',ar:'ليمونة',pl:'die Zitronen'},
+    {a:'die',n:'Ananas',ar:'أناناس',note:'الجمع الرسمي هو نفس الكلمة Ananas بلا تغيير، وAnanasse نادر الاستخدام',pl:'die Ananas'},
+    {a:'der',n:'Pfirsich',ar:'خوخة',pl:'die Pfirsiche'},{a:'die',n:'Wassermelone',ar:'بطيخة',pl:'die Wassermelonen'},{a:'die',n:'Melone',ar:'شمام',pl:'die Melonen'},
+    {a:'die',n:'Himbeere',ar:'توت العليق',pl:'die Himbeeren'},{a:'die',n:'Pflaume',ar:'برقوق',pl:'die Pflaumen'},{a:'die',n:'Mandarine',ar:'يوسفي',pl:'die Mandarinen'},
+    {a:'die',n:'Kokosnuss',ar:'جوز الهند',pl:'die Kokosnüsse'},{a:'die',n:'Feige',ar:'تين',pl:'die Feigen'},{a:'die',n:'Dattel',ar:'تمر',pl:'die Datteln'},
+    {a:'die',n:'Aprikose',ar:'مشمش',pl:'die Aprikosen'},{a:'die',n:'Grapefruit',ar:'جريب فروت',pl:'die Grapefruits'},{a:'die',n:'Heidelbeere',ar:'توت أزرق',pl:'die Heidelbeeren'},
+    {a:'die',n:'Brombeere',ar:'توت أسود',pl:'die Brombeeren'},{a:'die',n:'Johannisbeere',ar:'كشمش',pl:'die Johannisbeeren'},{a:'die',n:'Kiwi',ar:'كيوي',pl:'die Kiwis'},
+    {a:'die',n:'Mango',ar:'مانجو',note:'الجمع الرسمي Mangos، ونادرًا Mangonen',pl:'die Mangos'},{a:'die',n:'Papaya',ar:'بابايا',pl:'die Papayas'},{a:'die',n:'Litschi',ar:'ليتشي',pl:'die Litschis'},
+    {a:'der',n:'Granatapfel',ar:'رمان',pl:'die Granatäpfel'},{a:'die',n:'Nektarine',ar:'نكتارين',pl:'die Nektarinen'},{a:'die',n:'Quitte',ar:'سفرجل',pl:'die Quitten'},
+    {a:'die',n:'Stachelbeere',ar:'عنب الثعلب',note:'توت أخضر صغير حامض الطعم، شائع في الحلويات الألمانية',pl:'die Stachelbeeren'},
+    {a:'die',n:'Preiselbeere',ar:'توت بري',pl:'die Preiselbeeren'},{a:'die',n:'Holunderbeere',ar:'بلسان',pl:'die Holunderbeeren'},
+    {a:'die',n:'Maulbeere',ar:'توت',pl:'die Maulbeeren'},{a:'die',n:'Guave',ar:'جوافة',pl:'die Guaven'},{a:'die',n:'Passionsfrucht',ar:'فاكهة الباشن',pl:'die Passionsfrüchte'},
+    {a:'die',n:'Drachenfrucht',ar:'فاكهة التنين',note:'فاكهة استوائية وردية القشرة بنقاط سوداء',pl:'die Drachenfrüchte'},
+    {a:'die',n:'Sternfrucht',ar:'فاكهة النجمة',note:'فاكهة صفراء تشبه شكل النجمة عند تقطيعها',pl:'die Sternfrüchte'},
+    {a:'die',n:'Avocado',ar:'أفوكادو',pl:'die Avocados'},
+    {a:'das',n:'Kaki',ar:'كاكي',note:'فاكهة برتقالية طرية تُعرف أيضًا بالبرسيمون',pl:'die Kakis'},
+    {a:'der',n:'Rhabarber',ar:'راوند',note:'نبات ساقه حامض يُطبخ كالفاكهة في الحلويات الألمانية؛ جمعه نفس الكلمة بلا تغيير',pl:'die Rhabarber'},
+    {a:'die',n:'Zwetschge',ar:'خوخ أزرق',note:'نوع من البرقوق بيضاوي الشكل داكن اللون',pl:'die Zwetschgen'},
+    {a:'die',n:'Mirabelle',ar:'خوخ أصفر صغير',note:'خوخ صغير أصفر حلو المذاق',pl:'die Mirabellen'},
+    {a:'die',n:'Limette',ar:'ليم',pl:'die Limetten'},
+    {a:'die',n:'Physalis',ar:'كشمش أرضي',note:'فاكهة صغيرة صفراء داخل غلاف ورقي يشبه الفانوس؛ الجمع Physalen، ويصح أيضًا Physalis بلا تغيير',pl:'die Physalen'},
+    {a:'die',n:'Kumquat',ar:'كمكوات',note:'حمضيات صغيرة جدًا تؤكل بقشرها كاملة',pl:'die Kumquats'},
+    {a:'der',n:'Sanddorn',ar:'نبق البحر',note:'توت برتقالي حامض غني بفيتامين C يُصنع منه عصير شائع في ألمانيا؛ يُستخدم عادة بلا جمع',pl:null},
+    {a:'die',n:'Clementine',ar:'كليمنتين',pl:'die Clementinen'},
+    {a:'die',n:'Hagebutte',ar:'ثمر الورد',note:'ثمرة حمراء صغيرة تُستخدم لصنع الشاي والمربى',pl:'die Hagebutten'},
+    {a:'die',n:'Weichsel',ar:'كرز حامض',note:'نوع من الكرز الحامض يُستخدم في الكيك والحلويات',pl:'die Weichseln'}
+  ]},
+  { id:'gemuese', ar:'الخضروات', de:'Gemüse', order:9, hasArticles:true, words:[
+    {a:'die',n:'Kartoffel',ar:'بطاطس',pl:'die Kartoffeln'},{a:'die',n:'Tomate',ar:'طماطم',pl:'die Tomaten'},{a:'die',n:'Gurke',ar:'خيار',pl:'die Gurken'},
+    {a:'die',n:'Karotte',ar:'جزرة',pl:'die Karotten'},{a:'die',n:'Zwiebel',ar:'بصلة',pl:'die Zwiebeln'},
+    {a:'der',n:'Knoblauch',ar:'ثوم',note:'ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد',pl:null},
+    {a:'der',n:'Kohl',ar:'كرنب',note:'الجمع Kohle نادر الاستخدام (يشير لأنواع الكرنب المختلفة)',pl:'die Kohle'},
+    {a:'der',n:'Paprika',ar:'فلفل رومي',note:'الجمع الرسمي نفس الكلمة بلا تغيير، ويصح أيضًا Paprikas',pl:'die Paprika'},
+    {a:'die',n:'Aubergine',ar:'باذنجان',pl:'die Auberginen'},
+    {a:'der',n:'Spinat',ar:'سبانخ',note:'الجمع Spinate نادر الاستخدام (يشير لأنواع السبانخ)',pl:'die Spinate'},
+    {a:'die',n:'Bohne',ar:'فاصوليا',pl:'die Bohnen'},{a:'der',n:'Salat',ar:'خس',pl:'die Salate'},
+    {a:'die',n:'Zucchini',ar:'كوسة',note:'جمعها نفس الكلمة بلا تغيير',pl:'die Zucchini'},
+    {a:'der',n:'Brokkoli',ar:'بروكلي',pl:'die Brokkolis'},{a:'der',n:'Pilz',ar:'فطر',pl:'die Pilze'},
+    {a:'der',n:'Mais',ar:'ذرة',note:'الجمع Maise نادر الاستخدام (يشير لأنواع الذرة)',pl:'die Maise'},
+    {a:'die',n:'Erbse',ar:'بازلاء',pl:'die Erbsen'},{a:'der',n:'Rettich',ar:'فجل',pl:'die Rettiche'},
+    {a:'die',n:'Rote Bete',ar:'بنجر',note:'لا يوجد لها جمع شائع؛ تُستخدم بنفس الصيغة للمفرد والجمع',pl:null},
+    {a:'der',n:'Sellerie',ar:'كرفس',note:'الجمع die Sellerie أو die Selleries، وفي النمسا Sellerien',pl:'die Sellerie'},
+    {a:'die',n:'Süßkartoffel',ar:'بطاطا حلوة',pl:'die Süßkartoffeln'},
+    {a:'der',n:'Kürbis',ar:'يقطين',pl:'die Kürbisse'},
+    {a:'der',n:'Lauch',ar:'كراث',note:'الجمع Lauche نادر الاستخدام جدًا',pl:'die Lauche'},
+    {a:'der',n:'Rosenkohl',ar:'كرنب بروكسل',note:'ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد',pl:null},
+    {a:'der',n:'Blumenkohl',ar:'قرنبيط',note:'الجمع Blumenkohle نادر الاستخدام',pl:'die Blumenkohle'},
+    {a:'der',n:'Fenchel',ar:'شمر',note:'ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد',pl:null},
+    {a:'die',n:'Artischocke',ar:'خرشوف',pl:'die Artischocken'},
+    {a:'die',n:'Okra',ar:'بامية',pl:'die Okras'},
+    {a:'der',n:'Weißkohl',ar:'كرنب أبيض',note:'الجمع Weißkohle نادر الاستخدام',pl:'die Weißkohle'},
+    {a:'der',n:'Rotkohl',ar:'كرنب أحمر',note:'الجمع Rotkohle نادر الاستخدام',pl:'die Rotkohle'},
+    {a:'der',n:'Wirsing',ar:'كرنب مجعد',note:'نوع من الكرنب أوراقه مجعدة؛ جمعه Wirsinge نادر الاستخدام',pl:'die Wirsinge'},
+    {a:'der',n:'Chinakohl',ar:'كرنب صيني',note:'الجمع Chinakohle نادر الاستخدام',pl:'die Chinakohle'},
+    {a:'der',n:'Grünkohl',ar:'كرنب أخضر مجعد',pl:'die Grünkohle'},
+    {a:'das',n:'Radieschen',ar:'فجل أحمر صغير',note:'جمعه نفس الكلمة بلا تغيير (كل الكلمات المصغّرة بـ chen لا تتغير في الجمع)',pl:'die Radieschen'},
+    {a:'die',n:'Schalotte',ar:'بصل شالوت',pl:'die Schalotten'},
+    {a:'der',n:'Spargel',ar:'هليون',note:'جمعه نفس الكلمة بلا تغيير',pl:'die Spargel'},
+    {a:'der',n:'Feldsalat',ar:'خس الحقل',note:'نوع خس صغير الأوراق طري',pl:'die Feldsalate'},
+    {a:'der',n:'Eisbergsalat',ar:'خس أيسبرغ',pl:'die Eisbergsalate'},
+    {a:'der',n:'Kohlrabi',ar:'كرنب سلقي',pl:'die Kohlrabis'},
+    {a:'der',n:'Champignon',ar:'فطر أبيض',pl:'die Champignons'},{a:'die',n:'Sojabohne',ar:'فول الصويا',pl:'die Sojabohnen'},
+    {a:'die',n:'Kichererbse',ar:'حمص',pl:'die Kichererbsen'},
+    {a:'der',n:'Meerrettich',ar:'فجل حار',note:'جذر حار الطعم يُستخدم كبديل للخردل',pl:'die Meerrettiche'},
+    {a:'der',n:'Chicorée',ar:'شيكوريا',note:'خضار مر قليلًا يؤكل نيئًا في السلطة؛ ليس له جمع',pl:null},
+    {a:'der',n:'Rucola',ar:'جرجير',note:'ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد',pl:null},
+    {a:'der',n:'Mangold',ar:'سلق',note:'خضار ورقي أخضر ذو سيقان ملونة، يشبه السبانخ',pl:'die Mangolde'},
+    {a:'die',n:'Pastinake',ar:'جزر أبيض',note:'نوع من الجزر الأبيض حلو المذاق',pl:'die Pastinaken'},
+    {a:'die',n:'Steckrübe',ar:'لفت سويدي',pl:'die Steckrüben'},
+    {a:'die',n:'Kresse',ar:'رشاد',note:'نبات صغير سريع النمو يُستخدم لتزيين وتنكيه السلطات',pl:'die Kressen'},
+    {a:'der',n:'Sauerampfer',ar:'حميض',note:'عشب ورقي حامض الطعم يُستخدم في الشوربات؛ جمعه نفس الكلمة بلا تغيير',pl:'die Sauerampfer'}
+  ]},
+  { id:'milch', ar:'منتجات الألبان', de:'Milchprodukte', order:10, hasArticles:true, words:[
+    {a:'die',n:'Milch',ar:'حليب',note:'الجمع Milche نادر جدًا (لغة متخصصة، يشير لأنواع الحليب)',pl:'die Milche'},
+    {a:'der',n:'Käse',ar:'جبن',note:'الجمع نفس الكلمة بلا تغيير (يشير لأنواع الجبن)',pl:'die Käse'},
+    {a:'der',n:'Joghurt',ar:'زبادي',pl:'die Joghurts'},
+    {a:'die',n:'Butter',ar:'زبدة',note:'ليس لها جمع',pl:null},
+    {a:'die',n:'Sahne',ar:'قشدة',note:'ليس لها جمع',pl:null},
+    {a:'der',n:'Quark',ar:'جبن قريش',note:'ليس له جمع',pl:null},
+    {a:'die',n:'Buttermilch',ar:'حليب مخيض',note:'الجمع Buttermilche نادر جدًا',pl:'die Buttermilche'},
+    {a:'der',n:'Frischkäse',ar:'جبنة كريمية',note:'الجمع نفس الكلمة بلا تغيير (يشير لأنواعه)',pl:'die Frischkäse'},
+    {a:'das',n:'Eis',ar:'آيس كريم',note:'ليس له جمع؛ للتفريق بين الأنواع تُستخدم كلمة Eissorten',pl:null},
+    {a:'die',n:'Kondensmilch',ar:'حليب مكثف',note:'الجمع Kondensmilche نادر جدًا',pl:'die Kondensmilche'},
+    {a:'der',n:'Mozzarella',ar:'موتزاريلا',pl:'die Mozzarellas'},
+    {a:'der',n:'Kefir',ar:'كفير',note:'ليس له جمع',pl:null},
+    {a:'der',n:'Skyr',ar:'سكير',note:'ليس له جمع',pl:null},
+    {a:'die',n:'Kaffeesahne',ar:'كريمة القهوة',pl:'die Kaffeesahnen'},
+    {a:'die',n:'Sojamilch',ar:'حليب الصويا',note:'الجمع Sojamilchen نادر جدًا',pl:'die Sojamilchen'},
+    {a:'der',n:'Camembert',ar:'جبن كممبير',pl:'die Camemberts'}
+  ]},
+  { id:'tiere', ar:'الحيوانات', de:'Tiere', order:20, hasArticles:true, words:[
+    {a:'der',n:'Hund',ar:'كلب',pl:'die Hunde'},{a:'die',n:'Katze',ar:'قطة',pl:'die Katzen'},{a:'der',n:'Vogel',ar:'عصفور',pl:'die Vögel'},
+    {a:'das',n:'Pferd',ar:'حصان',pl:'die Pferde'},{a:'die',n:'Kuh',ar:'بقرة',pl:'die Kühe'},{a:'das',n:'Schaf',ar:'خروف',pl:'die Schafe'},
+    {a:'die',n:'Ziege',ar:'ماعز',pl:'die Ziegen'},{a:'das',n:'Huhn',ar:'دجاجة',pl:'die Hühner'},{a:'der',n:'Fisch',ar:'سمكة',pl:'die Fische'},
+    {a:'die',n:'Maus',ar:'فأر',pl:'die Mäuse'},{a:'der',n:'Löwe',ar:'أسد',pl:'die Löwen'},{a:'der',n:'Elefant',ar:'فيل',pl:'die Elefanten'},
+    {a:'der',n:'Bär',ar:'دب',pl:'die Bären'},{a:'der',n:'Affe',ar:'قرد',pl:'die Affen'},{a:'die',n:'Schlange',ar:'ثعبان',pl:'die Schlangen'},
+    {a:'der',n:'Frosch',ar:'ضفدع',pl:'die Frösche'},{a:'das',n:'Kaninchen',ar:'أرنب',pl:'die Kaninchen'},{a:'die',n:'Ente',ar:'بطة',pl:'die Enten'},
+    {a:'die',n:'Spinne',ar:'عنكبوت',pl:'die Spinnen'},{a:'der',n:'Schmetterling',ar:'فراشة',pl:'die Schmetterlinge'},{a:'die',n:'Biene',ar:'نحلة',pl:'die Bienen'},
+    {a:'die',n:'Fliege',ar:'ذبابة',pl:'die Fliegen'},{a:'der',n:'Wal',ar:'حوت',pl:'die Wale'},{a:'der',n:'Hai',ar:'قرش',pl:'die Haie'},
+    {a:'die',n:'Schildkröte',ar:'سلحفاة',pl:'die Schildkröten'},{a:'der',n:'Delfin',ar:'دلفين',pl:'die Delfine'},{a:'der',n:'Tiger',ar:'نمر',pl:'die Tiger'},
+    {a:'die',n:'Giraffe',ar:'زرافة',pl:'die Giraffen'},{a:'das',n:'Kamel',ar:'جمل',pl:'die Kamele'},{a:'der',n:'Wolf',ar:'ذئب',pl:'die Wölfe'},
+    {a:'der',n:'Fuchs',ar:'ثعلب',pl:'die Füchse'},{a:'der',n:'Hase',ar:'أرنب بري',pl:'die Hasen'},{a:'die',n:'Eule',ar:'بومة',pl:'die Eulen'},
+    {a:'der',n:'Pinguin',ar:'بطريق',pl:'die Pinguine'},{a:'das',n:'Krokodil',ar:'تمساح',pl:'die Krokodile'},{a:'das',n:'Zebra',ar:'حمار وحشي',pl:'die Zebras'},
+    {a:'der',n:'Gorilla',ar:'غوريلا',pl:'die Gorillas'},{a:'das',n:'Nashorn',ar:'وحيد القرن',pl:'die Nashörner'},{a:'das',n:'Nilpferd',ar:'فرس النهر',pl:'die Nilpferde'},
+    {a:'das',n:'Känguru',ar:'كنغر',pl:'die Kängurus'},{a:'der',n:'Koala',ar:'كوالا',pl:'die Koalas'},{a:'das',n:'Eichhörnchen',ar:'سنجاب',pl:'die Eichhörnchen'},
+    {a:'der',n:'Igel',ar:'قنفذ',pl:'die Igel'},{a:'das',n:'Reh',ar:'غزال صغير',pl:'die Rehe'},{a:'der',n:'Hirsch',ar:'أيل',pl:'die Hirsche'},
+    {a:'die',n:'Ratte',ar:'جرذ',pl:'die Ratten'},{a:'der',n:'Papagei',ar:'ببغاء',pl:'die Papageien'},{a:'der',n:'Storch',ar:'لقلق',pl:'die Störche'},
+    {a:'der',n:'Adler',ar:'نسر',pl:'die Adler'},{a:'die',n:'Taube',ar:'حمامة',pl:'die Tauben'}
+  ]},
+  { id:'familie', ar:'العائلة', de:'Familie', order:3, hasArticles:true, words:[
+    {a:'die',n:'Mutter',ar:'أم',pl:'die Mütter'},{a:'der',n:'Vater',ar:'أب',pl:'die Väter'},{a:'die',n:'Schwester',ar:'أخت',pl:'die Schwestern'},
+    {a:'der',n:'Bruder',ar:'أخ',pl:'die Brüder'},{a:'die',n:'Großmutter',ar:'جدة',pl:'die Großmütter'},{a:'der',n:'Großvater',ar:'جد',pl:'die Großväter'},
+    {a:'die',n:'Tochter',ar:'ابنة',pl:'die Töchter'},{a:'der',n:'Sohn',ar:'ابن',pl:'die Söhne'},{a:'die',n:'Tante',ar:'عمة / خالة',pl:'die Tanten'},
+    {a:'der',n:'Onkel',ar:'عم / خال',pl:'die Onkel'},{a:'die',n:'Frau',ar:'امرأة / زوجة',pl:'die Frauen'},{a:'der',n:'Mann',ar:'رجل / زوج',pl:'die Männer'},
+    {a:'die',n:'Eltern',ar:'الوالدين',pl:null},{a:'die',n:'Kinder',ar:'الأطفال',pl:null},{a:'der',n:'Cousin',ar:'ابن العم/الخال',pl:'die Cousins'},
+    {a:'die',n:'Cousine',ar:'بنت العم/الخالة',pl:'die Cousinen'},{a:'das',n:'Baby',ar:'رضيع',pl:'die Babys'},
+    {a:'der',n:'Schwiegervater',ar:'حمو',pl:'die Schwiegerväter'},{a:'die',n:'Schwiegermutter',ar:'حماة',pl:'die Schwiegermütter'},
+    {a:'der',n:'Schwiegersohn',ar:'زوج الابنة',pl:'die Schwiegersöhne'},{a:'die',n:'Schwiegertochter',ar:'زوجة الابن',pl:'die Schwiegertöchter'},
+    {a:'der',n:'Neffe',ar:'ابن الأخ/الأخت',pl:'die Neffen'},{a:'die',n:'Nichte',ar:'بنت الأخ/الأخت',pl:'die Nichten'},
+    {a:'der',n:'Enkel',ar:'حفيد',pl:'die Enkel'},{a:'die',n:'Enkelin',ar:'حفيدة',pl:'die Enkelinnen'},
+    {a:'der',n:'Urgroßvater',ar:'جد الجد',pl:'die Urgroßväter'},{a:'die',n:'Urgroßmutter',ar:'جدة الجد',pl:'die Urgroßmütter'},
+    {a:'der',n:'Zwilling',ar:'توأم',pl:'die Zwillinge'},
+    {a:'der',n:'Halbbruder',ar:'أخ غير شقيق',note:'أخ من أحد الأبوين فقط',pl:'die Halbbrüder'},
+    {a:'die',n:'Halbschwester',ar:'أخت غير شقيقة',note:'أخت من أحد الأبوين فقط',pl:'die Halbschwestern'},
+    {a:'der',n:'Stiefvater',ar:'زوج الأم',note:'زوج الأم الجديد، وليس الأب البيولوجي',pl:'die Stiefväter'},
+    {a:'die',n:'Stiefmutter',ar:'زوجة الأب',note:'زوجة الأب الجديدة، وليست الأم البيولوجية',pl:'die Stiefmütter'},
+    {a:'der',n:'Stiefsohn',ar:'ابن الزوج/الزوجة',pl:'die Stiefsöhne'},{a:'die',n:'Stieftochter',ar:'بنت الزوج/الزوجة',pl:'die Stieftöchter'},
+    {a:'der',n:'Schwager',ar:'نسيب',note:'زوج الأخت أو أخو الزوج/الزوجة',pl:'die Schwäger'},
+    {a:'die',n:'Schwägerin',ar:'نسيبة',note:'زوجة الأخ أو أخت الزوج/الزوجة',pl:'die Schwägerinnen'},
+    {a:'die',n:'Witwe',ar:'أرملة',pl:'die Witwen'},{a:'der',n:'Witwer',ar:'أرمل',pl:'die Witwer'},
+    {a:'der',n:'Bräutigam',ar:'العريس',pl:'die Bräutigame'},{a:'die',n:'Braut',ar:'العروسة',pl:'die Bräute'},
+    {a:'das',n:'Kleinkind',ar:'طفل صغير',note:'أكبر قليلًا من الرضيع (Baby)',pl:'die Kleinkinder'},
+    {a:'der',n:'Teenager',ar:'مراهق',pl:'die Teenager'},
+    {a:'die',n:'Geschwister',ar:'الإخوة',note:'كلمة جمع فقط تعني الإخوة والأخوات معًا، بلا مفرد',pl:null},
+    {a:'der',n:'Ehemann',ar:'الزوج',pl:'die Ehemänner'},{a:'die',n:'Ehefrau',ar:'الزوجة',pl:'die Ehefrauen'},
+    {a:'die',n:'Großeltern',ar:'الأجداد',pl:null},{a:'die',n:'Urgroßeltern',ar:'أجداد الأجداد',pl:null},
+    {a:'die',n:'Enkelkinder',ar:'الأحفاد',pl:null},{a:'der',n:'Familienname',ar:'اسم العائلة',pl:'die Familiennamen'},
+    {a:'die',n:'Verwandtschaft',ar:'الأقارب',pl:'die Verwandtschaften'}
+  ]},
+  { id:'farben', ar:'الألوان', de:'Farben', order:2, hasArticles:false, words:[
+    {n:'rot',ar:'أحمر'},{n:'blau',ar:'أزرق'},{n:'gelb',ar:'أصفر'},{n:'grün',ar:'أخضر'},
+    {n:'schwarz',ar:'أسود'},{n:'weiß',ar:'أبيض'},{n:'orange',ar:'برتقالي'},{n:'lila',ar:'بنفسجي'},
+    {n:'rosa',ar:'وردي'},{n:'braun',ar:'بني'},{n:'grau',ar:'رمادي'},{n:'türkis',ar:'تركواز'},
+    {n:'beige',ar:'بيج'},{n:'gold',ar:'ذهبي'},{n:'silber',ar:'فضي'}
+  ]},
+  { id:'koerper', ar:'أجزاء الجسم', de:'Körperteile', order:4, hasArticles:true, words:[
+    {a:'der',n:'Kopf',ar:'رأس',pl:'die Köpfe'},{a:'das',n:'Auge',ar:'عين',pl:'die Augen'},{a:'die',n:'Nase',ar:'أنف',pl:'die Nasen'},
+    {a:'der',n:'Mund',ar:'فم',pl:'die Münder'},{a:'das',n:'Ohr',ar:'أذن',pl:'die Ohren'},{a:'die',n:'Hand',ar:'يد',pl:'die Hände'},
+    {a:'der',n:'Arm',ar:'ذراع',pl:'die Arme'},{a:'das',n:'Bein',ar:'ساق',pl:'die Beine'},{a:'der',n:'Fuß',ar:'قدم',pl:'die Füße'},
+    {a:'der',n:'Bauch',ar:'بطن',pl:'die Bäuche'},{a:'das',n:'Haar',ar:'شعر',pl:'die Haare'},{a:'der',n:'Rücken',ar:'ظهر',pl:'die Rücken'},
+    {a:'die',n:'Schulter',ar:'كتف',pl:'die Schultern'},{a:'das',n:'Knie',ar:'ركبة',pl:'die Knie'},{a:'der',n:'Zahn',ar:'سن',pl:'die Zähne'},
+    {a:'die',n:'Zunge',ar:'لسان',pl:'die Zungen'},{a:'der',n:'Hals',ar:'رقبة',pl:'die Hälse'},{a:'die',n:'Lippe',ar:'شفة',pl:'die Lippen'},
+    {a:'das',n:'Kinn',ar:'ذقن',pl:'die Kinne'},{a:'die',n:'Augenbraue',ar:'حاجب',pl:'die Augenbrauen'},{a:'der',n:'Ellbogen',ar:'كوع',pl:'die Ellbogen'},
+    {a:'die',n:'Stirn',ar:'جبهة',pl:'die Stirnen'},{a:'die',n:'Wange',ar:'خد',pl:'die Wangen'},{a:'die',n:'Hüfte',ar:'ورك',pl:'die Hüften'},
+    {a:'die',n:'Ferse',ar:'كعب القدم',pl:'die Fersen'},{a:'der',n:'Nagel',ar:'ظفر',pl:'die Nägel'},{a:'die',n:'Wimper',ar:'رمش',pl:'die Wimpern'},
+    {a:'die',n:'Sehne',ar:'وتر',note:'نسيج يربط العضلة بالعظم',pl:'die Sehnen'},{a:'der',n:'Muskel',ar:'عضلة',pl:'die Muskeln'},
+    {a:'die',n:'Haut',ar:'جلد',pl:'die Häute'},{a:'das',n:'Blut',ar:'دم',pl:null,note:'كلمة غير معدودة، لا يوجد لها جمع شائع'},{a:'das',n:'Herz',ar:'قلب',pl:'die Herzen'},
+    {a:'die',n:'Lunge',ar:'رئة',pl:'die Lungen'},{a:'der',n:'Magen',ar:'معدة',pl:'die Mägen'},{a:'die',n:'Leber',ar:'كبد',pl:'die Lebern'},
+    {a:'die',n:'Niere',ar:'كلية',pl:'die Nieren'},{a:'das',n:'Gehirn',ar:'دماغ',pl:'die Gehirne'},{a:'der',n:'Knochen',ar:'عظم',pl:'die Knochen'},
+    {a:'die',n:'Wirbelsäule',ar:'العمود الفقري',pl:'die Wirbelsäulen'},
+    {a:'der',n:'Kiefer',ar:'فك',pl:'die Kiefer'},
+    {a:'die',n:'Kehle',ar:'حلق',note:'الحلق من الداخل، أما Hals فهو الرقبة من الخارج',pl:'die Kehlen'},
+    {a:'der',n:'Nacken',ar:'مؤخرة الرقبة',pl:'die Nacken'},
+    {a:'die',n:'Achsel',ar:'إبط',pl:'die Achseln'},
+    {a:'das',n:'Handgelenk',ar:'رسغ اليد',pl:'die Handgelenke'},
+    {a:'der',n:'Knöchel',ar:'كاحل',note:'مفصل القدم، وينطق مختلفًا عن Knochen (عظم)',pl:'die Knöchel'},
+    {a:'die',n:'Zehe',ar:'إصبع القدم',pl:'die Zehen'},{a:'der',n:'Finger',ar:'إصبع اليد',pl:'die Finger'},{a:'der',n:'Daumen',ar:'إبهام',pl:'die Daumen'},
+    {a:'die',n:'Faust',ar:'قبضة اليد',pl:'die Fäuste'},
+    {a:'die',n:'Pupille',ar:'بؤبؤ العين',pl:'die Pupillen'}
+  ]},
+  { id:'kleidung', ar:'الملابس', de:'Kleidung', order:5, hasArticles:true, words:[
+    {a:'das',n:'Hemd',ar:'قميص',pl:'die Hemden'},{a:'die',n:'Hose',ar:'بنطلون',pl:'die Hosen'},{a:'das',n:'Kleid',ar:'فستان',pl:'die Kleider'},
+    {a:'der',n:'Rock',ar:'تنورة',pl:'die Röcke'},{a:'die',n:'Jacke',ar:'جاكيت',pl:'die Jacken'},{a:'der',n:'Mantel',ar:'معطف',pl:'die Mäntel'},
+    {a:'die',n:'Schuhe',ar:'حذاء',pl:null},{a:'die',n:'Socke',ar:'جورب',pl:'die Socken'},{a:'der',n:'Hut',ar:'قبعة',pl:'die Hüte'},
+    {a:'die',n:'Mütze',ar:'طاقية',pl:'die Mützen'},{a:'der',n:'Schal',ar:'وشاح',note:'الجمع الأشيع Schals، ويقبل أيضًا Schale رسميًا حسب Duden',pl:'die Schals'},{a:'die',n:'Krawatte',ar:'ربطة عنق',pl:'die Krawatten'},
+    {a:'der',n:'Anzug',ar:'بدلة',pl:'die Anzüge'},{a:'der',n:'Pullover',ar:'كنزة',pl:'die Pullover'},{a:'der',n:'Pyjama',ar:'بيجاما',pl:'die Pyjamas'},
+    {a:'der',n:'Gürtel',ar:'حزام',pl:'die Gürtel'},{a:'die',n:'Sonnenbrille',ar:'نظارة شمسية',pl:'die Sonnenbrillen'},{a:'der',n:'Ring',ar:'خاتم',pl:'die Ringe'},
+    {a:'die',n:'Kette',ar:'عقد/سلسلة',pl:'die Ketten'},{a:'die',n:'Uhr',ar:'ساعة',pl:'die Uhren'},
+    {a:'der',n:'Handschuh',ar:'قفاز',pl:'die Handschuhe'},{a:'der',n:'Regenmantel',ar:'معطف مطر',pl:'die Regenmäntel'},{a:'der',n:'Stiefel',ar:'حذاء طويل',pl:'die Stiefel'},
+    {a:'die',n:'Sandale',ar:'صندل',pl:'die Sandalen'},{a:'der',n:'Badeanzug',ar:'مايوه',pl:'die Badeanzüge'},{a:'das',n:'Unterhemd',ar:'فانلة داخلية',pl:'die Unterhemden'},
+    {a:'die',n:'Unterhose',ar:'لباس داخلي',pl:'die Unterhosen'},{a:'der',n:'Büstenhalter',ar:'حمالة صدر',pl:'die Büstenhalter'},
+    {a:'die',n:'Strumpfhose',ar:'كولون',note:'جورب طويل يغطي الساق كاملة حتى الخصر',pl:'die Strumpfhosen'},
+    {a:'das',n:'T-Shirt',ar:'تي شيرت',pl:'die T-Shirts'},{a:'die',n:'Weste',ar:'صديري',pl:'die Westen'},{a:'der',n:'Trainingsanzug',ar:'بدلة رياضية',pl:'die Trainingsanzüge'},
+    {a:'die',n:'Shorts',ar:'شورت',pl:null},
+    {a:'der',n:'Sakko',ar:'جاكيت رسمي',note:'جاكيت رسمي للرجال؛ في ألمانيا يُقال der Sakko، وفي النمسا das Sakko (كلاهما صحيح رسميًا)',pl:'die Sakkos'},
+    {a:'die',n:'Bluse',ar:'بلوزة',pl:'die Blusen'},{a:'der',n:'Poncho',ar:'بونشو',pl:'die Ponchos'},{a:'das',n:'Abendkleid',ar:'فستان سهرة',pl:'die Abendkleider'},
+    {a:'der',n:'Overall',ar:'أفرول',note:'بدلة عمل كاملة تغطي الجسم كله',pl:'die Overalls'},
+    {a:'die',n:'Latzhose',ar:'بنطلون بحمالات',note:'بنطلون له حمالات تغطي الصدر',pl:'die Latzhosen'},
+    {a:'der',n:'Umhang',ar:'عباءة',pl:'die Umhänge'},{a:'das',n:'Kopftuch',ar:'غطاء رأس',pl:'die Kopftücher'},{a:'der',n:'Turban',ar:'عمامة',pl:'die Turbane'},
+    {a:'das',n:'Armband',ar:'سوار',pl:'die Armbänder'},{a:'der',n:'Ohrring',ar:'قرط',pl:'die Ohrringe'},{a:'die',n:'Brosche',ar:'بروش',pl:'die Broschen'},
+    {a:'die',n:'Handtasche',ar:'حقيبة يد',pl:'die Handtaschen'},{a:'das',n:'Portemonnaie',ar:'محفظة نقود',pl:'die Portemonnaies'},
+    {a:'der',n:'Reißverschluss',ar:'سحاب',pl:'die Reißverschlüsse'},{a:'der',n:'Knopf',ar:'زر',pl:'die Knöpfe'},{a:'der',n:'Stoff',ar:'قماش',pl:'die Stoffe'}
+  ]},
+  { id:'zuhause', ar:'المنزل والأثاث', de:'Zuhause', order:6, hasArticles:true, words:[
+    {a:'das',n:'Haus',ar:'بيت',pl:'die Häuser'},{a:'die',n:'Wohnung',ar:'شقة',pl:'die Wohnungen'},{a:'das',n:'Zimmer',ar:'غرفة',pl:'die Zimmer'},
+    {a:'die',n:'Küche',ar:'مطبخ',pl:'die Küchen'},{a:'das',n:'Bad',ar:'حمام',pl:'die Bäder'},{a:'das',n:'Bett',ar:'سرير',pl:'die Betten'},
+    {a:'der',n:'Tisch',ar:'طاولة',pl:'die Tische'},{a:'der',n:'Stuhl',ar:'كرسي',pl:'die Stühle'},{a:'der',n:'Schrank',ar:'خزانة',pl:'die Schränke'},
+    {a:'das',n:'Fenster',ar:'نافذة',pl:'die Fenster'},{a:'die',n:'Tür',ar:'باب',pl:'die Türen'},{a:'die',n:'Lampe',ar:'مصباح',pl:'die Lampen'},
+    {a:'der',n:'Balkon',ar:'شرفة',note:'الجمع القياسي Balkons، وBalkone صحيح أيضًا (منتشر في جنوب ألمانيا والنمسا وسويسرا)',pl:'die Balkons'},
+    {a:'der',n:'Garten',ar:'حديقة',pl:'die Gärten'},{a:'das',n:'Dach',ar:'سقف',pl:'die Dächer'},
+    {a:'die',n:'Wand',ar:'حائط',pl:'die Wände'},{a:'der',n:'Boden',ar:'أرضية',pl:'die Böden'},{a:'die',n:'Treppe',ar:'سلم',pl:'die Treppen'},
+    {a:'der',n:'Spiegel',ar:'مرآة',pl:'die Spiegel'},{a:'das',n:'Sofa',ar:'كنبة',pl:'die Sofas'},{a:'der',n:'Teppich',ar:'سجادة',pl:'die Teppiche'},
+    {a:'das',n:'Regal',ar:'رف',pl:'die Regale'},
+    {a:'die',n:'Waschmaschine',ar:'غسالة',pl:'die Waschmaschinen'},{a:'die',n:'Klimaanlage',ar:'مكيف هواء',pl:'die Klimaanlagen'},{a:'der',n:'Aufzug',ar:'مصعد',pl:'die Aufzüge'},
+    {a:'der',n:'Keller',ar:'قبو',pl:'die Keller'},{a:'der',n:'Dachboden',ar:'علية المنزل',pl:'die Dachböden'},{a:'die',n:'Garage',ar:'جراج',pl:'die Garagen'},
+    {a:'der',n:'Flur',ar:'ممر',pl:'die Flure'},{a:'die',n:'Terrasse',ar:'تراس',pl:'die Terrassen'},{a:'der',n:'Zaun',ar:'سياج',pl:'die Zäune'},
+    {a:'das',n:'Schloss',ar:'قفل',note:'نفس الكلمة تعني أيضًا "قصر" حسب السياق',pl:'die Schlösser'},
+    {a:'der',n:'Schlüssel',ar:'مفتاح',pl:'die Schlüssel'},{a:'die',n:'Steckdose',ar:'مقبس كهربائي',pl:'die Steckdosen'},
+    {a:'der',n:'Schalter',ar:'مفتاح الإضاءة',pl:'die Schalter'},{a:'die',n:'Heizung',ar:'تدفئة',pl:'die Heizungen'},{a:'der',n:'Kamin',ar:'مدفأة',pl:'die Kamine'},
+    {a:'der',n:'Vorhang',ar:'ستارة',pl:'die Vorhänge'},{a:'das',n:'Kissen',ar:'وسادة',pl:'die Kissen'},
+    {a:'die',n:'Decke',ar:'سقف/بطانية',note:'نفس الكلمة تعني "سقف الغرفة" أو "بطانية" حسب السياق',pl:'die Decken'},
+    {a:'die',n:'Matratze',ar:'مرتبة',pl:'die Matratzen'},{a:'die',n:'Bettdecke',ar:'لحاف',pl:'die Bettdecken'},{a:'der',n:'Wasserhahn',ar:'صنبور المياه',pl:'die Wasserhähne'},
+    {a:'das',n:'Waschbecken',ar:'حوض الغسيل',pl:'die Waschbecken'},{a:'die',n:'Badewanne',ar:'بانيو',pl:'die Badewannen'},{a:'die',n:'Dusche',ar:'دش',pl:'die Duschen'},
+    {a:'die',n:'Toilette',ar:'مرحاض',pl:'die Toiletten'},{a:'der',n:'Briefkasten',ar:'صندوق البريد',pl:'die Briefkästen'},
+    {a:'der',n:'Kleiderschrank',ar:'دولاب الملابس',pl:'die Kleiderschränke'},{a:'der',n:'Nachttisch',ar:'طاولة السرير الجانبية',pl:'die Nachttische'}
+  ]},
+  { id:'getraenke', ar:'المشروبات', de:'Getränke', order:15, hasArticles:true, words:[
+    {a:'das',n:'Wasser',ar:'ماء',note:'الجمع "Wässer" يُستخدم للإشارة إلى أنواع مختلفة من المياه (مثل المياه المعدنية)؛ ونادرًا "Wasser" أيضًا حسب Duden',pl:'die Wässer'},{a:'der',n:'Kaffee',ar:'قهوة',note:'رسميًا بلا جمع عند الإشارة للمشروب نفسه، لكن "Kaffees" مقبول ومستخدم للإشارة لأنواع أو طلبات متعددة',pl:'die Kaffees'},{a:'der',n:'Tee',ar:'شاي',note:'مثل Kaffee، الجمع "Tees" يُستخدم للإشارة لأنواع شاي مختلفة',pl:'die Tees'},
+    {a:'der',n:'Saft',ar:'عصير',pl:'die Säfte'},{a:'die',n:'Limonade',ar:'ليموناضة',pl:'die Limonaden'},{a:'der',n:'Wein',ar:'نبيذ',pl:'die Weine'},
+    {a:'das',n:'Bier',ar:'بيرة',pl:'die Biere'},{a:'die',n:'Cola',ar:'كولا',pl:'die Colas'},{a:'der',n:'Kakao',ar:'كاكاو',note:'جمع نادر الاستخدام',pl:'die Kakaos'},
+    {a:'der',n:'Smoothie',ar:'سموذي',pl:'die Smoothies'},{a:'der',n:'Energydrink',ar:'مشروب الطاقة',pl:'die Energydrinks'},
+    {a:'das',n:'Mineralwasser',ar:'مياه معدنية',pl:'die Mineralwässer'},{a:'der',n:'Eistee',ar:'شاي مثلج',pl:'die Eistees'},{a:'der',n:'Milchshake',ar:'ميلك شيك',pl:'die Milchshakes'},
+    {a:'der',n:'Sekt',ar:'شمبانيا ألمانية',note:'صيغة الجمع النادرة "Sekte" تُكتب مثل مفرد كلمة أخرى "Sekte" (طائفة)، رغم اختلاف المعنى تمامًا',pl:'die Sekte'},{a:'der',n:'Champagner',ar:'شمبانيا',pl:'die Champagner'},{a:'der',n:'Whisky',ar:'ويسكي',pl:'die Whiskys'},
+    {a:'der',n:'Wodka',ar:'فودكا',pl:'die Wodkas'},{a:'der',n:'Rum',ar:'رم',note:'في جنوب ألمانيا والنمسا وسويسرا تُستخدم أيضًا صيغة "Rume"',pl:'die Rums'},{a:'der',n:'Gin',ar:'جن',pl:'die Gins'},
+    {a:'der',n:'Likör',ar:'مشروب كحولي حلو',pl:'die Liköre'},{a:'der',n:'Apfelsaft',ar:'عصير تفاح',pl:'die Apfelsäfte'},
+    {a:'der',n:'Orangensaft',ar:'عصير برتقال',pl:'die Orangensäfte'},{a:'der',n:'Traubensaft',ar:'عصير عنب',pl:'die Traubensäfte'},
+    {a:'der',n:'Ananassaft',ar:'عصير أناناس',pl:'die Ananassäfte'},{a:'der',n:'Tomatensaft',ar:'عصير طماطم',pl:'die Tomatensäfte'},
+    {a:'der',n:'Grüntee',ar:'شاي أخضر',pl:'die Grüntees'},{a:'der',n:'Schwarztee',ar:'شاي أسود',pl:'die Schwarztees'},{a:'der',n:'Kräutertee',ar:'شاي أعشاب',pl:'die Kräutertees'},
+    {a:'der',n:'Kamillentee',ar:'شاي بابونج',pl:'die Kamillentees'},{a:'der',n:'Pfefferminztee',ar:'شاي نعناع',pl:'die Pfefferminztees'},
+    {a:'der',n:'Espresso',ar:'إسبريسو',note:'يقبل أيضًا الجمع الإيطالي "Espressi"',pl:'die Espressos'},{a:'der',n:'Cappuccino',ar:'كابتشينو',note:'يقبل أيضًا الجمع الإيطالي "Cappuccini"',pl:'die Cappuccinos'},
+    {a:'der',n:'Latte Macchiato',ar:'لاتيه ماكياتو',note:'غالبًا بلا تغيير في الجمع؛ "Latte Macchiatos" شائعة أيضًا',pl:'die Latte Macchiato'},{a:'das',n:'Sodawasser',ar:'مياه صودا',pl:'die Sodawässer'},
+    {a:'die',n:'Apfelschorle',ar:'عصير تفاح مخفف بالماء الغازي',note:'مشروب ألماني شائع جدًا يُخلط فيه عصير التفاح بماء غازي',pl:'die Apfelschorlen'},
+    {a:'der',n:'Apfelwein',ar:'نبيذ التفاح',pl:'die Apfelweine'},{a:'das',n:'Weizenbier',ar:'بيرة القمح',pl:'die Weizenbiere'},
+    {a:'das',n:'Pils',ar:'بيرة بيلسنر',note:'نوع بيرة ألمانية فاتحة اللون شائعة جدًا',pl:'die Pils'},
+    {a:'der',n:'Glühwein',ar:'نبيذ ساخن بالتوابل',note:'يُقدَّم عادة في أسواق الكريسماس الألمانية',pl:'die Glühweine'},
+    {a:'der',n:'Eierlikör',ar:'مشروب كحولي بالبيض',pl:'die Eierliköre'},{a:'der',n:'Frappé',ar:'قهوة مثلجة مخفوقة',pl:'die Frappés'},
+    {a:'der',n:'Ayran',ar:'عيران',note:'لبن مخفوق مملح، أصله تركي وشائع جدًا في ألمانيا؛ غير مدرج رسميًا في Duden ويُستخدم عادة كاسم غير معدود',pl:null},
+    {a:'das',n:'Kokoswasser',ar:'ماء جوز الهند',pl:'die Kokoswässer'},{a:'der',n:'Ingwertee',ar:'شاي الزنجبيل',pl:'die Ingwertees'},
+    {a:'der',n:'Fencheltee',ar:'شاي الشمر',pl:'die Fencheltees'},{a:'der',n:'Zitronentee',ar:'شاي بالليمون',pl:'die Zitronentees'},
+    {a:'der',n:'Hagebuttentee',ar:'شاي ثمر الورد',pl:'die Hagebuttentees'},
+    {a:'der',n:'Malzkaffee',ar:'قهوة الشعير',note:'بديل للقهوة خالٍ من الكافيين مصنوع من الشعير المحمص',pl:'die Malzkaffees'},
+    {a:'das',n:'Tonicwater',ar:'مياه تونيك',note:'يظهر في Duden تحت الشكل المختصر "Tonic" (das Tonic؛ الجمع die Tonics)',pl:'die Tonicwaters'}
+  ]},
+  { id:'zahlen', ar:'الأرقام', de:'Zahlen', order:1, hasArticles:false, words:[
+    {n:'eins',ar:'واحد'},{n:'zwei',ar:'اثنان'},{n:'drei',ar:'ثلاثة'},{n:'vier',ar:'أربعة'},
+    {n:'fünf',ar:'خمسة'},{n:'sechs',ar:'ستة'},{n:'sieben',ar:'سبعة'},{n:'acht',ar:'ثمانية'},
+    {n:'neun',ar:'تسعة'},{n:'zehn',ar:'عشرة'},{n:'elf',ar:'أحد عشر'},{n:'zwölf',ar:'اثنا عشر'},
+    {n:'dreizehn',ar:'ثلاثة عشر'},{n:'vierzehn',ar:'أربعة عشر'},{n:'fünfzehn',ar:'خمسة عشر'},
+    {n:'sechzehn',ar:'ستة عشر'},{n:'siebzehn',ar:'سبعة عشر'},{n:'achtzehn',ar:'ثمانية عشر'},
+    {n:'neunzehn',ar:'تسعة عشر'},{n:'zwanzig',ar:'عشرون'}
+  ]},
+  { id:'berufe', ar:'المهن', de:'Berufe', order:22, hasArticles:true, words:[
+    {a:'der',n:'Arzt',ar:'طبيب',pl:'die Ärzte'},{a:'der',n:'Lehrer',ar:'معلم',pl:'die Lehrer'},{a:'der',n:'Ingenieur',ar:'مهندس',note:'رغم انتهائها بحروف تشبه -er، فهي لاحقة فرنسية مختلفة (-eur) وجمعها Ingenieure وليس بلا تغيير',pl:'die Ingenieure'},
+    {a:'der',n:'Polizist',ar:'شرطي',pl:'die Polizisten'},{a:'der',n:'Koch',ar:'طباخ',pl:'die Köche'},{a:'der',n:'Bauer',ar:'فلاح',note:'استثناء مهم: رغم انتهائها بـ -er فهي اسم "ضعيف" (schwache Deklination) وجمعها Bauern، وليس بلا تغيير مثل باقي كلمات -er',pl:'die Bauern'},
+    {a:'der',n:'Anwalt',ar:'محامي',pl:'die Anwälte'},{a:'der',n:'Friseur',ar:'حلاق',note:'لاحقة فرنسية (-eur)، جمعها Friseure وليس بلا تغيير',pl:'die Friseure'},{a:'der',n:'Pilot',ar:'طيار',pl:'die Piloten'},
+    {a:'die',n:'Krankenschwester',ar:'ممرضة',pl:'die Krankenschwestern'},{a:'der',n:'Verkäufer',ar:'بائع',pl:'die Verkäufer'},{a:'der',n:'Student',ar:'طالب',pl:'die Studenten'},
+    {a:'der',n:'Feuerwehrmann',ar:'رجل إطفاء',note:'الجمع الشامل للجنسين "Feuerwehrleute"، ويقبل أيضًا "Feuerwehrmänner" للذكور تحديدًا',pl:'die Feuerwehrleute'},{a:'der',n:'Kellner',ar:'نادل',pl:'die Kellner'},{a:'der',n:'Bäcker',ar:'خباز',pl:'die Bäcker'},
+    {a:'der',n:'Elektriker',ar:'كهربائي',pl:'die Elektriker'},{a:'der',n:'Zahnarzt',ar:'طبيب أسنان',pl:'die Zahnärzte'},{a:'der',n:'Journalist',ar:'صحفي',pl:'die Journalisten'},
+    {a:'der',n:'Fotograf',ar:'مصور',pl:'die Fotografen'},{a:'der',n:'Architekt',ar:'مهندس معماري',pl:'die Architekten'},{a:'der',n:'Programmierer',ar:'مبرمج',pl:'die Programmierer'},
+    {a:'der',n:'Übersetzer',ar:'مترجم',pl:'die Übersetzer'},{a:'der',n:'Soldat',ar:'جندي',pl:'die Soldaten'},{a:'der',n:'Richter',ar:'قاضي',pl:'die Richter'},
+    {a:'der',n:'Chirurg',ar:'جراح',pl:'die Chirurgen'},{a:'der',n:'Apotheker',ar:'صيدلي',pl:'die Apotheker'},{a:'der',n:'Tierarzt',ar:'طبيب بيطري',pl:'die Tierärzte'},
+    {a:'der',n:'Psychologe',ar:'أخصائي نفسي',pl:'die Psychologen'},{a:'der',n:'Buchhalter',ar:'محاسب',pl:'die Buchhalter'},{a:'der',n:'Manager',ar:'مدير',pl:'die Manager'},
+    {a:'der',n:'Sekretär',ar:'سكرتير',note:'لاحقة فرنسية/لاتينية (-är)، جمعها Sekretäre وليس بلا تغيير',pl:'die Sekretäre'},
+    {a:'der',n:'Landwirt',ar:'مزارع',note:'مرادف حديث وأكثر رسمية لكلمة Bauer',pl:'die Landwirte'},
+    {a:'der',n:'Fischer',ar:'صياد سمك',pl:'die Fischer'},{a:'der',n:'Metzger',ar:'جزار',pl:'die Metzger'},{a:'der',n:'Schneider',ar:'خياط',pl:'die Schneider'},
+    {a:'der',n:'Schuster',ar:'إسكافي',pl:'die Schuster'},{a:'der',n:'Tischler',ar:'نجار',pl:'die Tischler'},{a:'der',n:'Maler',ar:'رسام/دهان',pl:'die Maler'},
+    {a:'der',n:'Klempner',ar:'سباك',pl:'die Klempner'},{a:'der',n:'Mechaniker',ar:'ميكانيكي',pl:'die Mechaniker'},{a:'der',n:'Fahrer',ar:'سائق',pl:'die Fahrer'},
+    {a:'der',n:'Musiker',ar:'موسيقي',pl:'die Musiker'},{a:'der',n:'Schauspieler',ar:'ممثل',pl:'die Schauspieler'},{a:'der',n:'Sänger',ar:'مغني',pl:'die Sänger'},
+    {a:'der',n:'Tänzer',ar:'راقص',pl:'die Tänzer'},{a:'der',n:'Schriftsteller',ar:'كاتب',pl:'die Schriftsteller'},{a:'der',n:'Designer',ar:'مصمم',pl:'die Designer'},
+    {a:'der',n:'Wissenschaftler',ar:'عالم',pl:'die Wissenschaftler'},
+    {a:'der',n:'Dolmetscher',ar:'مترجم فوري',note:'مترجم شفهي فوري، بينما Übersetzer مترجم للنصوص المكتوبة',pl:'die Dolmetscher'},
+    {a:'der',n:'Hausmeister',ar:'عامل صيانة المبنى',pl:'die Hausmeister'}
+  ]},
+  { id:'verkehr', ar:'وسائل المواصلات', de:'Verkehrsmittel', order:24, hasArticles:true, words:[
+    {a:'das',n:'Auto',ar:'سيارة',pl:'die Autos'},{a:'der',n:'Bus',ar:'أتوبيس',pl:'die Busse'},{a:'der',n:'Zug',ar:'قطار',pl:'die Züge'},
+    {a:'das',n:'Fahrrad',ar:'دراجة',pl:'die Fahrräder'},{a:'das',n:'Flugzeug',ar:'طائرة',pl:'die Flugzeuge'},{a:'das',n:'Schiff',ar:'سفينة',pl:'die Schiffe'},
+    {a:'die',n:'U-Bahn',ar:'مترو',pl:'die U-Bahnen'},{a:'das',n:'Taxi',ar:'تاكسي',pl:'die Taxis'},{a:'der',n:'Lastwagen',ar:'شاحنة',pl:'die Lastwagen'},
+    {a:'das',n:'Motorrad',ar:'موتوسيكل',pl:'die Motorräder'},{a:'die',n:'Straßenbahn',ar:'ترام',pl:'die Straßenbahnen'},{a:'das',n:'Boot',ar:'قارب',pl:'die Boote'},
+    {a:'der',n:'Hubschrauber',ar:'هليكوبتر',pl:'die Hubschrauber'},{a:'die',n:'Ampel',ar:'إشارة مرور',pl:'die Ampeln'},{a:'der',n:'Roller',ar:'سكوتر',pl:'die Roller'},
+    {a:'die',n:'Fähre',ar:'عبّارة',pl:'die Fähren'},
+    {a:'das',n:'U-Boot',ar:'غواصة',pl:'die U-Boote'},{a:'das',n:'Segelboot',ar:'قارب شراعي',pl:'die Segelboote'},{a:'der',n:'Traktor',ar:'جرار',pl:'die Traktoren'},
+    {a:'der',n:'Krankenwagen',ar:'سيارة إسعاف',pl:'die Krankenwagen'},{a:'das',n:'Polizeiauto',ar:'سيارة شرطة',pl:'die Polizeiautos'},
+    {a:'der',n:'Feuerwehrwagen',ar:'سيارة إطفاء',pl:'die Feuerwehrwagen'},{a:'der',n:'Wohnwagen',ar:'عربة سكن متنقلة',pl:'die Wohnwagen'},
+    {a:'der',n:'Kombi',ar:'سيارة ستيشن',note:'اختصار لكلمة Kombiwagen',pl:'die Kombis'},
+    {a:'der',n:'Geländewagen',ar:'سيارة دفع رباعي',pl:'die Geländewagen'},
+    {a:'das',n:'Cabrio',ar:'سيارة مكشوفة',note:'اختصار لكلمة Cabriolet',pl:'die Cabrios'},
+    {a:'der',n:'Kinderwagen',ar:'عربة أطفال',pl:'die Kinderwagen'},{a:'der',n:'Rollstuhl',ar:'كرسي متحرك',pl:'die Rollstühle'},
+    {a:'die',n:'Kutsche',ar:'عربة تجرها الخيول',pl:'die Kutschen'},{a:'das',n:'Skateboard',ar:'لوح تزلج',pl:'die Skateboards'},{a:'die',n:'Rakete',ar:'صاروخ',pl:'die Raketen'},
+    {a:'der',n:'Heißluftballon',ar:'منطاد الهواء الساخن',note:'يقبل أيضًا الجمع "Heißluftballone" حسب Duden (Ballons/Ballone)',pl:'die Heißluftballons'},{a:'das',n:'Segelflugzeug',ar:'طائرة شراعية',pl:'die Segelflugzeuge'},
+    {a:'die',n:'Straße',ar:'شارع',pl:'die Straßen'},{a:'die',n:'Autobahn',ar:'الطريق السريع',pl:'die Autobahnen'},{a:'die',n:'Haltestelle',ar:'محطة توقف',pl:'die Haltestellen'},
+    {a:'der',n:'Bahnsteig',ar:'رصيف المحطة',pl:'die Bahnsteige'},{a:'die',n:'Kreuzung',ar:'تقاطع طرق',pl:'die Kreuzungen'},{a:'der',n:'Fahrplan',ar:'جدول المواعيد',pl:'die Fahrpläne'},
+    {a:'die',n:'Fahrkarte',ar:'تذكرة السفر',pl:'die Fahrkarten'},{a:'der',n:'Führerschein',ar:'رخصة القيادة',pl:'die Führerscheine'},
+    {a:'der',n:'Sicherheitsgurt',ar:'حزام الأمان',pl:'die Sicherheitsgurte'},{a:'das',n:'Lenkrad',ar:'عجلة القيادة',pl:'die Lenkräder'},
+    {a:'der',n:'Reifen',ar:'إطار العجلة',pl:'die Reifen'},{a:'die',n:'Bremse',ar:'الفرامل',pl:'die Bremsen'},{a:'der',n:'Motor',ar:'المحرك',pl:'die Motoren'},
+    {a:'das',n:'Benzin',ar:'بنزين',note:'اسم غير معدود عادة؛ الجمع "Benzine" يُستخدم للإشارة إلى أنواع مختلفة من البنزين',pl:'die Benzine'},{a:'der',n:'Kofferraum',ar:'صندوق السيارة الخلفي',pl:'die Kofferräume'},
+    {a:'die',n:'Windschutzscheibe',ar:'الزجاج الأمامي',pl:'die Windschutzscheiben'},{a:'das',n:'Nummernschild',ar:'لوحة الأرقام',pl:'die Nummernschilder'}
+  ]},
+  { id:'wetter', ar:'الطقس', de:'Wetter', order:19, hasArticles:true, words:[
+    {a:'die',n:'Sonne',ar:'شمس',note:'الجمع "Sonnen" يُستخدم في السياق الفلكي (نجوم/شموس أخرى)؛ كظاهرة جوية تبقى الشمس في صيغة المفرد دائمًا',pl:'die Sonnen'},{a:'der',n:'Regen',ar:'مطر',note:'جمع نادر الاستخدام حسب Duden',pl:'die Regen'},{a:'der',n:'Schnee',ar:'ثلج',note:'اسم غير معدود، لا يوجد جمع له حسب Duden',pl:null},
+    {a:'der',n:'Wind',ar:'رياح',pl:'die Winde'},{a:'die',n:'Wolke',ar:'سحابة',pl:'die Wolken'},{a:'der',n:'Sturm',ar:'عاصفة',pl:'die Stürme'},
+    {a:'der',n:'Nebel',ar:'ضباب',pl:'die Nebel'},{a:'das',n:'Gewitter',ar:'عاصفة رعدية',pl:'die Gewitter'},{a:'die',n:'Hitze',ar:'حر',note:'اسم غير معدود عادة؛ الجمع "Hitzen" يُستخدم فقط في اللغة التخصصية حسب Duden',pl:null},
+    {a:'die',n:'Kälte',ar:'برد',note:'اسم غير معدود، لا يوجد له جمع حسب Duden',pl:null},{a:'der',n:'Blitz',ar:'برق',pl:'die Blitze'},{a:'der',n:'Donner',ar:'رعد',note:'جمع نادر الاستخدام حسب Duden',pl:'die Donner'},
+    {a:'der',n:'Regenbogen',ar:'قوس قزح',pl:'die Regenbögen'},{a:'der',n:'Regenschirm',ar:'مظلة',pl:'die Regenschirme'},
+    {a:'der',n:'Hagel',ar:'برد',pl:'die Hagel'},{a:'das',n:'Klima',ar:'المناخ',note:'الأشكال البديلة الأقل شيوعًا: Klimas وKlimate حسب Duden',pl:'die Klimata'},{a:'die',n:'Temperatur',ar:'درجة الحرارة',pl:'die Temperaturen'},
+    {a:'der',n:'Grad',ar:'درجة',note:'بعد الأرقام تبقى بلا تغيير (مثل 30 Grad)؛ الجمع "Grade" يُستخدم في معانٍ أخرى غير القياس (مثل درجات القرابة)',pl:'die Grad'},{a:'das',n:'Thermometer',ar:'ميزان الحرارة',pl:'die Thermometer'},{a:'der',n:'Himmel',ar:'السماء',pl:'die Himmel'},
+    {a:'der',n:'Mond',ar:'القمر',pl:'die Monde'},{a:'der',n:'Stern',ar:'النجمة',pl:'die Sterne'},{a:'der',n:'Sonnenaufgang',ar:'شروق الشمس',pl:'die Sonnenaufgänge'},
+    {a:'der',n:'Sonnenuntergang',ar:'غروب الشمس',pl:'die Sonnenuntergänge'},{a:'der',n:'Sonnenschein',ar:'ضوء الشمس',note:'اسم غير معدود، بلا جمع شائع',pl:null},
+    {a:'der',n:'Schatten',ar:'الظل',pl:'die Schatten'},{a:'die',n:'Dämmerung',ar:'الشفق',note:'نادرة الجمع',pl:'die Dämmerungen'},{a:'der',n:'Regentropfen',ar:'قطرة مطر',pl:'die Regentropfen'},
+    {a:'die',n:'Schneeflocke',ar:'ندفة ثلج',pl:'die Schneeflocken'},{a:'die',n:'Überschwemmung',ar:'فيضان',pl:'die Überschwemmungen'},
+    {a:'der',n:'Taifun',ar:'إعصار مداري',note:'إعصار يحدث في المحيط الهادئ وشرق آسيا',pl:'die Taifune'},
+    {a:'der',n:'Hurrikan',ar:'إعصار',note:'إعصار يحدث في المحيط الأطلسي وأمريكا؛ يقبل أيضًا جمع "Hurrikans"',pl:'die Hurrikane'},
+    {a:'der',n:'Tornado',ar:'إعصار قمعي',pl:'die Tornados'},{a:'der',n:'Schauer',ar:'زخة مطر',pl:'die Schauer'},{a:'der',n:'Niederschlag',ar:'هطول الأمطار',pl:'die Niederschläge'},
+    {a:'die',n:'Windböe',ar:'هبة رياح',pl:'die Windböen'},
+    {a:'der',n:'Orkan',ar:'عاصفة هوجاء',note:'أقوى درجات مقياس شدة الرياح',pl:'die Orkane'},
+    {a:'der',n:'Schneesturm',ar:'عاصفة ثلجية',pl:'die Schneestürme'},{a:'der',n:'Sandsturm',ar:'عاصفة رملية',pl:'die Sandstürme'},
+    {a:'die',n:'Sonnenfinsternis',ar:'كسوف الشمس',pl:'die Sonnenfinsternisse'},{a:'die',n:'Mondfinsternis',ar:'خسوف القمر',pl:'die Mondfinsternisse'},
+    {a:'die',n:'Wettervorhersage',ar:'توقعات الطقس',pl:'die Wettervorhersagen'},{a:'die',n:'Luft',ar:'الهواء',note:'اسم غير معدود عادة؛ الجمع "Lüfte" أدبي/شاعري ونادر الاستخدام',pl:null},
+    {a:'der',n:'Monsun',ar:'الرياح الموسمية',pl:'die Monsune'},
+    {a:'der',n:'Dunst',ar:'شبورة خفيفة',note:'ضباب خفيف جدًا؛ اسم غير معدود عادة، ونادرًا ما يُستخدم جمع "Dünste" للإشارة لأنواع مختلفة من الأبخرة',pl:null},
+    {a:'die',n:'Regenzeit',ar:'موسم الأمطار',pl:'die Regenzeiten'},{a:'die',n:'Trockenzeit',ar:'موسم الجفاف',pl:'die Trockenzeiten'},
+    {a:'der',n:'Nieselregen',ar:'رذاذ المطر',note:'اسم غير معدود مثل Regen',pl:null},{a:'die',n:'Wärme',ar:'الدفء',note:'اسم غير معدود عادة',pl:null},{a:'die',n:'Kühle',ar:'البرودة اللطيفة',note:'اسم غير معدود',pl:null}
+  ]},
+  { id:'schule', ar:'أدوات المدرسة', de:'Schulsachen', order:25, hasArticles:true, words:[
+    {a:'das',n:'Buch',ar:'كتاب',pl:'die Bücher'},{a:'der',n:'Bleistift',ar:'قلم رصاص',pl:'die Bleistifte'},{a:'der',n:'Kugelschreiber',ar:'قلم حبر',pl:'die Kugelschreiber'},
+    {a:'das',n:'Heft',ar:'كراسة',pl:'die Hefte'},{a:'der',n:'Rucksack',ar:'حقيبة ظهر',pl:'die Rucksäcke'},{a:'die',n:'Tafel',ar:'سبورة',pl:'die Tafeln'},
+    {a:'das',n:'Lineal',ar:'مسطرة',pl:'die Lineale'},{a:'die',n:'Schere',ar:'مقص',pl:'die Scheren'},{a:'der',n:'Radiergummi',ar:'ممحاة',pl:'die Radiergummis'},
+    {a:'die',n:'Kreide',ar:'طباشير',note:'اسم غير معدود بكل معانيها الثلاثة حسب Duden (المادة، القلم الطباشيري، والعصر الجيولوجي)',pl:null},{a:'der',n:'Ordner',ar:'ملف',pl:'die Ordner'},{a:'der',n:'Stundenplan',ar:'الجدول الدراسي',pl:'die Stundenpläne'},
+    {a:'das',n:'Klassenzimmer',ar:'الفصل الدراسي',pl:'die Klassenzimmer'},{a:'das',n:'Notizbuch',ar:'دفتر ملاحظات',pl:'die Notizbücher'},
+    {a:'der',n:'Taschenrechner',ar:'آلة حاسبة',pl:'die Taschenrechner'},{a:'der',n:'Spitzer',ar:'مبراة',pl:'die Spitzer'},{a:'der',n:'Textmarker',ar:'قلم تحديد فسفوري',pl:'die Textmarker'},
+    {a:'der',n:'Filzstift',ar:'قلم فلوماستر',pl:'die Filzstifte'},{a:'der',n:'Buntstift',ar:'قلم تلوين',pl:'die Buntstifte'},{a:'die',n:'Mappe',ar:'ملف',pl:'die Mappen'},
+    {a:'der',n:'Klebstift',ar:'قلم صمغ',pl:'die Klebstifte'},{a:'die',n:'Büroklammer',ar:'مشبك ورق',pl:'die Büroklammern'},{a:'der',n:'Hefter',ar:'دباسة',pl:'die Hefter'},
+    {a:'der',n:'Zirkel',ar:'فرجار',pl:'die Zirkel'},
+    {a:'das',n:'Geodreieck',ar:'مسطرة مثلثة بزاوية',note:'مسطرة مثلثة الشكل بها منقلة لقياس الزوايا',pl:'die Geodreiecke'},
+    {a:'das',n:'Federmäppchen',ar:'مقلمة',note:'المصطلح الأكثر شيوعًا للمقلمة (وليس Federmappe)',pl:'die Federmäppchen'},{a:'die',n:'Schultasche',ar:'حقيبة مدرسية',pl:'die Schultaschen'},
+    {a:'das',n:'Pausenbrot',ar:'ساندويتش الفسحة',note:'ساندويتش يأخذه الطالب معه ليأكله وقت الفسحة',pl:'die Pausenbrote'},
+    {a:'die',n:'Hausaufgabe',ar:'الواجب المدرسي',pl:'die Hausaufgaben'},{a:'die',n:'Prüfung',ar:'الامتحان',pl:'die Prüfungen'},{a:'die',n:'Note',ar:'الدرجة',pl:'die Noten'},
+    {a:'das',n:'Zeugnis',ar:'شهادة الدرجات',pl:'die Zeugnisse'},{a:'der',n:'Unterricht',ar:'الحصة الدراسية',note:'اسم غير معدود، يُستخدم دائمًا في صيغة المفرد',pl:null},{a:'die',n:'Pause',ar:'الفسحة',pl:'die Pausen'},
+    {a:'der',n:'Direktor',ar:'مدير المدرسة',note:'مذكرة: تنتهي بـ -or بنطق مشدد (لاحقة لاتينية) وليست -er الألمانية الأصلية، فجمعها Direktoren وليس بلا تغيير',pl:'die Direktoren'},{a:'die',n:'Klasse',ar:'الفصل (كمجموعة طلاب)',pl:'die Klassen'},
+    {a:'der',n:'Mitschüler',ar:'زميل الدراسة',pl:'die Mitschüler'},{a:'das',n:'Fach',ar:'المادة الدراسية',pl:'die Fächer'},
+    {a:'die',n:'Mathematik',ar:'الرياضيات',note:'اسم غير معدود عادة، مثل باقي أسماء المواد العلمية',pl:null},{a:'die',n:'Geschichte',ar:'مادة التاريخ',note:'بمعنى "مادة التاريخ" اسم غير معدود؛ أما بمعنى "قصة" فجمعها الشائع "Geschichten"',pl:null},{a:'die',n:'Biologie',ar:'الأحياء',note:'اسم غير معدود عادة',pl:null},
+    {a:'die',n:'Chemie',ar:'الكيمياء',note:'اسم غير معدود عادة',pl:null},{a:'die',n:'Physik',ar:'الفيزياء',note:'اسم غير معدود عادة',pl:null},{a:'die',n:'Kunst',ar:'الفن',pl:'die Künste'},
+    {a:'die',n:'Fremdsprache',ar:'اللغة الأجنبية',pl:'die Fremdsprachen'},{a:'der',n:'Wortschatz',ar:'المفردات',note:'نادر الاستخدام، يشير لمفردات لغات أو مجالات مختلفة',pl:'die Wortschätze'},{a:'die',n:'Grammatik',ar:'القواعد',note:'نادر الاستخدام، يشير لكتب أو أنظمة قواعد لغوية مختلفة',pl:'die Grammatiken'},
+    {a:'der',n:'Test',ar:'اختبار قصير',pl:'die Tests'},{a:'die',n:'Tinte',ar:'الحبر',note:'الجمع يشير لأنواع مختلفة من الحبر',pl:'die Tinten'},
+    {a:'der',n:'Tintenkiller',ar:'ممحاة الحبر',note:'قلم خاص لإزالة كتابة الحبر، شائع في المدارس الألمانية',pl:'die Tintenkiller'}
+  ]},
+  { id:'orte', ar:'أماكن في المدينة', de:'Orte', order:23, hasArticles:true, words:[
+    {a:'der',n:'Markt',ar:'سوق',pl:'die Märkte'},{a:'das',n:'Krankenhaus',ar:'مستشفى',pl:'die Krankenhäuser'},{a:'die',n:'Bank',ar:'بنك',note:'بمعنى بنك (مؤسسة مالية) جمعها Banken؛ أما Bank بمعنى مقعد فجمعها Bänke',pl:'die Banken'},
+    {a:'der',n:'Park',ar:'حديقة عامة',pl:'die Parks'},{a:'die',n:'Kirche',ar:'كنيسة',pl:'die Kirchen'},{a:'die',n:'Moschee',ar:'مسجد',pl:'die Moscheen'},
+    {a:'das',n:'Restaurant',ar:'مطعم',pl:'die Restaurants'},{a:'der',n:'Bahnhof',ar:'محطة القطار',pl:'die Bahnhöfe'},{a:'das',n:'Hotel',ar:'فندق',pl:'die Hotels'},
+    {a:'die',n:'Bibliothek',ar:'مكتبة',pl:'die Bibliotheken'},{a:'das',n:'Geschäft',ar:'محل',pl:'die Geschäfte'},{a:'die',n:'Schule',ar:'مدرسة',pl:'die Schulen'},
+    {a:'der',n:'Flughafen',ar:'مطار',pl:'die Flughäfen'},{a:'das',n:'Kino',ar:'سينما',pl:'die Kinos'},{a:'das',n:'Museum',ar:'متحف',pl:'die Museen'},
+    {a:'der',n:'Supermarkt',ar:'سوبر ماركت',pl:'die Supermärkte'},
+    {a:'die',n:'Apotheke',ar:'صيدلية',pl:'die Apotheken'},{a:'die',n:'Tankstelle',ar:'محطة وقود',pl:'die Tankstellen'},{a:'der',n:'Zoo',ar:'حديقة حيوان',pl:'die Zoos'},
+    {a:'das',n:'Stadion',ar:'ملعب',pl:'die Stadien'},{a:'die',n:'Universität',ar:'جامعة',pl:'die Universitäten'},{a:'der',n:'Kindergarten',ar:'روضة أطفال',pl:'die Kindergärten'},
+    {a:'das',n:'Rathaus',ar:'مبنى البلدية',pl:'die Rathäuser'},{a:'die',n:'Post',ar:'مكتب البريد',note:'تُستخدم عادة في المفرد فقط؛ للإشارة لعدة مكاتب بريد تُستخدم Postämter أو Poststellen',pl:null},{a:'das',n:'Gericht',ar:'المحكمة',pl:'die Gerichte'},
+    {a:'das',n:'Gefängnis',ar:'السجن',pl:'die Gefängnisse'},{a:'die',n:'Fabrik',ar:'المصنع',pl:'die Fabriken'},{a:'das',n:'Büro',ar:'المكتب',pl:'die Büros'},
+    {a:'der',n:'Friedhof',ar:'المقبرة',pl:'die Friedhöfe'},{a:'der',n:'Strand',ar:'الشاطئ',pl:'die Strände'},{a:'der',n:'Wald',ar:'الغابة',pl:'die Wälder'},
+    {a:'der',n:'Berg',ar:'الجبل',pl:'die Berge'},
+    {a:'der',n:'See',ar:'البحيرة',note:'der See = بحيرة (مذكر)، أما die See فتعني البحر',pl:'die Seen'},
+    {a:'der',n:'Fluss',ar:'النهر',pl:'die Flüsse'},{a:'das',n:'Meer',ar:'البحر',pl:'die Meere'},{a:'die',n:'Wüste',ar:'الصحراء',pl:'die Wüsten'},
+    {a:'das',n:'Dorf',ar:'القرية',pl:'die Dörfer'},{a:'die',n:'Stadt',ar:'المدينة',pl:'die Städte'},{a:'der',n:'Platz',ar:'الميدان',pl:'die Plätze'},
+    {a:'die',n:'Fußgängerzone',ar:'منطقة المشاة',pl:'die Fußgängerzonen'},{a:'der',n:'Spielplatz',ar:'ملعب الأطفال',pl:'die Spielplätze'},
+    {a:'das',n:'Schwimmbad',ar:'حمام السباحة',pl:'die Schwimmbäder'},{a:'das',n:'Fitnessstudio',ar:'صالة رياضية',pl:'die Fitnessstudios'},
+    {a:'die',n:'Werkstatt',ar:'ورشة عمل',pl:'die Werkstätten'},{a:'das',n:'Theater',ar:'المسرح',pl:'die Theater'},{a:'die',n:'Oper',ar:'دار الأوبرا',pl:'die Opern'},
+    {a:'die',n:'Grenze',ar:'الحدود',pl:'die Grenzen'},{a:'der',n:'Hafen',ar:'الميناء',pl:'die Häfen'},{a:'die',n:'Botschaft',ar:'السفارة',pl:'die Botschaften'},
+    {a:'der',n:'Vorort',ar:'الضاحية',pl:'die Vororte'}
+  ]},
+  { id:'gefuehle', ar:'المشاعر', de:'Gefühle', order:21, hasArticles:false, words:[
+    {n:'glücklich',ar:'سعيد'},{n:'traurig',ar:'حزين'},{n:'müde',ar:'متعب'},{n:'wütend',ar:'غاضب'},
+    {n:'ängstlich',ar:'خائف'},{n:'aufgeregt',ar:'متحمس'},{n:'gelangweilt',ar:'ضجر'},
+    {n:'nervös',ar:'متوتر'},{n:'zufrieden',ar:'راضٍ'},{n:'überrascht',ar:'متفاجئ'},
+    {n:'verliebt',ar:'واقع في الحب'},{n:'enttäuscht',ar:'محبط'},{n:'dankbar',ar:'ممتن'},
+    {n:'hoffnungsvoll',ar:'متفائل'},{n:'verzweifelt',ar:'يائس'},{n:'neidisch',ar:'حسود'},
+    {n:'schuldig',ar:'مذنب'},{n:'beschämt',ar:'خجلان'},{n:'mutig',ar:'شجاع'},{n:'besorgt',ar:'قلق'},
+    {n:'erleichtert',ar:'مرتاح البال'},{n:'neugierig',ar:'فضولي'},{n:'gleichgültig',ar:'غير مبالٍ'},
+    {n:'genervt',ar:'منزعج'},{n:'frustriert',ar:'محبط'},{n:'begeistert',ar:'متحمس بشغف'},
+    {n:'verärgert',ar:'غاضب قليلاً'},{n:'ruhig',ar:'هادئ'},{n:'fröhlich',ar:'مرح'},
+    {n:'optimistisch',ar:'متفائل'},{n:'pessimistisch',ar:'متشائم'},{n:'selbstbewusst',ar:'واثق من نفسه'},
+    {n:'unsicher',ar:'غير واثق'},{n:'verlegen',ar:'محرج'},{n:'überfordert',ar:'مرهق نفسيًا'},
+    {n:'gerührt',ar:'متأثر'},{n:'zärtlich',ar:'حنون'},{n:'leidenschaftlich',ar:'شغوف'},
+    {n:'gespannt',ar:'متشوق'},{n:'locker',ar:'مرتاح/متحرر'},{n:'angespannt',ar:'متوتر (جسديًا)'},
+    {n:'hilflos',ar:'عاجز'},{n:'euphorisch',ar:'في قمة النشوة'}
+  ]},
+  { id:'gewuerze', ar:'التوابل', de:'Gewürze', order:13, hasArticles:true, words:[
+    {a:'der',n:'Pfeffer',ar:'فلفل أسود',pl:'die Pfeffer'},{a:'das',n:'Salz',ar:'ملح',note:'الجمع Salze نادر الاستخدام (يشير لأنواع الملح)',pl:'die Salze'},
+    {a:'der',n:'Zimt',ar:'قرفة',note:'الجمع Zimte نادر الاستخدام (يشير لأنواع القرفة)',pl:'die Zimte'},
+    {a:'der',n:'Kümmel',ar:'كراوية',note:'كراوية (Caraway)، وهي مختلفة عن Kreuzkümmel (الكمون الحقيقي)',pl:'die Kümmel'},
+    {a:'der',n:'Kreuzkümmel',ar:'كمون',note:'الكمون الحقيقي (Cumin)، مختلف تمامًا عن Kümmel رغم تشابه الاسم',pl:'die Kreuzkümmel'},
+    {a:'der',n:'Ingwer',ar:'زنجبيل',pl:'die Ingwer'},
+    {a:'die',n:'Petersilie',ar:'بقدونس',note:'الجمع Petersilien نادر الاستخدام',pl:'die Petersilien'},
+    {a:'der',n:'Koriander',ar:'كزبرة',pl:'die Koriander'},
+    {a:'die',n:'Kurkuma',ar:'كركم',pl:'die Kurkumen'},{a:'das',n:'Chili',ar:'شطة',pl:'die Chilis'},
+    {a:'die',n:'Minze',ar:'نعناع',pl:'die Minzen'},
+    {a:'der',n:'Sesam',ar:'سمسم',pl:'die Sesams'},
+    {a:'die',n:'Vanille',ar:'فانيليا',pl:'die Vanillen'},
+    {a:'der',n:'Knoblauchpulver',ar:'بودرة ثوم',pl:'die Knoblauchpulver'},
+    {a:'der',n:'Lorbeer',ar:'ورق لورا',pl:'die Lorbeeren'},
+    {a:'das',n:'Paprikapulver',ar:'بابريكا مطحونة',pl:'die Paprikapulver'},
+    {a:'die',n:'Muskatnuss',ar:'جوزة الطيب',pl:'die Muskatnüsse'},
+    {a:'die',n:'Nelke',ar:'قرنفل',pl:'die Nelken'},{a:'der',n:'Kardamom',ar:'هيل',note:'الجمع Kardamome أو Kardamomen',pl:'die Kardamome'},
+    {a:'der',n:'Safran',ar:'زعفران',note:'الجمع Safrane نادر الاستخدام',pl:'die Safrane'},
+    {a:'der',n:'Anis',ar:'يانسون',note:'الجمع Anise نادر الاستخدام',pl:'die Anise'},
+    {a:'das',n:'Currypulver',ar:'بودرة كاري',pl:'die Currypulver'},
+    {a:'der',n:'Oregano',ar:'أوريغانو',note:'ليس له جمع',pl:null},
+    {a:'der',n:'Thymian',ar:'زعتر',note:'الجمع Thymiane نادر الاستخدام',pl:'die Thymiane'},
+    {a:'der',n:'Rosmarin',ar:'إكليل الجبل',note:'ليس له جمع',pl:null},
+    {a:'das',n:'Basilikum',ar:'ريحان',note:'الجمع Basilikums أو Basiliken',pl:'die Basilikums'},
+    {a:'der',n:'Dill',ar:'شبت',note:'الجمع Dille نادر الاستخدام',pl:'die Dille'},
+    {a:'der',n:'Schnittlauch',ar:'ثوم معمر',note:'ليس له جمع',pl:null},
+    {a:'der',n:'Majoran',ar:'مردقوش',note:'الجمع Majorane نادر الاستخدام',pl:'die Majorane'},
+    {a:'der',n:'Estragon',ar:'طرخون',note:'ليس له جمع',pl:null},
+    {a:'der',n:'Bärlauch',ar:'ثوم بري',note:'الجمع Bärlauche نادر الاستخدام',pl:'die Bärlauche'},
+    {a:'die',n:'Sojasoße',ar:'صلصة الصويا',pl:'die Sojasoßen'},
+    {a:'der',n:'Essig',ar:'خل',note:'الجمع Essige نادر الاستخدام (يشير لأنواع الخل)',pl:'die Essige'},
+    {a:'das',n:'Olivenöl',ar:'زيت زيتون',pl:'die Olivenöle'},
+    {a:'der',n:'Senf',ar:'خردل',note:'الجمع Senfe نادر الاستخدام',pl:'die Senfe'},
+    {a:'der',n:'Ketchup',ar:'كاتشب',pl:'die Ketchups'},{a:'die',n:'Mayonnaise',ar:'مايونيز',pl:'die Mayonnaisen'},
+    {a:'der',n:'Zucker',ar:'سكر',pl:'die Zucker'},
+    {a:'die',n:'Hefe',ar:'خميرة',pl:'die Hefen'},{a:'das',n:'Backpulver',ar:'بيكنج باودر',pl:'die Backpulver'},
+    {a:'der',n:'Sternanis',ar:'يانسون نجمي',pl:'die Sternanise'},
+    {a:'der',n:'Piment',ar:'بهارات جامايكية',note:'يُعرف أيضًا بالفلفل الإنجليزي؛ الجمع Pimente نادر الاستخدام',pl:'die Pimente'},
+    {a:'der',n:'Sumach',ar:'سماق',note:'الجمع Sumache نادر الاستخدام',pl:'die Sumache'},
+    {a:'der',n:'Bockshornklee',ar:'حلبة',note:'ليس له جمع (مثل Klee)',pl:null},
+    {a:'das',n:'Tahin',ar:'طحينة',note:'ليس له جمع',pl:null},
+    {a:'die',n:'Zitronenschale',ar:'قشر الليمون',pl:'die Zitronenschalen'},
+    {a:'die',n:'Kaper',ar:'كبر',pl:'die Kapern'},
+    {a:'die',n:'Trüffel',ar:'كمأة',pl:'die Trüffeln'},
+    {a:'das',n:'Ras-el-Hanout',ar:'خلطة رأس الحانوت',note:'ليس له جمع',pl:null},
+    {a:'die',n:'Harissa',ar:'هريسة',note:'ليس لها جمع',pl:null}
+  ]},
+  { id:'getreide', ar:'الحبوب والخبز', de:'Getreide & Brot', order:12, speak:'Getreide', hasArticles:true, words:[
+    {a:'der',n:'Reis',ar:'أرز',note:'ليس له جمع',pl:null},
+    {a:'das',n:'Mehl',ar:'دقيق',note:'الجمع Mehle نادر الاستخدام (يشير لأنواع الدقيق)',pl:'die Mehle'},
+    {a:'das',n:'Brot',ar:'خبز',pl:'die Brote'},
+    {a:'die',n:'Nudeln',ar:'مكرونة',pl:null},
+    {a:'der',n:'Weizen',ar:'قمح',note:'جمعه نفس الكلمة بلا تغيير',pl:'die Weizen'},
+    {a:'der',n:'Hafer',ar:'شوفان',note:'جمعه نفس الكلمة بلا تغيير',pl:'die Hafer'},
+    {a:'die',n:'Gerste',ar:'شعير',pl:'die Gersten'},
+    {a:'das',n:'Müsli',ar:'موزلي',note:'الجمع Müslis نادر الاستخدام',pl:'die Müslis'},
+    {a:'die',n:'Linse',ar:'عدس',pl:'die Linsen'},
+    {a:'der',n:'Bulgur',ar:'برغل',note:'ليس له جمع',pl:null}
+  ]},
+  { id:'kueche', ar:'أدوات المطبخ', de:'Küchengeräte', order:7, hasArticles:true, words:[
+    {a:'der',n:'Topf',ar:'قدر',pl:'die Töpfe'},{a:'die',n:'Pfanne',ar:'مقلاة',pl:'die Pfannen'},{a:'der',n:'Löffel',ar:'ملعقة',pl:'die Löffel'},
+    {a:'die',n:'Gabel',ar:'شوكة',pl:'die Gabeln'},{a:'das',n:'Messer',ar:'سكين',pl:'die Messer'},{a:'der',n:'Teller',ar:'طبق',pl:'die Teller'},
+    {a:'die',n:'Tasse',ar:'كوب',pl:'die Tassen'},{a:'das',n:'Glas',ar:'كوب زجاج',pl:'die Gläser'},{a:'die',n:'Schüssel',ar:'وعاء',pl:'die Schüsseln'},
+    {a:'der',n:'Herd',ar:'موقد',pl:'die Herde'},{a:'der',n:'Kühlschrank',ar:'ثلاجة',pl:'die Kühlschränke'},{a:'die',n:'Mikrowelle',ar:'ميكروويف',pl:'die Mikrowellen'}
+  ]},
+  { id:'wochentage', ar:'أيام الأسبوع', de:'Wochentage', order:16, hasArticles:false, words:[
+    {n:'Montag',ar:'الإثنين'},{n:'Dienstag',ar:'الثلاثاء'},{n:'Mittwoch',ar:'الأربعاء'},
+    {n:'Donnerstag',ar:'الخميس'},{n:'Freitag',ar:'الجمعة'},{n:'Samstag',ar:'السبت'},{n:'Sonntag',ar:'الأحد'}
+  ]},
+  { id:'monate', ar:'الأشهر', de:'Monate', order:17, hasArticles:false, words:[
+    {n:'Januar',ar:'يناير'},{n:'Februar',ar:'فبراير'},{n:'März',ar:'مارس'},{n:'April',ar:'أبريل'},
+    {n:'Mai',ar:'مايو'},{n:'Juni',ar:'يونيو'},{n:'Juli',ar:'يوليو'},{n:'August',ar:'أغسطس'},
+    {n:'September',ar:'سبتمبر'},{n:'Oktober',ar:'أكتوبر'},{n:'November',ar:'نوفمبر'},{n:'Dezember',ar:'ديسمبر'}
+  ]},
+  { id:'jahreszeiten', ar:'الفصول', de:'Jahreszeiten', order:18, hasArticles:false, words:[
+    {n:'Frühling',ar:'الربيع'},{n:'Sommer',ar:'الصيف'},{n:'Herbst',ar:'الخريف'},{n:'Winter',ar:'الشتاء'}
+  ]},
+  { id:'fleisch', ar:'اللحوم والأسماك', de:'Fleisch & Fisch', order:11, speak:'Fleisch und Fisch', hasArticles:true, words:[
+    {a:'das',n:'Fleisch',ar:'لحم',note:'ليس له جمع',pl:null},
+    {a:'das',n:'Rindfleisch',ar:'لحم بقري',note:'ليس له جمع',pl:null},
+    {a:'das',n:'Hähnchen',ar:'دجاج',pl:'die Hähnchen'},
+    {a:'das',n:'Lammfleisch',ar:'لحم غنم',note:'ليس له جمع',pl:null},
+    {a:'die',n:'Wurst',ar:'نقانق',pl:'die Würste'},{a:'der',n:'Schinken',ar:'لحم مقدد',pl:'die Schinken'},
+    {a:'das',n:'Kotelett',ar:'قطعة لحم',pl:'die Koteletts'},{a:'die',n:'Garnele',ar:'جمبري',pl:'die Garnelen'},
+    {a:'der',n:'Thunfisch',ar:'تونة',pl:'die Thunfische'},
+    {a:'der',n:'Lachs',ar:'سلمون',pl:'die Lachse'},{a:'der',n:'Truthahn',ar:'ديك رومي',pl:'die Truthähne'},
+    {a:'die',n:'Leber',ar:'كبد',pl:'die Lebern'},
+    {a:'das',n:'Hackfleisch',ar:'لحم مفروم',note:'ليس له جمع',pl:null},
+    {a:'das',n:'Kalbfleisch',ar:'لحم عجل',note:'ليس له جمع',pl:null},
+    {a:'das',n:'Schweinefleisch',ar:'لحم خنزير',note:'ليس له جمع',pl:null},
+    {a:'die',n:'Pute',ar:'ديك رومي (أنثى)',pl:'die Puten'},
+    {a:'der',n:'Kabeljau',ar:'سمك القد',note:'الجمع Kabeljaue، ويصح أيضًا Kabeljaus',pl:'die Kabeljaue'},
+    {a:'der',n:'Hering',ar:'سمك الرنجة',pl:'die Heringe'},{a:'die',n:'Makrele',ar:'سمك الماكريل',pl:'die Makrelen'},
+    {a:'die',n:'Forelle',ar:'سمك التروتة',pl:'die Forellen'},{a:'der',n:'Karpfen',ar:'سمك الكارب',pl:'die Karpfen'},{a:'der',n:'Aal',ar:'ثعبان السمك',pl:'die Aale'},
+    {a:'der',n:'Hummer',ar:'كركند',pl:'die Hummer'},{a:'die',n:'Krabbe',ar:'سلطعون صغير',pl:'die Krabben'},{a:'die',n:'Muschel',ar:'بلح البحر',pl:'die Muscheln'},
+    {a:'der',n:'Tintenfisch',ar:'حبار',pl:'die Tintenfische'},
+    {a:'der',n:'Oktopus',ar:'أخطبوط',note:'الجمع الرسمي Oktopusse، ويصح أيضًا Oktopoden (أصل يوناني)',pl:'die Oktopusse'},
+    {a:'das',n:'Steak',ar:'ستيك',pl:'die Steaks'},
+    {a:'das',n:'Filet',ar:'فيليه',pl:'die Filets'},{a:'die',n:'Bratwurst',ar:'نقانق مشوية',pl:'die Bratwürste'},{a:'das',n:'Schnitzel',ar:'شنيتزل',pl:'die Schnitzel'},
+    {a:'der',n:'Braten',ar:'لحم مشوي',pl:'die Braten'},{a:'die',n:'Frikadelle',ar:'كفتة لحم ألمانية',pl:'die Frikadellen'},
+    {a:'der',n:'Speck',ar:'لحم مقدد دهني',note:'الجمع Specke نادر جدًا؛ تُستخدم الكلمة غالبًا بصيغة المفرد',pl:'die Specke'},
+    {a:'die',n:'Salami',ar:'سلامي',pl:'die Salamis'},{a:'die',n:'Leberwurst',ar:'نقانق الكبد',pl:'die Leberwürste'},{a:'die',n:'Blutwurst',ar:'نقانق الدم',pl:'die Blutwürste'},
+    {a:'der',n:'Fleischkloß',ar:'كرة لحم',pl:'die Fleischklöße'},
+    {a:'das',n:'Gulasch',ar:'يخنة لحم',note:'الجمع Gulasche نادر الاستخدام، ويصح أيضًا Gulaschs',pl:'die Gulasche'},
+    {a:'der',n:'Rinderbraten',ar:'روستو لحم بقري',pl:'die Rinderbraten'},
+    {a:'das',n:'Fischfilet',ar:'فيليه سمك',pl:'die Fischfilets'},{a:'die',n:'Sardine',ar:'سردين',pl:'die Sardinen'},
+    {a:'der',n:'Zander',ar:'سمك الفرخ',note:'سمك مياه عذبة شائع جدًا في المطبخ الألماني',pl:'die Zander'},
+    {a:'der',n:'Rollmops',ar:'رنجة مخللة ملفوفة',note:'طبق ألماني تقليدي من سمك الرنجة المخلل',pl:'die Rollmöpse'},
+    {a:'die',n:'Currywurst',ar:'نقانق بصلصة الكاري',note:'أشهر أكلة شارع في ألمانيا',pl:'die Currywürste'},
+    {a:'der',n:'Döner',ar:'دونر',note:'أكلة تركية الأصل انتشرت جدًا في ألمانيا',pl:'die Döner'},
+    {a:'das',n:'Fischstäbchen',ar:'أصابع سمك',pl:'die Fischstäbchen'},{a:'die',n:'Fleischbrühe',ar:'مرقة لحم',pl:'die Fleischbrühen'}
+  ]},
+  { id:'suessigkeiten', ar:'الحلويات والوجبات الخفيفة', de:'Süßigkeiten & Snacks', order:14, speak:'Süßigkeiten und Snacks', hasArticles:true, words:[
+    {a:'die',n:'Schokolade',ar:'شوكولاتة',pl:'die Schokoladen'},{a:'der',n:'Keks',ar:'بسكويت',pl:'die Kekse'},{a:'der',n:'Kuchen',ar:'كيكة',pl:'die Kuchen'},
+    {a:'die',n:'Torte',ar:'تورتة',pl:'die Torten'},{a:'der',n:'Bonbon',ar:'حلوى',pl:'die Bonbons'},{a:'das',n:'Popcorn',ar:'فشار',pl:null},
+    {a:'die',n:'Chips',ar:'شيبسي',pl:null},{a:'der',n:'Honig',ar:'عسل',note:'الجمع "Honige" يُستخدم للإشارة إلى أنواع مختلفة من العسل حسب Duden',pl:'die Honige'},{a:'die',n:'Marmelade',ar:'مربى',pl:'die Marmeladen'},
+    {a:'das',n:'Karamell',ar:'كراميل',pl:null},{a:'die',n:'Waffel',ar:'وافل',pl:'die Waffeln'},{a:'der',n:'Pudding',ar:'بودينغ',note:'يقبل الجمع "Puddinge" و"Puddings" معًا حسب Duden',pl:'die Puddinge'},
+    {a:'der',n:'Kaugummi',ar:'لبان',pl:'die Kaugummis'},{a:'das',n:'Lakritz',ar:'عرق سوس',note:'اسم غير معدود عادة؛ الجمع "Lakritze" نادر ورسمي حسب Duden',pl:'die Lakritze'},{a:'die',n:'Baklava',ar:'بقلاوة',note:'الكلمة غير مدرجة في Duden كمدخل رسمي؛ تُستخدم عادة كاسم غير معدود، وصيغة الجمع غير الرسمية الشائعة "Baklavas"',pl:null},
+    {a:'die',n:'Praline',ar:'قطعة شوكولاتة فاخرة',pl:'die Pralinen'},{a:'der',n:'Lolli',ar:'مصاصة حلوى',pl:'die Lollis'},{a:'die',n:'Erdnuss',ar:'فول سوداني',pl:'die Erdnüsse'},
+    {a:'die',n:'Mandel',ar:'لوز',pl:'die Mandeln'},{a:'die',n:'Walnuss',ar:'جوز',pl:'die Walnüsse'},{a:'die',n:'Haselnuss',ar:'بندق',pl:'die Haselnüsse'},
+    {a:'die',n:'Pistazie',ar:'فستق',pl:'die Pistazien'},{a:'die',n:'Cashewnuss',ar:'كاجو',pl:'die Cashewnüsse'},{a:'der',n:'Nougat',ar:'نوجا',note:'اسم غير معدود عادة؛ الجمع "Nougats" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden',pl:null},
+    {a:'die',n:'Gummibärchen',ar:'حلوى الدببة الصمغية',note:'من أشهر الحلوى الألمانية على الإطلاق (Haribo)',pl:'die Gummibärchen'},
+    {a:'der',n:'Schokoriegel',ar:'بار شوكولاتة',pl:'die Schokoriegel'},{a:'die',n:'Zuckerwatte',ar:'غزل البنات',note:'غالبًا اسم غير معدود؛ الجمع "Zuckerwatten" نادر',pl:'die Zuckerwatten'},
+    {a:'das',n:'Gebäck',ar:'حلويات مخبوزة',note:'اسم غير معدود عادة؛ الجمع "Gebäcke" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden',pl:null},{a:'die',n:'Plätzchen',ar:'بسكويت صغير',pl:'die Plätzchen'},{a:'das',n:'Marzipan',ar:'المرزبان',pl:'die Marzipane'},
+    {a:'der',n:'Fruchtgummi',ar:'حلوى الفواكه الصمغية',pl:'die Fruchtgummis'},{a:'das',n:'Konfekt',ar:'حلويات صغيرة فاخرة',pl:'die Konfekte'},
+    {a:'der',n:'Krapfen',ar:'دونات ألماني',note:'دونات شائع خصوصًا في موسم الكرنفال',pl:'die Krapfen'},
+    {a:'der',n:'Berliner',ar:'دونات ألماني',note:'اسم آخر لنفس نوع الدونات في مناطق مختلفة من ألمانيا؛ نفس الكلمة تعني أيضًا "شخص من برلين"',pl:'die Berliner'},
+    {a:'der',n:'Apfelstrudel',ar:'شتروديل التفاح',note:'حلوى نمساوية-ألمانية مشهورة جدًا',pl:'die Apfelstrudel'},
+    {a:'der',n:'Lebkuchen',ar:'كعك التوابل',note:'حلوى ألمانية تقليدية شائعة في موسم الكريسماس',pl:'die Lebkuchen'},
+    {a:'der',n:'Stollen',ar:'كيكة الكريسماس الألمانية',pl:'die Stollen'},
+    {a:'die',n:'Sachertorte',ar:'تورتة زاخر',note:'تورتة شوكولاتة نمساوية شهيرة عالميًا',pl:'die Sachertorten'},
+    {a:'der',n:'Streuselkuchen',ar:'كيكة الفتافيت',pl:'die Streuselkuchen'},
+    {a:'der',n:'Windbeutel',ar:'حلوى كريمة منفوخة',note:'عجين خفيف محشو بالكريمة',pl:'die Windbeutel'},
+    {a:'der',n:'Milchreis',ar:'أرز باللبن',note:'اسم غير معدود عادة (طبق وليس قطعًا معدودة)',pl:null},{a:'der',n:'Grießpudding',ar:'بودينغ السميد',note:'نادرًا ما يُجمع؛ الجمع "Grießpuddings" يُستخدم للإشارة إلى أنواع مختلفة',pl:'die Grießpuddings'},
+    {a:'die',n:'Rote Grütze',ar:'حلوى التوت الشمالية الألمانية',note:'اسم غير معدود عادة كطبق حلوى',pl:null},{a:'die',n:'Kokosmakrone',ar:'كرات جوز الهند',pl:'die Kokosmakronen'},
+    {a:'der',n:'Baumkuchen',ar:'كيكة الشجرة الألمانية',pl:'die Baumkuchen'},
+    {a:'der',n:'Kaiserschmarrn',ar:'كايزرشمارن',note:'حلوى نمساوية تقليدية من الفطائر المقطعة؛ لا يوجد جمع شائع لهذه الكلمة',pl:null},
+    {a:'die',n:'Zuckerstange',ar:'عصا حلوى',pl:'die Zuckerstangen'},{a:'der',n:'Kandiszucker',ar:'سكر نبات',note:'اسم غير معدود عادة',pl:null},
+    {a:'die',n:'Nussecke',ar:'حلوى مثلثة بالمكسرات',pl:'die Nussecken'},{a:'der',n:'Florentiner',ar:'حلوى فلورنتينية بالمكسرات',pl:'die Florentiner'}
+  ]},
+  { id:'werkzeuge', ar:'الأدوات', de:'Werkzeuge', order:26, hasArticles:true, words:[
+    {a:'der',n:'Hammer',ar:'شاكوش',pl:'die Hämmer'},{a:'die',n:'Zange',ar:'زردية',pl:'die Zangen'},{a:'der',n:'Schraubenzieher',ar:'مفك',pl:'die Schraubenzieher'},
+    {a:'die',n:'Säge',ar:'منشار',pl:'die Sägen'},{a:'der',n:'Nagel',ar:'مسمار',pl:'die Nägel'},{a:'die',n:'Schraube',ar:'برغي',pl:'die Schrauben'},
+    {a:'die',n:'Leiter',ar:'سلم',note:'مؤنثة هنا بمعنى "سلم"، وجمعها Leitern؛ أما der Leiter (مذكر بمعنى "مدير/قائد") فجمعه بلا تغيير Leiter',pl:'die Leitern'},{a:'der',n:'Bohrer',ar:'مثقاب',pl:'die Bohrer'},{a:'der',n:'Pinsel',ar:'فرشاة',pl:'die Pinsel'},
+    {a:'das',n:'Klebeband',ar:'شريط لاصق',pl:'die Klebebänder'},
+    {a:'der',n:'Schraubenschlüssel',ar:'مفتاح ربط',pl:'die Schraubenschlüssel'},{a:'die',n:'Bohrmaschine',ar:'مثقاب كهربائي',pl:'die Bohrmaschinen'},
+    {a:'der',n:'Meißel',ar:'إزميل',pl:'die Meißel'},{a:'die',n:'Feile',ar:'مبرد',pl:'die Feilen'},{a:'der',n:'Hobel',ar:'منحت خشب',pl:'die Hobel'},
+    {a:'der',n:'Schraubstock',ar:'ملزمة',pl:'die Schraubstöcke'},{a:'der',n:'Akkuschrauber',ar:'مفك كهربائي لاسلكي',pl:'die Akkuschrauber'},
+    {a:'der',n:'Winkelschleifer',ar:'جلاخة',pl:'die Winkelschleifer'},{a:'der',n:'Lötkolben',ar:'كاوية لحام',pl:'die Lötkolben'},
+    {a:'die',n:'Rohrzange',ar:'كماشة أنابيب',pl:'die Rohrzangen'},{a:'der',n:'Inbusschlüssel',ar:'مفتاح ألن',pl:'die Inbusschlüssel'},
+    {a:'die',n:'Wasserpumpenzange',ar:'كماشة مضخة مياه',pl:'die Wasserpumpenzangen'},{a:'der',n:'Werkzeugkasten',ar:'صندوق عدة',pl:'die Werkzeugkästen'},
+    {a:'die',n:'Arbeitshandschuhe',ar:'قفازات عمل',note:'الكلمة أصلاً بصيغة الجمع (من Handschuh)',pl:null},{a:'die',n:'Schutzbrille',ar:'نظارة واقية',pl:'die Schutzbrillen'},
+    {a:'der',n:'Helm',ar:'خوذة',pl:'die Helme'},{a:'die',n:'Kelle',ar:'مالج البناء',pl:'die Kellen'},
+    {a:'der',n:'Spachtel',ar:'سكينة معجون',note:'أداة لوضع أو كشط المعجون؛ الأداة الطبية المشابهة تُسمى Spatel',pl:'die Spachtel'},
+    {a:'der',n:'Farbroller',ar:'رولة دهان',pl:'die Farbroller'},{a:'die',n:'Bürste',ar:'فرشاة تنظيف',pl:'die Bürsten'},{a:'der',n:'Besen',ar:'مكنسة',pl:'die Besen'},
+    {a:'der',n:'Eimer',ar:'دلو',pl:'die Eimer'},{a:'der',n:'Schlauch',ar:'خرطوم',pl:'die Schläuche'},{a:'die',n:'Gießkanne',ar:'إبريق ري',pl:'die Gießkannen'},
+    {a:'der',n:'Rasenmäher',ar:'جزازة عشب',pl:'die Rasenmäher'},{a:'die',n:'Heckenschere',ar:'مقص تشذيب',pl:'die Heckenscheren'},{a:'die',n:'Sense',ar:'منجل',pl:'die Sensen'},
+    {a:'der',n:'Spaten',ar:'مجرفة حفر',pl:'die Spaten'},{a:'der',n:'Rechen',ar:'مجرفة تجميع أوراق',pl:'die Rechen'},{a:'das',n:'Maßband',ar:'شريط قياس',pl:'die Maßbänder'},
+    {a:'die',n:'Taschenlampe',ar:'كشاف يدوي',pl:'die Taschenlampen'},{a:'das',n:'Schleifpapier',ar:'ورق صنفرة',note:'اسم غير معدود غالبًا؛ الجمع يشير لأنواع/درجات خشونة مختلفة',pl:'die Schleifpapiere'},{a:'der',n:'Draht',ar:'سلك معدني',pl:'die Drähte'},
+    {a:'die',n:'Mutter',ar:'صامولة',note:'نفس الكلمة تعني أيضًا "أم"؛ هنا تعني قطعة معدنية للربط مع البرغي',pl:'die Muttern'},
+    {a:'die',n:'Unterlegscheibe',ar:'حلقة معدنية (واشر)',pl:'die Unterlegscheiben'}
+  ]},
+  { id:'sport', ar:'الرياضة', de:'Sportarten', order:27, hasArticles:true, words:[
+    {a:'der',n:'Fußball',ar:'كرة القدم',note:'اسم غير معدود بمعنى الرياضة نفسها؛ بمعنى "الكرة" (الأداة) جمعها Fußbälle',pl:null},{a:'das',n:'Schwimmen',ar:'السباحة',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Tennis',ar:'التنس',pl:null},
+    {a:'der',n:'Basketball',ar:'كرة السلة',pl:null},{a:'der',n:'Volleyball',ar:'الكرة الطائرة',pl:null},{a:'das',n:'Boxen',ar:'الملاكمة',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},
+    {a:'der',n:'Sport',ar:'الرياضة',note:'اسم غير معدود، يُستخدم دائمًا في صيغة المفرد',pl:null},{a:'das',n:'Radfahren',ar:'ركوب الدراجات',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'die',n:'Leichtathletik',ar:'ألعاب القوى',note:'اسم غير معدود، مصطلح جامع لألعاب القوى',pl:null},
+    {a:'das',n:'Yoga',ar:'اليوغا',pl:null},
+    {a:'der',n:'Handball',ar:'كرة اليد',pl:null},{a:'das',n:'Laufen',ar:'الجري',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Klettern',ar:'التسلق',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},
+    {a:'das',n:'Tischtennis',ar:'تنس الطاولة',pl:null},{a:'das',n:'Golf',ar:'الجولف',pl:null},{a:'das',n:'Skifahren',ar:'التزلج على الجليد',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},
+    {a:'das',n:'Snowboarden',ar:'التزلج بلوح الثلج',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Segeln',ar:'الإبحار الشراعي',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},
+    {a:'das',n:'Rudern',ar:'التجديف',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Reiten',ar:'ركوب الخيل',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Turnen',ar:'الجمباز',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},
+    {a:'das',n:'Fechten',ar:'المبارزة بالسيف',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Ringen',ar:'المصارعة',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Judo',ar:'الجودو',pl:null},
+    {a:'das',n:'Karate',ar:'الكاراتيه',pl:null},{a:'das',n:'Taekwondo',ar:'التايكوندو',pl:null},{a:'das',n:'Bowling',ar:'البولينج',pl:null},
+    {a:'das',n:'Billard',ar:'البلياردو',pl:null},{a:'das',n:'Darts',ar:'رمي السهام',pl:null},{a:'das',n:'Eishockey',ar:'هوكي الجليد',pl:null},
+    {a:'das',n:'Rugby',ar:'الرغبي',pl:null},{a:'das',n:'Cricket',ar:'الكريكيت',pl:null},{a:'das',n:'Bergsteigen',ar:'تسلق الجبال',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},
+    {a:'das',n:'Surfen',ar:'ركوب الأمواج',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Wasserski',ar:'التزلج على الماء',pl:null},{a:'das',n:'Tauchen',ar:'الغوص',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},
+    {a:'das',n:'Angeln',ar:'الصيد بالصنارة',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},
+    {a:'das',n:'Kegeln',ar:'البولينج الألماني التقليدي',note:'لعبة بولينج ألمانية تقليدية بتسع قوارير بدلًا من عشرة',pl:null},
+    {a:'der',n:'Marathon',ar:'الماراثون',pl:'die Marathons'},{a:'das',n:'Gewichtheben',ar:'رفع الأثقال',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Bodybuilding',ar:'كمال الأجسام',pl:null},
+    {a:'das',n:'Krafttraining',ar:'تدريب القوة',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'der',n:'Speerwurf',ar:'رمي الرمح',pl:'die Speerwürfe'},{a:'der',n:'Weitsprung',ar:'الوثب الطويل',pl:'die Weitsprünge'},
+    {a:'der',n:'Hochsprung',ar:'الوثب العالي',pl:'die Hochsprünge'},{a:'der',n:'Staffellauf',ar:'سباق التتابع',pl:'die Staffelläufe'},
+    {a:'das',n:'Skateboarden',ar:'التزلج على اللوح',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},{a:'das',n:'Inlineskaten',ar:'التزلج بعجلات inline',note:'مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء',pl:null},
+    {a:'der',n:'Triathlon',ar:'الترياثلون',pl:'die Triathlons'},{a:'das',n:'Badminton',ar:'الريشة الطائرة',pl:null}
+  ]},
+  { id:'musik', ar:'الآلات الموسيقية', de:'Musikinstrumente', order:28, hasArticles:true, words:[
+    {a:'die',n:'Gitarre',ar:'جيتار',pl:'die Gitarren'},{a:'das',n:'Klavier',ar:'بيانو',pl:'die Klaviere'},{a:'die',n:'Trommel',ar:'طبلة',pl:'die Trommeln'},
+    {a:'die',n:'Geige',ar:'كمان',pl:'die Geigen'},{a:'die',n:'Flöte',ar:'فلوت',pl:'die Flöten'},{a:'das',n:'Schlagzeug',ar:'طقم طبول',pl:'die Schlagzeuge'},
+    {a:'die',n:'Trompete',ar:'بوق',pl:'die Trompeten'},{a:'das',n:'Saxofon',ar:'ساكسفون',pl:'die Saxofone'},
+    {a:'die',n:'Harfe',ar:'هارب',pl:'die Harfen'},{a:'das',n:'Akkordeon',ar:'أكورديون',pl:'die Akkordeons'},{a:'das',n:'Cello',ar:'تشيلو',note:'يقبل أيضًا الجمع الإيطالي "Celli"',pl:'die Cellos'},
+    {a:'die',n:'Klarinette',ar:'كلارينيت',pl:'die Klarinetten'},{a:'die',n:'Oboe',ar:'أوبوا',pl:'die Oboen'},{a:'das',n:'Fagott',ar:'باسون',pl:'die Fagotte'},
+    {a:'das',n:'Horn',ar:'قرن فرنسي',pl:'die Hörner'},{a:'die',n:'Tuba',ar:'توبا',pl:'die Tuben'},{a:'die',n:'Posaune',ar:'ترومبون',pl:'die Posaunen'},
+    {a:'das',n:'Xylophon',ar:'إكسيليفون',pl:'die Xylophone'},{a:'das',n:'Keyboard',ar:'كيبورد',pl:'die Keyboards'},{a:'der',n:'Kontrabass',ar:'كونترباص',pl:'die Kontrabässe'},
+    {a:'die',n:'Bratsche',ar:'فيولا',pl:'die Bratschen'},{a:'die',n:'Mundharmonika',ar:'هارمونيكا فم',pl:'die Mundharmonikas'},{a:'das',n:'Tamburin',ar:'دف',pl:'die Tamburine'},
+    {a:'die',n:'Ukulele',ar:'أوكوليلي',pl:'die Ukulelen'},{a:'das',n:'Cembalo',ar:'هاربسيكورد',note:'يقبل أيضًا الجمع الإيطالي "Cembali"',pl:'die Cembalos'},{a:'die',n:'Orgel',ar:'أرغن',pl:'die Orgeln'},
+    {a:'das',n:'Banjo',ar:'بانجو',pl:'die Banjos'},{a:'die',n:'Panflöte',ar:'فلوت الباعوض',pl:'die Panflöten'},{a:'das',n:'Glockenspiel',ar:'جرس موسيقي',pl:'die Glockenspiele'},
+    {a:'die',n:'Rassel',ar:'خشخيشة',pl:'die Rasseln'},{a:'der',n:'Gong',ar:'جونج',pl:'die Gongs'},{a:'die',n:'Kastagnetten',ar:'كاستانيت',note:'الكلمة أصلاً بصيغة الجمع، تُستخدم دائمًا مع أداة الجمع',pl:null},
+    {a:'der',n:'Dudelsack',ar:'مزمار القربة',pl:'die Dudelsäcke'},{a:'die',n:'Zither',ar:'سيثر',pl:'die Zithern'},{a:'das',n:'Waldhorn',ar:'قرن الغابة',pl:'die Waldhörner'},
+    {a:'die',n:'Blockflöte',ar:'فلوت مدرسي',pl:'die Blockflöten'},{a:'die',n:'Querflöte',ar:'فلوت أفقي',pl:'die Querflöten'},{a:'die',n:'E-Gitarre',ar:'جيتار كهربائي',pl:'die E-Gitarren'},
+    {a:'die',n:'Bassgitarre',ar:'جيتار باص',pl:'die Bassgitarren'},{a:'die',n:'Triangel',ar:'مثلث موسيقي',note:'تأتي أحيانًا مذكرة (der Triangel) وأحيانًا مؤنثة حسب Duden؛ هنا بصيغتها المؤنثة الشائعة وجمعها Triangeln',pl:'die Triangeln'},{a:'das',n:'Vibraphon',ar:'فيبرافون',pl:'die Vibraphone'},
+    {a:'die',n:'Marimba',ar:'ماريمبا',pl:'die Marimbas'},{a:'die',n:'Sitar',ar:'سيتار',pl:'die Sitars'},{a:'das',n:'Bandoneon',ar:'بندونيون',pl:'die Bandoneons'},
+    {a:'das',n:'Didgeridoo',ar:'ديجريدو',pl:'die Didgeridoos'},{a:'die',n:'Laute',ar:'عود/لوت',pl:'die Lauten'},{a:'die',n:'Mandoline',ar:'ماندولين',pl:'die Mandolinen'},
+    {a:'das',n:'Cajon',ar:'صندوق طبل',pl:'die Cajons'},{a:'die',n:'Steeldrum',ar:'طبلة الفولاذ',pl:'die Steeldrums'}
+  ]},
+  { id:'technik', ar:'الإلكترونيات', de:'Elektronik & Technik', order:29, speak:'Elektronik und Technik', hasArticles:true, words:[
+    {a:'das',n:'Handy',ar:'موبايل',pl:'die Handys'},{a:'der',n:'Computer',ar:'كمبيوتر',pl:'die Computer'},{a:'der',n:'Fernseher',ar:'تلفاز',pl:'die Fernseher'},
+    {a:'das',n:'Radio',ar:'راديو',pl:'die Radios'},{a:'die',n:'Kamera',ar:'كاميرا',pl:'die Kameras'},{a:'der',n:'Drucker',ar:'طابعة',pl:'die Drucker'},
+    {a:'das',n:'Internet',ar:'إنترنت',note:'اسم غير معدود، يُستخدم دائمًا في صيغة المفرد',pl:null},{a:'der',n:'Kopfhörer',ar:'سماعة رأس',pl:'die Kopfhörer'},{a:'das',n:'Ladekabel',ar:'كابل شحن',pl:'die Ladekabel'},
+    {a:'die',n:'Tastatur',ar:'لوحة مفاتيح',pl:'die Tastaturen'},
+    {a:'das',n:'Tablet',ar:'تابلت',pl:'die Tablets'},{a:'der',n:'Lautsprecher',ar:'سماعة صوت',pl:'die Lautsprecher'},{a:'der',n:'Router',ar:'راوتر',pl:'die Router'},
+    {a:'der',n:'Bildschirm',ar:'شاشة',pl:'die Bildschirme'},{a:'die',n:'Computermaus',ar:'فأرة الكمبيوتر',pl:'die Computermäuse'},{a:'der',n:'Akku',ar:'بطارية قابلة للشحن',pl:'die Akkus'},
+    {a:'die',n:'Batterie',ar:'بطارية عادية',pl:'die Batterien'},{a:'das',n:'Ladegerät',ar:'شاحن',pl:'die Ladegeräte'},{a:'der',n:'USB-Stick',ar:'فلاش ميموري',pl:'die USB-Sticks'},
+    {a:'die',n:'Festplatte',ar:'قرص صلب',pl:'die Festplatten'},{a:'der',n:'Prozessor',ar:'المعالج',note:'تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Prozessoren وليس بلا تغيير',pl:'die Prozessoren'},{a:'der',n:'Stecker',ar:'قابس كهربائي',pl:'die Stecker'},
+    {a:'das',n:'Kabel',ar:'كابل',pl:'die Kabel'},{a:'der',n:'Chip',ar:'شريحة إلكترونية',pl:'die Chips'},{a:'die',n:'Fernbedienung',ar:'جهاز تحكم عن بعد',pl:'die Fernbedienungen'},
+    {a:'der',n:'Beamer',ar:'جهاز عرض',note:'الاسم الألماني الشائع لجهاز البروجكتور',pl:'die Beamer'},
+    {a:'das',n:'Mikrofon',ar:'ميكروفون',pl:'die Mikrofone'},{a:'der',n:'Scanner',ar:'ماسح ضوئي',pl:'die Scanner'},{a:'die',n:'Webcam',ar:'كاميرا ويب',pl:'die Webcams'},
+    {a:'das',n:'Smartphone',ar:'هاتف ذكي',pl:'die Smartphones'},{a:'die',n:'App',ar:'تطبيق',pl:'die Apps'},{a:'das',n:'WLAN',ar:'واي فاي',note:'اختصار لـ Wireless LAN؛ الجمع يُستخدم للإشارة لعدة شبكات لاسلكية',pl:'die WLANs'},
+    {a:'die',n:'SIM-Karte',ar:'شريحة الاتصال',pl:'die SIM-Karten'},{a:'der',n:'Adapter',ar:'محول كهربائي',pl:'die Adapter'},
+    {a:'die',n:'Spielkonsole',ar:'جهاز ألعاب فيديو',pl:'die Spielkonsolen'},{a:'der',n:'Controller',ar:'يد تحكم الألعاب',pl:'die Controller'},
+    {a:'die',n:'Digitaluhr',ar:'ساعة رقمية',pl:'die Digitaluhren'},{a:'der',n:'Wecker',ar:'منبه',pl:'die Wecker'},{a:'der',n:'Staubsauger',ar:'مكنسة كهربائية',pl:'die Staubsauger'},
+    {a:'die',n:'Spülmaschine',ar:'غسالة أطباق',pl:'die Spülmaschinen'},{a:'der',n:'Trockner',ar:'مجفف ملابس',pl:'die Trockner'},{a:'das',n:'Bügeleisen',ar:'مكواة',pl:'die Bügeleisen'},
+    {a:'der',n:'Ventilator',ar:'مروحة',note:'تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Ventilatoren وليس بلا تغيير',pl:'die Ventilatoren'},{a:'die',n:'Antenne',ar:'هوائي',pl:'die Antennen'},{a:'der',n:'Transistor',ar:'ترانزستور',note:'تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Transistoren وليس بلا تغيير',pl:'die Transistoren'},
+    {a:'die',n:'Solarzelle',ar:'خلية شمسية',pl:'die Solarzellen'},{a:'der',n:'Generator',ar:'مولد كهرباء',note:'تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Generatoren وليس بلا تغيير',pl:'die Generatoren'},{a:'die',n:'Drohne',ar:'طائرة بدون طيار',pl:'die Drohnen'},
+    {a:'der',n:'3D-Drucker',ar:'طابعة ثلاثية الأبعاد',pl:'die 3D-Drucker'},{a:'die',n:'Powerbank',ar:'بطارية محمولة',pl:'die Powerbanks'}
+  ]},
+  { id:'section-names', ar:'أسماء الأقسام', de:'Kategorien', order:30, hasArticles:true, words:[
+    {a:'das',n:'Obst',ar:'الفواكه',note:'اسم غير معدود (جمعي)',pl:null},{a:'das',n:'Gemüse',ar:'الخضروات',note:'اسم غير معدود (جمعي)',pl:null},{a:'die',n:'Milchprodukte',ar:'منتجات الألبان',note:'أصلاً بصيغة الجمع (مفردها Milchprodukt)',pl:null},
+    {a:'die',n:'Tiere',ar:'الحيوانات',note:'أصلاً بصيغة الجمع (مفردها Tier)',pl:null},{a:'die',n:'Familie',ar:'العائلة',pl:'die Familien'},{a:'die',n:'Farben',ar:'الألوان',note:'أصلاً بصيغة الجمع (مفردها Farbe)',pl:null},
+    {a:'die',n:'Körperteile',ar:'أجزاء الجسم',note:'أصلاً بصيغة الجمع (مفردها Körperteil)',pl:null},{a:'die',n:'Kleidung',ar:'الملابس',note:'اسم غير معدود (جمعي)',pl:null},{a:'das',n:'Zuhause',ar:'المنزل والأثاث',note:'اسم مجرد غير معدود',pl:null},
+    {a:'die',n:'Getränke',ar:'المشروبات',note:'أصلاً بصيغة الجمع (مفردها Getränk)',pl:null},{a:'die',n:'Zahlen',ar:'الأرقام',note:'أصلاً بصيغة الجمع (مفردها Zahl)',pl:null},{a:'die',n:'Berufe',ar:'المهن',note:'أصلاً بصيغة الجمع (مفردها Beruf)',pl:null},
+    {a:'die',n:'Verkehrsmittel',ar:'وسائل المواصلات',note:'مستخدمة هنا كجمع جامع (مفردها das Verkehrsmittel، جمعها بلا تغيير)',pl:null},{a:'das',n:'Wetter',ar:'الطقس',note:'اسم غير معدود',pl:null},{a:'die',n:'Schulsachen',ar:'أدوات المدرسة',note:'أصلاً بصيغة الجمع',pl:null},
+    {a:'die',n:'Orte',ar:'أماكن في المدينة',note:'أصلاً بصيغة الجمع (مفردها Ort)',pl:null},{a:'die',n:'Gefühle',ar:'المشاعر',note:'أصلاً بصيغة الجمع (مفردها Gefühl)',pl:null},{a:'die',n:'Gewürze',ar:'التوابل',note:'أصلاً بصيغة الجمع (مفردها Gewürz)',pl:null},
+    {a:'das',n:'Getreide',ar:'الحبوب والخبز',note:'اسم غير معدود (جمعي)',pl:null},{a:'die',n:'Küchengeräte',ar:'أدوات المطبخ',note:'أصلاً بصيغة الجمع (مفردها Küchengerät)',pl:null},{a:'die',n:'Wochentage',ar:'أيام الأسبوع',note:'أصلاً بصيغة الجمع (مفردها Wochentag)',pl:null},
+    {a:'die',n:'Monate',ar:'الأشهر',note:'أصلاً بصيغة الجمع (مفردها Monat)',pl:null},{a:'die',n:'Jahreszeiten',ar:'الفصول',note:'أصلاً بصيغة الجمع (مفردها Jahreszeit)',pl:null},{a:'das',n:'Fleisch',ar:'اللحوم والأسماك',note:'اسم غير معدود',pl:null},
+    {a:'die',n:'Süßigkeiten',ar:'الحلويات والوجبات الخفيفة',note:'أصلاً بصيغة الجمع (مفردها Süßigkeit)',pl:null},{a:'die',n:'Werkzeuge',ar:'الأدوات',note:'أصلاً بصيغة الجمع (مفردها Werkzeug)',pl:null},{a:'die',n:'Sportarten',ar:'الرياضة',note:'أصلاً بصيغة الجمع (مفردها Sportart)',pl:null},
+    {a:'die',n:'Musikinstrumente',ar:'الآلات الموسيقية',note:'أصلاً بصيغة الجمع (مفردها Musikinstrument)',pl:null},{a:'die',n:'Elektronik',ar:'الإلكترونيات',note:'اسم مجرد غير معدود',pl:null}
+  ]}
+];
+
+/* thresholds requested by user */
+const THRESH = { mcq:10, written:10, article:8, plural:8 };
+const UNLOCK_STEP = 5;
+
+// "core" = the most essential/common words a learner should master first;
+// the rest are "extra" bonus vocabulary. Categories can set an explicit
+// `core` count; otherwise the first 20 words (already ordered by importance)
+// are treated as core, or all of them if the category has fewer than 20.
+function coreCountFor(cat){ return cat.core || Math.min(20, cat.words.length); }
+
+const ORDERED_CATEGORIES = CATEGORIES.slice().sort((a,b) => (a.order||999) - (b.order||999));
+
+/* ======================= STATE (persisted via window.storage) ======================= */
+// progress[catId][mode] = { unlocked:Number, counts:{ wordIndex:Number } }
+const PROGRESS_KEY = 'german-arabic-progress-v1';
+let progress = {};
+let progressReady = false;
+let saveTimer = null;
+
+async function loadProgress(){
+  try{
+    const res = await window.storage.get(PROGRESS_KEY, false);
+    if(res && res.value) progress = JSON.parse(res.value);
+  }catch(e){
+    // no saved progress yet, or storage unavailable — start fresh
+    progress = {};
+  }
+  progressReady = true;
+}
+
+// stats = { lastDate:'YYYY-MM-DD', current:N, longest:N, totalAnswered:N, totalCorrect:N }
+const STATS_KEY = 'german-arabic-stats-v1';
+let stats = { lastDate:null, current:0, longest:0, totalAnswered:0, totalCorrect:0 };
+let statsSaveTimer = null;
+
+async function loadStats(){
+  try{
+    const res = await window.storage.get(STATS_KEY, false);
+    if(res && res.value) stats = Object.assign({ lastDate:null, current:0, longest:0, totalAnswered:0, totalCorrect:0 }, JSON.parse(res.value));
+  }catch(e){
+    stats = { lastDate:null, current:0, longest:0, totalAnswered:0, totalCorrect:0 };
+  }
+}
+
+function saveStatsSoon(){
+  clearTimeout(statsSaveTimer);
+  statsSaveTimer = setTimeout(async ()=>{
+    try{ await window.storage.set(STATS_KEY, JSON.stringify(stats), false); }
+    catch(e){ /* saving failed silently; stats still work in-memory this session */ }
+  }, 250);
+}
+
+function todayStr(){
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
+function daysBetween(d1, d2){
+  const a = new Date(d1 + 'T00:00:00');
+  const b = new Date(d2 + 'T00:00:00');
+  return Math.round((b - a) / 86400000);
+}
+
+// The streak the learner should actually SEE right now — if it's been more
+// than a day since their last recorded activity, the streak is broken even
+// though we don't overwrite the stored number until they act again.
+function displayStreak(){
+  if(!stats.lastDate) return 0;
+  const diff = daysBetween(stats.lastDate, todayStr());
+  return diff <= 1 ? stats.current : 0;
+}
+
+// Call this on every answered question, anywhere in the app (normal
+// practice modes, global review, difficult bank, quiz, section review).
+function recordActivity(ok){
+  stats.totalAnswered = (stats.totalAnswered || 0) + 1;
+  if(ok) stats.totalCorrect = (stats.totalCorrect || 0) + 1;
+  const today = todayStr();
+  if(stats.lastDate !== today){
+    if(stats.lastDate){
+      const diff = daysBetween(stats.lastDate, today);
+      stats.current = (diff === 1) ? (stats.current || 0) + 1 : 1;
+    } else {
+      stats.current = 1;
+    }
+    stats.lastDate = today;
+    if(stats.current > (stats.longest || 0)) stats.longest = stats.current;
+  }
+  saveStatsSoon();
+}
+
+// A word counts as fully "mastered" only once every mode it can be tested
+// in (mcq/written, plus article for noun categories) has reached threshold.
+function computeMasteredCount(){
+  let count = 0;
+  CATEGORIES.forEach(cat=>{
+    const catProg = progress[cat.id];
+    if(!catProg) return;
+    const modes = cat.hasArticles ? ['mcq','written','article'] : ['mcq','written'];
+    for(let i=0;i<cat.words.length;i++){
+      const allMastered = modes.every(m => catProg[m] && (catProg[m].counts[i]||0) >= threshFor(m));
+      if(allMastered) count++;
+    }
+  });
+  return count;
+}
+
+function saveProgressSoon(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async ()=>{
+    try{ await window.storage.set(PROGRESS_KEY, JSON.stringify(progress), false); }
+    catch(e){ /* saving failed silently; progress still works in-memory this session */ }
+  }, 250);
+}
+
+function ensureProgress(catId, mode){
+  progress[catId] = progress[catId] || {};
+  if(!progress[catId][mode]){
+    progress[catId][mode] = { unlocked: UNLOCK_STEP, counts:{}, coreAcked:false };
+  }
+  return progress[catId][mode];
+}
+function threshFor(mode){ return THRESH[mode]; }
+
+// true once the learner has mastered every "core" word for this mode
+function coreDone(catId, mode){
+  const cat = CATEGORIES.find(c=>c.id===catId);
+  const core = coreCountFor(cat);
+  const th = threshFor(mode);
+  for(let i=0;i<core;i++){
+    if(mode === 'plural' && !cat.words[i].pl) continue; // no plural to test for this word
+    if(getWordCount(catId,mode,i) < th) return false;
+  }
+  return true;
+}
+
+function getWordCount(catId, mode, idx){
+  const p = ensureProgress(catId, mode);
+  return p.counts[idx] || 0;
+}
+function setWordCount(catId, mode, idx, val){
+  const p = ensureProgress(catId, mode);
+  p.counts[idx] = Math.max(0, val);
+  saveProgressSoon();
+}
+
+function resetAllProgress(){
+  progress = {};
+  saveProgressSoon();
+}
+
+// Used by the section quiz: force a word back into active practice
+// across all of its normal modes when the learner gets it wrong.
+function reinforceWord(catId, idx){
+  const cat = CATEGORIES.find(c=>c.id===catId);
+  const modes = cat.hasArticles ? ['mcq','written','article'] : ['mcq','written'];
+  modes.forEach(m=>{
+    const p = ensureProgress(catId, m);
+    p.unlocked = Math.max(p.unlocked, idx+1);
+    const th = threshFor(m);
+    const cur = p.counts[idx] || 0;
+    p.counts[idx] = Math.max(0, Math.min(cur, th - 3));
+  });
+  saveProgressSoon();
+}
+
+// Used by review mode: degrade only the 'plural' mode progress for one word
+// (word+article progress is handled separately by reinforceWord).
+function reinforcePlural(catId, idx){
+  const p = ensureProgress(catId, 'plural');
+  p.unlocked = Math.max(p.unlocked, idx+1);
+  const th = threshFor('plural');
+  const cur = p.counts[idx] || 0;
+  p.counts[idx] = Math.max(0, Math.min(cur, th - 3));
+  saveProgressSoon();
+}
+
+function categoryWords(catId){
+  return CATEGORIES.find(c=>c.id===catId).words;
+}
+
+// Pool of {catId, idx} for every word the learner has already been
+// introduced to (unlocked) in any category they've started practicing.
+// Used by the global "review all" screen.
+function learnedPool(){
+  // A word only counts as "learned" if the learner has actually answered it
+  // correctly at least once in some mode (counts[idx] > 0) — NOT just because
+  // it fell inside the default "unlocked" window, which gets seeded (and can
+  // get bumped) as a side effect of simply rendering progress bars on the
+  // home/modes screens, even for modes the learner never actually opened.
+  const pool = [];
+  CATEGORIES.forEach(cat=>{
+    const catProg = progress[cat.id];
+    if(!catProg) return; // never opened this category at all
+    const modes = cat.hasArticles ? ['mcq','written','article'] : ['mcq','written'];
+    for(let i=0;i<cat.words.length;i++){
+      const sources = modes.filter(m => catProg[m] && (catProg[m].counts[i]||0) > 0);
+      if(sources.length) pool.push({ catId: cat.id, idx: i, sources });
+    }
+  });
+  return pool;
+}
+
+// Pool of {catId, idx, count, th} for words the learner has attempted in a
+// given mode but hasn't mastered yet (count < threshold) — including words
+// that got knocked all the way down to 0 by repeated wrong answers, which
+// are exactly the words worth surfacing. Sorted hardest (lowest count/th
+// ratio) first. Used by the "بنك الكلمات الصعبة" difficult-words bank.
+function difficultPool(mode){
+  const th = threshFor(mode);
+  const pool = [];
+  CATEGORIES.forEach(cat=>{
+    if(mode === 'article' && !cat.hasArticles) return;
+    const catProg = progress[cat.id];
+    if(!catProg || !catProg[mode]) return;
+    const counts = catProg[mode].counts || {};
+    Object.keys(counts).forEach(k=>{
+      const idx = parseInt(k, 10);
+      const c = counts[idx] || 0;
+      if(c < th) pool.push({ catId: cat.id, idx, count: c, th });
+    });
+  });
+  pool.sort((a,b) => (a.count/a.th) - (b.count/b.th));
+  return pool;
+}
+
+function unlockedIndices(catId, mode){
+  const cat = CATEGORIES.find(c=>c.id===catId);
+  const p = ensureProgress(catId, mode);
+  const n = Math.min(p.unlocked, cat.words.length);
+  return Array.from({length:n}, (_,i)=>i);
+}
+
+function activeIndices(catId, mode){
+  // words currently unlocked but not yet mastered
+  const cat = CATEGORIES.find(c=>c.id===catId);
+  const th = threshFor(mode);
+  let idxs = unlockedIndices(catId, mode);
+  if(mode === 'plural') idxs = idxs.filter(i => cat.words[i].pl); // skip words with no plural (pl: null)
+  return idxs.filter(i => getWordCount(catId,mode,i) < th);
+}
+function masteredUnlockedIndices(catId, mode){
+  const cat = CATEGORIES.find(c=>c.id===catId);
+  const th = threshFor(mode);
+  let idxs = unlockedIndices(catId, mode);
+  if(mode === 'plural') idxs = idxs.filter(i => cat.words[i].pl);
+  return idxs.filter(i => getWordCount(catId,mode,i) >= th);
+}
+
+function maybeUnlockMore(catId, mode){
+  const cat = CATEGORIES.find(c=>c.id===catId);
+  const p = ensureProgress(catId, mode);
+  while(activeIndices(catId, mode).length === 0 && p.unlocked < cat.words.length){
+    p.unlocked = Math.min(p.unlocked + UNLOCK_STEP, cat.words.length);
+  }
+}
+
+function categoryProgressPct(catId, mode){
+  const cat = CATEGORIES.find(c=>c.id===catId);
+  const th = threshFor(mode);
+  const words = mode === 'plural' ? cat.words.filter(w=>w.pl) : cat.words;
+  if(words.length === 0) return 0;
+  let sum = 0;
+  cat.words.forEach((w,i)=>{ if(mode!=='plural' || w.pl) sum += Math.min(getWordCount(catId,mode,i), th); });
+  return Math.round((sum / (words.length*th)) * 100);
+}
+
+/* ======================= SPEECH ======================= */
+let deVoice = null;
+function loadVoices(){
+  const voices = speechSynthesis.getVoices();
+  const deVoices = voices.filter(v=>v.lang && v.lang.toLowerCase().startsWith('de'));
+  // Web Speech API has no standard "gender" field, so we use a best-effort
+  // heuristic: prefer German voices whose name matches common male voice
+  // identifiers used by browsers/OSes (e.g. "Markus" on macOS/iOS German).
+  const maleHints = ['markus','stefan','yannick','conrad','klaus','hans','daniel','viktor','male','männlich'];
+  deVoice = deVoices.find(v => maleHints.some(h => v.name.toLowerCase().includes(h))) || deVoices[0] || null;
+}
+if('speechSynthesis' in window){
+  loadVoices();
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+function speak(text){
+  try{
+    if(!('speechSynthesis' in window)) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'de-DE';
+    if(deVoice) u.voice = deVoice;
+    u.rate = 0.92;
+    speechSynthesis.speak(u);
+  }catch(e){ /* audio not critical */ }
+}
+
+/* ======================= NAV / RENDER ======================= */
+let view = { screen:'home', catId:null, mode:null };
+let exState = null; // current exercise runtime state
+const app = document.getElementById('app');
+
+// small inline speaker buttons (section names etc.) work via delegation so
+// they don't need re-binding on every re-render
+const MINI_SPEAK_SVG = '<svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3z"/><path d="M16 8.5a4.5 4.5 0 010 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function miniSpeak(text){
+  return `<button class="mini-speak" data-text="${text}" aria-label="نطق">${MINI_SPEAK_SVG}</button>`;
+}
+function speakText(cat){ return cat.speak || cat.de; }
+function noteLine(w){ return w.note ? `<div class="fbnote">💡 ${w.note}</div>` : ''; }
+// Plural mode is only offered once every word in the category has been
+// reviewed for its plural form (pl: 'die X...' or pl: null if genuinely no plural)
+function pluralReady(cat){ return cat.hasArticles && cat.words.every(w => w.pl !== undefined); }
+
+// Generate plausible-but-wrong plural forms of the SAME word (different
+// endings / umlaut choices), so the quiz actually tests the specific
+// pattern for that word instead of just word recognition.
+function applyUmlaut(word){
+  const pairs = [['au','äu'],['a','ä'],['o','ö'],['u','ü']];
+  for(const [from,to] of pairs){
+    const idx = word.lastIndexOf(from);
+    if(idx !== -1) return word.slice(0,idx) + to + word.slice(idx+from.length);
+  }
+  return word;
+}
+function pluralDistractors(singular, correctFull){
+  const uml = applyUmlaut(singular);
+  const set = new Set([
+    'die '+singular, 'die '+singular+'e', 'die '+singular+'en', 'die '+singular+'er', 'die '+singular+'s',
+    'die '+uml, 'die '+uml+'e', 'die '+uml+'en', 'die '+uml+'er'
+  ]);
+  set.delete(correctFull);
+  return shuffle(Array.from(set)).slice(0,3);
+}
+app.addEventListener('click', function(e){
+  const btn = e.target.closest('.mini-speak');
+  if(btn){ e.stopPropagation(); speak(btn.dataset.text); }
+}, true); // capture phase so this fires before a card/button's own click handler
+
+function go(v){ view = Object.assign({}, view, v); exState = null; render(); window.scrollTo(0,0); }
+
+function render(){
+  if(view.screen==='home') return renderHome();
+  if(view.screen==='modes') return renderModes();
+  if(view.screen==='exercise') return renderExercise();
+  if(view.screen==='wordlist') return renderWordList();
+  if(view.screen==='globalReview') return renderGlobalReviewModes();
+  if(view.screen==='difficultBank') return renderDifficultModes();
+}
+
+function headerHtml(showBack, backTo){
+  return `
+  <header class="app-head">
+    <div class="brand">
+      <div class="brand-mark"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div>
+      <div>
+        <h1>تعلّم الألمانية</h1>
+        <p class="de">Deutsch lernen</p>
+      </div>
+    </div>
+    ${showBack ? `<button class="backbtn" id="backBtn">${backTo}</button>` : ''}
+  </header>`;
+}
+
+function renderHome(){
+  const cards = ORDERED_CATEGORIES.map((c,i)=>{
+    const color = PALETTE[i % PALETTE.length];
+    const mcqPct = categoryProgressPct(c.id,'mcq');
+    const wPct = categoryProgressPct(c.id,'written');
+    const core = coreCountFor(c);
+    const extra = c.words.length - core;
+    return `
+    <div class="cat-card" data-cat="${c.id}">
+      <div class="cat-shape" style="background:${color};border-radius:${i%2===0?'50%':'6px'}"></div>
+      <h3>${c.ar}</h3>
+      <span class="de">${c.de}${miniSpeak(speakText(c))}</span>
+      <div class="bar-bg"><div class="bar-fill" style="width:${(mcqPct+wPct)/2}%;background:${color}"></div></div>
+      <div class="cat-meta">${core} كلمة أساسية${extra>0 ? ` + ${extra} إضافية` : ''} · اختيار ${mcqPct}% · كتابة ${wPct}%</div>
+    </div>`;
+  }).join('');
+
+  const poolCount = learnedPool().length;
+  const diffCount = difficultPool('mcq').length + difficultPool('written').length;
+
+  app.innerHTML = `
+    ${headerHtml(false)}
+    <p style="color:#6b6a66;font-size:14px;margin-bottom:18px;">اختر قسمًا لتبدأ التدريب على كلماته</p>
+    <div class="cat-card" id="globalReviewCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:2px solid #1E1E1E;cursor:pointer;${poolCount===0?'opacity:0.6;':''}">
+      <div style="text-align:right;">
+        <h3 style="margin:0 0 4px;">🔁 مراجعة شاملة لكل الكلمات</h3>
+        <span class="de" style="display:block;font-size:13px;color:#6b6a66;">${poolCount > 0 ? `${poolCount} كلمة اتعلمتها من كل الأقسام مع بعض` : 'لسه فاضية — ابدأ تدرّب على أي قسم وهتتملى تلقائي'}</span>
+      </div>
+      <button class="backbtn" style="white-space:nowrap;">ابدأ المراجعة</button>
+    </div>
+    <div class="cat-card" id="difficultBankCard" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;border:2px solid #C8342A;cursor:pointer;${diffCount===0?'opacity:0.6;':''}">
+      <div style="text-align:right;">
+        <h3 style="margin:0 0 4px;">🎯 بنك الكلمات الصعبة</h3>
+        <span class="de" style="display:block;font-size:13px;color:#6b6a66;">${diffCount > 0 ? `${diffCount} كلمة لسه بتغلط فيها — يستاهلوا تركيز أكتر` : 'مفيش كلمات صعبة دلوقتي 🎉'}</span>
+      </div>
+      <button class="backbtn" style="white-space:nowrap;">ذاكرها</button>
+    </div>
+    <div class="grid">${cards}</div>
+    <div class="footnote">
+      تقدّمك محفوظ تلقائيًا وهيفضل موجود لما ترجع للتطبيق تاني.<br>
+      <button class="backbtn" id="resetBtn" style="margin-top:10px;font-size:12px;padding:6px 14px;">تصفير كل التقدّم</button>
+    </div>
+  `;
+  app.querySelectorAll('.cat-card[data-cat]').forEach(el=>{
+    el.addEventListener('click', ()=> go({screen:'modes', catId: el.dataset.cat}));
+  });
+  const grc = document.getElementById('globalReviewCard');
+  if(grc) grc.addEventListener('click', ()=> go({screen:'globalReview'}));
+  const dbc = document.getElementById('difficultBankCard');
+  if(dbc) dbc.addEventListener('click', ()=> go({screen:'difficultBank'}));
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    if(confirm('هل أنت متأكد أنك عايز تصفّر كل التقدّم في كل الأقسام؟')){
+      resetAllProgress();
+      render();
+    }
+  });
+}
+
+function renderModes(){
+  const cat = CATEGORIES.find(c=>c.id===view.catId);
+  const mcqPct = categoryProgressPct(cat.id,'mcq');
+  const wPct = categoryProgressPct(cat.id,'written');
+  const artPct = cat.hasArticles ? categoryProgressPct(cat.id,'article') : null;
+
+  app.innerHTML = `
+    ${headerHtml(true,'رجوع للأقسام')}
+    <div class="cat-title">
+      <h2>${cat.ar}</h2>
+      <span class="de">${cat.de}${miniSpeak(speakText(cat))}</span>
+    </div>
+    <div class="wordcount-row">
+      <span>هذا القسم يحتوي على <b>${cat.words.length}</b> كلمة</span>
+      <button class="backbtn" id="viewWordsBtn">عرض كل الكلمات</button>
+    </div>
+    <div class="modes">
+      <div class="mode-btn" data-mode="mcq">
+        <div><div class="mt">اختيار من متعدد</div><div class="ms">Multiple Choice · تقدّم ${mcqPct}%</div></div>
+        <div class="mode-icon" style="background:${PALETTE[1]}"></div>
+      </div>
+      <div class="mode-btn" data-mode="written">
+        <div><div class="mt">الكتابة</div><div class="ms">Written · تقدّم ${wPct}%</div></div>
+        <div class="mode-icon" style="background:${PALETTE[0]};border-radius:50%"></div>
+      </div>
+      ${cat.hasArticles ? `
+      <div class="mode-btn" data-mode="article">
+        <div><div class="mt">أداة التعريف</div><div class="ms">der / die / das · تقدّم ${artPct}%</div></div>
+        <div class="mode-icon" style="background:${PALETTE[2]};border-radius:4px"></div>
+      </div>` : ''}
+      ${pluralReady(cat) ? `
+      <div class="mode-btn" data-mode="plural">
+        <div><div class="mt">صيغة الجمع</div><div class="ms">Plural · تقدّم ${categoryProgressPct(cat.id,'plural')}%</div></div>
+        <div class="mode-icon" style="background:${PALETTE[1]};border-radius:50% 50% 4px 4px"></div>
+      </div>` : ''}
+      <div class="mode-btn" data-mode="quiz">
+        <div><div class="mt">اختبار القسم</div><div class="ms">يشمل كل كلمات القسم مخلوطة عشوائيًا</div></div>
+        <div class="mode-icon" style="background:${PALETTE[3]};border-radius:50% 4px 50% 4px"></div>
+      </div>
+      ${pluralReady(cat) ? `
+      <div class="mode-btn" data-mode="review">
+        <div><div class="mt">مراجعة القسم</div><div class="ms">Review · الكلمة + الأداة + صيغة الجمع مع بعض</div></div>
+        <div class="mode-icon" style="background:${PALETTE[0]};border-radius:50% 4px 4px 50%"></div>
+      </div>` : ''}
+    </div>
+  `;
+  document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home', catId:null}));
+  document.getElementById('viewWordsBtn').addEventListener('click', ()=> go({screen:'wordlist'}));
+  app.querySelectorAll('.mode-btn').forEach(el=>{
+    el.addEventListener('click', ()=> go({screen:'exercise', mode: el.dataset.mode}));
+  });
+}
+
+function renderWordList(){
+  const cat = CATEGORIES.find(c=>c.id===view.catId);
+  const core = coreCountFor(cat);
+  const rows = cat.words.map((w,i)=>{
+    const text = cat.hasArticles ? `${w.a} ${w.n}` : w.n;
+    const divider = (i === core && core < cat.words.length)
+      ? `<div class="wl-divider">✨ باقي الكلمات إضافية (extra) — كمّلها براحتك بعد ما تتقن الأساسي</div>` : '';
+    return `
+    ${divider}
+    <div class="wl-row">
+      <button class="wl-speak" data-text="${text}">
+        <svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3z"/><path d="M16 8.5a4.5 4.5 0 010 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="wl-text">
+        <span class="de wl-de">${text}</span>
+        <span class="wl-ar">${w.ar}</span>
+        ${w.note ? `<span class="wl-note">💡 ${w.note}</span>` : ''}
+      </div>
+      <span class="wl-num">${i+1}</span>
+    </div>`;
+  }).join('');
+
+  app.innerHTML = `
+    ${headerHtml(true,'رجوع لأوضاع القسم')}
+    <div class="cat-title">
+      <h2>${cat.ar}</h2>
+      <span class="de">${cat.de}${miniSpeak(speakText(cat))} · ${core} أساسية${cat.words.length>core?` + ${cat.words.length-core} إضافية`:''}</span>
+    </div>
+    <div class="wl-list">${rows}</div>
+  `;
+  document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'modes'}));
+  app.querySelectorAll('.wl-speak').forEach(el=>{
+    el.addEventListener('click', ()=> speak(el.dataset.text));
+  });
+}
+
+/* ------------ exercise engine ------------ */
+function pickQuestionIndex(catId, mode){
+  maybeUnlockMore(catId, mode);
+  const active = activeIndices(catId, mode);
+  const mastered = masteredUnlockedIndices(catId, mode);
+  if(active.length === 0 && mastered.length === 0) return null; // done entirely
+  // 20% chance to review an already-mastered (unlocked) word if any exist
+  if(mastered.length > 0 && active.length > 0 && Math.random() < 0.2){
+    return { idx: mastered[Math.floor(Math.random()*mastered.length)], review:true };
+  }
+  if(active.length === 0){
+    return { idx: mastered[Math.floor(Math.random()*mastered.length)], review:true };
+  }
+  return { idx: active[Math.floor(Math.random()*active.length)], review:false };
+}
+
+function normalizeDe(s){
+  return s.trim().toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss');
+}
+
+function modeLabel(mode){
+  return mode==='mcq' ? 'اختيار من متعدد' : mode==='written' ? 'الكتابة' : mode==='article' ? 'أداة التعريف' : mode==='plural' ? 'صيغة الجمع' : mode==='review' ? 'مراجعة القسم' : 'اختبار القسم';
+}
+
+function renderExercise(){
+  if(view.mode === 'globalMcq') return renderGlobalReviewStep('mcq');
+  if(view.mode === 'globalWritten') return renderGlobalReviewStep('written');
+  if(view.mode === 'diffMcq') return renderDifficultStep('mcq');
+  if(view.mode === 'diffWritten') return renderDifficultStep('written');
+  const cat = CATEGORIES.find(c=>c.id===view.catId);
+  const mode = view.mode;
+  if(mode === 'quiz') return renderQuiz(cat);
+  if(mode === 'review') return renderReviewCat(cat);
+  const words = cat.words;
+  const th = threshFor(mode);
+
+  // "stop notification": once the learner masters all core words for this
+  // mode, pause once to celebrate and offer moving on before extras appear.
+  const core = coreCountFor(cat);
+  const p = ensureProgress(cat.id, mode);
+  if(!p.coreAcked && core < words.length && coreDone(cat.id, mode)){
+    const orderedIdx = ORDERED_CATEGORIES.findIndex(c=>c.id===cat.id);
+    const nextCat = ORDERED_CATEGORIES[orderedIdx+1];
+    app.innerHTML = `
+      ${headerHtml(true,'رجوع لأوضاع القسم')}
+      <div class="cat-title"><h2>${cat.ar}</h2><span class="de">${modeLabel(mode)} · ${cat.de}${miniSpeak(speakText(cat))}</span></div>
+      <div class="done-card">
+        <h2>🌟 أتقنت أهم ${core} كلمة في هذا القسم!</h2>
+        <p>تقدر تكمّل الـ${words.length-core} كلمة الإضافية دلوقتي، أو تنتقل للقسم اللي بعده وترجع تكمّلهم في أي وقت — تقدمك محفوظ.</p>
+      </div>
+      <div class="next-row" style="flex-direction:column;gap:10px;">
+        <button class="backbtn" id="continueExtra" style="width:100%;">كمّل الكلمات الإضافية دلوقتي</button>
+        ${nextCat ? `<button class="backbtn" id="goNextCat" style="width:100%;">روح لقسم "${nextCat.ar}" التالي</button>` : ''}
+      </div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'modes'}));
+    document.getElementById('continueExtra').addEventListener('click', ()=>{
+      p.coreAcked = true; saveProgressSoon(); renderExercise();
+    });
+    const nextBtn2 = document.getElementById('goNextCat');
+    if(nextBtn2) nextBtn2.addEventListener('click', ()=>{
+      p.coreAcked = true; saveProgressSoon(); go({screen:'modes', catId: nextCat.id});
+    });
+    return;
+  }
+
+  const pick = pickQuestionIndex(cat.id, mode);
+  const dotsIdx = unlockedIndices(cat.id, mode).filter(i => getWordCount(cat.id,mode,i) < th);
+  const dotsHtml = (dotsIdx.length? dotsIdx : unlockedIndices(cat.id,mode)).slice(0,5).map(i=>{
+    const pct = Math.min(100, Math.round((getWordCount(cat.id,mode,i)/th)*100));
+    return `<div class="dot"><i style="width:${pct}%;background:${PALETTE[1]}"></i></div>`;
+  }).join('');
+
+  if(pick === null){
+    app.innerHTML = `
+      ${headerHtml(true,'رجوع للأقسام')}
+      <div class="cat-title"><h2>${cat.ar}</h2><span class="de">${cat.de}${miniSpeak(speakText(cat))}</span></div>
+      <div class="done-card">
+        <h2>🎉 أتقنت كل كلمات هذا القسم في هذا التمرين</h2>
+        <p>جرّب وضعًا آخر لنفس القسم أو انتقل إلى قسم جديد.</p>
+      </div>
+      <div class="next-row"><button class="backbtn" id="toModes">أوضاع أخرى لهذا القسم</button></div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
+    document.getElementById('toModes').addEventListener('click', ()=> go({screen:'modes'}));
+    return;
+  }
+
+  const idx = pick.idx;
+  const w = words[idx];
+  exState = { catId: cat.id, mode, idx, answered:false };
+
+  app.innerHTML = `
+    ${headerHtml(true,'رجوع لأوضاع القسم')}
+    <div class="cat-title"><h2>${cat.ar}</h2><span class="de">${modeLabel(mode)} · ${cat.de}${miniSpeak(speakText(cat))}</span></div>
+    <div class="progress-dots">${dotsHtml}</div>
+    <div id="qzone"></div>
+  `;
+  document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'modes'}));
+  renderQuestion(cat, mode, idx, w);
+}
+
+/* ------------ section quiz: all words shuffled, one full pass ------------ */
+function renderQuiz(cat){
+  if(!exState || exState.catId !== cat.id || exState.mode !== 'quiz'){
+    exState = {
+      catId: cat.id, mode:'quiz',
+      queue: shuffle(cat.words.map((_,i)=>i)),
+      pos: 0, correct: 0, wrongCount: 0, answered:false
+    };
+  }
+  const total = exState.queue.length;
+
+  if(exState.pos >= total){
+    const pct = Math.round((exState.correct/total)*100);
+    app.innerHTML = `
+      ${headerHtml(true,'رجوع لأوضاع القسم')}
+      <div class="cat-title"><h2>${cat.ar}</h2><span class="de">نتيجة اختبار القسم · ${cat.de}${miniSpeak(speakText(cat))}</span></div>
+      <div class="done-card">
+        <h2>${exState.correct} / ${total} إجابة صحيحة (${pct}%)</h2>
+        <p>${exState.wrongCount ? `${exState.wrongCount} كلمة رجعت للتدريب العادي (MCQ/كتابة) في هذا القسم عشان تراجعها.` : 'ممتاز! أجبت صح على كل كلمات القسم 🎉'}</p>
+      </div>
+      <div class="next-row"><button class="backbtn" id="retryQuiz">إعادة اختبار القسم</button></div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'modes'}));
+    document.getElementById('retryQuiz').addEventListener('click', ()=>{ exState = null; renderExercise(); });
+    return;
+  }
+
+  const idx = exState.queue[exState.pos];
+  const w = cat.words[idx];
+  exState.answered = false;
+
+  app.innerHTML = `
+    ${headerHtml(true,'رجوع لأوضاع القسم')}
+    <div class="cat-title"><h2>${cat.ar}</h2><span class="de">اختبار القسم · ${exState.pos+1} / ${total} · ${cat.de}${miniSpeak(speakText(cat))}</span></div>
+    <div id="qzone"></div>
+  `;
+  document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'modes'}));
+
+  const zone = document.getElementById('qzone');
+  const correctText = cat.hasArticles ? `${w.a} ${w.n}` : w.n;
+  const pool = cat.words.filter((_,i)=>i!==idx);
+  const distractors = shuffle(pool).slice(0,3).map(d => cat.hasArticles ? `${d.a} ${d.n}` : d.n);
+  const options = shuffle([correctText, ...distractors]);
+  zone.innerHTML = `
+    <div class="qcard">
+      <div class="qlabel">ما هي الكلمة الألمانية الصحيحة؟</div>
+      <div class="qmain">${w.ar}</div>
+    </div>
+    <div class="options">${options.map(o=>`<div class="opt de" data-val="${o}">${o}</div>`).join('')}</div>
+    <div class="feedback" id="fb"></div>
+    <div class="next-row"><button class="next-btn" id="nextBtn">${exState.pos+1 < total ? 'التالي ←' : 'عرض النتيجة'}</button></div>
+  `;
+  zone.querySelectorAll('.opt').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      if(exState.answered) return;
+      exState.answered = true;
+      const chosen = el.dataset.val;
+      const ok = chosen === correctText;
+      zone.querySelectorAll('.opt').forEach(o=>{
+        o.classList.add('disabled');
+        if(o.dataset.val === correctText) o.classList.add('correct');
+        else if(o === el) o.classList.add('wrong');
+      });
+      if(ok){ exState.correct++; }
+      else { exState.wrongCount++; reinforceWord(cat.id, idx); }
+      recordActivity(ok);
+      speak(correctText);
+      const fb = document.getElementById('fb');
+      fb.innerHTML = (ok
+        ? `إجابة صحيحة! الكلمة: ${correctText}`
+        : `إجابة غير صحيحة، الصحيحة هي: ${correctText} — هذه الكلمة هترجع لتدريب القسم العادي.`) + noteLine(w);
+      fb.className = 'feedback ' + (ok?'ok':'bad');
+      document.getElementById('nextBtn').classList.add('show');
+    });
+  });
+  document.getElementById('nextBtn').addEventListener('click', ()=>{ exState.pos++; renderQuiz(cat); });
+}
+
+// ---- Review mode (per-category "مراجعة القسم" and global "مراجعة شاملة") ----
+// Each word is tested in up to 2 back-to-back steps: (1) the word + its
+// article, (2) its plural form — or, for words with no plural, a "لا يوجد
+// جمع" option mixed in with real plurals from the same category, which
+// specifically drills the "not every noun has a plural" lesson.
+const NO_PLURAL_LABEL = 'لا يوجد جمع لهذه الكلمة';
+
+function reviewTotalQ(queue){
+  return queue.reduce((sum, it) => {
+    const c = CATEGORIES.find(x => x.id === it.catId);
+    return sum + (c.hasArticles ? 2 : 1);
+  }, 0);
+}
+
+function renderReviewCat(cat){
+  if(!exState || exState.kind !== 'catReview' || exState.catId !== cat.id){
+    const queue = shuffle(cat.words.map((_,i)=>({ catId: cat.id, idx: i })));
+    exState = { kind:'catReview', catId:cat.id, queue, pos:0, stage:0, correct:0, wrongCount:0, answered:false, totalQ: reviewTotalQ(queue) };
+  }
+  renderReviewScreen({
+    backScreen:'modes', backLabel:'رجوع لأوضاع القسم',
+    headerTitle: cat.ar,
+    headerSub: `مراجعة القسم · ${cat.de}${miniSpeak(speakText(cat))}`,
+    emptyMsg: 'مفيش كلمات في هذا القسم لسه.',
+    rebuild: ()=>{ exState = null; renderReviewCat(cat); }
+  });
+}
+
+// ---- Global review section: auto-collects every word the learner has
+// actually answered correctly at least once, from every category, and
+// offers it back as plain MCQ / Written practice (mode picker up top). ----
+function renderGlobalReviewModes(){
+  const pool = learnedPool();
+  app.innerHTML = `
+    ${headerHtml(true,'رجوع للرئيسية')}
+    <div class="cat-title"><h2>🔁 مراجعة شاملة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">${pool.length} كلمة اتعلمتها من كل الأقسام مع بعض — بتتحدّث أول ما تتعلّم كلمة جديدة</span></div>
+    <div class="modes">
+      <div class="mode-btn" data-gmode="mcq">
+        <div><div class="mt">اختيار من متعدد</div><div class="ms">MCQ · اختار الكلمة الألمانية الصحيحة</div></div>
+        <div class="mode-icon" style="background:${PALETTE[1]};border-radius:50%"></div>
+      </div>
+      <div class="mode-btn" data-gmode="written">
+        <div><div class="mt">الكتابة</div><div class="ms">Written · اكتب الكلمة بالألماني</div></div>
+        <div class="mode-icon" style="background:${PALETTE[2]};border-radius:4px"></div>
+      </div>
+    </div>
+  `;
+  document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
+  app.querySelectorAll('.mode-btn[data-gmode]').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      exState = null;
+      go({screen:'exercise', mode: el.dataset.gmode==='mcq' ? 'globalMcq' : 'globalWritten'});
+    });
+  });
+}
+
+function renderGlobalReviewStep(actualMode){
+  if(!exState || exState.kind !== 'globalStep' || exState.actualMode !== actualMode){
+    const queue = shuffle(learnedPool());
+    exState = { kind:'globalStep', actualMode, queue, pos:0, correct:0, wrongCount:0, answered:false };
+  } else if(exState.answered){
+    // learner just answered the previous question and hit "next" — score it and advance
+    if(exState.lastOk) exState.correct++; else exState.wrongCount++;
+    exState.pos++;
+    exState.answered = false;
+  }
+
+  const queue = exState.queue;
+
+  if(queue.length === 0){
+    app.innerHTML = `
+      ${headerHtml(true,'رجوع للرئيسية')}
+      <div class="cat-title"><h2>🔁 مراجعة شاملة</h2></div>
+      <div class="done-card"><h2>لسه مفيش كلمات كفاية للمراجعة</h2><p>ابدأ تدرّب على أي قسم الأول (وجاوب صح على شوية كلمات)، وبعدين ارجع هنا تراجعها كلها مع بعض.</p></div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
+    return;
+  }
+
+  if(exState.pos >= queue.length){
+    const total = queue.length;
+    const pct = Math.round((exState.correct / total) * 100);
+    app.innerHTML = `
+      ${headerHtml(true,'رجوع للرئيسية')}
+      <div class="cat-title"><h2>🔁 مراجعة شاملة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">نتيجة وضع ${modeLabel(actualMode)}</span></div>
+      <div class="done-card">
+        <h2>${exState.correct} / ${total} إجابة صحيحة (${pct}%)</h2>
+        <p>${exState.wrongCount ? `${exState.wrongCount} سؤال غلط رجّع كلماته للتدريب العادي في قسمها عشان تراجعها.` : 'ممتاز! أجبت صح على كل حاجة 🎉'}</p>
+      </div>
+      <div class="next-row" style="flex-direction:column;gap:10px;">
+        <button class="backbtn" id="retryG" style="width:100%;">إعادة المراجعة بنفس الوضع</button>
+        <button class="backbtn" id="toGModes" style="width:100%;">رجوع لاختيار الوضع</button>
+      </div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
+    document.getElementById('retryG').addEventListener('click', ()=>{ exState = null; renderGlobalReviewStep(actualMode); });
+    document.getElementById('toGModes').addEventListener('click', ()=>{ exState = null; renderGlobalReviewModes(); });
+    return;
+  }
+
+  const item = queue[exState.pos];
+  const realCat = CATEGORIES.find(c => c.id === item.catId);
+  const w = realCat.words[item.idx];
+
+  app.innerHTML = `
+    ${headerHtml(true,'رجوع للرئيسية')}
+    <div class="cat-title"><h2>🔁 مراجعة شاملة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">وضع ${modeLabel(actualMode)} · كلمة ${exState.pos+1} / ${queue.length} · من قسم «${realCat.ar}»</span></div>
+    <div id="qzone"></div>
+  `;
+  document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
+  renderQuestion(realCat, actualMode, item.idx, w);
+}
+
+// ---- Difficult-words bank: the words the learner keeps getting wrong,
+// across every category, sorted hardest-first (lowest count/threshold). ----
+function renderDifficultModes(){
+  const mcqN = difficultPool('mcq').length;
+  const writtenN = difficultPool('written').length;
+  app.innerHTML = `
+    ${headerHtml(true,'رجوع للرئيسية')}
+    <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">الكلمات اللي لسه مش متقنها، مرتبة الأصعب الأول — بتتحدّث أول ما تجاوب غلط أو صح</span></div>
+    <div class="modes">
+      <div class="mode-btn" data-dmode="mcq">
+        <div><div class="mt">اختيار من متعدد</div><div class="ms">MCQ · ${mcqN} كلمة محتاجة مراجعة</div></div>
+        <div class="mode-icon" style="background:${PALETTE[1]};border-radius:50%"></div>
+      </div>
+      <div class="mode-btn" data-dmode="written">
+        <div><div class="mt">الكتابة</div><div class="ms">Written · ${writtenN} كلمة محتاجة مراجعة</div></div>
+        <div class="mode-icon" style="background:${PALETTE[2]};border-radius:4px"></div>
+      </div>
+    </div>
+  `;
+  document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
+  app.querySelectorAll('.mode-btn[data-dmode]').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      exState = null;
+      go({screen:'exercise', mode: el.dataset.dmode==='mcq' ? 'diffMcq' : 'diffWritten'});
+    });
+  });
+}
+
+function renderDifficultStep(actualMode){
+  if(!exState || exState.kind !== 'diffStep' || exState.actualMode !== actualMode){
+    const queue = difficultPool(actualMode); // hardest-first, not shuffled on purpose
+    exState = { kind:'diffStep', actualMode, queue, pos:0, correct:0, wrongCount:0, answered:false };
+  } else if(exState.answered){
+    if(exState.lastOk) exState.correct++; else exState.wrongCount++;
+    exState.pos++;
+    exState.answered = false;
+  }
+
+  const queue = exState.queue;
+
+  if(queue.length === 0){
+    app.innerHTML = `
+      ${headerHtml(true,'رجوع للرئيسية')}
+      <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2></div>
+      <div class="done-card"><h2>مفيش كلمات صعبة دلوقتي في وضع ${modeLabel(actualMode)} 🎉</h2><p>كل الكلمات اللي جربتها في الوضع ده متقنها كويس، أو لسه ماجربتش أي كلمة فيه خالص. كمّل تدريب عادي وارجع هنا لما تلاقي كلمات بتغلط فيها.</p></div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
+    return;
+  }
+
+  if(exState.pos >= queue.length){
+    const total = queue.length;
+    const pct = Math.round((exState.correct / total) * 100);
+    app.innerHTML = `
+      ${headerHtml(true,'رجوع للرئيسية')}
+      <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">نتيجة وضع ${modeLabel(actualMode)}</span></div>
+      <div class="done-card">
+        <h2>${exState.correct} / ${total} إجابة صحيحة (${pct}%)</h2>
+        <p>${exState.wrongCount ? `${exState.wrongCount} كلمة لسه محتاجة شغل أكتر — هتفضل في البنك لحد ما تتقنها.` : 'جامد! ذاكرت كل الكلمات الصعبة صح 🎉'}</p>
+      </div>
+      <div class="next-row" style="flex-direction:column;gap:10px;">
+        <button class="backbtn" id="retryD" style="width:100%;">إعادة المراجعة بنفس الوضع</button>
+        <button class="backbtn" id="toDModes" style="width:100%;">رجوع لاختيار الوضع</button>
+      </div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
+    document.getElementById('retryD').addEventListener('click', ()=>{ exState = null; renderDifficultStep(actualMode); });
+    document.getElementById('toDModes').addEventListener('click', ()=>{ exState = null; renderDifficultModes(); });
+    return;
+  }
+
+  const item = queue[exState.pos];
+  const realCat = CATEGORIES.find(c => c.id === item.catId);
+  const w = realCat.words[item.idx];
+
+  app.innerHTML = `
+    ${headerHtml(true,'رجوع للرئيسية')}
+    <div class="cat-title"><h2>🎯 بنك الكلمات الصعبة</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">وضع ${modeLabel(actualMode)} · كلمة ${exState.pos+1} / ${queue.length} · من قسم «${realCat.ar}»</span></div>
+    <div id="qzone"></div>
+  `;
+  document.getElementById('backBtn').addEventListener('click', ()=> go({screen:'home'}));
+  renderQuestion(realCat, actualMode, item.idx, w);
+}
+
+function renderReviewScreen(opts){
+  const queue = exState.queue;
+
+  if(queue.length === 0){
+    app.innerHTML = `
+      ${headerHtml(true, opts.backLabel)}
+      <div class="cat-title"><h2>${opts.headerTitle}</h2></div>
+      <div class="done-card"><h2>مفيش كلمات كفاية للمراجعة لسه</h2><p>${opts.emptyMsg}</p></div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', ()=> go({screen: opts.backScreen}));
+    return;
+  }
+
+  if(exState.pos >= queue.length){
+    const pct = Math.round((exState.correct / exState.totalQ) * 100);
+    app.innerHTML = `
+      ${headerHtml(true, opts.backLabel)}
+      <div class="cat-title"><h2>${opts.headerTitle}</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">نتيجة المراجعة</span></div>
+      <div class="done-card">
+        <h2>${exState.correct} / ${exState.totalQ} إجابة صحيحة (${pct}%)</h2>
+        <p>${exState.wrongCount ? `${exState.wrongCount} سؤال غلط رجّع كلماته للتدريب العادي عشان تراجعها.` : 'ممتاز! أجبت صح على كل حاجة في المراجعة 🎉'}</p>
+      </div>
+      <div class="next-row"><button class="backbtn" id="retryReview">إعادة المراجعة</button></div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', ()=> go({screen: opts.backScreen}));
+    document.getElementById('retryReview').addEventListener('click', opts.rebuild);
+    return;
+  }
+
+  const item = queue[exState.pos];
+  const cat = CATEGORIES.find(c => c.id === item.catId);
+  const idx = item.idx;
+  const w = cat.words[idx];
+  exState.answered = false;
+  const stageLabel = cat.hasArticles ? ` · خطوة ${exState.stage+1} من 2` : '';
+
+  app.innerHTML = `
+    ${headerHtml(true, opts.backLabel)}
+    <div class="cat-title"><h2>${opts.headerTitle}</h2><span style="display:block;font-size:14px;color:#6b6a66;margin-top:4px;">${opts.headerSub} · كلمة ${exState.pos+1} / ${queue.length}${stageLabel}</span></div>
+    <div id="qzone"></div>
+  `;
+  document.getElementById('backBtn').addEventListener('click', ()=> go({screen: opts.backScreen}));
+  const zone = document.getElementById('qzone');
+  const isLast = exState.pos+1 >= queue.length;
+
+  function goNext(){
+    if(exState.stage === 0 && cat.hasArticles){
+      exState.stage = 1;
+    } else {
+      exState.pos++;
+      exState.stage = 0;
+    }
+    renderReviewScreen(opts);
+  }
+
+  if(exState.stage === 0){
+    const correctText = cat.hasArticles ? `${w.a} ${w.n}` : w.n;
+    const pool = cat.words.filter((_,i)=>i!==idx);
+    let distractors = shuffle(pool).slice(0,3).map(d => cat.hasArticles ? `${d.a} ${d.n}` : d.n);
+    if(distractors.length < 3){
+      const others = CATEGORIES.filter(c => c.id!==cat.id && c.hasArticles===cat.hasArticles)
+        .flatMap(c => c.words.map(d => cat.hasArticles ? `${d.a} ${d.n}` : d.n));
+      distractors = shuffle([...distractors, ...shuffle(others)]).slice(0,3);
+    }
+    const options = shuffle([correctText, ...distractors]);
+    const willBeLastStep = !cat.hasArticles && isLast;
+    const srcTag = item.sources && item.sources.length
+      ? `<div style="font-size:12px;color:#8a8983;margin-top:6px;">📍 اتعلمتها في: ${item.sources.map(modeLabel).join(' + ')}</div>` : '';
+    zone.innerHTML = `
+      <div class="qcard">
+        <div class="qlabel">ما هي الكلمة الألمانية الصحيحة؟</div>
+        <div class="qmain">${w.ar}</div>
+        ${srcTag}
+      </div>
+      <div class="options">${options.map(o=>`<div class="opt de" data-val="${o}">${o}</div>`).join('')}</div>
+      <div class="feedback" id="fb"></div>
+      <div class="next-row"><button class="next-btn" id="nextBtn">${willBeLastStep ? 'عرض النتيجة' : 'التالي ←'}</button></div>
+    `;
+    zone.querySelectorAll('.opt').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        if(exState.answered) return;
+        exState.answered = true;
+        const chosen = el.dataset.val;
+        const ok = chosen === correctText;
+        zone.querySelectorAll('.opt').forEach(o=>{
+          o.classList.add('disabled');
+          if(o.dataset.val === correctText) o.classList.add('correct');
+          else if(o === el) o.classList.add('wrong');
+        });
+        if(ok){ exState.correct++; } else { exState.wrongCount++; reinforceWord(cat.id, idx); }
+        recordActivity(ok);
+        speak(correctText);
+        const fb = document.getElementById('fb');
+        fb.innerHTML = (ok ? `إجابة صحيحة! ${correctText}` : `إجابة غير صحيحة، الصحيحة هي: ${correctText}`) + noteLine(w);
+        fb.className = 'feedback ' + (ok?'ok':'bad');
+        document.getElementById('nextBtn').classList.add('show');
+      });
+    });
+    document.getElementById('nextBtn').addEventListener('click', goNext);
+    return;
+  }
+
+  // stage 1 — plural (only reached when cat.hasArticles is true)
+  let correctText, options;
+  if(w.pl){
+    correctText = w.pl;
+    const distractors = pluralDistractors(w.n, correctText);
+    options = shuffle([correctText, ...distractors]);
+  } else {
+    correctText = NO_PLURAL_LABEL;
+    const candidates = cat.words.filter((x,i)=> i!==idx && x.pl).map(x=>x.pl);
+    const distractors = shuffle(candidates).slice(0,3);
+    options = shuffle([correctText, ...distractors]);
+  }
+  zone.innerHTML = `
+    <div class="qcard">
+      <div class="qlabel">إيه صيغة الجمع الصحيحة لهذه الكلمة؟</div>
+      <div class="qmain de">${w.a} ${w.n}</div>
+      <div class="qsub">${w.ar}</div>
+    </div>
+    <div class="options">${options.map(o=>`<div class="opt ${o===NO_PLURAL_LABEL?'':'de'}" data-val="${o}">${o}</div>`).join('')}</div>
+    <div class="feedback" id="fb"></div>
+    <div class="next-row"><button class="next-btn" id="nextBtn">${isLast ? 'عرض النتيجة' : 'التالي ←'}</button></div>
+  `;
+  zone.querySelectorAll('.opt').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      if(exState.answered) return;
+      exState.answered = true;
+      const chosen = el.dataset.val;
+      const ok = chosen === correctText;
+      zone.querySelectorAll('.opt').forEach(o=>{
+        o.classList.add('disabled');
+        if(o.dataset.val === correctText) o.classList.add('correct');
+        else if(o === el) o.classList.add('wrong');
+      });
+      if(ok){ exState.correct++; } else { exState.wrongCount++; if(w.pl) reinforcePlural(cat.id, idx); }
+      speak(w.pl || w.n);
+      const fb = document.getElementById('fb');
+      fb.innerHTML = (ok ? `إجابة صحيحة! ${correctText}` : `إجابة غير صحيحة، الصحيحة هي: ${correctText}`) + noteLine(w);
+      fb.className = 'feedback ' + (ok?'ok':'bad');
+      document.getElementById('nextBtn').classList.add('show');
+    });
+  });
+  document.getElementById('nextBtn').addEventListener('click', goNext);
+}
+
+function renderQuestion(cat, mode, idx, w){
+  const zone = document.getElementById('qzone');
+
+  if(mode === 'mcq'){
+    // question: show Arabic meaning, choose correct German word (with article if noun)
+    const correctText = cat.hasArticles ? `${w.a} ${w.n}` : w.n;
+    const pool = cat.words.filter((_,i)=>i!==idx);
+    const distractors = shuffle(pool).slice(0,3).map(d => cat.hasArticles ? `${d.a} ${d.n}` : d.n);
+    const options = shuffle([correctText, ...distractors]);
+    zone.innerHTML = `
+      <div class="qcard">
+        <div class="qlabel">ما هي الكلمة الألمانية الصحيحة؟</div>
+        <div class="qmain">${w.ar}</div>
+      </div>
+      <div class="options">${options.map(o=>`<div class="opt de" data-val="${o}">${o}</div>`).join('')}</div>
+      <div class="feedback" id="fb"></div>
+      <div class="next-row"><button class="next-btn" id="nextBtn">التالي ←</button></div>
+    `;
+    zone.querySelectorAll('.opt').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        if(exState.answered) return;
+        exState.answered = true;
+        const chosen = el.dataset.val;
+        const ok = chosen === correctText;
+        zone.querySelectorAll('.opt').forEach(o=>{
+          o.classList.add('disabled');
+          if(o.dataset.val === correctText) o.classList.add('correct');
+          else if(o === el) o.classList.add('wrong');
+        });
+        applyResult(cat.id, mode, idx, ok);
+        speak(correctText);
+        const fb = document.getElementById('fb');
+        fb.innerHTML = (ok ? `إجابة صحيحة! الكلمة: ${correctText}` : `إجابة غير صحيحة، الصحيحة هي: ${correctText}`) + noteLine(w);
+        fb.className = 'feedback ' + (ok?'ok':'bad');
+        document.getElementById('nextBtn').classList.add('show');
+      });
+    });
+  }
+
+  if(mode === 'written'){
+    zone.innerHTML = `
+      <div class="qcard">
+        <div class="qlabel">اكتب الكلمة بالألمانية</div>
+        <div class="qmain">${w.ar}</div>
+        <div class="qsub">${cat.hasArticles ? 'يمكنك كتابتها بدون أداة التعريف' : ''}</div>
+      </div>
+      <div class="write-row">
+        <input type="text" id="wIn" autocomplete="off" placeholder="..." />
+        <button class="submit-btn" id="wSub">تحقق</button>
+      </div>
+      <div class="feedback" id="fb"></div>
+      <div class="next-row"><button class="next-btn" id="nextBtn">التالي ←</button></div>
+    `;
+    const input = document.getElementById('wIn');
+    input.focus();
+    const correctText = `${w.a?w.a+' ':''}${w.n}`;
+    function submit(){
+      if(exState.answered) return;
+      const val = input.value.trim();
+      if(!val) return;
+      exState.answered = true;
+      const given = normalizeDe(val).replace(/\s+/g,' ');
+      const wantArticle = cat.hasArticles && w.a;
+      const noArticleTyped = !/^(der|die|das)\s+/.test(given);
+      const ok = wantArticle
+        ? given === normalizeDe(correctText)
+        : (noArticleTyped && given === normalizeDe(w.n));
+      applyResult(cat.id, mode, idx, ok);
+      speak(correctText);
+      const fb = document.getElementById('fb');
+      fb.innerHTML = (ok ? `إجابة صحيحة! الكلمة: ${correctText}` : `الإجابة الصحيحة: ${correctText}`) + noteLine(w);
+      fb.className = 'feedback ' + (ok?'ok':'bad');
+      input.disabled = true;
+      document.getElementById('wSub').disabled = true;
+      document.getElementById('nextBtn').classList.add('show');
+    }
+    document.getElementById('wSub').addEventListener('click', submit);
+    input.addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
+  }
+
+  if(mode === 'article'){
+    const correctArt = w.a;
+    zone.innerHTML = `
+      <div class="qcard">
+        <div class="qlabel">اختر أداة التعريف الصحيحة</div>
+        <div class="qmain de">${w.n}</div>
+        <div class="qsub">${w.ar}</div>
+      </div>
+      <div class="article-options">
+        ${['der','die','das'].map(a=>`<div class="opt de" data-val="${a}">${a}</div>`).join('')}
+      </div>
+      <div class="feedback" id="fb"></div>
+      <div class="next-row"><button class="next-btn" id="nextBtn">التالي ←</button></div>
+    `;
+    zone.querySelectorAll('.opt').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        if(exState.answered) return;
+        exState.answered = true;
+        const chosen = el.dataset.val;
+        const ok = chosen === correctArt;
+        zone.querySelectorAll('.opt').forEach(o=>{
+          o.classList.add('disabled');
+          if(o.dataset.val === correctArt) o.classList.add('correct');
+          else if(o === el) o.classList.add('wrong');
+        });
+        applyResult(cat.id, mode, idx, ok);
+        speak(`${correctArt} ${w.n}`);
+        const fb = document.getElementById('fb');
+        fb.innerHTML = (ok ? `إجابة صحيحة! ${correctArt} ${w.n}` : `إجابة غير صحيحة، الصحيحة هي: ${correctArt} ${w.n}`) + noteLine(w);
+        fb.className = 'feedback ' + (ok?'ok':'bad');
+        document.getElementById('nextBtn').classList.add('show');
+      });
+    });
+  }
+
+  if(mode === 'plural'){
+    const correctText = w.pl;
+    const distractors = pluralDistractors(w.n, correctText);
+    const options = shuffle([correctText, ...distractors]);
+    zone.innerHTML = `
+      <div class="qcard">
+        <div class="qlabel">إيه صيغة الجمع الصحيحة؟</div>
+        <div class="qmain de">${w.a} ${w.n}</div>
+        <div class="qsub">${w.ar}</div>
+      </div>
+      <div class="options">${options.map(o=>`<div class="opt de" data-val="${o}">${o}</div>`).join('')}</div>
+      <div class="feedback" id="fb"></div>
+      <div class="next-row"><button class="next-btn" id="nextBtn">التالي ←</button></div>
+    `;
+    zone.querySelectorAll('.opt').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        if(exState.answered) return;
+        exState.answered = true;
+        const chosen = el.dataset.val;
+        const ok = chosen === correctText;
+        zone.querySelectorAll('.opt').forEach(o=>{
+          o.classList.add('disabled');
+          if(o.dataset.val === correctText) o.classList.add('correct');
+          else if(o === el) o.classList.add('wrong');
+        });
+        applyResult(cat.id, mode, idx, ok);
+        speak(correctText);
+        const fb = document.getElementById('fb');
+        fb.innerHTML = (ok ? `إجابة صحيحة! ${correctText}` : `إجابة غير صحيحة، الصحيحة هي: ${correctText}`) + noteLine(w);
+        fb.className = 'feedback ' + (ok?'ok':'bad');
+        document.getElementById('nextBtn').classList.add('show');
+      });
+    });
+  }
+  if(nextBtn) nextBtn.addEventListener('click', ()=> renderExercise());
+}
+
+function applyResult(catId, mode, idx, ok){
+  // Global review loop needs to know the outcome of the question it just
+  // rendered (via the shared renderQuestion()) so it can score itself and
+  // advance when the learner hits "next" — see renderGlobalReviewStep().
+  if(exState && (exState.kind === 'globalStep' || exState.kind === 'diffStep')) exState.lastOk = ok;
+  recordActivity(ok);
+  const th = threshFor(mode);
+  const cur = getWordCount(catId, mode, idx);
+  if(ok){
+    setWordCount(catId, mode, idx, Math.min(th, cur + 1));
+  } else {
+    // wrong: if it was mastered (review), demote it back into active practice
+    // otherwise just reset streak-ish progress down a bit (not to zero, to avoid discouragement)
+    if(cur >= th){
+      setWordCount(catId, mode, idx, Math.max(0, th - 3));
+    } else {
+      setWordCount(catId, mode, idx, Math.max(0, cur - 1));
+    }
+  }
+}
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+async function init(){
+  app.innerHTML = `<div class="done-card"><h2>...جارِ تحميل تقدّمك</h2></div>`;
+  await loadProgress();
+  render();
+}
+init();
+</script>
+</body>
+</html>
