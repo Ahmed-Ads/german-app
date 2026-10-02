@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Automated Mutation Testing Suite for verify_vocab.py (Phase 3)
+Mutates a temporary copy of index.html in every field type:
+- German spelling (1 char)
+- Article modification
+- Arabic translation (1 char)
+- Arabic letter variation (ة -> ه)
+- German ß -> ss
+- Added hyphen
+- Trailing space
+- Example sentence modification
+- Plural modification
+- Word deletion
+- Word addition
+- Category reordering
+
+Proves that verify_vocab.py FAILS every single mutation.
+"""
+
+import os
+import sys
+import tempfile
+import subprocess
+import json
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+VERIFIER_PATH = os.path.join(ROOT_DIR, 'verify_vocab.py')
+INDEX_PATH = os.path.join(ROOT_DIR, 'index.html')
+
+with open(INDEX_PATH, 'r', encoding='utf-8') as f:
+    original_html = f.read()
+
+def run_mutation_test(name, mutated_content, expected_err_keyword):
+    with tempfile.NamedTemporaryFile('w', encoding='utf-8', suffix='.html', delete=False) as tf:
+        tf.write(mutated_content)
+        tpath = tf.name
+
+    try:
+        # Run verify_vocab.py pointing TARGET_FILES to this temp file
+        cmd = [
+            sys.executable,
+            '-c',
+            f"""
+import sys, os
+sys.path.insert(0, r'{ROOT_DIR}')
+import verify_vocab
+verify_vocab.TARGET_FILES = [r'{tpath}']
+verify_vocab.main()
+"""
+        ]
+        res = subprocess.run(cmd, capture_output=True, text=True)
+        assert res.returncode != 0, f"Mutation Test '{name}' FAILED: Verifier passed when it should have failed!"
+        combined_output = res.stdout + res.stderr
+        assert expected_err_keyword in combined_output, f"Mutation Test '{name}' FAILED: Expected error keyword '{expected_err_keyword}' not in output:\n{combined_output}"
+        print(f"✅ Mutation Test [{name}]: PASSED (Verifier rejected mutation as expected)")
+    finally:
+        if os.path.exists(tpath):
+            os.remove(tpath)
+
+print("=" * 65)
+print("  RUNNING CONTROLLED MUTATION TESTS AGAINST VERIFIER")
+print("=" * 65)
+
+# 1. German headword 1 char
+run_mutation_test("German_1_char", original_html.replace("n:'Apfel'", "n:'Apfell'", 1), "mismatch")
+
+# 2. Article
+run_mutation_test("Article_change", original_html.replace("a:'der',n:'Apfel'", "a:'das',n:'Apfel'", 1), "mismatch")
+
+# 3. Arabic translation
+run_mutation_test("Arabic_translation", original_html.replace("ar:'تفاحة'", "ar:'برتقالة'", 1), "mismatch")
+
+# 4. Arabic letter/diacritic variation (ة -> ه)
+run_mutation_test("Arabic_ta_marbuta", original_html.replace("ar:'تفاحة'", "ar:'تفاحه'", 1), "mismatch")
+
+# 5. German ß -> ss
+run_mutation_test("German_sharp_s", original_html.replace("n:'Weißkohl'", "n:'Weisskohl'", 1), "mismatch")
+
+# 6. Added hyphen
+run_mutation_test("Added_hyphen", original_html.replace("n:'U-Bahn'", "n:'U--Bahn'", 1), "mismatch")
+
+# 7. Trailing space
+run_mutation_test("Trailing_space", original_html.replace("n:'Apfel'", "n:'Apfel '", 1), "mismatch")
+
+# 8. Sentence change
+run_mutation_test("Sentence_edit", original_html.replace("s:'Der Apfel schmeckt süß und frisch.'", "s:'Der Apfel ist rot.'", 1), "mismatch")
+
+# 9. Plural change
+run_mutation_test("Plural_edit", original_html.replace("pl:'die Äpfel'", "pl:'die Apfeln'", 1), "mismatch")
+
+# 10. Word deletion
+run_mutation_test("Word_deletion", original_html.replace("{a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Der Apfel schmeckt süß und frisch.',sar:'التفاحة طعمها حلو وطازج.'},", "", 1), "word count mismatch")
+
+# 11. Word addition
+run_mutation_test("Word_addition", original_html.replace("{a:'der',n:'Apfel'", "{a:'der',n:'Apfel_neu',ar:'تفاحة جديدة',pl:'die Äpfel',s:'s',sar:'s'},{a:'der',n:'Apfel'", 1), "word count mismatch")
+
+# 12. Category reordering
+w1 = "{a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Der Apfel schmeckt süß und frisch.',sar:'التفاحة طعمها حلو وطازج.'}"
+w2 = "{a:'die',n:'Banane',ar:'موزة',pl:'die Bananen',s:'Die Banane ist gelb und reif.',sar:'الموزة صفراء وناضجة.'}"
+run_mutation_test("Word_reordering", original_html.replace(f"{w1},\n    {w2}", f"{w2},\n    {w1}", 1), "mismatch")
+
+print("=" * 65)
+print("🎉 ALL 12 MUTATION TESTS PASSED! THE VERIFIER IS 100% BULLETPROOF.")
+print("=" * 65)

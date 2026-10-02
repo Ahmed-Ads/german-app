@@ -1,0 +1,204 @@
+{
+  "total_categories": 30,
+  "total_words": 1160,
+  "schema_issues": [],
+  "unicode_issues": [],
+  "casing_issues": [
+    "technik[48] (3D-Drucker): Noun in article-category does not start with capital: '3D-Drucker'"
+  ],
+  "compound_gender_mismatches": [
+    {
+      "location": "wetter[17] (Grad)",
+      "word": "Grad",
+      "current_article": "der",
+      "expected_article": "das",
+      "headword": "rad",
+      "reason": "Compound ends in -rad (which takes 'das'), but entry has 'der'"
+    },
+    {
+      "location": "gewuerze[13] (Knoblauchpulver)",
+      "word": "Knoblauchpulver",
+      "current_article": "der",
+      "expected_article": "das",
+      "headword": "pulver",
+      "reason": "Compound ends in -pulver (which takes 'das'), but entry has 'der'"
+    }
+  ],
+  "uncountable_mass_nouns_with_plural": [
+    {
+      "location": "gemuese[9] (Spinat)",
+      "word": "Spinat",
+      "current_plural": "die Spinate",
+      "reason": "'Spinat' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "gemuese[15] (Mais)",
+      "word": "Mais",
+      "current_plural": "die Maise",
+      "reason": "'Mais' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "gemuese[22] (Lauch)",
+      "word": "Lauch",
+      "current_plural": "die Lauche",
+      "reason": "'Lauch' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "gemuese[24] (Blumenkohl)",
+      "word": "Blumenkohl",
+      "current_plural": "die Blumenkohle",
+      "reason": "'Blumenkohl' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "milch[0] (Milch)",
+      "word": "Milch",
+      "current_plural": "die Milche",
+      "reason": "'Milch' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "milch[6] (Buttermilch)",
+      "word": "Buttermilch",
+      "current_plural": "die Buttermilche",
+      "reason": "'Buttermilch' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "milch[13] (Kaffeesahne)",
+      "word": "Kaffeesahne",
+      "current_plural": "die Kaffeesahnen",
+      "reason": "'Kaffeesahne' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "milch[14] (Sojamilch)",
+      "word": "Sojamilch",
+      "current_plural": "die Sojamilchen",
+      "reason": "'Sojamilch' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "wetter[1] (Regen)",
+      "word": "Regen",
+      "current_plural": "die Regen",
+      "reason": "'Regen' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "gewuerze[0] (Pfeffer)",
+      "word": "Pfeffer",
+      "current_plural": "die Pfeffer",
+      "reason": "'Pfeffer' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "gewuerze[1] (Salz)",
+      "word": "Salz",
+      "current_plural": "die Salze",
+      "reason": "'Salz' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "gewuerze[6] (Petersilie)",
+      "word": "Petersilie",
+      "current_plural": "die Petersilien",
+      "reason": "'Petersilie' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "gewuerze[8] (Kurkuma)",
+      "word": "Kurkuma",
+      "current_plural": "die Kurkumen",
+      "reason": "'Kurkuma' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "gewuerze[37] (Zucker)",
+      "word": "Zucker",
+      "current_plural": "die Zucker",
+      "reason": "'Zucker' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "getreide[1] (Mehl)",
+      "word": "Mehl",
+      "current_plural": "die Mehle",
+      "reason": "'Mehl' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "kueche[7] (Glas)",
+      "word": "Glas",
+      "current_plural": "die Gläser",
+      "reason": "'Glas' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    },
+    {
+      "location": "suessigkeiten[7] (Honig)",
+      "word": "Honig",
+      "current_plural": "die Honige",
+      "reason": "'Honig' is typically an uncountable mass noun (Singularetantum). Expected pl: null or non-standard plural."
+    }
+  ],
+  "duplicate_words": [
+    {
+      "word": "Mutter",
+      "occurrences": [
+        [
+          "familie",
+          0
+        ],
+        [
+          "werkzeuge",
+          43
+        ]
+      ]
+    },
+    {
+      "word": "Nagel",
+      "occurrences": [
+        [
+          "koerper",
+          25
+        ],
+        [
+          "werkzeuge",
+          4
+        ]
+      ]
+    },
+    {
+      "word": "Leber",
+      "occurrences": [
+        [
+          "koerper",
+          34
+        ],
+        [
+          "fleisch",
+          11
+        ]
+      ]
+    },
+    {
+      "word": "Fleisch",
+      "occurrences": [
+        [
+          "fleisch",
+          0
+        ],
+        [
+          "section-names",
+          23
+        ]
+      ]
+    }
+  ],
+  "duplicate_glosses": [],
+  "sentence_target_missing": [
+    "tiere[6] (Ziege): Target word 'Ziege' (stem 'Zieg') not found in sentence: 'Die Bergziege klettert geschickt auf die Felsen.'",
+    "verkehr[6] (U-Bahn): Target word 'U-Bahn' (stem 'U-Bah') not found in sentence: 'Die Straßenbahn fährt im Zehn-Minuten-Takt durch die Innenstadt.'",
+    "verkehr[12] (Hubschrauber): Target word 'Hubschrauber' (stem 'Hubschrauber') not found in sentence: 'Der gelbe Rettungshubschrauber landete zügig direkt auf dem Dach des Krankenhauses.'",
+    "verkehr[35] (Haltestelle): Target word 'Haltestelle' (stem 'Haltestell') not found in sentence: 'Viele Pendler warten am frühen Montagmorgen ungeduldig an der Bushaltestelle.'",
+    "wetter[42] (Luft): Target word 'Luft' (stem 'Luft') not found in sentence: 'Tiefes Einatmen der reinen Bergluft erfrischt den ganzen Körper.'",
+    "orte[7] (Bahnhof): Target word 'Bahnhof' (stem 'Bahnhof') not found in sentence: 'Der Zug fährt pünktlich in den Hauptbahnhof ein.'",
+    "orte[38] (Platz): Target word 'Platz' (stem 'Platz') not found in sentence: 'Mitten auf dem Marktplatz steht ein alter Brunnen.'",
+    "fleisch[4] (Wurst): Target word 'Wurst' (stem 'Wurst') not found in sentence: 'Die deutsche Bratwurst ist weltweit eine berühmte Spezialität.'",
+    "fleisch[31] (Braten): Target word 'Braten' (stem 'Brat') not found in sentence: 'Am Sonntagmittag duftet das ganze Haus nach einem herzhaften Schweinebraten.'",
+    "suessigkeiten[11] (Pudding): Target word 'Pudding' (stem 'Pudding') not found in sentence: 'Die Großmutter rührt cremigen gelben Vanillepudding in einem kleinen Stiltopf an.'",
+    "suessigkeiten[17] (Erdnuss): Target word 'Erdnuss' (stem 'Erdnu') not found in sentence: 'Beim Fernsehabend knabbert er gern frisch geröstete und gesalzene Erdnüsse.'",
+    "suessigkeiten[19] (Walnuss): Target word 'Walnuss' (stem 'Walnu') not found in sentence: 'Im Herbst sammelt das Mädchen reife Walnüsse unter dem großen Baum im Garten.'",
+    "suessigkeiten[20] (Haselnuss): Target word 'Haselnuss' (stem 'Haselnu') not found in sentence: 'Dunkle Schokolade mit ganzen knackigen Haselnüssen ist ihr absoluter Lieblingssnack.'",
+    "sport[37] (Kegeln): Target word 'Kegeln' (stem 'Kegel') not found in sentence: 'In alten Gasthöfen wird auf traditionellen Holzbahnen gekegelt.'"
+  ],
+  "sentence_punctuation_issues": [],
+  "known_suspicious_items": []
+}

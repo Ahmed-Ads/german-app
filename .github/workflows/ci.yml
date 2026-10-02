@@ -1,0 +1,43 @@
+name: CI Quality & Verification Suite
+
+on:
+  push:
+    branches: [ main, master, 'fix/**', 'feature/**' ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  test-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: 1. Strict Vocabulary Verification (Rule R1 / SHA-256)
+        run: python verify_vocab.py
+
+      - name: 2. Controlled Mutation Testing
+        run: python tests/mutation_verifier_test.py
+
+      - name: 3. Unit Tests & Code Fixes Verification
+        run: npx vitest run tests/unit_fixes.test.js
+
+      - name: 4. Permanent Data Integrity Tests
+        run: npx vitest run tests/data_integrity.test.js
+
+      - name: 5. 30,000 Questions Property & Fuzz Testing
+        run: npx vitest run tests/property_fuzz.test.js
