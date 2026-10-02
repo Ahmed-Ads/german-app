@@ -127,3 +127,20 @@ python verify_vocab.py
   ```
 - **خُطّاف ما قبل الحفظ (Git Pre-commit Hook):**
   تم ضبط `.git/hooks/pre-commit` ليعمل بتوافق كامل عبر استكشاف أوامر `python3` و `python` و `py -3` تلقائياً عبر Linux و Windows Git Bash.
+
+---
+
+## 📋 7. قائمة التحقق قبل الإصدار والدمج (Release Checklist)
+
+قبل دمج أي فرع جديد أو إصدار تحديث رسمي للتطبيق، يُرجى اتباع الخطوات التالية بدقة:
+1. **تشغيل الفحص الشامل على نظام ويندوز:**
+   - اضغط مرتين على `Run_Windows_Checks.bat` أو شغّل من PowerShell:
+     ```powershell
+     powershell -ExecutionPolicy Bypass -File tools\run_windows_checks.ps1
+     ```
+2. **فحص تقرير النتائج:**
+   - افتح الملف الناتج `audit\windows_results\summary.txt` وتأكد من نجاح كافة الاختبارات ومعدلات الأداء في Lighthouse.
+3. **ترقية إصدار التخزين المؤقت (Service Worker):**
+   - مع كل إصدار جديد، قم بزيادة رقم الإصدار في `CACHE_NAME` داخل ملف `sw.js` (مثلاً من `deutsch-lernen-v3` إلى `deutsch-lernen-v4`) لضمان تنزيل التحديث فوراً لدى المستخدمين.
+4. **الموافقة والدمج:**
+   - بعد التحقق من نظافة بيئة العمل ومطابقة الكلمات، يتم اعتماد التعديل ودمج الفرع (Merge).

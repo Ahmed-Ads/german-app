@@ -4330,16 +4330,7 @@ document.addEventListener('click', (e) => {
     return;
   }
 
-  // 5. flashcard flip wrapper (unless clicking inside action buttons)
-  const fcWrap = e.target.closest('[data-action="flip-flashcard"]');
-  if(fcWrap){
-    if(!e.target.closest('button')){
-      flipFlashcard();
-    }
-    return;
-  }
-
-  // 6. star toggle in flashcard
+  // 5. star toggle in flashcard
   const starFcBtn = e.target.closest('[data-action="toggle-star-flashcard"]');
   if(starFcBtn){
     e.stopPropagation();
@@ -4347,6 +4338,15 @@ document.addEventListener('click', (e) => {
     const idx = parseInt(starFcBtn.getAttribute('data-idx'), 10);
     toggleStar(catId, idx);
     starFcBtn.classList.toggle('starred');
+    return;
+  }
+
+  // 6. flashcard flip wrapper (unless clicking inside action buttons)
+  const fcWrap = e.target.closest('[data-action="flip-flashcard"]');
+  if(fcWrap){
+    if(!e.target.closest('button')){
+      flipFlashcard();
+    }
     return;
   }
 
