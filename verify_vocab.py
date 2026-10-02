@@ -23,6 +23,17 @@ import subprocess
 import shutil
 from datetime import datetime
 
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
+if hasattr(sys.stderr, 'reconfigure'):
+    try:
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASELINE_PATH = os.path.join(SCRIPT_DIR, 'vocab_baseline.json')
 CHANGELOG_PATH = os.path.join(SCRIPT_DIR, 'CHANGELOG_VOCAB.md')
@@ -40,7 +51,7 @@ def compute_canonical_hash(categories):
 def extract_vocab_from_html(html_path):
     """
     Extracts the CATEGORIES array from HTML using a real JavaScript VM runner (Node.js).
-    Uses robust balanced bracket matching respecting string literals, escapes, and comments.
+    Invokes scripts/extract_categories_ast.js via list-form subprocess.
     """
     if not os.path.exists(html_path):
         return None, [f"File does not exist: {html_path}"]
@@ -52,108 +63,17 @@ def extract_vocab_from_html(html_path):
             "Please ensure Node.js is installed and available in the system PATH."
         ]
 
-    node_script = """
-    const fs = require('fs');
-    const vm = require('vm');
-
-    const html = fs.readFileSync(process.argv[1], 'utf8');
-    const declPattern = /const\\s+CATEGORIES\\s*=\\s*\\[/;
-    const match = declPattern.exec(html);
-    if (!match) {
-        console.error('CRITICAL: Could not find const CATEGORIES = [ in ' + process.argv[1]);
-        process.exit(2);
-    }
-
-    const arrayStartIndex = match.index + match[0].length - 1; // points to '['
-
-    // Robust bracket matching scanner respecting comments and string literals
-    let depth = 0;
-    let inString = null;
-    let inLineComment = false;
-    let inBlockComment = false;
-    let arrayEndIndex = -1;
-
-    for (let i = arrayStartIndex; i < html.length; i++) {
-        const ch = html[i];
-        const next = html[i + 1];
-
-        if (inLineComment) {
-            if (ch === '\\n') inLineComment = false;
-            continue;
-        }
-
-        if (inBlockComment) {
-            if (ch === '*' && next === '/') {
-                inBlockComment = false;
-                i++;
-            }
-            continue;
-        }
-
-        if (inString) {
-            if (ch === '\\\\') {
-                i++; // skip escaped char
-            } else if (ch === inString) {
-                inString = null;
-            }
-            continue;
-        }
-
-        if (ch === '/' && next === '/') {
-            inLineComment = true;
-            i++;
-            continue;
-        }
-        if (ch === '/' && next === '*') {
-            inBlockComment = true;
-            i++;
-            continue;
-        }
-        if (ch === "'" || ch === '"' || ch === '`') {
-            inString = ch;
-            continue;
-        }
-
-        if (ch === '[') {
-            depth++;
-        } else if (ch === ']') {
-            depth--;
-            if (depth === 0) {
-                arrayEndIndex = i;
-                break;
-            }
-        }
-    }
-
-    if (arrayEndIndex === -1) {
-        console.error('CRITICAL: Could not find matching closing bracket for CATEGORIES array');
-        process.exit(3);
-    }
-
-    const arrayJs = html.slice(arrayStartIndex, arrayEndIndex + 1);
-    const sandbox = {};
-    vm.createContext(sandbox);
-    vm.runInContext('CATEGORIES = ' + arrayJs, sandbox);
-
-    if (!sandbox.CATEGORIES || !Array.isArray(sandbox.CATEGORIES)) {
-        console.error('CRITICAL: Evaluated CATEGORIES is not an array');
-        process.exit(4);
-    }
-
-    // Normalize hasArticles to boolean
-    const normalized = sandbox.CATEGORIES.map(c => ({
-        ...c,
-        hasArticles: Boolean(c.hasArticles)
-    }));
-
-    process.stdout.write(JSON.stringify(normalized));
-    """
+    extractor_script = os.path.join(SCRIPT_DIR, 'scripts', 'extract_categories_ast.js')
+    if not os.path.exists(extractor_script):
+        return None, [f"Extractor script not found: {extractor_script}"]
 
     try:
         proc = subprocess.run(
-            [node_bin, '-e', node_script, html_path],
+            [node_bin, extractor_script, os.path.abspath(html_path)],
             capture_output=True,
             text=True,
+            encoding='utf-8',
+            errors='replace',
             check=False
         )
         if proc.returncode != 0:

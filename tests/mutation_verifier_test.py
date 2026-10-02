@@ -25,13 +25,24 @@ import tempfile
 import subprocess
 import json
 
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
+if hasattr(sys.stderr, 'reconfigure'):
+    try:
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(SCRIPT_DIR)
 VERIFIER_PATH = os.path.join(ROOT_DIR, 'verify_vocab.py')
 INDEX_PATH = os.path.join(ROOT_DIR, 'index.html')
 
 with open(INDEX_PATH, 'r', encoding='utf-8') as f:
-    original_html = f.read()
+    original_html = f.read().replace('\r\n', '\n')
 
 def run_mutation_test(name, mutated_content, expected_err_keyword):
     with tempfile.NamedTemporaryFile('w', encoding='utf-8', suffix='.html', delete=False) as tf:
@@ -40,18 +51,26 @@ def run_mutation_test(name, mutated_content, expected_err_keyword):
 
     try:
         # Run verify_vocab.py pointing TARGET_FILES to this temp file
-        cmd = [
-            sys.executable,
-            '-c',
-            f"""
-import sys, os
-sys.path.insert(0, r'{ROOT_DIR}')
-import verify_vocab
-verify_vocab.TARGET_FILES = [r'{tpath}']
-verify_vocab.main()
-"""
-        ]
-        res = subprocess.run(cmd, capture_output=True, text=True)
+        code = (
+            "import sys, os\n"
+            f"sys.path.insert(0, {repr(ROOT_DIR)})\n"
+            "import verify_vocab\n"
+            f"verify_vocab.TARGET_FILES = [{repr(tpath)}]\n"
+            "verify_vocab.main()\n"
+        )
+        cmd = [sys.executable, '-c', code]
+        sub_env = os.environ.copy()
+        sub_env['PYTHONUTF8'] = '1'
+        sub_env['PYTHONIOENCODING'] = 'utf-8'
+
+        res = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+            errors='replace',
+            env=sub_env
+        )
         assert res.returncode != 0, f"Mutation Test '{name}' FAILED: Verifier passed when it should have failed!"
         combined_output = res.stdout + res.stderr
         assert expected_err_keyword in combined_output, f"Mutation Test '{name}' FAILED: Expected error keyword '{expected_err_keyword}' not in output:\n{combined_output}"

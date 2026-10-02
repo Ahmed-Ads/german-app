@@ -1,0 +1,28 @@
+# Ensure consistent line endings across operating systems (LF for web/unix, CRLF for Windows batch)
+* text=auto eol=lf
+
+# Force text formats to LF
+*.html text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sh text eol=lf
+*.svg text eol=lf
+
+# Windows-specific scripts require CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary assets
+*.png binary
+*.woff2 binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.gif binary

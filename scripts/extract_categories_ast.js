@@ -1,70 +1,125 @@
 #!/usr/bin/env node
 /**
- * extract_categories_ast.js
- * -------------------------
- * Extracts CATEGORIES array from index.html using Node.js vm module (real JavaScript AST evaluation).
- * Verifies deep equality against vocab_baseline.json without using regex heuristics.
+ * scripts/extract_categories_ast.js
+ * ---------------------------------
+ * Robust JavaScript AST / VM extractor for CATEGORIES array in HTML files.
+ * Uses balanced bracket matching respecting string literals, escapes, and comments.
+ * Outputs normalized JSON to stdout.
+ *
+ * Usage:
+ *   node scripts/extract_categories_ast.js <path-to-html-file>
  */
 
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
-const assert = require('assert');
 
-const ROOT_DIR = path.resolve(__dirname, '..');
-const HTML_PATH = path.join(ROOT_DIR, 'index.html');
-const BASELINE_PATH = path.join(ROOT_DIR, 'vocab_baseline.json');
-const OUTPUT_PATH = path.join(ROOT_DIR, 'proof', 'extracted_categories.json');
+function main() {
+  const targetPath = process.argv[2] || path.join(__dirname, '..', 'index.html');
 
-console.log('Reading index.html...');
-const html = fs.readFileSync(HTML_PATH, 'utf8');
+  if (!fs.existsSync(targetPath)) {
+    process.stderr.write(`CRITICAL: File does not exist: ${targetPath}\n`);
+    process.exit(1);
+  }
 
-// Find CATEGORIES declaration
-const declIdx = html.indexOf('const CATEGORIES =');
-if (declIdx === -1) {
-  console.error('ERROR: Could not find const CATEGORIES in index.html');
-  process.exit(1);
+  // Read HTML file as UTF-8 and normalize CRLF to LF
+  const html = fs.readFileSync(targetPath, 'utf8').replace(/\r\n/g, '\n');
+
+  const declPattern = /const\s+CATEGORIES\s*=\s*\[/;
+  const match = declPattern.exec(html);
+  if (!match) {
+    process.stderr.write(`CRITICAL: Could not find 'const CATEGORIES = [' in ${targetPath}\n`);
+    process.exit(2);
+  }
+
+  const arrayStartIndex = match.index + match[0].length - 1; // points to '['
+
+  let depth = 0;
+  let inString = null;
+  let inLineComment = false;
+  let inBlockComment = false;
+  let arrayEndIndex = -1;
+
+  for (let i = arrayStartIndex; i < html.length; i++) {
+    const ch = html[i];
+    const next = html[i + 1];
+
+    if (inLineComment) {
+      if (ch === '\n') inLineComment = false;
+      continue;
+    }
+
+    if (inBlockComment) {
+      if (ch === '*' && next === '/') {
+        inBlockComment = false;
+        i++;
+      }
+      continue;
+    }
+
+    if (inString) {
+      if (ch === '\\') {
+        i++; // skip escaped char
+      } else if (ch === inString) {
+        inString = null;
+      }
+      continue;
+    }
+
+    if (ch === '/' && next === '/') {
+      inLineComment = true;
+      i++;
+      continue;
+    }
+    if (ch === '/' && next === '*') {
+      inBlockComment = true;
+      i++;
+      continue;
+    }
+    if (ch === "'" || ch === '"' || ch === '`') {
+      inString = ch;
+      continue;
+    }
+
+    if (ch === '[') {
+      depth++;
+    } else if (ch === ']') {
+      depth--;
+      if (depth === 0) {
+        arrayEndIndex = i;
+        break;
+      }
+    }
+  }
+
+  if (arrayEndIndex === -1) {
+    process.stderr.write('CRITICAL: Could not find matching closing bracket for CATEGORIES array\n');
+    process.exit(3);
+  }
+
+  const arrayJs = html.slice(arrayStartIndex, arrayEndIndex + 1);
+  const sandbox = {};
+  vm.createContext(sandbox);
+
+  try {
+    vm.runInContext('CATEGORIES = ' + arrayJs, sandbox);
+  } catch (err) {
+    process.stderr.write(`CRITICAL: VM evaluation error: ${err.message}\n`);
+    process.exit(4);
+  }
+
+  if (!sandbox.CATEGORIES || !Array.isArray(sandbox.CATEGORIES)) {
+    process.stderr.write('CRITICAL: Evaluated CATEGORIES is not an array\n');
+    process.exit(5);
+  }
+
+  // Normalize hasArticles to boolean
+  const normalized = sandbox.CATEGORIES.map(cat => ({
+    ...cat,
+    hasArticles: Boolean(cat.hasArticles)
+  }));
+
+  process.stdout.write(JSON.stringify(normalized));
 }
 
-const threshPos = html.indexOf('/* thresholds requested by user */', declIdx);
-if (threshPos === -1) {
-  console.error('ERROR: Could not find end of CATEGORIES definition');
-  process.exit(1);
-}
-
-const jsSnippet = html.slice(declIdx, threshPos);
-
-// Run in isolated VM sandbox
-const sandbox = {};
-vm.createContext(sandbox);
-vm.runInContext(jsSnippet.replace('const CATEGORIES', 'CATEGORIES'), sandbox);
-
-if (!sandbox.CATEGORIES || !Array.isArray(sandbox.CATEGORIES)) {
-  console.error('ERROR: Failed to evaluate CATEGORIES into an array');
-  process.exit(1);
-}
-
-// Convert from VM realm to host Realm and ensure hasArticles is boolean
-const extracted = JSON.parse(JSON.stringify(sandbox.CATEGORIES)).map(cat => ({
-  ...cat,
-  hasArticles: Boolean(cat.hasArticles)
-}));
-
-console.log(`Evaluated: ${extracted.length} categories, ${extracted.reduce((s, c) => s + c.words.length, 0)} words.`);
-
-// Compare with baseline
-const baseline = JSON.parse(fs.readFileSync(BASELINE_PATH, 'utf8'));
-
-try {
-  assert.deepStrictEqual(extracted, baseline);
-  console.log('✅ PASS: Extracted CATEGORIES is 100% DEEP-EQUAL to vocab_baseline.json');
-} catch (err) {
-  console.error('❌ FAIL: Extracted CATEGORIES differs from vocab_baseline.json!');
-  console.error(err.message);
-  process.exit(1);
-}
-
-// Save extracted JSON
-fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
-fs.writeFileSync(OUTPUT_PATH, JSON.stringify(extracted, null, 2), 'utf8');
-console.log(`Saved extracted data to: ${OUTPUT_PATH}`);
+main();
