@@ -2008,16 +2008,16 @@
         "n": "Bauch",
         "ar": "بطن",
         "pl": "die Bäuche",
-        "s": "Ein feines Haar fiel ihm auf die Schulter.",
-        "sar": "سقطت شعرة دقيقة على كتفه."
+        "s": "Nach dem üppigen Essen drückt der volle Bauch.",
+        "sar": "بعد الوجبة الدسمة تشعر بامتلائها في البطن."
       },
       {
         "a": "das",
         "n": "Haar",
         "ar": "شعر",
         "pl": "die Haare",
-        "s": "Sie trägt eine feine Kette um ihren Hals.",
-        "sar": "هي ترتدي سلسلة رقيقة حول عنقها."
+        "s": "Ein feines Haar fiel ihm auf die Schulter.",
+        "sar": "سقطت شعرة دقيقة على كتفه."
       },
       {
         "a": "der",
@@ -2032,40 +2032,40 @@
         "n": "Schulter",
         "ar": "كتف",
         "pl": "die Schultern",
-        "s": "Sie spürt ein Kribbeln in der Brust vor Aufregung.",
-        "sar": "تشعر بنبض في صدرها من شدة الحماس."
+        "s": "Sie tröstet das Kind und legt die Hand auf seine Schulter.",
+        "sar": "هي تواسي الطفل وتضع يدها على كتفه."
       },
       {
         "a": "das",
         "n": "Knie",
         "ar": "ركبة",
         "pl": "die Knie",
-        "s": "Nach dem üppigen Essen drückt der volle Bauch.",
-        "sar": "بعد الوجبة الدسمة تشعر بامتلائها في البطن."
+        "s": "Beim Stürzen schlug er hart auf das Knie.",
+        "sar": "أثناء السقوط ارتطمت ركبته بقوة."
       },
       {
         "a": "der",
         "n": "Zahn",
         "ar": "سن",
         "pl": "die Zähne",
-        "s": "Beim Stürzen schlug er hart auf das Knie.",
-        "sar": "أثناء السقوط ارتطمت ركبته بقوة."
+        "s": "Der kleine Junge hat einen wackelnden Zahn verloren.",
+        "sar": "الولد الصغير سقطت منه سن كانت تتأرجح."
       },
       {
         "a": "die",
         "n": "Zunge",
         "ar": "لسان",
         "pl": "die Zungen",
-        "s": "Er stützt sich mit dem Ellbogen auf dem Schreibtisch ab.",
-        "sar": "هو يستند بمرفقه على المكتب."
+        "s": "Mit der Zunge schmeckt man süß, sauer und salzig.",
+        "sar": "باللسان يتذوق الإنسان الحلو والحامض والمالح."
       },
       {
         "a": "der",
         "n": "Hals",
         "ar": "رقبة",
         "pl": "die Hälse",
-        "s": "Sie tröstet das Kind und legt die Hand auf seine Schulter.",
-        "sar": "هي تواسي الطفل وتضع يدها على كتفه."
+        "s": "Sie trägt eine feine Kette um ihren Hals.",
+        "sar": "هي ترتدي سلسلة رقيقة حول عنقها."
       },
       {
         "a": "die",
@@ -2080,32 +2080,32 @@
         "n": "Kinn",
         "ar": "ذقن",
         "pl": "die Kinne",
-        "s": "Der kleine Junge hat einen wackelnden Zahn verloren.",
-        "sar": "الولد الصغير سقطت منه سن كانت تتأرجح."
+        "s": "Nach dem Nachdenken kratzt er sich nachdenklich am Kinn.",
+        "sar": "بعد التفكير يحك ذقنه بتأمل."
       },
       {
         "a": "die",
         "n": "Augenbraue",
         "ar": "حاجب",
         "pl": "die Augenbrauen",
-        "s": "Mit der Zunge schmeckt man süß, sauer und salzig.",
-        "sar": "باللسان يتذوق الإنسان الحلو والحامض والمالح."
+        "s": "Die dichte Augenbraue schützt das Auge vor Schweiß.",
+        "sar": "الحاجب الكثيف يحمي العين من العرق."
       },
       {
         "a": "der",
         "n": "Ellbogen",
         "ar": "كوع",
         "pl": "die Ellbogen",
-        "s": "Die dichte Augenbraue schützt das Auge vor Schweiß.",
-        "sar": "الحاجب الكثيف يحمي العين من العرق."
+        "s": "Er stützt sich mit dem Ellbogen auf dem Schreibtisch ab.",
+        "sar": "هو يستند بمرفقه على المكتب."
       },
       {
         "a": "die",
         "n": "Stirn",
         "ar": "جبهة",
         "pl": "die Stirnen",
-        "s": "Nach dem Nachdenken kratzt er sich nachdenklich am Kinn.",
-        "sar": "بعد التفكير يحك ذقنه بتأمل."
+        "s": "Vor Anstrengung traten ihm Schweißperlen auf die Stirn.",
+        "sar": "من شدة المجهود ظهرت حبات العرق على جبهته."
       },
       {
         "a": "die",
@@ -2557,8 +2557,8 @@
         "n": "Unterhose",
         "ar": "لباس داخلي",
         "pl": "die Unterhosen",
-        "s": "Frische Unterwäsche liegt ordentlich gefaltet im Schrank.",
-        "sar": "الملابس الداخلية النظيفة موضوعة مطوية بعناية في الخزانة."
+        "s": "Er zieht sich eine bequeme Unterhose aus reiner Baumwolle an.",
+        "sar": "هو يرتدي لباساً داخلياً مريحاً من القطن الصافي."
       },
       {
         "a": "der",
@@ -4194,80 +4194,80 @@
         "n": "Taxi",
         "ar": "تاكسي",
         "pl": "die Taxis",
-        "s": "Mit der U-Bahn kommt man ohne Stau schnell ans Ziel.",
-        "sar": "بمترو الأنفاق يصل المرء سريعاً بدون ازدحام مروري."
+        "s": "Weil die letzte Bahn verpasst wurde, rief er sich nachts ein Taxi.",
+        "sar": "لأنه فاته القطار الأخير، طلب لنفسه سيارة أجرة ليلاً."
       },
       {
         "a": "der",
         "n": "Lastwagen",
         "ar": "شاحنة",
         "pl": "die Lastwagen",
-        "s": "Die S-Bahn verbindet die Vororte direkt mit dem Hauptbahnhof.",
-        "sar": "قطار الضواحي يربط الضواحي مباشرة بمحطة القطار الرئيسية."
+        "s": "Der schwere Lastwagen transportiert frische Lebensmittel von der Fabrik zum Supermarkt.",
+        "sar": "الشاحنة الثقيلة تنقل المواد الغذائية الطازجة من المصنع إلى السوبرماركت."
       },
       {
         "a": "das",
         "n": "Motorrad",
         "ar": "موتوسيكل",
         "pl": "die Motorräder",
-        "s": "Weil es spät war, nahm er ein Taxi nach Hause.",
-        "sar": "لأن الوقت كان متأخراً أخذ سيارة أجرة إلى المنزل."
+        "s": "Er fährt mit seinem schnellen Motorrad gern auf kurvigen Landstraßen.",
+        "sar": "هو يحب القيادة بدراجته النارية السريعة على الطرق الريفية المتعرجة."
       },
       {
         "a": "die",
         "n": "Straßenbahn",
         "ar": "ترام",
         "pl": "die Straßenbahnen",
-        "s": "Der Fahrer liefert die Waren mit einem großen Lastwagen aus.",
-        "sar": "السائق يوصل البضائع بشاحنة كبيرة."
+        "s": "Die Straßenbahn fährt im Zehn-Minuten-Takt mitten durch die belebte Innenstadt.",
+        "sar": "الترام يسير كل عشر دقائق في قلب وسط المدينة الحيوي."
       },
       {
         "a": "das",
         "n": "Boot",
         "ar": "قارب",
         "pl": "die Boote",
-        "s": "Er fährt mit dem schnellen Motorrad über die Landstraße.",
-        "sar": "هو يقود الدراجة النارية السريعة على الطريق الريفي."
+        "s": "Wir mieteten ein kleines hölzernes Boot und ruderten über den ruhigen Waldsee.",
+        "sar": "استأجرنا قارباً خشبياً صغيراً وجدفنا عبر بحيرة الغابة الهادئة."
       },
       {
         "a": "der",
         "n": "Hubschrauber",
         "ar": "هليكوبتر",
         "pl": "die Hubschrauber",
-        "s": "Der Jugendliche fährt mit dem Motorroller zur Schule.",
-        "sar": "المراهق يقود السكوتر متوجهاً إلى المدرسة."
+        "s": "Der gelbe Rettungshubschrauber landete zügig direkt auf dem Dach des Krankenhauses.",
+        "sar": "هبطت مروحية الإنقاذ الصفراء بسرعة مباشرة على سطح المستشفى."
       },
       {
         "a": "die",
         "n": "Ampel",
         "ar": "إشارة مرور",
         "pl": "die Ampeln",
-        "s": "Der kleine Junge fährt stolz auf seinem neuen Tretroller.",
-        "sar": "الولد الصغير يركب سكوتر الركل الجديد بفخر."
+        "s": "An der großen Kreuzung schaltet die Ampel für Fußgänger auf Grün.",
+        "sar": "عند التقاطع الكبير تتحول إشارة المرور للمشاة إلى اللون الأخضر."
       },
       {
         "a": "der",
         "n": "Roller",
         "ar": "سكوتر",
         "pl": "die Roller",
-        "s": "Mit dem bunten Skateboard übt er Tricks auf der Straße.",
-        "sar": "بلوح التزلج الملون يتدرب على حركات في الشارع."
+        "s": "Der Schüler fährt mit seinem wendigen Roller morgens schnell zur Schule.",
+        "sar": "الطالب يذهب بسكوتره الرشيق صباحاً سريعاً إلى المدرسة."
       },
       {
         "a": "die",
         "n": "Fähre",
         "ar": "عبّارة",
         "pl": "die Fähren",
-        "s": "Wir ruderten mit einem kleinen Boot über den See.",
-        "sar": "جدفنا بقارب صغير عبر البحيرة."
+        "s": "Die große weiße Fähre bringt Autos und Passagiere sicher zur Ferieninsel.",
+        "sar": "العبّارة البيضاء الكبيرة تنقل السيارات والمسافرين بأمان إلى جزيرة العطلات."
       },
       {
         "a": "das",
         "n": "U-Boot",
         "ar": "غواصة",
         "pl": "die U-Boote",
-        "s": "Die Fähre bringt Autos und Passagiere zur Insel hinüber.",
-        "sar": "المعدية تنقل السيارات والمسافرين إلى الجزيرة."
+        "s": "Das moderne U-Boot kann monatelang unentdeckt tief unter der Meeresoberfläche bleiben.",
+        "sar": "الغواصة الحديثة يمكنها البقاء أشهراً دون اكتشافها عميقاً تحت سطح البحر."
       },
       {
         "a": "das",
@@ -4282,40 +4282,40 @@
         "n": "Traktor",
         "ar": "جرار",
         "pl": "die Traktoren",
-        "s": "Auf der luxuriösen Yacht genossen die Gäste den Sonnenuntergang.",
-        "sar": "على متن اليخت الفاخر استمتع الضيوف بغروب الشمس."
+        "s": "Der Bauer pflügt mit seinem starken grünen Traktor den weiten Ackerboden um.",
+        "sar": "المزارع يحرث بتركتوره الأخضر القوي التربة الزراعية الشاسعة."
       },
       {
         "a": "der",
         "n": "Krankenwagen",
         "ar": "سيارة إسعاف",
         "pl": "die Krankenwagen",
-        "s": "Das U-Boot taucht tief unter die Meeresoberfläche ab.",
-        "sar": "الغواصة تغوص عميقاً تحت سطح البحر."
+        "s": "Der Krankenwagen raste mit dröhnendem Martinshorn und hellem Blaulicht zum Unfallort.",
+        "sar": "سيارة الإسعاف أسرعت بصافرتها المدوية وضوئها الأزرق إلى موقع الحادث."
       },
       {
         "a": "das",
         "n": "Polizeiauto",
         "ar": "سيارة شرطة",
         "pl": "die Polizeiautos",
-        "s": "Der Hubschrauber landete direkt auf dem Dach des Krankenhauses.",
-        "sar": "الهليكوبتر هبطت مباشرة على سطح المستشفى."
+        "s": "Das blau-silberne Polizeiauto patrouilliert aufmerksam im Wohngebiet.",
+        "sar": "سيارة الشرطة الزرقاء والفضية تسير في دورية منتبهة داخل المنطقة السكنية."
       },
       {
         "a": "der",
         "n": "Feuerwehrwagen",
         "ar": "سيارة إطفاء",
         "pl": "die Feuerwehrwagen",
-        "s": "Das Luftschiff glitt geräuschlos am blauen Himmel entlang.",
-        "sar": "المنطاد انزلق بلا صوت على طول السماء الزرقاء."
+        "s": "Aus dem roten Feuerwehrwagen rollten die Feuerwehrleute lange Schläuche aus.",
+        "sar": "من سيارة الإطفاء الحمراء مد رجال الإطفاء خراطيم مياه طويلة."
       },
       {
         "a": "der",
         "n": "Wohnwagen",
         "ar": "عربة سكن متنقلة",
         "pl": "die Wohnwagen",
-        "s": "Die Astronauten flogen mit einer Rakete ins Weltall.",
-        "sar": "رواد الفضاء طاروا بصاروخ إلى الفضاء الخارجي."
+        "s": "Im Sommerurlaub zieht die Familie mit einem gemütlichen Wohnwagen durch Schweden.",
+        "sar": "في عطلة الصيف تتجول العائلة بعربة سكن متنقلة ومريحة عبر السويد."
       },
       {
         "a": "der",
@@ -4323,16 +4323,16 @@
         "ar": "سيارة ستيشن",
         "pl": "die Kombis",
         "note": "اختصار لكلمة Kombiwagen",
-        "s": "Der alte Traktor zieht den schweren Pflug über das Feld.",
-        "sar": "الجرار القديم يجر المحراث الثقيل عبر الحقل."
+        "s": "Für Familien bietet ein geräumiger Kombi viel Platz für Gepäck und Einkäufe.",
+        "sar": "للعائلات تقدم سيارة الستيشن الواسعة مساحة كبيرة للأمتعة والمشتريات."
       },
       {
         "a": "der",
         "n": "Geländewagen",
         "ar": "سيارة دفع رباعي",
         "pl": "die Geländewagen",
-        "s": "Der moderne Bagger schaufelt tiefe Gruben auf der Baustelle.",
-        "sar": "الحفار الحديث يحفر حُفراً عميقة في موقع البناء."
+        "s": "Der robuste Geländewagen meistert steile matschige Waldwege ohne jedes Problem.",
+        "sar": "سيارة الدفع الرباعي القوية تجتاز الطرق الجبلية الموحلة دون أدنى مشكلة."
       },
       {
         "a": "das",
@@ -4340,48 +4340,48 @@
         "ar": "سيارة مكشوفة",
         "pl": "die Cabrios",
         "note": "اختصار لكلمة Cabriolet",
-        "s": "Ein großer Kran hebt die schweren Stahlträger in die Höhe.",
-        "sar": "رافعة كبيرة ترفع العوارض الفولاذية الثقيلة إلى الأعلى."
+        "s": "Bei strahlendem Sonnenschein öffnet er das Verdeck an seinem schicken Cabrio.",
+        "sar": "مع سطوع الشمس المشرقة يفتح سقف سيارته المكشوفة الأنيقة."
       },
       {
         "a": "der",
         "n": "Kinderwagen",
         "ar": "عربة أطفال",
         "pl": "die Kinderwagen",
-        "s": "Der gelbe Gabelstapler transportiert die Paletten im Lager.",
-        "sar": "رافعة الشوكة الصفراء تنقل منصات التحميل في المخزن."
+        "s": "Die junge Mutter schiebt ihr schlafendes Baby sanft im gepolsterten Kinderwagen.",
+        "sar": "الأم الشابة تدفع طفلها الرضيع النائم برفق في عربة الأطفال المبطنة."
       },
       {
         "a": "der",
         "n": "Rollstuhl",
         "ar": "كرسي متحرك",
         "pl": "die Rollstühle",
-        "s": "Der Krankenwagen raste mit Blaulicht und Sirene durch die Straßen.",
-        "sar": "سيارة الإسعاف أسرعت بأضوائها الزرقاء وصافرتها عبر الشوارع."
+        "s": "Dank der flachen Rampe gelangt der Mann im Rollstuhl barrierefrei ins Gebäude.",
+        "sar": "بفضل المنحدر المنبسط يدخل الرجل ذو الكرسي المتحرك إلى المبنى دون عوائق."
       },
       {
         "a": "die",
         "n": "Kutsche",
         "ar": "عربة تجرها الخيول",
         "pl": "die Kutschen",
-        "s": "Das rote Feuerwehrfahrzeug traf blitzschnell am Brandort ein.",
-        "sar": "سيارة الإطفاء الحمراء وصلت بسرعة البرق إلى مكان الحريق."
+        "s": "Das frisch vermählte Brautpaar fuhr in einer festlich geschmückten Kutsche vor.",
+        "sar": "وصل العروسان حديثاً في عربة فاخرة تجرها الخيول ومزينة للاحتفال."
       },
       {
         "a": "das",
         "n": "Skateboard",
         "ar": "لوح تزلج",
         "pl": "die Skateboards",
-        "s": "Der Polizeiwagen stoppte das verdächtige Fahrzeug an der Autobahn.",
-        "sar": "سيارة الشرطة أوقفت المركبة المشبوهة عند الطريق السريع."
+        "s": "Auf der Rampe im Skatepark zeigt das Mädchen coole Sprünge mit ihrem Skateboard.",
+        "sar": "على المنحدر في حديقة التزلج تعرض الفتاة قفزات رائعة بلوح التزلج الخاص بها."
       },
       {
         "a": "die",
         "n": "Rakete",
         "ar": "صاروخ",
         "pl": "die Raketen",
-        "s": "Die Seilbahn befördert die Touristen hoch auf den Berggipfel.",
-        "sar": "التلفريك ينقل السياح عالياً إلى قمة الجبل."
+        "s": "Die bemannte Rakete startete mit enormem Schub ins weite Weltall.",
+        "sar": "الصاروخ المأهول انطلق بدفع هائل نحو الفضاء الخارجي الشاسع."
       },
       {
         "a": "der",
@@ -4389,120 +4389,120 @@
         "ar": "منطاد الهواء الساخن",
         "pl": "die Heißluftballons",
         "note": "يقبل أيضًا الجمع \"Heißluftballone\" حسب Duden (Ballons/Ballone)",
-        "s": "Die Zahnradbahn klettert mühsam den steilen Hang hinauf.",
-        "sar": "قطار التروس المسننة يتسلق بصعوبة المنحدر الحاد."
+        "s": "Aus dem Heißluftballon genossen die Passagiere eine atemberaubende Aussicht auf die Alpen.",
+        "sar": "من منطاد الهواء الساخن استمتع الركاب بإطلالة تخطف الأنفاس على جبال الألب."
       },
       {
         "a": "das",
         "n": "Segelflugzeug",
         "ar": "طائرة شراعية",
         "pl": "die Segelflugzeuge",
-        "s": "Im Parkhaus verkehrt eine kleine Schwebebahn über den Besuchern.",
-        "sar": "فوق المتنزه يسير قطار معلق صغير فوق الزوار."
+        "s": "Völlig lautlos gleitet das leichte Segelflugzeug getragen von der Thermik durch die Lüfte.",
+        "sar": "بلا أدنى صوت تحلق الطائرة الشراعية الخفيفة محملة بالتيارات الهوائية عبر السماء."
       },
       {
         "a": "die",
         "n": "Straße",
         "ar": "شارع",
         "pl": "die Straßen",
-        "s": "Im Freizeitpark fährt die Achterbahn mit hohem Tempo bergab.",
-        "sar": "في مدينة الملاهي تسير قطار الموت بسرعة عالية نزولاً."
+        "s": "Vorsichtige Kinder schauen nach beiden Seiten, bevor sie die belebte Straße überqueren.",
+        "sar": "الأطفال الحذرون ينظرون في كلا الاتجاهين قبل عبور الشارع المزدحم."
       },
       {
         "a": "die",
         "n": "Autobahn",
         "ar": "الطريق السريع",
         "pl": "die Autobahnen",
-        "s": "Im Winter gleitet der Pferdeschlitten lautlos durch den Schnee.",
-        "sar": "في الشتاء ينزلق الزلاجة التي تجرها الخيول بصمت عبر الثلج."
+        "s": "Auf der dreispurigen Autobahn darf man außerhalb geschlossener Ortschaften zügig fahren.",
+        "sar": "على الطريق السريع ذي المسارات الثلاثة يُسمح بالقيادة بسرعة خارج المناطق السكنية."
       },
       {
         "a": "die",
         "n": "Haltestelle",
         "ar": "محطة توقف",
         "pl": "die Haltestellen",
-        "s": "Das Schneemobil hilft den Rettern im tiefen Hochgebirge.",
-        "sar": "مركبة الثلج تساعد رجال الإنقاذ في أعالي الجبال."
+        "s": "Viele Pendler warten am frühen Montagmorgen ungeduldig an der Bushaltestelle.",
+        "sar": "ينتظر العديد من الركاب صباح الاثنين بفارغ الصبر في محطة الحافلات."
       },
       {
         "a": "der",
         "n": "Bahnsteig",
         "ar": "رصيف المحطة",
         "pl": "die Bahnsteige",
-        "s": "Der Heißluftballon stieg sanft in die Morgensonne auf.",
-        "sar": "منطاد الهواء الساخن ارتفع بلطف نحو شمس الصباح."
+        "s": "Der ICE nach Hamburg fährt gleich an Bahnsteig vier ein.",
+        "sar": "قطار السريع المتجه إلى هامبورغ يدخل حالاً عند رصيف المحطة رقم أربعة."
       },
       {
         "a": "die",
         "n": "Kreuzung",
         "ar": "تقاطع طرق",
         "pl": "die Kreuzungen",
-        "s": "Der Segelflieger kreist geräuschlos über den Tälern.",
-        "sar": "الطائرة الشراعية تحلق بلا صوت فوق الوديان."
+        "s": "Biegen Sie an der nächsten unübersichtlichen Kreuzung bitte vorsichtig nach links ab.",
+        "sar": "انعطف من فضلك بحذر إلى اليسار عند التقاطع القادم."
       },
       {
         "a": "der",
         "n": "Fahrplan",
         "ar": "جدول المواعيد",
         "pl": "die Fahrpläne",
-        "s": "Der Fallschirm öffnete sich rechtzeitig vor der Landung.",
-        "sar": "مظلة الهبوط فُتحت في الوقت المناسب قبل الهبوط."
+        "s": "Im digitalen Fahrplan der Bahn kann man alle Abfahrtszeiten sekundengenau einsehen.",
+        "sar": "في جدول مواعيد القطار الرقمي يمكن الاطلاع على مواعيد الانطلاق بدقة متناهية."
       },
       {
         "a": "die",
         "n": "Fahrkarte",
         "ar": "تذكرة السفر",
         "pl": "die Fahrkarten",
-        "s": "Mit dem wendigen Kanu paddeln sie entlang des ruhigen Flusses.",
-        "sar": "بقارب الكانو الرشيق يجدفون على طول النهر الهادئ."
+        "s": "Der freundliche Schaffner kontrolliert im Zug die gültige Fahrkarte des Fahrgastes.",
+        "sar": "مفتش التذاكر الودود يفحص في القطار تذكرة السفر الصالحة الخاصة بالمسافر."
       },
       {
         "a": "der",
         "n": "Führerschein",
         "ar": "رخصة القيادة",
         "pl": "die Führerscheine",
-        "s": "Im Kajak meisterte er die reißenden Stromschnellen.",
-        "sar": "في قارب الكاياك تغلب على التيارات المائية الجارفة."
+        "s": "Nach bestandener praktischer Prüfung hielt die Fahrschülerin glücklich ihren Führerschein in Händen.",
+        "sar": "بعد اجتياز الاختبار العملي حملت المتدربة رخصة قيادتها بسعادة بين يديها."
       },
       {
         "a": "der",
         "n": "Sicherheitsgurt",
         "ar": "حزام الأمان",
         "pl": "die Sicherheitsgurte",
-        "s": "Das historische Floß bestand aus fest zusammengebundenen Baumstämmen.",
-        "sar": "الطوف الخشبي التاريخي كان مصنوعاً من جذوع أشجار مربوطة بإحكام."
+        "s": "Vor dem Losfahren legt jeder verantwortungsvolle Fahrer sofort den Sicherheitsgurt an.",
+        "sar": "قبل الانطلاق يربط كل سائق مسؤول حزام الأمان على الفور."
       },
       {
         "a": "das",
         "n": "Lenkrad",
         "ar": "عجلة القيادة",
         "pl": "die Lenkräder",
-        "s": "Auf dem Kreuzfahrtschiff reisen die Urlauber über die Weltmeere.",
-        "sar": "على متن السفينة السياحية يسافر السواح عبر بحار العالم."
+        "s": "Der aufmerksame Fahrer hält beide Hände fest und sicher am Lenkrad.",
+        "sar": "السائق المنتبه يمسك كلتا يديه بإحكام وأمان على عجلة القيادة."
       },
       {
         "a": "der",
         "n": "Reifen",
         "ar": "إطار العجلة",
         "pl": "die Reifen",
-        "s": "Der Öltanker transportiert Rohöl über tausende Seemeilen.",
-        "sar": "ناقلة النفط تنقل النفط الخام عبر آلاف الأميال البحرية."
+        "s": "Vor dem Winterurlaub sollte man die Profiltiefe aller vier Reifen gründlich prüfen.",
+        "sar": "قبل عطلة الشتاء ينبغي فحص عمق نقشة جميع الإطارات الأربعة بعناية."
       },
       {
         "a": "die",
         "n": "Bremse",
         "ar": "الفرامل",
         "pl": "die Bremsen",
-        "s": "Das Frachtschiff lädt hunderte bunte Container im Hafen ab.",
-        "sar": "سفينة الشحن تُفرغ مئات الحاويات الملونة في الميناء."
+        "s": "Bei einer plötzlichen Gefahr trat der Autofahrer sofort kräftig auf die Bremse.",
+        "sar": "عند ظهور خطر مفاجئ ضغط سائق السيارة فوراً وبقوة على الفرامل."
       },
       {
         "a": "der",
         "n": "Motor",
         "ar": "المحرك",
         "pl": "die Motoren",
-        "s": "Der Schlepper zieht den riesigen Frachter sicher in den Hafen.",
-        "sar": "قارب القطر يسحب سفينة الشحن الضخمة بأمان إلى داخل الميناء."
+        "s": "Der leistungsstarke Motor läuft nach der großen Inspektion wieder vollkommen ruhig.",
+        "sar": "المحرك القوي يعمل بعد الفحص الشامل بسلاسة وهدوء تامين."
       },
       {
         "a": "das",
@@ -4510,32 +4510,32 @@
         "ar": "بنزين",
         "pl": "die Benzine",
         "note": "اسم غير معدود عادة؛ الجمع \"Benzine\" يُستخدم للإشارة إلى أنواع مختلفة من البنزين",
-        "s": "Das Eisbrecherschiff bahnt den anderen Schiffen einen Weg durchs Eis.",
-        "sar": "سفينة كاسحة الجليد تفتح طريقاً للسفن الأخرى عبر الجليد."
+        "s": "An der Autobahntankstelle füllte er den leeren Tank mit unverbleitem Benzin auf.",
+        "sar": "في محطة وقود الطريق السريع ملأ الخزان الفارغ بالبنزين الخالي من الرصاص."
       },
       {
         "a": "der",
         "n": "Kofferraum",
         "ar": "صندوق السيارة الخلفي",
         "pl": "die Kofferräume",
-        "s": "Das Amphibienfahrzeug kann sowohl an Land als auch im Wasser fahren.",
-        "sar": "المركبة البرمائية تستطيع السير على اليابسة وفي الماء معاً."
+        "s": "In den geräumigen Kofferraum passen problemlos drei große Reisekoffer hinein.",
+        "sar": "في صندوق السيارة الخلفي الواسع تتسع ثلاث حقائب سفر كبيرة بدون صعوبة."
       },
       {
         "a": "die",
         "n": "Windschutzscheibe",
         "ar": "الزجاج الأمامي",
         "pl": "die Windschutzscheiben",
-        "s": "Das Quad bewältigt auch extrem unwegsames Gelände mühelos.",
-        "sar": "الدراجة رباعية العجلات تجتاز الطرق الوعرة جداً بسهولة."
+        "s": "Nach der frostigen Nacht kratzt er das dicke Eis mühsam von der Windschutzscheibe.",
+        "sar": "بعد ليلة صقيعية يكشط الثلج السميك بصعوبة عن الزجاج الأمامي للسيارة."
       },
       {
         "a": "das",
         "n": "Nummernschild",
         "ar": "لوحة الأرقام",
         "pl": "die Nummernschilder",
-        "s": "Mit dem modernen E-Scooter gelangt man flexibel durch die Stadt.",
-        "sar": "بالسكوتر الكهربائي الحديث يتنقل المرء بمرونة عبر المدينة."
+        "s": "Am Heck des Autos ist das amtliche Nummernschild fest verschraubt.",
+        "sar": "في الجزء الخلفي من السيارة لوحة الأرقام الرسمية مثبتة بمسامير بإحكام."
       }
     ]
   },
@@ -4618,8 +4618,8 @@
         "ar": "حر",
         "pl": null,
         "note": "اسم غير معدود عادة؛ الجمع \"Hitzen\" يُستخدم فقط في اللغة التخصصية حسب Duden",
-        "s": "Im Spätherbst bedeckt weißer Frost die gefrorenen Wiesen.",
-        "sar": "في أواخر الخريف يغطي الصقيع الأبيض المروج المتجمدة."
+        "s": "Im Hochsommer kann die flirrende Hitze für den Kreislauf anstrengend sein.",
+        "sar": "في منتصف الصيف يمكن للحر الشديد أن يكون مجهداً للدورة الدموية."
       },
       {
         "a": "die",
@@ -4627,8 +4627,8 @@
         "ar": "برد",
         "pl": null,
         "note": "اسم غير معدود، لا يوجد له جمع حسب Duden",
-        "s": "Ein lautes Gewitter zog mit Blitz und Donner über die Stadt.",
-        "sar": "عاصفة رعدية قوية مرت مصحوبة بالبرق والرعد فوق المدينة."
+        "s": "Im tiefen Winter schützt eine gefütterte Jacke vor der eisigen Kälte.",
+        "sar": "في أعماق الشتاء تحمي السترة المبطنة من البرد القارس."
       },
       {
         "a": "der",
@@ -6570,16 +6570,16 @@
         "ar": "موزلي",
         "pl": "die Müslis",
         "note": "الجمع Müslis نادر الاستخدام",
-        "s": "Aus dunklem Roggen backt man das typisch deutsche Schwarzbrot.",
-        "sar": "من حبوب الجاودار الداكنة يُخبز الخبز الأسمر الألماني التقليدي."
+        "s": "Morgens isst er gern ein gesundes Müsli mit Haferflocken und frischen Beeren.",
+        "sar": "في الصباح يفضل تناول موزلي صحي مع رقائق الشوفان والتوت الطازج."
       },
       {
         "a": "die",
         "n": "Linse",
         "ar": "عدس",
         "pl": "die Linsen",
-        "s": "Aus Maismehl werden in Mexiko knusprige Tortillas gebacken.",
-        "sar": "من دقيق الذرة تُخبز في المكسيك رقائق التورتيلا المقرمشة."
+        "s": "Im Winter wärmt ein traditioneller Eintopf aus braunen Linsen und Gemüse.",
+        "sar": "في الشتاء يبعث الدفء حساء تقليدي من العدس البني والخضار."
       },
       {
         "a": "der",
@@ -6587,8 +6587,8 @@
         "ar": "برغل",
         "pl": null,
         "note": "ليس له جمع",
-        "s": "Aus feinem Grieß kocht die Mutter einen süßen Brei.",
-        "sar": "من السميد الناعم تطبخ الأم عصيدة حلوة."
+        "s": "Aus vorgekochtem Bulgur bereitet man einen würzigen orientalischen Salat zu.",
+        "sar": "من البرغل المسلوق مسبقاً تُحضَّر سلطة شرقية متبلة."
       }
     ]
   },
@@ -6675,24 +6675,24 @@
         "n": "Herd",
         "ar": "موقد",
         "pl": "die Herde",
-        "s": "Auf dem hölzernen Schneidebrett hackt er Zwiebeln und Kräuter.",
-        "sar": "على لوح التقطيع الخشبي يفرم البصل والأعشاب."
+        "s": "Die heiße Suppe kocht in einem großen Topf auf dem Herd.",
+        "sar": "الحساء الساخن يغلي في قدر كبير على الموقد."
       },
       {
         "a": "der",
         "n": "Kühlschrank",
         "ar": "ثلاجة",
         "pl": "die Kühlschränke",
-        "s": "Er gießt die gekochten Nudeln durch ein großes Sieb ab.",
-        "sar": "هو يصفي المكرونة المسلوقة عبر مصفاة كبيرة."
+        "s": "Milch, Joghurt und frisches Gemüse lagern gut gekühlt im Kühlschrank.",
+        "sar": "الحليب والزبادي والخضار الطازج تُحفظ مبردة جيداً في الثلاجة."
       },
       {
         "a": "die",
         "n": "Mikrowelle",
         "ar": "ميكروويف",
         "pl": "die Mikrowellen",
-        "s": "Mit der Reibe raspelt sie frischen Parmesan über die Nudeln.",
-        "sar": "بالمبشرة تبشر جبن البارميزان الطازج فوق المكرونة."
+        "s": "In der praktischen Mikrowelle erwärmt er das Mittagessen in wenigen Minuten.",
+        "sar": "في الميكروويف العملي يسخن وجبة الغداء في دقائق معدودة."
       }
     ]
   },
@@ -6952,16 +6952,16 @@
         "n": "Truthahn",
         "ar": "ديك رومي",
         "pl": "die Truthähne",
-        "s": "Die kleine Forelle schwimmt in klaren sauberen Bergbächen.",
-        "sar": "سمكة السلمون المرقط الصغيرة تسبح في جداول الجبال الصافية."
+        "s": "Zu Erntedank bereitet die Familie einen saftig gefüllten Truthahn im Ofen zu.",
+        "sar": "في عيد الشكر تُعد العائلة ديكاً رومياً محشواً ولذيذاً في الفرن."
       },
       {
         "a": "die",
         "n": "Leber",
         "ar": "كبد",
         "pl": "die Lebern",
-        "s": "Aus Rinderhackfleisch formt man saftige Burger.",
-        "sar": "من اللحم البقري المفروم تُشكَّل شطائر البرغر اللذيذة."
+        "s": "Gebratene Leber mit Äpfeln und Röstzwiebeln ist ein klassisches deutsches Gericht.",
+        "sar": "الكبد المقلي مع التفاح والبصل المحمر طبق ألماني كلاسيكي تقليدي."
       },
       {
         "a": "das",
@@ -6969,8 +6969,8 @@
         "ar": "لحم مفروم",
         "pl": null,
         "note": "ليس له جمع",
-        "s": "Ein zartes Rindersteak brät man am besten medium-rare.",
-        "sar": "شريحة لحم البقر الطرية تُشوى بالشكل الأمثل نصف استواء."
+        "s": "Aus frischem Hackfleisch vom Metzger knetet sie Frikadellen für das Abendessen.",
+        "sar": "من اللحم المفروم الطازج من عند الجزار تعجن كرات لحم لوجبة العشاء."
       },
       {
         "a": "das",
@@ -6978,8 +6978,8 @@
         "ar": "لحم عجل",
         "pl": null,
         "note": "ليس له جمع",
-        "s": "Ein saftiges Schnitzel gehört zu den beliebtesten Gerichten.",
-        "sar": "شريحة الشنيتزل المقرمشة من أكثر الأطباق شعبية."
+        "s": "Zartes Kalbfleisch ist hellrosa, mager und schmeckt besonders mild.",
+        "sar": "لحم العجل الطري لونه وردي فاتح، قليل الدهن وله مذاق معتدل وخفيف جداً."
       },
       {
         "a": "das",
@@ -6987,16 +6987,16 @@
         "ar": "لحم خنزير",
         "pl": null,
         "note": "ليس له جمع",
-        "s": "Zu Weihnachten brät die Familie traditionell eine ganze Gans.",
-        "sar": "في عيد الميلاد تشوي العائلة تقليدياً إوزة كاملة."
+        "s": "In vielen traditionellen Wurstsorten wird feines Schweinefleisch verarbeitet.",
+        "sar": "في العديد من أصناف النقانق التقليدية يُستخدم لحم الخنزير المفروم ناعماً."
       },
       {
         "a": "die",
         "n": "Pute",
         "ar": "ديك رومي (أنثى)",
         "pl": "die Puten",
-        "s": "Eine Ente hat aromatisches Fleisch mit einer dicken Haut.",
-        "sar": "البطة لها لحم عطري النكهة مع جلد سميك."
+        "s": "Mageres Fleisch von der Pute eignet sich ideal für eine kalorienarme Ernährung.",
+        "sar": "لحم الديك الرومي خفيف الدهن ومثالي للنظام الغذائي قليل السعرات."
       },
       {
         "a": "der",
@@ -7004,80 +7004,80 @@
         "ar": "سمك القد",
         "pl": "die Kabeljaue",
         "note": "الجمع Kabeljaue، ويصح أيضًا Kabeljaus",
-        "s": "Putenfleisch ist mager, fettarm und sehr bekömmlich.",
-        "sar": "لحم الديك الرومي خفيف وقليل الدهون وسهل الهضم."
+        "s": "Frischer Kabeljau aus der kalten Nordsee schmeckt gedünstet mit Senfsoße hervorragend.",
+        "sar": "سمك القد الطازج من بحر الشمال البارد مذاقه رائع مطهواً على البخار مع صلصة الخردل."
       },
       {
         "a": "der",
         "n": "Hering",
         "ar": "سمك الرنجة",
         "pl": "die Heringe",
-        "s": "Zu Ostern wird traditionell eine gebratene Lammkeule serviert.",
-        "sar": "في عيد الفصح يُقدَّم تقليدياً فخذ خروف مشوي."
+        "s": "An der Küste isst man zarten Hering traditionell mit Pellkartoffeln und Quark.",
+        "sar": "على الساحل يؤكل سمك الرنجة الطري تقليدياً مع البطاطس المسلوقة بقشرها والجبن القريش."
       },
       {
         "a": "die",
         "n": "Makrele",
         "ar": "سمك الماكريل",
         "pl": "die Makrelen",
-        "s": "Schweinefleisch ist in vielen traditionellen Rezepten die Basis.",
-        "sar": "لحم الخنزير هو الأساس في العديد من الوصفات التقليدية."
+        "s": "Geräucherte Makrele hat ein würziges Aroma und enthält wertvolle ungesättigte Fette.",
+        "sar": "سمك الماكريل المدخن له نكهة زكية غنية ويحتوي على دهون غير مشبعة قيّمة."
       },
       {
         "a": "die",
         "n": "Forelle",
         "ar": "سمك التروتة",
         "pl": "die Forellen",
-        "s": "Kalbfleisch zeichnet sich durch seine helle Farbe und Zartheit aus.",
-        "sar": "لحم العجل يتميز بلونه الفاتح وطراوته الفائقة."
+        "s": "Die frische Forelle wird blau gekocht oder knusprig in der Pfanne gebraten.",
+        "sar": "سمكة التروتة الطازجة تُسلق بأسلوب \"بلو\" أو تُقلى مقرمشة في المقلاة."
       },
       {
         "a": "der",
         "n": "Karpfen",
         "ar": "سمك الكارب",
         "pl": "die Karpfen",
-        "s": "Ein herzhafter Schweinebraten mit Klößen ist ein Festessen.",
-        "sar": "اللحم المشوي مع كرات البطاطس وليمة احتفالية."
+        "s": "In Franken serviert man gebackenen Karpfen traditionell in den Monaten mit 'r'.",
+        "sar": "في إقليم فرانكونيا يُقدَّم سمك الكارب المقلي تقليدياً في الشهور التي تحتوي على حرف الراء."
       },
       {
         "a": "der",
         "n": "Aal",
         "ar": "ثعبان السمك",
         "pl": "die Aale",
-        "s": "Der Fischhändler bietet frischen Kabeljau aus der Nordsee an.",
-        "sar": "تاجر الأسماك يعرض سمك القد الطازج من بحر الشمال."
+        "s": "Geräucherter Aal gilt an der Küste wegen seines delikaten Geschmacks als besondere Spezialität.",
+        "sar": "ثعبان السمك المدخن يُعد على الساحل من الأطباق الخاصة جداً بسبب طعمه الشهي."
       },
       {
         "a": "der",
         "n": "Hummer",
         "ar": "كركند",
         "pl": "die Hummer",
-        "s": "Die kleine Sardine wird oft in Olivenöl eingelegt serviert.",
-        "sar": "سمكة السردين الصغيرة تُقدَّم غالباً معلبة في زيت الزيتون."
+        "s": "Ein fangfrischer Hummer gilt in der gehobenen Gastronomie als königliche Delikatesse.",
+        "sar": "الكركند الطازج يُعد في المطاعم الراقية من الأطعمة الملكية الفاخرة."
       },
       {
         "a": "die",
         "n": "Krabbe",
         "ar": "سلطعون صغير",
         "pl": "die Krabben",
-        "s": "In Norddeutschland isst man gerne Hering mit Pellkartoffeln.",
-        "sar": "في شمال ألمانيا يحب الناس أكل سمك الرنجة مع البطاطس."
+        "s": "Auf dem Kutter pult man die kleine braune Krabbe frisch aus dem Fang.",
+        "sar": "على متن قارب الصيد يقشرون السلطعون الصغير الطازج مباشرة من الصيد."
       },
       {
         "a": "die",
         "n": "Muschel",
         "ar": "بلح البحر",
         "pl": "die Muscheln",
-        "s": "Die zarte Makrele eignet sich hervorragend zum Räuchern.",
-        "sar": "سمكة الماكريل الطرية مناسبة جداً للتدخين."
+        "s": "Im Herbst kocht man frische Muscheln gern in einem duftenden Gemüsesud.",
+        "sar": "في فصل الخريف يطبخ الناس بلح البحر الطازج في مرق خضار زكي الرائحة."
       },
       {
         "a": "der",
         "n": "Tintenfisch",
         "ar": "حبار",
         "pl": "die Tintenfische",
-        "s": "Der edle Hecht ist ein gefürchteter Raubfisch in Süßwasserseen.",
-        "sar": "سمك الكراكي المفترس سمك صيد مشهور في بحيرات المياه العذبة."
+        "s": "Gegrillter Tintenfisch wird mit frischem Knoblauch, Olivenöl und Zitronensaft serviert.",
+        "sar": "الحبار المشوي يُقدَّم مع الثوم الطازج وزيت الزيتون وعصير الليمون."
       },
       {
         "a": "der",
@@ -7085,56 +7085,56 @@
         "ar": "أخطبوط",
         "pl": "die Oktopusse",
         "note": "الجمع الرسمي Oktopusse، ويصح أيضًا Oktopoden (أصل يوناني)",
-        "s": "Gebratener Zander gilt in Feinschmeckerlokalen als Delikatesse.",
-        "sar": "سمك الصندر المشوي يُعتبر طعاماً شهياً في المطاعم الراقية."
+        "s": "Der gefangene Oktopus wird sanft geschmort, bis das Fleisch wunderbar weich wird.",
+        "sar": "الأخطبوط المصيد يُطهى على نار هادئة حتى يصبح لحمه طرياً ورائعاً."
       },
       {
         "a": "das",
         "n": "Steak",
         "ar": "ستيك",
         "pl": "die Steaks",
-        "s": "Gegrillter Tintenfisch schmeckt mit Zitrone und Petersilie wunderbar.",
-        "sar": "الحبار المشوي طعمه رائع مع الليمون والبقدونس."
+        "s": "Ein saftiges Steak brät man von beiden Seiten scharf an, damit es zart bleibt.",
+        "sar": "شريحة الستيك اللذيذة تُشوى من الجانبين على نار قوية لتبقى طرية وعصارية."
       },
       {
         "a": "das",
         "n": "Filet",
         "ar": "فيليه",
         "pl": "die Filets",
-        "s": "Der Oktopus bewegt sich mit seinen acht Fangarmen geschmeidig fort.",
-        "sar": "الأخطبوط يتحرك بسلاسة بأذرعه الثمانية."
+        "s": "Das zarte Filet ist das hochwertigste und teuerste Stück Fleisch vom Rind.",
+        "sar": "قطعة الفيليه الطرية هي أرقى وأغلى قطعة لحم من البقر."
       },
       {
         "a": "die",
         "n": "Bratwurst",
         "ar": "نقانق مشوية",
         "pl": "die Bratwürste",
-        "s": "Gekochte Miesmuscheln in Weißweinsoße sind ein Genuss.",
-        "sar": "بلح البحر المطهو في المرق لذة حقيقية."
+        "s": "Auf dem Marktplatz holt er sich eine heiße Thüringer Bratwurst im Brötchen.",
+        "sar": "في ساحة السوق يشتري نقانق مشوية تورينغية ساخنة داخل رغيف خبز صغير."
       },
       {
         "a": "das",
         "n": "Schnitzel",
         "ar": "شنيتزل",
         "pl": "die Schnitzel",
-        "s": "Frische Austern werden traditionell auf Eis mit Zitrone serviert.",
-        "sar": "المحار الطازج يُقدَّم تقليدياً على الثلج مع الليمون."
+        "s": "Ein echtes Wiener Schnitzel wird dünn geklopft und in Butterschmalz goldgelb gebacken.",
+        "sar": "شريحة الشنيتزل الفيناوية الأصلية تُرقق بالدق وتُقلى في السمن حتى تكتسب لوناً ذهبياً."
       },
       {
         "a": "der",
         "n": "Braten",
         "ar": "لحم مشوي",
         "pl": "die Braten",
-        "s": "Der teure Hummer gilt als König der Meeresfrüchte.",
-        "sar": "الاستاكوزا الباهظة تُعتبر ملكة ثمار البحر."
+        "s": "Am Sonntagmittag duftet das ganze Haus nach einem herzhaften Schweinebraten.",
+        "sar": "في ظهيرة يوم الأحد تفوح في المنزل بأكمله رائحة اللحم المشوي الشهي."
       },
       {
         "a": "die",
         "n": "Frikadelle",
         "ar": "كفتة لحم ألمانية",
         "pl": "die Frikadellen",
-        "s": "Die Krabbe läuft seitwärts über den nassen Sandstrand.",
-        "sar": "السلطعون يمشي جانباً فوق رمال الشاطئ الرطبة."
+        "s": "Zur Pause packt er eine gut gewürzte kalte Frikadelle mit Senf aus.",
+        "sar": "في وقت الاستراحة يُخرج كفتة لحم باردة متبلة بعناية مع الخردل."
       },
       {
         "a": "der",
@@ -7142,40 +7142,40 @@
         "ar": "لحم مقدد دهني",
         "pl": "die Specke",
         "note": "الجمع Specke نادر جدًا؛ تُستخدم الكلمة غالبًا بصيغة المفرد",
-        "s": "In Berlin isst man Currywurst typischerweise mit Pommes.",
-        "sar": "في برلين يؤكل سجق الكاري عادة مع البطاطس المقلية."
+        "s": "Kross angebratener Speck verleiht der Linsensuppe eine angenehm rauchige Note.",
+        "sar": "اللحم المقدد المحمر يعطي حساء العدس نكهة مدخنة محببة."
       },
       {
         "a": "die",
         "n": "Salami",
         "ar": "سلامي",
         "pl": "die Salamis",
-        "s": "Die bayerische Weißwurst isst man traditionell vor dem Mittagsläuten.",
-        "sar": "السجق الأبيض البافاري يؤكل تقليدياً قبل أذان الظهر."
+        "s": "Hauchdünne Scheiben würziger Salami schmecken auf frischem Vollkornbrot hervorragend.",
+        "sar": "شرائح رقيقة جداً من السلامي المتبل طعمها ممتاز فوق خبز الحبوب الكاملة الطازج."
       },
       {
         "a": "die",
         "n": "Leberwurst",
         "ar": "نقانق الكبد",
         "pl": "die Leberwürste",
-        "s": "Kleine Wiener Würstchen schmecken warm mit Senf und Brötchen.",
-        "sar": "سجق فيينا الصغير يؤكل ساخناً مع الخردل والخبز."
+        "s": "Grobe Pfälzer Leberwurst streicht man traditionell dick auf ein kräftiges Bauernbrot.",
+        "sar": "نقانق الكبد الريفية تُدهن تقليدياً بطبقة سميكة على خبز القرية القوي."
       },
       {
         "a": "die",
         "n": "Blutwurst",
         "ar": "نقانق الدم",
         "pl": "die Blutwürste",
-        "s": "Aus grobem Mett bereitet man in Deutschland frische Mettbrötchen zu.",
-        "sar": "من اللحم المفروم المتبل يُعدّ في ألمانيا شطائر ميت طازجة."
+        "s": "Im Rheinland serviert man gebratene Blutwurst traditionell als 'Himmel un Ääd'.",
+        "sar": "في منطقة راينلاند تُقدَّم نقانق الدم المقلية كطبق تقليدي شهير."
       },
       {
         "a": "der",
         "n": "Fleischkloß",
         "ar": "كرة لحم",
         "pl": "die Fleischklöße",
-        "s": "Die feine Leberwurst lässt sich leicht auf das Brot streichen.",
-        "sar": "سجق الكبد الناعم يسهل دهنه على الخبز."
+        "s": "In der Brühe schwimmt ein lockerer Fleischkloß aus feinem Rindergehacktem.",
+        "sar": "في المرق تطفو كرة لحم هشة مصنوعة من لحم البقر المفروم الناعم."
       },
       {
         "a": "das",
@@ -7183,32 +7183,32 @@
         "ar": "يخنة لحم",
         "pl": "die Gulasche",
         "note": "الجمع Gulasche نادر الاستخدام، ويصح أيضًا Gulaschs",
-        "s": "Eine Scheibe Salami schmeckt hervorragend auf der Pizza.",
-        "sar": "شريحة السلامي طعمها رائع على البيتزا."
+        "s": "Das ungarische Gulasch schmort viele Stunden mit Paprika und Zwiebeln im Schmortopf.",
+        "sar": "يخنة اللحم المجرية تُطهى لساعات طويلة مع الفلفل الرومي والبصل في قدر الطبخ."
       },
       {
         "a": "der",
         "n": "Rinderbraten",
         "ar": "روستو لحم بقري",
         "pl": "die Rinderbraten",
-        "s": "Schmalz wurde früher oft als herzhafter Brotaufstrich verwendet.",
-        "sar": "الدهن الحيواني كان يُستخدم قديماً كثيراً كمسحة دسمة على الخبز."
+        "s": "Zum Festtagsessen schneidet der Vater den zarten Rinderbraten in dicke Scheiben.",
+        "sar": "في وجبة العيد يقطع الأب روستو اللحم البقري الطري إلى شرائح سميكة."
       },
       {
         "a": "das",
         "n": "Fischfilet",
         "ar": "فيليه سمك",
         "pl": "die Fischfilets",
-        "s": "Speck verleiht vielen deftigen Gerichten einen rauchigen Geschmack.",
-        "sar": "لحم القديد يمنح الكثير من الأطباق الدسمة نكهة مدخنة."
+        "s": "Der Koch wendet das grätenfreie Fischfilet vor dem Braten leicht in Mehl.",
+        "sar": "يقلب الطاهي فيليه السمك الخالي من الشوك قليلاً في الدقيق قبل قليه."
       },
       {
         "a": "die",
         "n": "Sardine",
         "ar": "سردين",
         "pl": "die Sardinen",
-        "s": "Die Oma kocht eine kräftige Fleischbrühe aus Rinderknochen.",
-        "sar": "الجدة تطبخ مرق لحم غنياً من عظام البقر."
+        "s": "In der Dose ist die kleine Sardine in feinstem nativem Olivenöl eingelegt.",
+        "sar": "في العلبة المعدنية توضع سمكة السردين الصغيرة منقوعة في زيت زيتون بكر ممتاز."
       },
       {
         "a": "der",
@@ -7216,8 +7216,8 @@
         "ar": "سمك الفرخ",
         "pl": "die Zander",
         "note": "سمك مياه عذبة شائع جدًا في المطبخ الألماني",
-        "s": "Wildschwein hat ein dunkles und besonders aromatisches Fleisch.",
-        "sar": "لحم الخنزير البري داكن وله نكهة عطرية مميزة جداً."
+        "s": "Auf der Speisekarte empfiehlt der Chefkoch gebratenen Zander auf der Hautseite.",
+        "sar": "على قائمة الطعام يوصي رئيس الطهاة بسمك الفرخ المقلي على جهة الجلد."
       },
       {
         "a": "der",
@@ -7225,8 +7225,8 @@
         "ar": "رنجة مخللة ملفوفة",
         "pl": "die Rollmöpse",
         "note": "طبق ألماني تقليدي من سمك الرنجة المخلل",
-        "s": "Im Herbst wird frisches Hirschfleisch in den Gasthöfen angeboten.",
-        "sar": "في الخريف يُعرض لحم الأيل الطازج في المطاعم الريفية."
+        "s": "Ein sauer eingelegter Rollmops ist ein traditionelles Katerfrühstück nach langen Nächten.",
+        "sar": "سمكة الرنجة المخللة الملفوفة وجبة فطور تقليدية مفضلة بعد السهرات الطويلة."
       },
       {
         "a": "die",
@@ -7234,8 +7234,8 @@
         "ar": "نقانق بصلصة الكاري",
         "pl": "die Currywürste",
         "note": "أشهر أكلة شارع في ألمانيا",
-        "s": "Das zarte Fleisch vom Reh gilt als besonders mager und edel.",
-        "sar": "اللحم الطري للغزال الصغير يُعتبر قليل الدهون وفاخراً جداً."
+        "s": "Am bekannten Imbissstand bestellt er eine heiße Currywurst mit Pommes frites.",
+        "sar": "عند كشك الوجبات السريعة الشهير يطلب نقانق بصلصة الكاري الساخنة مع البطاطس المقلية."
       },
       {
         "a": "der",
@@ -7243,24 +7243,24 @@
         "ar": "دونر",
         "pl": "die Döner",
         "note": "أكلة تركية الأصل انتشرت جدًا في ألمانيا",
-        "s": "Fasanenfleisch gehört zum feinsten Wildgeflügel auf der Speisekarte.",
-        "sar": "لحم طائر التدرج من أرقى لحوم الطيور البرية في قائمة الطعام."
+        "s": "In Deutschland ist ein knuspriger Döner mit frischem Salat das beliebteste Fastfood.",
+        "sar": "في ألمانيا تُعد شطيرة الدونر المقرمشة مع السلطة الطازجة الوجبة السريعة الأكثر شعبية."
       },
       {
         "a": "das",
         "n": "Fischstäbchen",
         "ar": "أصابع سمك",
         "pl": "die Fischstäbchen",
-        "s": "Die kleine Wachtel wird meist im Ganzen schonend gebraten.",
-        "sar": "طائر السمان الصغير يُشوى عادة كاملاً بعناية."
+        "s": "Kinder essen knusprig panierte Fischstäbchen am liebsten mit cremigem Kartoffelpüree.",
+        "sar": "الأطفال يحبون تناول أصابع السمك المقرمشة مع البطاطس المهروسة الناعمة."
       },
       {
         "a": "die",
         "n": "Fleischbrühe",
         "ar": "مرقة لحم",
         "pl": "die Fleischbrühen",
-        "s": "Geräucherter Aal ist eine norddeutsche Spezialität mit hohem Fettgehalt.",
-        "sar": "ثعبان البحر المدخن تخصص ألماني شمالي ذو نسبة دهون عالية."
+        "s": "Die Großmutter kocht eine kräftige heiße Fleischbrühe zur schnellen Genesung.",
+        "sar": "الجدة تطبخ مرقة لحم ساخنة وقوية للشفاء السريع."
       }
     ]
   },
@@ -7356,8 +7356,8 @@
         "n": "Waffel",
         "ar": "وافل",
         "pl": "die Waffeln",
-        "s": "Kinder lieben bunte Gummibärchen mit fruchtigem Geschmack.",
-        "sar": "الأطفال يعشقون حلوى الجيلي الملونة بنكهة الفواكه."
+        "s": "Frisch gebackene belgische Waffeln duften herrlich und schmecken warm mit Puderzucker.",
+        "sar": "الوافل البلجيكي المخبوز طازجاً تفوح منه رائحة زكية ويؤكل دافئاً مع السكر البودرة."
       },
       {
         "a": "der",
@@ -7365,16 +7365,16 @@
         "ar": "بودينغ",
         "pl": "die Puddinge",
         "note": "يقبل الجمع \"Puddinge\" و\"Puddings\" معًا حسب Duden",
-        "s": "Die Waffel schmeckt warm mit Kirschen und Sahne am besten.",
-        "sar": "الوافل طعمه ألذ ما يكون دافئاً مع الكرز والقشدة."
+        "s": "Die Großmutter rührt cremigen gelben Vanillepudding in einem kleinen Stiltopf an.",
+        "sar": "الجدة تحرك بودينغ الفانيليا الأصفر الكريمي في قدر صغير."
       },
       {
         "a": "der",
         "n": "Kaugummi",
         "ar": "لبان",
         "pl": "die Kaugummis",
-        "s": "Im Sommer kühlt eine Kugel Eiscreme herrlich ab.",
-        "sar": "في الصيف تنعش كرة من الآيس كريم بالبرودة الرائعة."
+        "s": "Der Jugendliche kaut nach dem Essen einen zuckerfreien Kaugummi mit Minzgeschmack.",
+        "sar": "المراهق يمضغ بعد الأكل لبان خالي من السكر بنكهة النعناع."
       },
       {
         "a": "das",
@@ -7382,8 +7382,8 @@
         "ar": "عرق سوس",
         "pl": "die Lakritze",
         "note": "اسم غير معدود عادة؛ الجمع \"Lakritze\" نادر ورسمي حسب Duden",
-        "s": "Das schokoladige Brownie hat einen weichen saftigen Kern.",
-        "sar": "حلوى البراوني بالشوكولاتة لها قلب طري وغني."
+        "s": "Schwarzes salziges Lakritz ist besonders in den nordischen Ländern sehr beliebt.",
+        "sar": "حلوى عرق السوس السوداء المالحة محبوبة جداً خاصة في دول الشمال."
       },
       {
         "a": "die",
@@ -7391,72 +7391,72 @@
         "ar": "بقلاوة",
         "pl": null,
         "note": "الكلمة غير مدرجة في Duden كمدخل رسمي؛ تُستخدم عادة كاسم غير معدود، وصيغة الجمع غير الرسمية الشائعة \"Baklavas\"",
-        "s": "Aus der Backform duftet ein frisch gebackener Muffin.",
-        "sar": "من قالب الخبز تفوح رائحة كعكة المافن الطازجة."
+        "s": "Süße orientalische Baklava besteht aus hauchdünnen Teigschichten mit gehackten Pistazien.",
+        "sar": "البقلاوة الشرقية الحلوة تتكون من طبقات عجين رقيقة جداً محشوة بالفستق المجروش."
       },
       {
         "a": "die",
         "n": "Praline",
         "ar": "قطعة شوكولاتة فاخرة",
         "pl": "die Pralinen",
-        "s": "In Berlin isst man zu Silvester traditionell einen süßen Berliner.",
-        "sar": "في برلين يؤكل تقليدياً في ليلة رأس السنة كعك الدوناتس المحشو بالمربى."
+        "s": "Zum Geburtstag überreichte er ihr eine edle Schachtel gefüllt mit feinen Pralinen.",
+        "sar": "في عيد ميلادها أهداها علبة فاخرة مليئة بقطع شوكولاتة برالين راقية."
       },
       {
         "a": "der",
         "n": "Lolli",
         "ar": "مصاصة حلوى",
         "pl": "die Lollis",
-        "s": "Der bunte Donut ist mit süßem Zuckerguss verziert.",
-        "sar": "الدونات الملون مزين بطبقة سكرية حلوة."
+        "s": "Der kleine Junge wählt an der Kasse einen runden bunten Lolli mit Erdbeergeschmack.",
+        "sar": "الولد الصغير يختار عند صندوق الدفع مصاصة حلوى دائرية ملونة بنكهة الفراولة."
       },
       {
         "a": "die",
         "n": "Erdnuss",
         "ar": "فول سوداني",
         "pl": "die Erdnüsse",
-        "s": "Am Kiosk kauft er sich einen süßen Schokoriegel.",
-        "sar": "من الكشك يشتري لوح شوكولاتة حلو."
+        "s": "Beim Fernsehabend knabbert er gern frisch geröstete und gesalzene Erdnüsse.",
+        "sar": "أثناء سهرة التلفاز يحب تناول الفول السوداني المحمص والمملح طازجاً."
       },
       {
         "a": "die",
         "n": "Mandel",
         "ar": "لوز",
         "pl": "die Mandeln",
-        "s": "Die zarte Praline zergeht mit feiner Füllung auf der Zunge.",
-        "sar": "قطعة الشوكولاتة الفاخرة تذوب بحشوتها الناعمة على اللسان."
+        "s": "Gebrannte Mandeln duften auf dem traditionellen Weihnachtsmarkt nach süßem Karamell.",
+        "sar": "اللوز المحمص بالسكر تفوح منه في سوق الكريسماس التقليدي رائحة الكراميل الحلوة."
       },
       {
         "a": "die",
         "n": "Walnuss",
         "ar": "جوز",
         "pl": "die Walnüsse",
-        "s": "Er kaut konzentriert auf einem fruchtigen Kaugummi.",
-        "sar": "هو يمضغ علكة بنكهة الفواكه بتركيز."
+        "s": "Im Herbst sammelt das Mädchen reife Walnüsse unter dem großen Baum im Garten.",
+        "sar": "في الخريف تجمع الفتاة حبات الجوز الناضجة تحت الشجرة الكبيرة في الحديقة."
       },
       {
         "a": "die",
         "n": "Haselnuss",
         "ar": "بندق",
         "pl": "die Haselnüsse",
-        "s": "Der kleine Junge hält einen bunten Lutscher in der Hand.",
-        "sar": "الولد الصغير يمسك مصاصة ملونة في يده."
+        "s": "Dunkle Schokolade mit ganzen knackigen Haselnüssen ist ihr absoluter Lieblingssnack.",
+        "sar": "الشوكولاتة الداكنة مع حبات البندق الكاملة المقرمشة هي وجبتها الخفيفة المفضلة تماماً."
       },
       {
         "a": "die",
         "n": "Pistazie",
         "ar": "فستق",
         "pl": "die Pistazien",
-        "s": "Warmer Vanillepudding schmeckt wie in der Kindheit.",
-        "sar": "مهلبية الفانيليا الدافئة تذكر بطعم أيام الطفولة."
+        "s": "Gesalzene Pistazien aus dem Orient lassen sich leicht aus der Schale knacken.",
+        "sar": "الفستق المملح من الشرق يسهل تقشيره من قشرته الخارجية."
       },
       {
         "a": "die",
         "n": "Cashewnuss",
         "ar": "كاجو",
         "pl": "die Cashewnüsse",
-        "s": "Mousse au Chocolat ist ein herrlich luftiges Dessert.",
-        "sar": "موس الشوكولاتة حلوى خفيفة وهشة رائعة."
+        "s": "Die milde Cashewnuss hat einen angenehm weichen Biss und einen sahnigen Geschmack.",
+        "sar": "حبة الكاجو المعتدلة لها قرمشة طرية محببة ومذاق كريمي ناعم."
       },
       {
         "a": "der",
@@ -7464,8 +7464,8 @@
         "ar": "نوجا",
         "pl": null,
         "note": "اسم غير معدود عادة؛ الجمع \"Nougats\" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden",
-        "s": "In Frankreich backt man hauchdünne Crêpes mit Schokocreme.",
-        "sar": "في فرنسا يخبزون كريب رقيقاً جداً مع كريمة الشوكولاتة."
+        "s": "Heller weicher Nougat schmilzt zart im Mund und schmeckt herrlich nussig.",
+        "sar": "حلوى النوجا البيضاء الطرية تذوب بنعومة في الفم ولها مذاق مكسرات رائع."
       },
       {
         "a": "die",
@@ -7473,16 +7473,16 @@
         "ar": "حلوى الدببة الصمغية",
         "pl": "die Gummibärchen",
         "note": "من أشهر الحلوى الألمانية على الإطلاق (Haribo)",
-        "s": "Amerikanische Pancakes werden mit süßem Ahornsirup serviert.",
-        "sar": "البانكيك الأمريكي يُقدَّم مع شراب القيقب الحلو."
+        "s": "Kinder teilen sich gern eine große bunte Tüte mit fruchtigen Gummibärchen.",
+        "sar": "الأطفال يحبون تقاسم كيس كبير ملون من حلوى الدببة الصمغية بنكهة الفواكه."
       },
       {
         "a": "der",
         "n": "Schokoriegel",
         "ar": "بار شوكولاتة",
         "pl": "die Schokoriegel",
-        "s": "Im Zirkus essen die Kinder gerne weiße Zuckerwatte.",
-        "sar": "في السيرك يحب الأطفال أكل غزل البنات الأبيض."
+        "s": "Für die kurze Wanderpause steckt er sich einen nahrhaften Schokoriegel in den Rucksack.",
+        "sar": "لاستراحة المشي القصيرة يضع في حقيبة ظهره بار شوكولاتة مغذياً."
       },
       {
         "a": "die",
@@ -7490,8 +7490,8 @@
         "ar": "غزل البنات",
         "pl": "die Zuckerwatten",
         "note": "غالبًا اسم غير معدود؛ الجمع \"Zuckerwatten\" نادر",
-        "s": "Weiche Marshmallows werden traditionell über dem Lagerfeuer geröstet.",
-        "sar": "المارشميلو الطري يُحمص تقليدياً فوق نار المخيم."
+        "s": "Auf dem Jahrmarkt freuen sich die Kinder über riesige rosafarbene Zuckerwatte.",
+        "sar": "في الملاهي يفرح الأطفال بغزل البنات الوردي الضخم على العصا."
       },
       {
         "a": "das",
@@ -7499,40 +7499,40 @@
         "ar": "حلويات مخبوزة",
         "pl": null,
         "note": "اسم غير معدود عادة؛ الجمع \"Gebäcke\" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden",
-        "s": "Kinder lieben süßen Lakritz mit seinem herben Geschmack.",
-        "sar": "الأطفال يحبون عرق السوس بطعمه القوي المميز."
+        "s": "Zur nachmittäglichen Teestunde serviert die Gastgeberin feines frisches Gebäck.",
+        "sar": "في ساعة الشاي بعد الظهر تقدم المضيفة حلويات مخبوزة طازجة وفاخرة."
       },
       {
         "a": "die",
         "n": "Plätzchen",
         "ar": "بسكويت صغير",
         "pl": "die Plätzchen",
-        "s": "Knuspriges Krokant verleiht der Torte einen angenehmen Biss.",
-        "sar": "الكروكان المقرمش يمنح التورتة قرمشة مميزة."
+        "s": "In der Adventszeit backen Eltern gemeinsam mit den Kindern süße Plätzchen mit Zimt.",
+        "sar": "في موسم ما قبل الكريسماس يخبز الآباء مع الأطفال بسكويتاً حلواً بالقرفة."
       },
       {
         "a": "das",
         "n": "Marzipan",
         "ar": "المرزبان",
         "pl": "die Marzipane",
-        "s": "Dunkler Nougat schmeckt intensiv nach gerösteten Haselnüssen.",
-        "sar": "النوجا الداكنة طعمها غني بالبندق المحمص."
+        "s": "Aus süßem Marzipan formt der Konditor kleine kunstvolle Figuren für die Festtagstorte.",
+        "sar": "من حلوى المرزبان الحلوة يشكل صانع الحلويات مجسمات فنية صغيرة لتورتة العيد."
       },
       {
         "a": "der",
         "n": "Fruchtgummi",
         "ar": "حلوى الفواكه الصمغية",
         "pl": "die Fruchtgummis",
-        "s": "Lübecker Marzipan besteht aus fein geriebenen Mandeln und Zucker.",
-        "sar": "حلوى المارزيبان من لوبيك تتكون من اللوز المطحون والسكر."
+        "s": "Der bunte saure Fruchtgummi prickelt herrlich erfrischend auf der Zunge.",
+        "sar": "حلوى الفواكه الصمغية الحامضة والملونة تدغدغ اللسان بانتعاش رائع."
       },
       {
         "a": "das",
         "n": "Konfekt",
         "ar": "حلويات صغيرة فاخرة",
         "pl": "die Konfekte",
-        "s": "Knuspriger Blätterteig zerbröselt zart beim Hineinbeißen.",
-        "sar": "عجينة البف باستري المقرمشة تتفتت بنعومة عند القضم."
+        "s": "In der feinen Schachtel liegt handgemachtes Konfekt aus feinster belgischer Schokolade.",
+        "sar": "في العلبة الفاخرة توجد قطع حلويات صغيرة مصنوعة يدوياً من الشوكولاتة البلجيكية."
       },
       {
         "a": "der",
@@ -7540,8 +7540,8 @@
         "ar": "دونات ألماني",
         "pl": "die Krapfen",
         "note": "دونات شائع خصوصًا في موسم الكرنفال",
-        "s": "Ein ofenfrisches Croissant gehört zu jedem guten Frühstück.",
-        "sar": "الكرواسون الخارج طازجاً من الفرن جزء من أي إفطار جيد."
+        "s": "Zur Faschingszeit isst man traditionell einen süßen Krapfen mit fruchtiger Hagebuttenmarmelade.",
+        "sar": "في موسم الكرنفال يؤكل تقليدياً الدونات الألماني المحشو بمربى الفواكه."
       },
       {
         "a": "der",
@@ -7549,8 +7549,8 @@
         "ar": "دونات ألماني",
         "pl": "die Berliner",
         "note": "اسم آخر لنفس نوع الدونات في مناطق مختلفة من ألمانيا؛ نفس الكلمة تعني أيضًا \"شخص من برلين\"",
-        "s": "Das französische Macaron gibt es in allen erdenklichen bunten Farben.",
-        "sar": "الماكارون الفرنسي متوفر بكل الألوان المبهجة."
+        "s": "Zu Silvester gehört in vielen deutschen Städten ein frischer Berliner mit feinem Puderzucker.",
+        "sar": "في ليلة رأس السنة ينتمي في مدن ألمانية كثيرة الدونات المحلى بالسكر الناعم إلى التقاليد."
       },
       {
         "a": "der",
@@ -7558,8 +7558,8 @@
         "ar": "شتروديل التفاح",
         "pl": "die Apfelstrudel",
         "note": "حلوى نمساوية-ألمانية مشهورة جدًا",
-        "s": "Fluffiges Baiser zergeht wie eine süße Wolke im Mund.",
-        "sar": "المارينغ الهش يذوب كسحابة حلوة في الفم."
+        "s": "Ein warmer österreichischer Apfelstrudel schmeckt hervorragend mit cremiger Vanillesoße.",
+        "sar": "شتروديل التفاح النمساوي الدافئ طعمه لا يُعلى عليه مع صلصة الفانيليا الكريمية."
       },
       {
         "a": "der",
@@ -7567,16 +7567,16 @@
         "ar": "كعك التوابل",
         "pl": "die Lebkuchen",
         "note": "حلوى ألمانية تقليدية شائعة في موسم الكريسماس",
-        "s": "Gekühlte rote Grütze schmeckt hervorragend mit flüssiger Sahne.",
-        "sar": "حلوى التوت الأحمر المبردة طعمها رائع مع القشدة السائلة."
+        "s": "Nürnberger Lebkuchen duften auf dem winterlichen Weihnachtsmarkt wunderbar nach Gewürzen.",
+        "sar": "كعك التوابل النورمبرغي تفوح منه في سوق الكريسماس الشتوي رائحة البهارات الرائعة."
       },
       {
         "a": "der",
         "n": "Stollen",
         "ar": "كيكة الكريسماس الألمانية",
         "pl": "die Stollen",
-        "s": "Italienisches Tiramisu wird mit feinem Espresso zubereitet.",
-        "sar": "التيراميسو الإيطالي يُعدّ بقهوة الإسبريسو الفاخرة."
+        "s": "Dresdner Stollen mit Rosinen und Puderzucker ist der bekannteste deutsche Weihnachtskuchen.",
+        "sar": "كيكة الكريسماس من دريسدن بالزبيب وسكر البودرة أشهر كعكة ألمانية للأعياد."
       },
       {
         "a": "die",
@@ -7584,16 +7584,16 @@
         "ar": "تورتة زاخر",
         "pl": "die Sachertorten",
         "note": "تورتة شوكولاتة نمساوية شهيرة عالميًا",
-        "s": "Panna Cotta wird traditionell mit frischer Himbeersoße serviert.",
-        "sar": "البانا كوتا تُقدَّم تقليدياً مع صلصة توت العليق الطازجة."
+        "s": "In Wien bestellt man im traditionsreichen Kaffeehaus gern ein Stück berühmte Sachertorte.",
+        "sar": "في فيينا يطلب المرء في المقاهي العريقة قطعة من تورتة زاخر الشهيرة بالشوكولاتة."
       },
       {
         "a": "der",
         "n": "Streuselkuchen",
         "ar": "كيكة الفتافيت",
         "pl": "die Streuselkuchen",
-        "s": "Frisch gebackener Apfelstrudel schmeckt warm mit Vanilleeis.",
-        "sar": "فطيرة التفاح المخبوزة طازجاً لذيذة دافئة مع آيس كريم الفانيليا."
+        "s": "Omas frisch gebackener Streuselkuchen mit knusprigen Butterstreuseln schmeckt sonntags allen.",
+        "sar": "كيكة الفتافيت الطازجة من صنع الجدة بفتات الزبدة المقرمشة تعجب الجميع يوم الأحد."
       },
       {
         "a": "der",
@@ -7601,8 +7601,8 @@
         "ar": "حلوى كريمة منفوخة",
         "pl": "die Windbeutel",
         "note": "عجين خفيف محشو بالكريمة",
-        "s": "Im Winter backt man saftigen Stollen mit Rosinen und Mandeln.",
-        "sar": "في الشتاء يُخبز كعك الشتولن الغني بالزبيب واللوز."
+        "s": "Ein großer Windbeutel aus lockerem Brandteig ist reichlich mit süßer Schlagsahne gefüllt.",
+        "sar": "حلوى الشو المنتفخة من عجين البات شو محشوة بوفرة بالقشدة المخفوقة الحلوة."
       },
       {
         "a": "der",
@@ -7610,8 +7610,8 @@
         "ar": "أرز باللبن",
         "pl": null,
         "note": "اسم غير معدود عادة (طبق وليس قطعًا معدودة)",
-        "s": "Nürnberger Lebkuchen duften nach Nelken, Zimt und Kardamom.",
-        "sar": "خبز الزنجبيل من نورمبرغ تفوح منه رائحة القرنفل والقرفة والهيل."
+        "s": "Warmer süßer Milchreis mit Zimt und Zucker ist ein beliebtes Seelentröster-Essen.",
+        "sar": "الأرز باللبن الدافئ مع القرفة والسكر وجبة محبوبة تمنح الراحة والدفء."
       },
       {
         "a": "der",
@@ -7619,8 +7619,8 @@
         "ar": "بودينغ السميد",
         "pl": "die Grießpuddings",
         "note": "نادرًا ما يُجمع؛ الجمع \"Grießpuddings\" يُستخدم للإشارة إلى أنواع مختلفة",
-        "s": "Schoko-Cookies mit knackigen Nüssen sind der perfekte Snack.",
-        "sar": "كوكيز الشوكولاتة بالمكسرات المقرمشة وجبة خفيفة مثالية."
+        "s": "Ein Schälchen cremiger Grießpudding schmeckt gekühlt mit frischem Beerenkompott prima.",
+        "sar": "وعاء صغير من بودينغ السميد الكريمي المبرد طعمه رائع مع كمبوت التوت الطازج."
       },
       {
         "a": "die",
@@ -7628,24 +7628,24 @@
         "ar": "حلوى التوت الشمالية الألمانية",
         "pl": null,
         "note": "اسم غير معدود عادة كطبق حلوى",
-        "s": "Salzige Erdnüsse sind auf jeder Party schnell aufgegessen.",
-        "sar": "الفول السوداني المملح يُؤكل بسرعة في كل حفلة."
+        "s": "Im Norden Deutschlands serviert man die säuerlich-süße Rote Grütze traditionell mit flüssiger Sahne.",
+        "sar": "في شمال ألمانيا تُقدَّم حلوى التوت الشمالية الحامضة والحلوة تقليدياً مع القشدة السائلة."
       },
       {
         "a": "die",
         "n": "Kokosmakrone",
         "ar": "كرات جوز الهند",
         "pl": "die Kokosmakronen",
-        "s": "Geröstete Pistazien schmecken knackig und leicht nussig-salzig.",
-        "sar": "الفستق المحمص طعمه مقرمش وجوزي مملح خفيفاً."
+        "s": "Saftige weiße Kokosmakronen gehören fest zur traditionellen Weihnachtsbäckerei dazu.",
+        "sar": "كرات جوز الهند البيضاء الطرية تنتمي بشكل أساسي لمخبوزات أعياد الميلاد التقليدية."
       },
       {
         "a": "der",
         "n": "Baumkuchen",
         "ar": "كيكة الشجرة الألمانية",
         "pl": "die Baumkuchen",
-        "s": "Frische Mandeln gehören in jedes traditionelle Weihnachtsgebäck.",
-        "sar": "اللوز الطازج يدخل في كل مخبوزات عيد الميلاد التقليدية."
+        "s": "Wegen seiner charakteristischen Ringe nennt man den aufwendigen Schichtenkuchen Baumkuchen.",
+        "sar": "بسبب حلقاته المميزة يُسمى الكيك الطبقي المتقن بكيكة الشجرة."
       },
       {
         "a": "der",
@@ -7653,16 +7653,16 @@
         "ar": "كايزرشمارن",
         "pl": null,
         "note": "حلوى نمساوية تقليدية من الفطائر المقطعة؛ لا يوجد جمع شائع لهذه الكلمة",
-        "s": "Eine knackige Walnuss knackt man am besten mit dem Nussknacker.",
-        "sar": "حبة عين الجمل المقرمشة تُكسر بالشكل الأفضل بكسارة البندق."
+        "s": "Auf der Berghütte serviert die Wirtin eine heiße Pfanne mit lockerem Kaiserschmarrn.",
+        "sar": "في الكوخ الجبلي تقدم المضيفة مقلاة ساخنة من حلوى الكايزرشمارن الهشة المقطعة."
       },
       {
         "a": "die",
         "n": "Zuckerstange",
         "ar": "عصا حلوى",
         "pl": "die Zuckerstangen",
-        "s": "Haselnüsse verleihen der Schokolade ihren unverwechselbaren Geschmack.",
-        "sar": "البندق يمنح الشوكولاتة نكهتها المميزة التي لا تُنسى."
+        "s": "Am Weihnachtsbaum hängt eine rot-weiß gestreifte Zuckerstange mit süßem Pfefferminzgeschmack.",
+        "sar": "على شجرة الكريسماس تعلق عصا حلوى مخططة بالأحمر والأبيض بنكهة النعناع المنعش."
       },
       {
         "a": "der",
@@ -7670,24 +7670,24 @@
         "ar": "سكر نبات",
         "pl": null,
         "note": "اسم غير معدود عادة",
-        "s": "Cashewkerne schmecken mild, cremig und leicht süßlich.",
-        "sar": "الكاجو طعمه خفيف وكريمي ومائل للحلاوة خفيفاً."
+        "s": "In Ostfriesland gibt man traditionell einen dicken weißen Kandiszucker in die heiße Teetasse.",
+        "sar": "في فريزيا الشرقية يضعون تقليدياً سكر نبات أبيض سميكاً في كوب الشاي الساخن."
       },
       {
         "a": "die",
         "n": "Nussecke",
         "ar": "حلوى مثلثة بالمكسرات",
         "pl": "die Nussecken",
-        "s": "Geröstete Sonnenblumenkerne knabbert man gern zwischendurch.",
-        "sar": "بذور عباد الشمس المحمصة يحب الناس تسليتها بين الوجبات."
+        "s": "Eine knusprige dreieckige Nussecke ist mit Schokolade an den Ecken überzogen.",
+        "sar": "حلوى زوايا المكسرات المثلثة المقرمشة مغطاة بالشوكولاتة عند أطرافها الثلاثة."
       },
       {
         "a": "der",
         "n": "Florentiner",
         "ar": "حلوى فلورنتينية بالمكسرات",
         "pl": "die Florentiner",
-        "s": "Kürbiskerne schmecken geröstet hervorragend über frischem Salat.",
-        "sar": "بذور اليقطين المحمصة طعمها رائع فوق السلطة الطازجة."
+        "s": "Der knusprige Florentiner besteht aus gehobelten Mandeln, kandierten Früchten und Schokolade.",
+        "sar": "حلوى الفلورنتين المقرمشة تتكون من شرائح اللوز والفواكه المسكرة وقاعدة من الشوكولاتة."
       }
     ]
   },
@@ -7791,16 +7791,16 @@
         "n": "Bohrmaschine",
         "ar": "مثقاب كهربائي",
         "pl": "die Bohrmaschinen",
-        "s": "Eine Wasserwaage stellt sicher, dass das Regal absolut gerade hängt.",
-        "sar": "ميزان الماء يضمن أن الرف معلق بشكل مستوٍ تماماً."
+        "s": "Mit der elektrischen Bohrmaschine bohrt der Handwerker präzise Löcher in die Wand.",
+        "sar": "بالمثقاب الكهربائي يحفر الحرفي ثقوباً دقيقة في الجدار."
       },
       {
         "a": "der",
         "n": "Meißel",
         "ar": "إزميل",
         "pl": "die Meißel",
-        "s": "Mit der Raspel glättet der Tischler die rauen Holzkanten.",
-        "sar": "بالمبرد الخشبي ينعم النجار حواف الخشب الخشنة."
+        "s": "Mit Hammer und spitzem Meißel bricht er die alten Fliesen vom Boden auf.",
+        "sar": "بالمطرقة والإزميل الحاد يكسر البلاط القديم عن الأرضية."
       },
       {
         "a": "die",
@@ -7823,16 +7823,16 @@
         "n": "Schraubstock",
         "ar": "ملزمة",
         "pl": "die Schraubstöcke",
-        "s": "Mit dem Beitel schnitzt der Holzschnitzer kunstvolle Muster.",
-        "sar": "بالإزميل ينحت حافر الخشب نقوشاً فنية بديعة."
+        "s": "Das Metallrohr wird im schweren Schraubstock fest und wackelfrei eingespannt.",
+        "sar": "يتم تثبيت الأنبوب المعدني بإحكام وبدون اهتزاز في الملزمة الثقيلة."
       },
       {
         "a": "der",
         "n": "Akkuschrauber",
         "ar": "مفك كهربائي لاسلكي",
         "pl": "die Akkuschrauber",
-        "s": "Mit dem Bohrhammer bohrt man mühelos Löcher in harten Beton.",
-        "sar": "بالمثقاب الصدمي يحفر المرء بسهولة ثقوباً في الخرسانة الصلبة."
+        "s": "Mit dem handlichen Akkuschrauber dreht er die langen Holzschrauben mühelos ein.",
+        "sar": "بالمفك الكهربائي اللاسلكي المريح يربط براغي الخشب الطويلة بكل سهولة."
       },
       {
         "a": "der",
@@ -8442,8 +8442,8 @@
         "n": "Weitsprung",
         "ar": "الوثب الطويل",
         "pl": "die Weitsprünge",
-        "s": "Mit einem weiten Sprung landete der Springer sicher in der Sandgrube.",
-        "sar": "بقفزة طويلة هبط الواثب بأمان في حفرة الرمل."
+        "s": "Beim Weitsprung erreichte der Springer eine neue persönliche Bestweite.",
+        "sar": "في رياضة الوثب الطويل حقق الواثب مسافة قياسية شخصية جديدة."
       },
       {
         "a": "der",
