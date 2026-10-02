@@ -323,12 +323,12 @@
         "sar": "الأفوكادو الكريمي مناسب للسلطة."
       },
       {
-        "a": "das",
+        "a": "die",
         "n": "Kaki",
         "ar": "كاكي",
         "pl": "die Kakis",
         "note": "فاكهة برتقالية طرية تُعرف أيضًا بالبرسيمون",
-        "s": "Das süße Kaki isst man im Spätherbst.",
+        "s": "Die süße Kaki isst man im Spätherbst.",
         "sar": "الكاكي الحلو يؤكل في أواخر الخريف."
       },
       {
@@ -343,20 +343,19 @@
       {
         "a": "die",
         "n": "Zwetschge",
-        "ar": "خوخ أزرق",
+        "ar": "برقوق أزرق بيضاوي",
         "pl": "die Zwetschgen",
         "note": "نوع من البرقوق بيضاوي الشكل داكن اللون",
         "s": "Die Zwetschge schmeckt hervorragend auf dem Kuchen.",
-        "sar": "الخوخ الأزرق طعمه ممتاز على الكعكة."
+        "sar": "البرقوق الأزرق البيضاوي طعمه ممتاز على الكعكة."
       },
       {
         "a": "die",
         "n": "Mirabelle",
-        "ar": "خوخ أصفر صغير",
+        "ar": "برقوق أصفر صغير",
         "pl": "die Mirabellen",
-        "note": "خوخ صغير أصفر حلو المذاق",
         "s": "Die gelbe Mirabelle schmeckt aromatisch und fein.",
-        "sar": "الخوخ الأصفر الصغير نكهته عطرية ورفيعة."
+        "sar": "البرقوق الأصفر الصغير نكهته عطرية ورفيعة."
       },
       {
         "a": "die",
@@ -2396,7 +2395,7 @@
         "n": "Schuh",
         "ar": "حذاء",
         "pl": "die Schuhe",
-        "s": "Er putzt jeden Samstag seinen ledernen Schuh.",
+        "s": "Er putzt jeden Samstag seine ledernen Schuhe.",
         "sar": "هو ينظف كل سبت حذاءه الجلدي."
       },
       {
@@ -2610,7 +2609,7 @@
         "sar": "عند درجة حرارة ثلاثين درجة تكون الشورتات القصيرة مريحة جداً."
       },
       {
-        "a": "der",
+        "a": "das",
         "n": "Sakko",
         "ar": "جاكيت رسمي",
         "pl": "die Sakkos",

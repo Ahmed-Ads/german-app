@@ -3,7 +3,7 @@
 """
 Automated Vocabulary Integrity Verification System (Phase 3 Production Verifier)
 -------------------------------------------------------------------------------
-Ensures 100% compliance with CRITICAL RULE:
+Ensures strict compliance with CRITICAL RULE:
 "Do Not Modify Existing Vocabulary Without Official Verification"
 
 Features:
@@ -20,6 +20,7 @@ import json
 import argparse
 import hashlib
 import subprocess
+import shutil
 from datetime import datetime
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -39,38 +40,104 @@ def compute_canonical_hash(categories):
 def extract_vocab_from_html(html_path):
     """
     Extracts the CATEGORIES array from HTML using a real JavaScript VM runner (Node.js).
-    Completely immune to regex backtracking, comment markers, or formatting variations.
+    Uses robust balanced bracket matching respecting string literals, escapes, and comments.
     """
     if not os.path.exists(html_path):
         return None, [f"File does not exist: {html_path}"]
+
+    node_bin = shutil.which('node')
+    if not node_bin:
+        return None, [
+            "CRITICAL ERROR: Node.js executable ('node') was not found in PATH.\n"
+            "Please ensure Node.js is installed and available in the system PATH."
+        ]
 
     node_script = """
     const fs = require('fs');
     const vm = require('vm');
 
     const html = fs.readFileSync(process.argv[1], 'utf8');
-    const start = html.indexOf('const CATEGORIES =');
-    if (start === -1) {
-        console.error('CRITICAL: Could not find const CATEGORIES in ' + process.argv[1]);
+    const declPattern = /const\\s+CATEGORIES\\s*=\\s*\\[/;
+    const match = declPattern.exec(html);
+    if (!match) {
+        console.error('CRITICAL: Could not find const CATEGORIES = [ in ' + process.argv[1]);
         process.exit(2);
     }
 
-    // Isolate the CATEGORIES assignment
-    const snippet = html.slice(start);
-    // Find the end of array assignment (look for next const/let/function or closing semicolon)
-    let end = snippet.indexOf('const ORDERED_CATEGORIES');
-    if (end === -1) end = snippet.indexOf('/* thresholds');
-    if (end === -1) end = snippet.indexOf('function ');
-    if (end === -1) end = snippet.indexOf('</script>');
+    const arrayStartIndex = match.index + match[0].length - 1; // points to '['
 
-    const jsCode = snippet.slice(0, end);
+    // Robust bracket matching scanner respecting comments and string literals
+    let depth = 0;
+    let inString = null;
+    let inLineComment = false;
+    let inBlockComment = false;
+    let arrayEndIndex = -1;
+
+    for (let i = arrayStartIndex; i < html.length; i++) {
+        const ch = html[i];
+        const next = html[i + 1];
+
+        if (inLineComment) {
+            if (ch === '\\n') inLineComment = false;
+            continue;
+        }
+
+        if (inBlockComment) {
+            if (ch === '*' && next === '/') {
+                inBlockComment = false;
+                i++;
+            }
+            continue;
+        }
+
+        if (inString) {
+            if (ch === '\\\\') {
+                i++; // skip escaped char
+            } else if (ch === inString) {
+                inString = null;
+            }
+            continue;
+        }
+
+        if (ch === '/' && next === '/') {
+            inLineComment = true;
+            i++;
+            continue;
+        }
+        if (ch === '/' && next === '*') {
+            inBlockComment = true;
+            i++;
+            continue;
+        }
+        if (ch === "'" || ch === '"' || ch === '`') {
+            inString = ch;
+            continue;
+        }
+
+        if (ch === '[') {
+            depth++;
+        } else if (ch === ']') {
+            depth--;
+            if (depth === 0) {
+                arrayEndIndex = i;
+                break;
+            }
+        }
+    }
+
+    if (arrayEndIndex === -1) {
+        console.error('CRITICAL: Could not find matching closing bracket for CATEGORIES array');
+        process.exit(3);
+    }
+
+    const arrayJs = html.slice(arrayStartIndex, arrayEndIndex + 1);
     const sandbox = {};
     vm.createContext(sandbox);
-    vm.runInContext(jsCode.replace('const CATEGORIES', 'CATEGORIES'), sandbox);
+    vm.runInContext('CATEGORIES = ' + arrayJs, sandbox);
 
     if (!sandbox.CATEGORIES || !Array.isArray(sandbox.CATEGORIES)) {
         console.error('CRITICAL: Evaluated CATEGORIES is not an array');
-        process.exit(3);
+        process.exit(4);
     }
 
     // Normalize hasArticles to boolean
@@ -82,19 +149,11 @@ def extract_vocab_from_html(html_path):
     process.stdout.write(JSON.stringify(normalized));
     """
 
-    # Run Node with custom PATH fallback
-    env = os.environ.copy()
-    home = os.path.expanduser('~')
-    node_dir = os.path.join(home, '.local', 'node-v20.18.0-linux-x64', 'bin')
-    if os.path.exists(node_dir):
-        env['PATH'] = f"{node_dir}:{env.get('PATH', '')}"
-
     try:
         proc = subprocess.run(
-            ['node', '-e', node_script, html_path],
+            [node_bin, '-e', node_script, html_path],
             capture_output=True,
             text=True,
-            env=env,
             check=False
         )
         if proc.returncode != 0:
@@ -179,23 +238,72 @@ def verify_file(html_path, baseline, baseline_hash):
 
     return len(diff_errors) == 0, total_words, diff_errors
 
+def check_changelog_sync(baseline_hash):
+    """
+    CI / Pre-commit guard: Ensures that the current canonical hash of vocab_baseline.json
+    is documented in CHANGELOG_VOCAB.md. Any change to the baseline without a corresponding
+    changelog entry will trigger a hard failure.
+    """
+    if not os.path.exists(CHANGELOG_PATH):
+        return False, f"Changelog file does not exist: {CHANGELOG_PATH}"
+
+    with open(CHANGELOG_PATH, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    if baseline_hash not in content:
+        return False, (
+            f"CRITICAL CI/PRE-COMMIT CHECK FAILED:\n"
+            f"The current canonical hash of vocab_baseline.json ({baseline_hash})\n"
+            f"is NOT documented in {os.path.basename(CHANGELOG_PATH)}!\n"
+            f"Any modification to the vocabulary baseline requires an authorized entry\n"
+            f"in CHANGELOG_VOCAB.md documenting the change, rationale, and source."
+        )
+
+    return True, None
+
 def update_baseline_cmd(args, baseline):
     if not args.reason or not args.source:
         print("❌ ERROR: --update-baseline REQUIRES both --reason and --source flags!")
-        print("Example: python verify_vocab.py --update-baseline --reason 'Fix Knoblauchpulver gender' --source 'Duden' --ids 'gewuerze_13_a'")
+        print("Example: python3 verify_vocab.py --update-baseline --reason 'Fix Knoblauchpulver gender' --source 'Duden' --ids 'gewuerze_13_a'")
         sys.exit(1)
 
     print("=" * 70)
     print("  ⚠️ تحديث قاعدة البيانات المرجعية الرسمية (Deliberate Baseline Update)")
     print("=" * 70)
 
+    # Extract latest from primary source (index.html)
+    primary_html = TARGET_FILES[0]
+    extracted, errors = extract_vocab_from_html(primary_html)
+    if errors or not extracted:
+        print(f"❌ ERROR: Failed to extract vocabulary from {primary_html}:")
+        for err in errors:
+            print("  - " + err)
+        sys.exit(1)
+
     old_hash = compute_canonical_hash(baseline)
-    new_hash = old_hash # will be updated if data changes
+    new_hash = compute_canonical_hash(extracted)
+
+    # Write new baseline
+    with open(BASELINE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(extracted, f, indent=2, ensure_ascii=False)
+        f.write('\n')
+
+    # Update proof file if directory exists
+    proof_path = os.path.join(SCRIPT_DIR, 'proof', 'baseline_proof.txt')
+    if os.path.exists(os.path.dirname(proof_path)):
+        total_w = sum(len(c['words']) for c in extracted)
+        now_iso = datetime.now().isoformat()
+        with open(proof_path, 'w', encoding='utf-8') as f:
+            f.write("OFFICIAL VOCABULARY BASELINE PROOF\n")
+            f.write(f"Updated: {now_iso}\n")
+            f.write(f"Canonical SHA-256: {new_hash}\n")
+            f.write(f"Total Categories: {len(extracted)}\n")
+            f.write(f"Total Words: {total_w}\n")
 
     # Format changelog entry
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     changelog_entry = f"""
-## [{now_str}] Baseline Update
+## [{now_str}] Authorized Baseline Update
 - **Reason:** {args.reason}
 - **Source:** {args.source}
 - **Target Item IDs:** {args.ids or 'Not specified'}
@@ -205,7 +313,10 @@ def update_baseline_cmd(args, baseline):
     with open(CHANGELOG_PATH, 'a', encoding='utf-8') as f:
         f.write(changelog_entry)
 
-    print(f"Logged baseline update to {CHANGELOG_PATH}")
+    print(f"[✓] تم تحديث ملف المرجع: {BASELINE_PATH}")
+    print(f"    البصمة السابقة: {old_hash}")
+    print(f"    البصمة الجديدة: {new_hash}")
+    print(f"[✓] تم تسجيل التحديث في: {CHANGELOG_PATH}")
 
 def main():
     parser = argparse.ArgumentParser(description="Automated Vocabulary Integrity Verification Tool")
@@ -213,6 +324,7 @@ def main():
     parser.add_argument('--reason', type=str, help="Mandatory rationale for baseline change")
     parser.add_argument('--source', type=str, help="Authoritative linguistic source citation")
     parser.add_argument('--ids', type=str, help="Target item IDs modified")
+    parser.add_argument('--skip-changelog-check', action='store_true', help="Skip changelog sync check (used during baseline updates)")
     args = parser.parse_args()
 
     print("=" * 70)
@@ -236,6 +348,14 @@ def main():
         update_baseline_cmd(args, baseline)
         sys.exit(0)
 
+    # CI / Pre-commit guard check
+    if not args.skip_changelog_check:
+        cl_ok, cl_err = check_changelog_sync(baseline_hash)
+        if not cl_ok:
+            print("\n❌ " + cl_err)
+            sys.exit(1)
+        print(f"[✓] توثيق سجل التغييرات: البصمة الحالية موثقة رسمياً في {os.path.basename(CHANGELOG_PATH)}")
+
     overall_ok = True
     for target in TARGET_FILES:
         ok, total_w, errs = verify_file(target, baseline, baseline_hash)
@@ -251,7 +371,7 @@ def main():
 
     print("\n" + "=" * 70)
     if overall_ok:
-        print("  🎉 النتيجة النهائية: كافة المفردات مطابقة للأصل بنسبة 100% (PASSED)")
+        print("  🎉 النتيجة النهائية: كافة المفردات مطابقة للأصل والمواصفات المعتمدة (PASSED)")
         print("=" * 70)
         sys.exit(0)
     else:

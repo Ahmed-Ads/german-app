@@ -59,17 +59,27 @@ self.addEventListener('fetch', event => {
                 (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'));
 
   if (isHtml) {
-    // Network-First for HTML to ensure updates arrive immediately when online, with Cache Fallback for offline
+    // Network-First with 3-second timeout for HTML to ensure fast fallback offline or on poor network
     event.respondWith(
-      fetch(event.request).then(networkResponse => {
-        if (networkResponse && networkResponse.status === 200) {
-          const copy = networkResponse.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
-        }
-        return networkResponse;
+      new Promise((resolve, reject) => {
+        const timeoutId = setTimeout(() => {
+          reject(new Error('Network HTML fetch timed out after 3000ms'));
+        }, 3000);
+
+        fetch(event.request).then(networkResponse => {
+          clearTimeout(timeoutId);
+          if (networkResponse && networkResponse.status === 200) {
+            const copy = networkResponse.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+          }
+          resolve(networkResponse);
+        }).catch(err => {
+          clearTimeout(timeoutId);
+          reject(err);
+        });
       }).catch(() => {
         return caches.match('./index.html').then(cachedHtml => {
-          return cachedHtml || caches.match(event.request);
+          return cachedHtml || caches.match(event.request) || Response.error();
         });
       })
     );
@@ -92,8 +102,7 @@ self.addEventListener('fetch', event => {
         });
         return networkResponse;
       }).catch(() => {
-        // Return null or fallback if network fails
-        return null;
+        return Response.error();
       });
     })
   );

@@ -103,5 +103,5 @@ w2 = "{a:'die',n:'Banane',ar:'موزة',pl:'die Bananen',s:'Die Banane ist gelb 
 run_mutation_test("Word_reordering", original_html.replace(f"{w1},\n    {w2}", f"{w2},\n    {w1}", 1), "mismatch")
 
 print("=" * 65)
-print("🎉 ALL 12 MUTATION TESTS PASSED! THE VERIFIER IS 100% BULLETPROOF.")
+print("🎉 ALL 12 MUTATION TESTS PASSED: VERIFIER REJECTS ALL INVALID MUTATIONS.")
 print("=" * 65)

@@ -27,3 +27,35 @@
    - `suessigkeiten[7]`: `Honig` -> `pl: null`
 5. `kleidung[6]`: `Schuhe` -> `a: der`, `n: Schuh`, `pl: die Schuhe`, `s: Er putzt jeden Samstag seinen ledernen Schuh.`, `sar: هو ينظف كل سبت حذاءه الجلدي.`
 6. `suessigkeiten[24]`: `Gummibärchen` -> `a: das`, `n: Gummibärchen`, `pl: die Gummibärchen` (Neuter diminutive rule).
+
+## [2026-10-02 23:11:21] Revert Schuh Example Sentence to Original Plural
+- **Authority / Instruction:** User requested restoring the original plural example sentence for Schuh while keeping `a: der, n: Schuh, pl: die Schuhe`.
+- **Previous Canonical SHA-256:** `e9d4dece46ab9df37f4bb91790ca46a9613a8aaa975a182c46fe54b133f5a716`
+- **New Canonical SHA-256:** `8108166f38db8ea9d4f7e35cc45aac26c707e3b32c8ad13221879e1df09d4a09`
+- **Item ID:** `kleidung[6]` (`Schuh`)
+- **German Sentence (s):** `Er putzt jeden Samstag seine ledernen Schuhe.`
+- **Arabic Translation (sar):** `هو ينظف كل سبت حذاءه الجلدي.`
+
+## [2026-10-02 23:39:58] Final Approved Vocabulary Updates
+- **Authority / Approval:** User explicit approval for Sakko, Kaki, Zwetschge, Mirabelle.
+- **Previous Canonical SHA-256:** `8108166f38db8ea9d4f7e35cc45aac26c707e3b32c8ad13221879e1df09d4a09`
+- **New Canonical SHA-256:** `a06623dfbcf1980c8a153fc79aca664bdd3bebecccd0f5f7dc7d67857fb8e8f3`
+- **Items Modified:**
+  1. `kleidung[33]` (Sakko): `a: das` (Standard neuter form in Duden).
+  2. `obst[39]` (Kaki): `a: die` (Standard feminine form in Duden `die Kaki`, sentence updated to `Die süße Kaki isst man im Spätherbst.`).
+  3. `obst[41]` (Zwetschge): `ar: برقوق أزرق بيضاوي` (Disambiguated Damson/prune plum from round Pflaume).
+  4. `obst[42]` (Mirabelle): `ar: برقوق أصفر صغير`, `sar: البرقوق الأصفر الصغير نكهته عطرية ورفيعة.`, `note: برقوق صغير أصفر حلو المذاق`.
+- **Not Modified (Retained per instruction):**
+  - `suessigkeiten[4]` (Bonbon): `a: der` (Primary form listed in Duden `der oder (österreichisch nur:) das Bonbon`).
+  - `obst[44]` (Physalis): `pl: die Physalen` (Botanical plural attested in Duden).
+  - `gewuerze[1]` (Salz): `pl: die Salze` (Chemical/variety plural in Duden).
+  - `getreide[1]` (Mehl): `pl: die Mehle` (Variety plural in Duden).
+  - `getraenke[38]` (Pils): `pl: die Pils` (Primary plural in Duden/DWDS).
+  - `wetter[15]` (Klima): `pl: die Klimata` (Primary plural in Duden/DWDS).
+
+## [2026-10-02 23:55:45] Authorized Baseline Update
+- **Reason:** Remove Mirabelle note, revert Kaki sar to original, keep minimal edits strictly per user instructions
+- **Source:** User instruction / Duden
+- **Target Item IDs:** obst_39,obst_41,obst_42,kleidung_33
+- **Previous SHA-256:** `a06623dfbcf1980c8a153fc79aca664bdd3bebecccd0f5f7dc7d67857fb8e8f3`
+- **New SHA-256:** `bc4f1b85a867c1f126cdde46eed031b0600440e84708c1e4e264d5106ef8e417`

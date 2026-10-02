@@ -117,7 +117,7 @@ try {
     console.log('--------------------------------------------------------');
     console.log(`Passed: ${results.passed} | Failed: ${results.failed}`);
     if (results.failed === 0) {
-      console.log('🎉 100% REAL BROWSER E2E TESTS PASSED IN GOOGLE CHROME!');
+      console.log('🎉 ALL REAL BROWSER E2E TESTS PASSED IN GOOGLE CHROME!');
     } else {
       process.exit(1);
     }
