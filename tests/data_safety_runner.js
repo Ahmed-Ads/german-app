@@ -1,10 +1,27 @@
-// tests/data_safety_runner.js
+/**
+ * tests/data_safety_runner.js
+ * -----------------------------------------------------------------------------
+ * Data Safety & Migration Verification Runner in Real Google Chrome.
+ * Proves that user data (progress, statistics, starred items, Leitner SRS schedule,
+ * and daily goal) survive an application upgrade from a previous release build/tag.
+ *
+ * Usage:
+ *   node tests/data_safety_runner.js [git-tag-or-file-path]
+ *
+ * Examples:
+ *   node tests/data_safety_runner.js v1.3-voice
+ *   node tests/data_safety_runner.js path/to/previous_index.html
+ *   BASE_REF=v1.2-hosting node tests/data_safety_runner.js
+ * -----------------------------------------------------------------------------
+ */
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+const baseRefOrPath = process.argv[2] || process.env.BASE_REF || 'v1.3-voice';
+
 console.log('======================================================================');
-console.log('  DATA SAFETY PROOF TEST IN REAL GOOGLE CHROME (main -> fix/audit)');
+console.log(`  DATA SAFETY PROOF TEST IN REAL GOOGLE CHROME (${baseRefOrPath} -> current)`);
 console.log('======================================================================');
 
 const CHROME_PATH = '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe';
@@ -33,10 +50,15 @@ let mainBackupJson = '';
 
 try {
   // -------------------------------------------------------------------------
-  // STAGE 1: Load main build in real Chrome and generate user progress
+  // STAGE 1: Load base build in real Chrome and generate user progress
   // -------------------------------------------------------------------------
-  console.log('\n--- STAGE 1: Simulating User Progress on "main" build ---');
-  const mainHtml = execSync('git show main:index.html', { encoding: 'utf8', maxBuffer: 15 * 1024 * 1024 });
+  console.log(`\n--- STAGE 1: Simulating User Progress on "${baseRefOrPath}" build ---`);
+  let mainHtml = '';
+  if (fs.existsSync(baseRefOrPath)) {
+    mainHtml = fs.readFileSync(baseRefOrPath, 'utf8');
+  } else {
+    mainHtml = execSync(`git show ${baseRefOrPath}:index.html`, { encoding: 'utf8', maxBuffer: 15 * 1024 * 1024 });
+  }
 
   const stage1Script = `
   <script>
@@ -137,7 +159,7 @@ try {
   // STAGE 2: Load current fix/audit build on SAME origin (same profile)
   // Assert full preservation of progress, stats, starred, SRS, and daily goal
   // -------------------------------------------------------------------------
-  console.log('\n--- STAGE 2: Verifying Data Preservation on "fix/audit" build ---');
+  console.log('\n--- STAGE 2: Verifying Data Preservation on current build ---');
   const currentHtml = fs.readFileSync('index.html', 'utf8');
 
   const stage2Script = `

@@ -39,8 +39,7 @@ BASELINE_PATH = os.path.join(SCRIPT_DIR, 'vocab_baseline.json')
 CHANGELOG_PATH = os.path.join(SCRIPT_DIR, 'CHANGELOG_VOCAB.md')
 
 TARGET_FILES = [
-    os.path.join(SCRIPT_DIR, 'index.html'),
-    os.path.join(SCRIPT_DIR, 'german-for-arabic (4).html')
+    os.path.join(SCRIPT_DIR, 'index.html')
 ]
 
 def compute_canonical_hash(categories):
@@ -207,18 +206,6 @@ def update_baseline_cmd(args, baseline):
     with open(BASELINE_PATH, 'w', encoding='utf-8') as f:
         json.dump(extracted, f, indent=2, ensure_ascii=False)
         f.write('\n')
-
-    # Update proof file if directory exists
-    proof_path = os.path.join(SCRIPT_DIR, 'proof', 'baseline_proof.txt')
-    if os.path.exists(os.path.dirname(proof_path)):
-        total_w = sum(len(c['words']) for c in extracted)
-        now_iso = datetime.now().isoformat()
-        with open(proof_path, 'w', encoding='utf-8') as f:
-            f.write("OFFICIAL VOCABULARY BASELINE PROOF\n")
-            f.write(f"Updated: {now_iso}\n")
-            f.write(f"Canonical SHA-256: {new_hash}\n")
-            f.write(f"Total Categories: {len(extracted)}\n")
-            f.write(f"Total Words: {total_w}\n")
 
     # Format changelog entry
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
