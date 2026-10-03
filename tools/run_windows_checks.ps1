@@ -227,7 +227,7 @@ try {
     Log-Output "`n[5/7] Running Playwright Offline PWA Test..."
     if ($stepResults["HttpServer"] -match "^PASS") {
         # Run standard Playwright spec via npx, fallback to standalone runner if needed
-        $pwRun = & npx --no-install playwright test tests/offline_sw.spec.js --reporter=list 2>&1
+        $pwRun = & npx --no-install playwright test tests/offline_sw.spec.js tests/sw_upgrade.spec.js --reporter=list 2>&1
         $pwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
         $pwText = ($pwRun -join "`n")
 

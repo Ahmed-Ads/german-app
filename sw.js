@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v3 (Offline-first with local self-hosted fonts)
-const CACHE_NAME = 'deutsch-lernen-v3';
+// Cache Version: v4 (Offline-first with local self-hosted fonts)
+const CACHE_NAME = 'deutsch-lernen-v4';
 
 const PRECACHE_ASSETS = [
   './',
@@ -86,7 +86,26 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Cache-First for static assets (fonts, icons, css, js)
+  const isCss = url.pathname.endsWith('.css');
+  if (isCss) {
+    // Stale-While-Revalidate for CSS: instant offline delivery from cache while refreshing in background
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async cache => {
+        const cachedResponse = await cache.match(event.request);
+        const fetchPromise = fetch(event.request).then(networkResponse => {
+          if (networkResponse && networkResponse.status === 200) {
+            cache.put(event.request, networkResponse.clone());
+          }
+          return networkResponse;
+        }).catch(() => null);
+
+        return cachedResponse || (await fetchPromise) || Response.error();
+      })
+    );
+    return;
+  }
+
+  // Cache-First for static assets (fonts, icons, images)
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
       if (cachedResponse) {
@@ -107,3 +126,4 @@ self.addEventListener('fetch', event => {
     })
   );
 });
+

@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   await wait(500);
 
   const findings = [];
+  const overflowChecks = [];
   const scannedElements = new Set();
 
   function scanScreen(screenName) {
@@ -17,7 +18,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     all.forEach(el => {
       if (el.children.length === 0 && el.textContent.trim().length > 0) {
         if (!el.offsetParent && el.tagName.toLowerCase() !== 'body') {
-          // Check if element is visible or within a visible container
           const rect = el.getBoundingClientRect();
           if (rect.width === 0 && rect.height === 0) return;
         }
@@ -27,12 +27,9 @@ window.addEventListener('DOMContentLoaded', async () => {
           const key = screenName + ':' + el.tagName + ':' + el.className + ':' + el.textContent.trim().slice(0, 20);
           if (!scannedElements.has(key)) {
             scannedElements.add(key);
-            
-            // Build informative selector
             let sel = el.tagName.toLowerCase();
             if (el.id) sel += '#' + el.id;
             if (el.className) sel += '.' + Array.from(el.classList).join('.');
-            
             findings.push({
               screen: screenName,
               selector: sel,
@@ -45,9 +42,42 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  function checkOverflow(screenName) {
+    if (screenName === 'Home') {
+      const cards = Array.from(document.querySelectorAll('.cat-card'));
+      const allCardsOk = cards.length > 0 && cards.every(c => c.scrollWidth <= c.clientWidth);
+      const c0 = cards[0];
+      overflowChecks.push({
+        target: 'Home (.cat-card with 12px cat-meta)',
+        clientWidth: c0 ? c0.clientWidth : 0,
+        scrollWidth: c0 ? c0.scrollWidth : 0,
+        noOverflow: allCardsOk
+      });
+    } else if (screenName === 'Stats') {
+      const cards = Array.from(document.querySelectorAll('.stat-card'));
+      const allCardsOk = cards.length > 0 && cards.every(c => c.scrollWidth <= c.clientWidth);
+      const c0 = cards[0];
+      overflowChecks.push({
+        target: 'Stats (.stat-card with 12px stat-card-tag)',
+        clientWidth: c0 ? c0.clientWidth : 0,
+        scrollWidth: c0 ? c0.scrollWidth : 0,
+        noOverflow: allCardsOk
+      });
+      const tags = Array.from(document.querySelectorAll('.stat-card-tag'));
+      const allTagsOk = tags.length > 0 && tags.every(t => t.scrollWidth <= t.clientWidth);
+      overflowChecks.push({
+        target: 'Stats (12px .stat-card-tag)',
+        clientWidth: tags[0] ? tags[0].clientWidth : 0,
+        scrollWidth: tags[0] ? tags[0].scrollWidth : 0,
+        noOverflow: allTagsOk
+      });
+    }
+  }
+
   try {
     // 1. Home screen
     scanScreen('Home');
+    checkOverflow('Home');
 
     // 2. Open Category (Obst)
     if (typeof openCategory === 'function') {
@@ -75,6 +105,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       renderStats();
       await wait(300);
       scanScreen('Stats');
+      checkOverflow('Stats');
     }
   } catch(e) {
     findings.push({ screen: 'Error', selector: 'none', fontSize: '0', text: e.message });
@@ -82,7 +113,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   const outDiv = document.createElement('div');
   outDiv.id = 'font-scan-results';
-  outDiv.textContent = JSON.stringify(findings);
+  outDiv.textContent = JSON.stringify({ findings, overflowChecks });
   document.body.appendChild(outDiv);
 });
 </script>
@@ -93,14 +124,28 @@ const tempFile = 'temp_scan_fonts.html';
 fs.writeFileSync(tempFile, runnerHtml, 'utf8');
 
 try {
-  const cmd = '"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --virtual-time-budget=6000 --dump-dom "file:///C:/German_App/' + tempFile + '"';
+  // Use 360x640 mobile viewport
+  const cmd = '"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --window-size=360,640 --virtual-time-budget=6000 --dump-dom "file:///C:/German_App/' + tempFile + '"';
   const out = execSync(cmd, { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
   const m = out.match(/<div id="font-scan-results">([\s\S]*?)<\/div>/);
   if (m) {
     const raw = m[1].replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
     const results = JSON.parse(raw);
-    console.log(`TOTAL ELEMENTS WITH FONT-SIZE < 12px: ${results.length}`);
-    console.log(JSON.stringify(results, null, 2));
+    console.log('========================================================');
+    console.log(`TOTAL ELEMENTS WITH FONT-SIZE < 12px: ${results.findings.length}`);
+    console.log('========================================================');
+    if (results.findings.length > 0) {
+      console.log(JSON.stringify(results.findings, null, 2));
+    } else {
+      console.log('🎉 ZERO ELEMENTS WITH FONT-SIZE < 12px ACROSS ALL SCREENS!');
+    }
+    console.log('\n========================================================');
+    console.log('  360px VIEWPORT OVERFLOW AUDIT:');
+    console.log('========================================================');
+    results.overflowChecks.forEach(c => {
+      console.log(`- ${c.target || c.screen}: clientWidth=${c.clientWidth}px, scrollWidth=${c.scrollWidth}px -> Overflow: ${c.noOverflow ? 'NO (Clean: scrollWidth <= clientWidth)' : 'YES (Fail)'}`);
+    });
+    console.log('========================================================');
   } else {
     console.log('Results div not found');
   }
