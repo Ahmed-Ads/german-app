@@ -207,13 +207,17 @@ async function run() {
       throw new Error('Feedback area was empty after selecting MCQ option offline.');
     }
     console.log('✓ MCQ feedback appeared successfully offline');
+    await page.waitForTimeout(500);
 
     // (d) Progress persists after another offline reload
     console.log('Performing second offline reload to verify progress persistence...');
     await page.reload({ waitUntil: 'networkidle', timeout: 30000 });
 
     const progressData = await page.evaluate(() => {
-      const raw = localStorage.getItem('deutsch_lern_v1') || localStorage.getItem('deutsch_stats_v1');
+      const raw = localStorage.getItem('german-arabic-progress-v1') ||
+                  localStorage.getItem('deutsch_lern_v1') ||
+                  localStorage.getItem('german-arabic-stats-v1') ||
+                  localStorage.getItem('deutsch_stats_v1');
       return raw ? JSON.parse(raw) : null;
     });
     if (!progressData) {
