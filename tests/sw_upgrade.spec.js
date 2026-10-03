@@ -4,16 +4,15 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const { execSync } = require('child_process');
 
 /**
- * Real End-to-End Service Worker Upgrade Test (v3 -> v4)
+ * Real End-to-End Service Worker Upgrade Test (old build (v3) -> current build)
  * Validates:
  * 1. Serves legacy build (sw.js v3 + broken fonts.css containing ./fonts/font_ URLs)
  * 2. Playwright loads app, waits for SW v3 controller, asserts cache deutsch-lernen-v3 exists
- * 3. Swaps files in-place with new build (current sw.js v4 + fixed fonts.css)
+ * 3. Swaps files in-place with new build (current sw.js + fixed fonts.css)
  * 4. Calls reg.update(), asserts 'update available' toast appears on updatefound
- * 5. Waits for v4 to activate, asserts legacy v3 cache deleted and v4 active
+ * 5. Waits for current build cache to activate, asserts legacy v3 cache deleted and current cache active
  * 6. Asserts fonts.css content updated to correct URLs and /fonts/font_1.woff2 returns 200 with 0 404s
  */
 
@@ -85,7 +84,7 @@ function createStaticServer(servedDir) {
   });
 }
 
-test.describe('Real Service Worker Upgrade Lifecycle (v3 -> v4)', () => {
+test.describe('Real Service Worker Upgrade Lifecycle (old build (v3) -> current build)', () => {
   let server = null;
   let port = 0;
   let fixtureDir = '';
@@ -101,24 +100,17 @@ test.describe('Real Service Worker Upgrade Lifecycle (v3 -> v4)', () => {
     copyRecursiveSync(path.join(rootDir, 'icons'), path.join(fixtureDir, 'icons'));
     copyRecursiveSync(path.join(rootDir, 'fonts'), path.join(fixtureDir, 'fonts'));
 
-    // 3. Extract OLD sw.js with CACHE_NAME v3 from git
-    let oldSw;
-    try {
-      oldSw = execSync('git show 4f1f580:sw.js', { encoding: 'utf8', cwd: rootDir });
-    } catch (_) {
-      try {
-        oldSw = execSync('git show 0f4b571~1:sw.js', { encoding: 'utf8', cwd: rootDir });
-      } catch (err) {
-        oldSw = execSync('git show main:sw.js', { encoding: 'utf8', cwd: rootDir }).replace('deutsch-lernen-v2', 'deutsch-lernen-v3');
-      }
-    }
+    // 3. Load committed OLD sw.js with CACHE_NAME v3 from fixtures
+    const oldSwPath = path.join(__dirname, 'fixtures', 'sw_upgrade', 'old_sw.js');
+    const oldSw = fs.readFileSync(oldSwPath, 'utf8');
     if (!oldSw.includes("'deutsch-lernen-v3'")) {
-      throw new Error('Old sw.js fixture must declare CACHE_NAME deutsch-lernen-v3');
+      throw new Error("Old sw.js fixture must declare CACHE_NAME 'deutsch-lernen-v3'");
     }
     fs.writeFileSync(path.join(fixtureDir, 'sw.js'), oldSw, 'utf8');
 
-    // 4. Extract OLD broken fonts.css from git and verify ./fonts/font_ URLs
-    const oldFontsCss = execSync('git show 4f1f580~1:fonts/fonts.css', { encoding: 'utf8', cwd: rootDir });
+    // 4. Load committed OLD broken fonts.css from fixtures and verify ./fonts/font_ URLs
+    const oldFontsCssPath = path.join(__dirname, 'fixtures', 'sw_upgrade', 'old_fonts.css');
+    const oldFontsCss = fs.readFileSync(oldFontsCssPath, 'utf8');
     if (!oldFontsCss.includes('./fonts/font_')) {
       throw new Error('Expected old fonts.css fixture to contain broken ./fonts/font_ URLs');
     }
@@ -142,7 +134,7 @@ test.describe('Real Service Worker Upgrade Lifecycle (v3 -> v4)', () => {
     }
   });
 
-  test('executes live build upgrade: v3 cache purged, v4 activated, CSS corrected, 0 404s', async ({ browser }) => {
+  test('executes live build upgrade: v3 cache purged, current build activated, CSS corrected, 0 404s', async ({ browser }) => {
     const context = await browser.newContext({ serviceWorkers: 'allow' });
     const page = await context.newPage();
 
@@ -168,7 +160,10 @@ test.describe('Real Service Worker Upgrade Lifecycle (v3 -> v4)', () => {
     const rootDir = path.resolve(__dirname, '..');
     const swCode = fs.readFileSync(path.join(rootDir, 'sw.js'), 'utf8');
     const mCache = swCode.match(/const\s+CACHE_NAME\s*=\s*['"]([^'"]+)['"]/);
-    const activeCacheName = mCache ? mCache[1] : 'deutsch-lernen-v5';
+    if (!mCache) {
+      throw new Error('Could not parse CACHE_NAME from current sw.js');
+    }
+    const activeCacheName = mCache[1];
 
     // Assert legacy cache 'deutsch-lernen-v3' exists
     const initialCaches = await page.evaluate(async () => await caches.keys());
@@ -240,6 +235,6 @@ test.describe('Real Service Worker Upgrade Lifecycle (v3 -> v4)', () => {
       console.error('Unexpected 404 URLs:', notFoundUrls);
     }
     expect(notFoundUrls).toHaveLength(0);
-    console.log('🎉 REAL SERVICE WORKER UPGRADE VERIFICATION (v3 -> v4) PASSED!');
+    console.log('🎉 REAL SERVICE WORKER UPGRADE VERIFICATION (old build (v3) -> current build) PASSED!');
   });
 });

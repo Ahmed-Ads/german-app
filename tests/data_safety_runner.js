@@ -12,6 +12,10 @@
  *   node tests/data_safety_runner.js v1.3-voice
  *   node tests/data_safety_runner.js path/to/previous_index.html
  *   BASE_REF=v1.2-hosting node tests/data_safety_runner.js
+ *
+ * Note:
+ *   Requires full local git history/tags or a direct file path;
+ *   intentionally NOT run by CI shallow checkouts.
  * -----------------------------------------------------------------------------
  */
 const fs = require('fs');

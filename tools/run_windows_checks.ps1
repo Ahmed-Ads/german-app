@@ -226,7 +226,7 @@ try {
     # 4a. Playwright Offline SW Test
     Log-Output "`n[5/7] Running Playwright Offline PWA Test..."
     if ($stepResults["HttpServer"] -match "^PASS") {
-        # Run Playwright test suite (offline PWA lifecycle, SW v3->v4 upgrade, 360px viewport overflow)
+        # Run Playwright test suite (offline PWA lifecycle, SW upgrade (old build (v3) -> current build), 360px viewport overflow)
         $pwRun = & npx --no-install playwright test tests/offline_sw.spec.js tests/sw_upgrade.spec.js tests/viewport_overflow.spec.js --reporter=list 2>&1
         $pwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
         $pwText = ($pwRun -join "`n")
@@ -270,7 +270,7 @@ try {
         $stepResults["ViewportOverflow"] = if ($viewportPass) { "PASS (Ran)" } else { "FAIL (Ran)" }
 
         Log-Output "  Playwright Offline PWA: $($stepResults['OfflinePlaywright'])"
-        Log-Output "  Playwright SW Upgrade (v3->v4): $($stepResults['SwUpgradePlaywright'])"
+        Log-Output "  Playwright SW Upgrade (old build (v3) -> current build): $($stepResults['SwUpgradePlaywright'])"
         Log-Output "  Playwright 360px Viewport Audit: $($stepResults['ViewportOverflow'])"
 
         if (!$offlinePass) { $stepErrors["OfflinePlaywright"] = (Get-LastLines $pwText) -join "`n" }
@@ -651,7 +651,7 @@ $summaryLines.Add("  1. Dependencies Installation   : $($stepResults['Dependenci
 $summaryLines.Add("  2. Playwright Browsers Setup   : $($stepResults['PlaywrightBrowsers'])")
 $summaryLines.Add("  3. HTTP Server Startup         : $($stepResults['HttpServer'])")
 $summaryLines.Add("  4. Playwright Offline SW Test  : $($stepResults['OfflinePlaywright'])")
-$summaryLines.Add("  5. Playwright SW Upgrade (v3->v4): $($stepResults['SwUpgradePlaywright'])")
+$summaryLines.Add("  5. Playwright SW Upgrade (old build (v3) -> current build): $($stepResults['SwUpgradePlaywright'])")
 $summaryLines.Add("  6. 360px Viewport Overflow Audit: $($stepResults['ViewportOverflow'])")
 $summaryLines.Add("  7. Lighthouse Accessibility    : $($lhScores.Accessibility) / 100 ($($stepResults['Lighthouse']))")
 $summaryLines.Add("  8. Lighthouse Best Practices   : $($lhScores.BestPractices) / 100 ($($stepResults['Lighthouse']))")
