@@ -154,7 +154,7 @@ def verify_file(html_path, baseline, baseline_hash):
     if file_hash != baseline_hash:
         diff_errors.append(f"Cryptographic hash mismatch in {filename}!\n    Expected: {baseline_hash}\n    Actual  : {file_hash}")
     else:
-        print(f"[✓] البصمة التشفيرية SHA-256 متطابقة تماماً: {file_hash[:16]}...")
+        print(f"[OK] [✓] البصمة التشفيرية SHA-256 متطابقة تماماً: {file_hash[:16]}...")
 
     return len(diff_errors) == 0, total_words, diff_errors
 
@@ -248,7 +248,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 70)
-    print("  🇩🇪 التحقق الشامل والدقيق لسلامة المفردات (Rule 4 Audit & SHA-256)")
+    print("  [AUDIT] 🇩🇪 التحقق الشامل والدقيق لسلامة المفردات (Rule 4 Audit & SHA-256)")
     print("=" * 70)
 
     if not os.path.exists(BASELINE_PATH):
@@ -272,30 +272,30 @@ def main():
     if not args.skip_changelog_check:
         cl_ok, cl_err = check_changelog_sync(baseline_hash)
         if not cl_ok:
-            print("\n❌ " + cl_err)
+            print("\n[FAILED] ❌ " + cl_err)
             sys.exit(1)
-        print(f"[✓] توثيق سجل التغييرات: البصمة الحالية موثقة رسمياً في {os.path.basename(CHANGELOG_PATH)}")
+        print(f"[OK] [✓] توثيق سجل التغييرات: البصمة الحالية موثقة رسمياً في {os.path.basename(CHANGELOG_PATH)}")
 
     overall_ok = True
     for target in TARGET_FILES:
         ok, total_w, errs = verify_file(target, baseline, baseline_hash)
         if not ok:
             overall_ok = False
-            print(f"\n❌ تم العثور على {len(errs)} اختلاف في {os.path.basename(target)}:")
+            print(f"\n[FAILED] ❌ تم العثور على {len(errs)} اختلاف في {os.path.basename(target)}:")
             for err in errs[:10]:
                 print("  - " + err)
             if len(errs) > 10:
                 print(f"  ... و {len(errs)-10} اختلافات أخرى.")
         else:
-            print(f"[✓] {os.path.basename(target)}: تم التحقق من كافة الأقسام ({len(baseline)}) والمفردات ({total_w}) بنجاح تام.")
+            print(f"[OK] [✓] {os.path.basename(target)}: تم التحقق من كافة الأقسام ({len(baseline)}) والمفردات ({total_w}) بنجاح تام.")
 
     print("\n" + "=" * 70)
     if overall_ok:
-        print("  🎉 النتيجة النهائية: كافة المفردات مطابقة للأصل والمواصفات المعتمدة (PASSED)")
+        print("  [PASSED] 🎉 النتيجة النهائية: كافة المفردات مطابقة للأصل والمواصفات المعتمدة (PASSED)")
         print("=" * 70)
         sys.exit(0)
     else:
-        print("  ❌ النتيجة النهائية: فشل التحقق، توجد تعديلات غير مصرح بها (FAILED)")
+        print("  [FAILED] ❌ النتيجة النهائية: فشل التحقق، توجد تعديلات غير مصرح بها (FAILED)")
         print("=" * 70)
         sys.exit(1)
 

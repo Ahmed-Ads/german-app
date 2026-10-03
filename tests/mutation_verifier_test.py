@@ -71,10 +71,28 @@ def run_mutation_test(name, mutated_content, expected_err_keyword):
             errors='replace',
             env=sub_env
         )
-        assert res.returncode != 0, f"Mutation Test '{name}' FAILED: Verifier passed when it should have failed!"
-        combined_output = res.stdout + res.stderr
-        assert expected_err_keyword in combined_output, f"Mutation Test '{name}' FAILED: Expected error keyword '{expected_err_keyword}' not in output:\n{combined_output}"
-        print(f"✅ Mutation Test [{name}]: PASSED (Verifier rejected mutation as expected)")
+        combined_output = (res.stdout or "") + (res.stderr or "")
+
+        # 1. Fail immediately as an ERROR if there is an unhandled traceback or encoding crash
+        if "Traceback (most recent call last):" in combined_output or "UnicodeEncodeError" in combined_output or "UnicodeDecodeError" in combined_output:
+            raise RuntimeError(
+                f"CRITICAL ERROR in Mutation Test '{name}': Verifier crashed with unhandled traceback/encoding error:\n"
+                f"{combined_output}"
+            )
+
+        # 2. Verifier MUST reject the invalid mutation with non-zero exit code
+        if res.returncode == 0:
+            raise AssertionError(f"Mutation Test '{name}' FAILED: Verifier unexpectedly passed with exit code 0 on invalid mutation!")
+
+        # 3. Verifier MUST contain the expected mismatch message or diff
+        if expected_err_keyword not in combined_output:
+            raise AssertionError(
+                f"Mutation Test '{name}' FAILED: Expected rejection keyword '{expected_err_keyword}' was not found in verifier output.\n"
+                f"Verifier Exit Code: {res.returncode}\n"
+                f"Verifier Output:\n{combined_output}"
+            )
+
+        print(f"[OK] ✅ Mutation Test [{name}]: PASSED (Verifier rejected mutation with '{expected_err_keyword}')")
     finally:
         if os.path.exists(tpath):
             os.remove(tpath)

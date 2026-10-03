@@ -56,12 +56,61 @@ $stepResults = [ordered]@{}
 $stepErrors = [ordered]@{}
 $failedAuditsList = [System.Collections.Generic.List[string]]::new()
 
-# 1. Version Detection
-Log-Output "`n[1/6] Detecting System Environments..."
-$nodeVer = try { (node -v 2>&1).Trim() } catch { "NOT_INSTALLED" }
-$npmVer = try { (npm -v 2>&1).Trim() } catch { "NOT_INSTALLED" }
-$pythonVer = try { (python --version 2>&1).Trim() } catch { "NOT_INSTALLED" }
+# -----------------------------------------------------------------
+# 1. Environment & Tool Discovery
+# -----------------------------------------------------------------
+Log-Output "`n[1/7] Detecting System Environments..."
 
+$nodeCmd = Get-Command node -ErrorAction SilentlyContinue
+$nodePath = if ($nodeCmd) { $nodeCmd.Source } else { "NOT_FOUND" }
+$nodeVer = try { (node -v 2>&1).Trim() } catch { "NOT_INSTALLED" }
+
+$npmCmd = Get-Command npm -ErrorAction SilentlyContinue
+$npmPath = if ($npmCmd) { $npmCmd.Source } else { "NOT_FOUND" }
+$npmVer = try { (npm -v 2>&1).Trim() } catch { "NOT_INSTALLED" }
+
+# Python Discovery: Prefer 'py -3' launcher, fallback to 'python' in PATH
+$pyLauncher = $null
+$pyExecutable = $null
+$pythonVer = $null
+
+try {
+    $pyProbe = & py -3 -c "import sys; print(sys.executable); print(sys.version.splitlines()[0])" 2>&1
+    if ($LASTEXITCODE -eq 0 -and $pyProbe.Count -ge 2) {
+        $pyLauncher = "py"
+        $pyExecutable = $pyProbe[0].Trim()
+        $pythonVer = $pyProbe[1].Trim()
+    }
+} catch {}
+
+if (!$pyExecutable) {
+    try {
+        $pyProbe = & python -c "import sys; print(sys.executable); print(sys.version.splitlines()[0])" 2>&1
+        if ($LASTEXITCODE -eq 0 -and $pyProbe.Count -ge 2) {
+            $pyLauncher = "python"
+            $pyExecutable = $pyProbe[0].Trim()
+            $pythonVer = $pyProbe[1].Trim()
+        }
+    } catch {}
+}
+
+if (!$pyExecutable) {
+    try {
+        $pyProbe = & python3 -c "import sys; print(sys.executable); print(sys.version.splitlines()[0])" 2>&1
+        if ($LASTEXITCODE -eq 0 -and $pyProbe.Count -ge 2) {
+            $pyLauncher = "python3"
+            $pyExecutable = $pyProbe[0].Trim()
+            $pythonVer = $pyProbe[1].Trim()
+        }
+    } catch {}
+}
+
+if (!$pyExecutable) {
+    $pyExecutable = "NOT_FOUND"
+    $pythonVer = "NOT_INSTALLED"
+}
+
+# Chrome Discovery
 $chromePath = "$env:ProgramFiles\Google\Chrome\Application\chrome.exe"
 if (!(Test-Path -LiteralPath $chromePath)) {
     $chromePath = "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe"
@@ -76,37 +125,80 @@ $chromeVer = if (Test-Path -LiteralPath $chromePath) {
     "NOT_FOUND"
 }
 
-Log-Output "  - Node.js   : $nodeVer"
-Log-Output "  - NPM       : $npmVer"
-Log-Output "  - Python    : $pythonVer"
-Log-Output "  - Chrome    : $chromeVer ($chromePath)"
+Log-Output "  - Node.js Path   : $nodePath"
+Log-Output "  - Node.js Ver    : $nodeVer"
+Log-Output "  - NPM Ver        : $npmVer"
+Log-Output "  - Python Exec    : $pyExecutable"
+Log-Output "  - Python Ver     : $pythonVer"
+Log-Output "  - Chrome Path    : $chromePath"
+Log-Output "  - Chrome Ver     : $chromeVer"
 
-# 2. Dependency Check
-Log-Output "`n[2/6] Checking Node Dependencies..."
-$depOk = $false
-if (Test-Path -LiteralPath (Join-Path $rootDir "node_modules")) {
-    $depOk = $true
-    Log-Output "  node_modules present."
-} else {
-    Log-Output "  Installing npm packages (npm install)..."
-    $npmOut = & npm install 2>&1
-    $npmOut | Out-File -FilePath $rawLogPath -Append -Encoding utf8
-    if ($LASTEXITCODE -eq 0) {
-        $depOk = $true
-    } else {
-        $stepErrors["Dependencies"] = (Get-LastLines ($npmOut -join "`n")) -join "`n"
+# -----------------------------------------------------------------
+# 2. Dependency Setup (npm ci / npm install)
+# -----------------------------------------------------------------
+Log-Output "`n[2/7] Checking & Installing Node Dependencies..."
+Log-Output "  Running 'npm ci'..."
+$npmCiOut = & npm ci 2>&1
+$npmCiOut | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+$depOk = ($LASTEXITCODE -eq 0)
+
+if (!$depOk) {
+    Log-Output "  'npm ci' failed or package-lock missing, falling back to 'npm install'..."
+    $npmInOut = & npm install 2>&1
+    $npmInOut | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+    $depOk = ($LASTEXITCODE -eq 0)
+    if (!$depOk) {
+        $stepErrors["Dependencies"] = (Get-LastLines ($npmInOut -join "`n")) -join "`n"
     }
 }
-$stepResults["Dependencies"] = if ($depOk) { "PASS" } else { "FAIL" }
 
-# 3. Background Local HTTP Server
-Log-Output "`n[3/6] Starting background HTTP server on port 8000..."
+if ($depOk) {
+    Log-Output "  Node dependencies installed successfully."
+    $stepResults["Dependencies"] = "PASS (Ran)"
+} else {
+    Log-Output "  ERROR: Node dependency installation failed."
+    $stepResults["Dependencies"] = "FAIL (Ran)"
+}
+
+# -----------------------------------------------------------------
+# 3. Playwright & Lighthouse Tool Verification & Browser Setup
+# -----------------------------------------------------------------
+Log-Output "`n[3/7] Verifying CLI Tools & Installing Playwright Chromium..."
+
+$pwCliVer = try { (& npx --no-install playwright --version 2>&1).Trim() } catch { "MISSING" }
+$lhCliVer = try { (& npx --no-install lighthouse --version 2>&1).Trim() } catch { "MISSING" }
+
+Log-Output "  - Playwright CLI: $pwCliVer"
+Log-Output "  - Lighthouse CLI: $lhCliVer"
+
+Log-Output "  Installing Playwright browser binaries (npx playwright install chromium)..."
+$pwInstallOut = & npx playwright install chromium 2>&1
+$pwInstallOut | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+$pwInstallText = ($pwInstallOut -join "`n")
+
+if ($LASTEXITCODE -eq 0) {
+    Log-Output "  Playwright Chromium installed successfully."
+    $stepResults["PlaywrightBrowsers"] = "PASS (Ran)"
+} else {
+    Log-Output "  ERROR: Failed to install Playwright Chromium. Details:`n$pwInstallText"
+    $stepResults["PlaywrightBrowsers"] = "FAIL (Ran)"
+    $stepErrors["PlaywrightBrowsers"] = (Get-LastLines $pwInstallText) -join "`n"
+}
+
+# -----------------------------------------------------------------
+# 4. Background HTTP Server & Browser Tests
+# -----------------------------------------------------------------
+Log-Output "`n[4/7] Starting background HTTP server on port 8000..."
 $serverProc = $null
 $lhScores = @{ Accessibility = "NOT MEASURED"; BestPractices = "NOT MEASURED" }
 
 try {
-    $serverProc = Start-Process -FilePath "python" -ArgumentList "-m", "http.server", "8000" -PassThru -WindowStyle Hidden
-    
+    if ($pyExecutable -ne "NOT_FOUND") {
+        $serverProc = Start-Process -FilePath $pyExecutable -ArgumentList "-m", "http.server", "8000" -PassThru -WindowStyle Hidden
+    } else {
+        $serverProc = Start-Process -FilePath "python" -ArgumentList "-m", "http.server", "8000" -PassThru -WindowStyle Hidden
+    }
+
     # Wait for server up to 5 seconds
     $serverReady = $false
     for ($i = 0; $i -lt 10; $i++) {
@@ -120,42 +212,49 @@ try {
 
     if ($serverReady) {
         Log-Output "  HTTP Server active on http://localhost:8000 (PID: $($serverProc.Id))"
-        $stepResults["HttpServer"] = "PASS"
+        $stepResults["HttpServer"] = "PASS (Ran)"
     } else {
         Log-Output "  ERROR: Server did not respond with HTTP 200 on port 8000"
-        $stepResults["HttpServer"] = "FAIL"
+        $stepResults["HttpServer"] = "FAIL (Ran)"
         $stepErrors["HttpServer"] = "HTTP Server failed to respond on http://localhost:8000 within 5 seconds."
     }
 
-    # 4. Playwright Offline Service Worker Test
-    Log-Output "`n[4/6] Running Playwright Offline PWA Test (tests/run_offline_sw_test.js)..."
-    $pwTestFile = Join-Path $rootDir "tests\run_offline_sw_test.js"
-    $pwRun = & node $pwTestFile 2>&1
-    $pwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
-    $pwRun | ForEach-Object { Write-Host "  $_" }
+    # 4a. Playwright Offline SW Test
+    Log-Output "`n[5/7] Running Playwright Offline PWA Test..."
+    if ($stepResults["HttpServer"] -match "^PASS") {
+        # Run standard Playwright spec via npx, fallback to standalone runner if needed
+        $pwRun = & npx --no-install playwright test tests/offline_sw.spec.js --reporter=list 2>&1
+        $pwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+        $pwText = ($pwRun -join "`n")
 
-    $pwText = ($pwRun -join "`n")
-    if ($LASTEXITCODE -eq 0 -and $pwText -match "\[PASS\] Service worker served app offline") {
-        $stepResults["OfflinePlaywright"] = "PASS"
-        Log-Output "  Playwright Offline PWA: PASS"
+        $pwPass = ($LASTEXITCODE -eq 0 -and $pwText -match "(passed|PASSED)")
+        if (!$pwPass) {
+            # Try standalone script as fallback
+            Log-Output "  Retrying with standalone runner (tests/run_offline_sw_test.js)..."
+            $pwFallback = & node tests/run_offline_sw_test.js 2>&1
+            $pwFallback | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+            $pwText = ($pwFallback -join "`n")
+            $pwPass = ($LASTEXITCODE -eq 0 -and $pwText -match "\[PASS\] Service worker served app offline")
+        }
+
+        if ($pwPass) {
+            $stepResults["OfflinePlaywright"] = "PASS (Ran)"
+            Log-Output "  Playwright Offline PWA: PASS"
+        } else {
+            $stepResults["OfflinePlaywright"] = "FAIL (Ran)"
+            Log-Output "  Playwright Offline PWA: FAIL"
+            $stepErrors["OfflinePlaywright"] = (Get-LastLines $pwText) -join "`n"
+        }
     } else {
-        $stepResults["OfflinePlaywright"] = "FAIL"
-        Log-Output "  Playwright Offline PWA: FAIL"
-        $stepErrors["OfflinePlaywright"] = (Get-LastLines $pwText) -join "`n"
+        $stepResults["OfflinePlaywright"] = "SKIPPED (Server failed)"
+        Log-Output "  Playwright Offline PWA: SKIPPED"
     }
 
-    # 5. Lighthouse Audits
-    Log-Output "`n[5/6] Running Lighthouse (Accessibility, Best-Practices)..."
-    $lhOutputPath = Join-Path $resultsDir "lighthouse_report"
-    $lhCli = Join-Path $rootDir "node_modules\lighthouse\cli\index.js"
-    
-    if (!(Test-Path -LiteralPath $lhCli)) {
-        Log-Output "  Lighthouse CLI not found at $lhCli"
-        $stepResults["Lighthouse"] = "FAIL (CLI missing)"
-        $stepErrors["Lighthouse"] = "node_modules/lighthouse/cli/index.js does not exist."
-    } else {
+    # 4b. Lighthouse Audits
+    Log-Output "`n[6/7] Running Lighthouse (Accessibility, Best-Practices)..."
+    if ($stepResults["HttpServer"] -match "^PASS") {
+        $lhOutputPath = Join-Path $resultsDir "lighthouse_report"
         $lhCmd = @(
-            $lhCli,
             "http://localhost:8000",
             "--only-categories=accessibility,best-practices",
             "--chrome-flags=--headless=new --no-sandbox",
@@ -167,7 +266,14 @@ try {
             $lhCmd += "--chrome-path=$chromePath"
         }
 
-        $lhRun = & node @lhCmd 2>&1
+        $lhRun = & npx --no-install lighthouse @lhCmd 2>&1
+        if ($LASTEXITCODE -ne 0) {
+            # Try direct node cli fallback
+            $lhCli = Join-Path $rootDir "node_modules\lighthouse\cli\index.js"
+            if (Test-Path -LiteralPath $lhCli) {
+                $lhRun = & node $lhCli @lhCmd 2>&1
+            }
+        }
         $lhRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
 
         $lhJsonPath = "$lhOutputPath.report.json"
@@ -207,21 +313,24 @@ try {
                 Log-Output "  Lighthouse Best-Practices: $($lhScores.BestPractices) / 100"
 
                 if ($lhScores.Accessibility -ne "NOT MEASURED" -and $lhScores.BestPractices -ne "NOT MEASURED" -and [int]$lhScores.Accessibility -ge 90 -and [int]$lhScores.BestPractices -ge 90) {
-                    $stepResults["Lighthouse"] = "PASS"
+                    $stepResults["Lighthouse"] = "PASS (Ran)"
                 } else {
-                    $stepResults["Lighthouse"] = "FAIL (Score below 90 or unmeasured)"
+                    $stepResults["Lighthouse"] = "FAIL (Ran: Score below 90 or unmeasured)"
                     $stepErrors["Lighthouse"] = "Accessibility: $($lhScores.Accessibility)/100, Best-Practices: $($lhScores.BestPractices)/100"
                 }
             } catch {
                 Log-Output "  Failed to parse Lighthouse JSON report: $_"
-                $stepResults["Lighthouse"] = "FAIL (JSON parse)"
+                $stepResults["Lighthouse"] = "FAIL (Ran: JSON parse error)"
                 $stepErrors["Lighthouse"] = "Failed to parse JSON: $_`n" + ((Get-LastLines ($lhRun -join "`n")) -join "`n")
             }
         } else {
             Log-Output "  Lighthouse output file not generated."
-            $stepResults["Lighthouse"] = "FAIL (No report)"
+            $stepResults["Lighthouse"] = "FAIL (Ran: No report generated)"
             $stepErrors["Lighthouse"] = "Report file $lhJsonPath not generated.`n" + ((Get-LastLines ($lhRun -join "`n")) -join "`n")
         }
+    } else {
+        $stepResults["Lighthouse"] = "SKIPPED (Server failed)"
+        Log-Output "  Lighthouse: SKIPPED"
     }
 
 } finally {
@@ -231,38 +340,51 @@ try {
     }
 }
 
-# 6. Vocabulary Integrity & Mutation Tests
-Log-Output "`n[6/6] Running Vocabulary Integrity & Mutation Tests..."
+# -----------------------------------------------------------------
+# 5. Vocabulary Integrity & Controlled Mutation Tests
+# -----------------------------------------------------------------
+Log-Output "`n[7/7] Running Vocabulary Integrity & Mutation Tests..."
+
 Log-Output "  Running verify_vocab.py..."
-$verifyOutput = & python verify_vocab.py 2>&1
+$verifyOutput = if ($pyExecutable -ne "NOT_FOUND") {
+    & $pyExecutable verify_vocab.py 2>&1
+} else {
+    & python verify_vocab.py 2>&1
+}
 $verifyOutput | Out-File -FilePath $rawLogPath -Append -Encoding utf8
 $verifyText = ($verifyOutput -join "`n")
 
 $canonicalHash = "bc4f1b85a867c1f126cdde46eed031b0600440e84708c1e4e264d5106ef8e417"
-if ($LASTEXITCODE -eq 0 -and $verifyText.Contains($canonicalHash) -and $verifyText.Contains("PASSED")) {
+if ($LASTEXITCODE -eq 0 -and $verifyText.Contains($canonicalHash) -and $verifyText.Contains("[PASSED]")) {
     Log-Output "  verify_vocab.py: PASS"
-    $stepResults["VerifyVocab"] = "PASS"
+    $stepResults["VerifyVocab"] = "PASS (Ran)"
 } else {
     Log-Output "  verify_vocab.py: FAIL"
-    $stepResults["VerifyVocab"] = "FAIL"
+    $stepResults["VerifyVocab"] = "FAIL (Ran)"
     $stepErrors["VerifyVocab"] = (Get-LastLines $verifyText) -join "`n"
 }
 
 Log-Output "  Running tests/mutation_verifier_test.py..."
-$mutationOutput = & python tests/mutation_verifier_test.py 2>&1
+$mutationOutput = if ($pyExecutable -ne "NOT_FOUND") {
+    & $pyExecutable tests/mutation_verifier_test.py 2>&1
+} else {
+    & python tests/mutation_verifier_test.py 2>&1
+}
 $mutationOutput | Out-File -FilePath $rawLogPath -Append -Encoding utf8
 $mutationText = ($mutationOutput -join "`n")
 
 if ($LASTEXITCODE -eq 0 -and $mutationText.Contains("ALL 12 MUTATION TESTS PASSED")) {
     Log-Output "  mutation_verifier_test.py: PASS"
-    $stepResults["MutationTests"] = "PASS"
+    $stepResults["MutationTests"] = "PASS (Ran)"
 } else {
     Log-Output "  mutation_verifier_test.py: FAIL"
-    $stepResults["MutationTests"] = "FAIL"
+    $stepResults["MutationTests"] = "FAIL (Ran)"
     $stepErrors["MutationTests"] = (Get-LastLines $mutationText) -join "`n"
 }
 
-# 7. Write Structured Summary Report
+# -----------------------------------------------------------------
+# 6. Summary Report Compilation
+# -----------------------------------------------------------------
 $failedCount = 0
 foreach ($v in $stepResults.Values) {
     if ($v -notmatch "^PASS") { $failedCount++ }
@@ -275,20 +397,24 @@ $summaryLines.Add("=============================================================
 $summaryLines.Add("Execution Date : $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')")
 $summaryLines.Add("System Path    : $rootDir")
 $summaryLines.Add("")
-$summaryLines.Add("ENVIRONMENT VERSIONS:")
-$summaryLines.Add("  Node.js      : $nodeVer")
-$summaryLines.Add("  NPM          : $npmVer")
-$summaryLines.Add("  Python       : $pythonVer")
-$summaryLines.Add("  Google Chrome: $chromeVer")
+$summaryLines.Add("ENVIRONMENT DETAILS:")
+$summaryLines.Add("  Node.js Path   : $nodePath")
+$summaryLines.Add("  Node.js Version: $nodeVer")
+$summaryLines.Add("  NPM Version    : $npmVer")
+$summaryLines.Add("  Python Exec    : $pyExecutable")
+$summaryLines.Add("  Python Version : $pythonVer")
+$summaryLines.Add("  Chrome Path    : $chromePath")
+$summaryLines.Add("  Chrome Version : $chromeVer")
 $summaryLines.Add("")
 $summaryLines.Add("AUDIT & TEST RESULTS:")
 $summaryLines.Add("  1. Dependencies Installation   : $($stepResults['Dependencies'])")
-$summaryLines.Add("  2. HTTP Server Startup         : $($stepResults['HttpServer'])")
-$summaryLines.Add("  3. Playwright Offline SW Test  : $($stepResults['OfflinePlaywright'])")
-$summaryLines.Add("  4. Lighthouse Accessibility    : $($lhScores.Accessibility) / 100")
-$summaryLines.Add("  5. Lighthouse Best Practices   : $($lhScores.BestPractices) / 100")
-$summaryLines.Add("  6. Vocabulary Verifier SHA-256 : $($stepResults['VerifyVocab'])")
-$summaryLines.Add("  7. 12 Controlled Mutation Tests: $($stepResults['MutationTests'])")
+$summaryLines.Add("  2. Playwright Browsers Setup   : $($stepResults['PlaywrightBrowsers'])")
+$summaryLines.Add("  3. HTTP Server Startup         : $($stepResults['HttpServer'])")
+$summaryLines.Add("  4. Playwright Offline SW Test  : $($stepResults['OfflinePlaywright'])")
+$summaryLines.Add("  5. Lighthouse Accessibility    : $($lhScores.Accessibility) / 100 ($($stepResults['Lighthouse']))")
+$summaryLines.Add("  6. Lighthouse Best Practices   : $($lhScores.BestPractices) / 100 ($($stepResults['Lighthouse']))")
+$summaryLines.Add("  7. Vocabulary Verifier SHA-256 : $($stepResults['VerifyVocab'])")
+$summaryLines.Add("  8. 12 Controlled Mutation Tests: $($stepResults['MutationTests'])")
 $summaryLines.Add("")
 
 if ($failedAuditsList.Count -gt 0) {
