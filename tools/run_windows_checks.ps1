@@ -468,45 +468,153 @@ if ($LASTEXITCODE -eq 0) {
 
 # 6b. Sub-Path Hosting Compatibility Test (/german-app/)
 $subServerProc = $null
+$projectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+$subScriptPath = Join-Path -Path $projectRoot -ChildPath "scripts\serve_subpath.js"
+$nodeCmd = Get-Command node -ErrorAction SilentlyContinue
+$nodeExe = if ($nodeCmd.Source) { $nodeCmd.Source } elseif ($nodeCmd.Path) { $nodeCmd.Path } elseif ($nodeCmd.Definition) { $nodeCmd.Definition } else { "node" }
+$subOutLog = Join-Path -Path $projectRoot -ChildPath "audit\windows_results\subpath_server.out.log"
+$subErrLog = Join-Path -Path $projectRoot -ChildPath "audit\windows_results\subpath_server.err.log"
+
+# Clear old server logs
+if (Test-Path -LiteralPath $subOutLog) { Remove-Item -LiteralPath $subOutLog -Force -ErrorAction SilentlyContinue }
+if (Test-Path -LiteralPath $subErrLog) { Remove-Item -LiteralPath $subErrLog -Force -ErrorAction SilentlyContinue }
+
+$getSubPathDiagnostics = {
+    $exitCodeText = if ($subServerProc -and $subServerProc.HasExited) {
+        "Process exited with code $($subServerProc.ExitCode)"
+    } elseif ($subServerProc) {
+        "Process still running (PID: $($subServerProc.Id))"
+    } else {
+        "Process not started"
+    }
+
+    $port8000Status = try {
+        $tcp = Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue
+        if ($tcp) {
+            ($tcp | ForEach-Object { "PID: $($_.OwningProcess), State: $($_.State), Address: $($_.LocalAddress):$($_.LocalPort)" }) -join "`n"
+        } else {
+            "Nothing listening on port 8000."
+        }
+    } catch {
+        "Get-NetTCPConnection query failed: $_"
+    }
+
+    $outLines = if (Test-Path -LiteralPath $subOutLog) {
+        (Get-LastLines (Get-Content -LiteralPath $subOutLog -Raw -Encoding utf8) 30) -join "`n"
+    } else {
+        "No subpath_server.out.log file found."
+    }
+
+    $errLines = if (Test-Path -LiteralPath $subErrLog) {
+        (Get-LastLines (Get-Content -LiteralPath $subErrLog -Raw -Encoding utf8) 30) -join "`n"
+    } else {
+        "No subpath_server.err.log file found."
+    }
+
+    return @"
+Sub-path Server Exit Code: $exitCodeText
+
+Port 8000 Status (Get-NetTCPConnection -LocalPort 8000):
+$port8000Status
+
+Last 30 lines of subpath_server.out.log:
+$outLines
+
+Last 30 lines of subpath_server.err.log:
+$errLines
+"@
+}
+
 try {
+    # 6. Ensure previous step's server (step 3) is fully stopped and port 8000 is free before starting
+    if ($serverProc -and !$serverProc.HasExited) {
+        Log-Output "  Waiting for previous HTTP server (PID: $($serverProc.Id)) to exit..."
+        Stop-Process -Id $serverProc.Id -Force -ErrorAction SilentlyContinue
+        $serverProc.WaitForExit(3000)
+    }
+
+    $portSw = [System.Diagnostics.Stopwatch]::StartNew()
+    while ($portSw.Elapsed.TotalSeconds -lt 10) {
+        $portBusy = try {
+            $conns = Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue
+            [bool]$conns
+        } catch { $false }
+        if (!$portBusy) { break }
+        Start-Sleep -Milliseconds 500
+    }
+
     Log-Output "  Starting sub-path HTTP server on port 8000 (/german-app/)..."
-    $subServerProc = Start-Process -FilePath "node" -ArgumentList "scripts/serve_subpath.js" -PassThru -WindowStyle Hidden
+    $subServerProc = Start-Process -FilePath $nodeExe `
+        -ArgumentList "`"$subScriptPath`"" `
+        -WorkingDirectory $projectRoot `
+        -RedirectStandardOutput $subOutLog `
+        -RedirectStandardError $subErrLog `
+        -PassThru
 
     $subServerReady = $false
-    for ($i = 0; $i -lt 10; $i++) {
-        Start-Sleep -Milliseconds 500
-        $testSubHttp = try { (Invoke-WebRequest -Uri "http://localhost:8000/german-app/" -UseBasicParsing -TimeoutSec 2).StatusCode } catch { 0 }
+    $maxPolls = 40  # Poll up to 20 seconds (40 x 500ms)
+    for ($i = 0; $i -lt $maxPolls; $i++) {
+        if ($subServerProc.HasExited) {
+            Log-Output "  Sub-path server process exited early with exit code: $($subServerProc.ExitCode)"
+            break
+        }
+
+        $testSubHttp = try {
+            (Invoke-WebRequest -Uri "http://127.0.0.1:8000/german-app/" -UseBasicParsing -TimeoutSec 2).StatusCode
+        } catch { 0 }
+
         if ($testSubHttp -eq 200) {
             $subServerReady = $true
             break
         }
+
+        if ($subServerProc.HasExited) {
+            Log-Output "  Sub-path server process exited early with exit code: $($subServerProc.ExitCode)"
+            break
+        }
+
+        Start-Sleep -Milliseconds 500
     }
 
     if ($subServerReady) {
-        Log-Output "  Sub-path server active at http://localhost:8000/german-app/ (PID: $($subServerProc.Id))"
+        Log-Output "  Sub-path server active at http://127.0.0.1:8000/german-app/ (PID: $($subServerProc.Id))"
         Log-Output "  Running Playwright Offline SW Test on sub-path..."
-        $env:APP_URL = "http://localhost:8000/german-app/"
+        $env:APP_URL = "http://127.0.0.1:8000/german-app/"
         $subPwRun = & npx --no-install playwright test tests/offline_sw.spec.js --reporter=list 2>&1
         $subPwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
         $subPwText = ($subPwRun -join "`n")
         $env:APP_URL = $null
 
-        $subPathPass = ($subPwText -match "offline_sw\.spec\.js.*passed" -or $subPwText -match "Full offline PWA lifecycle verified")
+        $subPathPass = ($LASTEXITCODE -eq 0 -or $subPwText -match "offline_sw\.spec\.js.*passed" -or $subPwText -match "Full offline PWA lifecycle verified")
         if ($subPathPass) {
             Log-Output "  Sub-path (/german-app/) Offline PWA Test: PASS"
             $stepResults["SubPathHosting"] = "PASS (Ran)"
         } else {
             Log-Output "  Sub-path (/german-app/) Offline PWA Test: FAIL"
             $stepResults["SubPathHosting"] = "FAIL (Ran)"
-            $stepErrors["SubPathHosting"] = (Get-LastLines $subPwText) -join "`n"
+            $diagInfo = & $getSubPathDiagnostics
+            $failReport = "Playwright Test Output (Last 30 lines):`n$((Get-LastLines $subPwText 30) -join "`n")`n`n$diagInfo"
+            $stepErrors["SubPathHosting"] = $failReport
+            Log-Output $failReport
+            $failReport | Out-File -FilePath $summaryPath -Append -Encoding utf8
         }
     } else {
-        Log-Output "  Sub-path server failed to respond on http://localhost:8000/german-app/"
+        Log-Output "  Sub-path server failed to respond on http://127.0.0.1:8000/german-app/"
         $stepResults["SubPathHosting"] = "NOT MEASURED (Server failed to start)"
+        $diagInfo = & $getSubPathDiagnostics
+        $failReport = "Sub-path server failed to respond on http://127.0.0.1:8000/german-app/ within 20 seconds.`n`n$diagInfo"
+        $stepErrors["SubPathHosting"] = $failReport
+        Log-Output $failReport
+        $failReport | Out-File -FilePath $summaryPath -Append -Encoding utf8
     }
 } catch {
     Log-Output "  Sub-path test exception: $_"
     $stepResults["SubPathHosting"] = "NOT MEASURED (Exception)"
+    $diagInfo = & $getSubPathDiagnostics
+    $failReport = "Sub-path test exception: $_`n`n$diagInfo"
+    $stepErrors["SubPathHosting"] = $failReport
+    Log-Output $failReport
+    $failReport | Out-File -FilePath $summaryPath -Append -Encoding utf8
 } finally {
     if ($subServerProc -and !$subServerProc.HasExited) {
         Log-Output "  Stopping sub-path server (PID: $($subServerProc.Id))..."
