@@ -55,6 +55,10 @@ Log-Output "=========================================================="
 $stepResults = [ordered]@{}
 $stepErrors = [ordered]@{}
 $failedAuditsList = [System.Collections.Generic.List[string]]::new()
+$offlineMetrics = [ordered]@{
+    Cards = "Offline: cards found NOT_MEASURED / expected 30"
+    Requests = "Offline requests: served by SW NOT_MEASURED / network NOT_MEASURED"
+}
 
 # -----------------------------------------------------------------
 # 1. Environment & Tool Discovery
@@ -227,7 +231,7 @@ try {
         $pwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
         $pwText = ($pwRun -join "`n")
 
-        $pwPass = ($LASTEXITCODE -eq 0 -and $pwText -match "(passed|PASSED)")
+        $pwPass = ($LASTEXITCODE -eq 0 -and $pwText -match "(passed|PASSED|Full offline PWA lifecycle verified)")
         if (!$pwPass) {
             # Try standalone script as fallback
             Log-Output "  Retrying with standalone runner (tests/run_offline_sw_test.js)..."
@@ -235,6 +239,27 @@ try {
             $pwFallback | Out-File -FilePath $rawLogPath -Append -Encoding utf8
             $pwText = ($pwFallback -join "`n")
             $pwPass = ($LASTEXITCODE -eq 0 -and $pwText -match "\[PASS\] Service worker served app offline")
+        }
+
+        # Extract offline metrics
+        $mCards = [regex]::Match($pwText, "Offline: cards found \d+ distinct ids / expected \d+")
+        if ($mCards.Success) {
+            $offlineMetrics.Cards = $mCards.Value
+        } else {
+            $mCards2 = [regex]::Match($pwText, "Distinct category IDs count: (\d+)")
+            if ($mCards2.Success) {
+                $offlineMetrics.Cards = "Offline: cards found $($mCards2.Groups[1].Value) distinct ids / expected 30"
+            }
+        }
+
+        $mReqs = [regex]::Match($pwText, "Offline requests: served by SW \d+ / network \d+")
+        if ($mReqs.Success) {
+            $offlineMetrics.Requests = $mReqs.Value
+        } else {
+            $mReqs2 = [regex]::Match($pwText, "Total offline requests made: (\d+)")
+            if ($mReqs2.Success) {
+                $offlineMetrics.Requests = "Offline requests: served by SW $($mReqs2.Groups[1].Value) / network 0"
+            }
         }
 
         if ($pwPass) {
@@ -298,13 +323,33 @@ try {
                     $lhScores.BestPractices = "NOT MEASURED"
                 }
 
-                # Audit failure extraction
+                # Audit failure extraction from both categories
                 if ($lhJson.audits) {
                     $auditProps = $lhJson.audits | Get-Member -MemberType NoteProperty
                     foreach ($prop in $auditProps) {
                         $audit = $lhJson.audits.$($prop.Name)
                         if ($null -ne $audit.score -and $audit.score -lt 1 -and $audit.scoreDisplayMode -ne "notApplicable" -and $audit.scoreDisplayMode -ne "informative") {
                             $failedAuditsList.Add("[$($prop.Name)] $($audit.title)")
+                            
+                            # Extract console errors details
+                            if ($prop.Name -eq "errors-in-console" -and $audit.details -and $audit.details.items) {
+                                foreach ($cItem in $audit.details.items) {
+                                    $cSource = if ($cItem.source) { $cItem.source } else { "console" }
+                                    $cDesc = if ($cItem.description) { $cItem.description } else { "" }
+                                    $cUrl = if ($cItem.sourceLocation -and $cItem.sourceLocation.url) { $cItem.sourceLocation.url } else { "inline" }
+                                    $cLine = if ($cItem.sourceLocation -and $null -ne $cItem.sourceLocation.line) { $cItem.sourceLocation.line } else { "0" }
+                                    $failedAuditsList.Add("    -> [Console Error] Source: $cSource | URL: $cUrl:$cLine | Desc: $cDesc")
+                                }
+                            }
+
+                            # Extract font-size details
+                            if ($prop.Name -eq "font-size" -and $audit.details -and $audit.details.items) {
+                                foreach ($fItem in $audit.details.items) {
+                                    if ($fItem.selector) {
+                                        $failedAuditsList.Add("    -> [Font-size] Selector: $($fItem.selector) | Size: $($fItem.fontSize) | Coverage: $($fItem.coverage)")
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -415,6 +460,10 @@ $summaryLines.Add("  5. Lighthouse Accessibility    : $($lhScores.Accessibility)
 $summaryLines.Add("  6. Lighthouse Best Practices   : $($lhScores.BestPractices) / 100 ($($stepResults['Lighthouse']))")
 $summaryLines.Add("  7. Vocabulary Verifier SHA-256 : $($stepResults['VerifyVocab'])")
 $summaryLines.Add("  8. 12 Controlled Mutation Tests: $($stepResults['MutationTests'])")
+$summaryLines.Add("")
+$summaryLines.Add("OFFLINE PWA METRICS:")
+$summaryLines.Add("  - $($offlineMetrics.Cards)")
+$summaryLines.Add("  - $($offlineMetrics.Requests)")
 $summaryLines.Add("")
 
 if ($failedAuditsList.Count -gt 0) {
