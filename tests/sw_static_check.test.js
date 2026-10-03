@@ -1,12 +1,12 @@
 import fs from 'fs';
 import { describe, it, expect } from 'vitest';
 
-describe('Static Check: Service Worker v4 Configuration & Precache Rules', () => {
+describe('Static Check: Service Worker v5 Configuration & Precache Rules', () => {
   const swCode = fs.readFileSync('sw.js', 'utf8');
   const readmeCode = fs.readFileSync('README.md', 'utf8');
 
-  it('declares CACHE_NAME as deutsch-lernen-v4', () => {
-    expect(swCode).toMatch(/const\s+CACHE_NAME\s*=\s*['"]deutsch-lernen-v4['"]/);
+  it('declares CACHE_NAME as deutsch-lernen-v5', () => {
+    expect(swCode).toMatch(/const\s+CACHE_NAME\s*=\s*['"]deutsch-lernen-v5['"]/);
   });
 
   it('includes fonts.css and all 6 local woff2 fonts in PRECACHE_ASSETS', () => {
@@ -31,8 +31,8 @@ describe('Static Check: Service Worker v4 Configuration & Precache Rules', () =>
     expect(swCode).not.toContain('return null');
   });
 
-  it('documents v4 and SWR for CSS in README.md', () => {
-    expect(readmeCode).toContain('deutsch-lernen-v4');
+  it('documents v5 and SWR for CSS in README.md', () => {
+    expect(readmeCode).toContain('deutsch-lernen-v5');
     expect(readmeCode).toContain('Stale-While-Revalidate');
   });
 });

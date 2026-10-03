@@ -165,15 +165,19 @@ test.describe('Real Service Worker Upgrade Lifecycle (v3 -> v4)', () => {
       return !!reg && !!navigator.serviceWorker.controller;
     }, { timeout: 15000 });
 
+    const rootDir = path.resolve(__dirname, '..');
+    const swCode = fs.readFileSync(path.join(rootDir, 'sw.js'), 'utf8');
+    const mCache = swCode.match(/const\s+CACHE_NAME\s*=\s*['"]([^'"]+)['"]/);
+    const activeCacheName = mCache ? mCache[1] : 'deutsch-lernen-v5';
+
     // Assert legacy cache 'deutsch-lernen-v3' exists
     const initialCaches = await page.evaluate(async () => await caches.keys());
     console.log('[Phase 1] Active caches under v3 build:', initialCaches);
     expect(initialCaches).toContain('deutsch-lernen-v3');
-    expect(initialCaches).not.toContain('deutsch-lernen-v4');
+    expect(initialCaches).not.toContain(activeCacheName);
 
-    // Phase 2: In-place build swap with current repo build (v4 + fixed fonts.css)
-    console.log('[Phase 2] Swapping fixture files in-place with current v4 build...');
-    const rootDir = path.resolve(__dirname, '..');
+    // Phase 2: In-place build swap with current repo build (active SW + fixed fonts.css)
+    console.log(`[Phase 2] Swapping fixture files in-place with current build (${activeCacheName})...`);
     fs.copyFileSync(path.join(rootDir, 'sw.js'), path.join(fixtureDir, 'sw.js'));
     fs.copyFileSync(path.join(rootDir, 'fonts', 'fonts.css'), path.join(fixtureDir, 'fonts', 'fonts.css'));
 
@@ -197,21 +201,20 @@ test.describe('Real Service Worker Upgrade Lifecycle (v3 -> v4)', () => {
     console.log(`[Phase 4] Toast appeared: "${toastText}"`);
     expect(toastText).toContain('تحديث جديد');
 
-    // Wait for v4 worker to activate and purge legacy caches
-    console.log('[Phase 5] Waiting for v4 activation and v3 cache purge...');
-    await page.waitForFunction(async () => {
-      const keys = await caches.keys();
-      return keys.includes('deutsch-lernen-v4') && !keys.includes('deutsch-lernen-v3');
-    }, { timeout: 15000 });
+    // Wait for active worker to activate and purge legacy caches
+    console.log(`[Phase 5] Waiting for ${activeCacheName} activation and v3 cache purge...`);
+    await page.waitForFunction((expectedCache) => {
+      return caches.keys().then(keys => keys.includes(expectedCache) && !keys.includes('deutsch-lernen-v3'));
+    }, activeCacheName, { timeout: 15000 });
 
-    // Reload page under new v4 controller
-    console.log('[Phase 6] Reloading page under active v4 controller...');
+    // Reload page under new controller
+    console.log(`[Phase 6] Reloading page under active ${activeCacheName} controller...`);
     await page.reload({ waitUntil: 'networkidle' });
 
     // Assert cache migration
     const updatedCaches = await page.evaluate(async () => await caches.keys());
     console.log('[Phase 6] Updated caches after reload:', updatedCaches);
-    expect(updatedCaches).toContain('deutsch-lernen-v4');
+    expect(updatedCaches).toContain(activeCacheName);
     expect(updatedCaches).not.toContain('deutsch-lernen-v3');
 
     // Assert /fonts/fonts.css content now has correct relative URLs

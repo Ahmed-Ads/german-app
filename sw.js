@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v4 (Offline-first with local self-hosted fonts)
-const CACHE_NAME = 'deutsch-lernen-v4';
+// Cache Version: v5 (Offline-first with local self-hosted fonts & male voice preference)
+const CACHE_NAME = 'deutsch-lernen-v5';
 
 const PRECACHE_ASSETS = [
   './',
