@@ -2103,6 +2103,18 @@ function resetAllProgress(){
   // Also purge legacy migration keys to avoid re-hydration
   appStorage.remove('deutsch_lern_v1');
   appStorage.remove('deutsch_stats_v1');
+
+  if(typeof window !== 'undefined' && window.localStorage){
+    try {
+      window.localStorage.removeItem('german-arabic-progress-v1');
+      window.localStorage.removeItem('german-arabic-stats-v1');
+      window.localStorage.removeItem('deutsch_starred_v1');
+      window.localStorage.removeItem('deutsch_srs_v1');
+      window.localStorage.removeItem('deutsch_daily_goal_v1');
+      window.localStorage.removeItem('deutsch_lern_v1');
+      window.localStorage.removeItem('deutsch_stats_v1');
+    } catch(e) {}
+  }
 }
 
 // Used by the section quiz: force a word back into active practice
@@ -2534,27 +2546,42 @@ function exportBackup(){
 function importBackup(jsonStr){
   try {
     const data = JSON.parse(jsonStr);
-    if(!data || (!data.progress && !data.stats)){
+    if(!data || typeof data !== 'object' || Array.isArray(data)){
       throw new Error('ملف النسخة الاحتياطية غير صالح.');
     }
-    if(data.progress){
+    const hasProgress = data.progress && typeof data.progress === 'object' && !Array.isArray(data.progress);
+    const hasStats = data.stats && typeof data.stats === 'object' && !Array.isArray(data.stats);
+    const hasStarred = data.starred && Array.isArray(data.starred);
+    const hasSrs = data.srs && typeof data.srs === 'object' && !Array.isArray(data.srs);
+    const hasGoal = data.dailyGoal !== undefined && !isNaN(Number(data.dailyGoal)) && Number(data.dailyGoal) > 0;
+
+    if(!hasProgress && !hasStats && !hasStarred && !hasSrs && !hasGoal){
+      throw new Error('ملف النسخة الاحتياطية غير صالح أو فارغ.');
+    }
+    if(hasProgress){
       progress = data.progress;
+      appStorage.set(STORAGE_KEYS.PROGRESS, JSON.stringify(progress));
       if(window.localStorage) window.localStorage.setItem('deutsch_lern_v1', JSON.stringify(progress));
     }
-    if(data.stats){
+    if(hasStats){
       stats = data.stats;
+      appStorage.set(STORAGE_KEYS.STATS, JSON.stringify(stats));
       if(window.localStorage) window.localStorage.setItem('deutsch_stats_v1', JSON.stringify(stats));
     }
-    if(data.starred){
-      starredSet = new Set(data.starred);
+    if(hasStarred){
+      starredSet = new Set(data.starred.filter(item => typeof item === 'string'));
       saveStarredSoon();
     }
-    if(data.srs){
+    if(hasSrs){
       srsStore = data.srs;
       saveSrsSoon();
     }
-    if(data.dailyGoal){
-      if(window.localStorage) window.localStorage.setItem('deutsch_daily_goal_v1', String(data.dailyGoal));
+    if(hasGoal){
+      const g = Math.max(1, Math.min(500, Math.round(Number(data.dailyGoal))));
+      try {
+        if(window.localStorage) window.localStorage.setItem('deutsch_daily_goal_v1', String(g));
+        appStorage.set(STORAGE_KEYS.DAILY_GOAL, String(g));
+      } catch(e){}
     }
     showToast('تمت استعادة النسخة الاحتياطية بنجاح 🎉');
     render();
