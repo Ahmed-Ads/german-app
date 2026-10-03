@@ -346,7 +346,7 @@ try {
                                     $cDesc = if ($cItem.description) { $cItem.description } else { "" }
                                     $cUrl = if ($cItem.sourceLocation -and $cItem.sourceLocation.url) { $cItem.sourceLocation.url } else { "inline" }
                                     $cLine = if ($cItem.sourceLocation -and $null -ne $cItem.sourceLocation.line) { $cItem.sourceLocation.line } else { "0" }
-                                    $failedAuditsList.Add("    -> [Console Error] Source: $cSource | URL: $cUrl:$cLine | Desc: $cDesc")
+                                    $failedAuditsList.Add("    -> [Console Error] Source: $cSource | URL: $($cUrl):$($cLine) | Desc: $cDesc")
                                 }
                             }
 
