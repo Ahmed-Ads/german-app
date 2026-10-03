@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { describe, it, expect } from 'vitest';
 
-describe('Service Worker v4 & Caching Strategy Verification', () => {
+describe('Static Check: Service Worker v4 Configuration & Precache Rules', () => {
   const swCode = fs.readFileSync('sw.js', 'utf8');
   const readmeCode = fs.readFileSync('README.md', 'utf8');
 

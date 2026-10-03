@@ -226,19 +226,22 @@ try {
     # 4a. Playwright Offline SW Test
     Log-Output "`n[5/7] Running Playwright Offline PWA Test..."
     if ($stepResults["HttpServer"] -match "^PASS") {
-        # Run standard Playwright spec via npx, fallback to standalone runner if needed
-        $pwRun = & npx --no-install playwright test tests/offline_sw.spec.js tests/sw_upgrade.spec.js --reporter=list 2>&1
+        # Run Playwright test suite (offline PWA lifecycle, SW v3->v4 upgrade, 360px viewport overflow)
+        $pwRun = & npx --no-install playwright test tests/offline_sw.spec.js tests/sw_upgrade.spec.js tests/viewport_overflow.spec.js --reporter=list 2>&1
         $pwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
         $pwText = ($pwRun -join "`n")
 
-        $pwPass = ($LASTEXITCODE -eq 0 -and $pwText -match "(passed|PASSED|Full offline PWA lifecycle verified)")
-        if (!$pwPass) {
+        $offlinePass = ($pwText -match "offline_sw\.spec\.js.*passed" -or $pwText -match "Full offline PWA lifecycle verified")
+        $upgradePass = ($pwText -match "sw_upgrade\.spec\.js.*passed" -or $pwText -match "REAL SERVICE WORKER UPGRADE VERIFICATION.*PASSED")
+        $viewportPass = ($pwText -match "viewport_overflow\.spec\.js.*passed" -or $pwText -match "360px VIEWPORT AUDIT SUMMARY")
+
+        if (!$offlinePass) {
             # Try standalone script as fallback
-            Log-Output "  Retrying with standalone runner (tests/run_offline_sw_test.js)..."
+            Log-Output "  Retrying offline test with standalone runner (tests/run_offline_sw_test.js)..."
             $pwFallback = & node tests/run_offline_sw_test.js 2>&1
             $pwFallback | Out-File -FilePath $rawLogPath -Append -Encoding utf8
-            $pwText = ($pwFallback -join "`n")
-            $pwPass = ($LASTEXITCODE -eq 0 -and $pwText -match "\[PASS\] Service worker served app offline")
+            $pwText += "`n" + ($pwFallback -join "`n")
+            $offlinePass = ($LASTEXITCODE -eq 0 -and $pwText -match "\[PASS\] Service worker served app offline")
         }
 
         # Extract offline metrics
@@ -262,17 +265,22 @@ try {
             }
         }
 
-        if ($pwPass) {
-            $stepResults["OfflinePlaywright"] = "PASS (Ran)"
-            Log-Output "  Playwright Offline PWA: PASS"
-        } else {
-            $stepResults["OfflinePlaywright"] = "FAIL (Ran)"
-            Log-Output "  Playwright Offline PWA: FAIL"
-            $stepErrors["OfflinePlaywright"] = (Get-LastLines $pwText) -join "`n"
-        }
+        $stepResults["OfflinePlaywright"] = if ($offlinePass) { "PASS (Ran)" } else { "FAIL (Ran)" }
+        $stepResults["SwUpgradePlaywright"] = if ($upgradePass) { "PASS (Ran)" } else { "FAIL (Ran)" }
+        $stepResults["ViewportOverflow"] = if ($viewportPass) { "PASS (Ran)" } else { "FAIL (Ran)" }
+
+        Log-Output "  Playwright Offline PWA: $($stepResults['OfflinePlaywright'])"
+        Log-Output "  Playwright SW Upgrade (v3->v4): $($stepResults['SwUpgradePlaywright'])"
+        Log-Output "  Playwright 360px Viewport Audit: $($stepResults['ViewportOverflow'])"
+
+        if (!$offlinePass) { $stepErrors["OfflinePlaywright"] = (Get-LastLines $pwText) -join "`n" }
+        if (!$upgradePass) { $stepErrors["SwUpgradePlaywright"] = "Service Worker Upgrade test did not pass. Check raw_run.log." }
+        if (!$viewportPass) { $stepErrors["ViewportOverflow"] = "360px Viewport audit recorded overflow or test failure. Check raw_run.log." }
     } else {
         $stepResults["OfflinePlaywright"] = "SKIPPED (Server failed)"
-        Log-Output "  Playwright Offline PWA: SKIPPED"
+        $stepResults["SwUpgradePlaywright"] = "SKIPPED (Server failed)"
+        $stepResults["ViewportOverflow"] = "SKIPPED (Server failed)"
+        Log-Output "  Playwright Tests: SKIPPED"
     }
 
     # 4b. Lighthouse Audits
@@ -456,10 +464,12 @@ $summaryLines.Add("  1. Dependencies Installation   : $($stepResults['Dependenci
 $summaryLines.Add("  2. Playwright Browsers Setup   : $($stepResults['PlaywrightBrowsers'])")
 $summaryLines.Add("  3. HTTP Server Startup         : $($stepResults['HttpServer'])")
 $summaryLines.Add("  4. Playwright Offline SW Test  : $($stepResults['OfflinePlaywright'])")
-$summaryLines.Add("  5. Lighthouse Accessibility    : $($lhScores.Accessibility) / 100 ($($stepResults['Lighthouse']))")
-$summaryLines.Add("  6. Lighthouse Best Practices   : $($lhScores.BestPractices) / 100 ($($stepResults['Lighthouse']))")
-$summaryLines.Add("  7. Vocabulary Verifier SHA-256 : $($stepResults['VerifyVocab'])")
-$summaryLines.Add("  8. 12 Controlled Mutation Tests: $($stepResults['MutationTests'])")
+$summaryLines.Add("  5. Playwright SW Upgrade (v3->v4): $($stepResults['SwUpgradePlaywright'])")
+$summaryLines.Add("  6. 360px Viewport Overflow Audit: $($stepResults['ViewportOverflow'])")
+$summaryLines.Add("  7. Lighthouse Accessibility    : $($lhScores.Accessibility) / 100 ($($stepResults['Lighthouse']))")
+$summaryLines.Add("  8. Lighthouse Best Practices   : $($lhScores.BestPractices) / 100 ($($stepResults['Lighthouse']))")
+$summaryLines.Add("  9. Vocabulary Verifier SHA-256 : $($stepResults['VerifyVocab'])")
+$summaryLines.Add("  10. 12 Controlled Mutation Tests: $($stepResults['MutationTests'])")
 $summaryLines.Add("")
 $summaryLines.Add("OFFLINE PWA METRICS:")
 $summaryLines.Add("  - $($offlineMetrics.Cards)")

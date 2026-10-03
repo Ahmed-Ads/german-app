@@ -1,11 +1,132 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+const { execSync } = require('child_process');
 
-test.describe('Service Worker Cache Upgrade Verification (v3 -> v4)', () => {
-  test('v3 cache is deleted, v4 is active, fonts.css revalidated, font_1 returns 200 with 0 404s', async ({ browser }) => {
-    const context = await browser.newContext({
-      serviceWorkers: 'allow'
+/**
+ * Real End-to-End Service Worker Upgrade Test (v3 -> v4)
+ * Validates:
+ * 1. Serves legacy build (sw.js v3 + broken fonts.css containing ./fonts/font_ URLs)
+ * 2. Playwright loads app, waits for SW v3 controller, asserts cache deutsch-lernen-v3 exists
+ * 3. Swaps files in-place with new build (current sw.js v4 + fixed fonts.css)
+ * 4. Calls reg.update(), asserts 'update available' toast appears on updatefound
+ * 5. Waits for v4 to activate, asserts legacy v3 cache deleted and v4 active
+ * 6. Asserts fonts.css content updated to correct URLs and /fonts/font_1.woff2 returns 200 with 0 404s
+ */
+
+function copyRecursiveSync(src, dest) {
+  const exists = fs.existsSync(src);
+  const stats = exists && fs.statSync(src);
+  const isDirectory = exists && stats.isDirectory();
+  if (isDirectory) {
+    if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+    fs.readdirSync(src).forEach(childItemName => {
+      copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
     });
+  } else {
+    fs.copyFileSync(src, dest);
+  }
+}
+
+function createStaticServer(servedDir) {
+  const mimeTypes = {
+    '.html': 'text/html; charset=utf-8',
+    '.js': 'application/javascript; charset=utf-8',
+    '.css': 'text/css; charset=utf-8',
+    '.json': 'application/json; charset=utf-8',
+    '.png': 'image/png',
+    '.svg': 'image/svg+xml',
+    '.woff2': 'font/woff2'
+  };
+
+  return http.createServer((req, res) => {
+    let reqPath = req.url.split('?')[0];
+    if (reqPath === '/') reqPath = '/index.html';
+    const filePath = path.join(servedDir, reqPath.replace(/^\//, ''));
+
+    if (!fs.existsSync(filePath)) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('Not Found: ' + reqPath);
+      return;
+    }
+
+    const ext = path.extname(filePath).toLowerCase();
+    const contentType = mimeTypes[ext] || 'application/octet-stream';
+    const content = fs.readFileSync(filePath);
+
+    res.writeHead(200, {
+      'Content-Type': contentType,
+      'Content-Length': content.length,
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
+    res.end(content);
+  });
+}
+
+test.describe('Real Service Worker Upgrade Lifecycle (v3 -> v4)', () => {
+  let server = null;
+  let port = 0;
+  let fixtureDir = '';
+
+  test.beforeAll(async () => {
+    // 1. Create temporary fixture directory for the served site
+    fixtureDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dl-sw-upgrade-'));
+
+    // 2. Copy baseline files (index.html, manifest.json, icons, fonts)
+    const rootDir = path.resolve(__dirname, '..');
+    fs.copyFileSync(path.join(rootDir, 'index.html'), path.join(fixtureDir, 'index.html'));
+    fs.copyFileSync(path.join(rootDir, 'manifest.json'), path.join(fixtureDir, 'manifest.json'));
+    copyRecursiveSync(path.join(rootDir, 'icons'), path.join(fixtureDir, 'icons'));
+    copyRecursiveSync(path.join(rootDir, 'fonts'), path.join(fixtureDir, 'fonts'));
+
+    // 3. Extract OLD sw.js with CACHE_NAME v3 from git
+    let oldSw;
+    try {
+      oldSw = execSync('git show 4f1f580:sw.js', { encoding: 'utf8', cwd: rootDir });
+    } catch (_) {
+      try {
+        oldSw = execSync('git show 0f4b571~1:sw.js', { encoding: 'utf8', cwd: rootDir });
+      } catch (err) {
+        oldSw = execSync('git show main:sw.js', { encoding: 'utf8', cwd: rootDir }).replace('deutsch-lernen-v2', 'deutsch-lernen-v3');
+      }
+    }
+    if (!oldSw.includes("'deutsch-lernen-v3'")) {
+      throw new Error('Old sw.js fixture must declare CACHE_NAME deutsch-lernen-v3');
+    }
+    fs.writeFileSync(path.join(fixtureDir, 'sw.js'), oldSw, 'utf8');
+
+    // 4. Extract OLD broken fonts.css from git and verify ./fonts/font_ URLs
+    const oldFontsCss = execSync('git show 4f1f580~1:fonts/fonts.css', { encoding: 'utf8', cwd: rootDir });
+    if (!oldFontsCss.includes('./fonts/font_')) {
+      throw new Error('Expected old fonts.css fixture to contain broken ./fonts/font_ URLs');
+    }
+    fs.writeFileSync(path.join(fixtureDir, 'fonts', 'fonts.css'), oldFontsCss, 'utf8');
+
+    // 5. Start static server
+    server = createStaticServer(fixtureDir);
+    await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+    port = server.address().port;
+    console.log(`[SW-Upgrade-Test] Temporary fixture server listening on http://127.0.0.1:${port}`);
+  });
+
+  test.afterAll(async () => {
+    if (server) {
+      await new Promise(resolve => server.close(resolve));
+    }
+    if (fixtureDir && fs.existsSync(fixtureDir)) {
+      try {
+        fs.rmSync(fixtureDir, { recursive: true, force: true });
+      } catch (_) {}
+    }
+  });
+
+  test('executes live build upgrade: v3 cache purged, v4 activated, CSS corrected, 0 404s', async ({ browser }) => {
+    const context = await browser.newContext({ serviceWorkers: 'allow' });
     const page = await context.newPage();
 
     const notFoundUrls = [];
@@ -15,74 +136,89 @@ test.describe('Service Worker Cache Upgrade Verification (v3 -> v4)', () => {
       }
     });
 
-    const appUrl = process.env.APP_URL || 'http://localhost:8000/';
-
-    // 1. Initial page load
-    console.log('Navigating to app URL:', appUrl);
+    const appUrl = `http://127.0.0.1:${port}/`;
+    console.log(`[Phase 1] Loading legacy v3 build from ${appUrl}...`);
     await page.goto(appUrl, { waitUntil: 'networkidle' });
 
-    // 2. Simulate pre-existing legacy v3 cache with outdated mock fonts.css
-    await page.evaluate(async () => {
-      const v3Cache = await caches.open('deutsch-lernen-v3');
-      await v3Cache.put(new Request('/fonts/fonts.css'), new Response('/* legacy fonts.css v3 */', {
-        headers: { 'Content-Type': 'text/css' }
-      }));
-    });
+    // Wait for the initial SW (v3) to activate and take control
+    await page.waitForFunction(async () => {
+      if (!navigator.serviceWorker) return false;
+      const reg = await navigator.serviceWorker.ready;
+      return !!reg && !!navigator.serviceWorker.controller;
+    }, { timeout: 15000 });
 
+    // Assert legacy cache 'deutsch-lernen-v3' exists
     const initialCaches = await page.evaluate(async () => await caches.keys());
+    console.log('[Phase 1] Active caches under v3 build:', initialCaches);
     expect(initialCaches).toContain('deutsch-lernen-v3');
-    console.log('[Step 1] Seeded legacy cache:', initialCaches);
+    expect(initialCaches).not.toContain('deutsch-lernen-v4');
 
-    // 3. Trigger Service Worker activation and cache purge
-    console.log('[Step 2] Triggering Service Worker activation and cache purge...');
+    // Phase 2: In-place build swap with current repo build (v4 + fixed fonts.css)
+    console.log('[Phase 2] Swapping fixture files in-place with current v4 build...');
+    const rootDir = path.resolve(__dirname, '..');
+    fs.copyFileSync(path.join(rootDir, 'sw.js'), path.join(fixtureDir, 'sw.js'));
+    fs.copyFileSync(path.join(rootDir, 'fonts', 'fonts.css'), path.join(fixtureDir, 'fonts', 'fonts.css'));
+
+    // Reset 404 tracking to monitor the upgrade and post-upgrade requests
+    notFoundUrls.length = 0;
+
+    // Trigger Service Worker update check
+    console.log('[Phase 3] Triggering reg.update() in client page...');
     await page.evaluate(async () => {
       if ('serviceWorker' in navigator) {
         const reg = await navigator.serviceWorker.getRegistration();
-        if (reg) {
-          await reg.update();
-        }
+        if (reg) await reg.update();
       }
     });
 
-    // Wait for the new service worker v4 to activate and purge older caches
+    // Assert update available toast appears
+    console.log('[Phase 4] Waiting for update-available toast notification...');
+    const toast = page.locator('#appToast');
+    await expect(toast).toBeVisible({ timeout: 12000 });
+    const toastText = await toast.textContent();
+    console.log(`[Phase 4] Toast appeared: "${toastText}"`);
+    expect(toastText).toContain('تحديث جديد');
+
+    // Wait for v4 worker to activate and purge legacy caches
+    console.log('[Phase 5] Waiting for v4 activation and v3 cache purge...');
     await page.waitForFunction(async () => {
       const keys = await caches.keys();
       return keys.includes('deutsch-lernen-v4') && !keys.includes('deutsch-lernen-v3');
     }, { timeout: 15000 });
 
-    // 4. Reload page under v4
-    console.log('[Step 3] Reloading page to apply v4...');
+    // Reload page under new v4 controller
+    console.log('[Phase 6] Reloading page under active v4 controller...');
     await page.reload({ waitUntil: 'networkidle' });
 
-    // 5. Assert cache migration
+    // Assert cache migration
     const updatedCaches = await page.evaluate(async () => await caches.keys());
-    console.log('[Step 4] Updated Caches:', updatedCaches);
+    console.log('[Phase 6] Updated caches after reload:', updatedCaches);
     expect(updatedCaches).toContain('deutsch-lernen-v4');
     expect(updatedCaches).not.toContain('deutsch-lernen-v3');
 
-    // 6. Assert font_1.woff2 is served 200 from cache and 0 404s
-    const fontCheck = await page.evaluate(async () => {
-      const cache = await caches.open('deutsch-lernen-v4');
-      const keys = await cache.keys();
-      const fontReq = keys.find(r => r.url.includes('font_1.woff2'));
-      if (!fontReq) return { cached: false, status: 0 };
-      const res = await cache.match(fontReq);
-      return { cached: true, status: res ? res.status : 0 };
+    // Assert /fonts/fonts.css content now has correct relative URLs
+    const fontsCssText = await page.evaluate(async () => {
+      const res = await fetch('fonts/fonts.css');
+      return await res.text();
     });
+    expect(fontsCssText).toContain('./font_1.woff2');
+    expect(fontsCssText).not.toContain('./fonts/font_1.woff2');
+    console.log('[Phase 7] Verified fonts.css served with corrected font URLs.');
 
-    console.log('[Step 5] Font cache check:', fontCheck);
-    expect(fontCheck.cached).toBe(true);
-    expect(fontCheck.status).toBe(200);
-
-    // Direct font fetch inside the page
-    const fetchStatus = await page.evaluate(async () => {
-      const res = await fetch('./fonts/font_1.woff2');
+    // Assert /fonts/font_1.woff2 returns 200
+    const fontResponseStatus = await page.evaluate(async () => {
+      const res = await fetch('fonts/font_1.woff2');
       return res.status;
     });
-    expect(fetchStatus).toBe(200);
+    expect(fontResponseStatus).toBe(200);
+    console.log(`[Phase 8] Verified fonts/font_1.woff2 returned status ${fontResponseStatus}`);
 
-    console.log('404 requests count: ' + notFoundUrls.length);
+    // Assert NO 404 responses were recorded
+    console.log(`[Phase 9] Total 404 responses during upgrade: ${notFoundUrls.length}`);
+    if (notFoundUrls.length > 0) {
+      console.error('Unexpected 404 URLs:', notFoundUrls);
+    }
     expect(notFoundUrls).toHaveLength(0);
-    console.log('✅ Service worker upgrade v3 -> v4 verified successfully with 0 404s.');
+    console.log('🎉 REAL SERVICE WORKER UPGRADE VERIFICATION (v3 -> v4) PASSED!');
   });
 });
