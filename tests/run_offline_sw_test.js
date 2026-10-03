@@ -195,16 +195,16 @@ async function run() {
 
     console.log('Starting MCQ mode...');
     await page.locator('[data-mode="mcq"]').click();
-    await page.waitForSelector('.mcq-btn', { state: 'visible', timeout: 5000 });
+    await page.waitForSelector('.opt', { state: 'visible', timeout: 5000 });
 
-    const firstOption = page.locator('.mcq-btn').first();
+    const firstOption = page.locator('.opt').first();
     await firstOption.click();
 
     // (c) Feedback appears
-    const feedback = page.locator('#feedbackArea');
-    const feedbackVisible = await feedback.isVisible();
-    if (!feedbackVisible) {
-      throw new Error('Feedback area did not appear after selecting MCQ option offline.');
+    const feedback = page.locator('#fb, .feedback');
+    const fbText = await feedback.textContent();
+    if (!fbText || fbText.trim().length === 0) {
+      throw new Error('Feedback area was empty after selecting MCQ option offline.');
     }
     console.log('✓ MCQ feedback appeared successfully offline');
 

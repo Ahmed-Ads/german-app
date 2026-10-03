@@ -115,14 +115,14 @@ test.describe('PWA Offline & Service Worker Verification', () => {
 
     console.log('Starting MCQ mode...');
     await page.locator('[data-mode="mcq"]').click();
-    await page.waitForSelector('.mcq-btn', { state: 'visible', timeout: 5000 });
+    await page.waitForSelector('.opt', { state: 'visible', timeout: 5000 });
 
-    const firstOption = page.locator('.mcq-btn').first();
+    const firstOption = page.locator('.opt').first();
     await firstOption.click();
 
     // (c) Feedback appears
-    const feedback = page.locator('#feedbackArea');
-    await expect(feedback).toBeVisible();
+    const feedback = page.locator('#fb, .feedback');
+    await expect(feedback).not.toBeEmpty();
     console.log('MCQ feedback appeared successfully offline.');
 
     // (d) Progress persists after another offline reload
