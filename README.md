@@ -139,7 +139,42 @@ python verify_vocab.py
 
 ---
 
-## 💻 6. متطلبات وتوافق نظام ويندوز (Windows CMD / PowerShell)
+## 🔊 6. خطوات تثبيت أصوات ألمانية إضافية ورجالية على الأجهزة (Adding German Voices)
+
+إذا أظهر التطبيق رسالة تفيد بعدم العثور على صوت ألماني رجالي، يمكنك تثبيت حزمة صوتية إضافية عبر إعدادات جهازك باتباع الخطوات الرسمية المعتمدة لكل نظام تشغيل:
+
+### أ) على نظام Windows 11 و Windows 10
+- **الخطوات الرسمية:**
+  1. افتح **الإعدادات** (Settings) بالضغط على `Windows + I`.
+  2. انتقل إلى **الوقت واللغة** (Time & language) ثم **اللغة والمنطقة** (Language & region).
+  3. اضغط على **إضافة لغة** (Add a language)، وابحث عن `German (Germany)` أو `Deutsch (Deutschland)` واضغط التالي (Next).
+  4. تأكد من تحديد خيار **تحويل النص إلى كلام** (Text-to-speech) واضغط **تثبيت** (Install).
+  5. بعد اكتمال التنزيل، انتقل إلى: **الوقت واللغة** (Time & language) > **الكلام** (Speech).
+  6. تحت قسم **الأصوات** (Voices)، يمكنك اختيار أو تنزيل الأصوات المتاحة (مثل صوت Stefan أو صوت طبيعي Conrad).
+- **المصدر الرسمي لـ Microsoft:** [How to download Text-to-Speech languages for Windows](https://support.microsoft.com/en-us/windows/how-to-download-text-to-speech-languages-for-windows-d5a6b612-b3ae-423f-afa5-4f6caf144d1a).
+
+### ب) على نظام Android (أجهزة سامسونج وشاومي وغيرها)
+- **الخطوات الرسمية:**
+  1. افتح تطبيق **الإعدادات** (Settings) في هاتفك.
+  2. انتقل إلى **إمكانية الوصول** (Accessibility).
+  3. اضغط على **تحويل النص إلى كلام** (Text-to-speech output).
+  4. اضغط على أيقونة الترس (Settings gear) بجوار **المحرك المفضل** (Preferred engine - Speech Services by Google).
+  5. اضغط على **تثبيت البيانات الصوتية** (Install voice data).
+  6. اختر **الألمانية** (German)، وقم بتنزيل الحزمة الصوتية واستمع للعينات لتفعيل الصوت الرجالي المفضل.
+- **المصدر الرسمي لـ Google:** [Google Text-to-Speech Voice Data Settings](https://support.google.com/accessibility/android/answer/6006983).
+
+### ج) على نظام Apple iOS (أجهزة iPhone و iPad)
+- **الخطوات الرسمية:**
+  1. افتح تطبيق **الإعدادات** (Settings).
+  2. انتقل إلى **تسهيلات الاستخدام** (Accessibility).
+  3. اضغط على **المحتوى المنطوق** (Spoken Content).
+  4. اضغط على **الأصوات** (Voices) واختر **الألمانية** (German).
+  5. ستظهر لك قائمة الأصوات (مثل Markus أو Yannick أو Martin)؛ اضغط على زر التنزيل السحابي بجانب الصوت لتثبيته.
+- **المصدر الرسمي لـ Apple:** [Hear iPhone speak selected text - Apple Support](https://support.apple.com/guide/iphone/hear-iphone-speak-iph96b214f0/ios).
+
+---
+
+## 💻 7. متطلبات وتوافق نظام ويندوز (Windows CMD / PowerShell)
 
 للتحقق من سلامة البيانات وتشغيل السكربتات والاختبارات مباشرة من موجه أوامر ويندوز (CMD) أو PowerShell:
 - **إصدار Python المطلوب:** Python 3.8 أو أحدث (مع تفعيل خيار `Add Python to PATH` أثناء التثبيت).
@@ -160,7 +195,7 @@ python verify_vocab.py
 
 ---
 
-## 📋 7. قائمة التحقق قبل الإصدار والدمج (Release Checklist)
+## 📋 8. قائمة التحقق قبل الإصدار والدمج (Release Checklist)
 
 قبل دمج أي فرع جديد أو إصدار تحديث رسمي للتطبيق، يُرجى اتباع الخطوات التالية بدقة:
 1. **تشغيل الفحص الشامل على نظام ويندوز:**

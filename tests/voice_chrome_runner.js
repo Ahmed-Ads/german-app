@@ -72,20 +72,29 @@ window.addEventListener('load', async () => {
       };
     }
 
-    // Set custom choice
-    const testChoice = allVoices.length > 0 ? (allVoices[0].voiceURI || allVoices[0].name) : 'MockGermanVoice';
+    // Verify non-German saved choice is ignored
+    window.voiceManager.setSavedChoice('Microsoft Naayf - Arabic (Saudi)');
+    const nonGermanIgnored = window.voiceManager.getReason() !== 'saved';
+    vlog('Saved non-German choice is safely ignored', nonGermanIgnored);
+
+    // Save actual German voice present in real Chrome ("Google Deutsch")
+    const germanVoices = allVoices.filter(v => v.lang && v.lang.toLowerCase().startsWith('de'));
+    const actualGermanVoice = germanVoices.length > 0 ? germanVoices[0] : null;
+    const testChoice = actualGermanVoice ? (actualGermanVoice.voiceURI || actualGermanVoice.name) : 'Google Deutsch';
+
     window.voiceManager.setSavedChoice(testChoice);
     const savedInStorage = appStorage.get('deutsch_voice_v1');
     const isSavedMatch = savedInStorage === testChoice;
+    const activeIsSaved = window.voiceManager.getVoice() && (window.voiceManager.getVoice().name === testChoice || window.voiceManager.getVoice().voiceURI === testChoice);
 
-    // Trigger speak to assert utterance.voice
+    // Trigger speak to assert utterance.voice is that German voice
     speak('Guten Tag!');
-    const speakVoiceMatches = lastSpokenUtterance && (!cur || lastSpokenUtterance.voice === window.voiceManager.getVoice());
+    const speakVoiceMatches = lastSpokenUtterance && lastSpokenUtterance.voice === window.voiceManager.getVoice();
 
-    window.__VOICE_CHROME_RESULTS__.persistencePassed = isSavedMatch;
+    window.__VOICE_CHROME_RESULTS__.persistencePassed = isSavedMatch && activeIsSaved && nonGermanIgnored;
     window.__VOICE_CHROME_RESULTS__.speakUtteranceVoicePassed = !!speakVoiceMatches;
-    vlog('Persistence test: choice saved to deutsch_voice_v1 = ' + savedInStorage, isSavedMatch);
-    vlog('SpeechSynthesisUtterance.voice matches active selection', speakVoiceMatches);
+    vlog('Persistence test: German choice saved to deutsch_voice_v1 = ' + savedInStorage, isSavedMatch);
+    vlog('SpeechSynthesisUtterance.voice matches active German selection (' + (lastSpokenUtterance && lastSpokenUtterance.voice ? lastSpokenUtterance.voice.name : 'none') + ')', speakVoiceMatches);
 
     // 3. Reset All Progress Test
     resetAllProgress();

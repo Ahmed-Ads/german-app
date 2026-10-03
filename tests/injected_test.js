@@ -84,7 +84,10 @@ window.addEventListener('DOMContentLoaded', async () => {
       'deutsch_srs_v1',
       'deutsch_daily_goal_v1',
       'deutsch_lern_v1',
-      'deutsch_stats_v1'
+      'deutsch_stats_v1',
+      'deutsch_voice_v1',
+      'deutsch_no_male_warned_v1',
+      'deutsch_offline_voice_warned_v1'
     ];
     allStorageKeys.forEach(k => appStorage.set(k, '{\"test\":1}'));
     progress = { 'obst-mcq': { '0': 5 } };
@@ -104,7 +107,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                         Object.keys(srsStore).length === 0 &&
                         dailyGoal === 20;
 
-    record('Reset All Progress', allKeysPurged && memoryClean, 'All 7 storage keys (5 active + 2 legacy) purged and memory state reset.');
+    record('Reset All Progress', allKeysPurged && memoryClean, 'All storage keys (active progress, legacy, and voice preferences) purged and memory state reset.');
 
     // -----------------------------------------------------------------
     // 4. BEHAVIOR TEST: DELEGATED SPEAK BUTTON (data-speak)

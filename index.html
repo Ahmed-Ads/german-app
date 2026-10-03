@@ -2148,6 +2148,7 @@ function resetAllProgress(){
   // which is why deutsch_voice_v1 is included in Reset but NEVER exported in backups.
   appStorage.remove('deutsch_voice_v1');
   appStorage.remove('deutsch_no_male_warned_v1');
+  appStorage.remove('deutsch_offline_voice_warned_v1');
 
   if(typeof window !== 'undefined' && window.localStorage){
     try {
@@ -2160,6 +2161,7 @@ function resetAllProgress(){
       window.localStorage.removeItem('deutsch_stats_v1');
       window.localStorage.removeItem('deutsch_voice_v1');
       window.localStorage.removeItem('deutsch_no_male_warned_v1');
+      window.localStorage.removeItem('deutsch_offline_voice_warned_v1');
     } catch(e) {}
   }
   if(typeof window !== 'undefined' && window.voiceManager && typeof window.voiceManager.resetSavedVoice === 'function'){
@@ -2388,23 +2390,28 @@ function evaluateWrittenAnswer(inputVal, targetWord, category){
 }
 
 /* ======================= SPEECH & VOICE SELECTION ======================= */
+// Verified German Male Voice Names with official documentation sources (see docs/tts_voices.md):
+// 1. stefan: Microsoft Windows Desktop / Server SAPI 5 (de-DE, Stefan, Apollo)
+// 2. conrad: Microsoft Azure / Windows Edge Neural Voice (de-DE-ConradNeural)
+// 3. markus: Apple macOS / iOS native German male voice (AVSpeechSynthesisVoice)
+// 4. martin: Apple macOS / iOS native German male voice (AVSpeechSynthesisVoice)
+// 5. yannick: Apple macOS / iOS native German male voice (AVSpeechSynthesisVoice)
+// 6. killian: Microsoft Azure / Edge Neural Voice (de-DE-KillianNeural)
+// 7. klaus: Microsoft Azure Neural Voice (de-DE-KlausNeural)
+// 8. ralf: Microsoft Azure Neural Voice (de-DE-RalfNeural)
+// 9. christoph: Microsoft Azure Neural Voice (de-DE-ChristophNeural / de-AT-ChristophNeural)
+// Unverified / non-German dropped: daniel (en-GB), lukas (sk-SK), florian, hans, bernd.
 const KNOWN_MALE_GERMAN_VOICES = [
-  'stefan',    // Microsoft Stefan (Windows Desktop / SAPI)
-  'conrad',    // Microsoft Conrad Online (Natural) (Windows / Edge)
-  'markus',    // Apple macOS / iOS German (Markus)
-  'martin',    // Apple macOS / iOS German (Martin)
-  'yannick',   // Apple macOS / iOS German (Yannick)
-  'killian',   // Apple macOS / iOS Swiss German (Killian)
-  'kilian',    // Alternative spelling for Swiss German Kilian
-  'florian',   // Microsoft Florian Online (Natural)
-  'christoph', // Microsoft Christoph Online (Natural) (Austria)
-  'lukas',     // Microsoft Lukas Online (Natural) (Switzerland)
-  'ralf',      // Microsoft Ralf Online (Natural)
-  'bernd',     // Android / IVONA TTS
-  'klaus',     // Samsung TTS / SAPI
-  'hans',      // Samsung TTS / SAPI
-  'daniel',    // Apple Siri German
-  ' male',     // Generic male indicators in voice names
+  'stefan',
+  'conrad',
+  'markus',
+  'martin',
+  'yannick',
+  'killian',
+  'klaus',
+  'ralf',
+  'christoph',
+  ' male',
   '(male)',
   '_male',
   'männlich'
@@ -2424,6 +2431,8 @@ const KNOWN_FEMALE_GERMAN_VOICES = [
   'elke',      // Microsoft Elke Online (Natural)
   'gudrun',    // Microsoft Gudrun Online (Natural) (Austria)
   'karolin',   // Microsoft Karolin Online (Natural) (Switzerland)
+  'seraphina', // Microsoft Seraphina Online (Natural)
+  'gisela',    // Microsoft Gisela Online (Natural)
   'helga',     // Apple / SAPI
   'zira',      // Microsoft Desktop
   ' female',   // Generic female indicators
@@ -2451,38 +2460,68 @@ function isMaleVoice(v){
   return KNOWN_MALE_GERMAN_VOICES.some(m => n.includes(m));
 }
 
-function selectVoice(allVoices, savedChoice = null){
+function selectVoice(allVoices, savedChoice = null, isOnline = true){
   const candidates = (allVoices || []).filter(isGermanVoice);
   if(candidates.length === 0){
-    return { voice: null, reason: 'default', isMale: false, candidates: [] };
+    return { voice: null, reason: 'default', isMale: false, isLocal: false, needsNetwork: false, candidates: [] };
   }
 
-  // 1. User's saved choice
+  const maleLocal = candidates.find(v => isMaleVoice(v) && v.localService === true);
+  const maleOnline = candidates.find(v => isMaleVoice(v) && !v.localService);
+  const anyLocal = candidates.find(v => v.localService === true);
+  const anyOnline = candidates.find(v => !v.localService);
+
+  // 1. User's saved choice: must exist AND its lang must start with "de"
   if(savedChoice){
-    const saved = candidates.find(v => (v.voiceURI && v.voiceURI === savedChoice) || v.name === savedChoice);
+    const saved = candidates.find(v => isGermanVoice(v) && ((v.voiceURI && v.voiceURI === savedChoice) || v.name === savedChoice));
     if(saved){
-      return { voice: saved, reason: 'saved', isMale: isMaleVoice(saved), candidates };
+      // When offline and saved voice is not local, prefer a local German voice if available
+      if(!isOnline && !saved.localService){
+        if(maleLocal){
+          return { voice: maleLocal, reason: 'male_local_offline', isMale: true, isLocal: true, needsNetwork: false, candidates };
+        }
+        if(anyLocal){
+          return { voice: anyLocal, reason: 'any_local_offline', isMale: isMaleVoice(anyLocal), isLocal: true, needsNetwork: false, candidates };
+        }
+        // No local German voice exists: use saved voice but warn about network
+        return { voice: saved, reason: 'saved_needs_net', isMale: isMaleVoice(saved), isLocal: false, needsNetwork: true, candidates };
+      }
+      const isLocal = Boolean(saved.localService);
+      return { voice: saved, reason: 'saved', isMale: isMaleVoice(saved), isLocal, needsNetwork: !isOnline && !isLocal, candidates };
     }
   }
 
-  // 2. First male-ranked German voice
-  const male = candidates.find(isMaleVoice);
-  if(male){
-    return { voice: male, reason: 'male', isMale: true, candidates };
+  // 2. Offline-first ranking when offline:
+  // male local > any local > male online > any online > default
+  if(!isOnline){
+    if(maleLocal) return { voice: maleLocal, reason: 'male_local', isMale: true, isLocal: true, needsNetwork: false, candidates };
+    if(anyLocal) return { voice: anyLocal, reason: 'any_local', isMale: isMaleVoice(anyLocal), isLocal: true, needsNetwork: false, candidates };
+    if(maleOnline) return { voice: maleOnline, reason: 'male_online', isMale: true, isLocal: false, needsNetwork: true, candidates };
+    if(anyOnline) return { voice: anyOnline, reason: 'any_online', isMale: isMaleVoice(anyOnline), isLocal: false, needsNetwork: true, candidates };
+    return { voice: candidates[0], reason: 'fallback', isMale: isMaleVoice(candidates[0]), isLocal: Boolean(candidates[0].localService), needsNetwork: !candidates[0].localService, candidates };
   }
 
-  // 3. First German voice fallback
-  return { voice: candidates[0], reason: 'fallback', isMale: false, candidates };
+  // 3. Online ranking:
+  // male local > male online > any local > any online > default
+  if(maleLocal) return { voice: maleLocal, reason: 'male_local', isMale: true, isLocal: true, needsNetwork: false, candidates };
+  if(maleOnline) return { voice: maleOnline, reason: 'male_online', isMale: true, isLocal: false, needsNetwork: false, candidates };
+  if(anyLocal) return { voice: anyLocal, reason: 'any_local', isMale: isMaleVoice(anyLocal), isLocal: true, needsNetwork: false, candidates };
+  if(anyOnline) return { voice: anyOnline, reason: 'any_online', isMale: isMaleVoice(anyOnline), isLocal: false, needsNetwork: false, candidates };
+
+  return { voice: candidates[0], reason: 'fallback', isMale: isMaleVoice(candidates[0]), isLocal: Boolean(candidates[0].localService), needsNetwork: false, candidates };
 }
 
 function createVoiceManager(synth = (typeof window !== 'undefined' ? window.speechSynthesis : null), storage = (typeof appStorage !== 'undefined' ? appStorage : null)){
   let selectedVoice = null;
   let selectionReason = 'default';
   let isMale = false;
+  let isLocal = false;
+  let needsNet = false;
   let candidates = [];
   let isLoaded = false;
   let retryTimer = null;
   let warnedNoMale = false;
+  let warnedOffline = false;
 
   function getSavedChoice(){
     try {
@@ -2511,10 +2550,13 @@ function createVoiceManager(synth = (typeof window !== 'undefined' ? window.spee
     const all = synth.getVoices() || [];
     candidates = all.filter(isGermanVoice);
     const saved = getSavedChoice();
-    const res = selectVoice(all, saved);
+    const isOnline = (typeof navigator !== 'undefined') ? (navigator.onLine !== false) : true;
+    const res = selectVoice(all, saved, isOnline);
     selectedVoice = res.voice;
     selectionReason = res.reason;
     isMale = res.isMale;
+    isLocal = res.isLocal;
+    needsNet = res.needsNetwork;
     if(all.length > 0) isLoaded = true;
     return isLoaded;
   }
@@ -2566,6 +2608,8 @@ function createVoiceManager(synth = (typeof window !== 'undefined' ? window.spee
     getVoice: () => selectedVoice,
     getReason: () => selectionReason,
     isMale: () => isMale,
+    isLocal: () => isLocal,
+    needsNetwork: () => needsNet,
     hasMaleCandidate: () => candidates.some(isMaleVoice),
     getCandidates: () => candidates,
     getSavedChoice,
@@ -2584,6 +2628,21 @@ function createVoiceManager(synth = (typeof window !== 'undefined' ? window.spee
       try {
         if(storage && typeof storage.set === 'function') storage.set('deutsch_no_male_warned_v1', '1');
         else if(typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('deutsch_no_male_warned_v1', '1');
+      } catch(e){}
+    },
+    hasWarnedOffline: () => {
+      try {
+        if(warnedOffline) return true;
+        if(storage && typeof storage.get === 'function') return storage.get('deutsch_offline_voice_warned_v1') === '1';
+        if(typeof window !== 'undefined' && window.localStorage) return window.localStorage.getItem('deutsch_offline_voice_warned_v1') === '1';
+      } catch(e){}
+      return warnedOffline;
+    },
+    markWarnedOffline: () => {
+      warnedOffline = true;
+      try {
+        if(storage && typeof storage.set === 'function') storage.set('deutsch_offline_voice_warned_v1', '1');
+        else if(typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('deutsch_offline_voice_warned_v1', '1');
       } catch(e){}
     }
   };
@@ -2621,7 +2680,7 @@ function showNoMaleVoiceWarningOnce(){
     banner.setAttribute('aria-live', 'polite');
     banner.innerHTML = `
       <div style="flex:1;min-width:0;line-height:1.4;">
-        ℹ️ <b>تنبيه الصوت:</b> لم يُعثر على صوت ألماني رجالي في هذا الجهاز. تم استخدام الصوت المتاح، ويمكنك اختيار صوت آخر أو تثبيت صوت رجالي من إعدادات جهازك.
+        ℹ️ <b>تنبيه:</b> لا يتوفر صوت ألماني رجالي على هذا الجهاز. يمكنك اختيار صوت بديل من الإحصائيات أو تثبيت صوت من إعدادات النظام.
       </div>
       <button id="dismissVoiceNoticeBtn" class="notice-dismiss-btn" type="button" aria-label="إغلاق التنبيه">✕</button>
     `;
@@ -2632,6 +2691,39 @@ function showNoMaleVoiceWarningOnce(){
       document.body.appendChild(banner);
     }
     const dismissBtn = document.getElementById('dismissVoiceNoticeBtn');
+    if(dismissBtn){
+      dismissBtn.addEventListener('click', ()=>{
+        if(banner && banner.parentNode) banner.parentNode.removeChild(banner);
+      });
+    }
+  }
+}
+
+function showOfflineVoiceWarningOnce(){
+  if(!window.voiceManager) return;
+  if(!window.voiceManager.needsNetwork() || window.voiceManager.hasWarnedOffline()) return;
+  window.voiceManager.markWarnedOffline();
+
+  let banner = document.getElementById('offlineVoiceAlert');
+  if(!banner){
+    banner = document.createElement('div');
+    banner.id = 'offlineVoiceAlert';
+    banner.className = 'no-male-voice-notice';
+    banner.setAttribute('role', 'alert');
+    banner.setAttribute('aria-live', 'polite');
+    banner.innerHTML = `
+      <div style="flex:1;min-width:0;line-height:1.4;">
+        🌐 <b>تنبيه:</b> الصوت الحالي يعتمد على الإنترنت وقد لا يعمل بدون شبكة. يُفضل تثبيت صوت محلي من إعدادات جهازك.
+      </div>
+      <button id="dismissOfflineNoticeBtn" class="notice-dismiss-btn" type="button" aria-label="إغلاق التنبيه">✕</button>
+    `;
+    const appEl = document.getElementById('app');
+    if(appEl){
+      appEl.prepend(banner);
+    } else {
+      document.body.appendChild(banner);
+    }
+    const dismissBtn = document.getElementById('dismissOfflineNoticeBtn');
     if(dismissBtn){
       dismissBtn.addEventListener('click', ()=>{
         if(banner && banner.parentNode) banner.parentNode.removeChild(banner);
@@ -2653,6 +2745,9 @@ function speak(text){
       if(v) u.voice = v;
       if(!window.voiceManager.hasMaleCandidate() && !window.voiceManager.hasWarnedNoMale()){
         showNoMaleVoiceWarningOnce();
+      }
+      if(window.voiceManager.needsNetwork() && !window.voiceManager.hasWarnedOffline()){
+        showOfflineVoiceWarningOnce();
       }
     } else if(deVoice){
       u.voice = deVoice;
