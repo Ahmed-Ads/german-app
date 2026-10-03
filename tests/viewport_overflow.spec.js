@@ -125,51 +125,45 @@ test.describe('360px Mobile Viewport Overflow Audit & Screenshots', () => {
 
     // 2. Category / Mode Picker
     await page.evaluate(() => {
-      if (typeof openCategory === 'function') openCategory('obst');
+      if (typeof window.go === 'function') window.go({ screen: 'modes', catId: 'obst' });
     });
     await auditCurrentScreen('category', 'Category Mode Picker (obst)');
 
     // 3. MCQ Exercise
     await page.evaluate(() => {
-      if (typeof startMode === 'function') startMode('mcq');
+      if (typeof window.go === 'function') window.go({ screen: 'exercise', catId: 'obst', mode: 'mcq' });
     });
     await auditCurrentScreen('mcq_exercise', 'MCQ Exercise');
 
     // 4. Feedback State
-    const mcqButton = page.locator('.mcq-btn').first();
-    if (await mcqButton.count() > 0) {
-      await mcqButton.click();
-      await page.waitForSelector('#feedbackArea', { timeout: 5000 });
+    const optButton = page.locator('.opt').first();
+    if (await optButton.count() > 0) {
+      await optButton.click();
+      await page.waitForTimeout(300);
     }
     await auditCurrentScreen('feedback_state', 'MCQ Feedback State');
 
     // 5. Written Exercise
     await page.evaluate(() => {
-      if (typeof openCategory === 'function' && typeof startMode === 'function') {
-        openCategory('obst');
-        startMode('written');
-      }
+      if (typeof window.go === 'function') window.go({ screen: 'exercise', catId: 'obst', mode: 'written' });
     });
     await auditCurrentScreen('written_exercise', 'Written Exercise');
 
     // 6. Flashcard Mode
     await page.evaluate(() => {
-      if (typeof openCategory === 'function' && typeof startMode === 'function') {
-        openCategory('obst');
-        startMode('flashcard');
-      }
+      if (typeof window.go === 'function') window.go({ screen: 'flashcards', catId: 'obst' });
     });
     await auditCurrentScreen('flashcard', 'Flashcard Screen');
 
     // 7. Stats Screen
     await page.evaluate(() => {
-      if (typeof renderStats === 'function') renderStats();
+      if (typeof window.go === 'function') window.go({ screen: 'stats' });
     });
     await auditCurrentScreen('stats', 'Statistics Screen');
 
     // 8. Starred List Screen
     await page.evaluate(() => {
-      if (typeof renderStarredList === 'function') renderStarredList();
+      if (typeof window.go === 'function') window.go({ screen: 'starredList' });
     });
     await auditCurrentScreen('starred_list', 'Starred Words List');
 
