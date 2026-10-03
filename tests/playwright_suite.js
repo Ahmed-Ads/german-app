@@ -39,11 +39,14 @@ async function run() {
   const server = await startServer();
   console.log(`[1] Local test server running on http://127.0.0.1:${PORT}`);
 
-  const browser = await chromium.launch({
+  const launchOptions = {
     headless: true,
-    executablePath: '/home/lenovo/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome',
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu']
-  });
+  };
+  if (process.env.CHROME_PATH) {
+    launchOptions.executablePath = process.env.CHROME_PATH;
+  }
+  const browser = await chromium.launch(launchOptions);
   const context = await browser.newContext();
   const page = await context.newPage();
 

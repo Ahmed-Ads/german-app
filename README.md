@@ -25,24 +25,48 @@
 
 ---
 
-## 🌐 2. النشر على الإنترنت (مجاناً 100%)
+## 🌐 2. النشر (GitHub Pages)
 
-### الخيار أ: عبر GitHub Pages (الأفضل مع المزامنة وتتبع التغييرات)
-1. أنشئ حساباً مجانياً على [GitHub.com](https://github.com) إذا لم يكن لديك حساب.
-2. أنشئ مستودعاً جديداً (New Repository) وسمّه مثلاً: `german-app`.
-3. في موجه الأوامر (CMD) داخل `C:\German_App`، اكتب الأوامر التالية:
+يتم النشر يدوياً بواسطة صاحب الحساب عبر الخطوات المعتمدة التالية:
+
+### الخطوات اليدوية للنشر الأول:
+1. **(أ) إنشاء مستودع عام (Public Repository):**
+   - ادخل إلى [GitHub.com](https://github.com) وأنشئ مستودعاً جديداً بشرط أن يكون **عاماً (PUBLIC)** لتمكين استضافة GitHub Pages مجاناً (مثلاً باسم `german-app`).
+2. **(ب) ربط المستودع ودفع الفرع الرئيسي والوسوم:**
+   - افتح موجه الأوامر (CMD أو Terminal) ونفّذ الأوامر يدوياً:
+     ```bash
+     git remote add origin https://github.com/<اسم-المستخدم>/<اسم-المستودع>.git
+     git push -u origin main --tags
+     ```
+3. **(ج) ضبط مصدر النشر (Settings -> Pages):**
+   - انتقل في صفحة المستودع على GitHub إلى: **Settings** > **Pages**.
+   - تحت قسم **Build and deployment**، اختر:
+     - **Source**: `GitHub Actions`
+   - سيبدأ سير العمل الآلي (`.github/workflows/deploy.yml`) تلقائياً بفحص كافة الاختبارات وبناء مجلد `site/` ثم نشره.
+4. **(د) فتح الرابط المباشر واختبار الهاتف:**
+   - افتح الرابط المباشر الناتج: `https://<اسم-المستخدم>.github.io/<اسم-المستودع>/`
+   - انتظر ثوانٍ حتى يقوم خادم الخدمة (Service Worker) بتخزين كافة الأصول والخطوط.
+   - افتح الموقع من الهاتف، وفعّل وضع الطيران (Offline Mode) وتأكد من عمل كافة الأقسام (30 قسماً) وتمارين التكرار المتباعد بدون إنترنت.
+
+### (هـ) روتين إصدار التحديثات (Release Routine):
+عند إجراء أي تحديث أو تحسين مستقبلي:
+1. **التحقق (Verify):** شغّل بوابات الجودة للتأكد من نجاح كل الفحوصات:
    ```bash
-   git remote add origin https://github.com/اسم_حسابك/german-app.git
-   git branch -M main
-   git push -u origin main
+   python verify_vocab.py
+   python tests/mutation_verifier_test.py
+   npx vitest run
    ```
-4. ادخل إلى إعدادات المستودع على GitHub: **Settings > Pages** واختر **GitHub Actions**، وسيصبح التطبيق متاحاً فوراً على رابط مثل:
-   `https://اسم_حسابك.github.io/german-app/`
-
-### الخيار ب: السحب والإفلات عبر Netlify (خلال 30 ثانية بدون أوامر)
-1. افتح موقع: [app.netlify.com/drop](https://app.netlify.com/drop)
-2. اسحب مجلد `C:\German_App` بالكامل وأفلته في الصفحة.
-3. ستحصل فوراً على رابط آمن `https://...netlify.app` يعمل عالمياً على أي هاتف أو جهاز.
+2. **ترقية إصدار الكاش (Bump CACHE_NAME):** قم بزيادة رقم الكاش في `sw.js` (مثلاً من `deutsch-lernen-v4` إلى `deutsch-lernen-v5`).
+3. **الالتزام (Commit):** سجّل التعديلات في git:
+   ```bash
+   git add .
+   git commit -m "feat: وصف التحديث الجديد"
+   ```
+4. **الدفع (Push):** ادفع التحديث إلى فرع `main`:
+   ```bash
+   git push origin main
+   ```
+   سيقوم سير عمل GitHub Actions بالتحقق من جودة الكود، وبناء مجلد `site/` المنقى ونشره مباشرة.
 
 ---
 

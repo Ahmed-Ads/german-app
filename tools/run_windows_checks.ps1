@@ -436,7 +436,86 @@ if ($LASTEXITCODE -eq 0 -and $mutationText.Contains("ALL 12 MUTATION TESTS PASSE
 }
 
 # -----------------------------------------------------------------
-# 6. Summary Report Compilation
+# 6. Distribution Build & Sub-Path Hosting Verification
+# -----------------------------------------------------------------
+Log-Output "`n[8/8] Testing Distribution Build (site/) and Sub-Path Hosting (/german-app/)..."
+
+# 6a. Distribution Build & Site Contents Integrity
+Log-Output "  Running 'node scripts/build_site.js'..."
+$buildOut = & node scripts/build_site.js 2>&1
+$buildOut | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+$buildText = ($buildOut -join "`n")
+
+if ($LASTEXITCODE -eq 0) {
+    Log-Output "  Running tests/site_contents.test.js..."
+    $siteTestOut = & npx --no-install vitest run tests/site_contents.test.js 2>&1
+    $siteTestOut | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+    $siteTestText = ($siteTestOut -join "`n")
+
+    if ($LASTEXITCODE -eq 0 -and $siteTestText.Contains("passed")) {
+        Log-Output "  site/ Contents Integrity: PASS"
+        $stepResults["SiteContents"] = "PASS (Ran)"
+    } else {
+        Log-Output "  site/ Contents Integrity: FAIL"
+        $stepResults["SiteContents"] = "FAIL (Ran)"
+        $stepErrors["SiteContents"] = (Get-LastLines $siteTestText) -join "`n"
+    }
+} else {
+    Log-Output "  site/ Build: FAIL"
+    $stepResults["SiteContents"] = "FAIL (Build failed)"
+    $stepErrors["SiteContents"] = (Get-LastLines $buildText) -join "`n"
+}
+
+# 6b. Sub-Path Hosting Compatibility Test (/german-app/)
+$subServerProc = $null
+try {
+    Log-Output "  Starting sub-path HTTP server on port 8000 (/german-app/)..."
+    $subServerProc = Start-Process -FilePath "node" -ArgumentList "scripts/serve_subpath.js" -PassThru -WindowStyle Hidden
+
+    $subServerReady = $false
+    for ($i = 0; $i -lt 10; $i++) {
+        Start-Sleep -Milliseconds 500
+        $testSubHttp = try { (Invoke-WebRequest -Uri "http://localhost:8000/german-app/" -UseBasicParsing -TimeoutSec 2).StatusCode } catch { 0 }
+        if ($testSubHttp -eq 200) {
+            $subServerReady = $true
+            break
+        }
+    }
+
+    if ($subServerReady) {
+        Log-Output "  Sub-path server active at http://localhost:8000/german-app/ (PID: $($subServerProc.Id))"
+        Log-Output "  Running Playwright Offline SW Test on sub-path..."
+        $env:APP_URL = "http://localhost:8000/german-app/"
+        $subPwRun = & npx --no-install playwright test tests/offline_sw.spec.js --reporter=list 2>&1
+        $subPwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+        $subPwText = ($subPwRun -join "`n")
+        $env:APP_URL = $null
+
+        $subPathPass = ($subPwText -match "offline_sw\.spec\.js.*passed" -or $subPwText -match "Full offline PWA lifecycle verified")
+        if ($subPathPass) {
+            Log-Output "  Sub-path (/german-app/) Offline PWA Test: PASS"
+            $stepResults["SubPathHosting"] = "PASS (Ran)"
+        } else {
+            Log-Output "  Sub-path (/german-app/) Offline PWA Test: FAIL"
+            $stepResults["SubPathHosting"] = "FAIL (Ran)"
+            $stepErrors["SubPathHosting"] = (Get-LastLines $subPwText) -join "`n"
+        }
+    } else {
+        Log-Output "  Sub-path server failed to respond on http://localhost:8000/german-app/"
+        $stepResults["SubPathHosting"] = "NOT MEASURED (Server failed to start)"
+    }
+} catch {
+    Log-Output "  Sub-path test exception: $_"
+    $stepResults["SubPathHosting"] = "NOT MEASURED (Exception)"
+} finally {
+    if ($subServerProc -and !$subServerProc.HasExited) {
+        Log-Output "  Stopping sub-path server (PID: $($subServerProc.Id))..."
+        Stop-Process -Id $subServerProc.Id -Force -ErrorAction SilentlyContinue
+    }
+}
+
+# -----------------------------------------------------------------
+# 7. Summary Report Compilation
 # -----------------------------------------------------------------
 $failedCount = 0
 foreach ($v in $stepResults.Values) {
@@ -470,6 +549,8 @@ $summaryLines.Add("  7. Lighthouse Accessibility    : $($lhScores.Accessibility)
 $summaryLines.Add("  8. Lighthouse Best Practices   : $($lhScores.BestPractices) / 100 ($($stepResults['Lighthouse']))")
 $summaryLines.Add("  9. Vocabulary Verifier SHA-256 : $($stepResults['VerifyVocab'])")
 $summaryLines.Add("  10. 12 Controlled Mutation Tests: $($stepResults['MutationTests'])")
+$summaryLines.Add("  11. Distribution Build (site/) : $($stepResults['SiteContents'])")
+$summaryLines.Add("  12. Sub-Path Hosting (/german-app/) : $($stepResults['SubPathHosting'])")
 $summaryLines.Add("")
 $summaryLines.Add("OFFLINE PWA METRICS:")
 $summaryLines.Add("  - $($offlineMetrics.Cards)")

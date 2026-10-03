@@ -42,10 +42,27 @@ function createStaticServer(servedDir) {
     '.woff2': 'font/woff2'
   };
 
+  const subPath = (process.env.SUB_PATH || '').replace(/\/$/, '');
+  const prefix = subPath ? subPath + '/' : '/';
+
   return http.createServer((req, res) => {
     let reqPath = req.url.split('?')[0];
-    if (reqPath === '/') reqPath = '/index.html';
-    const filePath = path.join(servedDir, reqPath.replace(/^\//, ''));
+
+    if (subPath && reqPath === subPath) {
+      res.writeHead(301, { Location: subPath + '/' });
+      res.end();
+      return;
+    }
+
+    if (subPath && !reqPath.startsWith(prefix)) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('Not Found (outside sub-path ' + prefix + '): ' + reqPath);
+      return;
+    }
+
+    const relativePath = subPath ? reqPath.slice(prefix.length) : reqPath.replace(/^\//, '');
+    let fileRel = relativePath === '' ? 'index.html' : relativePath;
+    const filePath = path.join(servedDir, fileRel);
 
     if (!fs.existsSync(filePath)) {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -136,7 +153,8 @@ test.describe('Real Service Worker Upgrade Lifecycle (v3 -> v4)', () => {
       }
     });
 
-    const appUrl = `http://127.0.0.1:${port}/`;
+    const subPath = (process.env.SUB_PATH || '').replace(/\/$/, '');
+    const appUrl = subPath ? `http://127.0.0.1:${port}${subPath}/` : `http://127.0.0.1:${port}/`;
     console.log(`[Phase 1] Loading legacy v3 build from ${appUrl}...`);
     await page.goto(appUrl, { waitUntil: 'networkidle' });
 
