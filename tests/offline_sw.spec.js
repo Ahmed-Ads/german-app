@@ -130,7 +130,7 @@ test.describe('PWA Offline & Service Worker Verification', () => {
     await page.reload({ waitUntil: 'networkidle' });
 
     const progressData = await page.evaluate(() => {
-      const raw = localStorage.getItem('german-arabic-progress-v1');
+      const raw = localStorage.getItem('deutsch_lern_v1') || localStorage.getItem('deutsch_stats_v1');
       return raw ? JSON.parse(raw) : null;
     });
     console.log('Progress data found after offline reload:', !!progressData);

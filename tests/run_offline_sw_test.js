@@ -213,7 +213,7 @@ async function run() {
     await page.reload({ waitUntil: 'networkidle', timeout: 30000 });
 
     const progressData = await page.evaluate(() => {
-      const raw = localStorage.getItem('german-arabic-progress-v1');
+      const raw = localStorage.getItem('deutsch_lern_v1') || localStorage.getItem('deutsch_stats_v1');
       return raw ? JSON.parse(raw) : null;
     });
     if (!progressData) {
