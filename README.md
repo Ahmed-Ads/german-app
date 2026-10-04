@@ -47,6 +47,7 @@ German_App/
 │   ├── scan_font_sizes.js     # فحص أحجام الخطوط في DOM لضمان عدم وجود نصوص < 12px
 │   ├── serve_subpath.js       # خادم محلي لاختبار الاستضافة تحت مسار فرعي (/german-app/)
 │   ├── serve_pages_emulator.js # محاكي توجيه Cloudflare Pages وفحص تحويل /index.html إلى /
+│   ├── check_actions_versions.js # فحص توافر إصدارات إجراءات GitHub Actions ودعمها لـ Node 24
 │   ├── chrome_overflow_audit.js # فحص التجاوب ومنع التمرير الأفقي عبر 4 شاشات
 │   └── verify_console_flow.js # التحقق من خلو المتصفح من أي أخطاء في وحدة التحكم (Console)
 │
@@ -175,6 +176,8 @@ German_App/
 | **`scripts/chrome_overflow_audit.js`** | Node/Chrome | يفحص التجاوب وعدم التجاوز الأفقي للشاشات (320px، 360px، 390px، 1280px) (`node scripts/chrome_overflow_audit.js`). |
 | **`scripts/verify_console_flow.js`** | Node/Chrome | يتنقل بين كافة الشاشات ويتأكد من تسجيل 0 أخطاء في Console (`node scripts/verify_console_flow.js`). |
 | **`scripts/serve_subpath.js`** | Node.js | خادم محلي يخدم المسار الفرعي `/german-app/` للتحقق من توافق المسارات (`node scripts/serve_subpath.js`). |
+| **`scripts/serve_pages_emulator.js`** | Node.js | خادم محلي يحاكي توجيه Cloudflare Pages وتحويل 308 لـ `/index.html` (`node scripts/serve_pages_emulator.js`). |
+| **`scripts/check_actions_versions.js`** | Node.js | يفحص توافر إصدارات GitHub Actions عبر GitHub API والتأكد من اعتمادها على Node 24 (`node scripts/check_actions_versions.js`). |
 | **`tests/data_safety_runner.js`** | Node/Chrome | يثبت أمان بيانات المستخدم وحفظ التقدم والإحصائيات و SRS عند ترقية التطبيق من إصدار سابق (`node tests/data_safety_runner.js v1.3-voice`). |
 | **`tests/chrome_axe_runner.js`** | Node/Chrome | فحص إمكانية الوصول الكاملة بمكتبة axe-core والتأكد من 0 مخالفات WCAG (`node tests/chrome_axe_runner.js`). |
 | **`tests/voice_chrome_runner.js`** | Node/Chrome | فحص أصوات المتصفح الحقيقية والتأكد من تفضيل الأصوات الرجالية الألمانية وحفظ الاختيار (`node tests/voice_chrome_runner.js`). |
