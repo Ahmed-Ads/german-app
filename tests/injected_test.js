@@ -5,6 +5,10 @@ function record(name, pass, detail) {
 
 window.addEventListener('DOMContentLoaded', async () => {
   try {
+    const origConfirm = window.confirm;
+    const origAlert = window.alert;
+    const origAnchorClick = HTMLAnchorElement.prototype.click;
+
     // -----------------------------------------------------------------
     // 1. RELOAD PERSISTENCE TEST
     // -----------------------------------------------------------------
@@ -34,45 +38,96 @@ window.addEventListener('DOMContentLoaded', async () => {
     record('Reload Persistence', persistOk, 'Verified all 5 storage keys retained exact structures.');
 
     // -----------------------------------------------------------------
-    // 2. BACKUP EXPORT -> CLEAR -> IMPORT TEST
+    // 2. REAL APP FLOW: ALL MODES PRACTICE -> EXPORT -> CLEAR -> IMPORT
     // -----------------------------------------------------------------
-    const exportedBackup = {
-      version: 1,
-      timestamp: new Date().toISOString(),
-      appName: 'deutsch_lernen',
-      data: {
-        progress: rProg,
-        stats: rStats,
-        starred: rStar,
-        srs: rSrs,
-        dailyGoal: 30
-      }
-    };
-    const backupJsonStr = JSON.stringify(exportedBackup);
+    resetAllProgress();
 
-    // Clear all storage
-    appStorage.remove('german-arabic-progress-v1');
-    appStorage.remove('german-arabic-stats-v1');
-    appStorage.remove('deutsch_starred_v1');
-    appStorage.remove('deutsch_srs_v1');
-    appStorage.remove('deutsch_daily_goal_v1');
+    const cat = CATEGORIES.find(c => c.id === 'obst');
+    const w0 = cat.words[0]; // Der Apfel, die Äpfel, تفاحة
+    const correctDe = cat.hasArticles ? `${w0.a} ${w0.n}` : w0.n;
 
-    const clearedOk = (appStorage.get('german-arabic-progress-v1') === null);
+    // 2.1 MCQ Mode
+    go({ screen: 'exercise', catId: 'obst', mode: 'mcq' });
+    const mcqOpt = Array.from(document.querySelectorAll('#qzone .opt')).find(el => el.dataset.val === correctDe);
+    if(mcqOpt) mcqOpt.click();
 
-    // Import from backupJsonStr
-    const parsed = JSON.parse(backupJsonStr);
-    if (parsed && parsed.data) {
-      if (parsed.data.progress) appStorage.set('german-arabic-progress-v1', JSON.stringify(parsed.data.progress));
-      if (parsed.data.stats) appStorage.set('german-arabic-stats-v1', JSON.stringify(parsed.data.stats));
-      if (parsed.data.starred) appStorage.set('deutsch_starred_v1', JSON.stringify(parsed.data.starred));
-      if (parsed.data.srs) appStorage.set('deutsch_srs_v1', JSON.stringify(parsed.data.srs));
-      if (parsed.data.dailyGoal) appStorage.set('deutsch_daily_goal_v1', String(parsed.data.dailyGoal));
+    // 2.2 Written Mode
+    go({ screen: 'exercise', catId: 'obst', mode: 'written' });
+    const wIn = document.getElementById('wIn');
+    const wSub = document.getElementById('wSub');
+    if(wIn && wSub){
+      wIn.value = correctDe;
+      wSub.click();
     }
 
-    const impProg = JSON.parse(appStorage.get('german-arabic-progress-v1') || '{}');
-    const impStats = JSON.parse(appStorage.get('german-arabic-stats-v1') || '{}');
-    const importOk = clearedOk && impProg['obst-mcq'] && impProg['obst-mcq']['0'] === 3 && impStats.current === 5;
-    record('Backup Export -> Clear -> Import', importOk, 'Backup exported, store cleared, and restored with full data fidelity.');
+    // 2.3 Article Mode
+    go({ screen: 'exercise', catId: 'obst', mode: 'article' });
+    const artOpt = Array.from(document.querySelectorAll('#qzone .opt')).find(el => el.dataset.val === w0.a);
+    if(artOpt) artOpt.click();
+
+    // 2.4 Plural Mode
+    go({ screen: 'exercise', catId: 'obst', mode: 'plural' });
+    const plOpt = Array.from(document.querySelectorAll('#qzone .opt')).find(el => el.dataset.val === w0.pl);
+    if(plOpt) plOpt.click();
+
+    // 2.5 Listening Mode
+    go({ screen: 'exercise', catId: 'obst', mode: 'listen' });
+    const listenOpt = Array.from(document.querySelectorAll('#qzone .opt')).find(el => el.dataset.val === w0.ar);
+    if(listenOpt) listenOpt.click();
+
+    // 2.6 Global Review / SRS Step
+    go({ screen: 'exercise', mode: 'globalMcq' });
+    const gOpt = Array.from(document.querySelectorAll('#qzone .opt')).find(el => el.dataset.val === correctDe);
+    if(gOpt) gOpt.click();
+
+    // Mark star and daily goal
+    toggleStar('obst', 0);
+    setDailyGoal(35);
+
+    // Verify all 5 modes exist in progress
+    const modesInObst = progress.obst ? Object.keys(progress.obst).filter(k => k !== 'coreAcked') : [];
+    const hasAllModes = ['mcq', 'written', 'article', 'plural', 'listen'].every(m => modesInObst.includes(m));
+
+    // Snapshot state
+    const originalState = {
+      progress: JSON.parse(JSON.stringify(progress)),
+      stats: JSON.parse(JSON.stringify(stats)),
+      starred: Array.from(starredSet).sort(),
+      srs: JSON.parse(JSON.stringify(srsStore)),
+      dailyGoal: getDailyGoal()
+    };
+
+    // Export through real exportBackup
+    HTMLAnchorElement.prototype.click = function() {}; // mock anchor click in headless
+    const exportedJsonStr = exportBackup();
+    HTMLAnchorElement.prototype.click = origAnchorClick;
+
+    // Clear storage completely
+    resetAllProgress();
+    const storeWiped = !progress.obst && Object.keys(progress).length === 0;
+
+    // Import through real importBackup
+    window.confirm = function() { return true; };
+    window.alert = function() {};
+    HTMLAnchorElement.prototype.click = function() {};
+    importBackup(exportedJsonStr);
+    HTMLAnchorElement.prototype.click = origAnchorClick;
+    window.confirm = origConfirm;
+    window.alert = origAlert;
+
+    const restoredState = {
+      progress: JSON.parse(JSON.stringify(progress)),
+      stats: JSON.parse(JSON.stringify(stats)),
+      starred: Array.from(starredSet).sort(),
+      srs: JSON.parse(JSON.stringify(srsStore)),
+      dailyGoal: getDailyGoal()
+    };
+
+    const deepEqual = JSON.stringify(restoredState) === JSON.stringify(originalState);
+    const flowPassed = hasAllModes && storeWiped && deepEqual;
+    record('Real App Flow: All Modes Export/Import Roundtrip', flowPassed,
+      flowPassed ? 'Exercised all 5 modes (mcq, written, article, plural, listen) + globalReview/SRS, exported, cleared, and restored state deep-equals original.'
+                 : `Failed: hasAllModes=${hasAllModes}, storeWiped=${storeWiped}, deepEqual=${deepEqual}`);
 
     // -----------------------------------------------------------------
     // 3. RESET ALL PROGRESS TEST (calling actual resetAllProgress())
@@ -300,8 +355,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     ];
 
     let allInvalidRejected = true;
-    const origAlert = window.alert;
-    const origConfirm = window.confirm;
     window.alert = function() {};
     window.confirm = function() { return false; };
 
@@ -336,7 +389,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       progress: {
         obst: {
           mcq: { unlocked: 6, counts: { '0': 3, '1': 2 } },
-          written: { unlocked: 3, counts: { '0': 1 } }
+          written: { unlocked: 3, counts: { '0': 1 } },
+          listen: { unlocked: 6, counts: { '0': 2 } }
         }
       },
       stats: {
@@ -354,7 +408,6 @@ window.addEventListener('DOMContentLoaded', async () => {
       dailyGoal: 30
     };
 
-    const origAnchorClick = HTMLAnchorElement.prototype.click;
     HTMLAnchorElement.prototype.click = function() {};
     window.confirm = function() { return true; }; // accept restore
     window.alert = function() {};
@@ -363,15 +416,52 @@ window.addEventListener('DOMContentLoaded', async () => {
     window.alert = origAlert;
     HTMLAnchorElement.prototype.click = origAnchorClick;
 
-    const restoredOk = (progress.obst && progress.obst.mcq.unlocked === 6) &&
+    const restoredOk = (progress.obst && progress.obst.mcq.unlocked === 6 && progress.obst.listen.unlocked === 6) &&
                        (stats.current === 5 && stats.totalAnswered === 40) &&
                        (starredSet.has('obst_0') && starredSet.has('gemuese_0')) &&
                        (srsStore['obst_0'] && srsStore['obst_0'].box === 3) &&
                        (getDailyGoal() === 30);
 
     record('Valid Backup Full Restoration', restoredOk,
-      restoredOk ? 'Valid backup verified and restored all progress, stats, starred words, SRS, and goal.'
+      restoredOk ? 'Valid backup verified and restored all progress (including listen mode), stats, starred words, SRS, and goal.'
                  : 'Failed restoring valid backup.');
+
+    // -----------------------------------------------------------------
+    // 11.5 HONEST PRE-RESTORE AUTO-BACKUP ERROR HANDLING
+    // -----------------------------------------------------------------
+    const origCreateObjectURL = URL.createObjectURL;
+    URL.createObjectURL = function() { throw new Error('Download blocked by browser sandbox'); };
+
+    let confirmCallCount = 0;
+    let secondConfirmMsg = '';
+    window.confirm = function(msg) {
+      confirmCallCount++;
+      if (confirmCallCount === 1) return true; // Accept initial restore prompt
+      secondConfirmMsg = msg;
+      return false; // Reject overwrite without backup
+    };
+    window.alert = function() {};
+
+    const goalBeforeAttempt = getDailyGoal();
+    importBackup(JSON.stringify({ dailyGoal: 99 }));
+    const cancelledDidNotOverwrite = (confirmCallCount >= 2) && getDailyGoal() === goalBeforeAttempt && secondConfirmMsg.includes('تعذر');
+
+    confirmCallCount = 0;
+    window.confirm = function() {
+      confirmCallCount++;
+      return true; // Accept both prompts
+    };
+    importBackup(JSON.stringify({ dailyGoal: 99 }));
+    const confirmedDidOverwrite = (confirmCallCount >= 2) && getDailyGoal() === 99;
+
+    URL.createObjectURL = origCreateObjectURL;
+    window.confirm = origConfirm;
+    window.alert = origAlert;
+
+    const honestAutoBackupPassed = cancelledDidNotOverwrite && confirmedDidOverwrite;
+    record('Honest Pre-Restore Auto-Backup Error Handling', honestAutoBackupPassed,
+      honestAutoBackupPassed ? 'Clear Arabic prompt displayed on download exception; user cancellation safely aborted overwrite; explicit confirmation proceeded.'
+                             : `Failed: cancelledDidNotOverwrite=${cancelledDidNotOverwrite}, confirmedDidOverwrite=${confirmedDidOverwrite}`);
 
     // -----------------------------------------------------------------
     // 12. STORAGE RESILIENCY: CORRUPTED LOCALSTORAGE RECOVERY
@@ -408,7 +498,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                               : 'Failed to safely recover from corrupted storage.');
 
   } catch(err) {
-    record('Error', false, err.message);
+    record('Error', false, err.stack || err.message);
   } finally {
     const outDiv = document.createElement('div');
     outDiv.id = 'browser-test-report';
