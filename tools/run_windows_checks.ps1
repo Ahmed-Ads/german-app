@@ -394,7 +394,7 @@ try {
 }
 
 # -----------------------------------------------------------------
-# 5. Vocabulary Integrity & Controlled Mutation Tests
+# 5. Vocabulary Integrity & Mutation/Regression Tests
 # -----------------------------------------------------------------
 Log-Output "`n[7/7] Running Vocabulary Integrity & Mutation Tests..."
 
@@ -426,9 +426,11 @@ $mutationOutput = if ($pyExecutable -ne "NOT_FOUND") {
 $mutationOutput | Out-File -FilePath $rawLogPath -Append -Encoding utf8
 $mutationText = ($mutationOutput -join "`n")
 
-if ($LASTEXITCODE -eq 0 -and $mutationText.Contains("ALL 12 MUTATION TESTS PASSED")) {
-    Log-Output "  mutation_verifier_test.py: PASS"
-    $stepResults["MutationTests"] = "PASS (Ran)"
+$mutationTotal = 0
+if ($LASTEXITCODE -eq 0 -and $mutationText -match 'MUTATION_SUITE_RESULT: PASS total=(\d+) passed=\1 failed=0') {
+    $mutationTotal = [int]$Matches[1]
+    Log-Output "  mutation_verifier_test.py: PASS ($mutationTotal tests)"
+    $stepResults["MutationTests"] = "PASS (Ran, $mutationTotal tests)"
 } else {
     Log-Output "  mutation_verifier_test.py: FAIL"
     $stepResults["MutationTests"] = "FAIL (Ran)"
@@ -656,7 +658,7 @@ $summaryLines.Add("  6. 360px Viewport Overflow Audit: $($stepResults['ViewportO
 $summaryLines.Add("  7. Lighthouse Accessibility    : $($lhScores.Accessibility) / 100 ($($stepResults['Lighthouse']))")
 $summaryLines.Add("  8. Lighthouse Best Practices   : $($lhScores.BestPractices) / 100 ($($stepResults['Lighthouse']))")
 $summaryLines.Add("  9. Vocabulary Verifier SHA-256 : $($stepResults['VerifyVocab'])")
-$summaryLines.Add("  10. 12 Controlled Mutation Tests: $($stepResults['MutationTests'])")
+$summaryLines.Add("  10. Mutation & Regression Tests: $($stepResults['MutationTests'])")
 $summaryLines.Add("  11. Distribution Build (site/) : $($stepResults['SiteContents'])")
 $summaryLines.Add("  12. Sub-Path Hosting (/german-app/) : $($stepResults['SubPathHosting'])")
 $summaryLines.Add("")

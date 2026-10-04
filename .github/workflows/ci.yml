@@ -41,7 +41,7 @@ jobs:
       - name: 1. Strict Vocabulary Verification (Rule R1 / SHA-256)
         run: python verify_vocab.py
 
-      - name: 2. Controlled Mutation Testing
+      - name: 2. Mutation & Regression Testing
         run: python tests/mutation_verifier_test.py
 
       - name: 3. Vitest Test Suite (Unit, Integrity, Fuzz, Voice, Precache)

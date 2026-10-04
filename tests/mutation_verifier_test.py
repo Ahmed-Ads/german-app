@@ -44,7 +44,11 @@ INDEX_PATH = os.path.join(ROOT_DIR, 'index.html')
 with open(INDEX_PATH, 'r', encoding='utf-8') as f:
     original_html = f.read().replace('\r\n', '\n')
 
+passed_count = 0
+failed_count = 0
+
 def run_mutation_test(name, mutated_content, expected_err_keyword):
+    global passed_count, failed_count
     with tempfile.NamedTemporaryFile('w', encoding='utf-8', suffix='.html', delete=False) as tf:
         tf.write(mutated_content)
         tpath = tf.name
@@ -93,6 +97,10 @@ def run_mutation_test(name, mutated_content, expected_err_keyword):
             )
 
         print(f"[OK] ✅ Mutation Test [{name}]: PASSED (Verifier rejected mutation with '{expected_err_keyword}')")
+        passed_count += 1
+    except Exception as e:
+        print(f"[FAIL] ❌ Mutation Test [{name}]: FAILED ({e})")
+        failed_count += 1
     finally:
         if os.path.exists(tpath):
             os.remove(tpath)
@@ -140,39 +148,45 @@ w2 = "{a:'die',n:'Banane',ar:'موزة',pl:'die Bananen',s:'Die Banane ist gelb 
 run_mutation_test("Word_reordering", original_html.replace(f"{w1},\n    {w2}", f"{w2},\n    {w1}", 1), "mismatch")
 
 def run_custom_target_test(name, target_path, expected_err_keyword):
-    code = (
-        "import sys, os\n"
-        f"sys.path.insert(0, {repr(ROOT_DIR)})\n"
-        "import verify_vocab\n"
-        f"verify_vocab.TARGET_FILES = [{repr(target_path)}]\n"
-        "verify_vocab.main()\n"
-    )
-    cmd = [sys.executable, '-c', code]
-    sub_env = os.environ.copy()
-    sub_env['PYTHONUTF8'] = '1'
-    sub_env['PYTHONIOENCODING'] = 'utf-8'
-
-    res = subprocess.run(
-        cmd,
-        capture_output=True,
-        text=True,
-        encoding='utf-8',
-        errors='replace',
-        env=sub_env
-    )
-    combined_output = (res.stdout or "") + (res.stderr or "")
-
-    if res.returncode == 0:
-        raise AssertionError(f"Regression Test '{name}' FAILED: Verifier unexpectedly passed with exit code 0!")
-
-    if expected_err_keyword not in combined_output:
-        raise AssertionError(
-            f"Regression Test '{name}' FAILED: Expected rejection keyword '{expected_err_keyword}' not found in output.\n"
-            f"Exit Code: {res.returncode}\n"
-            f"Output:\n{combined_output}"
+    global passed_count, failed_count
+    try:
+        code = (
+            "import sys, os\n"
+            f"sys.path.insert(0, {repr(ROOT_DIR)})\n"
+            "import verify_vocab\n"
+            f"verify_vocab.TARGET_FILES = [{repr(target_path)}]\n"
+            "verify_vocab.main()\n"
         )
+        cmd = [sys.executable, '-c', code]
+        sub_env = os.environ.copy()
+        sub_env['PYTHONUTF8'] = '1'
+        sub_env['PYTHONIOENCODING'] = 'utf-8'
 
-    print(f"[OK] ✅ Regression Test [{name}]: PASSED (exit code {res.returncode}, rejected with '{expected_err_keyword}')")
+        res = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+            errors='replace',
+            env=sub_env
+        )
+        combined_output = (res.stdout or "") + (res.stderr or "")
+
+        if res.returncode == 0:
+            raise AssertionError(f"Regression Test '{name}' FAILED: Verifier unexpectedly passed with exit code 0!")
+
+        if expected_err_keyword not in combined_output:
+            raise AssertionError(
+                f"Regression Test '{name}' FAILED: Expected rejection keyword '{expected_err_keyword}' not found in output.\n"
+                f"Exit Code: {res.returncode}\n"
+                f"Output:\n{combined_output}"
+            )
+
+        print(f"[OK] ✅ Regression Test [{name}]: PASSED (exit code {res.returncode}, rejected with '{expected_err_keyword}')")
+        passed_count += 1
+    except Exception as e:
+        print(f"[FAIL] ❌ Regression Test [{name}]: FAILED ({e})")
+        failed_count += 1
 
 print("\n--- REGRESSION & EDGE CASE INTEGRITY TESTS ---")
 # 13. Missing target file (must exit non-zero)
@@ -184,6 +198,15 @@ run_mutation_test("Categories_not_found", "<html><body><script>const OTHER_DATA 
 # 15. Target file has empty categories / word count 0
 run_mutation_test("Word_count_zero", "<html><script>const CATEGORIES = [];</script></html>", "Category count mismatch")
 
+total_count = passed_count + failed_count
 print("=" * 65)
-print("🎉 ALL 15 MUTATION & REGRESSION TESTS PASSED (EXIT CODES VERIFIED NON-ZERO).")
-print("=" * 65)
+if failed_count == 0:
+    print(f"🎉 ALL {total_count} MUTATION & REGRESSION TESTS PASSED (EXIT CODES VERIFIED NON-ZERO).")
+    print("=" * 65)
+    print(f"MUTATION_SUITE_RESULT: PASS total={total_count} passed={passed_count} failed={failed_count}")
+    sys.exit(0)
+else:
+    print(f"❌ {failed_count} OF {total_count} MUTATION & REGRESSION TESTS FAILED.")
+    print("=" * 65)
+    print(f"MUTATION_SUITE_RESULT: FAIL total={total_count} passed={passed_count} failed={failed_count}")
+    sys.exit(1)

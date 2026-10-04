@@ -57,7 +57,8 @@ German_App/
 │   ├── voice_chrome_runner.js # فحص أصوات المتصفح الحقيقية في Google Chrome
 │   ├── sw_static_check.test.js# فحص سلامة إصدار وتوافق ملف sw.js
 │   ├── site_contents.test.js  # فحص اكتمال ونظافة مجلد التوزيع site/
-│   ├── mutation_verifier_test.py # 12 اختبار طفرات محكومة لإثبات رفض التعديلات الباطلة
+│   ├── mutation_verifier_test.py # اختبارات الطفرات والانحدار لإثبات رفض التعديلات الباطلة
+│   ├── test_mutation_runner_logic.ps1 # اختبار ذاتي لمنطق فحص نتائج الطفرات في مشغل ويندوز
 │   ├── test_baseline_update.py# اختبار إثبات عمل تحديث المرجع وتوثيق الهاش آلياً
 │   ├── data_safety_runner.js  # اختبار ترقية المتصفح وضمان بقاء التقدم والإحصائيات
 │   ├── offline_sw.spec.js     # اختبار Playwright لدورة حياة PWA بدون إنترنت
@@ -165,7 +166,8 @@ German_App/
 | السكربت / الأداة | بيئة التشغيل | الهدف منها وكيفية تشغيلها |
 |---|:---:|---|
 | **`verify_vocab.py`** | Python | الفاحص الأساسي للمفردات. يتحقق من تطابق 1,160 كلمة مع البصمة التشفيرية (`python verify_vocab.py`). |
-| **`tests/mutation_verifier_test.py`** | Python | يثبت كفاءة الفاحص بحقن 12 طفرة غير صالحة والتأكد من رفضها جميعاً (`python tests/mutation_verifier_test.py`). |
+| **`tests/mutation_verifier_test.py`** | Python | يثبت كفاءة الفاحص بحزمة اختبارات الطفرات والانحدار والتأكد من رفضها جميعاً (`python tests/mutation_verifier_test.py`). |
+| **`tests/test_mutation_runner_logic.ps1`** | PowerShell | اختبار ذاتي للتحقق من دقة كشف مشغل ويندوز لحالات النجاح والفشل (`powershell -File tests/test_mutation_runner_logic.ps1`). |
 | **`tests/test_baseline_update.py`** | Python | يثبت قدرة الفاحص على تحديث المرجع وتسجيل الهاش في بيئة معزولة (`python tests/test_baseline_update.py`). |
 | **`scripts/build_site.js`** | Node.js | يجمع ملفات التطبيق الإنتاجية في مجلد `site/` للنشر (`node scripts/build_site.js`). |
 | **`scripts/scan_font_sizes.js`** | Node/Chrome | يفحص عناصر الصفحة ويتأكد من عدم وجود أي خط يقل عن 12px لمنع مشاكل القراءة والوصول (`node scripts/scan_font_sizes.js`). |
