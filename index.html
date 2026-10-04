@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="تطبيق ويب تقدمي (PWA) تفاعلي لمتحدثي العربية لإتقان 1160 كلمة ألمانية وقواعدها مع صيغ الجمع والتكرار المتباعد">
+<meta name="description" content="تطبيق ويب تقدمي (PWA) تفاعلي لمتحدثي العربية لإتقان 1160 كلمة ألمانية مفحوصة آلياً وقواعدها مع صيغ الجمع والتكرار المتباعد">
 <meta name="theme-color" content="#171512">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -1997,25 +1997,60 @@ let saveTimer = null;
 async function loadProgress(){
   try{
     const res = await window.storage.get(PROGRESS_KEY, false);
-    if(res && res.value) progress = JSON.parse(res.value);
+    if(res && res.value){
+      const parsed = JSON.parse(res.value);
+      if(typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed)){
+        const cleaned = {};
+        const knownCatIds = new Set(CATEGORIES.map(c => c.id));
+        for(const [catId, val] of Object.entries(parsed)){
+          if(knownCatIds.has(catId) && typeof val === 'object' && val !== null && !Array.isArray(val)){
+            cleaned[catId] = val;
+          }
+        }
+        progress = cleaned;
+      } else {
+        progress = {};
+      }
+    } else {
+      progress = {};
+    }
   }catch(e){
-    // no saved progress yet, or storage unavailable — start fresh
     progress = {};
   }
   progressReady = true;
 }
 
-// stats = { lastDate:'YYYY-MM-DD', current:N, longest:N, totalAnswered:N, totalCorrect:N }
+// stats = { lastDate:'YYYY-MM-DD', current:N, longest:N, totalAnswered:N, totalCorrect:N, todayCount:N }
 const STATS_KEY = 'german-arabic-stats-v1';
-let stats = { lastDate:null, current:0, longest:0, totalAnswered:0, totalCorrect:0 };
+let stats = { lastDate:null, current:0, longest:0, totalAnswered:0, totalCorrect:0, todayCount:0 };
 let statsSaveTimer = null;
 
 async function loadStats(){
+  const defaultStats = { lastDate:null, current:0, longest:0, totalAnswered:0, totalCorrect:0, todayCount:0 };
   try{
     const res = await window.storage.get(STATS_KEY, false);
-    if(res && res.value) stats = Object.assign({ lastDate:null, current:0, longest:0, totalAnswered:0, totalCorrect:0 }, JSON.parse(res.value));
+    if(res && res.value){
+      const parsed = JSON.parse(res.value);
+      if(typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed)){
+        stats = {
+          lastDate: (typeof parsed.lastDate === 'string') ? parsed.lastDate : null,
+          current: Number.isInteger(parsed.current) && parsed.current >= 0 ? parsed.current : 0,
+          longest: Number.isInteger(parsed.longest) && parsed.longest >= 0 ? parsed.longest : 0,
+          totalAnswered: Number.isInteger(parsed.totalAnswered) && parsed.totalAnswered >= 0 ? parsed.totalAnswered : 0,
+          totalCorrect: Number.isInteger(parsed.totalCorrect) && parsed.totalCorrect >= 0 ? parsed.totalCorrect : 0,
+          todayCount: Number.isInteger(parsed.todayCount) && parsed.todayCount >= 0 ? parsed.todayCount : 0
+        };
+        if(stats.totalCorrect > stats.totalAnswered){
+          stats.totalCorrect = stats.totalAnswered;
+        }
+      } else {
+        stats = { ...defaultStats };
+      }
+    } else {
+      stats = { ...defaultStats };
+    }
   }catch(e){
-    stats = { lastDate:null, current:0, longest:0, totalAnswered:0, totalCorrect:0 };
+    stats = { ...defaultStats };
   }
 }
 
@@ -2305,16 +2340,15 @@ function streakUnit(n){
 
 function sentenceLine(w){
   if(!w || !w.s) return '';
-  const safeText = (w.s || '').replace(/'/g, "\\'");
   return `
     <div class="fb-sentence">
       <div class="fb-sentence-de de">
-        <span>${w.s}</span>
-        <button class="mini-speak" data-speak="${escapeHtml(w.s)}" title="استمع للجملة">
+        <span>${escapeHtml(w.s)}</span>
+        <button class="mini-speak" data-speak="${escapeAttr(w.s)}" title="استمع للجملة">
           ${MINI_SPEAK_SVG}
         </button>
       </div>
-      <div class="fb-sentence-ar">${w.sar || ''}</div>
+      <div class="fb-sentence-ar">${escapeHtml(w.sar || '')}</div>
     </div>`;
 }
 
@@ -2735,7 +2769,8 @@ function showOfflineVoiceWarningOnce(){
 let deVoice = null;
 function speak(text){
   try{
-    if(!('speechSynthesis' in window)) return;
+    if(!text || !('speechSynthesis' in window)) return;
+    text = String(text);
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.lang = 'de-DE';
@@ -2786,9 +2821,25 @@ function colorArticle(article){
 /* ---------- Starred Words ---------- */
 let starredSet = new Set();
 async function loadStarred(){
+  starredSet = new Set();
   try {
     const raw = (window.localStorage && window.localStorage.getItem('deutsch_starred_v1')) || '[]';
-    starredSet = new Set(JSON.parse(raw));
+    const parsed = JSON.parse(raw);
+    if(Array.isArray(parsed)){
+      const knownCatIds = new Set(CATEGORIES.map(c => c.id));
+      const catWordCounts = new Map(CATEGORIES.map(c => [c.id, c.words.length]));
+      parsed.forEach(item => {
+        if(typeof item === 'string'){
+          const parts = item.split('_');
+          if(parts.length === 2 && knownCatIds.has(parts[0])){
+            const idx = parseInt(parts[1], 10);
+            if(Number.isInteger(idx) && idx >= 0 && idx < catWordCounts.get(parts[0])){
+              starredSet.add(item);
+            }
+          }
+        }
+      });
+    }
   } catch(e){
     starredSet = new Set();
   }
@@ -2840,9 +2891,29 @@ function starredPool(){
 const SRS_INTERVALS = [1, 3, 7, 14, 30]; // days per box (0, 1, 2, 3, 4)
 let srsStore = {};
 async function loadSrs(){
+  srsStore = {};
   try {
     const raw = (window.localStorage && window.localStorage.getItem('deutsch_srs_v1')) || '{}';
-    srsStore = JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    if(typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed)){
+      const knownCatIds = new Set(CATEGORIES.map(c => c.id));
+      const catWordCounts = new Map(CATEGORIES.map(c => [c.id, c.words.length]));
+      for(const [k, rec] of Object.entries(parsed)){
+        const parts = k.split('_');
+        if(parts.length === 2 && knownCatIds.has(parts[0])){
+          const idx = parseInt(parts[1], 10);
+          if(Number.isInteger(idx) && idx >= 0 && idx < catWordCounts.get(parts[0])){
+            if(typeof rec === 'object' && rec !== null && !Array.isArray(rec)){
+              srsStore[k] = {
+                box: Number.isInteger(rec.box) && rec.box >= 0 && rec.box <= 5 ? rec.box : 0,
+                lastDate: typeof rec.lastDate === 'string' ? rec.lastDate : todayStr(),
+                nextDate: typeof rec.nextDate === 'string' ? rec.nextDate : todayStr()
+              };
+            }
+          }
+        }
+      }
+    }
   } catch(e){
     srsStore = {};
   }
@@ -2894,13 +2965,21 @@ function getSrsDueWords(){ return srsDuePool(); }
 function getDailyGoal(){
   try {
     const v = window.localStorage && window.localStorage.getItem('deutsch_daily_goal_v1');
-    return v ? parseInt(v, 10) : 20;
+    if(v !== null){
+      const parsed = parseInt(v, 10);
+      if(Number.isInteger(parsed) && parsed >= 5 && parsed <= 200){
+        return parsed;
+      }
+    }
+    return 20;
   } catch(e){ return 20; }
 }
 function setDailyGoal(g){
   try {
-    if(window.localStorage) window.localStorage.setItem('deutsch_daily_goal_v1', String(g));
-    showToast(`تم تعيين الهدف اليومي إلى ${g} كلمة 🎯`);
+    const clamped = Math.max(5, Math.min(200, Math.round(Number(g) || 20)));
+    if(window.localStorage) window.localStorage.setItem('deutsch_daily_goal_v1', String(clamped));
+    if(appStorage) appStorage.set(STORAGE_KEYS.DAILY_GOAL, String(clamped));
+    showToast(`تم تعيين الهدف اليومي إلى ${clamped} كلمة 🎯`);
     render();
   } catch(e){}
 }
@@ -2909,10 +2988,161 @@ function getTodayCount(){
   return stats.todayCount || 0;
 }
 
+/* ---------- Backup & Restore Validation ---------- */
+function validateBackupData(data, categoriesList = (typeof CATEGORIES !== 'undefined' ? CATEGORIES : [])){
+  if(!data || typeof data !== 'object' || Array.isArray(data)){
+    return { valid: false, error: 'الملف غير صالح: لا يحتوي على كائن بيانات صالح (JSON Object).' };
+  }
+
+  const knownCatIds = new Set(categoriesList.map(c => c.id));
+  const catWordCounts = new Map(categoriesList.map(c => [c.id, c.words ? c.words.length : 0]));
+  const validModes = new Set(['mcq', 'written', 'article', 'plural']);
+
+  const hasProgress = data.progress !== undefined;
+  const hasStats = data.stats !== undefined;
+  const hasStarred = data.starred !== undefined;
+  const hasSrs = data.srs !== undefined;
+  const hasGoal = data.dailyGoal !== undefined;
+
+  if(!hasProgress && !hasStats && !hasStarred && !hasSrs && !hasGoal){
+    return { valid: false, error: 'الملف غير صالح أو فارغ: لا يحتوي على أي حقول تقدم صالحة (progress, stats, starred, srs, dailyGoal).' };
+  }
+
+  // 1. Progress validation
+  if(hasProgress){
+    if(typeof data.progress !== 'object' || data.progress === null || Array.isArray(data.progress)){
+      return { valid: false, error: 'حقل التقدم (progress) غير صالح أو فارغ.' };
+    }
+    for(const [catId, catVal] of Object.entries(data.progress)){
+      if(!knownCatIds.has(catId)){
+        return { valid: false, error: `القسم «${catId}» في بيانات التقدم غير معروف في التطبيق.` };
+      }
+      if(typeof catVal !== 'object' || catVal === null || Array.isArray(catVal)){
+        return { valid: false, error: `بيانات القسم «${catId}» غير صالحة.` };
+      }
+      const maxWords = catWordCounts.get(catId);
+      for(const [mKey, mVal] of Object.entries(catVal)){
+        if(mKey === 'coreAcked'){
+          if(typeof mVal !== 'boolean') return { valid: false, error: `حقل coreAcked في القسم «${catId}» غير صالح.` };
+          continue;
+        }
+        if(!validModes.has(mKey)){
+          return { valid: false, error: `الوضع «${mKey}» في القسم «${catId}» غير معروف.` };
+        }
+        if(typeof mVal !== 'object' || mVal === null || Array.isArray(mVal)){
+          return { valid: false, error: `بيانات الوضع «${mKey}» في القسم «${catId}» غير صالحة.` };
+        }
+        if(mVal.unlocked !== undefined && (!Number.isInteger(mVal.unlocked) || mVal.unlocked < 0 || mVal.unlocked > maxWords + 50)){
+          return { valid: false, error: `عدد الكلمات المفتوحة في «${catId}/${mKey}» غير صالح.` };
+        }
+        if(mVal.counts !== undefined){
+          if(typeof mVal.counts !== 'object' || mVal.counts === null || Array.isArray(mVal.counts)){
+            return { valid: false, error: `عدادات الكلمات في «${catId}/${mKey}» غير صالحة.` };
+          }
+          for(const [wIdxStr, cnt] of Object.entries(mVal.counts)){
+            const wIdx = parseInt(wIdxStr, 10);
+            if(!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords){
+              return { valid: false, error: `فهرس الكلمة (${wIdxStr}) في القسم «${catId}» خارج نطاق القسم.` };
+            }
+            if(!Number.isInteger(cnt) || cnt < 0 || cnt > 10000){
+              return { valid: false, error: `قيمة العداد للكلمة (${wIdxStr}) في «${catId}/${mKey}» غير صالحة.` };
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 2. Stats validation
+  if(hasStats){
+    if(typeof data.stats !== 'object' || data.stats === null || Array.isArray(data.stats)){
+      return { valid: false, error: 'حقل الإحصائيات (stats) غير صالح أو فارغ.' };
+    }
+    const numFields = ['current', 'longest', 'totalAnswered', 'totalCorrect'];
+    for(const f of numFields){
+      if(data.stats[f] !== undefined && (!Number.isInteger(data.stats[f]) || data.stats[f] < 0)){
+        return { valid: false, error: `حقل الإحصائيات «${f}» يجب أن يكون عدداً صحيحاً غير سالب.` };
+      }
+    }
+    if(data.stats.todayCount !== undefined && (!Number.isInteger(data.stats.todayCount) || data.stats.todayCount < 0)){
+      return { valid: false, error: 'قيمة إنجاز اليوم في الإحصائيات غير صالحة.' };
+    }
+    if(data.stats.totalCorrect !== undefined && data.stats.totalAnswered !== undefined && data.stats.totalCorrect > data.stats.totalAnswered){
+      return { valid: false, error: 'عدد الإجابات الصحيحة لا يمكن أن يتجاوز إجمالي الإجابات.' };
+    }
+    if(data.stats.lastDate !== undefined && data.stats.lastDate !== null && typeof data.stats.lastDate !== 'string'){
+      return { valid: false, error: 'تاريخ آخر تدريب في الإحصائيات غير صالح.' };
+    }
+  }
+
+  // 3. Starred validation
+  if(hasStarred){
+    if(!Array.isArray(data.starred)){
+      return { valid: false, error: 'حقل المفضلة (starred) يجب أن يكون مصفوفة.' };
+    }
+    for(const item of data.starred){
+      if(typeof item !== 'string'){
+        return { valid: false, error: 'عنصر في المفضلة بصيغة غير صالحة.' };
+      }
+      const parts = item.split('_');
+      if(parts.length !== 2){
+        return { valid: false, error: `معرّف الكلمة المميزة «${item}» غير صالح.` };
+      }
+      const [catId, idxStr] = parts;
+      if(!knownCatIds.has(catId)){
+        return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف في التطبيق.` };
+      }
+      const idx = parseInt(idxStr, 10);
+      if(!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)){
+        return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج نطاق القسم.` };
+      }
+    }
+  }
+
+  // 4. Srs validation
+  if(hasSrs){
+    if(typeof data.srs !== 'object' || data.srs === null || Array.isArray(data.srs)){
+      return { valid: false, error: 'حقل التكرار المتباعد (srs) غير صالح.' };
+    }
+    for(const [k, rec] of Object.entries(data.srs)){
+      const parts = k.split('_');
+      if(parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
+      const [catId, idxStr] = parts;
+      if(!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
+      const idx = parseInt(idxStr, 10);
+      if(!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)){
+        return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج نطاق القسم.` };
+      }
+      if(typeof rec !== 'object' || rec === null || Array.isArray(rec)){
+        return { valid: false, error: `سجل SRS للكلمة «${k}» غير صالح.` };
+      }
+      if(rec.box !== undefined && (!Number.isInteger(rec.box) || rec.box < 0 || rec.box > 5)){
+        return { valid: false, error: `رقم صندوق SRS للكلمة «${k}» يجب أن يكون بين 0 و 5.` };
+      }
+      if(rec.lastDate !== undefined && typeof rec.lastDate !== 'string'){
+        return { valid: false, error: `تاريخ المراجعة السابق للكلمة «${k}» غير صالح.` };
+      }
+      if(rec.nextDate !== undefined && typeof rec.nextDate !== 'string'){
+        return { valid: false, error: `تاريخ المراجعة القادم للكلمة «${k}» غير صالح.` };
+      }
+    }
+  }
+
+  // 5. DailyGoal validation
+  if(hasGoal){
+    const g = Number(data.dailyGoal);
+    if(isNaN(g) || !Number.isInteger(g) || g < 5 || g > 200){
+      return { valid: false, error: 'الهدف اليومي (dailyGoal) يجب أن يكون عدداً صحيحاً بين 5 و 200 كلمة.' };
+    }
+  }
+
+  return { valid: true };
+}
+
 /* ---------- Backup & Restore ---------- */
 // NOTE: Voice preference (deutsch_voice_v1) is intentionally NOT exported or imported
 // in backups because speech synthesis voices are hardware/OS/browser-specific.
-function exportBackup(){
+function exportBackup(isAutoBeforeRestore = false){
   try {
     const backupData = {
       version: 2,
@@ -2928,62 +3158,81 @@ function exportBackup(){
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `deutsch_lernen_backup_${todayStr()}.json`;
+    a.download = isAutoBeforeRestore 
+      ? `deutsch_lernen_backup_pre_restore_${todayStr()}.json`
+      : `deutsch_lernen_backup_${todayStr()}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    showToast('تم تصدير النسخة الاحتياطية بنجاح 📥');
+    if(!isAutoBeforeRestore){
+      showToast('تم تصدير النسخة الاحتياطية بنجاح 📥');
+    }
   } catch(e){
-    alert('حدث خطأ أثناء تصدير النسخة الاحتياطية: ' + e.message);
+    if(!isAutoBeforeRestore){
+      alert('حدث خطأ أثناء تصدير النسخة الاحتياطية: ' + e.message);
+    }
   }
 }
 
 function importBackup(jsonStr){
+  let data;
   try {
-    const data = JSON.parse(jsonStr);
-    if(!data || typeof data !== 'object' || Array.isArray(data)){
-      throw new Error('ملف النسخة الاحتياطية غير صالح.');
-    }
-    const hasProgress = data.progress && typeof data.progress === 'object' && !Array.isArray(data.progress);
-    const hasStats = data.stats && typeof data.stats === 'object' && !Array.isArray(data.stats);
-    const hasStarred = data.starred && Array.isArray(data.starred);
-    const hasSrs = data.srs && typeof data.srs === 'object' && !Array.isArray(data.srs);
-    const hasGoal = data.dailyGoal !== undefined && !isNaN(Number(data.dailyGoal)) && Number(data.dailyGoal) > 0;
-
-    if(!hasProgress && !hasStats && !hasStarred && !hasSrs && !hasGoal){
-      throw new Error('ملف النسخة الاحتياطية غير صالح أو فارغ.');
-    }
-    if(hasProgress){
-      progress = data.progress;
-      appStorage.set(STORAGE_KEYS.PROGRESS, JSON.stringify(progress));
-      if(window.localStorage) window.localStorage.setItem('deutsch_lern_v1', JSON.stringify(progress));
-    }
-    if(hasStats){
-      stats = data.stats;
-      appStorage.set(STORAGE_KEYS.STATS, JSON.stringify(stats));
-      if(window.localStorage) window.localStorage.setItem('deutsch_stats_v1', JSON.stringify(stats));
-    }
-    if(hasStarred){
-      starredSet = new Set(data.starred.filter(item => typeof item === 'string'));
-      saveStarredSoon();
-    }
-    if(hasSrs){
-      srsStore = data.srs;
-      saveSrsSoon();
-    }
-    if(hasGoal){
-      const g = Math.max(1, Math.min(500, Math.round(Number(data.dailyGoal))));
-      try {
-        if(window.localStorage) window.localStorage.setItem('deutsch_daily_goal_v1', String(g));
-        appStorage.set(STORAGE_KEYS.DAILY_GOAL, String(g));
-      } catch(e){}
-    }
-    showToast('تمت استعادة النسخة الاحتياطية بنجاح 🎉');
-    render();
+    data = JSON.parse(jsonStr);
   } catch(e){
-    alert('فشل استيراد النسخة الاحتياطية: ' + e.message);
+    alert('فشل استيراد النسخة الاحتياطية:\nالملف ليس بتنسيق JSON صالح.');
+    return;
   }
+
+  const valRes = validateBackupData(data);
+  if(!valRes.valid){
+    alert('فشل استيراد النسخة الاحتياطية:\n' + valRes.error);
+    return;
+  }
+
+  const catProgressCount = data.progress ? Object.keys(data.progress).length : 0;
+  const starredCount = data.starred ? data.starred.length : 0;
+  const srsCount = data.srs ? Object.keys(data.srs).length : 0;
+
+  const confirmMsg =
+    `تنبيه: استعادة النسخة الاحتياطية ستستبدل تقدّمك الحالي في التطبيق!\n\n` +
+    `ملخص البيانات المراد استيرادها:\n` +
+    `• أقسام تحتوي على تقدّم: ${catProgressCount}\n` +
+    `• كلمات محفوظة في المفضلة: ${starredCount}\n` +
+    `• كلمات في نظام التكرار الذكي (SRS): ${srsCount}\n\n` +
+    `سيتم تنزيل نسخة احتياطية من تقدمك الحالي تلقائياً قبل بدء الاستبدال.\n` +
+    `هل ترغب في المتابعة والاستبدال الآن؟`;
+
+  if(!confirm(confirmMsg)) return;
+
+  // Auto-backup download before overwrite
+  try { exportBackup(true); } catch(e){}
+
+  // Overwrite state safely
+  if(data.progress !== undefined){
+    progress = data.progress;
+    appStorage.set(STORAGE_KEYS.PROGRESS, JSON.stringify(progress));
+    if(window.localStorage) window.localStorage.setItem('deutsch_lern_v1', JSON.stringify(progress));
+  }
+  if(data.stats !== undefined){
+    stats = data.stats;
+    appStorage.set(STORAGE_KEYS.STATS, JSON.stringify(stats));
+    if(window.localStorage) window.localStorage.setItem('deutsch_stats_v1', JSON.stringify(stats));
+  }
+  if(data.starred !== undefined){
+    starredSet = new Set(data.starred);
+    saveStarredSoon();
+  }
+  if(data.srs !== undefined){
+    srsStore = data.srs;
+    saveSrsSoon();
+  }
+  if(data.dailyGoal !== undefined){
+    setDailyGoal(Number(data.dailyGoal));
+  }
+
+  showToast('تمت استعادة النسخة الاحتياطية بنجاح 🎉');
+  render();
 }
 
 function triggerImportBackup(){
@@ -3002,23 +3251,23 @@ function triggerImportBackup(){
 
 /* ---------- Enhanced Feedback Builder (Always includes Plural on Right & Wrong) ---------- */
 function buildFeedbackHtml(w, cat, ok, correctText, isPluralMode, context){
+  const safeCorrect = escapeHtml(correctText);
   let statusText = '';
   if(context === 'quiz'){
     statusText = ok
-      ? `إجابة صحيحة! الكلمة: ${correctText}`
-      : `إجابة غير صحيحة، الصحيحة هي: ${correctText} — هذه الكلمة هترجع لتدريب القسم العادي.`;
+      ? `إجابة صحيحة! الكلمة: ${safeCorrect}`
+      : `إجابة غير صحيحة، الصحيحة هي: ${safeCorrect} — هذه الكلمة هترجع لتدريب القسم العادي.`;
   } else {
-    statusText = ok ? `إجابة صحيحة! ${correctText}` : `إجابة غير صحيحة، الصحيحة هي: ${correctText}`;
+    statusText = ok ? `إجابة صحيحة! ${safeCorrect}` : `إجابة غير صحيحة، الصحيحة هي: ${safeCorrect}`;
   }
 
   let pluralLine = '';
   if(!isPluralMode && w){
     if(w.pl){
-      const plSafe = (w.pl || '').replace(/'/g, "\\'");
       pluralLine = `
         <div class="fb-plural-badge">
           <span class="pl-label">صيغة الجمع:</span>
-          <span class="pl-text de">${w.pl}</span>
+          <span class="pl-text de">${escapeHtml(w.pl)}</span>
           ${miniSpeak(w.pl)}
         </div>`;
     } else if(w.pl === null || cat.hasArticles){
@@ -3035,7 +3284,7 @@ function buildFeedbackHtml(w, cat, ok, correctText, isPluralMode, context){
     const wIdx = cat.words.indexOf(w);
     if(wIdx !== -1){
       const active = isStarred(cat.id, wIdx);
-      starHtml = `<button class="star-btn ${active ? 'starred' : ''}" data-action="toggle-star-feedback" data-cat="${escapeHtml(cat.id)}" data-idx="${wIdx}" title="حفظ الكلمة في المفضلة">⭐</button>`;
+      starHtml = `<button class="star-btn ${active ? 'starred' : ''}" data-action="toggle-star-feedback" data-cat="${escapeAttr(cat.id)}" data-idx="${wIdx}" title="حفظ الكلمة في المفضلة">⭐</button>`;
     }
   }
 
@@ -3062,12 +3311,12 @@ const app = document.getElementById('app');
 const MINI_SPEAK_SVG = '<svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3z"/><path d="M16 8.5a4.5 4.5 0 010 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
 function miniSpeak(text){
-  return `<button class="mini-speak" data-speak="${escapeHtml(text || '')}" title="استمع للنطق">${MINI_SPEAK_SVG}</button>`;
+  return `<button class="mini-speak" data-speak="${escapeAttr(text || '')}" title="استمع للنطق">${MINI_SPEAK_SVG}</button>`;
 }
 
 function speakText(cat){ return cat.speak || cat.de; }
 
-function noteLine(w){ return w.note ? `<div class="fbnote">💡 ${w.note}</div>` : ''; }
+function noteLine(w){ return w.note ? `<div class="fbnote">💡 ${escapeHtml(w.note)}</div>` : ''; }
 
 function pluralReady(cat){ return cat.hasArticles && cat.words.every(w => w.pl !== undefined); }
 
@@ -3239,7 +3488,7 @@ function renderHome(){
     <div class="search-box-wrap">
       <div class="search-input-box">
         <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-        <input type="text" id="vocabSearchInput" placeholder="🔍 ابحث في جميع الكلمات (30 قسمًا) بالألماني أو العربي..." value="${lastSearchQuery ? lastSearchQuery.replace(/"/g, '&quot;') : ''}" autocomplete="off" />
+        <input type="text" id="vocabSearchInput" placeholder="🔍 ابحث في جميع الكلمات (30 قسمًا) بالألماني أو العربي..." value="${escapeAttr(lastSearchQuery || '')}" autocomplete="off" />
         <button id="clearSearchBtn" class="search-clear-btn" style="${lastSearchQuery ? '' : 'display:none;'}" title="مسح">✕</button>
       </div>
       <div id="searchResults" class="search-results-panel" style="display:none;"></div>
@@ -3302,7 +3551,7 @@ function renderHome(){
     sClear.style.display = 'flex';
     const matches = searchVocabulary(query);
     if(matches.length === 0){
-      sPanel.innerHTML = `<div class="search-no-results">لم يتم العثور على نتائج تطابق: <b>${query}</b></div>`;
+      sPanel.innerHTML = `<div class="search-no-results">لم يتم العثور على نتائج تطابق: <b>${escapeHtml(query)}</b></div>`;
       sPanel.style.display = 'block';
       return;
     }
@@ -3310,22 +3559,22 @@ function renderHome(){
     const maxItems = 40;
     const itemsHtml = matches.slice(0, maxItems).map(m => {
       return `
-      <div class="search-res-item" data-cat="${m.catId}" data-idx="${m.idx}">
+      <div class="search-res-item" data-cat="${escapeAttr(m.catId)}" data-idx="${m.idx}">
         <div class="search-res-main">
           <div class="search-res-word">
-            <span class="search-res-de de">${m.fullDe}</span>
-            <span class="search-res-ar">${m.word.ar}</span>
+            <span class="search-res-de de">${escapeHtml(m.fullDe)}</span>
+            <span class="search-res-ar">${escapeHtml(m.word.ar)}</span>
           </div>
           ${m.word.s ? `
           <div class="search-res-sentence">
-            <span class="de">${m.word.s}</span> — <span>${m.word.sar || ''}</span>
+            <span class="de">${escapeHtml(m.word.s)}</span> — <span>${escapeHtml(m.word.sar || '')}</span>
           </div>` : ''}
         </div>
         <div style="display:flex;align-items:center;gap:8px;">
-          <button class="mini-speak" data-speak="${m.fullDe.replace(/'/g, "\\'")}" title="استمع للنطق">
+          <button class="mini-speak" data-speak="${escapeAttr(m.fullDe)}" title="استمع للنطق">
             ${MINI_SPEAK_SVG}
           </button>
-          <span class="search-res-cat">${m.cat.ar} · ${m.cat.de}</span>
+          <span class="search-res-cat">${escapeHtml(m.cat.ar)} · ${escapeHtml(m.cat.de)}</span>
         </div>
       </div>`;
     }).join('');
@@ -3457,11 +3706,11 @@ function renderStats(){
                       (!saved && curVoice && (v.voiceURI === curVoice.voiceURI || v.name === curVoice.name));
         const male = VoiceSelection.isMaleVoice(v);
         const label = `${v.name} (${v.lang})${male ? ' [رجالي ♂]' : ''}`;
-        return `<option value="${escapeHtml(val)}" ${isSel ? 'selected' : ''}>${escapeHtml(label)}</option>`;
+        return `<option value="${escapeAttr(val)}" ${isSel ? 'selected' : ''}>${escapeHtml(label)}</option>`;
       }).join('');
 
       voiceStatusText = curVoice 
-        ? `الصوت النشط: ${curVoice.name} (${isMaleActive ? 'رجالي معتمد ♂' : 'صوت بديل'})`
+        ? `الصوت النشط: ${escapeHtml(curVoice.name)} (${isMaleActive ? 'رجالي معتمد ♂' : 'صوت بديل'})`
         : 'الصوت النشط: الصوت الافتراضي للمتصفح';
     }
   }
@@ -3673,29 +3922,29 @@ function renderWordList(){
       ? `<div class="wl-divider">✨ باقي الكلمات إضافية (extra) — كمّلها براحتك بعد ما تتقن الأساسي</div>` : '';
     const isTarget = view.highlightIdx === i;
     const gTag = cat.hasArticles && w.a ? genderTag(w.a) : '';
-    const plLine = w.pl ? `<span style="font-size:12.5px;color:var(--gender-pl);font-weight:700;">الجمع: ${w.pl}</span>` : '';
+    const plLine = w.pl ? `<span style="font-size:12.5px;color:var(--gender-pl);font-weight:700;">الجمع: ${escapeHtml(w.pl)}</span>` : '';
     const starred = isStarred(cat.id, i);
     return `
     ${divider}
     <div class="wl-row ${isTarget ? 'wl-highlight-pulse' : ''}" id="wl-row-${i}">
-      <button class="wl-speak" data-text="${text}">
+      <button class="wl-speak" data-text="${escapeAttr(text)}">
         <svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3z"/><path d="M16 8.5a4.5 4.5 0 010 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
       <div class="wl-text">
         <div style="display:flex;align-items:center;gap:6px;">
           ${gTag}
-          <span class="de wl-de">${text}</span>
+          <span class="de wl-de">${escapeHtml(text)}</span>
         </div>
-        <span class="wl-ar">${w.ar}</span>
+        <span class="wl-ar">${escapeHtml(w.ar)}</span>
         ${plLine}
-        ${w.note ? `<span class="wl-note">💡 ${w.note}</span>` : ''}
+        ${w.note ? `<span class="wl-note">💡 ${escapeHtml(w.note)}</span>` : ''}
         ${w.s ? `
         <div class="wl-sentence">
-          <div class="wl-sentence-de de">${w.s} ${miniSpeak(w.s)}</div>
-          <div class="wl-sentence-ar">${w.sar || ''}</div>
+          <div class="wl-sentence-de de">${escapeHtml(w.s)} ${miniSpeak(w.s)}</div>
+          <div class="wl-sentence-ar">${escapeHtml(w.sar || '')}</div>
         </div>` : ''}
       </div>
-      <button class="star-btn ${starred ? 'starred' : ''}" data-action="toggle-star-wordlist" data-cat="${escapeHtml(cat.id)}" data-idx="${i}" title="حفظ الكلمة في المفضلة">⭐</button>
+      <button class="star-btn ${starred ? 'starred' : ''}" data-action="toggle-star-wordlist" data-cat="${escapeAttr(cat.id)}" data-idx="${i}" title="حفظ الكلمة في المفضلة">⭐</button>
       <span class="wl-num">${i+1}</span>
     </div>`;
   }).join('');
@@ -3894,9 +4143,9 @@ function renderQuiz(cat){
   zone.innerHTML = `
     <div class="qcard">
       <div class="qlabel">ما هي الكلمة الألمانية الصحيحة؟</div>
-      <div class="qmain">${w.ar}</div>
+      <div class="qmain">${escapeHtml(w.ar)}</div>
     </div>
-    <div class="options">${options.map(o=>`<div class="opt de" data-val="${o}">${o}</div>`).join('')}</div>
+    <div class="options">${options.map(o=>`<div class="opt de" data-val="${escapeAttr(o)}">${escapeHtml(o)}</div>`).join('')}</div>
     <div class="feedback" id="fb"></div>
     <div class="next-row"><button class="next-btn" id="nextBtn">${exState.pos+1 < total ? 'التالي ←' : 'عرض النتيجة'}</button></div>
   `;
@@ -4191,10 +4440,10 @@ function renderReviewScreen(opts){
     zone.innerHTML = `
       <div class="qcard">
         <div class="qlabel">ما هي الكلمة الألمانية الصحيحة؟</div>
-        <div class="qmain">${w.ar}</div>
+        <div class="qmain">${escapeHtml(w.ar)}</div>
         ${srcTag}
       </div>
-      <div class="options">${options.map(o=>`<div class="opt de" data-val="${o}">${o}</div>`).join('')}</div>
+      <div class="options">${options.map(o=>`<div class="opt de" data-val="${escapeAttr(o)}">${escapeHtml(o)}</div>`).join('')}</div>
       <div class="feedback" id="fb"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">${willBeLastStep ? 'عرض النتيجة' : 'التالي ←'}</button></div>
     `;
@@ -4213,7 +4462,7 @@ function renderReviewScreen(opts){
         recordActivity(ok);
         speak(correctText);
         const fb = document.getElementById('fb');
-        fb.innerHTML = (ok ? `إجابة صحيحة! ${correctText}` : `إجابة غير صحيحة، الصحيحة هي: ${correctText}`) + noteLine(w) + sentenceLine(w);
+        fb.innerHTML = (ok ? `إجابة صحيحة! ${escapeHtml(correctText)}` : `إجابة غير صحيحة، الصحيحة هي: ${escapeHtml(correctText)}`) + noteLine(w) + sentenceLine(w);
         fb.className = 'feedback ' + (ok?'ok':'bad');
         document.getElementById('nextBtn').classList.add('show');
       });
@@ -4237,10 +4486,10 @@ function renderReviewScreen(opts){
   zone.innerHTML = `
     <div class="qcard">
       <div class="qlabel">إيه صيغة الجمع الصحيحة لهذه الكلمة؟</div>
-      <div class="qmain de">${w.a} ${w.n}</div>
-      <div class="qsub">${w.ar}</div>
+      <div class="qmain de">${escapeHtml(w.a)} ${escapeHtml(w.n)}</div>
+      <div class="qsub">${escapeHtml(w.ar)}</div>
     </div>
-    <div class="options">${options.map(o=>`<div class="opt ${o===NO_PLURAL_LABEL?'':'de'}" data-val="${o}">${o}</div>`).join('')}</div>
+    <div class="options">${options.map(o=>`<div class="opt ${o===NO_PLURAL_LABEL?'':'de'}" data-val="${escapeAttr(o)}">${escapeHtml(o)}</div>`).join('')}</div>
     <div class="feedback" id="fb"></div>
     <div class="next-row"><button class="next-btn" id="nextBtn">${isLast ? 'عرض النتيجة' : 'التالي ←'}</button></div>
   `;
@@ -4258,7 +4507,7 @@ function renderReviewScreen(opts){
       if(ok){ exState.correct++; } else { exState.wrongCount++; if(w.pl) reinforcePlural(cat.id, idx); }
       speak(w.pl || w.n);
       const fb = document.getElementById('fb');
-      fb.innerHTML = (ok ? `إجابة صحيحة! ${correctText}` : `إجابة غير صحيحة، الصحيحة هي: ${correctText}`) + noteLine(w) + sentenceLine(w);
+      fb.innerHTML = (ok ? `إجابة صحيحة! ${escapeHtml(correctText)}` : `إجابة غير صحيحة، الصحيحة هي: ${escapeHtml(correctText)}`) + noteLine(w) + sentenceLine(w);
       fb.className = 'feedback ' + (ok?'ok':'bad');
       document.getElementById('nextBtn').classList.add('show');
     });
@@ -4330,22 +4579,22 @@ function renderFlashcards(){
         <!-- Front -->
         <div class="fc-face fc-front">
           <div style="margin-bottom:12px;">${gTag}</div>
-          <div class="de" style="font-size:32px;font-weight:700;margin-bottom:10px;">${fullDe}</div>
-          ${w.pl ? `<div style="font-size:14px;color:var(--gender-pl);font-weight:700;margin-bottom:10px;">الجمع: ${w.pl}</div>` : ''}
+          <div class="de" style="font-size:32px;font-weight:700;margin-bottom:10px;">${escapeHtml(fullDe)}</div>
+          ${w.pl ? `<div style="font-size:14px;color:var(--gender-pl);font-weight:700;margin-bottom:10px;">الجمع: ${escapeHtml(w.pl)}</div>` : ''}
           <div style="display:flex;gap:10px;align-items:center;">
             ${miniSpeak(fullDe)}
-            <button class="star-btn ${isSt ? 'starred' : ''}" data-action="toggle-star-flashcard" data-cat="${escapeHtml(cat.id)}" data-idx="${item.idx}" title="المفضلة">⭐</button>
+            <button class="star-btn ${isSt ? 'starred' : ''}" data-action="toggle-star-flashcard" data-cat="${escapeAttr(cat.id)}" data-idx="${item.idx}" title="المفضلة">⭐</button>
           </div>
           <div class="fc-hint">اضغط على البطاقة أو [Space] للقلب واكتشاف المعنى</div>
         </div>
         <!-- Back -->
         <div class="fc-face fc-back">
-          <div style="font-size:26px;font-weight:700;color:var(--ink);margin-bottom:8px;">${w.ar}</div>
-          ${w.note ? `<div class="fbnote" style="margin-bottom:8px;">💡 ${w.note}</div>` : ''}
+          <div style="font-size:26px;font-weight:700;color:var(--ink);margin-bottom:8px;">${escapeHtml(w.ar)}</div>
+          ${w.note ? `<div class="fbnote" style="margin-bottom:8px;">💡 ${escapeHtml(w.note)}</div>` : ''}
           ${w.s ? `
             <div class="fb-sentence" style="max-width:380px;">
-              <div class="fb-sentence-de de">${w.s} ${miniSpeak(w.s)}</div>
-              <div class="fb-sentence-ar">${w.sar || ''}</div>
+              <div class="fb-sentence-de de">${escapeHtml(w.s)} ${miniSpeak(w.s)}</div>
+              <div class="fb-sentence-ar">${escapeHtml(w.sar || '')}</div>
             </div>` : ''}
           <div class="fc-hint">اضغط مجدداً للعودة للوجه الأول</div>
         </div>
@@ -4385,28 +4634,28 @@ function renderStarredList(){
     const cat = item.cat;
     const text = cat.hasArticles && w.a ? `${w.a} ${w.n}` : w.n;
     const gTag = cat.hasArticles && w.a ? genderTag(w.a) : '';
-    const plHtml = w.pl ? `<span style="font-size:12.5px;color:var(--gender-pl);font-weight:700;">الجمع: ${w.pl}</span>` : '';
+    const plHtml = w.pl ? `<span style="font-size:12.5px;color:var(--gender-pl);font-weight:700;">الجمع: ${escapeHtml(w.pl)}</span>` : '';
     return `
-    <div class="wl-row" data-cat="${item.catId}" data-idx="${item.idx}">
-      <button class="wl-speak" data-text="${text}">
+    <div class="wl-row" data-cat="${escapeAttr(item.catId)}" data-idx="${item.idx}">
+      <button class="wl-speak" data-text="${escapeAttr(text)}">
         <svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3z"/><path d="M16 8.5a4.5 4.5 0 010 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
       <div class="wl-text">
         <div style="display:flex;align-items:center;gap:6px;">
           ${gTag}
-          <span class="de wl-de">${text}</span>
-          <span class="search-res-cat" style="margin-inline-start:auto;">${cat.ar}</span>
+          <span class="de wl-de">${escapeHtml(text)}</span>
+          <span class="search-res-cat" style="margin-inline-start:auto;">${escapeHtml(cat.ar)}</span>
         </div>
-        <span class="wl-ar">${w.ar}</span>
+        <span class="wl-ar">${escapeHtml(w.ar)}</span>
         ${plHtml}
-        ${w.note ? `<span class="wl-note">💡 ${w.note}</span>` : ''}
+        ${w.note ? `<span class="wl-note">💡 ${escapeHtml(w.note)}</span>` : ''}
         ${w.s ? `
         <div class="wl-sentence">
-          <div class="wl-sentence-de de">${w.s} ${miniSpeak(w.s)}</div>
-          <div class="wl-sentence-ar">${w.sar || ''}</div>
+          <div class="wl-sentence-de de">${escapeHtml(w.s)} ${miniSpeak(w.s)}</div>
+          <div class="wl-sentence-ar">${escapeHtml(w.sar || '')}</div>
         </div>` : ''}
       </div>
-      <button class="star-btn starred" data-action="toggle-star-remove" data-cat="${escapeHtml(item.catId)}" data-idx="${item.idx}" title="إزالة من المميزة">⭐</button>
+      <button class="star-btn starred" data-action="toggle-star-remove" data-cat="${escapeAttr(item.catId)}" data-idx="${item.idx}" title="إزالة من المميزة">⭐</button>
     </div>`;
   }).join('');
 
@@ -4560,7 +4809,7 @@ function renderQuestion(cat, mode, idx, w){
         <div style="font-size:13px;color:#42403b;">اضغط على الزر أو حرف [R] للاستماع مرة أخرى</div>
       </div>
       <div class="options">
-        ${options.map((o,i)=>`<div class="opt" data-val="${o}"><span>${o}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
+        ${options.map((o,i)=>`<div class="opt" data-val="${escapeAttr(o)}"><span>${escapeHtml(o)}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
       </div>
       <div class="feedback" id="fb"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">التالي ← <span class="kbd-key">↵</span></button></div>
@@ -4600,10 +4849,10 @@ function renderQuestion(cat, mode, idx, w){
     zone.innerHTML = `
       <div class="qcard">
         <div class="qlabel">ما هي الكلمة الألمانية الصحيحة؟</div>
-        <div class="qmain">${w.ar}</div>
+        <div class="qmain">${escapeHtml(w.ar)}</div>
       </div>
       <div class="options">
-        ${options.map((o,i)=>`<div class="opt de" data-val="${o}"><span>${o}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
+        ${options.map((o,i)=>`<div class="opt de" data-val="${escapeAttr(o)}"><span>${escapeHtml(o)}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
       </div>
       <div class="feedback" id="fb"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">التالي ← <span class="kbd-key">↵</span></button></div>
@@ -4677,8 +4926,8 @@ function renderQuestion(cat, mode, idx, w){
     zone.innerHTML = `
       <div class="qcard">
         <div class="qlabel">اختر أداة التعريف الصحيحة</div>
-        <div class="qmain de">${w.n}</div>
-        <div class="qsub">${w.ar}</div>
+        <div class="qmain de">${escapeHtml(w.n)}</div>
+        <div class="qsub">${escapeHtml(w.ar)}</div>
       </div>
       <div class="article-options">
         <div class="opt de" data-val="der"><span>der</span> <span class="kbd-key">1</span></div>
@@ -4717,11 +4966,11 @@ function renderQuestion(cat, mode, idx, w){
     zone.innerHTML = `
       <div class="qcard">
         <div class="qlabel">إيه صيغة الجمع الصحيحة؟</div>
-        <div class="qmain de">${w.a} ${w.n}</div>
-        <div class="qsub">${w.ar}</div>
+        <div class="qmain de">${escapeHtml(w.a)} ${escapeHtml(w.n)}</div>
+        <div class="qsub">${escapeHtml(w.ar)}</div>
       </div>
       <div class="options">
-        ${options.map((o,i)=>`<div class="opt de" data-val="${o}"><span>${o}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
+        ${options.map((o,i)=>`<div class="opt de" data-val="${escapeAttr(o)}"><span>${escapeHtml(o)}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
       </div>
       <div class="feedback" id="fb"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">التالي ← <span class="kbd-key">↵</span></button></div>

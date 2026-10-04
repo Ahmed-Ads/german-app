@@ -182,6 +182,157 @@ export function getPluralDistractors(targetWord, category, allCategories) {
   return distractors;
 }
 
+// 7. Backup Data Validator
+export function validateBackupData(data, categoriesList = []) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) {
+    return { valid: false, error: 'الملف غير صالح: لا يحتوي على كائن بيانات صالح (JSON Object).' };
+  }
+
+  const knownCatIds = new Set(categoriesList.map(c => c.id));
+  const catWordCounts = new Map(categoriesList.map(c => [c.id, c.words ? c.words.length : 0]));
+  const validModes = new Set(['mcq', 'written', 'article', 'plural']);
+
+  const hasProgress = data.progress !== undefined;
+  const hasStats = data.stats !== undefined;
+  const hasStarred = data.starred !== undefined;
+  const hasSrs = data.srs !== undefined;
+  const hasGoal = data.dailyGoal !== undefined;
+
+  if (!hasProgress && !hasStats && !hasStarred && !hasSrs && !hasGoal) {
+    return { valid: false, error: 'الملف لا يحتوي على أي حقول تقدم صالحة (progress, stats, starred, srs, dailyGoal).' };
+  }
+
+  // 1. Progress validation
+  if (hasProgress) {
+    if (typeof data.progress !== 'object' || data.progress === null || Array.isArray(data.progress)) {
+      return { valid: false, error: 'حقل التقدم (progress) غير صالح.' };
+    }
+    for (const [catId, catVal] of Object.entries(data.progress)) {
+      if (!knownCatIds.has(catId)) {
+        return { valid: false, error: `القسم «${catId}» في بيانات التقدم غير معروف في التطبيق.` };
+      }
+      if (typeof catVal !== 'object' || catVal === null || Array.isArray(catVal)) {
+        return { valid: false, error: `بيانات القسم «${catId}» غير صالحة.` };
+      }
+      const maxWords = catWordCounts.get(catId);
+      for (const [mKey, mVal] of Object.entries(catVal)) {
+        if (mKey === 'coreAcked') {
+          if (typeof mVal !== 'boolean') return { valid: false, error: `حقل coreAcked في القسم «${catId}» غير صالح.` };
+          continue;
+        }
+        if (!validModes.has(mKey)) {
+          return { valid: false, error: `الوضع «${mKey}» في القسم «${catId}» غير معروف.` };
+        }
+        if (typeof mVal !== 'object' || mVal === null || Array.isArray(mVal)) {
+          return { valid: false, error: `بيانات الوضع «${mKey}» في القسم «${catId}» غير صالحة.` };
+        }
+        if (mVal.unlocked !== undefined && (!Number.isInteger(mVal.unlocked) || mVal.unlocked < 0 || mVal.unlocked > maxWords + 50)) {
+          return { valid: false, error: `عدد الكلمات المفتوحة في «${catId}/${mKey}» غير صالح.` };
+        }
+        if (mVal.counts !== undefined) {
+          if (typeof mVal.counts !== 'object' || mVal.counts === null || Array.isArray(mVal.counts)) {
+            return { valid: false, error: `عدادات الكلمات في «${catId}/${mKey}» غير صالحة.` };
+          }
+          for (const [wIdxStr, cnt] of Object.entries(mVal.counts)) {
+            const wIdx = parseInt(wIdxStr, 10);
+            if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
+              return { valid: false, error: `فهرس الكلمة (${wIdxStr}) في القسم «${catId}» خارج نطاق القسم.` };
+            }
+            if (!Number.isInteger(cnt) || cnt < 0 || cnt > 10000) {
+              return { valid: false, error: `قيمة العداد للكلمة (${wIdxStr}) في «${catId}/${mKey}» غير صالحة.` };
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 2. Stats validation
+  if (hasStats) {
+    if (typeof data.stats !== 'object' || data.stats === null || Array.isArray(data.stats)) {
+      return { valid: false, error: 'حقل الإحصائيات (stats) غير صالح.' };
+    }
+    const numFields = ['current', 'longest', 'totalAnswered', 'totalCorrect'];
+    for (const f of numFields) {
+      if (data.stats[f] !== undefined && (!Number.isInteger(data.stats[f]) || data.stats[f] < 0)) {
+        return { valid: false, error: `حقل الإحصائيات «${f}» يجب أن يكون عدداً صحيحاً غير سالب.` };
+      }
+    }
+    if (data.stats.todayCount !== undefined && (!Number.isInteger(data.stats.todayCount) || data.stats.todayCount < 0)) {
+      return { valid: false, error: 'قيمة إنجاز اليوم في الإحصائيات غير صالحة.' };
+    }
+    if (data.stats.totalCorrect !== undefined && data.stats.totalAnswered !== undefined && data.stats.totalCorrect > data.stats.totalAnswered) {
+      return { valid: false, error: 'عدد الإجابات الصحيحة لا يمكن أن يتجاوز إجمالي الإجابات.' };
+    }
+    if (data.stats.lastDate !== undefined && data.stats.lastDate !== null && typeof data.stats.lastDate !== 'string') {
+      return { valid: false, error: 'تاريخ آخر تدريب في الإحصائيات غير صالح.' };
+    }
+  }
+
+  // 3. Starred validation
+  if (hasStarred) {
+    if (!Array.isArray(data.starred)) {
+      return { valid: false, error: 'حقل المفضلة (starred) يجب أن يكون مصفوفة.' };
+    }
+    for (const item of data.starred) {
+      if (typeof item !== 'string') {
+        return { valid: false, error: 'عنصر في المفضلة بصيغة غير صالحة.' };
+      }
+      const parts = item.split('_');
+      if (parts.length !== 2) {
+        return { valid: false, error: `معرّف الكلمة المميزة «${item}» غير صالح.` };
+      }
+      const [catId, idxStr] = parts;
+      if (!knownCatIds.has(catId)) {
+        return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف في التطبيق.` };
+      }
+      const idx = parseInt(idxStr, 10);
+      if (!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)) {
+        return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج نطاق القسم.` };
+      }
+    }
+  }
+
+  // 4. Srs validation
+  if (hasSrs) {
+    if (typeof data.srs !== 'object' || data.srs === null || Array.isArray(data.srs)) {
+      return { valid: false, error: 'حقل التكرار المتباعد (srs) غير صالح.' };
+    }
+    for (const [k, rec] of Object.entries(data.srs)) {
+      const parts = k.split('_');
+      if (parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
+      const [catId, idxStr] = parts;
+      if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
+      const idx = parseInt(idxStr, 10);
+      if (!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)) {
+        return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج نطاق القسم.` };
+      }
+      if (typeof rec !== 'object' || rec === null || Array.isArray(rec)) {
+        return { valid: false, error: `سجل SRS للكلمة «${k}» غير صالح.` };
+      }
+      if (rec.box !== undefined && (!Number.isInteger(rec.box) || rec.box < 0 || rec.box > 5)) {
+        return { valid: false, error: `رقم صندوق SRS للكلمة «${k}» يجب أن يكون بين 0 و 5.` };
+      }
+      if (rec.lastDate !== undefined && typeof rec.lastDate !== 'string') {
+        return { valid: false, error: `تاريخ المراجعة السابق للكلمة «${k}» غير صالح.` };
+      }
+      if (rec.nextDate !== undefined && typeof rec.nextDate !== 'string') {
+        return { valid: false, error: `تاريخ المراجعة القادم للكلمة «${k}» غير صالح.` };
+      }
+    }
+  }
+
+  // 5. DailyGoal validation
+  if (hasGoal) {
+    const g = Number(data.dailyGoal);
+    if (isNaN(g) || !Number.isInteger(g) || g < 5 || g > 200) {
+      return { valid: false, error: 'الهدف اليومي (dailyGoal) يجب أن يكون عدداً صحيحاً بين 5 و 200 كلمة.' };
+    }
+  }
+
+  return { valid: true };
+}
+
 // --- UNIT TESTS ---
 
 describe('Phase 1 Code Fixes Test Suite', () => {
@@ -365,6 +516,78 @@ describe('Phase 1 Code Fixes Test Suite', () => {
       for (const d of distractors) {
         expect(d.startsWith('die ')).toBe(true);
       }
+    });
+  });
+
+  describe('13: Backup Data Validation & Storage Resilience', () => {
+    const mockCategories = [
+      { id: 'obst', words: [{ n: 'Apfel' }, { n: 'Banane' }] },
+      { id: 'tiere', words: [{ n: 'Hund' }] }
+    ];
+
+    it('rejects non-object or empty payload', () => {
+      expect(validateBackupData(null, mockCategories).valid).toBe(false);
+      expect(validateBackupData('string', mockCategories).valid).toBe(false);
+      expect(validateBackupData([], mockCategories).valid).toBe(false);
+      expect(validateBackupData({}, mockCategories).valid).toBe(false);
+    });
+
+    it('rejects unknown category ids in progress', () => {
+      const bad = { progress: { unknown_cat: { mcq: {} } } };
+      const res = validateBackupData(bad, mockCategories);
+      expect(res.valid).toBe(false);
+      expect(res.error).toContain('unknown_cat');
+    });
+
+    it('rejects unknown modes in progress', () => {
+      const bad = { progress: { obst: { invalid_mode: {} } } };
+      const res = validateBackupData(bad, mockCategories);
+      expect(res.valid).toBe(false);
+      expect(res.error).toContain('invalid_mode');
+    });
+
+    it('rejects negative or out-of-range counts and unlocked numbers', () => {
+      const bad1 = { progress: { obst: { mcq: { unlocked: -1 } } } };
+      expect(validateBackupData(bad1, mockCategories).valid).toBe(false);
+
+      const bad2 = { progress: { obst: { mcq: { counts: { '0': -5 } } } } };
+      expect(validateBackupData(bad2, mockCategories).valid).toBe(false);
+
+      const bad3 = { progress: { obst: { mcq: { counts: { '999': 1 } } } } }; // word index out of bounds
+      expect(validateBackupData(bad3, mockCategories).valid).toBe(false);
+    });
+
+    it('rejects malformed or out-of-range starred items', () => {
+      expect(validateBackupData({ starred: ['not_an_id'] }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ starred: ['unknown_0'] }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ starred: ['obst_99'] }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ starred: ['obst_0'] }, mockCategories).valid).toBe(true);
+    });
+
+    it('rejects invalid SRS structures and boxes outside 0-5', () => {
+      expect(validateBackupData({ srs: { 'obst_0': { box: 6 } } }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ srs: { 'obst_0': { box: -1 } } }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ srs: { 'unknown_0': { box: 2 } } }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ srs: { 'obst_0': { box: 3 } } }, mockCategories).valid).toBe(true);
+    });
+
+    it('rejects dailyGoal outside range 5..200', () => {
+      expect(validateBackupData({ dailyGoal: 4 }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ dailyGoal: 201 }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ dailyGoal: 'invalid' }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ dailyGoal: 25 }, mockCategories).valid).toBe(true);
+    });
+
+    it('accepts valid full backup payload', () => {
+      const valid = {
+        version: 2,
+        progress: { obst: { mcq: { unlocked: 2, counts: { '0': 3 } } } },
+        stats: { current: 5, longest: 10, totalAnswered: 30, totalCorrect: 28 },
+        starred: ['obst_0'],
+        srs: { 'obst_0': { box: 2, lastDate: '2026-10-01', nextDate: '2026-10-04' } },
+        dailyGoal: 20
+      };
+      expect(validateBackupData(valid, mockCategories).valid).toBe(true);
     });
   });
 });

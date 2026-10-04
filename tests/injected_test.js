@@ -223,6 +223,187 @@ window.addEventListener('DOMContentLoaded', async () => {
     record('Delegated Flashcard & Nested Star', fcPassed, 
       'Card flipped on wrap click; star button inside toggled without flipping; wrapper click flipped back.');
 
+    // -----------------------------------------------------------------
+    // 8. SECURITY TEST: SEARCH RENDERING XSS PREVENTION
+    // -----------------------------------------------------------------
+    window.__x = undefined;
+    const xssPayload = '<img src=x onerror=window.__x=1>';
+    
+    // Ensure home view is rendered with search input
+    go({ screen: 'home', catId: null });
+    const sInput = document.getElementById('vocabSearchInput');
+    const sPanel = document.getElementById('searchResults');
+    
+    if (sInput && sPanel) {
+      sInput.value = xssPayload;
+      sInput.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    
+    const xssFlagClean = (window.__x === undefined);
+    const noImgInjected = (document.querySelector('img[src="x"]') === null);
+    const textRenderedSafely = sPanel ? sPanel.textContent.includes(xssPayload) : false;
+    const xssPassed = xssFlagClean && noImgInjected && textRenderedSafely;
+    
+    record('Search Rendering XSS Prevention', xssPassed,
+      xssPassed ? 'User query with <img onerror> escaped as text; window.__x remains undefined and 0 elements injected.'
+                : 'Failed: window.__x=' + window.__x + ', img=' + document.querySelector('img[src="x"]'));
+
+    // -----------------------------------------------------------------
+    // 9. BEHAVIOR TEST: SYNTHETIC WORD WITH QUOTES & HTML ENTITIES
+    // -----------------------------------------------------------------
+    let spokenSpecialText = null;
+    window.speechSynthesis.speak = function(u) { spokenSpecialText = u.text; };
+    const synthWord = '\' " < & \\';
+
+    const synthContainer = document.createElement('div');
+    synthContainer.innerHTML = [
+      '<button id="testSynthMiniSpeak" class="mini-speak" data-speak="' + escapeAttr(synthWord) + '"></button>',
+      '<button id="testSynthWlSpeak" class="wl-speak" data-text="' + escapeAttr(synthWord) + '"></button>'
+    ].join('');
+    document.body.appendChild(synthContainer);
+
+    const synthMiniBtn = document.getElementById('testSynthMiniSpeak');
+    const synthWlBtn = document.getElementById('testSynthWlSpeak');
+    synthWlBtn.addEventListener('click', function() { speak(this.dataset.text); });
+
+    // Test mini-speak delegation
+    spokenSpecialText = null;
+    synthMiniBtn.click();
+    const miniSpeakOk = (spokenSpecialText === synthWord);
+
+    // Test wl-speak delegation
+    spokenSpecialText = null;
+    synthWlBtn.click();
+    const wlSpeakOk = (spokenSpecialText === synthWord);
+
+    const synthPassed = miniSpeakOk && wlSpeakOk;
+    record('Exact Speech Synthesis with Quotes & Entities', synthPassed,
+      synthPassed ? 'Exact text (\' " < & \\) passed to speak() without entity corruption or quote syntax errors.'
+                  : 'Failed: expected ' + synthWord + ', got ' + spokenSpecialText);
+
+    // -----------------------------------------------------------------
+    // 10. DATA INTEGRITY: IMPORT BACKUP HARDENING (REJECT INVALID NESTED DATA)
+    // -----------------------------------------------------------------
+    const preBackupProg = { obst: { mcq: { unlocked: 3, counts: { '0': 1 } } } };
+    const preBackupStarred = ['obst_0'];
+    appStorage.set('german-arabic-progress-v1', JSON.stringify(preBackupProg));
+    appStorage.set('deutsch_starred_v1', JSON.stringify(preBackupStarred));
+
+    const invalidBackups = [
+      { name: 'Unknown category', data: { progress: { 'unknown_cat_xyz': { mcq: {} } } } },
+      { name: 'Unknown mode', data: { progress: { obst: { 'unsupported_mode': {} } } } },
+      { name: 'Negative unlocked', data: { progress: { obst: { mcq: { unlocked: -5 } } } } },
+      { name: 'Invalid starred format', data: { starred: ['invalid_star_format'] } },
+      { name: 'Starred out of bounds', data: { starred: ['obst_999999'] } },
+      { name: 'Invalid SRS box', data: { srs: { 'obst_0': { box: 99 } } } },
+      { name: 'Daily goal out of range', data: { dailyGoal: 1000 } }
+    ];
+
+    let allInvalidRejected = true;
+    const origAlert = window.alert;
+    const origConfirm = window.confirm;
+    window.alert = function() {};
+    window.confirm = function() { return false; };
+
+    for (const b of invalidBackups) {
+      const valRes = validateBackupData(b.data);
+      if (valRes.valid) {
+        allInvalidRejected = false;
+        break;
+      }
+      importBackup(JSON.stringify(b.data));
+    }
+
+    const postStorageProg = JSON.parse(appStorage.get('german-arabic-progress-v1') || '{}');
+    const postStorageStarred = JSON.parse(appStorage.get('deutsch_starred_v1') || '[]');
+    const storageUnchanged = (postStorageProg.obst && postStorageProg.obst.mcq.unlocked === 3) &&
+                             (postStorageStarred.length === 1 && postStorageStarred[0] === 'obst_0');
+
+    window.alert = origAlert;
+    window.confirm = origConfirm;
+
+    const invalidHardeningPassed = allInvalidRejected && storageUnchanged;
+    record('Import Backup Hardening (Reject Invalid)', invalidHardeningPassed,
+      invalidHardeningPassed ? '7 invalid backup schemas strictly rejected; storage remained completely untouched.'
+                             : 'Failed: allInvalidRejected=' + allInvalidRejected + ', storageUnchanged=' + storageUnchanged);
+
+    // -----------------------------------------------------------------
+    // 11. DATA INTEGRITY: VALID BACKUP RESTORATION
+    // -----------------------------------------------------------------
+    const validFullBackup = {
+      version: 2,
+      exportDate: '2026-10-03T12:00:00.000Z',
+      progress: {
+        obst: {
+          mcq: { unlocked: 6, counts: { '0': 3, '1': 2 } },
+          written: { unlocked: 3, counts: { '0': 1 } }
+        }
+      },
+      stats: {
+        lastDate: '2026-10-03',
+        current: 5,
+        longest: 12,
+        totalAnswered: 40,
+        totalCorrect: 36,
+        todayCount: 15
+      },
+      starred: ['obst_0', 'obst_1', 'gemuese_0'],
+      srs: {
+        'obst_0': { box: 3, lastDate: '2026-10-01', nextDate: '2026-10-15' }
+      },
+      dailyGoal: 30
+    };
+
+    window.confirm = function() { return true; }; // accept restore
+    window.alert = function() {};
+    importBackup(JSON.stringify(validFullBackup));
+    window.confirm = origConfirm;
+    window.alert = origAlert;
+
+    const restoredOk = (progress.obst && progress.obst.mcq.unlocked === 6) &&
+                       (stats.current === 5 && stats.totalAnswered === 40) &&
+                       (starredSet.has('obst_0') && starredSet.has('gemuese_0')) &&
+                       (srsStore['obst_0'] && srsStore['obst_0'].box === 3) &&
+                       (getDailyGoal() === 30);
+
+    record('Valid Backup Full Restoration', restoredOk,
+      restoredOk ? 'Valid backup verified and restored all progress, stats, starred words, SRS, and goal.'
+                 : 'Failed restoring valid backup.');
+
+    // -----------------------------------------------------------------
+    // 12. STORAGE RESILIENCY: CORRUPTED LOCALSTORAGE RECOVERY
+    // -----------------------------------------------------------------
+    try {
+      localStorage.setItem('german-arabic-progress-v1', '{corrupted_malformed_json: true');
+      localStorage.setItem('german-arabic-stats-v1', 'null');
+      localStorage.setItem('deutsch_starred_v1', '{"not": "an array"}');
+      localStorage.setItem('deutsch_srs_v1', '["primitive", "array"]');
+      localStorage.setItem('deutsch_daily_goal_v1', 'not_a_valid_number');
+    } catch(e) {}
+
+    await loadProgress();
+    await loadStats();
+    await loadStarred();
+    await loadSrs();
+
+    const defensiveDefaultsOk = (typeof progress === 'object' && progress !== null) &&
+                                (stats.current === 0 && stats.totalAnswered === 0) &&
+                                (starredSet.size === 0) &&
+                                (Object.keys(srsStore).length === 0) &&
+                                (getDailyGoal() === 20);
+
+    let renderSurvived = true;
+    try {
+      render();
+    } catch(renderErr) {
+      renderSurvived = false;
+    }
+
+    const corruptedRecoveryPassed = defensiveDefaultsOk && renderSurvived;
+    record('Corrupted Storage Defensive Recovery', corruptedRecoveryPassed,
+      corruptedRecoveryPassed ? 'Defensive readers fell back to safe defaults without crashing; render() succeeded.'
+                              : 'Failed to safely recover from corrupted storage.');
+
   } catch(err) {
     record('Error', false, err.message);
   } finally {
