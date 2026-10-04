@@ -29,13 +29,16 @@ console.log(`  DATA SAFETY PROOF TEST IN REAL GOOGLE CHROME (${baseRefOrPath} ->
 console.log('======================================================================');
 
 const CHROME_PATH = '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe';
-const PROFILE_DIR = 'C:/German_App/.proof_chrome_profile';
-const PROFILE_DIR_WSL = '/mnt/c/German_App/.proof_chrome_profile';
+const RUN_ID = Date.now();
+const PROFILE_DIR = 'C:/German_App/.proof_chrome_profile_' + RUN_ID;
+const PROFILE_DIR_WSL = '/mnt/c/German_App/.proof_chrome_profile_' + RUN_ID;
 
 // Ensure clean profile directory
-if (fs.existsSync(PROFILE_DIR_WSL)) {
-  fs.rmSync(PROFILE_DIR_WSL, { recursive: true, force: true });
-}
+try {
+  if (fs.existsSync(PROFILE_DIR_WSL)) {
+    fs.rmSync(PROFILE_DIR_WSL, { recursive: true, force: true });
+  }
+} catch(e) {}
 
 function decodeHtml(str) {
   return str.replace(/&quot;/g, '"')
@@ -44,9 +47,10 @@ function decodeHtml(str) {
             .replace(/&gt;/g, '>');
 }
 
-function runChrome(htmlFile) {
+function runChrome(htmlFile, useProfile = true) {
   const winFile = 'file:///C:/German_App/' + htmlFile;
-  const cmd = `"${CHROME_PATH}" --headless --user-data-dir="${PROFILE_DIR}" --virtual-time-budget=10000 --dump-dom "${winFile}"`;
+  const profileArg = useProfile ? `--user-data-dir="${PROFILE_DIR}"` : '';
+  const cmd = `"${CHROME_PATH}" --headless ${profileArg} --virtual-time-budget=6000 --dump-dom "${winFile}"`;
   return execSync(cmd, { encoding: 'utf8', maxBuffer: 15 * 1024 * 1024 });
 }
 
@@ -270,6 +274,9 @@ try {
       assert('Clean Slate Before Import', Object.keys(progress).length === 0 && starredSet.size === 0, 'wiped');
 
       // 2. Import backup string exported from main
+      window.confirm = function() { return true; };
+      window.alert = function() {};
+      HTMLAnchorElement.prototype.click = function() {};
       const mainBackupData = ${JSON.stringify(mainBackupJson)};
       importBackup(mainBackupData);
 
@@ -306,7 +313,7 @@ try {
   const stage3Html = currentHtml.replace('</body>', stage3Script + '</body>');
   fs.writeFileSync('temp_stage3_import.html', stage3Html, 'utf8');
 
-  const stage3Out = runChrome('temp_stage3_import.html');
+  const stage3Out = runChrome('temp_stage3_import.html', false);
   const m3 = stage3Out.match(/<div id="stage3-report">([\s\S]*?)<\/div>/);
   if (!m3) {
     throw new Error('Stage 3 failed: Could not find stage3-report in Chrome output.');
@@ -345,6 +352,8 @@ try {
 
       let alertMessage = '';
       window.alert = function(msg) { alertMessage = msg; };
+      window.confirm = function() { return false; };
+      HTMLAnchorElement.prototype.click = function() {};
 
       // 1. Shape validation: Corrupted JSON
       alertMessage = '';
@@ -411,7 +420,7 @@ try {
   const stage4Html = currentHtml.replace('</body>', stage4Script + '</body>');
   fs.writeFileSync('temp_stage4_reset.html', stage4Html, 'utf8');
 
-  const stage4Out = runChrome('temp_stage4_reset.html');
+  const stage4Out = runChrome('temp_stage4_reset.html', false);
   const m4 = stage4Out.match(/<div id="stage4-report">([\s\S]*?)<\/div>/);
   if (!m4) {
     throw new Error('Stage 4 failed: Could not find stage4-report in Chrome output.');
@@ -442,6 +451,6 @@ try {
     if (fs.existsSync(f)) fs.unlinkSync(f);
   }
   if (fs.existsSync(PROFILE_DIR_WSL)) {
-    fs.rmSync(PROFILE_DIR_WSL, { recursive: true, force: true });
+    try { fs.rmSync(PROFILE_DIR_WSL, { recursive: true, force: true }); } catch(e) {}
   }
 }
