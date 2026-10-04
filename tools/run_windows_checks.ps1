@@ -226,14 +226,15 @@ try {
     # 4a. Playwright Offline SW Test
     Log-Output "`n[5/7] Running Playwright Offline PWA Test..."
     if ($stepResults["HttpServer"] -match "^PASS") {
-        # Run Playwright test suite (offline PWA lifecycle, SW upgrade (old build (v3) -> current build), 360px viewport overflow)
-        $pwRun = & npx --no-install playwright test tests/offline_sw.spec.js tests/sw_upgrade.spec.js tests/viewport_overflow.spec.js --reporter=list 2>&1
+        # Run Playwright test suite (offline PWA lifecycle, SW upgrade (old build (v3) -> current build), 360px viewport overflow, Cloudflare Pages routing)
+        $pwRun = & npx --no-install playwright test tests/offline_sw.spec.js tests/sw_upgrade.spec.js tests/viewport_overflow.spec.js tests/cf_routing.spec.js --reporter=list 2>&1
         $pwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
         $pwText = ($pwRun -join "`n")
 
         $offlinePass = ($pwText -match "offline_sw\.spec\.js.*passed" -or $pwText -match "Full offline PWA lifecycle verified")
         $upgradePass = ($pwText -match "sw_upgrade\.spec\.js.*passed" -or $pwText -match "REAL SERVICE WORKER UPGRADE VERIFICATION.*PASSED")
         $viewportPass = ($pwText -match "viewport_overflow\.spec\.js.*passed" -or $pwText -match "360px VIEWPORT AUDIT SUMMARY")
+        $cfRoutingPass = ($pwText -match "cf_routing\.spec\.js.*passed" -or $pwText -match "Cloudflare Pages routing.*verified successfully")
 
         if (!$offlinePass) {
             # Try standalone script as fallback
@@ -268,10 +269,12 @@ try {
         $stepResults["OfflinePlaywright"] = if ($offlinePass) { "PASS (Ran)" } else { "FAIL (Ran)" }
         $stepResults["SwUpgradePlaywright"] = if ($upgradePass) { "PASS (Ran)" } else { "FAIL (Ran)" }
         $stepResults["ViewportOverflow"] = if ($viewportPass) { "PASS (Ran)" } else { "FAIL (Ran)" }
+        $stepResults["CfRoutingPlaywright"] = if ($cfRoutingPass) { "PASS (Ran)" } else { "FAIL (Ran)" }
 
         Log-Output "  Playwright Offline PWA: $($stepResults['OfflinePlaywright'])"
         Log-Output "  Playwright SW Upgrade (old build (v3) -> current build): $($stepResults['SwUpgradePlaywright'])"
         Log-Output "  Playwright 360px Viewport Audit: $($stepResults['ViewportOverflow'])"
+        Log-Output "  Playwright Cloudflare Pages Routing: $($stepResults['CfRoutingPlaywright'])"
 
         if (!$offlinePass) { $stepErrors["OfflinePlaywright"] = (Get-LastLines $pwText) -join "`n" }
         if (!$upgradePass) { $stepErrors["SwUpgradePlaywright"] = "Service Worker Upgrade test did not pass. Check raw_run.log." }
@@ -661,6 +664,7 @@ $summaryLines.Add("  9. Vocabulary Verifier SHA-256 : $($stepResults['VerifyVoca
 $summaryLines.Add("  10. Mutation & Regression Tests: $($stepResults['MutationTests'])")
 $summaryLines.Add("  11. Distribution Build (site/) : $($stepResults['SiteContents'])")
 $summaryLines.Add("  12. Sub-Path Hosting (/german-app/) : $($stepResults['SubPathHosting'])")
+$summaryLines.Add("  13. Cloudflare Pages Compatibility : $($stepResults['CfRoutingPlaywright'])")
 $summaryLines.Add("")
 $summaryLines.Add("OFFLINE PWA METRICS:")
 $summaryLines.Add("  - $($offlineMetrics.Cards)")
