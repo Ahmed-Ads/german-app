@@ -10,7 +10,7 @@
 German_App/
 ├── index.html                 # التطبيق الأساسي (الواجهة، المنطق، المفردات، إدارة الصوت)
 ├── manifest.json              # ملف تعريف تطبيق الويب التقدمي (PWA)
-├── sw.js                      # خادم الخدمة (Service Worker v6) لإدارة الكاش والعمل Offline
+├── sw.js                      # خادم الخدمة (Service Worker v7) لإدارة الكاش والعمل Offline
 ├── vocab_baseline.json        # قاعدة البيانات المرجعية المعتمدة للمفردات (SHA-256)
 ├── verify_vocab.py            # أداة التحقق التشفيري الصارم من سلامة 1,160 مفردة
 ├── CHANGELOG_VOCAB.md         # سجل التعديلات المعتمدة للمفردات والقرارات اللغوية
@@ -127,7 +127,7 @@ German_App/
    ```
    أو قم بتشغيل فحص ويندوز الشامل عبر النقر المزدوج على `Run_Windows_Checks.bat`.
 2. **ترقية إصدار الكاش (Bump CACHE_NAME):**
-   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً من `deutsch-lernen-v6` إلى `deutsch-lernen-v7`).
+   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً من `deutsch-lernen-v7` إلى `deutsch-lernen-v8`).
    - اختبار `tests/sw_static_check.test.js` يتحقق من اسم الكاش تلقائياً.
 3. **الالتزام (Commit):**
    ```bash

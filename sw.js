@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v6 (Critical precache hardening & HTML fallback chain with async IIFE)
-const CACHE_NAME = 'deutsch-lernen-v6';
+// Cache Version: v7 (Progress modes & backup restore hardening)
+const CACHE_NAME = 'deutsch-lernen-v7';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.
