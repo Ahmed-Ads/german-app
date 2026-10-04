@@ -183,14 +183,16 @@ export function getPluralDistractors(targetWord, category, allCategories) {
 }
 
 // 7. Backup Data Validator
-export function validateBackupData(data, categoriesList = []) {
+export const PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen'];
+
+export function validateBackupData(data, categoriesList = [], allowedModes = PROGRESS_MODES) {
   if (!data || typeof data !== 'object' || Array.isArray(data)) {
     return { valid: false, error: 'الملف غير صالح: لا يحتوي على كائن بيانات صالح (JSON Object).' };
   }
 
   const knownCatIds = new Set(categoriesList.map(c => c.id));
   const catWordCounts = new Map(categoriesList.map(c => [c.id, c.words ? c.words.length : 0]));
-  const validModes = new Set(['mcq', 'written', 'article', 'plural']);
+  const validModes = new Set(allowedModes);
 
   const hasProgress = data.progress !== undefined;
   const hasStats = data.stats !== undefined;
@@ -588,6 +590,24 @@ describe('Phase 1 Code Fixes Test Suite', () => {
         dailyGoal: 20
       };
       expect(validateBackupData(valid, mockCategories).valid).toBe(true);
+    });
+
+    it('accepts valid backup containing listening mode (listen) progress', () => {
+      const backupWithListen = {
+        progress: {
+          obst: {
+            mcq: { unlocked: 5, counts: { '0': 2 } },
+            listen: { unlocked: 5, counts: { '0': 1 } }
+          }
+        }
+      };
+      const res = validateBackupData(backupWithListen, mockCategories);
+      expect(res.valid).toBe(true);
+    });
+
+    it('rejects quiz or review keys in progress because they do not track separate progress keys', () => {
+      expect(validateBackupData({ progress: { obst: { quiz: {} } } }, mockCategories).valid).toBe(false);
+      expect(validateBackupData({ progress: { obst: { review: {} } } }, mockCategories).valid).toBe(false);
     });
   });
 });

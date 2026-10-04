@@ -1867,8 +1867,13 @@ const CATEGORIES = [
   ]}
 ];
 
+/* All modes that track and persist word learning progress */
+const PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen'];
+if(typeof window !== 'undefined'){ window.PROGRESS_MODES = PROGRESS_MODES; }
+
 /* thresholds requested by user */
-const THRESH = { mcq:10, written:10, article:8, plural:8 };
+const THRESH = { mcq:10, written:10, article:8, plural:8, listen:8 };
+if(typeof window !== 'undefined'){ window.THRESH = THRESH; }
 const UNLOCK_STEP = 5;
 
 // "core" = the most essential/common words a learner should master first;
@@ -2004,7 +2009,13 @@ async function loadProgress(){
         const knownCatIds = new Set(CATEGORIES.map(c => c.id));
         for(const [catId, val] of Object.entries(parsed)){
           if(knownCatIds.has(catId) && typeof val === 'object' && val !== null && !Array.isArray(val)){
-            cleaned[catId] = val;
+            const catProg = {};
+            for(const [m, mVal] of Object.entries(val)){
+              if(PROGRESS_MODES.includes(m) || m === 'coreAcked'){
+                catProg[m] = mVal;
+              }
+            }
+            cleaned[catId] = catProg;
           }
         }
         progress = cleaned;
@@ -2132,6 +2143,9 @@ function saveProgressSoon(){
 }
 
 function ensureProgress(catId, mode){
+  if(!PROGRESS_MODES.includes(mode)){
+    throw new Error(`Unknown progress mode: ${mode}`);
+  }
   progress[catId] = progress[catId] || {};
   if(!progress[catId][mode]){
     progress[catId][mode] = { unlocked: UNLOCK_STEP, counts:{}, coreAcked:false };
@@ -2996,7 +3010,7 @@ function validateBackupData(data, categoriesList = (typeof CATEGORIES !== 'undef
 
   const knownCatIds = new Set(categoriesList.map(c => c.id));
   const catWordCounts = new Map(categoriesList.map(c => [c.id, c.words ? c.words.length : 0]));
-  const validModes = new Set(['mcq', 'written', 'article', 'plural']);
+  const validModes = new Set(typeof PROGRESS_MODES !== 'undefined' ? PROGRESS_MODES : ['mcq', 'written', 'article', 'plural', 'listen']);
 
   const hasProgress = data.progress !== undefined;
   const hasStats = data.stats !== undefined;
@@ -3168,10 +3182,12 @@ function exportBackup(isAutoBeforeRestore = false){
     if(!isAutoBeforeRestore){
       showToast('تم تصدير النسخة الاحتياطية بنجاح 📥');
     }
+    return jsonStr;
   } catch(e){
     if(!isAutoBeforeRestore){
       alert('حدث خطأ أثناء تصدير النسخة الاحتياطية: ' + e.message);
     }
+    throw e;
   }
 }
 
@@ -3200,13 +3216,22 @@ function importBackup(jsonStr){
     `• أقسام تحتوي على تقدّم: ${catProgressCount}\n` +
     `• كلمات محفوظة في المفضلة: ${starredCount}\n` +
     `• كلمات في نظام التكرار الذكي (SRS): ${srsCount}\n\n` +
-    `سيتم تنزيل نسخة احتياطية من تقدمك الحالي تلقائياً قبل بدء الاستبدال.\n` +
+    `ملاحظة: سيحاول المتصفح تنزيل نسخة احتياطية وقائية لبياناتك الحالية قبل البدء (إذا كانت التنزيلات التلقائية مسموحة).\n` +
     `هل ترغب في المتابعة والاستبدال الآن؟`;
 
   if(!confirm(confirmMsg)) return;
 
   // Auto-backup download before overwrite
-  try { exportBackup(true); } catch(e){}
+  try {
+    exportBackup(true);
+  } catch(e){
+    console.error('فشل إنشاء النسخة الاحتياطية التلقائية قبل الاستبدال:', e);
+    const proceedWithoutBackup = confirm(
+      'تعذر تنزيل نسخة احتياطية وقائية من بياناتك الحالية تلقائياً (قد تكون التنزيلات التلقائية محظورة في متصفحك).\n\n' +
+      'هل ترغب في متابعة الاستبدال وحذف بياناتك الحالية على أي حال دون حفظ نسخة وقائية؟'
+    );
+    if(!proceedWithoutBackup) return;
+  }
 
   // Overwrite state safely
   if(data.progress !== undefined){
@@ -3330,9 +3355,10 @@ function applyUmlaut(word){
 }
 
 function pluralDistractors(targetWord, cat){
-  const correct = (targetWord && targetWord.pl ? targetWord.pl : '').trim();
+  const correct = (typeof targetWord === 'object' && targetWord && targetWord.pl ? targetWord.pl : (typeof cat === 'string' ? cat : (typeof targetWord === 'string' ? targetWord : ''))).trim();
   const distractors = [];
-  const catPlurals = (cat ? cat.words : [])
+  const catWords = (cat && Array.isArray(cat.words)) ? cat.words : [];
+  const catPlurals = catWords
     .filter(cw => cw.pl && cw.pl.trim() !== correct)
     .map(cw => cw.pl.trim());
   const globalPlurals = CATEGORIES
@@ -4961,7 +4987,7 @@ function renderQuestion(cat, mode, idx, w){
   // ---------- PLURAL MODE ----------
   if(mode === 'plural'){
     const correctText = w.pl;
-    const distractors = pluralDistractors(w.n, correctText);
+    const distractors = pluralDistractors(w, cat);
     const options = shuffle([correctText, ...distractors]);
     zone.innerHTML = `
       <div class="qcard">
@@ -5002,6 +5028,9 @@ function renderQuestion(cat, mode, idx, w){
 
 
 function applyResult(catId, mode, idx, ok){
+  if(!PROGRESS_MODES.includes(mode)){
+    throw new Error(`Unknown progress mode: ${mode}`);
+  }
   if(exState && (exState.kind === 'globalStep' || exState.kind === 'diffStep' || exState.kind === 'srsStep' || exState.kind === 'starStep')) exState.lastOk = ok;
   updateSrs(catId, idx, ok);
   recordActivity(ok);
