@@ -10,7 +10,8 @@
 German_App/
 ├── index.html                 # التطبيق الأساسي (الواجهة، المنطق، المفردات، إدارة الصوت)
 ├── manifest.json              # ملف تعريف تطبيق الويب التقدمي (PWA)
-├── sw.js                      # خادم الخدمة (Service Worker v7) لإدارة الكاش والعمل Offline
+├── sw.js                      # خادم الخدمة (Service Worker v8) لإدارة الكاش والعمل Offline
+├── _headers                   # إعدادات ترويسات الاستضافة لمنع كاش sw.js و manifest.json على Cloudflare Pages
 ├── vocab_baseline.json        # قاعدة البيانات المرجعية المعتمدة للمفردات (SHA-256)
 ├── verify_vocab.py            # أداة التحقق التشفيري الصارم من سلامة 1,160 مفردة
 ├── CHANGELOG_VOCAB.md         # سجل التعديلات المعتمدة للمفردات والقرارات اللغوية
@@ -45,6 +46,7 @@ German_App/
 │   ├── extract_categories_ast.js # استخراج مصفوفة الكلمات عبر Node VM لصالح verifier
 │   ├── scan_font_sizes.js     # فحص أحجام الخطوط في DOM لضمان عدم وجود نصوص < 12px
 │   ├── serve_subpath.js       # خادم محلي لاختبار الاستضافة تحت مسار فرعي (/german-app/)
+│   ├── serve_pages_emulator.js # محاكي توجيه Cloudflare Pages وفحص تحويل /index.html إلى /
 │   ├── chrome_overflow_audit.js # فحص التجاوب ومنع التمرير الأفقي عبر 4 شاشات
 │   └── verify_console_flow.js # التحقق من خلو المتصفح من أي أخطاء في وحدة التحكم (Console)
 │
@@ -61,6 +63,7 @@ German_App/
 │   ├── test_mutation_runner_logic.ps1 # اختبار ذاتي لمنطق فحص نتائج الطفرات في مشغل ويندوز
 │   ├── test_baseline_update.py# اختبار إثبات عمل تحديث المرجع وتوثيق الهاش آلياً
 │   ├── data_safety_runner.js  # اختبار ترقية المتصفح وضمان بقاء التقدم والإحصائيات
+│   ├── cf_routing.spec.js     # اختبار Playwright لتوافق توجيه Cloudflare Pages والعمل دون اتصال
 │   ├── offline_sw.spec.js     # اختبار Playwright لدورة حياة PWA بدون إنترنت
 │   ├── sw_upgrade.spec.js     # اختبار Playwright لترقية Service Worker
 │   ├── viewport_overflow.spec.js # اختبار Playwright لعدم تجاوز عرض 360px
@@ -79,41 +82,39 @@ German_App/
 
 ---
 
-## 🌐 2. النشر على Cloudflare Pages (استضافة مجانية للمستودعات الخاصة)
+## 🌐 2. النشر والتوافق مع Cloudflare Pages (استضافة مجانية للمستودعات الخاصة)
 
 تم اختيار **Cloudflare Pages** لاستضافة التطبيق مجاناً مع إبقاء الكود المصدري داخل **مستودع خاص (Private Repository)** على GitHub، لأن GitHub Pages المجاني يتطلب مستودعاً عاماً.
 
-### خطوات الإعداد اليدوي على منصة Cloudflare (تقوم بها بنفسك):
-> *ملاحظة: أسماء الأزرار والواجهات في لوحة تحكم Cloudflare قد تتغير قليلاً بمرور الوقت.*
+### إعدادات البناء المعتمدة (Build Settings):
+عند ربط المستودع في لوحة تحكم Cloudflare Dashboard (**Workers & Pages** > **Create application** > **Pages** > **Connect to Git**)، اضبط الإعدادات التالية بدقة:
+- **Framework preset:** `None` (تطبيق بدون إطار عمل).
+- **Build command:**
+  ```bash
+  node scripts/build_site.js
+  ```
+- **Build output directory:**
+  ```text
+  site
+  ```
+- **Root directory:** `/` (اتركه فارغاً، ليعتمد جذر المستودع).
+- **إصدار Node.js (اختياري/موصى به):** في **Settings** > **Builds & deployments** > **Environment variables**، يمكن إضافة المتغير `NODE_VERSION` بالقيمة `20`.
 
-1. **(أ) تسجيل الدخول والربط بـ GitHub:**
-   - ادخل إلى لوحة تحكم [Cloudflare Dashboard](https://dash.cloudflare.com/).
-   - من القائمة الجانبية، اختر **Workers & Pages** ثم اضغط على **Create application**.
-   - اختر علامة التبويب **Pages** ثم اضغط على **Connect to Git**.
-   - سجّل الدخول بحساب GitHub الخاص بك وامنح Cloudflare الإذن بالوصول إلى المستودع الخاص للتطبيق.
-2. **(ب) ضبط إعدادات البناء (Build Settings):**
-   - اختر المستودع الخاص بك وحدد الفرع الرئيسي (`main`).
-   - اضبط الحقول التالية بدقة:
-     - **Framework preset:** اختر `None` (تطبيق بدون إطار عمل).
-     - **Build command:** اكتب:
-       ```bash
-       node scripts/build_site.js
-       ```
-     - **Build output directory:** اكتب:
-       ```text
-       site
-       ```
-     - **Root directory:** اتركه فارغاً `/` (المجلد الرئيسي للمستودع).
-3. **(ج) ضبط إصدار Node.js (اختياري/موصى به):**
-   - تعتمد Cloudflare Pages على بيئة بناء افتراضية. لتثبيت إصدار Node.js إلى إصدار LTS متوافق (مثل `20`):
-     - انتقل إلى إعدادات المشروع في Cloudflare: **Settings** > **Builds & deployments** > **Environment variables**.
-     - أضف المتغير:
-       - **Variable name:** `NODE_VERSION`
-       - **Value:** `20`
-   - *مرجع التوثيق الرسمي لـ Cloudflare:* راجع [Cloudflare Pages Build configuration - Language support and tools](https://developers.cloudflare.com/pages/configuration/build-configuration/#language-support-and-tools).
-4. **(د) الحفظ والنشر (Save and Deploy):**
-   - اضغط على **Save and Deploy**. ستقوم Cloudflare بتنفيذ أمر البناء وتوليد مجلد `site` ونشره على نطاق مجاني (مثل: `https://<project-name>.pages.dev`).
-   - التطبيق مصمم للعمل مباشرة من جذر النطاق (`/`) وتعمل كافة الروابط النسبية وملفات الخدمة تلقائياً.
+### سلوك التوجيه والتوافق الهندسي (Routing & SW Compatibility):
+- **التحويل التلقائي للروابط النظيفة:** تُجري Cloudflare Pages تحويلاً دائماً (HTTP 308) لأي طلب للمسار `/index.html` إلى الجذر التوجيهي النظيف `/` (Clean URLs).
+- **معالجة استجابات التنقل (Navigation Responses):** تنص مواصفة Fetch و Service Worker على حظر الاستجابة لطلبات التنقل (Navigation) باستجابة تحمل راية التحويل `response.redirected === true` لتجنب أخطاء المتصفح وفشل التشغيل أوفلاين. لذا تم ضبط التطبيق هندسياً كالتالي:
+  1. ضبط `start_url: "./"` داخل `manifest.json`.
+  2. تضمين المسار الأساسي `'./'` في التخزين المسبق الحرج `CRITICAL_ASSETS` بملف `sw.js` (بدلاً من `'./index.html'`).
+  3. إعادة بناء أي استجابة شبكية محولة لتكون استجابة نظيفة (`cleanRedirectedResponse`) قبل التخزين المؤقت عبر `cache.put` وقبل الإرجاع للمتصفح.
+  4. اعتراض طلبات التنقل التي تنتهي بـ `/index.html` وتقديم استجابة الجذر النظيفة المخزنة فورياً للعمل دون اتصال بكفاءة تامة.
+- **ملف الترويسات (`_headers`):** يتضمن مجلد الإنتاج `site/` ملف `_headers` لضبط `Cache-Control: no-cache` لكل من `/sw.js` و `/manifest.json` لضمان عدم احتفاظ خوادم الحافة (CDN) بنسخ قديمة منهما وسرعة وصول التحديثات للمستخدمين.
+
+### الفحوصات اليدوية على الرابط الحقيقي بعد النشر (Manual Verification on Real URL):
+نظراً لأن بيئات الفحص الآلي (CI) تعمل محلياً ومحاكاتياً، يجب إجراء الفحوصات الثلاثة التالية يدوياً على الرابط الفعلي المنشور (`https://<project-name>.pages.dev`) للتأكد التام:
+1. **الفحص الأول (أونلاين - Online):** افتح الرابط المباشر في المتصفح، وتأكد من تحميل كافة الأقسام (30 قسماً) وتفعيل كاش Service Worker v8 دون أي أخطاء في Console.
+2. **الفحص الثاني (أوفلاين - Offline):** افصل الاتصال بالإنترنت (أو اختر Offline من تبويب Network في DevTools)، ثم أعد تحميل الصفحة في المسارين: `/` وكذلك `/index.html`، وتأكد من ظهور الأقسام والتفاعل السليم.
+3. **الفحص الثالث (التشغيل من أيقونة PWA المثبتة أوفلاين - Launch from Installed Icon Offline):** ثبّت التطبيق كـ PWA على الهاتف أو الحاسوب، وافصل الإنترنت تماماً، ثم شغّل التطبيق من الأيقونة المثبتة على سطح المكتب أو الشاشة الرئيسية، وتأكد من فتح التطبيق وظهور الـ 30 قسماً دون انقطاع، مع خلو Console من أي أخطاء.
+*(تنبيه أمان وموثوقية: هذه الفحوصات الثلاثة على النطاق الحقيقي تُجرى يدوياً فقط، ولا ندعي التحقق منها على الخادم الحقيقي آلياً).*
 
 ---
 
@@ -127,7 +128,7 @@ German_App/
    ```
    أو قم بتشغيل فحص ويندوز الشامل عبر النقر المزدوج على `Run_Windows_Checks.bat`.
 2. **ترقية إصدار الكاش (Bump CACHE_NAME):**
-   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً من `deutsch-lernen-v7` إلى `deutsch-lernen-v8`).
+   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً من `deutsch-lernen-v8` إلى `deutsch-lernen-v9`).
    - اختبار `tests/sw_static_check.test.js` يتحقق من اسم الكاش تلقائياً.
 3. **الالتزام (Commit):**
    ```bash
