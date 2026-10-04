@@ -354,11 +354,14 @@ window.addEventListener('DOMContentLoaded', async () => {
       dailyGoal: 30
     };
 
+    const origAnchorClick = HTMLAnchorElement.prototype.click;
+    HTMLAnchorElement.prototype.click = function() {};
     window.confirm = function() { return true; }; // accept restore
     window.alert = function() {};
     importBackup(JSON.stringify(validFullBackup));
     window.confirm = origConfirm;
     window.alert = origAlert;
+    HTMLAnchorElement.prototype.click = origAnchorClick;
 
     const restoredOk = (progress.obst && progress.obst.mcq.unlocked === 6) &&
                        (stats.current === 5 && stats.totalAnswered === 40) &&
