@@ -1,15 +1,18 @@
 {
   "name": "german_app",
   "version": "1.0.0",
-  "description": "تطبيق ويب تقدمي (PWA) متكامل لتعليم اللغة الألمانية، يضم 1,160 مفردة موثقة وموزعة على 30 قسماً، مع صيغ الجمع، التكرار المتباعد الذكي (SRS)، أنماط استماع وبطاقات 3D، ويعمل دون الحاجة إلى إنترنت.",
-  "main": "sw.js",
+  "private": true,
+  "description": "تطبيق ويب تقدمي (PWA) متكامل لتعليم اللغة الألمانية، يضم 1,160 مفردة مفحوصة آلياً وموزعة على 30 قسماً، مع صيغ الجمع، التكرار المتباعد الذكي (SRS)، أنماط استماع وبطاقات 3D، ويعمل دون الحاجة إلى إنترنت.",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "test": "vitest run",
     "test:all": "python verify_vocab.py && python tests/mutation_verifier_test.py && vitest run && node scripts/build_site.js && vitest run tests/site_contents.test.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@playwright/test": "1.63.0",
     "axe-core": "^4.13.0",

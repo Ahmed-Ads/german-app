@@ -17,3 +17,4 @@ node_modules/
 test-results/
 audit/windows_results/
 site/
+.proof_chrome_profile*
