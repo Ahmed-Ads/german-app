@@ -59,3 +59,7 @@
 - **Target Item IDs:** obst_39,obst_41,obst_42,kleidung_33
 - **Previous SHA-256:** `a06623dfbcf1980c8a153fc79aca664bdd3bebecccd0f5f7dc7d67857fb8e8f3`
 - **New SHA-256:** `bc4f1b85a867c1f126cdde46eed031b0600440e84708c1e4e264d5106ef8e417`
+
+### Clarification Note on Sources and Verification Scope
+- **Authoritative Reference Dictionaries:** The sources listed in earlier changelog entries (Duden, DWDS, Hans Wehr, Almaany, PONS) are the authoritative reference dictionaries consulted during the audit process. Not every individual vocabulary entry was reviewed or verified by a human lexicographer.
+- **Verification Scope:** German vocabulary headword spellings, grammatical genders/articles, and plurals are mechanically verified against curated word lists and official lexical databases. Arabic translations and example sentences have not undergone an exhaustive human review.

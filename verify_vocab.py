@@ -16,6 +16,7 @@ Features:
 
 import os
 import sys
+import re
 import json
 import argparse
 import hashlib
@@ -83,13 +84,14 @@ def extract_vocab_from_html(html_path):
     except Exception as e:
         return None, [f"Failed to execute parser: {str(e)}"]
 
-def verify_file(html_path, baseline, baseline_hash):
+def verify_file(html_path, baseline, baseline_hash, total_baseline_words):
     filename = os.path.basename(html_path)
     print(f"\n--- فحص الملف: {filename} ---")
 
     if not os.path.exists(html_path):
-        print(f"[SKIP] الملف غير موجود: {html_path}")
-        return True, 0, []
+        err = f"Target file does not exist: {html_path}"
+        print(f"[FAIL] ❌ {err}")
+        return False, 0, [err]
 
     extracted, errors = extract_vocab_from_html(html_path)
     if errors:
@@ -149,6 +151,9 @@ def verify_file(html_path, baseline, baseline_hash):
                 if e_k not in b_w and e_w[e_k] is not None:
                     diff_errors.append(f"Word '{cid}'[{w_idx}] ({wn}) has unauthorized extra field '{e_k}': {e_w[e_k]}")
 
+    if total_words != total_baseline_words or total_words == 0:
+        diff_errors.append(f"Total words verified in {filename} ({total_words}) does not match expected baseline count ({total_baseline_words})")
+
     file_hash = compute_canonical_hash(extracted)
     if file_hash != baseline_hash:
         diff_errors.append(f"Cryptographic hash mismatch in {filename}!\n    Expected: {baseline_hash}\n    Actual  : {file_hash}")
@@ -160,8 +165,7 @@ def verify_file(html_path, baseline, baseline_hash):
 def check_changelog_sync(baseline_hash):
     """
     CI / Pre-commit guard: Ensures that the current canonical hash of vocab_baseline.json
-    is documented in CHANGELOG_VOCAB.md. Any change to the baseline without a corresponding
-    changelog entry will trigger a hard failure.
+    appears as the 'New SHA-256' value of the LATEST changelog entry in CHANGELOG_VOCAB.md.
     """
     if not os.path.exists(CHANGELOG_PATH):
         return False, f"Changelog file does not exist: {CHANGELOG_PATH}"
@@ -169,13 +173,28 @@ def check_changelog_sync(baseline_hash):
     with open(CHANGELOG_PATH, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    if baseline_hash not in content:
+    entries = re.findall(r'(?ms)^##\s*\[.*?(?=(?:^##\s*\[)|\Z)', content)
+    if not entries:
+        return False, f"No changelog entries starting with '## [' found in {os.path.basename(CHANGELOG_PATH)}"
+
+    latest_entry = entries[-1]
+    hash_match = re.search(r'\*\*(?:New\s+(?:Canonical\s+)?SHA-256):\*\*\s*`([a-f0-9]{64})`', latest_entry, re.IGNORECASE)
+    if not hash_match:
         return False, (
             f"CRITICAL CI/PRE-COMMIT CHECK FAILED:\n"
-            f"The current canonical hash of vocab_baseline.json ({baseline_hash})\n"
-            f"is NOT documented in {os.path.basename(CHANGELOG_PATH)}!\n"
+            f"The latest changelog entry in {os.path.basename(CHANGELOG_PATH)} does not contain a valid 'New SHA-256' value."
+        )
+
+    latest_new_hash = hash_match.group(1).lower()
+    if latest_new_hash != baseline_hash.lower():
+        return False, (
+            f"CRITICAL CI/PRE-COMMIT CHECK FAILED:\n"
+            f"The current canonical hash of vocab_baseline.json:\n"
+            f"    {baseline_hash}\n"
+            f"does not match the 'New SHA-256' of the latest entry in {os.path.basename(CHANGELOG_PATH)}:\n"
+            f"    {latest_new_hash}\n"
             f"Any modification to the vocabulary baseline requires an authorized entry\n"
-            f"in CHANGELOG_VOCAB.md documenting the change, rationale, and source."
+            f"at the end of CHANGELOG_VOCAB.md documenting the change, rationale, and source."
         )
 
     return True, None
@@ -231,7 +250,6 @@ def main():
     parser.add_argument('--reason', type=str, help="Mandatory rationale for baseline change")
     parser.add_argument('--source', type=str, help="Authoritative linguistic source citation")
     parser.add_argument('--ids', type=str, help="Target item IDs modified")
-    parser.add_argument('--skip-changelog-check', action='store_true', help="Skip changelog sync check (used during baseline updates)")
     args = parser.parse_args()
 
     print("=" * 70)
@@ -256,16 +274,22 @@ def main():
         sys.exit(0)
 
     # CI / Pre-commit guard check
-    if not args.skip_changelog_check:
-        cl_ok, cl_err = check_changelog_sync(baseline_hash)
-        if not cl_ok:
-            print("\n[FAILED] ❌ " + cl_err)
-            sys.exit(1)
-        print(f"[OK] [✓] توثيق سجل التغييرات: البصمة الحالية موثقة رسمياً في {os.path.basename(CHANGELOG_PATH)}")
+    cl_ok, cl_err = check_changelog_sync(baseline_hash)
+    if not cl_ok:
+        print("\n[FAILED] ❌ " + cl_err)
+        sys.exit(1)
+    print(f"[OK] [✓] توثيق سجل التغييرات: البصمة الحالية موثقة رسمياً في آخر تدوينة في {os.path.basename(CHANGELOG_PATH)}")
 
     overall_ok = True
+    verified_files_count = 0
+    total_words_verified = 0
+
+    if not TARGET_FILES:
+        print("\n[FAILED] ❌ No target files defined for verification.")
+        overall_ok = False
+
     for target in TARGET_FILES:
-        ok, total_w, errs = verify_file(target, baseline, baseline_hash)
+        ok, total_w, errs = verify_file(target, baseline, baseline_hash, total_baseline_words)
         if not ok:
             overall_ok = False
             print(f"\n[FAILED] ❌ تم العثور على {len(errs)} اختلاف في {os.path.basename(target)}:")
@@ -274,7 +298,18 @@ def main():
             if len(errs) > 10:
                 print(f"  ... و {len(errs)-10} اختلافات أخرى.")
         else:
+            verified_files_count += 1
+            total_words_verified += total_w
             print(f"[OK] [✓] {os.path.basename(target)}: تم التحقق من كافة الأقسام ({len(baseline)}) والمفردات ({total_w}) بنجاح تام.")
+
+    if verified_files_count != len(TARGET_FILES) or len(TARGET_FILES) == 0:
+        overall_ok = False
+        print(f"\n[FAILED] ❌ لم يتم فحص جميع الملفات المستهدفة بنجاح ({verified_files_count}/{len(TARGET_FILES)}).")
+
+    expected_total_words = total_baseline_words * len(TARGET_FILES)
+    if total_words_verified != expected_total_words or total_words_verified == 0:
+        overall_ok = False
+        print(f"\n[FAILED] ❌ إجمالي المفردات المفحوصة ({total_words_verified}) لا يتطابق مع الإجمالي المرجعي المتوقع ({expected_total_words}).")
 
     print("\n" + "=" * 70)
     if overall_ok:
