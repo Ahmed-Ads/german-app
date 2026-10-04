@@ -5,7 +5,7 @@
   "description": "تطبيق تفاعلي لمتحدثي العربية لإتقان 1160 كلمة ألمانية مفحوصة آلياً وقواعدها مع صيغ الجمع والتكرار المتباعد",
   "lang": "ar",
   "dir": "rtl",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#FAF7F0",

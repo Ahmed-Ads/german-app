@@ -53,6 +53,13 @@ function createStaticServer(servedDir) {
       return;
     }
 
+    // Emulate Cloudflare Pages clean URL redirect (/index.html -> / with 308)
+    if (!subPath && (reqPath === '/index.html' || reqPath === 'index.html')) {
+      res.writeHead(308, { Location: '/', 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('Permanent Redirect to /');
+      return;
+    }
+
     if (subPath && !reqPath.startsWith(prefix)) {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('Not Found (outside sub-path ' + prefix + '): ' + reqPath);

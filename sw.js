@@ -1,12 +1,13 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v7 (Progress modes & backup restore hardening)
-const CACHE_NAME = 'deutsch-lernen-v7';
+// Cache Version: v8 (Cloudflare Pages routing compatibility & clean non-redirected responses)
+const CACHE_NAME = 'deutsch-lernen-v8';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.
+// Note: We precache canonical root './' (not './index.html') to stay fully compatible with static hosts
+// like Cloudflare Pages that enforce clean URLs by redirecting /index.html to /.
 const CRITICAL_ASSETS = [
   './',
-  './index.html',
   './manifest.json',
   './fonts/fonts.css'
 ];
@@ -30,7 +31,6 @@ const OPTIONAL_ASSETS = [
 // Combined precache list (kept for complete site/ audits and asset verification)
 const PRECACHE_ASSETS = [
   './',
-  './index.html',
   './manifest.json',
   './fonts/fonts.css',
   './fonts/font_1.woff2',
@@ -45,6 +45,21 @@ const PRECACHE_ASSETS = [
   './icons/icon-maskable-192.png',
   './icons/icon-maskable-512.png'
 ];
+
+// Reconstruct a clean Response if the response was redirected (or has redirected === true),
+// preventing "response.redirected === true" from being stored in Cache Storage
+// or returned to fulfill navigation requests (which causes browser navigation errors per Fetch spec).
+function cleanRedirectedResponse(response) {
+  if (!response || !response.redirected) {
+    return response;
+  }
+  const headers = new Headers(response.headers);
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: headers
+  });
+}
 
 // Install: Cache critical assets strictly (fail install if any fails), optional assets resiliently
 self.addEventListener('install', event => {
@@ -89,6 +104,35 @@ self.addEventListener('fetch', event => {
                 (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'));
 
   if (isHtml) {
+    // When navigation URL ends with /index.html (e.g. bookmarks or PWA shortcuts on hosts like Cloudflare Pages
+    // that redirect /index.html to /), serve the canonical cached root './' response directly so we never return
+    // or cache a redirected response.
+    if (url.pathname.endsWith('/index.html')) {
+      event.respondWith(
+        (async () => {
+          const cachedRoot = (await caches.match('./')) || (await caches.match('/'));
+          if (cachedRoot) {
+            return cleanRedirectedResponse(cachedRoot);
+          }
+          try {
+            const rootResponse = await fetch('./');
+            if (rootResponse && rootResponse.status === 200) {
+              const copy = cleanRedirectedResponse(rootResponse.clone());
+              event.waitUntil(
+                caches.open(CACHE_NAME).then(cache => cache.put('./', copy))
+              );
+            }
+            return cleanRedirectedResponse(rootResponse);
+          } catch (_) {
+            const fallback = (await caches.match('./')) || (await caches.match('/'));
+            if (fallback) return cleanRedirectedResponse(fallback);
+            return Response.error();
+          }
+        })()
+      );
+      return;
+    }
+
     // Network-First with 3-second timeout for HTML to ensure fast fallback offline or on poor network
     event.respondWith(
       (async () => {
@@ -101,12 +145,12 @@ self.addEventListener('fetch', event => {
             fetch(event.request).then(response => {
               clearTimeout(timeoutId);
               if (response && response.status === 200) {
-                const copy = response.clone();
+                const copy = cleanRedirectedResponse(response.clone());
                 event.waitUntil(
                   caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy))
                 );
               }
-              resolve(response);
+              resolve(cleanRedirectedResponse(response));
             }).catch(err => {
               clearTimeout(timeoutId);
               reject(err);
@@ -115,11 +159,11 @@ self.addEventListener('fetch', event => {
           return networkResponse;
         } catch (err) {
           const cachedRequest = await caches.match(event.request);
-          if (cachedRequest) return cachedRequest;
+          if (cachedRequest) return cleanRedirectedResponse(cachedRequest);
+          const cachedRoot = (await caches.match('./')) || (await caches.match('/'));
+          if (cachedRoot) return cleanRedirectedResponse(cachedRoot);
           const cachedIndex = await caches.match('./index.html');
-          if (cachedIndex) return cachedIndex;
-          const cachedRoot = await caches.match('./');
-          if (cachedRoot) return cachedRoot;
+          if (cachedIndex) return cleanRedirectedResponse(cachedIndex);
           return Response.error();
         }
       })()

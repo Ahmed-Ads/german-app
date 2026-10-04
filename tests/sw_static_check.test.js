@@ -14,11 +14,14 @@ describe('Service Worker Configuration & Precache Hardening (sw.js)', () => {
     expect(cacheName).toMatch(/^deutsch-lernen-v\d+$/);
   });
 
-  it('declares CRITICAL_ASSETS containing index.html, manifest.json, and fonts.css', () => {
-    expect(swCode).toMatch(/const\s+CRITICAL_ASSETS\s*=\s*\[[\s\S]*?\];/);
-    expect(swCode).toContain("'./index.html'");
-    expect(swCode).toContain("'./manifest.json'");
-    expect(swCode).toContain("'./fonts/fonts.css'");
+  it('declares CRITICAL_ASSETS containing ./, manifest.json, and fonts.css without index.html', () => {
+    const match = swCode.match(/const\s+CRITICAL_ASSETS\s*=\s*\[([\s\S]*?)\];/);
+    expect(match).not.toBeNull();
+    const criticalAssetsText = match[1];
+    expect(criticalAssetsText).toContain("'./'");
+    expect(criticalAssetsText).not.toContain("'./index.html'");
+    expect(criticalAssetsText).toContain("'./manifest.json'");
+    expect(criticalAssetsText).toContain("'./fonts/fonts.css'");
   });
 
   it('declares OPTIONAL_ASSETS with non-blocking error handling', () => {
@@ -39,10 +42,16 @@ describe('Service Worker Configuration & Precache Hardening (sw.js)', () => {
     expect(swCode).toMatch(/event\.waitUntil\s*\(\s*caches\.open\(CACHE_NAME\)\.then\(cache\s*=>\s*cache\.put/);
   });
 
-  it('implements HTML fallback chain with async IIFE and Response.error() fallback', () => {
-    expect(swCode).toContain('await caches.match(event.request)');
-    expect(swCode).toContain("await caches.match('./index.html')");
+  it('implements HTML fallback chain with clean non-redirected Response handling', () => {
+    expect(swCode).toContain('cleanRedirectedResponse');
+    expect(swCode).toContain("url.pathname.endsWith('/index.html')");
+    expect(swCode).toContain("await caches.match('./')");
     expect(swCode).toContain('return Response.error()');
+  });
+
+  it('sanitizes redirected responses before returning or caching', () => {
+    expect(swCode).toContain('function cleanRedirectedResponse(response)');
+    expect(swCode).toContain('new Response(response.body');
   });
 
   it('purges legacy caches upon activation', () => {
@@ -59,7 +68,7 @@ describe('Service Worker Configuration & Precache Hardening (sw.js)', () => {
 describe('Service Worker Lifecycle & Fallback Simulation', () => {
   it('fails installation when any CRITICAL asset fails to cache', async () => {
     // Simulating cache.addAll with a failing critical asset
-    const criticalAssets = ['./', './index.html', './manifest.json', './fonts/fonts.css'];
+    const criticalAssets = ['./', './manifest.json', './fonts/fonts.css'];
     const mockCache = {
       addAll: async (assets) => {
         for (const asset of assets) {
@@ -107,14 +116,14 @@ describe('Service Worker Lifecycle & Fallback Simulation', () => {
     expect(warnings[0]).toContain('font_1.woff2');
   });
 
-  it('returns cached index.html when offline and network fails', async () => {
+  it('returns cached root ./ when offline and network fails', async () => {
     const fakeHtmlResponse = new Response('<!DOCTYPE html><html><body>Offline App</body></html>', {
       headers: { 'Content-Type': 'text/html' }
     });
 
     const mockCaches = {
       match: async (query) => {
-        if (query === './index.html') return fakeHtmlResponse;
+        if (query === './') return fakeHtmlResponse;
         return null;
       }
     };
@@ -123,8 +132,8 @@ describe('Service Worker Lifecycle & Fallback Simulation', () => {
     const handleFetchFallback = async (requestUrl) => {
       const cachedReq = await mockCaches.match(requestUrl);
       if (cachedReq) return cachedReq;
-      const cachedIndex = await mockCaches.match('./index.html');
-      if (cachedIndex) return cachedIndex;
+      const cachedRoot = await mockCaches.match('./');
+      if (cachedRoot) return cachedRoot;
       return Response.error();
     };
 
@@ -142,8 +151,8 @@ describe('Service Worker Lifecycle & Fallback Simulation', () => {
     const handleFetchFallback = async (requestUrl) => {
       const cachedReq = await mockEmptyCaches.match(requestUrl);
       if (cachedReq) return cachedReq;
-      const cachedIndex = await mockEmptyCaches.match('./index.html');
-      if (cachedIndex) return cachedIndex;
+      const cachedRoot = await mockEmptyCaches.match('./');
+      if (cachedRoot) return cachedRoot;
       return Response.error();
     };
 
@@ -151,3 +160,4 @@ describe('Service Worker Lifecycle & Fallback Simulation', () => {
     expect(result.type).toBe('error');
   });
 });
+
