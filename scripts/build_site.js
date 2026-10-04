@@ -7,6 +7,7 @@
  *  - index.html
  *  - sw.js
  *  - manifest.json
+ *  - _headers
  *  - icons/
  *  - fonts/
  * 
@@ -49,7 +50,7 @@ function buildSite() {
   fs.mkdirSync(siteDir, { recursive: true });
 
   // 2. Specific files to copy
-  const filesToCopy = ['index.html', 'sw.js', 'manifest.json'];
+  const filesToCopy = ['index.html', 'sw.js', 'manifest.json', '_headers'];
   for (const file of filesToCopy) {
     const srcPath = path.join(rootDir, file);
     const destPath = path.join(siteDir, file);

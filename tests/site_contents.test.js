@@ -81,6 +81,7 @@ describe('Site Build & Distribution Integrity (site/)', () => {
       'index.html',
       'sw.js',
       'manifest.json',
+      '_headers',
       'fonts/fonts.css',
       'fonts/font_1.woff2',
       'fonts/font_2.woff2',
@@ -100,4 +101,14 @@ describe('Site Build & Distribution Integrity (site/)', () => {
       expect(allowedFiles.has(file), `Unexpected non-production file in site/: ${file}`).toBe(true);
     }
   });
+
+  it('contains valid _headers file with Cache-Control: no-cache for sw.js and manifest.json', () => {
+    const headersPath = path.join(siteDir, '_headers');
+    expect(fs.existsSync(headersPath), 'Missing site/_headers').toBe(true);
+    const content = fs.readFileSync(headersPath, 'utf8');
+    expect(content).toContain('/sw.js');
+    expect(content).toContain('/manifest.json');
+    expect(content).toContain('Cache-Control: no-cache');
+  });
 });
+
