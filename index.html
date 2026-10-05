@@ -49,7 +49,7 @@
       --card: #1E1C18;
       --line: rgba(255,255,255,0.14);
     }
-    .cat-card, .qcard, .done-card, .opt, .wl-row, .stat-card, .backup-box, .goal-selector-box, .voice-box {
+    .cat-card, .qcard, .done-card, .opt, .wl-row, .stat-card, .backup-box, .goal-selector-box, .voice-box, .sync-box {
       background: var(--card) !important;
       color: var(--ink) !important;
       border-color: var(--line) !important;
@@ -635,11 +635,90 @@
     .stat-cat-name { font-size: 13.5px; }
   }
 
+  /* ---------- Cloud Sync Box ---------- */
+  .sync-box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .sync-status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .sync-status-ok { background: rgba(44, 110, 73, 0.12); color: var(--green); }
+  .sync-status-working { background: rgba(30, 79, 163, 0.12); color: var(--blue); }
+  .sync-status-offline { background: rgba(235, 177, 17, 0.15); color: #8a6800; }
+  .sync-status-error { background: rgba(200, 52, 42, 0.12); color: var(--red); }
+  .sync-status-inactive { background: rgba(23, 21, 18, 0.08); color: #555; }
+  .sync-desc { font-size: 13px; line-height: 1.5; color: #42403b; margin: 4px 0 12px; }
+  .sync-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .sync-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .sync-btn:hover { background: rgba(0,0,0,0.06); }
+  .sync-btn-primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .sync-btn-primary:hover { background: #173d7f; }
+  .sync-btn-danger { color: var(--red); border-color: rgba(200,52,42,0.3); }
+  .sync-btn-danger:hover { background: rgba(200,52,42,0.08); }
+  .sync-btn-subtle { font-size: 12px; color: #666; }
+  .sync-user-row { margin-bottom: 8px; }
+  .sync-user-name { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .sync-meta { font-size: 12px; color: #555; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .sync-error-banner {
+    background: rgba(200, 52, 42, 0.08);
+    border: 1px solid rgba(200, 52, 42, 0.2);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    color: var(--red);
+    margin: 8px 0;
+  }
+  .sync-privacy-note {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+  }
+  @media (prefers-color-scheme: dark) {
+    .sync-desc, .sync-meta, .sync-privacy-note { color: #ccc !important; }
+    .sync-btn { background: #2a2722 !important; color: var(--ink) !important; border-color: var(--line) !important; }
+    .sync-btn:hover { background: #38342e !important; }
+    .sync-btn-primary { background: var(--blue) !important; color: #fff !important; }
+  }
+
 </style>
 </head>
 <body>
 <main class="wrap" id="app" role="main"></main>
 
+<script src="firebase-config.js"></script>
+<script src="sync/merge_policy.js"></script>
+<script src="vendor/firebase-sync.bundle.js"></script>
+<script src="sync/firebase_adapter.js"></script>
+<script src="sync/sync_manager.js"></script>
 <script>
 /* ======================= DATA ======================= */
 const PALETTE = ['#C8342A','#1E4FA3','#EBB111','#2C6E49'];
@@ -1883,6 +1962,10 @@ const UNLOCK_STEP = 5;
 function coreCountFor(cat){ return cat.core || Math.min(20, cat.words.length); }
 
 const ORDERED_CATEGORIES = CATEGORIES.slice().sort((a,b) => (a.order||999) - (b.order||999));
+if (typeof window !== 'undefined') {
+  window.CATEGORIES = CATEGORIES;
+  window.ORDERED_CATEGORIES = ORDERED_CATEGORIES;
+}
 
 
 /* ======================= UNIFIED ROBUST STORAGE LAYER ======================= */
@@ -2116,6 +2199,7 @@ function recordActivity(ok){
     stats.todayCount = (stats.todayCount || 0) + 1;
   }
   saveStatsSoon();
+  if(typeof window !== 'undefined' && window.syncManager) window.syncManager.notifyChange();
 }
 
 // A word counts as fully "mastered" only once every mode it can be tested
@@ -2174,6 +2258,7 @@ function setWordCount(catId, mode, idx, val){
   const p = ensureProgress(catId, mode);
   p.counts[idx] = Math.max(0, val);
   saveProgressSoon();
+  if(typeof window !== 'undefined' && window.syncManager) window.syncManager.notifyChange();
 }
 
 function resetAllProgress(){
@@ -2873,11 +2958,13 @@ function toggleStar(catId, idx){
   if(starredSet.has(k)){
     starredSet.delete(k);
     saveStarredSoon();
+    if(typeof window !== 'undefined' && window.syncManager) window.syncManager.notifyChange();
     showToast('تمت إزالة الكلمة من المميزة ⭐');
     return false;
   } else {
     starredSet.add(k);
     saveStarredSoon();
+    if(typeof window !== 'undefined' && window.syncManager) window.syncManager.notifyChange();
     showToast('تمت إضافة الكلمة إلى المفضلة ⭐');
     return true;
   }
@@ -2958,6 +3045,7 @@ function updateSrs(catId, idx, ok){
   rec.nextDate = addDaysToStr(now, interval);
   srsStore[k] = rec;
   saveSrsSoon();
+  if(typeof window !== 'undefined' && window.syncManager) window.syncManager.notifyChange();
 }
 function srsDuePool(){
   const now = todayStr();
@@ -2993,6 +3081,7 @@ function setDailyGoal(g){
     const clamped = Math.max(5, Math.min(200, Math.round(Number(g) || 20)));
     if(window.localStorage) window.localStorage.setItem('deutsch_daily_goal_v1', String(clamped));
     if(appStorage) appStorage.set(STORAGE_KEYS.DAILY_GOAL, String(clamped));
+    if(typeof window !== 'undefined' && window.syncManager) window.syncManager.notifyChange();
     showToast(`تم تعيين الهدف اليومي إلى ${clamped} كلمة 🎯`);
     render();
   } catch(e){}
@@ -3666,6 +3755,69 @@ function renderHome(){
   });
 }
 
+function renderSyncBoxHtml() {
+  const sm = typeof window !== 'undefined' ? window.syncManager : null;
+  const status = sm ? sm.getStatus() : { state: 'UNCONFIGURED', isConfigured: false, user: null };
+  const isConf = status.isConfigured;
+  const user = status.user;
+  const state = status.state;
+
+  let contentHtml = '';
+
+  if (!isConf) {
+    contentHtml = `
+      <div class="sync-status-badge sync-status-inactive">المزامنة غير مفعّلة (الإعداد غير مكتمل)</div>
+      <p class="sync-desc">يعمل التطبيق بكامل كفاءته أوفلاين ويحفظ تقدمك محلياً على هذا الجهاز. لتفعيل المزامنة السحابية عبر أجهزتك مجاناً، قم بتهيئة بيانات Firebase في ملف <code>firebase-config.js</code>.</p>
+    `;
+  } else if (!user) {
+    contentHtml = `
+      <div class="sync-status-badge sync-status-inactive">غير مسجل الدخول</div>
+      <p class="sync-desc">سجّل الدخول بحساب Google لمزامنة تقدمك تلقائياً وبأمان عبر جميع أجهزتك دون فقدان أي كلمة.</p>
+      <div class="sync-actions">
+        <button type="button" class="sync-btn sync-btn-primary" id="syncSignInBtn" data-action="sync-signin" aria-label="تسجيل الدخول باستخدام Google">🔑 تسجيل الدخول باستخدام Google</button>
+      </div>
+    `;
+  } else {
+    let stateBadge = '';
+    if (state === 'SYNCED') {
+      stateBadge = '<span class="sync-status-badge sync-status-ok">🟢 متزامن مع السحابة</span>';
+    } else if (state === 'SYNCING') {
+      stateBadge = '<span class="sync-status-badge sync-status-working">🔄 جاري المزامنة...</span>';
+    } else if (state === 'OFFLINE') {
+      stateBadge = '<span class="sync-status-badge sync-status-offline">📡 غير متصل بالإنترنت (محفوظ محلياً)</span>';
+    } else {
+      stateBadge = '<span class="sync-status-badge sync-status-error">⚠️ تعذر الاتصال بالسحابة</span>';
+    }
+
+    const lastTimeStr = status.lastSyncTime ? new Date(status.lastSyncTime).toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : 'غير محدد';
+    const userLabel = user.displayName || user.email || user.uid;
+
+    contentHtml = `
+      <div class="sync-user-row">
+        <div class="sync-user-info">
+          <div class="sync-user-name">👤 ${escapeHtml(userLabel)}</div>
+          <div class="sync-meta">${stateBadge} <span class="sync-time">آخر مزامنة: ${escapeHtml(lastTimeStr)}</span></div>
+        </div>
+      </div>
+      ${status.lastError ? `<div class="sync-error-banner">⚠️ ${escapeHtml(status.lastError)}</div>` : ''}
+      <div class="sync-actions">
+        <button type="button" class="sync-btn" id="syncNowBtn" data-action="sync-now" aria-label="مزامنة التقدم الآن">🔄 مزامنة الآن</button>
+        <button type="button" class="sync-btn sync-btn-danger" id="syncSignOutBtn" data-action="sync-signout" aria-label="تسجيل الخروج">🚪 تسجيل الخروج</button>
+        <button type="button" class="sync-btn sync-btn-subtle" id="syncDeleteBtn" data-action="sync-delete" aria-label="حذف بياناتي من السحابة">🗑️ حذف بياناتي من السحابة</button>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="sync-box" id="syncBox">
+      <div style="font-weight:700;font-size:15px;margin-bottom:4px;">☁️ الحساب والمزامنة السحابية (اختياري)</div>
+      <div style="font-size:12.5px;color:#42403b;margin-bottom:10px;">مزامنة تقدمك تلقائياً وبأمان عبر أجهزتك المختلفة دون التأثير على عمل التطبيق بدون إنترنت:</div>
+      ${contentHtml}
+      <div class="sync-privacy-note">🔒 <b>ملاحظة الخصوصية:</b> التطبيق يحفظ فقط أرقام مؤشرات الكلمات المتقنة ونقاط الإتقان وسجل التكرار المتباعد المرتبط بمعرّف حسابك (UID). لا يتم إرسال أو تخزين أي كلمات سرية أو رسائل أو نصوص خاصة في السحابة إطلاقاً.</div>
+    </div>
+  `;
+}
+
 /* ======================= STATISTICS SCREEN ======================= */
 function renderStats(){
   const streak = displayStreak();
@@ -3818,6 +3970,9 @@ function renderStats(){
       </div>
     </div>
 
+    <!-- Cloud Sync Box -->
+    ${renderSyncBoxHtml()}
+
     <!-- Voice Picker Box -->
     <div class="voice-box">
       <div style="font-weight:700;font-size:15px;margin-bottom:4px;">🔊 إعدادات الصوت (نطق المفردات)</div>
@@ -3845,6 +4000,62 @@ function renderStats(){
   if(expBtn) expBtn.addEventListener('click', exportBackup);
   const impBtn = document.getElementById('importBtnStats');
   if(impBtn) impBtn.addEventListener('click', triggerImportBackup);
+
+  const syncSignBtn = document.getElementById('syncSignInBtn');
+  if(syncSignBtn){
+    syncSignBtn.addEventListener('click', async ()=>{
+      if(!window.syncManager) return;
+      try {
+        showToast('جاري فتح نافذة تسجيل الدخول... 🔑');
+        await window.syncManager.signIn();
+        render();
+      } catch(err) {
+        showToast(`تعذر تسجيل الدخول: ${err.message}`);
+        render();
+      }
+    });
+  }
+
+  const syncNowBtn = document.getElementById('syncNowBtn');
+  if(syncNowBtn){
+    syncNowBtn.addEventListener('click', async ()=>{
+      if(!window.syncManager) return;
+      try {
+        showToast('جاري مزامنة التقدم مع السحابة... 🔄');
+        await window.syncManager.flushSave();
+        render();
+      } catch(err) {
+        showToast(`فشلت المزامنة: ${err.message}`);
+        render();
+      }
+    });
+  }
+
+  const syncOutBtn = document.getElementById('syncSignOutBtn');
+  if(syncOutBtn){
+    syncOutBtn.addEventListener('click', async ()=>{
+      if(!window.syncManager) return;
+      await window.syncManager.signOut();
+      showToast('تم تسجيل الخروج بنجاح. بياناتك المحلية ما زالت محفوظة على هذا الجهاز 👋');
+      render();
+    });
+  }
+
+  const syncDelBtn = document.getElementById('syncDeleteBtn');
+  if(syncDelBtn){
+    syncDelBtn.addEventListener('click', async ()=>{
+      if(!window.syncManager) return;
+      const confirmed = confirm('هل أنت متأكد من رغبتك في حذف بيانات تقدمك من السحابة؟\n\n- سيتم مسح بياناتك السحابية بالكامل.\n- سيظل تقدمك الحالي محفوظاً محلياً على هذا الجهاز.\n- لن يتم حذف حسابك لدى Google، ويمكنك استئناف المزامنة في أي وقت.');
+      if(confirmed){
+        try {
+          await window.syncManager.deleteCloudData();
+          render();
+        } catch(err) {
+          alert(`حدث خطأ أثناء حذف البيانات: ${err.message}`);
+        }
+      }
+    });
+  }
 
   const vSelect = document.getElementById('voiceSelect');
   if(vSelect){
@@ -4172,7 +4383,7 @@ function renderQuiz(cat){
       <div class="qmain">${escapeHtml(w.ar)}</div>
     </div>
     <div class="options">${options.map(o=>`<div class="opt de" data-val="${escapeAttr(o)}">${escapeHtml(o)}</div>`).join('')}</div>
-    <div class="feedback" id="fb"></div>
+    <div class="feedback" id="fb" aria-live="polite"></div>
     <div class="next-row"><button class="next-btn" id="nextBtn">${exState.pos+1 < total ? 'التالي ←' : 'عرض النتيجة'}</button></div>
   `;
   zone.querySelectorAll('.opt').forEach(el=>{
@@ -4470,7 +4681,7 @@ function renderReviewScreen(opts){
         ${srcTag}
       </div>
       <div class="options">${options.map(o=>`<div class="opt de" data-val="${escapeAttr(o)}">${escapeHtml(o)}</div>`).join('')}</div>
-      <div class="feedback" id="fb"></div>
+      <div class="feedback" id="fb" aria-live="polite"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">${willBeLastStep ? 'عرض النتيجة' : 'التالي ←'}</button></div>
     `;
     zone.querySelectorAll('.opt').forEach(el=>{
@@ -4516,7 +4727,7 @@ function renderReviewScreen(opts){
       <div class="qsub">${escapeHtml(w.ar)}</div>
     </div>
     <div class="options">${options.map(o=>`<div class="opt ${o===NO_PLURAL_LABEL?'':'de'}" data-val="${escapeAttr(o)}">${escapeHtml(o)}</div>`).join('')}</div>
-    <div class="feedback" id="fb"></div>
+    <div class="feedback" id="fb" aria-live="polite"></div>
     <div class="next-row"><button class="next-btn" id="nextBtn">${isLast ? 'عرض النتيجة' : 'التالي ←'}</button></div>
   `;
   zone.querySelectorAll('.opt').forEach(el=>{
@@ -4837,7 +5048,7 @@ function renderQuestion(cat, mode, idx, w){
       <div class="options">
         ${options.map((o,i)=>`<div class="opt" data-val="${escapeAttr(o)}"><span>${escapeHtml(o)}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
       </div>
-      <div class="feedback" id="fb"></div>
+      <div class="feedback" id="fb" aria-live="polite"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">التالي ← <span class="kbd-key">↵</span></button></div>
     `;
 
@@ -4880,7 +5091,7 @@ function renderQuestion(cat, mode, idx, w){
       <div class="options">
         ${options.map((o,i)=>`<div class="opt de" data-val="${escapeAttr(o)}"><span>${escapeHtml(o)}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
       </div>
-      <div class="feedback" id="fb"></div>
+      <div class="feedback" id="fb" aria-live="polite"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">التالي ← <span class="kbd-key">↵</span></button></div>
     `;
     zone.querySelectorAll('.opt').forEach(el=>{
@@ -4960,7 +5171,7 @@ function renderQuestion(cat, mode, idx, w){
         <div class="opt de" data-val="die"><span>die</span> <span class="kbd-key">2</span></div>
         <div class="opt de" data-val="das"><span>das</span> <span class="kbd-key">3</span></div>
       </div>
-      <div class="feedback" id="fb"></div>
+      <div class="feedback" id="fb" aria-live="polite"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">التالي ← <span class="kbd-key">↵</span></button></div>
     `;
     zone.querySelectorAll('.opt').forEach(el=>{
@@ -4998,7 +5209,7 @@ function renderQuestion(cat, mode, idx, w){
       <div class="options">
         ${options.map((o,i)=>`<div class="opt de" data-val="${escapeAttr(o)}"><span>${escapeHtml(o)}</span> <span class="kbd-key">${i+1}</span></div>`).join('')}
       </div>
-      <div class="feedback" id="fb"></div>
+      <div class="feedback" id="fb" aria-live="polite"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">التالي ← <span class="kbd-key">↵</span></button></div>
     `;
     zone.querySelectorAll('.opt').forEach(el=>{
@@ -5188,6 +5399,57 @@ document.addEventListener('click', (e) => {
 async function init(){
   app.innerHTML = `<div class="done-card"><h2>...جارِ تحميل تقدّمك</h2></div>`;
   await Promise.all([loadProgress(), loadStats(), loadStarred(), loadSrs()]);
+  if(window.syncManager){
+    window.syncManager.setLocalStateProvider({
+      getLocalData: () => ({
+        progress: progress || {},
+        stats: stats || {},
+        starred: Array.from(starredSet || []),
+        srs: srsStore || {},
+        dailyGoal: { target: getDailyGoal(), updatedAt: new Date().toISOString() }
+      }),
+      applyLocalData: (merged) => {
+        if(merged.progress){
+          progress = merged.progress;
+          window.progress = progress;
+          appStorage.set(STORAGE_KEYS.PROGRESS, JSON.stringify(progress));
+          if(window.localStorage) try { window.localStorage.setItem('deutsch_lern_v1', JSON.stringify(progress)); } catch(e){}
+        }
+        if(merged.stats){
+          stats = merged.stats;
+          window.stats = stats;
+          appStorage.set(STORAGE_KEYS.STATS, JSON.stringify(stats));
+          if(window.localStorage) try { window.localStorage.setItem('deutsch_stats_v1', JSON.stringify(stats)); } catch(e){}
+        }
+        if(merged.starred){
+          starredSet = new Set(merged.starred);
+          window.starredSet = starredSet;
+          saveStarredSoon();
+        }
+        if(merged.srs){
+          srsStore = merged.srs;
+          window.srsStore = srsStore;
+          saveSrsSoon();
+        }
+        if(merged.dailyGoal){
+          const target = typeof merged.dailyGoal === 'object' ? merged.dailyGoal.target : merged.dailyGoal;
+          if(Number.isInteger(target) && target >= 5 && target <= 200){
+            if(appStorage) appStorage.set(STORAGE_KEYS.DAILY_GOAL, String(target));
+            if(window.localStorage) try { window.localStorage.setItem('deutsch_daily_goal_v1', String(target)); } catch(e){}
+          }
+        }
+        if(typeof render === 'function') render();
+      }
+    });
+    window.syncManager.init();
+    window.syncManager.subscribe(()=>{
+      if(typeof view !== 'undefined' && view.screen === 'stats') render();
+    });
+  }
+  window.progress = progress;
+  window.stats = stats;
+  window.starredSet = starredSet;
+  window.srsStore = srsStore;
   render();
 }
 init();

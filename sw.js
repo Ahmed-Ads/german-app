@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v8 (Cloudflare Pages routing compatibility & clean non-redirected responses)
-const CACHE_NAME = 'deutsch-lernen-v8';
+// Cache Version: v10 (Fix: sync flush wrongly treated runtimes without navigator.onLine as offline)
+const CACHE_NAME = 'deutsch-lernen-v10';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.
@@ -12,8 +12,8 @@ const CRITICAL_ASSETS = [
   './fonts/fonts.css'
 ];
 
-// Optional assets: Fonts and icons are cached defensively. If any fails to download,
-// a warning is logged but the installation succeeds to maintain offline functionality.
+// Optional assets: Fonts, icons, and sync modules are cached defensively. If any fails to download,
+// a warning is logged but the installation succeeds to maintain full offline functionality.
 const OPTIONAL_ASSETS = [
   './fonts/font_1.woff2',
   './fonts/font_2.woff2',
@@ -25,26 +25,17 @@ const OPTIONAL_ASSETS = [
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/icon-maskable-192.png',
-  './icons/icon-maskable-512.png'
+  './icons/icon-maskable-512.png',
+  './firebase-config.js',
+  './sync/merge_policy.js',
+  './sync/firebase_adapter.js',
+  './sync/sync_manager.js',
+  './vendor/firebase-sync.bundle.js'
 ];
 
-// Combined precache list (kept for complete site/ audits and asset verification)
-const PRECACHE_ASSETS = [
-  './',
-  './manifest.json',
-  './fonts/fonts.css',
-  './fonts/font_1.woff2',
-  './fonts/font_2.woff2',
-  './fonts/font_3.woff2',
-  './fonts/font_4.woff2',
-  './fonts/font_5.woff2',
-  './fonts/font_6.woff2',
-  './icons/icon.svg',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
-  './icons/icon-maskable-192.png',
-  './icons/icon-maskable-512.png'
-];
+// Combined precache list (single source of truth = CRITICAL + OPTIONAL; used for site/ audits and
+// asset verification, so the three lists can never drift apart).
+const PRECACHE_ASSETS = [...CRITICAL_ASSETS, ...OPTIONAL_ASSETS];
 
 // Reconstruct a clean Response if the response was redirected (or has redirected === true),
 // preventing "response.redirected === true" from being stored in Cache Storage
@@ -100,6 +91,12 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
+
+  // Handle SAME-ORIGIN requests only. Cross-origin requests (e.g. googleapis.com, gstatic.com,
+  // accounts.google.com, firebase, firestore) must pass straight through to the network,
+  // never intercepted or cached by the Service Worker.
+  if (url.origin !== self.location.origin) return;
+
   const isHtml = event.request.mode === 'navigate' ||
                 (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'));
 
@@ -172,8 +169,11 @@ self.addEventListener('fetch', event => {
   }
 
   const isCss = url.pathname.endsWith('.css');
-  if (isCss) {
-    // Stale-While-Revalidate for CSS: instant offline delivery from cache while refreshing in background
+  const isJs = url.pathname.endsWith('.js');
+  if (isCss || isJs) {
+    // Stale-While-Revalidate for CSS and JS (incl. sync/*.js): instant offline delivery from cache while
+    // refreshing in the background, so a fixed script reaches users on their next visit even if
+    // CACHE_NAME was not bumped. (Cache-first here previously kept stale JS forever.)
     event.respondWith(
       caches.open(CACHE_NAME).then(async cache => {
         const cachedResponse = await cache.match(event.request);

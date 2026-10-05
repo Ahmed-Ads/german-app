@@ -1,3 +1,12 @@
+# Cloudflare Pages custom headers (ignored by GitHub Pages).
+# NOTE: no CSP / Cross-Origin-Opener-Policy on purpose: the app uses inline scripts and Firebase
+# signInWithPopup (Google sign-in), which those headers can break. Add them only after browser testing.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
 /sw.js
   Cache-Control: no-cache
 

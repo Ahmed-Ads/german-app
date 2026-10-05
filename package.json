@@ -8,14 +8,20 @@
   },
   "scripts": {
     "test": "vitest run",
-    "test:all": "python verify_vocab.py && python tests/mutation_verifier_test.py && vitest run && node scripts/build_site.js && vitest run tests/site_contents.test.js"
+    "test:all": "python verify_vocab.py && python tests/mutation_verifier_test.py && vitest run && node scripts/build_site.js && vitest run tests/site_contents.test.js",
+    "test:rules": "npx -y firebase-tools emulators:exec --only firestore --project demo-german-app \"vitest run tests/firestore_rules.test.js\"",
+    "update:sw-baseline": "node scripts/sw_assets_hash.js --write",
+    "build": "node scripts/build_site.js"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.2",
     "@playwright/test": "1.63.0",
     "axe-core": "^4.13.0",
+    "esbuild-wasm": "^0.28.2",
+    "firebase": "^12.19.0",
     "lighthouse": "12.8.2",
     "playwright": "1.63.0",
     "vitest": "^4.1.11"

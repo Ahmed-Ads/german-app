@@ -10,15 +10,21 @@ const rootDir = path.resolve(__dirname, '..');
 const siteDir = path.join(rootDir, 'site');
 const swPath = path.join(rootDir, 'sw.js');
 
-function extractPrecacheAssets(swCode) {
-  const match = swCode.match(/const\s+PRECACHE_ASSETS\s*=\s*\[([\s\S]*?)\];/);
+function extractArray(swCode, name) {
+  const match = swCode.match(new RegExp('const\\s+' + name + '\\s*=\\s*\\[([\\s\\S]*?)\\];'));
   if (!match) {
-    throw new Error('Could not find PRECACHE_ASSETS array in sw.js');
+    throw new Error('Could not find ' + name + ' array in sw.js');
   }
   return match[1]
     .split(',')
     .map(s => s.trim().replace(/^['"]|['"]$/g, ''))
     .filter(Boolean);
+}
+
+// PRECACHE_ASSETS is derived in sw.js as [...CRITICAL_ASSETS, ...OPTIONAL_ASSETS]
+function extractPrecacheAssets(swCode) {
+  expect(swCode).toMatch(/const\s+PRECACHE_ASSETS\s*=\s*\[\s*\.\.\.CRITICAL_ASSETS\s*,\s*\.\.\.OPTIONAL_ASSETS\s*\]/);
+  return [...extractArray(swCode, 'CRITICAL_ASSETS'), ...extractArray(swCode, 'OPTIONAL_ASSETS')];
 }
 
 function getAllFiles(dir, baseDir = dir) {
@@ -82,6 +88,11 @@ describe('Site Build & Distribution Integrity (site/)', () => {
       'sw.js',
       'manifest.json',
       '_headers',
+      'firebase-config.js',
+      'sync/merge_policy.js',
+      'sync/firebase_adapter.js',
+      'sync/sync_manager.js',
+      'vendor/firebase-sync.bundle.js',
       'fonts/fonts.css',
       'fonts/font_1.woff2',
       'fonts/font_2.woff2',
@@ -109,6 +120,14 @@ describe('Site Build & Distribution Integrity (site/)', () => {
     expect(content).toContain('/sw.js');
     expect(content).toContain('/manifest.json');
     expect(content).toContain('Cache-Control: no-cache');
+  });
+
+  it('_headers also sets baseline security headers for all paths', () => {
+    const content = fs.readFileSync(path.join(siteDir, '_headers'), 'utf8');
+    expect(content).toMatch(/^\/\*\s*$/m);
+    expect(content).toContain('X-Content-Type-Options: nosniff');
+    expect(content).toContain('Referrer-Policy: strict-origin-when-cross-origin');
+    expect(content).toContain('X-Frame-Options: DENY');
   });
 });
 

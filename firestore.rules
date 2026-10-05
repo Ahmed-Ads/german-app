@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Deny access to everything by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Users can read, write, and delete ONLY their own progress document at users/{userId}
+    match /users/{userId} {
+      // 1. Reading own document
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      // 2. Deleting own document ("حذف بياناتي من السحابة")
+      allow delete: if request.auth != null && request.auth.uid == userId;
+
+      // 3. Creating or updating own document with strict validation
+      allow create, update: if request.auth != null
+        && request.auth.uid == userId
+        // Only the known top-level keys are allowed (note: map.size() counts keys, NOT bytes)
+        && request.resource.data.keys().hasOnly([
+             'schemaVersion', 'dataVersion', 'updatedAt',
+             'progress', 'stats', 'starred', 'srs', 'dailyGoal'
+           ])
+        // Schema version must be 1
+        && request.resource.data.schemaVersion is int
+        && request.resource.data.schemaVersion == 1
+        // Data types must be valid structures
+        && request.resource.data.progress is map
+        && request.resource.data.stats is map
+        && request.resource.data.starred is list
+        && request.resource.data.srs is map
+        && request.resource.data.dailyGoal is map;
+    }
+  }
+}

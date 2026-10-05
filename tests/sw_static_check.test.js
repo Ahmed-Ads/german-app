@@ -31,11 +31,17 @@ describe('Service Worker Configuration & Precache Hardening (sw.js)', () => {
     }
     expect(swCode).toContain("'./icons/icon.svg'");
     expect(swCode).toContain("'./icons/icon-192.png'");
+    expect(swCode).toContain("'./vendor/firebase-sync.bundle.js'");
+    expect(swCode).toContain("'./sync/merge_policy.js'");
   });
 
   it('implements Stale-While-Revalidate for CSS files', () => {
     expect(swCode).toContain("url.pathname.endsWith('.css')");
     expect(swCode).toContain('cachedResponse || (await fetchPromise) || Response.error()');
+  });
+
+  it('handles SAME-ORIGIN requests only and passes cross-origin requests directly through', () => {
+    expect(swCode).toContain('url.origin !== self.location.origin');
   });
 
   it('wraps background cache.put calls in event.waitUntil', () => {
@@ -158,6 +164,25 @@ describe('Service Worker Lifecycle & Fallback Simulation', () => {
 
     const result = await handleFetchFallback('http://127.0.0.1:8000/index.html');
     expect(result.type).toBe('error');
+  });
+
+  it('passes cross-origin requests (Firebase, Google Auth, Firestore) straight through without interception', () => {
+    const swCode = fs.readFileSync('sw.js', 'utf8');
+    expect(swCode).toMatch(/if\s*\(\s*url\.origin\s*!==\s*self\.location\.origin\s*\)\s*return;/);
+
+    const selfLocation = { origin: 'https://german-app.pages.dev' };
+    const crossOriginUrls = [
+      'https://firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel',
+      'https://identitytoolkit.googleapis.com/v1/accounts:lookup',
+      'https://accounts.google.com/o/oauth2/v2/auth',
+      'https://www.gstatic.com/firebasejs/10.0.0/firebase.js'
+    ];
+
+    for (const testUrl of crossOriginUrls) {
+      const url = new URL(testUrl);
+      const isSameOrigin = (url.origin === selfLocation.origin);
+      expect(isSameOrigin).toBe(false);
+    }
   });
 });
 

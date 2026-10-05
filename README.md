@@ -10,7 +10,7 @@
 German_App/
 ├── index.html                 # التطبيق الأساسي (الواجهة، المنطق، المفردات، إدارة الصوت)
 ├── manifest.json              # ملف تعريف تطبيق الويب التقدمي (PWA)
-├── sw.js                      # خادم الخدمة (Service Worker v8) لإدارة الكاش والعمل Offline
+├── sw.js                      # خادم الخدمة (Service Worker v10) لإدارة الكاش والعمل Offline
 ├── _headers                   # إعدادات ترويسات الاستضافة لمنع كاش sw.js و manifest.json على Cloudflare Pages
 ├── vocab_baseline.json        # قاعدة البيانات المرجعية المعتمدة للمفردات (SHA-256)
 ├── verify_vocab.py            # أداة التحقق التشفيري الصارم من سلامة 1,160 مفردة
@@ -112,7 +112,7 @@ German_App/
 
 ### الفحوصات اليدوية على الرابط الحقيقي بعد النشر (Manual Verification on Real URL):
 نظراً لأن بيئات الفحص الآلي (CI) تعمل محلياً ومحاكاتياً، يجب إجراء الفحوصات الثلاثة التالية يدوياً على الرابط الفعلي المنشور (`https://<project-name>.pages.dev`) للتأكد التام:
-1. **الفحص الأول (أونلاين - Online):** افتح الرابط المباشر في المتصفح، وتأكد من تحميل كافة الأقسام (30 قسماً) وتفعيل كاش Service Worker v8 دون أي أخطاء في Console.
+1. **الفحص الأول (أونلاين - Online):** افتح الرابط المباشر في المتصفح، وتأكد من تحميل كافة الأقسام (30 قسماً) وتفعيل كاش Service Worker v10 دون أي أخطاء في Console.
 2. **الفحص الثاني (أوفلاين - Offline):** افصل الاتصال بالإنترنت (أو اختر Offline من تبويب Network في DevTools)، ثم أعد تحميل الصفحة في المسارين: `/` وكذلك `/index.html`، وتأكد من ظهور الأقسام والتفاعل السليم.
 3. **الفحص الثالث (التشغيل من أيقونة PWA المثبتة أوفلاين - Launch from Installed Icon Offline):** ثبّت التطبيق كـ PWA على الهاتف أو الحاسوب، وافصل الإنترنت تماماً، ثم شغّل التطبيق من الأيقونة المثبتة على سطح المكتب أو الشاشة الرئيسية، وتأكد من فتح التطبيق وظهور الـ 30 قسماً دون انقطاع، مع خلو Console من أي أخطاء.
 *(تنبيه أمان وموثوقية: هذه الفحوصات الثلاثة على النطاق الحقيقي تُجرى يدوياً فقط، ولا ندعي التحقق منها على الخادم الحقيقي آلياً).*
@@ -129,8 +129,12 @@ German_App/
    ```
    أو قم بتشغيل فحص ويندوز الشامل عبر النقر المزدوج على `Run_Windows_Checks.bat`.
 2. **ترقية إصدار الكاش (Bump CACHE_NAME):**
-   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً من `deutsch-lernen-v8` إلى `deutsch-lernen-v9`).
+   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً من `deutsch-lernen-v10` إلى `deutsch-lernen-v11`).
    - اختبار `tests/sw_static_check.test.js` يتحقق من اسم الكاش تلقائياً.
+   - إن غيّرت أي ملف مخزّن مؤقتاً (مثل `sync/*.js` أو الخطوط أو الأيقونات) دون ترقية `CACHE_NAME` سيفشل اختبار `tests/sw_cache_version.test.js` ويخبرك بالخطوة المطلوبة. بعد الترقية شغّل:
+     ```bash
+     npm run update:sw-baseline
+     ```
 3. **الالتزام (Commit):**
    ```bash
    git add .
@@ -181,7 +185,16 @@ German_App/
 | **`tests/data_safety_runner.js`** | Node/Chrome | يثبت أمان بيانات المستخدم وحفظ التقدم والإحصائيات و SRS عند ترقية التطبيق من إصدار سابق (`node tests/data_safety_runner.js v1.3-voice`). |
 | **`tests/chrome_axe_runner.js`** | Node/Chrome | فحص إمكانية الوصول الكاملة بمكتبة axe-core والتأكد من 0 مخالفات WCAG (`node tests/chrome_axe_runner.js`). |
 | **`tests/voice_chrome_runner.js`** | Node/Chrome | فحص أصوات المتصفح الحقيقية والتأكد من تفضيل الأصوات الرجالية الألمانية وحفظ الاختيار (`node tests/voice_chrome_runner.js`). |
-| **`tools/run_windows_checks.ps1`** | PowerShell | حزمة الفحص الشاملة على ويندوز (12 خطوة) عبر `Run_Windows_Checks.bat`. |
+| **`tools/run_windows_checks.ps1`** | PowerShell | حزمة الفحص الشاملة على ويندوز (14 خطوة) عبر `Run_Windows_Checks.bat`. |
+| **`scripts/build_sync_bundle.js`** | Node.js | بناء الحزمة المستقلة لمزامنة Firebase دون أطر عمل ثقيلة (`node scripts/build_sync_bundle.js`). |
+| **`tests/sync_bundle.test.js`** | Node/Vitest | فحص حجم وبنية حزمة المزامنة والتحقق من التراخيص (`npx vitest run tests/sync_bundle.test.js`). |
+| **`tests/merge_policy.test.js`** | Node/Vitest | إثبات الخصائص الرياضية للدمج (تبادلي، تكراري، أحادي الاتجاه) (`npx vitest run tests/merge_policy.test.js`). |
+| **`tests/sync_manager.test.js`** | Node/Vitest | فحص دورة حياة المزامنة، التخزين المؤقت، وحالات الاتصال/الانقطاع (`npx vitest run tests/sync_manager.test.js`). |
+| **`tests/firestore_rules.test.js`** | Node/Vitest + Java 21 | فحص قواعد أمان Firestore (عزل المستخدمين، منع الحقول الغريبة، فحص الأنواع). الفحوصات الساكنة تعمل دائماً، أما فحوصات المحاكي فتظهر **Skipped** إن لم يوجد محاكي، وتفشل عند تشغيلها عبر `npm run test:rules` (يشغّل المحاكي تلقائياً) أو عند ضبط `REQUIRE_EMULATOR=1`. |
+| **`tests/sw_cache_version.test.js`** + **`scripts/sw_assets_hash.js`** | Node/Vitest | يمنع نسيان ترقية `CACHE_NAME` عند تغيّر أي ملف مخزّن مؤقتاً (غير HTML). بعد الترقية شغّل `npm run update:sw-baseline` لتحديث `tests/sw_assets_baseline.json`. |
+| **`firebase.json`** | Firebase CLI | إعداد محاكي Firestore المحلي لفحوصات القواعد (المنفذ 8080). |
+| **`tests/sync_chrome_runner.js`** | Node/Chrome | اختبار E2E واقعي بسياقين حقيقيين في كروم (جهاز أ + جهاز ب) وسيرفر سحابي وهمي (`node tests/sync_chrome_runner.js`). |
+| **`tests/sync_cross_device.spec.js`** | Playwright | مواصفة Playwright E2E الشاملة للمزامنة متعددة السياقات وحل التعارضات (`npx playwright test tests/sync_cross_device.spec.js`). |
 
 ---
 
@@ -210,3 +223,81 @@ German_App/
 3. اضغط على **الأصوات** (Voices) واختر **الألمانية** (German).
 4. اختر صوتاً رجالياً (مثل Markus أو Yannick) واضغط على زر التنزيل لتثبيته.
 - *المصدر الرسمي لـ Apple:* [Hear iPhone speak selected text - Apple Support](https://support.apple.com/guide/iphone/hear-iphone-speak-iph96b214f0/ios).
+
+---
+
+## ☁️ 7. المزامنة السحابية الاختيارية وحفظ التقدم عبر الأجهزة (Cross-Device Cloud Sync)
+
+يتضمن التطبيق ميزة **مزامنة سحابية اختيارية تماماً** تتيح تسجيل الدخول بحساب Google لمزامنة التقدم بين الهاتف والحاسوب والأجهزة اللوحية بسلاسة تامة، مع بقاء التطبيق يعمل بشكل مستقل وبلا إنترنت (Offline-First) ودون أي تغيير لمن لا يرغب في إنشاء حساب.
+
+### 💰 ضمان المجانية الكاملة وحسابات الاستهلاك (Free Tier Quota Math)
+تعتمد المزامنة على باقة **Firebase Spark (المجانية بالكامل)**.
+- **لا تتطلب إدخال أي بطاقة ائتمان** ولا يمكن أن تفرض أي رسوم مالية على الإطلاق (Hard-Capped Quota).
+- **حدود الباقة المجانية اليومية:**
+  - سعة التخزين: **1 جيجابايت** (1 GiB).
+  - عمليات القراءة: **50,000 عملية قراءة يومياً** (50,000 reads/day).
+  - عمليات الكتابة: **20,000 عملية كتابة يومياً** (20,000 writes/day).
+  - عمليات الحذف: **20,000 عملية حذف يومياً** (20,000 deletes/day).
+- **حساب الاستهلاك الفعلي للمستخدم الشخصي:**
+  - يتم تخزين كل تقدم المستخدم في **وثيقة واحدة فقط** لكل مستخدم: `users/{uid}`.
+  - حجم الوثيقة الكاملة بجميع الأقسام الـ 30 والإحصائيات والكلمات المميزة يتراوح بين **35 و 50 كيلوبايت فقط** (أقل من 5% من الحد الأقصى المسموح للوثيقة الواحدة وهو 1 ميجابايت).
+  - يتم تجميع وحفظ التعديلات آلياً بتقنية Debounce (بفاصل 30 ثانية أو عند مغادرة الصفحة أو إغلاق التطبيق)، ما يعادل نحو **60 إلى 120 عملية كتابة يومياً** أثناء الاستخدام المكثف، أي **أقل من 0.6% من الحصة اليومية المجانية**!
+  - القراءة تتم فقط عند فتح التطبيق لأول مرة أو تسجيل الدخول، بمعدل نحو **5 إلى 15 عملية قراءة يومياً** (أقل من 0.03% من الحصة المجانية).
+
+> ⚠️ **تنبيه صارم:** إذا طُلب منك في أي خطوة أثناء إعداد Firebase إدخال بيانات بطاقة بنكية أو الترقية لخطة Blaze المدفوعة، **توقف فوراً ولا تُدخل بطاقتك**؛ فباقة Spark مجانية 100% ولا تتطلب أي بطاقة.
+
+---
+
+### 📋 خطوات الإعداد اليدوي خطوة بخطوة (10-Step Setup Checklist)
+
+اتبع هذه الخطوات البسيطة لإعداد قاعدة بياناتك السحابية الخاصة مجاناً:
+
+1. **نشر التطبيق على Cloudflare Pages أولاً:**
+   - انشر التطبيق للحصول على رابط النطاق الإنتاجي الرسمي (مثل: `https://german-app.pages.dev`).
+2. **إنشاء مشروع Firebase جديد:**
+   - ادخل إلى [Firebase Console](https://console.firebase.google.com/)، واضغط **Add project**.
+   - اختر اسماً للمشروع (مثل `german-learning-app`).
+   - اختر خطة **Spark (Free)** وتأكد من عدم تفعيل خطة مدفوعة.
+3. **تفعيل تسجيل الدخول عبر Google:**
+   - من القائمة الجانبية، اختر **Build** ثم **Authentication**.
+   - اضغط **Get started**، ومن تبويب **Sign-in method** اختر **Google** وقم بتفعيله (Enable).
+   - حدد بريد الدعم الخاص بك ثم اضغط **Save**.
+4. **إضافة النطاقات المصرح لها (Authorized Domains):**
+   - داخل صفحة **Authentication**، انتقل إلى تبويب **Settings** ثم قسم **Authorized domains**.
+   - تأكد من وجود `localhost`، واضغط **Add domain** وأضف نطاقك على Cloudflare Pages (مثل `german-app.pages.dev`).
+5. **إنشاء قاعدة بيانات Cloud Firestore:**
+   - من القائمة الجانبية، اختر **Build** ثم **Firestore Database**.
+   - اضغط **Create database**، واختر الوضع الإنتاجي **Start in production mode**.
+   - اختر أقرب موقع جغرافي لك (مثل `europe-west3` فرانكفورت أو `europe-west1` بلجيكا) واضغط **Enable**.
+6. **تطبيق قواعد الأمان (Firestore Security Rules):**
+   - داخل صفحة **Firestore Database**، انتقل إلى تبويب **Rules**.
+   - امسح القواعد الافتراضية، وانسخ محتوى الملف المرفق في المشروع [firestore.rules](./firestore.rules) بالكامل والصقه هناك، ثم اضغط **Publish**.
+   - تضمن هذه القواعد منع أي شخص من قراءة أو كتابة أي بيانات سوى صاحب الحساب نفسه على وثيقته الخاصة `users/{uid}` مع التحقق من صحة المخطط.
+7. **تقييد مفتاح الواجهة البرمجية (Restrict Web API Key):**
+   - في [Google Cloud Console Credentials](https://console.cloud.google.com/apis/credentials)، افتح المفتاح المسمى `Browser key (auto created by Firebase)`.
+   - تحت قسم **Application restrictions**، اختر **Web sites** وأضف نطاقاتك المسموح بها فقط (`https://<project>.pages.dev/*` و `http://localhost:*`).
+8. **نسخ الإعدادات إلى `firebase-config.js`:**
+   - في Firebase Console، اذهب إلى **Project settings** (أيقونة الترس) > **General**.
+   - تحت قسم **Your apps**، اضغط على أيقونة الويب `</>` لتسجيل تطبيق ويب.
+   - انسخ كائن الإعدادات `firebaseConfig` والصق قيمه في ملف [firebase-config.js](./firebase-config.js) في مشروعك.
+9. **اختبار المزامنة عبر جهازين:**
+   - افتح التطبيق على حاسوبك، وسجل الدخول بحساب Google وأجب عن بعض الأسئلة واضغط "حفظ سحابي".
+   - افتح التطبيق على هاتفك وسجل الدخول بنفس الحساب، وستجد تقدمك وإحصائياتك ومستويات إتقانك قد ظهرت تلقائياً!
+10. **مراقبة الاستهلاك الشهري في الكونسول:**
+    - يمكنك في أي وقت الدخول إلى **Usage and billing** داخل Firebase Console للاطمئنان على بقاء استهلاكك ضمن الصفر دولار ونسب الاستخدام المتناهية الصغر.
+
+---
+
+### 🛡️ أمان مفاتيح الويب (Why Web API Keys are Public by Design)
+في تطبيقات الويب أحادية الصفحة (SPAs) وتطبيقات الويب التقدمية (PWAs)، تُعتبر مفاتيح Firebase Web API مفاتيح تعريفية للمشروع (Identifiers) وليست أسراراً مشفرة. وهي موجودة في كود المتصفح لدى ملايين التطبيقات العالمية.
+- **أين يكمن الأمان الحقيقي؟**
+  1. **قواعد الأمان (Firestore Security Rules):** هي خط الدفاع الصارم؛ حيث يرفض خادم Google أي طلب قراءة أو كتابة لا يحمل توقيع المستخدم الصالح `request.auth.uid == userId`.
+  2. **تقييد النطاقات (HTTP Referrer Restriction):** يمنع استخدام المفتاح من خارج نطاق موقعك المعتمد.
+
+---
+
+### 🔒 قاعدة عدم المساس بالمفردات ومفاتيح التقدم (Vocabulary Immutability Rule)
+يعتمد نظام المزامنة والتقدم على مفاتيح مشتقة من فهارس الكلمات داخل كل قسم (`catId_idx`):
+- **لا يجوز أبداً إدراج أو حذف أو إعادة ترتيب الكلمات** داخل أي قسم دون كتابة سكربت ترقية لقاعدة البيانات (Data Migration Script)، لأن تغيير ترتيب الكلمات سينقل إتقان كلمة إلى كلمة أخرى لدى المستخدمين في السحابة.
+- تظل بصمة المفردات التشفيرية المعتمدة (Canonical SHA-256) هي المرجع الحاكم للنزاهة الرقمية:
+  `bc4f1b85a867c1f126cdde46eed031b0600440e84708c1e4e264d5106ef8e417`.

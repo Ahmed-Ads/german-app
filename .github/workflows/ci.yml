@@ -16,9 +16,15 @@ permissions:
 
 jobs:
   test-and-verify:
-    name: Quality Gates & Verification
+    name: Quality Gates & Verification (Node ${{ matrix.node }})
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        # Node 20 = minimum supported (package.json engines); Node 22 exposes a global `navigator`
+        # without `onLine`, which previously hid a real sync bug on newer runtimes.
+        node: ['20', '22']
     permissions:
       contents: read
     steps:
@@ -33,7 +39,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: ${{ matrix.node }}
 
       - name: Install dependencies
         run: npm ci
@@ -72,9 +78,37 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: playwright-failure-artifacts
+          name: playwright-failure-artifacts-node${{ matrix.node }}
           path: |
             test-results/
             playwright-report/
           retention-days: 7
 
+  firestore-rules:
+    name: Firestore Security Rules (emulator)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Set up Java (required by the Firestore emulator)
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Firestore rules tests against the emulator
+        # emulators:exec sets FIRESTORE_EMULATOR_HOST, which makes the test suite strict:
+        # a missing emulator FAILS instead of skipping.
+        run: npm run test:rules

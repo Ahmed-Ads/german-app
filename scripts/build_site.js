@@ -50,7 +50,7 @@ function buildSite() {
   fs.mkdirSync(siteDir, { recursive: true });
 
   // 2. Specific files to copy
-  const filesToCopy = ['index.html', 'sw.js', 'manifest.json', '_headers'];
+  const filesToCopy = ['index.html', 'sw.js', 'manifest.json', '_headers', 'firebase-config.js'];
   for (const file of filesToCopy) {
     const srcPath = path.join(rootDir, file);
     const destPath = path.join(siteDir, file);
@@ -62,7 +62,26 @@ function buildSite() {
     console.log(`  ✓ Copied: ${file} -> site/${file}`);
   }
 
-  // 3. Specific directories to copy
+  // 3. Sync modules and vendor bundle
+  const syncFiles = [
+    { src: 'sync/merge_policy.js', dest: 'sync/merge_policy.js' },
+    { src: 'sync/firebase_adapter.js', dest: 'sync/firebase_adapter.js' },
+    { src: 'sync/sync_manager.js', dest: 'sync/sync_manager.js' },
+    { src: 'vendor/firebase-sync.bundle.js', dest: 'vendor/firebase-sync.bundle.js' }
+  ];
+  for (const item of syncFiles) {
+    const srcPath = path.join(rootDir, item.src);
+    const destPath = path.join(siteDir, item.dest);
+    if (!fs.existsSync(srcPath)) {
+      console.error(`❌ ERROR: Source file not found: ${srcPath}`);
+      process.exit(1);
+    }
+    fs.mkdirSync(path.dirname(destPath), { recursive: true });
+    fs.copyFileSync(srcPath, destPath);
+    console.log(`  ✓ Copied: ${item.src} -> site/${item.dest}`);
+  }
+
+  // 4. Specific directories to copy
   const dirsToCopy = ['icons', 'fonts'];
   for (const dir of dirsToCopy) {
     const srcPath = path.join(rootDir, dir);
