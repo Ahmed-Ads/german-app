@@ -46,6 +46,68 @@ function Get-LastLines($text, $count = 30) {
     return $lines[($lines.Count - $count)..($lines.Count - 1)]
 }
 
+function Evaluate-PlaywrightResult {
+    param(
+        [int]$ExitCode,
+        [string]$JsonText
+    )
+
+    $result = [PSCustomObject]@{
+        Status   = "FAIL"
+        Passed   = 0
+        Failed   = 0
+        Skipped  = 0
+        Detail   = ""
+    }
+
+    if ([string]::IsNullOrWhiteSpace($JsonText)) {
+        $result.Status = "FAIL"
+        $result.Detail = "Empty or missing JSON report output (exit code: $ExitCode)"
+        return $result
+    }
+
+    $parsed = $null
+    try {
+        $parsed = $JsonText | ConvertFrom-Json
+    } catch {
+        # Attempt to extract outermost JSON object if surrounded by console log noise
+        $braceStart = $JsonText.IndexOf('{')
+        $braceEnd = $JsonText.LastIndexOf('}')
+        if ($braceStart -ge 0 -and $braceEnd -gt $braceStart) {
+            try {
+                $sub = $JsonText.Substring($braceStart, $braceEnd - $braceStart + 1)
+                $parsed = $sub | ConvertFrom-Json
+            } catch {}
+        }
+    }
+
+    if ($null -eq $parsed -or $null -eq $parsed.stats) {
+        $result.Status = "FAIL"
+        $result.Detail = "Invalid or unparseable Playwright JSON report (exit code: $ExitCode)"
+        return $result
+    }
+
+    $expected = if ($null -ne $parsed.stats.expected) { [int]$parsed.stats.expected } else { 0 }
+    $unexpected = if ($null -ne $parsed.stats.unexpected) { [int]$parsed.stats.unexpected } else { 0 }
+    $skipped = if ($null -ne $parsed.stats.skipped) { [int]$parsed.stats.skipped } else { 0 }
+    $flaky = if ($null -ne $parsed.stats.flaky) { [int]$parsed.stats.flaky } else { 0 }
+
+    $result.Passed = $expected
+    $result.Failed = $unexpected + $flaky
+    $result.Skipped = $skipped
+    $result.Detail = "$expected passed, $($result.Failed) failed, $skipped skipped"
+
+    # Rule: A step is PASS only if exit code 0 AND at least 1 test ran AND 0 failed AND 0 skipped; otherwise FAIL
+    $totalRan = $expected + $result.Failed
+    if ($ExitCode -eq 0 -and $totalRan -ge 1 -and $result.Failed -eq 0 -and $skipped -eq 0) {
+        $result.Status = "PASS"
+    } else {
+        $result.Status = "FAIL"
+    }
+
+    return $result
+}
+
 Log-Output "=========================================================="
 Log-Output "  WINDOWS E2E VERIFICATION & AUDIT SUITE"
 Log-Output "  Date: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
@@ -223,83 +285,102 @@ try {
         $stepErrors["HttpServer"] = "HTTP Server failed to respond on http://localhost:8000 within 5 seconds."
     }
 
-    # 4a. Playwright Offline SW Test
-    Log-Output "`n[5/7] Running Playwright Offline PWA Test..."
+    # 4a. Playwright Verification Specs (5 Specs: offline_sw, sw_upgrade, viewport_overflow, cf_routing, sync_cross_device)
+    Log-Output "`n[5/7] Running Playwright Verification Specs..."
     if ($stepResults["HttpServer"] -match "^PASS") {
-        # Run Playwright test suite (offline PWA lifecycle, SW upgrade (old build (v3) -> current build), 360px viewport overflow, Cloudflare Pages routing)
-        $pwRun = & npx --no-install playwright test tests/offline_sw.spec.js tests/sw_upgrade.spec.js tests/viewport_overflow.spec.js tests/cf_routing.spec.js tests/sync_cross_device.spec.js --reporter=list 2>&1
-        $pwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
-        $pwText = ($pwRun -join "`n")
+        $pwSpecs = @(
+            @{
+                Key = "OfflinePlaywright"
+                Title = "Playwright Offline PWA Test"
+                File = "tests/offline_sw.spec.js"
+            },
+            @{
+                Key = "SwUpgradePlaywright"
+                Title = "Playwright SW Upgrade (old build (v3) -> current build)"
+                File = "tests/sw_upgrade.spec.js"
+            },
+            @{
+                Key = "ViewportOverflow"
+                Title = "Playwright 360px Viewport Audit"
+                File = "tests/viewport_overflow.spec.js"
+            },
+            @{
+                Key = "CfRoutingPlaywright"
+                Title = "Playwright Cloudflare Pages Routing"
+                File = "tests/cf_routing.spec.js"
+            },
+            @{
+                Key = "CrossDeviceSync"
+                Title = "Cross-Device Progress Sync"
+                File = "tests/sync_cross_device.spec.js"
+            }
+        )
 
-        $offlinePass = ($pwText -match "offline_sw\.spec\.js.*passed" -or $pwText -match "Full offline PWA lifecycle verified")
-        $upgradePass = ($pwText -match "sw_upgrade\.spec\.js.*passed" -or $pwText -match "REAL SERVICE WORKER UPGRADE VERIFICATION.*PASSED")
-        $viewportPass = ($pwText -match "viewport_overflow\.spec\.js.*passed" -or $pwText -match "360px VIEWPORT AUDIT SUMMARY")
-        $cfRoutingPass = ($pwText -match "cf_routing\.spec\.js.*passed" -or $pwText -match "Cloudflare Pages routing.*verified successfully")
-        $syncPass = ($pwText -match "sync_cross_device\.spec\.js.*passed" -or $pwText -match "Cross-device sync workflow.*passed")
+        foreach ($spec in $pwSpecs) {
+            $specKey = $spec.Key
+            $specTitle = $spec.Title
+            $specFile = $spec.File
 
-        if (!$offlinePass) {
-            # Try standalone script as fallback
-            Log-Output "  Retrying offline test with standalone runner (tests/run_offline_sw_test.js)..."
-            $pwFallback = & node tests/run_offline_sw_test.js 2>&1
-            $pwFallback | Out-File -FilePath $rawLogPath -Append -Encoding utf8
-            $pwText += "`n" + ($pwFallback -join "`n")
-            $offlinePass = ($LASTEXITCODE -eq 0 -and $pwText -match "\[PASS\] Service worker served app offline")
-        }
+            Log-Output "  Running spec $specFile ($specTitle)..."
+            $jsonFile = Join-Path $resultsDir "pw_$specKey.json"
+            if (Test-Path -LiteralPath $jsonFile) { Remove-Item -LiteralPath $jsonFile -Force -ErrorAction SilentlyContinue }
 
-        if (!$syncPass) {
-            # Try standalone two-context Chrome sync runner as fallback
-            Log-Output "  Running standalone two-context Chrome sync runner (tests/sync_chrome_runner.js)..."
-            $syncFallback = & node tests/sync_chrome_runner.js 2>&1
-            $syncFallback | Out-File -FilePath $rawLogPath -Append -Encoding utf8
-            $pwText += "`n" + ($syncFallback -join "`n")
-            $syncPass = ($LASTEXITCODE -eq 0 -and $syncFallback -match "ALL TWO-CONTEXT REAL CHROME E2E SYNC TESTS PASSED")
-        }
+            $env:PLAYWRIGHT_JSON_OUTPUT_NAME = $jsonFile
+            $pwRun = & npx --no-install playwright test $specFile --reporter=json 2>&1
+            $pwExit = $LASTEXITCODE
+            $env:PLAYWRIGHT_JSON_OUTPUT_NAME = $null
 
-        # Extract offline metrics
-        $mCards = [regex]::Match($pwText, "Offline: cards found \d+ distinct ids / expected \d+")
-        if ($mCards.Success) {
-            $offlineMetrics.Cards = $mCards.Value
-        } else {
-            $mCards2 = [regex]::Match($pwText, "Distinct category IDs count: (\d+)")
-            if ($mCards2.Success) {
-                $offlineMetrics.Cards = "Offline: cards found $($mCards2.Groups[1].Value) distinct ids / expected 30"
+            $rawText = ($pwRun -join "`n")
+            $rawText | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+
+            $jsonText = if (Test-Path -LiteralPath $jsonFile) {
+                Get-Content -LiteralPath $jsonFile -Raw -Encoding utf8
+            } else {
+                $rawText
+            }
+
+            $eval = Evaluate-PlaywrightResult -ExitCode $pwExit -JsonText $jsonText
+
+            if ($eval.Status -eq "PASS") {
+                $stepResults[$specKey] = "PASS (Ran: $($eval.Passed) passed, $($eval.Failed) failed, $($eval.Skipped) skipped)"
+                Log-Output "  $specTitle: $($stepResults[$specKey])"
+            } else {
+                $stepResults[$specKey] = "FAIL (Ran: $($eval.Passed) passed, $($eval.Failed) failed, $($eval.Skipped) skipped, exit $pwExit)"
+                $stepErrors[$specKey] = "Playwright spec $specFile failed ($($eval.Detail), exit code: $pwExit). Check raw_run.log.`n$((Get-LastLines $rawText 30) -join "`n")"
+                Log-Output "  $specTitle: $($stepResults[$specKey])"
+            }
+
+            # Extract offline metrics if this is offline_sw
+            if ($specKey -eq "OfflinePlaywright") {
+                $fullOfflineOutput = $rawText + "`n" + $jsonText
+                $mCards = [regex]::Match($fullOfflineOutput, "Offline: cards found \d+ distinct ids / expected \d+")
+                if ($mCards.Success) {
+                    $offlineMetrics.Cards = $mCards.Value
+                } else {
+                    $mCards2 = [regex]::Match($fullOfflineOutput, "Distinct category IDs count: (\d+)")
+                    if ($mCards2.Success) {
+                        $offlineMetrics.Cards = "Offline: cards found $($mCards2.Groups[1].Value) distinct ids / expected 30"
+                    }
+                }
+
+                $mReqs = [regex]::Match($fullOfflineOutput, "Offline requests: served by SW \d+ / network \d+")
+                if ($mReqs.Success) {
+                    $offlineMetrics.Requests = $mReqs.Value
+                } else {
+                    $mReqs2 = [regex]::Match($fullOfflineOutput, "Total offline requests made: (\d+)")
+                    if ($mReqs2.Success) {
+                        $offlineMetrics.Requests = "Offline requests: served by SW $($mReqs2.Groups[1].Value) / network 0"
+                    }
+                }
             }
         }
-
-        $mReqs = [regex]::Match($pwText, "Offline requests: served by SW \d+ / network \d+")
-        if ($mReqs.Success) {
-            $offlineMetrics.Requests = $mReqs.Value
-        } else {
-            $mReqs2 = [regex]::Match($pwText, "Total offline requests made: (\d+)")
-            if ($mReqs2.Success) {
-                $offlineMetrics.Requests = "Offline requests: served by SW $($mReqs2.Groups[1].Value) / network 0"
-            }
-        }
-
-        $stepResults["OfflinePlaywright"] = if ($offlinePass) { "PASS (Ran)" } else { "FAIL (Ran)" }
-        $stepResults["SwUpgradePlaywright"] = if ($upgradePass) { "PASS (Ran)" } else { "FAIL (Ran)" }
-        $stepResults["ViewportOverflow"] = if ($viewportPass) { "PASS (Ran)" } else { "FAIL (Ran)" }
-        $stepResults["CfRoutingPlaywright"] = if ($cfRoutingPass) { "PASS (Ran)" } else { "FAIL (Ran)" }
-        $stepResults["CrossDeviceSync"] = if ($syncPass) { "PASS (Ran)" } else { "FAIL (Ran)" }
-
-        Log-Output "  Playwright Offline PWA: $($stepResults['OfflinePlaywright'])"
-        Log-Output "  Playwright SW Upgrade (old build (v3) -> current build): $($stepResults['SwUpgradePlaywright'])"
-        Log-Output "  Playwright 360px Viewport Audit: $($stepResults['ViewportOverflow'])"
-        Log-Output "  Playwright Cloudflare Pages Routing: $($stepResults['CfRoutingPlaywright'])"
-        Log-Output "  Cross-Device Progress Sync: $($stepResults['CrossDeviceSync'])"
-
-        if (!$offlinePass) { $stepErrors["OfflinePlaywright"] = (Get-LastLines $pwText) -join "`n" }
-        if (!$upgradePass) { $stepErrors["SwUpgradePlaywright"] = "Service Worker Upgrade test did not pass. Check raw_run.log." }
-        if (!$viewportPass) { $stepErrors["ViewportOverflow"] = "360px Viewport audit recorded overflow or test failure. Check raw_run.log." }
-        if (!$cfRoutingPass) { $stepErrors["CfRoutingPlaywright"] = "Cloudflare Pages routing test did not pass. Check raw_run.log." }
-        if (!$syncPass) { $stepErrors["CrossDeviceSync"] = "Cross-Device Progress Sync test did not pass. Check raw_run.log." }
     } else {
-        $stepResults["OfflinePlaywright"] = "SKIPPED (Server failed)"
-        $stepResults["SwUpgradePlaywright"] = "SKIPPED (Server failed)"
-        $stepResults["ViewportOverflow"] = "SKIPPED (Server failed)"
-        $stepResults["CfRoutingPlaywright"] = "SKIPPED (Server failed)"
-        $stepResults["CrossDeviceSync"] = "SKIPPED (Server failed)"
-        Log-Output "  Playwright Tests: SKIPPED"
+        $stepResults["OfflinePlaywright"] = "NOT MEASURED (Server failed)"
+        $stepResults["SwUpgradePlaywright"] = "NOT MEASURED (Server failed)"
+        $stepResults["ViewportOverflow"] = "NOT MEASURED (Server failed)"
+        $stepResults["CfRoutingPlaywright"] = "NOT MEASURED (Server failed)"
+        $stepResults["CrossDeviceSync"] = "NOT MEASURED (Server failed)"
+        Log-Output "  Playwright Tests: NOT MEASURED (Server failed)"
     }
 
     # 4b. Lighthouse Audits
@@ -601,18 +682,29 @@ try {
         Log-Output "  Sub-path server active at http://127.0.0.1:8000/german-app/ (PID: $($subServerProc.Id))"
         Log-Output "  Running Playwright Offline SW Test on sub-path..."
         $env:APP_URL = "http://127.0.0.1:8000/german-app/"
-        $subPwRun = & npx --no-install playwright test tests/offline_sw.spec.js --reporter=list 2>&1
-        $subPwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
-        $subPwText = ($subPwRun -join "`n")
+        $subJsonFile = Join-Path $resultsDir "pw_subpath.json"
+        if (Test-Path -LiteralPath $subJsonFile) { Remove-Item -LiteralPath $subJsonFile -Force -ErrorAction SilentlyContinue }
+        $env:PLAYWRIGHT_JSON_OUTPUT_NAME = $subJsonFile
+        $subPwRun = & npx --no-install playwright test tests/offline_sw.spec.js --reporter=json 2>&1
+        $subExit = $LASTEXITCODE
+        $env:PLAYWRIGHT_JSON_OUTPUT_NAME = $null
         $env:APP_URL = $null
 
-        $subPathPass = ($LASTEXITCODE -eq 0 -or $subPwText -match "offline_sw\.spec\.js.*passed" -or $subPwText -match "Full offline PWA lifecycle verified")
-        if ($subPathPass) {
+        $subPwRun | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+        $subPwText = ($subPwRun -join "`n")
+        $subJsonText = if (Test-Path -LiteralPath $subJsonFile) {
+            Get-Content -LiteralPath $subJsonFile -Raw -Encoding utf8
+        } else {
+            $subPwText
+        }
+
+        $subEval = Evaluate-PlaywrightResult -ExitCode $subExit -JsonText $subJsonText
+        if ($subEval.Status -eq "PASS") {
             Log-Output "  Sub-path (/german-app/) Offline PWA Test: PASS"
-            $stepResults["SubPathHosting"] = "PASS (Ran)"
+            $stepResults["SubPathHosting"] = "PASS (Ran: $($subEval.Passed) passed, $($subEval.Failed) failed, $($subEval.Skipped) skipped)"
         } else {
             Log-Output "  Sub-path (/german-app/) Offline PWA Test: FAIL"
-            $stepResults["SubPathHosting"] = "FAIL (Ran)"
+            $stepResults["SubPathHosting"] = "FAIL (Ran: $($subEval.Passed) passed, $($subEval.Failed) failed, $($subEval.Skipped) skipped, exit $subExit)"
             $diagInfo = & $getSubPathDiagnostics
             $failReport = "Playwright Test Output (Last 30 lines):`n$((Get-LastLines $subPwText 30) -join "`n")`n`n$diagInfo"
             $stepErrors["SubPathHosting"] = $failReport
