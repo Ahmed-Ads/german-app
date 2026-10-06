@@ -343,11 +343,11 @@ try {
 
             if ($eval.Status -eq "PASS") {
                 $stepResults[$specKey] = "PASS (Ran: $($eval.Passed) passed, $($eval.Failed) failed, $($eval.Skipped) skipped)"
-                Log-Output "  $specTitle: $($stepResults[$specKey])"
+                Log-Output "  ${specTitle}: $($stepResults[$specKey])"
             } else {
                 $stepResults[$specKey] = "FAIL (Ran: $($eval.Passed) passed, $($eval.Failed) failed, $($eval.Skipped) skipped, exit $pwExit)"
                 $stepErrors[$specKey] = "Playwright spec $specFile failed ($($eval.Detail), exit code: $pwExit). Check raw_run.log.`n$((Get-LastLines $rawText 30) -join "`n")"
-                Log-Output "  $specTitle: $($stepResults[$specKey])"
+                Log-Output "  ${specTitle}: $($stepResults[$specKey])"
             }
 
             # Extract offline metrics if this is offline_sw
