@@ -4,6 +4,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const { buildSite } = require('../scripts/build_site.js');
 
 /**
  * Real End-to-End Service Worker Upgrade Test (old build (v3) -> current build)
@@ -100,12 +101,13 @@ test.describe('Real Service Worker Upgrade Lifecycle (old build (v3) -> current 
     // 1. Create temporary fixture directory for the served site
     fixtureDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dl-sw-upgrade-'));
 
-    // 2. Copy baseline files (index.html, manifest.json, icons, fonts)
+    // 2. Build the current production distribution in site/
     const rootDir = path.resolve(__dirname, '..');
-    fs.copyFileSync(path.join(rootDir, 'index.html'), path.join(fixtureDir, 'index.html'));
-    fs.copyFileSync(path.join(rootDir, 'manifest.json'), path.join(fixtureDir, 'manifest.json'));
-    copyRecursiveSync(path.join(rootDir, 'icons'), path.join(fixtureDir, 'icons'));
-    copyRecursiveSync(path.join(rootDir, 'fonts'), path.join(fixtureDir, 'fonts'));
+    const siteDir = path.join(rootDir, 'site');
+    buildSite();
+
+    // 3. Populate fixture directory with full site contents so index.html has all required scripts
+    copyRecursiveSync(siteDir, fixtureDir);
 
     // 3. Load committed OLD sw.js with CACHE_NAME v3 from fixtures
     const oldSwPath = path.join(__dirname, 'fixtures', 'sw_upgrade', 'old_sw.js');
@@ -178,13 +180,24 @@ test.describe('Real Service Worker Upgrade Lifecycle (old build (v3) -> current 
     expect(initialCaches).toContain('deutsch-lernen-v3');
     expect(initialCaches).not.toContain(activeCacheName);
 
-    // Phase 2: In-place build swap with current repo build (active SW + fixed fonts.css)
-    console.log(`[Phase 2] Swapping fixture files in-place with current build (${activeCacheName})...`);
-    fs.copyFileSync(path.join(rootDir, 'sw.js'), path.join(fixtureDir, 'sw.js'));
-    fs.copyFileSync(path.join(rootDir, 'fonts', 'fonts.css'), path.join(fixtureDir, 'fonts', 'fonts.css'));
+    // Phase 2: In-place build swap with current repo build by copying WHOLE site/ directory
+    console.log(`[Phase 2] Building site and swapping fixture directory recursively with current build (${activeCacheName})...`);
+    buildSite();
+    const siteDir = path.join(rootDir, 'site');
+    copyRecursiveSync(siteDir, fixtureDir);
 
-    // Reset 404 tracking to monitor the upgrade and post-upgrade requests
-    notFoundUrls.length = 0;
+    // Track responses across update, activation, and post-upgrade page reload
+    const postUpgradeResponses = [];
+    page.on('response', resp => {
+      const u = resp.url();
+      if (u.startsWith('http://') || u.startsWith('https://')) {
+        postUpgradeResponses.push({
+          url: u,
+          status: resp.status(),
+          fromSW: resp.fromServiceWorker()
+        });
+      }
+    });
 
     // Trigger Service Worker update check
     console.log('[Phase 3] Triggering reg.update() in client page...');
@@ -213,35 +226,98 @@ test.describe('Real Service Worker Upgrade Lifecycle (old build (v3) -> current 
     console.log(`[Phase 6] Reloading page under active ${activeCacheName} controller...`);
     await page.reload({ waitUntil: 'networkidle' });
 
-    // Assert cache migration
+    // Assert every URL requested by the page returns 200 (no 404/5xx)
+    console.log(`[Phase 6] Auditing post-upgrade network responses (Total recorded: ${postUpgradeResponses.length})...`);
+    expect(postUpgradeResponses.length).toBeGreaterThan(0);
+
+    const errorResponses = postUpgradeResponses.filter(r => r.status >= 400);
+    if (errorResponses.length > 0) {
+      console.error('[SW-Upgrade-Test] Unexpected 4xx/5xx responses during upgrade:', errorResponses);
+    }
+    expect(errorResponses).toHaveLength(0);
+
+    const non200Responses = postUpgradeResponses.filter(r => r.status !== 200);
+    if (non200Responses.length > 0) {
+      console.error('[SW-Upgrade-Test] Non-200 responses observed after upgrade:', non200Responses);
+    }
+    expect(non200Responses).toHaveLength(0);
+
+    // Assert cache migration: old cache deleted, new cache exists
     const updatedCaches = await page.evaluate(async () => await caches.keys());
     console.log('[Phase 6] Updated caches after reload:', updatedCaches);
-    expect(updatedCaches).toContain(activeCacheName);
     expect(updatedCaches).not.toContain('deutsch-lernen-v3');
+    expect(updatedCaches).toContain(activeCacheName);
 
-    // Assert /fonts/fonts.css content now has correct relative URLs
+    // Phase 7: Assert CRITICAL assets in cache and report optional sync assets
+    const mCrit = swCode.match(/const\s+CRITICAL_ASSETS\s*=\s*\[([\s\S]*?)\];/);
+    if (!mCrit) throw new Error('Could not parse CRITICAL_ASSETS from current sw.js');
+    const criticalAssets = mCrit[1]
+      .split(',')
+      .map(s => s.trim().replace(/^['"]|['"]$/g, ''))
+      .filter(Boolean);
+
+    const mOpt = swCode.match(/const\s+OPTIONAL_ASSETS\s*=\s*\[([\s\S]*?)\];/);
+    const optionalAssets = mOpt
+      ? mOpt[1].split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean)
+      : [];
+    const syncAssets = optionalAssets.filter(a => a.includes('sync') || a.includes('firebase'));
+
+    const cacheAudit = await page.evaluate(async ({ activeCacheName, criticalAssets, syncAssets }) => {
+      const cache = await caches.open(activeCacheName);
+      const requests = await cache.keys();
+      const cachedUrls = requests.map(r => r.url);
+
+      const criticalResults = criticalAssets.map(asset => {
+        const fullUrl = new URL(asset, window.location.href).href;
+        const isCached = cachedUrls.includes(fullUrl) ||
+          (asset === './' && cachedUrls.some(u => u.endsWith('/') || u.endsWith('/index.html')));
+        return { asset, fullUrl, cached: isCached };
+      });
+
+      const syncResults = syncAssets.map(asset => {
+        const fullUrl = new URL(asset, window.location.href).href;
+        const isCached = cachedUrls.includes(fullUrl);
+        return { asset, fullUrl, cached: isCached };
+      });
+
+      return {
+        totalCached: cachedUrls.length,
+        criticalResults,
+        syncResults
+      };
+    }, { activeCacheName, criticalAssets, syncAssets });
+
+    console.log(`[Phase 7] Auditing Cache Storage for ${activeCacheName} (Total cached entries: ${cacheAudit.totalCached}):`);
+    console.log('  --- CRITICAL ASSETS (Must all be cached) ---');
+    for (const item of cacheAudit.criticalResults) {
+      console.log(`  ${item.cached ? '✓ [CACHED]' : '✗ [MISSING]'}: ${item.asset} (${item.fullUrl})`);
+    }
+    const missingCritical = cacheAudit.criticalResults.filter(r => !r.cached);
+    expect(missingCritical, `Critical assets missing from ${activeCacheName}: ${JSON.stringify(missingCritical)}`).toHaveLength(0);
+
+    console.log('  --- OPTIONAL SYNC ASSETS (Report status) ---');
+    for (const item of cacheAudit.syncResults) {
+      console.log(`  ${item.cached ? '✓ [CACHED]' : '- [NOT CACHED (Optional)]'}: ${item.asset} (${item.fullUrl})`);
+    }
+
+    // Phase 8: Assert /fonts/fonts.css content now has correct relative URLs
     const fontsCssText = await page.evaluate(async () => {
       const res = await fetch('fonts/fonts.css');
       return await res.text();
     });
     expect(fontsCssText).toContain('./font_1.woff2');
     expect(fontsCssText).not.toContain('./fonts/font_1.woff2');
-    console.log('[Phase 7] Verified fonts.css served with corrected font URLs.');
+    console.log('[Phase 8] Verified fonts.css served with corrected font URLs.');
 
-    // Assert /fonts/font_1.woff2 returns 200
+    // Phase 9: Assert /fonts/font_1.woff2 returns 200
     const fontResponseStatus = await page.evaluate(async () => {
       const res = await fetch('fonts/font_1.woff2');
       return res.status;
     });
     expect(fontResponseStatus).toBe(200);
-    console.log(`[Phase 8] Verified fonts/font_1.woff2 returned status ${fontResponseStatus}`);
+    console.log(`[Phase 9] Verified fonts/font_1.woff2 returned status ${fontResponseStatus}`);
 
-    // Assert NO 404 responses were recorded
-    console.log(`[Phase 9] Total 404 responses during upgrade: ${notFoundUrls.length}`);
-    if (notFoundUrls.length > 0) {
-      console.error('Unexpected 404 URLs:', notFoundUrls);
-    }
-    expect(notFoundUrls).toHaveLength(0);
     console.log('🎉 REAL SERVICE WORKER UPGRADE VERIFICATION (old build (v3) -> current build) PASSED!');
+    await context.close();
   });
 });
