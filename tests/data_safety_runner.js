@@ -22,21 +22,27 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+const os = require('os');
+const { getChromePath, toChromePath, toFileUrl, getTempDir, cleanupArtifacts } = require('../scripts/chrome_path.js');
+
 const baseRefOrPath = process.argv[2] || process.env.BASE_REF || 'v1.3-voice';
 
 console.log('======================================================================');
 console.log(`  DATA SAFETY PROOF TEST IN REAL GOOGLE CHROME (${baseRefOrPath} -> current)`);
 console.log('======================================================================');
 
-const CHROME_PATH = '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe';
+const CHROME_PATH = getChromePath();
+const rootDir = path.resolve(__dirname, '..');
+const tempDir = getTempDir(CHROME_PATH);
+const rootBaseUrl = toFileUrl(rootDir, CHROME_PATH).replace(/\/?$/, '/');
 const RUN_ID = Date.now();
-const PROFILE_DIR = 'C:/German_App/.proof_chrome_profile_' + RUN_ID;
-const PROFILE_DIR_WSL = '/mnt/c/German_App/.proof_chrome_profile_' + RUN_ID;
+const PROFILE_DIR = path.join(tempDir, '.proof_chrome_profile_' + RUN_ID);
+const PROFILE_DIR_ARG = toChromePath(PROFILE_DIR, CHROME_PATH);
 
 // Ensure clean profile directory
 try {
-  if (fs.existsSync(PROFILE_DIR_WSL)) {
-    fs.rmSync(PROFILE_DIR_WSL, { recursive: true, force: true });
+  if (fs.existsSync(PROFILE_DIR)) {
+    fs.rmSync(PROFILE_DIR, { recursive: true, force: true });
   }
 } catch(e) {}
 
@@ -48,9 +54,10 @@ function decodeHtml(str) {
 }
 
 function runChrome(htmlFile, useProfile = true) {
-  const winFile = 'file:///C:/German_App/' + htmlFile;
-  const profileArg = useProfile ? `--user-data-dir="${PROFILE_DIR}"` : '';
-  const cmd = `"${CHROME_PATH}" --headless ${profileArg} --virtual-time-budget=6000 --dump-dom "${winFile}"`;
+  const fullPath = path.isAbsolute(htmlFile) ? htmlFile : path.join(tempDir, htmlFile);
+  const winFile = toFileUrl(fullPath, CHROME_PATH);
+  const profileArg = useProfile ? `--user-data-dir="${PROFILE_DIR_ARG}"` : '';
+  const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu ${profileArg} --virtual-time-budget=6000 --dump-dom "${winFile}"`;
   return execSync(cmd, { encoding: 'utf8', maxBuffer: 15 * 1024 * 1024 });
 }
 
@@ -140,8 +147,10 @@ try {
   </script>
   `;
 
-  const stage1Html = mainHtml.replace('</body>', stage1Script + '</body>');
-  fs.writeFileSync('temp_stage1_main.html', stage1Html, 'utf8');
+  const stage1Html = mainHtml
+    .replace('<head>', `<head><base href="${rootBaseUrl}">`)
+    .replace('</body>', stage1Script + '</body>');
+  fs.writeFileSync(path.join(tempDir, 'temp_stage1_main.html'), stage1Html, 'utf8');
 
   const stage1Out = runChrome('temp_stage1_main.html');
   const m1 = stage1Out.match(/<div id="stage1-report">([\s\S]*?)<\/div>/);
@@ -223,8 +232,10 @@ try {
   </script>
   `;
 
-  const stage2Html = currentHtml.replace('</body>', stage2Script + '</body>');
-  fs.writeFileSync('temp_stage2_curr.html', stage2Html, 'utf8');
+  const stage2Html = currentHtml
+    .replace('<head>', `<head><base href="${rootBaseUrl}">`)
+    .replace('</body>', stage2Script + '</body>');
+  fs.writeFileSync(path.join(tempDir, 'temp_stage2_curr.html'), stage2Html, 'utf8');
 
   const stage2Out = runChrome('temp_stage2_curr.html');
   const m2 = stage2Out.match(/<div id="stage2-report">([\s\S]*?)<\/div>/);
@@ -310,8 +321,10 @@ try {
   </script>
   `;
 
-  const stage3Html = currentHtml.replace('</body>', stage3Script + '</body>');
-  fs.writeFileSync('temp_stage3_import.html', stage3Html, 'utf8');
+  const stage3Html = currentHtml
+    .replace('<head>', `<head><base href="${rootBaseUrl}">`)
+    .replace('</body>', stage3Script + '</body>');
+  fs.writeFileSync(path.join(tempDir, 'temp_stage3_import.html'), stage3Html, 'utf8');
 
   const stage3Out = runChrome('temp_stage3_import.html', false);
   const m3 = stage3Out.match(/<div id="stage3-report">([\s\S]*?)<\/div>/);
@@ -417,8 +430,10 @@ try {
   </script>
   `;
 
-  const stage4Html = currentHtml.replace('</body>', stage4Script + '</body>');
-  fs.writeFileSync('temp_stage4_reset.html', stage4Html, 'utf8');
+  const stage4Html = currentHtml
+    .replace('<head>', `<head><base href="${rootBaseUrl}">`)
+    .replace('</body>', stage4Script + '</body>');
+  fs.writeFileSync(path.join(tempDir, 'temp_stage4_reset.html'), stage4Html, 'utf8');
 
   const stage4Out = runChrome('temp_stage4_reset.html', false);
   const m4 = stage4Out.match(/<div id="stage4-report">([\s\S]*?)<\/div>/);
@@ -448,9 +463,15 @@ try {
   // Clean up temporary files
   const toClean = ['temp_stage1_main.html', 'temp_stage2_curr.html', 'temp_stage3_import.html', 'temp_stage4_reset.html'];
   for (const f of toClean) {
-    if (fs.existsSync(f)) fs.unlinkSync(f);
+    for (const d of [tempDir, rootDir]) {
+      const p = path.join(d, f);
+      if (fs.existsSync(p)) {
+        try { fs.unlinkSync(p); } catch (e) {}
+      }
+    }
   }
-  if (fs.existsSync(PROFILE_DIR_WSL)) {
-    try { fs.rmSync(PROFILE_DIR_WSL, { recursive: true, force: true }); } catch(e) {}
+  if (fs.existsSync(PROFILE_DIR)) {
+    try { fs.rmSync(PROFILE_DIR, { recursive: true, force: true }); } catch(e) {}
   }
+  cleanupArtifacts([rootDir, tempDir], ['.proof_chrome_profile*', 'temp_stage*.html']);
 }

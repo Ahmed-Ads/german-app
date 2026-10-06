@@ -17,17 +17,21 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+const os = require('os');
+const { getChromePath, toChromePath, toFileUrl, getTempDir, cleanupArtifacts } = require('../scripts/chrome_path.js');
+
 console.log('======================================================================');
 console.log('  RUNNING TWO-CONTEXT REAL CHROME E2E SYNC TESTS (FAKE CLOUD)');
 console.log('======================================================================');
 
-const CHROME_PATH = '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe';
+const CHROME_PATH = getChromePath();
 const rootDir = path.resolve(__dirname, '..');
+const tempDir = getTempDir(CHROME_PATH);
 const RUN_ID = Date.now();
-const PROFILE_A = 'C:/German_App/.chrome_profile_A_' + RUN_ID;
-const PROFILE_B = 'C:/German_App/.chrome_profile_B_' + RUN_ID;
-const PROFILE_A_WSL = path.join(rootDir, '.chrome_profile_A_' + RUN_ID);
-const PROFILE_B_WSL = path.join(rootDir, '.chrome_profile_B_' + RUN_ID);
+const PROFILE_A_DIR = path.join(tempDir, '.chrome_profile_A_' + RUN_ID);
+const PROFILE_B_DIR = path.join(tempDir, '.chrome_profile_B_' + RUN_ID);
+const PROFILE_A = toChromePath(PROFILE_A_DIR, CHROME_PATH);
+const PROFILE_B = toChromePath(PROFILE_B_DIR, CHROME_PATH);
 
 // 1. Shared Node.js Fake Cloud Store
 const cloudStore = new Map();
@@ -40,7 +44,8 @@ function decodeHtml(str) {
 }
 
 function runChrome(htmlFile, profileDir, virtualTimeMs = 6000) {
-  const winFile = 'file:///C:/German_App/' + htmlFile;
+  const fullHtmlPath = path.isAbsolute(htmlFile) ? htmlFile : path.join(tempDir, htmlFile);
+  const winFile = toFileUrl(fullHtmlPath, CHROME_PATH);
   const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --user-data-dir="${profileDir}" --virtual-time-budget=${virtualTimeMs} --dump-dom "${winFile}"`;
   return execSync(cmd, { encoding: 'utf8', maxBuffer: 15 * 1024 * 1024 });
 }
@@ -116,8 +121,11 @@ function createHarnessFile(filename, initialCloudData, testScript, simulateFailu
   </script>
   `;
 
-  const fullHtml = baseHtml.replace('</body>', harness + '</body>');
-  fs.writeFileSync(path.join(rootDir, filename), fullHtml, 'utf8');
+  const rootBaseUrl = toFileUrl(rootDir, CHROME_PATH).replace(/\/?$/, '/');
+  const fullHtml = baseHtml
+    .replace('<head>', `<head><base href="${rootBaseUrl}">`)
+    .replace('</body>', harness + '</body>');
+  fs.writeFileSync(path.join(tempDir, filename), fullHtml, 'utf8');
 }
 
 function parseOutput(rawDom) {
@@ -269,16 +277,19 @@ async function main() {
   } finally {
     // Cleanup temporary files
     for (const f of ['temp_e2e_a1.html', 'temp_e2e_b1.html', 'temp_e2e_a2.html', 'temp_e2e_b2.html', 'temp_e2e_fail.html']) {
-      const p = path.join(rootDir, f);
-      if (fs.existsSync(p)) {
-        try { fs.unlinkSync(p); } catch (e) {}
+      for (const d of [tempDir, rootDir]) {
+        const p = path.join(d, f);
+        if (fs.existsSync(p)) {
+          try { fs.unlinkSync(p); } catch (e) {}
+        }
       }
     }
-    for (const p of [PROFILE_A_WSL, PROFILE_B_WSL]) {
+    for (const p of [PROFILE_A_DIR, PROFILE_B_DIR]) {
       if (fs.existsSync(p)) {
         try { fs.rmSync(p, { recursive: true, force: true }); } catch (e) {}
       }
     }
+    cleanupArtifacts([rootDir, tempDir], ['.chrome_profile_*', 'temp_e2e_*.html', '.proof_chrome_profile*']);
   }
   process.exit(allPassed ? 0 : 1);
 }

@@ -1,12 +1,20 @@
 const fs = require('fs');
+const path = require('path');
+const os = require('os');
 const { execSync } = require('child_process');
+const { getChromePath, toFileUrl, getTempDir, cleanupArtifacts } = require('../scripts/chrome_path.js');
 
 console.log('========================================================');
 console.log('  RUNNING EXTENDED REAL-BROWSER E2E TESTS (CHROME)');
 console.log('========================================================');
 
-const html = fs.readFileSync('index.html', 'utf8');
-const testScript = fs.readFileSync('tests/injected_test.js', 'utf8');
+const CHROME_PATH = getChromePath();
+const rootDir = path.resolve(__dirname, '..');
+const tempDir = getTempDir(CHROME_PATH);
+const rootBaseUrl = toFileUrl(rootDir, CHROME_PATH).replace(/\/?$/, '/');
+
+const html = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf8');
+const testScript = fs.readFileSync(path.join(rootDir, 'tests/injected_test.js'), 'utf8');
 
 function decodeHtml(str) {
   return str.replace(/&quot;/g, '"')
@@ -15,12 +23,15 @@ function decodeHtml(str) {
             .replace(/&gt;/g, '>');
 }
 
-const runnerHtml = html.replace('</body>', '<script>' + testScript + '</script></body>');
-const tempFile = 'temp_ext_test.html';
-fs.writeFileSync(tempFile, runnerHtml, 'utf8');
+const runnerHtml = html
+  .replace('<head>', `<head><base href="${rootBaseUrl}">`)
+  .replace('</body>', '<script>' + testScript + '</script></body>');
+const tempFilePath = path.join(tempDir, 'temp_ext_test.html');
+fs.writeFileSync(tempFilePath, runnerHtml, 'utf8');
 
 try {
-  const cmd = '"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --virtual-time-budget=6000 --dump-dom "file:///C:/German_App/' + tempFile + '"';
+  const fileUrl = toFileUrl(tempFilePath, CHROME_PATH);
+  const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --virtual-time-budget=6000 --dump-dom "${fileUrl}"`;
   const out = execSync(cmd, { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
   const m = out.match(/<div id="browser-test-report">([\s\S]*?)<\/div>/);
   if (m) {
@@ -42,5 +53,11 @@ try {
     process.exit(2);
   }
 } finally {
-  if (fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
+  for (const d of [tempDir, rootDir]) {
+    const p = path.join(d, 'temp_ext_test.html');
+    if (fs.existsSync(p)) {
+      try { fs.unlinkSync(p); } catch (e) {}
+    }
+  }
+  cleanupArtifacts([rootDir, tempDir], ['temp_ext_test.html']);
 }

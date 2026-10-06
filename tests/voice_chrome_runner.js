@@ -1,13 +1,19 @@
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const { execSync } = require('child_process');
+const { getChromePath, toFileUrl, getTempDir, cleanupArtifacts } = require('../scripts/chrome_path.js');
 
 console.log('======================================================================');
 console.log('  RUNNING REAL CHROME VOICE & TTS TEST SUITE');
 console.log('======================================================================');
 
-const CHROME_PATH = '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe';
-const html = fs.readFileSync('index.html', 'utf8');
+const CHROME_PATH = getChromePath();
+const rootDir = path.resolve(__dirname, '..');
+const tempDir = getTempDir(CHROME_PATH);
+const rootBaseUrl = toFileUrl(rootDir, CHROME_PATH).replace(/\/?$/, '/');
+
+const html = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf8');
 
 const testScript = `
 <script>
@@ -154,11 +160,15 @@ window.addEventListener('load', async () => {
 </script>
 `;
 
-const tempFile = 'temp_voice_chrome_test.html';
-fs.writeFileSync(tempFile, html.replace('</body>', testScript + '</body>'), 'utf8');
+const runnerHtml = html
+  .replace('<head>', `<head><base href="${rootBaseUrl}">`)
+  .replace('</body>', testScript + '</body>');
+const tempFilePath = path.join(tempDir, 'temp_voice_chrome_test.html');
+fs.writeFileSync(tempFilePath, runnerHtml, 'utf8');
 
 try {
-  const cmd = `"${CHROME_PATH}" --headless --window-size=360,740 --virtual-time-budget=6000 --dump-dom "file:///C:/German_App/${tempFile}"`;
+  const fileUrl = toFileUrl(tempFilePath, CHROME_PATH);
+  const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --window-size=360,740 --virtual-time-budget=6000 --dump-dom "${fileUrl}"`;
   const out = execSync(cmd, { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
   const m = out.match(/id="chrome-voice-output"[^>]*>(.*?)<\/div>/);
   if (!m) {
@@ -209,5 +219,11 @@ try {
   }
 
 } finally {
-  if (fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
+  for (const d of [tempDir, rootDir]) {
+    const p = path.join(d, 'temp_voice_chrome_test.html');
+    if (fs.existsSync(p)) {
+      try { fs.unlinkSync(p); } catch (e) {}
+    }
+  }
+  cleanupArtifacts([rootDir, tempDir], ['temp_voice_chrome_test.html']);
 }

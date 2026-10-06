@@ -1,7 +1,15 @@
 const fs = require('fs');
+const path = require('path');
+const os = require('os');
 const { execSync } = require('child_process');
+const { getChromePath, toFileUrl, getTempDir, cleanupArtifacts } = require('./chrome_path.js');
 
-const html = fs.readFileSync('index.html', 'utf8');
+const CHROME_PATH = getChromePath();
+const rootDir = path.resolve(__dirname, '..');
+const tempDir = getTempDir(CHROME_PATH);
+const rootBaseUrl = toFileUrl(rootDir, CHROME_PATH).replace(/\/?$/, '/');
+
+const html = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf8');
 
 const testScript = `
 <script>
@@ -74,12 +82,15 @@ window.addEventListener('DOMContentLoaded', async () => {
 </script>
 `;
 
-const runnerHtml = html.replace('</body>', testScript + '</body>');
-const tempFile = 'temp_console_flow.html';
-fs.writeFileSync(tempFile, runnerHtml, 'utf8');
+const runnerHtml = html
+  .replace('<head>', `<head><base href="${rootBaseUrl}">`)
+  .replace('</body>', testScript + '</body>');
+const tempFilePath = path.join(tempDir, 'temp_console_flow.html');
+fs.writeFileSync(tempFilePath, runnerHtml, 'utf8');
 
 try {
-  const cmd = '"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --virtual-time-budget=6000 --dump-dom "file:///C:/German_App/' + tempFile + '"';
+  const fileUrl = toFileUrl(tempFilePath, CHROME_PATH);
+  const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --virtual-time-budget=6000 --dump-dom "${fileUrl}"`;
   const out = execSync(cmd, { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
   const m = out.match(/<div id="console-flow-results">([\s\S]*?)<\/div>/);
   if (m) {
@@ -104,5 +115,11 @@ try {
     console.log('Results div not found');
   }
 } finally {
-  if (fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
+  for (const d of [tempDir, rootDir]) {
+    const p = path.join(d, 'temp_console_flow.html');
+    if (fs.existsSync(p)) {
+      try { fs.unlinkSync(p); } catch (e) {}
+    }
+  }
+  cleanupArtifacts([rootDir, tempDir], ['temp_console_flow.html']);
 }

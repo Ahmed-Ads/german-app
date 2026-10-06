@@ -1,6 +1,13 @@
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const { execSync } = require('child_process');
+const { getChromePath, toChromePath, toFileUrl, getTempDir, cleanupArtifacts } = require('./chrome_path.js');
+
+const CHROME_PATH = getChromePath();
+const rootDir = path.resolve(__dirname, '..');
+const tempDir = getTempDir(CHROME_PATH);
+const indexUrl = toFileUrl(path.join(rootDir, 'index.html'), CHROME_PATH);
 
 const widths = [320, 360, 390, 1280];
 const screens = [
@@ -43,7 +50,7 @@ for (const w of widths) {
 </style>
 </head>
 <body>
-<iframe id="app-frame" src="file:///C:/German_App/index.html"></iframe>
+<iframe id="app-frame" src="${indexUrl}"></iframe>
 <script>
 window.addEventListener('DOMContentLoaded', async () => {
   const wait = (ms) => new Promise(r => setTimeout(r, ms));
@@ -157,10 +164,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 </html>`;
 
   const tempFile = `temp_audit_${w}.html`;
-  fs.writeFileSync(tempFile, runnerHtml, 'utf8');
+  const tempFilePath = path.join(tempDir, tempFile);
+  fs.writeFileSync(tempFilePath, runnerHtml, 'utf8');
 
   try {
-    const cmd = `"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --allow-file-access-from-files --disable-web-security --window-size=${Math.max(w, 550)},900 --virtual-time-budget=14000 --dump-dom "file:///C:/German_App/${tempFile}"`;
+    const fileUrl = toFileUrl(tempFilePath, CHROME_PATH);
+    const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --allow-file-access-from-files --disable-web-security --window-size=${Math.max(w, 550)},900 --virtual-time-budget=14000 --dump-dom "${fileUrl}"`;
     const out = execSync(cmd, { encoding: 'utf8', maxBuffer: 15 * 1024 * 1024 });
     const m = out.match(/<div id="audit-output">([\s\S]*?)<\/div>/);
     if (m) {
@@ -177,7 +186,12 @@ window.addEventListener('DOMContentLoaded', async () => {
       console.error(`Could not find audit-output div for ${w}px`);
     }
   } finally {
-    if (fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
+    for (const d of [tempDir, rootDir]) {
+      const p = path.join(d, tempFile);
+      if (fs.existsSync(p)) {
+        try { fs.unlinkSync(p); } catch (e) {}
+      }
+    }
   }
 }
 
@@ -229,7 +243,9 @@ const screensToCapture = [
 
 for (const sc of screensToCapture) {
   const runnerFile = `temp_shot_${sc.key}.html`;
-  const shotFileWindows = `C:\\\\German_App\\\\audit\\\\windows_results\\\\screens\\\\${sc.filename}`;
+  const runnerFilePath = path.join(tempDir, runnerFile);
+  const shotFilePath = path.join(screensDir, sc.filename);
+  const shotFileChrome = toChromePath(shotFilePath, CHROME_PATH);
   const runnerHtml = `<!DOCTYPE html>
 <html>
 <head>
@@ -240,7 +256,7 @@ for (const sc of screensToCapture) {
 </style>
 </head>
 <body>
-<iframe id="f" src="file:///C:/German_App/index.html"></iframe>
+<iframe id="f" src="${indexUrl}"></iframe>
 <script>
 window.onload = async () => {
   await new Promise(r => setTimeout(r, 600));
@@ -254,14 +270,20 @@ window.onload = async () => {
 </body>
 </html>`;
 
-  fs.writeFileSync(runnerFile, runnerHtml, 'utf8');
+  fs.writeFileSync(runnerFilePath, runnerHtml, 'utf8');
   try {
-    const cmd = `"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --allow-file-access-from-files --disable-web-security --window-size=${sc.w},${sc.h} --screenshot="${shotFileWindows}" "file:///C:/German_App/${runnerFile}"`;
+    const runnerUrl = toFileUrl(runnerFilePath, CHROME_PATH);
+    const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --allow-file-access-from-files --disable-web-security --window-size=${sc.w},${sc.h} --screenshot="${shotFileChrome}" "${runnerUrl}"`;
     execSync(cmd, { encoding: 'utf8' });
     console.log(`- Saved screenshot: audit/windows_results/screens/${sc.filename}`);
   } catch(e) {
     console.error(`Failed to capture ${sc.filename}:`, e.message);
   } finally {
-    if (fs.existsSync(runnerFile)) fs.unlinkSync(runnerFile);
+    for (const d of [tempDir, rootDir]) {
+      const p = path.join(d, runnerFile);
+      if (fs.existsSync(p)) {
+        try { fs.unlinkSync(p); } catch (e) {}
+      }
+    }
   }
 }

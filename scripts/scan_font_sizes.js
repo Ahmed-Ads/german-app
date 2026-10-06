@@ -1,7 +1,15 @@
 const fs = require('fs');
+const path = require('path');
+const os = require('os');
 const { execSync } = require('child_process');
+const { getChromePath, toFileUrl, getTempDir, cleanupArtifacts } = require('./chrome_path.js');
 
-const html = fs.readFileSync('index.html', 'utf8');
+const CHROME_PATH = getChromePath();
+const rootDir = path.resolve(__dirname, '..');
+const tempDir = getTempDir(CHROME_PATH);
+const rootBaseUrl = toFileUrl(rootDir, CHROME_PATH).replace(/\/?$/, '/');
+
+const html = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf8');
 
 const scanScript = `
 <script>
@@ -119,13 +127,16 @@ window.addEventListener('DOMContentLoaded', async () => {
 </script>
 `;
 
-const runnerHtml = html.replace('</body>', scanScript + '</body>');
-const tempFile = 'temp_scan_fonts.html';
-fs.writeFileSync(tempFile, runnerHtml, 'utf8');
+const runnerHtml = html
+  .replace('<head>', `<head><base href="${rootBaseUrl}">`)
+  .replace('</body>', scanScript + '</body>');
+const tempFilePath = path.join(tempDir, 'temp_scan_fonts.html');
+fs.writeFileSync(tempFilePath, runnerHtml, 'utf8');
 
 try {
   // Use 360x640 mobile viewport
-  const cmd = '"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --window-size=360,640 --virtual-time-budget=6000 --dump-dom "file:///C:/German_App/' + tempFile + '"';
+  const fileUrl = toFileUrl(tempFilePath, CHROME_PATH);
+  const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --window-size=360,640 --virtual-time-budget=6000 --dump-dom "${fileUrl}"`;
   const out = execSync(cmd, { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
   const m = out.match(/<div id="font-scan-results">([\s\S]*?)<\/div>/);
   if (m) {
@@ -150,5 +161,11 @@ try {
     console.log('Results div not found');
   }
 } finally {
-  if (fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
+  for (const d of [tempDir, rootDir]) {
+    const p = path.join(d, 'temp_scan_fonts.html');
+    if (fs.existsSync(p)) {
+      try { fs.unlinkSync(p); } catch (e) {}
+    }
+  }
+  cleanupArtifacts([rootDir, tempDir], ['temp_scan_fonts.html']);
 }

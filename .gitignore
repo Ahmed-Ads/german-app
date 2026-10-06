@@ -18,3 +18,5 @@ test-results/
 audit/windows_results/
 site/
 .proof_chrome_profile*
+.chrome_profile_*
+temp_e2e_*.html
