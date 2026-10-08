@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
+import { evaluateWrittenAnswer } from './extract_written.js';
 
 // --- IMPLEMENTATIONS TO TEST ---
 
@@ -104,49 +105,8 @@ export function daysBetween(d1, d2) {
   return Math.round((utc2 - utc1) / 86400000);
 }
 
-// 4. Written Answer Evaluator
-export function evaluateWrittenAnswer(inputVal, targetWord, category) {
-  const val = (inputVal || '').trim();
-  if (!val) return { ok: false, empty: true };
-
-  const given = normalizeDe(val).replace(/\s+/g, ' ');
-  const wantArticle = category.hasArticles && Boolean(targetWord.a);
-  const correctWithArt = wantArticle ? `${targetWord.a} ${targetWord.n}` : targetWord.n;
-  const normCorrectWithArt = normalizeDe(correctWithArt);
-  const normWordOnly = normalizeDe(targetWord.n);
-
-  let ok = false;
-  let casingNotice = false;
-
-  const articleRegex = /^(der|die|das)\s+/i;
-  const matchArt = val.match(articleRegex);
-
-  if (wantArticle) {
-    if (matchArt) {
-      const typedArt = matchArt[1].toLowerCase();
-      if (typedArt === targetWord.a.toLowerCase()) {
-        ok = given === normCorrectWithArt;
-      } else {
-        ok = false; // typed wrong article
-      }
-    } else {
-      // Allowed without article:
-      ok = given === normWordOnly;
-    }
-  } else {
-    ok = given === normWordOnly;
-  }
-
-  // Educational hint for lowercase German nouns
-  if (ok && targetWord.n && /^[A-ZÄÖÜ]/.test(targetWord.n)) {
-    const nounPart = matchArt ? val.slice(matchArt[0].length).trim() : val.trim();
-    if (nounPart.length > 0 && /^[a-zäöü]/.test(nounPart)) {
-      casingNotice = true;
-    }
-  }
-
-  return { ok, casingNotice };
-}
+// 4. Written Answer Evaluator (extracted directly from index.html - no copies)
+export { evaluateWrittenAnswer };
 
 // 5. Pick Question Index (Word never asked twice in a row)
 export function pickQuestionIndex(activeIndices, masteredIndices, lastIdx) {
@@ -418,32 +378,132 @@ describe('Phase 1 Code Fixes Test Suite', () => {
     const cat = { id: 'obst', hasArticles: true };
     const word = { a: 'der', n: 'Apfel', ar: 'تفاحة', pl: 'die Äpfel' };
 
-    it('accepts correct input with article', () => {
+    it('accepts correct input with article: der Apfel ok', () => {
       const res = evaluateWrittenAnswer('der Apfel', word, cat);
       expect(res.ok).toBe(true);
+      expect(res.missingArticle).toBe(false);
       expect(res.casingNotice).toBe(false);
     });
 
-    it('accepts correct input without article and provides uppercase hint if typed lowercase', () => {
-      const res = evaluateWrittenAnswer('apfel', word, cat);
+    it('rejects input without article with missingArticle flag: Apfel rejected with missingArticle', () => {
+      const res1 = evaluateWrittenAnswer('Apfel', word, cat);
+      expect(res1.ok).toBe(false);
+      expect(res1.missingArticle).toBe(true);
+      expect(res1.casingNotice).toBe(false);
+
+      const res2 = evaluateWrittenAnswer('apfel', word, cat);
+      expect(res2.ok).toBe(false);
+      expect(res2.missingArticle).toBe(true);
+      expect(res2.casingNotice).toBe(false);
+    });
+
+    it('rejects wrong article: die Apfel rejected', () => {
+      const res1 = evaluateWrittenAnswer('die Apfel', word, cat);
+      expect(res1.ok).toBe(false);
+      expect(res1.missingArticle).toBe(false);
+
+      const res2 = evaluateWrittenAnswer('das Apfel', word, cat);
+      expect(res2.ok).toBe(false);
+      expect(res2.missingArticle).toBe(false);
+    });
+
+    it('accepts uppercase input with article: DER APFEL ok', () => {
+      const res = evaluateWrittenAnswer('DER APFEL', word, cat);
       expect(res.ok).toBe(true);
+      expect(res.missingArticle).toBe(false);
+      expect(res.casingNotice).toBe(false);
+    });
+
+    it('provides uppercase hint if noun typed lowercase with correct article', () => {
+      const res = evaluateWrittenAnswer('der apfel', word, cat);
+      expect(res.ok).toBe(true);
+      expect(res.missingArticle).toBe(false);
       expect(res.casingNotice).toBe(true); // Educational notice: nouns are capitalized in German
     });
 
-    it('rejects wrong article', () => {
-      const res1 = evaluateWrittenAnswer('die Apfel', word, cat);
-      expect(res1.ok).toBe(false);
-      const res2 = evaluateWrittenAnswer('das Apfel', word, cat);
-      expect(res2.ok).toBe(false);
+    it('leaves categories without articles unchanged (accepts bare word, case-insensitive)', () => {
+      const catVerbs = { id: 'verben', hasArticles: false, words: [{ n: 'gehen', ar: 'يمشي' }] };
+      const wVerb = catVerbs.words[0];
+
+      const res1 = evaluateWrittenAnswer('gehen', wVerb, catVerbs);
+      expect(res1.ok).toBe(true);
+      expect(res1.missingArticle).toBe(false);
+
+      const res2 = evaluateWrittenAnswer('GEHEN', wVerb, catVerbs);
+      expect(res2.ok).toBe(true);
+      expect(res2.missingArticle).toBe(false);
+
+      const res3 = evaluateWrittenAnswer('Gehen', wVerb, catVerbs);
+      expect(res3.ok).toBe(true);
+      expect(res3.missingArticle).toBe(false);
     });
 
-    it('handles umlaut ae/oe/ue and ss/ß equivalences', () => {
+    it('requires same-gloss synonyms to each include their own correct article', () => {
+      const catSyn = {
+        id: 'wetter',
+        hasArticles: true,
+        words: [
+          { a: 'der', n: 'Hagel', ar: 'برد' },
+          { a: 'die', n: 'Kälte', ar: 'برد' }
+        ]
+      };
+      const targetWord = catSyn.words[0]; // der Hagel
+
+      // 1. Target word with its correct article
+      expect(evaluateWrittenAnswer('der Hagel', targetWord, catSyn)).toEqual({
+        ok: true,
+        casingNotice: false,
+        missingArticle: false
+      });
+
+      // 2. Same-gloss synonym with its own correct article
+      expect(evaluateWrittenAnswer('die Kälte', targetWord, catSyn)).toEqual({
+        ok: true,
+        casingNotice: false,
+        missingArticle: false
+      });
+
+      // 3. Target word without article -> rejected with missingArticle: true
+      expect(evaluateWrittenAnswer('Hagel', targetWord, catSyn)).toEqual({
+        ok: false,
+        casingNotice: false,
+        missingArticle: true
+      });
+
+      // 4. Synonym without article -> rejected with missingArticle: true
+      expect(evaluateWrittenAnswer('Kälte', targetWord, catSyn)).toEqual({
+        ok: false,
+        casingNotice: false,
+        missingArticle: true
+      });
+
+      // 5. Target word with wrong article -> rejected (missingArticle: false)
+      expect(evaluateWrittenAnswer('die Hagel', targetWord, catSyn)).toEqual({
+        ok: false,
+        casingNotice: false,
+        missingArticle: false
+      });
+
+      // 6. Synonym with wrong article -> rejected (missingArticle: false)
+      expect(evaluateWrittenAnswer('der Kälte', targetWord, catSyn)).toEqual({
+        ok: false,
+        casingNotice: false,
+        missingArticle: false
+      });
+    });
+
+    it('handles umlaut ae/oe/ue and ss/ß equivalences with required article', () => {
       const wOel = { a: 'das', n: 'Öl', ar: 'زيت' };
-      expect(evaluateWrittenAnswer('oel', wOel, cat).ok).toBe(true);
       expect(evaluateWrittenAnswer('das Oel', wOel, cat).ok).toBe(true);
+      expect(evaluateWrittenAnswer('das oel', wOel, cat).ok).toBe(true);
+      expect(evaluateWrittenAnswer('oel', wOel, cat).ok).toBe(false);
+      expect(evaluateWrittenAnswer('oel', wOel, cat).missingArticle).toBe(true);
 
       const wWeiss = { a: 'das', n: 'Weißbrot', ar: 'خبز أبيض' };
-      expect(evaluateWrittenAnswer('weissbrot', wWeiss, cat).ok).toBe(true);
+      expect(evaluateWrittenAnswer('das weissbrot', wWeiss, cat).ok).toBe(true);
+      expect(evaluateWrittenAnswer('das Weißbrot', wWeiss, cat).ok).toBe(true);
+      expect(evaluateWrittenAnswer('weissbrot', wWeiss, cat).ok).toBe(false);
+      expect(evaluateWrittenAnswer('weissbrot', wWeiss, cat).missingArticle).toBe(true);
     });
 
     it('handles extra spaces and empty inputs', () => {

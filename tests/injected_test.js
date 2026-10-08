@@ -464,6 +464,46 @@ window.addEventListener('DOMContentLoaded', async () => {
                              : `Failed: cancelledDidNotOverwrite=${cancelledDidNotOverwrite}, confirmedDidOverwrite=${confirmedDidOverwrite}`);
 
     // -----------------------------------------------------------------
+    // 11.6 WRITTEN MODE ARTICLE REQUIREMENT & ARABIC NOTICE
+    // -----------------------------------------------------------------
+    resetAllProgress();
+    go({ screen: 'exercise', catId: 'obst', mode: 'written' });
+
+    const obstCat = CATEGORIES.find(c => c.id === 'obst');
+    const currentWord = obstCat.words[exState.idx];
+    const wInput = document.getElementById('wIn');
+    const wSubmitBtn = document.getElementById('wSub');
+    const prevAnswered = stats.totalAnswered || 0;
+    const prevCorrect = stats.totalCorrect || 0;
+
+    let articleNoticeOk = false;
+    let countsAsWrong = false;
+
+    if (wInput && wSubmitBtn && currentWord) {
+      // Type the noun without article: e.g. "Apfel"
+      wInput.value = currentWord.n;
+      wSubmitBtn.click();
+
+      const fb = document.getElementById('fb');
+      const expectedNotice = 'تنبيه: الكلمة صحيحة لكن لازم تكتب أداة التعريف (der / die / das) معها.';
+      const hasNoticeText = fb && fb.textContent.includes(expectedNotice);
+      const hasBadFeedback = fb && fb.querySelector('.fb-status-line.bad') !== null;
+      const statsCountedWrong = (stats.totalAnswered === prevAnswered + 1) && (stats.totalCorrect === prevCorrect);
+
+      articleNoticeOk = Boolean(hasNoticeText);
+      countsAsWrong = Boolean(hasBadFeedback && statsCountedWrong);
+    }
+
+    const writtenArticlePassed = articleNoticeOk && countsAsWrong;
+    record(
+      'Written Mode Article Requirement (Missing Article Notice & Rejection)',
+      writtenArticlePassed,
+      writtenArticlePassed
+        ? `Typing noun "${currentWord.n}" without article displayed Arabic notice and counted as wrong.`
+        : `Failed: articleNoticeOk=${articleNoticeOk}, countsAsWrong=${countsAsWrong}`
+    );
+
+    // -----------------------------------------------------------------
     // 12. STORAGE RESILIENCY: CORRUPTED LOCALSTORAGE RECOVERY
     // -----------------------------------------------------------------
     try {

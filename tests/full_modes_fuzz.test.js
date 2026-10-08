@@ -1,67 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'fs';
+import { evaluateWrittenAnswer } from './extract_written.js';
 
 const categories = JSON.parse(fs.readFileSync('vocab_baseline.json', 'utf8'));
-
-function normalizeDe(s) {
-  return s.trim().toLowerCase()
-    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
-}
-
-function evaluateWrittenAnswer(inputVal, targetWord, category) {
-  const val = (inputVal || '').trim();
-  if (!val) return { ok: false, empty: true };
-
-  const given = normalizeDe(val).replace(/\s+/g, ' ');
-  const wantArticle = category.hasArticles && Boolean(targetWord.a);
-  const correctWithArt = wantArticle ? `${targetWord.a} ${targetWord.n}` : targetWord.n;
-  const normCorrectWithArt = normalizeDe(correctWithArt);
-  const normWordOnly = normalizeDe(targetWord.n);
-
-  let ok = false;
-  let casingNotice = false;
-
-  const articleRegex = /^(der|die|das)\s+/i;
-  const matchArt = val.match(articleRegex);
-
-  const matchingWords = category.words ? category.words.filter(w => w.ar.trim() === targetWord.ar.trim()) : [targetWord];
-
-  for (const mw of matchingWords) {
-    const mwWantArticle = category.hasArticles && Boolean(mw.a);
-    const mwCorrectWithArt = mwWantArticle ? `${mw.a} ${mw.n}` : mw.n;
-    const mwNormWithArt = normalizeDe(mwCorrectWithArt);
-    const mwNormOnly = normalizeDe(mw.n);
-
-    if (mwWantArticle) {
-      if (matchArt) {
-        const typedArt = matchArt[1].toLowerCase();
-        if (typedArt === mw.a.toLowerCase() && given === mwNormWithArt) {
-          ok = true;
-          break;
-        }
-      } else {
-        if (given === mwNormOnly) {
-          ok = true;
-          break;
-        }
-      }
-    } else {
-      if (given === mwNormOnly) {
-        ok = true;
-        break;
-      }
-    }
-  }
-
-  if (ok && targetWord.n && /^[A-ZÄÖÜ]/.test(targetWord.n)) {
-    const nounPart = matchArt ? val.slice(matchArt[0].length).trim() : val.trim();
-    if (nounPart.length > 0 && /^[a-zäöü]/.test(nounPart)) {
-      casingNotice = true;
-    }
-  }
-
-  return { ok, casingNotice };
-}
 
 describe('Comprehensive Fuzz Testing (Written, Listen, Flashcards, SRS Reviews)', () => {
   it('fuzz tests 10,000 Written Mode inputs with strict/permissive invariants', () => {
@@ -69,40 +10,57 @@ describe('Comprehensive Fuzz Testing (Written, Listen, Flashcards, SRS Reviews)'
       const cat = categories[Math.floor(Math.random() * categories.length)];
       const word = cat.words[Math.floor(Math.random() * cat.words.length)];
 
-      // 1. Exact answer
+      // 1. Exact answer (with article if category hasArticles)
       const exact = cat.hasArticles && word.a ? `${word.a} ${word.n}` : word.n;
       const resExact = evaluateWrittenAnswer(exact, word, cat);
       expect(resExact.ok).toBe(true);
+      expect(resExact.missingArticle).toBe(false);
 
-      // 2. Answer without article
+      // 2. Answer without article: MUST be rejected with missingArticle: true if cat.hasArticles && word.a
       const resNoArt = evaluateWrittenAnswer(word.n, word, cat);
-      expect(resNoArt.ok).toBe(true);
+      if (cat.hasArticles && word.a) {
+        expect(resNoArt.ok).toBe(false);
+        expect(resNoArt.missingArticle).toBe(true);
+      } else {
+        expect(resNoArt.ok).toBe(true);
+        expect(resNoArt.missingArticle).toBe(false);
+      }
 
-      // 3. Lowercase noun triggers casingNotice
-      const lower = word.n.toLowerCase();
+      // 3. Uppercase exact answer
+      const upperExact = cat.hasArticles && word.a ? `${word.a.toUpperCase()} ${word.n.toUpperCase()}` : word.n.toUpperCase();
+      const resUpper = evaluateWrittenAnswer(upperExact, word, cat);
+      expect(resUpper.ok).toBe(true);
+      expect(resUpper.missingArticle).toBe(false);
+
+      // 4. Lowercase noun with required article triggers casingNotice
+      const lower = cat.hasArticles && word.a ? `${word.a} ${word.n.toLowerCase()}` : word.n.toLowerCase();
       const resLower = evaluateWrittenAnswer(lower, word, cat);
       expect(resLower.ok).toBe(true);
+      expect(resLower.missingArticle).toBe(false);
       if (/^[A-ZÄÖÜ]/.test(word.n)) {
         expect(resLower.casingNotice).toBe(true);
       }
 
-      // 4. Umlaut transliteration (ae/oe/ue/ss)
-      const translit = word.n
+      // 5. Umlaut transliteration (ae/oe/ue/ss) with required article
+      const translitNoun = word.n
         .replace(/ä/g, 'ae').replace(/Ä/g, 'Ae')
         .replace(/ö/g, 'oe').replace(/Ö/g, 'Oe')
         .replace(/ü/g, 'ue').replace(/Ü/g, 'Ue')
         .replace(/ß/g, 'ss');
+      const translit = cat.hasArticles && word.a ? `${word.a} ${translitNoun}` : translitNoun;
       const resTranslit = evaluateWrittenAnswer(translit, word, cat);
       expect(resTranslit.ok).toBe(true);
+      expect(resTranslit.missingArticle).toBe(false);
 
-      // 5. Wrong article must fail
+      // 6. Wrong article must fail (missingArticle: false)
       if (cat.hasArticles && word.a) {
         const wrongArt = word.a === 'der' ? 'das' : 'der';
         const resWrong = evaluateWrittenAnswer(`${wrongArt} ${word.n}`, word, cat);
         expect(resWrong.ok).toBe(false);
+        expect(resWrong.missingArticle).toBe(false);
       }
 
-      // 6. Empty / spaces must fail
+      // 7. Empty / spaces must fail
       expect(evaluateWrittenAnswer('', word, cat).ok).toBe(false);
       expect(evaluateWrittenAnswer('   ', word, cat).ok).toBe(false);
     }

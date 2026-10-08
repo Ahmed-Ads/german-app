@@ -2486,29 +2486,23 @@ function evaluateWrittenAnswer(inputVal, targetWord, category){
 
   for(const mw of matchingWords){
     const mwWantArticle = category.hasArticles && Boolean(mw.a);
-    const mwCorrectWithArt = mwWantArticle ? `${mw.a} ${mw.n}` : mw.n;
-    const mwNormWithArt = normalizeDe(mwCorrectWithArt);
-    const mwNormOnly = normalizeDe(mw.n);
-
     if(mwWantArticle){
-      if(matchArt){
-        const typedArt = matchArt[1].toLowerCase();
-        if(typedArt === mw.a.toLowerCase() && given === mwNormWithArt){
-          ok = true;
-          break;
-        }
-      } else {
-        if(given === mwNormOnly){
-          ok = true;
-          break;
-        }
-      }
-    } else {
-      if(given === mwNormOnly){
+      // الأداة إلزامية: الإجابة لازم تكون "der Apfel" (مع تجاهل حالة الحروف)
+      if(matchArt && matchArt[1].toLowerCase() === mw.a.toLowerCase() &&
+        given === normalizeDe(`${mw.a} ${mw.n}`)){
         ok = true;
         break;
       }
+    } else if(given === normalizeDe(mw.n)){
+      ok = true;
+      break;
     }
+  }
+
+  // الكلمة صحيحة لكن بدون أداة التعريف: تُحسب خطأ مع تنبيه
+  let missingArticle = false;
+  if(!ok && !matchArt && category.hasArticles){
+    missingArticle = matchingWords.some(mw => mw.a && given === normalizeDe(mw.n));
   }
 
   // Educational hint for lowercase German nouns
@@ -2519,7 +2513,7 @@ function evaluateWrittenAnswer(inputVal, targetWord, category){
     }
   }
 
-  return { ok, casingNotice };
+    return { ok, casingNotice, missingArticle };
 }
 
 /* ======================= SPEECH & VOICE SELECTION ======================= */
@@ -5121,7 +5115,7 @@ function renderQuestion(cat, mode, idx, w){
       <div class="qcard">
         <div class="qlabel">اكتب الكلمة بالألمانية</div>
         <div class="qmain">${escapeHtml(w.ar)}</div>
-        <div class="qsub">${cat.hasArticles ? 'يمكنك كتابتها مع أو بدون أداة التعريف' : ''}</div>
+        <div class="qsub">${cat.hasArticles ? 'يجب كتابتها مع أداة التعريف' : ''}</div>
       </div>
       <div class="write-row">
         <input type="text" id="wIn" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="de" dir="ltr" inputmode="text" placeholder="..." />
@@ -5144,8 +5138,8 @@ function renderQuestion(cat, mode, idx, w){
       speak(correctText);
       const fb = document.getElementById('fb');
       let fbHtml = buildFeedbackHtml(w, cat, ok, correctText, false);
-      if(ok && evalRes.casingNotice){
-        fbHtml += `<div class="fbnote" style="margin-top:6px;background:rgba(235,177,17,0.12);border-right:3px solid var(--yellow);padding:8px 12px;border-radius:4px;font-size:12.5px;">💡 تذكير نحوي: الأسماء في الألمانية تبدأ دائماً بحرف كبير (Großschreibung)، مثلاً: <b>${escapeHtml(w.n)}</b> وليس ${escapeHtml(val.toLowerCase())}.</div>`;
+            if(!ok && evalRes.missingArticle){
+        fbHtml += `<div class="fbnote" style="margin-top:6px;">تنبيه: الكلمة صحيحة لكن لازم تكتب أداة التعريف (der / die / das) معها.</div>`;
       }
       fb.innerHTML = fbHtml;
       input.disabled = true;
