@@ -1,19 +1,20 @@
 import http from 'http';
+import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import os from 'os';
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { createPagesEmulatorServer } from '../scripts/serve_pages_emulator.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const siteDir = path.resolve(__dirname, '..', 'site');
+import { buildSite } from '../scripts/build_site.js';
 
 describe('Cloudflare Pages Emulator Server (scripts/serve_pages_emulator.js)', () => {
   let server = null;
   let port = 0;
+  let tempSiteDir = null;
 
   beforeAll(async () => {
-    server = createPagesEmulatorServer(0, siteDir);
+    tempSiteDir = fs.mkdtempSync(path.join(os.tmpdir(), 'german-app-pages-emulator-'));
+    buildSite(tempSiteDir);
+    server = createPagesEmulatorServer(0, tempSiteDir);
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
     port = server.address().port;
   });
@@ -21,6 +22,11 @@ describe('Cloudflare Pages Emulator Server (scripts/serve_pages_emulator.js)', (
   afterAll(async () => {
     if (server) {
       await new Promise(resolve => server.close(resolve));
+    }
+    if (tempSiteDir) {
+      try {
+        fs.rmSync(tempSiteDir, { recursive: true, force: true });
+      } catch (e) {}
     }
   });
 

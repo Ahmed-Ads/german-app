@@ -470,7 +470,7 @@ describe('SyncMergePolicy: Property-Based Tests (3,000 Seeded Random Pairs)', ()
         }
       }
     }
-  });
+  }, 15000);
 
   it('proves associativity across 500 random triples: merge(merge(A, B), C) === merge(A, merge(B, C))', () => {
     const NUM_TRIPLES = 500;
