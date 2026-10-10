@@ -272,8 +272,8 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
       if (typeof rec !== 'object' || rec === null || Array.isArray(rec)) {
         return { valid: false, error: `سجل SRS للكلمة «${k}» غير صالح.` };
       }
-      if (rec.box !== undefined && (!Number.isInteger(rec.box) || rec.box < 0 || rec.box > 5)) {
-        return { valid: false, error: `رقم صندوق SRS للكلمة «${k}» يجب أن يكون بين 0 و 5.` };
+      if (rec.box !== undefined && (!Number.isInteger(rec.box) || rec.box < 0 || rec.box > 4)) {
+        return { valid: false, error: `رقم صندوق SRS للكلمة «${k}» يجب أن يكون بين 0 و 4.` };
       }
       if (rec.lastDate !== undefined && typeof rec.lastDate !== 'string') {
         return { valid: false, error: `تاريخ المراجعة السابق للكلمة «${k}» غير صالح.` };

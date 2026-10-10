@@ -31,7 +31,7 @@ describe('Service Worker Configuration & Precache Hardening (sw.js)', () => {
     }
     expect(swCode).toContain("'./icons/icon.svg'");
     expect(swCode).toContain("'./icons/icon-192.png'");
-    expect(swCode).toContain("'./vendor/firebase-sync.bundle.js'");
+    expect(swCode).not.toContain("'./vendor/firebase-sync.bundle.js'");
     expect(swCode).toContain("'./sync/merge_policy.js'");
   });
 

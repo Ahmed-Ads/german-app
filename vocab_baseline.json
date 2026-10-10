@@ -73,8 +73,8 @@
         "a": "die",
         "n": "Ananas",
         "ar": "أناناس",
-        "pl": "die Ananas",
         "note": "الجمع الرسمي هو نفس الكلمة Ananas بلا تغيير، وAnanasse نادر الاستخدام",
+        "pl": "die Ananas",
         "s": "Die Ananas ist eine süße Südfrucht.",
         "sar": "الأناناس فاكهة استوائية حلوة."
       },
@@ -202,8 +202,8 @@
         "a": "die",
         "n": "Mango",
         "ar": "مانجو",
-        "pl": "die Mangos",
         "note": "الجمع الرسمي Mangos، ونادرًا Mangonen",
+        "pl": "die Mangos",
         "s": "Die tropische Mango ist butterweich und süß.",
         "sar": "المانجو الاستوائية طرية جداً وحلوة."
       },
@@ -251,8 +251,8 @@
         "a": "die",
         "n": "Stachelbeere",
         "ar": "عنب الثعلب",
-        "pl": "die Stachelbeeren",
         "note": "توت أخضر صغير حامض الطعم، شائع في الحلويات الألمانية",
+        "pl": "die Stachelbeeren",
         "s": "Die grüne Stachelbeere hat kleine Borsten.",
         "sar": "عنب الثعلب الأخضر له شعيرات صغيرة."
       },
@@ -300,8 +300,8 @@
         "a": "die",
         "n": "Drachenfrucht",
         "ar": "فاكهة التنين",
-        "pl": "die Drachenfrüchte",
         "note": "فاكهة استوائية وردية القشرة بنقاط سوداء",
+        "pl": "die Drachenfrüchte",
         "s": "Die rosa Drachenfrucht hat weißes Fruchtfleisch mit Kernen.",
         "sar": "فاكهة التنين الوردية لها لب أبيض مع بذور."
       },
@@ -309,8 +309,8 @@
         "a": "die",
         "n": "Sternfrucht",
         "ar": "فاكهة النجمة",
-        "pl": "die Sternfrüchte",
         "note": "فاكهة صفراء تشبه شكل النجمة عند تقطيعها",
+        "pl": "die Sternfrüchte",
         "s": "Die Sternfrucht schmückt den Nachtisch als Stern.",
         "sar": "فاكهة النجمة تزين الحلوى بشكل نجمة."
       },
@@ -326,8 +326,8 @@
         "a": "die",
         "n": "Kaki",
         "ar": "كاكي",
-        "pl": "die Kakis",
         "note": "فاكهة برتقالية طرية تُعرف أيضًا بالبرسيمون",
+        "pl": "die Kakis",
         "s": "Die süße Kaki isst man im Spätherbst.",
         "sar": "الكاكي الحلو يؤكل في أواخر الخريف."
       },
@@ -335,8 +335,8 @@
         "a": "der",
         "n": "Rhabarber",
         "ar": "راوند",
-        "pl": "die Rhabarber",
         "note": "نبات ساقه حامض يُطبخ كالفاكهة في الحلويات الألمانية؛ جمعه نفس الكلمة بلا تغيير",
+        "pl": "die Rhabarber",
         "s": "Der saure Rhabarber wird oft mit Erdbeeren kombiniert.",
         "sar": "الراوند الحامض يُخلط غالباً مع الفراولة."
       },
@@ -344,8 +344,8 @@
         "a": "die",
         "n": "Zwetschge",
         "ar": "برقوق أزرق بيضاوي",
-        "pl": "die Zwetschgen",
         "note": "نوع من البرقوق بيضاوي الشكل داكن اللون",
+        "pl": "die Zwetschgen",
         "s": "Die Zwetschge schmeckt hervorragend auf dem Kuchen.",
         "sar": "البرقوق الأزرق البيضاوي طعمه ممتاز على الكعكة."
       },
@@ -369,8 +369,8 @@
         "a": "die",
         "n": "Physalis",
         "ar": "كشمش أرضي",
-        "pl": "die Physalen",
         "note": "فاكهة صغيرة صفراء داخل غلاف ورقي يشبه الفانوس؛ الجمع Physalen، ويصح أيضًا Physalis بلا تغيير",
+        "pl": "die Physalen",
         "s": "Die kleine Physalis ist in zarte Blätter gehüllt.",
         "sar": "حبة الكشمش الأرضي الصغيرة ملفوفة بأوراق رقيقة."
       },
@@ -378,8 +378,8 @@
         "a": "die",
         "n": "Kumquat",
         "ar": "كمكوات",
-        "pl": "die Kumquats",
         "note": "حمضيات صغيرة جدًا تؤكل بقشرها كاملة",
+        "pl": "die Kumquats",
         "s": "Die Kumquat isst man ganz samt der Schale.",
         "sar": "الكمكوات يؤكل كاملاً بقشرته."
       },
@@ -387,8 +387,8 @@
         "a": "der",
         "n": "Sanddorn",
         "ar": "نبق البحر",
-        "pl": null,
         "note": "توت برتقالي حامض غني بفيتامين C يُصنع منه عصير شائع في ألمانيا؛ يُستخدم عادة بلا جمع",
+        "pl": null,
         "s": "Der Sanddorn wächst bevorzugt an sandigen Küsten.",
         "sar": "نبق البحر ينمو بشكل مفضل على السواحل الرملية."
       },
@@ -404,8 +404,8 @@
         "a": "die",
         "n": "Hagebutte",
         "ar": "ثمر الورد",
-        "pl": "die Hagebutten",
         "note": "ثمرة حمراء صغيرة تُستخدم لصنع الشاي والمربى",
+        "pl": "die Hagebutten",
         "s": "Aus der roten Hagebutte braut man Tee.",
         "sar": "من ثمر الورد الأحمر يُعدّ الشاي."
       },
@@ -413,8 +413,8 @@
         "a": "die",
         "n": "Weichsel",
         "ar": "كرز حامض",
-        "pl": "die Weichseln",
         "note": "نوع من الكرز الحامض يُستخدم في الكيك والحلويات",
+        "pl": "die Weichseln",
         "s": "Die saure Weichsel eignet sich perfekt für Marmelade.",
         "sar": "الكرز الحامض مناسب تماماً للمربى."
       }
@@ -470,8 +470,8 @@
         "a": "der",
         "n": "Knoblauch",
         "ar": "ثوم",
-        "pl": null,
         "note": "ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد",
+        "pl": null,
         "s": "Frischer Knoblauch gibt der Soße einen würzigen Geschmack.",
         "sar": "الثوم الطازج يعطي الصلصة نكهة حارة زكية."
       },
@@ -479,8 +479,8 @@
         "a": "der",
         "n": "Kohl",
         "ar": "كرنب",
-        "pl": "die Kohle",
         "note": "الجمع Kohle نادر الاستخدام (يشير لأنواع الكرنب المختلفة)",
+        "pl": "die Kohle",
         "s": "Im Winter kochen viele Menschen Suppe mit Kohl.",
         "sar": "في الشتاء يطبخ كثير من الناس حساءً بالكرنب."
       },
@@ -488,8 +488,8 @@
         "a": "der",
         "n": "Paprika",
         "ar": "فلفل رومي",
-        "pl": "die Paprika",
         "note": "الجمع الرسمي نفس الكلمة بلا تغيير، ويصح أيضًا Paprikas",
+        "pl": "die Paprika",
         "s": "Der rote Paprika schmeckt süßlich und knackig.",
         "sar": "الفلفل الرومي الأحمر طعمه حلو ومقرمش."
       },
@@ -505,8 +505,8 @@
         "a": "der",
         "n": "Spinat",
         "ar": "سبانخ",
-        "pl": null,
         "note": "الجمع Spinate نادر الاستخدام (يشير لأنواع السبانخ)",
+        "pl": null,
         "s": "Frischer Spinat enthält viele gesunde Mineralien.",
         "sar": "السبانخ الطازج يحتوي على العديد من المعادن الصحية."
       },
@@ -530,8 +530,8 @@
         "a": "die",
         "n": "Zucchini",
         "ar": "كوسة",
-        "pl": "die Zucchini",
         "note": "جمعها نفس الكلمة بلا تغيير",
+        "pl": "die Zucchini",
         "s": "Die grüne Zucchini wächst schnell im Garten.",
         "sar": "الكوسة الخضراء تنمو بسرعة في الحديقة."
       },
@@ -555,8 +555,8 @@
         "a": "der",
         "n": "Mais",
         "ar": "ذرة",
-        "pl": null,
         "note": "الجمع Maise نادر الاستخدام (يشير لأنواع الذرة)",
+        "pl": null,
         "s": "Gegrillter Mais schmeckt mit etwas Salz vorzüglich.",
         "sar": "الذرة المشوية طعمها رائع مع القليل من الملح."
       },
@@ -580,8 +580,8 @@
         "a": "die",
         "n": "Rote Bete",
         "ar": "بنجر",
-        "pl": null,
         "note": "لا يوجد لها جمع شائع؛ تُستخدم بنفس الصيغة للمفرد والجمع",
+        "pl": null,
         "s": "Rote Bete färbt die Hände tiefrot.",
         "sar": "البنجر يصبغ اليدين باللون الأحمر الداكن."
       },
@@ -589,8 +589,8 @@
         "a": "der",
         "n": "Sellerie",
         "ar": "كرفس",
-        "pl": "die Sellerie",
         "note": "الجمع die Sellerie أو die Selleries، وفي النمسا Sellerien",
+        "pl": "die Sellerie",
         "s": "Frischer Sellerie passt gut in jede Gemüsesuppe.",
         "sar": "الكرفس الطازج يناسب كل أنواع حساء الخضار."
       },
@@ -614,8 +614,8 @@
         "a": "der",
         "n": "Lauch",
         "ar": "كراث",
-        "pl": null,
         "note": "الجمع Lauche نادر الاستخدام جدًا",
+        "pl": null,
         "s": "Der Lauch schmeckt herzhaft in Aufläufen.",
         "sar": "الكراث طعمه شهي في صواني الفرن."
       },
@@ -623,8 +623,8 @@
         "a": "der",
         "n": "Rosenkohl",
         "ar": "كرنب بروكسل",
-        "pl": null,
         "note": "ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد",
+        "pl": null,
         "s": "Rosenkohl wird traditionell im Winter serviert.",
         "sar": "كرنب بروكسل يُقدَّم تقليدياً في الشتاء."
       },
@@ -632,8 +632,8 @@
         "a": "der",
         "n": "Blumenkohl",
         "ar": "قرنبيط",
-        "pl": null,
         "note": "الجمع Blumenkohle نادر الاستخدام",
+        "pl": null,
         "s": "Gekochter Blumenkohl schmeckt mild und zart.",
         "sar": "القرنبيط المسلوق طعمه خفيف وطري."
       },
@@ -641,8 +641,8 @@
         "a": "der",
         "n": "Fenchel",
         "ar": "شمر",
-        "pl": null,
         "note": "ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد",
+        "pl": null,
         "s": "Der Fenchel hat einen aromatischen Anisgeschmack.",
         "sar": "الشمر له نكهة يانسون عطرية."
       },
@@ -666,8 +666,8 @@
         "a": "der",
         "n": "Weißkohl",
         "ar": "كرنب أبيض",
-        "pl": "die Weißkohle",
         "note": "الجمع Weißkohle نادر الاستخدام",
+        "pl": "die Weißkohle",
         "s": "Aus Weißkohl macht man klassisches Sauerkraut.",
         "sar": "من الكرنب الأبيض يُصنع مخلل الكرنب الكلاسيكي."
       },
@@ -675,8 +675,8 @@
         "a": "der",
         "n": "Rotkohl",
         "ar": "كرنب أحمر",
-        "pl": "die Rotkohle",
         "note": "الجمع Rotkohle نادر الاستخدام",
+        "pl": "die Rotkohle",
         "s": "Der Rotkohl passt traditionell zu festlichen Braten.",
         "sar": "الكرنب الأحمر يناسب تقليدياً أطباق اللحوم المشوية في الأعياد."
       },
@@ -684,8 +684,8 @@
         "a": "der",
         "n": "Wirsing",
         "ar": "كرنب مجعد",
-        "pl": "die Wirsinge",
         "note": "نوع من الكرنب أوراقه مجعدة؛ جمعه Wirsinge نادر الاستخدام",
+        "pl": "die Wirsinge",
         "s": "Wirsing hat gekrauste Blätter und schmeckt würzig.",
         "sar": "الكرنب المجعد له أوراق مموجة وطعمه متبل."
       },
@@ -693,8 +693,8 @@
         "a": "der",
         "n": "Chinakohl",
         "ar": "كرنب صيني",
-        "pl": "die Chinakohle",
         "note": "الجمع Chinakohle نادر الاستخدام",
+        "pl": "die Chinakohle",
         "s": "Der zarte Chinakohl eignet sich bestens für Salate.",
         "sar": "الكرنب الصيني الطري مناسب جداً للسلطات."
       },
@@ -710,8 +710,8 @@
         "a": "das",
         "n": "Radieschen",
         "ar": "فجل أحمر صغير",
-        "pl": "die Radieschen",
         "note": "جمعه نفس الكلمة بلا تغيير (كل الكلمات المصغّرة بـ chen لا تتغير في الجمع)",
+        "pl": "die Radieschen",
         "s": "Das Radieschen bringt eine frische Schärfe in den Salat.",
         "sar": "الفجل الأحمر يضفي حرارة منعشة على السلطة."
       },
@@ -727,8 +727,8 @@
         "a": "der",
         "n": "Spargel",
         "ar": "هليون",
-        "pl": "die Spargel",
         "note": "جمعه نفس الكلمة بلا تغيير",
+        "pl": "die Spargel",
         "s": "Im Frühling freuen sich alle auf frischen Spargel.",
         "sar": "في الربيع يفرح الجميع بالهليون الطازج."
       },
@@ -736,8 +736,8 @@
         "a": "der",
         "n": "Feldsalat",
         "ar": "خس الحقل",
-        "pl": "die Feldsalate",
         "note": "نوع خس صغير الأوراق طري",
+        "pl": "die Feldsalate",
         "s": "Feldsalat schmeckt hervorragend mit Walnüssen.",
         "sar": "خس الحقل طعمه ممتاز مع عين الجمل."
       },
@@ -785,8 +785,8 @@
         "a": "der",
         "n": "Meerrettich",
         "ar": "فجل حار",
-        "pl": "die Meerrettiche",
         "note": "جذر حار الطعم يُستخدم كبديل للخردل",
+        "pl": "die Meerrettiche",
         "s": "Frisch geriebener Meerrettich ist sehr scharf.",
         "sar": "الفجل الحار المبشور طازجاً حار جداً."
       },
@@ -794,8 +794,8 @@
         "a": "der",
         "n": "Chicorée",
         "ar": "شيكوريا",
-        "pl": null,
         "note": "خضار مر قليلًا يؤكل نيئًا في السلطة؛ ليس له جمع",
+        "pl": null,
         "s": "Der Chicorée schmeckt leicht bitter und knackig.",
         "sar": "الشيكوريا طعمها مر قليلاً ومقرمشة."
       },
@@ -803,8 +803,8 @@
         "a": "der",
         "n": "Rucola",
         "ar": "جرجير",
-        "pl": null,
         "note": "ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد",
+        "pl": null,
         "s": "Rucola verleiht der Pizza eine nussige Note.",
         "sar": "الجرجير يمنح البيتزا نكهة جوزية مميزة."
       },
@@ -812,8 +812,8 @@
         "a": "der",
         "n": "Mangold",
         "ar": "سلق",
-        "pl": "die Mangolde",
         "note": "خضار ورقي أخضر ذو سيقان ملونة، يشبه السبانخ",
+        "pl": "die Mangolde",
         "s": "Mangold lässt sich ähnlich wie Spinat zubereiten.",
         "sar": "السلق يمكن تحضيره بطريقة مشابهة للسبانخ."
       },
@@ -821,8 +821,8 @@
         "a": "die",
         "n": "Pastinake",
         "ar": "جزر أبيض",
-        "pl": "die Pastinaken",
         "note": "نوع من الجزر الأبيض حلو المذاق",
+        "pl": "die Pastinaken",
         "s": "Die Pastinake schmeckt nussig und leicht süß.",
         "sar": "الجزر الأبيض طعمه جوزي ومائل للحلاوة خفيفاً."
       },
@@ -838,8 +838,8 @@
         "a": "die",
         "n": "Kresse",
         "ar": "رشاد",
-        "pl": "die Kressen",
         "note": "نبات صغير سريع النمو يُستخدم لتزيين وتنكيه السلطات",
+        "pl": "die Kressen",
         "s": "Frische Kresse schmeckt herrlich auf Butterbrot.",
         "sar": "الرشاد الطازج طعمه رائع على شطيرة الخبز بالزبدة."
       },
@@ -847,8 +847,8 @@
         "a": "der",
         "n": "Sauerampfer",
         "ar": "حميض",
-        "pl": "die Sauerampfer",
         "note": "عشب ورقي حامض الطعم يُستخدم في الشوربات؛ جمعه نفس الكلمة بلا تغيير",
+        "pl": "die Sauerampfer",
         "s": "Sauerampfer verleiht der Frühlingssuppe einen säuerlichen Geschmack.",
         "sar": "الحميض يمنح حساء الربيع مذاقاً حامضياً طيباً."
       }
@@ -864,8 +864,8 @@
         "a": "die",
         "n": "Milch",
         "ar": "حليب",
-        "pl": null,
         "note": "الجمع Milche نادر جدًا (لغة متخصصة، يشير لأنواع الحليب)",
+        "pl": null,
         "s": "Das Kind trinkt morgens ein Glas warme Milch.",
         "sar": "يشرب الطفل في الصباح كأساً من الحليب الدافئ."
       },
@@ -873,8 +873,8 @@
         "a": "der",
         "n": "Käse",
         "ar": "جبن",
-        "pl": "die Käse",
         "note": "الجمع نفس الكلمة بلا تغيير (يشير لأنواع الجبن)",
+        "pl": "die Käse",
         "s": "Zum Brot essen wir leckeren Käse.",
         "sar": "مع الخبز نأكل جبناً لذيذاً."
       },
@@ -890,8 +890,8 @@
         "a": "die",
         "n": "Butter",
         "ar": "زبدة",
-        "pl": null,
         "note": "ليس لها جمع",
+        "pl": null,
         "s": "Ich streiche frische Butter auf das Brot.",
         "sar": "أدهن زبدة طازجة على الخبز."
       },
@@ -899,8 +899,8 @@
         "a": "die",
         "n": "Sahne",
         "ar": "قشدة",
-        "pl": null,
         "note": "ليس لها جمع",
+        "pl": null,
         "s": "Zum Erdbeerkuchen gehört geschlagene Sahne.",
         "sar": "كعكة الفراولة تناسبها القشدة المخفوقة."
       },
@@ -908,8 +908,8 @@
         "a": "der",
         "n": "Quark",
         "ar": "جبن قريش",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Quark mit Kräutern schmeckt gut zu Pellkartoffeln.",
         "sar": "جبن القريش بالأعشاب لذيذ مع البطاطس المسلوقة."
       },
@@ -917,8 +917,8 @@
         "a": "die",
         "n": "Buttermilch",
         "ar": "حليب مخيض",
-        "pl": null,
         "note": "الجمع Buttermilche نادر جدًا",
+        "pl": null,
         "s": "Kalte Buttermilch ist ein erfrischendes Getränk.",
         "sar": "الحليب المخيض البارد مشروب منعش."
       },
@@ -926,8 +926,8 @@
         "a": "der",
         "n": "Frischkäse",
         "ar": "جبنة كريمية",
-        "pl": "die Frischkäse",
         "note": "الجمع نفس الكلمة بلا تغيير (يشير لأنواعه)",
+        "pl": "die Frischkäse",
         "s": "Frischkäse schmeckt cremig auf dunklem Brot.",
         "sar": "الجبنة الكريمية لذيذة على الخبز الأسمر."
       },
@@ -935,8 +935,8 @@
         "a": "das",
         "n": "Eis",
         "ar": "آيس كريم",
-        "pl": null,
         "note": "ليس له جمع؛ للتفريق بين الأنواع تُستخدم كلمة Eissorten",
+        "pl": null,
         "s": "Im Sommer essen die Kinder gerne süßes Eis.",
         "sar": "في الصيف يحب الأطفال تناول الآيس كريم الحلو."
       },
@@ -944,8 +944,8 @@
         "a": "die",
         "n": "Kondensmilch",
         "ar": "حليب مكثف",
-        "pl": "die Kondensmilche",
         "note": "الجمع Kondensmilche نادر جدًا",
+        "pl": "die Kondensmilche",
         "s": "Kondensmilch macht den Kaffee besonders cremig.",
         "sar": "الحليب المكثف يجعل القهوة غنية وكريمية."
       },
@@ -961,8 +961,8 @@
         "a": "der",
         "n": "Kefir",
         "ar": "كفير",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Kefir fördert eine gesunde Verdauung.",
         "sar": "الكفير يعزز الهضم الصحي."
       },
@@ -970,8 +970,8 @@
         "a": "der",
         "n": "Skyr",
         "ar": "سكير",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Skyr enthält viel Eiweiß und wenig Fett.",
         "sar": "السكير يحتوي على بروتين عالٍ ودهون قليلة."
       },
@@ -987,8 +987,8 @@
         "a": "die",
         "n": "Sojamilch",
         "ar": "حليب الصويا",
-        "pl": null,
         "note": "الجمع Sojamilchen نادر جدًا",
+        "pl": null,
         "s": "Viele Menschen trinken Sojamilch als pflanzliche Alternative.",
         "sar": "كثير من الناس يشربون حليب الصويا كبديل نباتي."
       },
@@ -1644,8 +1644,8 @@
         "a": "der",
         "n": "Halbbruder",
         "ar": "أخ غير شقيق",
-        "pl": "die Halbbrüder",
         "note": "أخ من أحد الأبوين فقط",
+        "pl": "die Halbbrüder",
         "s": "Mein Halbbruder hat denselben Vater wie ich.",
         "sar": "أخي غير الشقيق له نفس الأب مثلي."
       },
@@ -1653,8 +1653,8 @@
         "a": "die",
         "n": "Halbschwester",
         "ar": "أخت غير شقيقة",
-        "pl": "die Halbschwestern",
         "note": "أخت من أحد الأبوين فقط",
+        "pl": "die Halbschwestern",
         "s": "Meine Halbschwester besucht uns regelmäßig in den Ferien.",
         "sar": "أختي غير الشقيقة تزورنا بانتظام في العطلات."
       },
@@ -1662,8 +1662,8 @@
         "a": "der",
         "n": "Stiefvater",
         "ar": "زوج الأم",
-        "pl": "die Stiefväter",
         "note": "زوج الأم الجديد، وليس الأب البيولوجي",
+        "pl": "die Stiefväter",
         "s": "Sein Stiefvater ist ihm stets ein guter Ratgeber gewesen.",
         "sar": "زوج أمه كان له دائماً ناصحاً أميناً."
       },
@@ -1671,8 +1671,8 @@
         "a": "die",
         "n": "Stiefmutter",
         "ar": "زوجة الأب",
-        "pl": "die Stiefmütter",
         "note": "زوجة الأب الجديدة، وليست الأم البيولوجية",
+        "pl": "die Stiefmütter",
         "s": "Ihre Stiefmutter kümmert sich liebevoll um den Haushalt.",
         "sar": "زوجة أبيها تعتني بشؤون البيت بكل مودة."
       },
@@ -1696,8 +1696,8 @@
         "a": "der",
         "n": "Schwager",
         "ar": "نسيب",
-        "pl": "die Schwäger",
         "note": "زوج الأخت أو أخو الزوج/الزوجة",
+        "pl": "die Schwäger",
         "s": "Mein Schwager hilft mir heute beim Umzug in die Wohnung.",
         "sar": "نسيبي يساعدني اليوم في الانتقال إلى الشقة."
       },
@@ -1705,8 +1705,8 @@
         "a": "die",
         "n": "Schwägerin",
         "ar": "نسيبة",
-        "pl": "die Schwägerinnen",
         "note": "زوجة الأخ أو أخت الزوج/الزوجة",
+        "pl": "die Schwägerinnen",
         "s": "Meine Schwägerin hat eine neue Arbeitsstelle gefunden.",
         "sar": "نسيبتي وجدت وظيفة جديدة."
       },
@@ -1746,8 +1746,8 @@
         "a": "das",
         "n": "Kleinkind",
         "ar": "طفل صغير",
-        "pl": "die Kleinkinder",
         "note": "أكبر قليلًا من الرضيع (Baby)",
+        "pl": "die Kleinkinder",
         "s": "Das kleine Kleinkind lernt gerade seine ersten Schritte.",
         "sar": "الطفل الصغير يتعلم الآن خطواته الأولى."
       },
@@ -1763,8 +1763,8 @@
         "a": "die",
         "n": "Geschwister",
         "ar": "الإخوة",
-        "pl": null,
         "note": "كلمة جمع فقط تعني الإخوة والأخوات معًا، بلا مفرد",
+        "pl": null,
         "s": "Ich habe drei Geschwister: zwei Schwestern und einen Bruder.",
         "sar": "لدي ثلاثة إخوة: أختان وأخ واحد."
       },
@@ -1830,7 +1830,6 @@
     "id": "farben",
     "ar": "الألوان",
     "de": "Farben",
-    "hasArticles": false,
     "words": [
       {
         "n": "rot",
@@ -1922,7 +1921,8 @@
         "s": "Die schimmernde Münze besteht aus feinstem Silber.",
         "sar": "القطعة النقدية اللامعة مصنوعة من أنقى درجات الفضة."
       }
-    ]
+    ],
+    "hasArticles": false
   },
   {
     "id": "koerper",
@@ -2150,8 +2150,8 @@
         "a": "die",
         "n": "Sehne",
         "ar": "وتر",
-        "pl": "die Sehnen",
         "note": "نسيج يربط العضلة بالعظم",
+        "pl": "die Sehnen",
         "s": "Der Sportler riss sich beim Sprint eine Sehne.",
         "sar": "الرياضي أصيب بتمزق في الوتر أثناء الجري السريع."
       },
@@ -2175,8 +2175,8 @@
         "a": "das",
         "n": "Blut",
         "ar": "دم",
-        "pl": null,
         "note": "كلمة غير معدودة، لا يوجد لها جمع شائع",
+        "pl": null,
         "s": "Der Arzt nimmt dem Patienten etwas Blut für die Analyse ab.",
         "sar": "الطبيب يسحب من المريض قليلاً من الدم للتحليل."
       },
@@ -2256,8 +2256,8 @@
         "a": "die",
         "n": "Kehle",
         "ar": "حلق",
-        "pl": "die Kehlen",
         "note": "الحلق من الداخل، أما Hals فهو الرقبة من الخارج",
+        "pl": "die Kehlen",
         "s": "Ein Schluck warmes Wasser befeuchtet die trockene Kehle.",
         "sar": "جرعة ماء دافئ ترطب الحلق الجاف."
       },
@@ -2289,8 +2289,8 @@
         "a": "der",
         "n": "Knöchel",
         "ar": "كاحل",
-        "pl": "die Knöchel",
         "note": "مفصل القدم، وينطق مختلفًا عن Knochen (عظم)",
+        "pl": "die Knöchel",
         "s": "Beim Laufen im Wald knickte sie mit dem Knöchel um.",
         "sar": "أثناء الجري في الغابة التوى كاحلها."
       },
@@ -2426,8 +2426,8 @@
         "a": "der",
         "n": "Schal",
         "ar": "وشاح",
-        "pl": "die Schals",
         "note": "الجمع الأشيع Schals، ويقبل أيضًا Schale رسميًا حسب Duden",
+        "pl": "die Schals",
         "s": "Er wickelt sich einen weichen Schal um den Hals.",
         "sar": "هو يلف وشاحاً ناعماً حول عنقه."
       },
@@ -2571,8 +2571,8 @@
         "a": "die",
         "n": "Strumpfhose",
         "ar": "كولون",
-        "pl": "die Strumpfhosen",
         "note": "جورب طويل يغطي الساق كاملة حتى الخصر",
+        "pl": "die Strumpfhosen",
         "s": "Zum kurzen Kleid trägt sie eine blickdichte Strumpfhose.",
         "sar": "مع الفستان القصير ترتدي كولوناً غير شفاف."
       },
@@ -2612,8 +2612,8 @@
         "a": "das",
         "n": "Sakko",
         "ar": "جاكيت رسمي",
-        "pl": "die Sakkos",
         "note": "جاكيت رسمي للرجال؛ في ألمانيا يُقال der Sakko، وفي النمسا das Sakko (كلاهما صحيح رسميًا)",
+        "pl": "die Sakkos",
         "s": "Er trägt im Büro ein sportliches Sakko zur Jeans.",
         "sar": "هو يرتدي في المكتب سترة رسمية سبور مع الجينز."
       },
@@ -2645,8 +2645,8 @@
         "a": "der",
         "n": "Overall",
         "ar": "أفرول",
-        "pl": "die Overalls",
         "note": "بدلة عمل كاملة تغطي الجسم كله",
+        "pl": "die Overalls",
         "s": "Der Handwerker arbeitet in einem praktischen Overall.",
         "sar": "الحرفي يعمل في أفرول عمل عملي."
       },
@@ -2654,8 +2654,8 @@
         "a": "die",
         "n": "Latzhose",
         "ar": "بنطلون بحمالات",
-        "pl": "die Latzhosen",
         "note": "بنطلون له حمالات تغطي الصدر",
+        "pl": "die Latzhosen",
         "s": "Der Maler trägt bei der Arbeit eine robuste Latzhose.",
         "sar": "الدهان يرتدي أثناء العمل بنطالاً بحمالات متيناً."
       },
@@ -2855,8 +2855,8 @@
         "a": "der",
         "n": "Balkon",
         "ar": "شرفة",
-        "pl": "die Balkons",
         "note": "الجمع القياسي Balkons، وBalkone صحيح أيضًا (منتشر في جنوب ألمانيا والنمسا وسويسرا)",
+        "pl": "die Balkons",
         "s": "Vom sonnigen Balkon aus sieht man die ganze Stadt.",
         "sar": "من الشرفة المشمسة يرى المرء المدينة بأكملها."
       },
@@ -3008,8 +3008,8 @@
         "a": "das",
         "n": "Schloss",
         "ar": "قفل",
-        "pl": "die Schlösser",
         "note": "نفس الكلمة تعني أيضًا \"قصر\" حسب السياق",
+        "pl": "die Schlösser",
         "s": "Das feste Schloss an der Haustür schützt vor Einbrechern.",
         "sar": "القفل المتين على باب المنزل يحمي من اللصوص."
       },
@@ -3073,8 +3073,8 @@
         "a": "die",
         "n": "Decke",
         "ar": "سقف/بطانية",
-        "pl": "die Decken",
         "note": "نفس الكلمة تعني \"سقف الغرفة\" أو \"بطانية\" حسب السياق",
+        "pl": "die Decken",
         "s": "Sie deckt das schlafende Kind mit einer warmen Decke zu.",
         "sar": "هي تغطي الطفل النائم ببطانية دافئة."
       },
@@ -3170,8 +3170,8 @@
         "a": "das",
         "n": "Wasser",
         "ar": "ماء",
-        "pl": "die Wässer",
         "note": "الجمع \"Wässer\" يُستخدم للإشارة إلى أنواع مختلفة من المياه (مثل المياه المعدنية)؛ ونادرًا \"Wasser\" أيضًا حسب Duden",
+        "pl": "die Wässer",
         "s": "Trinken Sie bitte jeden Tag ausreichend klares Wasser.",
         "sar": "اشرب من فضلك يومياً كمية كافية من الماء الصافي."
       },
@@ -3179,8 +3179,8 @@
         "a": "der",
         "n": "Kaffee",
         "ar": "قهوة",
-        "pl": "die Kaffees",
         "note": "رسميًا بلا جمع عند الإشارة للمشروب نفسه، لكن \"Kaffees\" مقبول ومستخدم للإشارة لأنواع أو طلبات متعددة",
+        "pl": "die Kaffees",
         "s": "Morgens brauche ich immer eine Tasse heißen Kaffee.",
         "sar": "في الصباح أحتاج دائماً فنجاناً من القهوة الساخنة."
       },
@@ -3188,8 +3188,8 @@
         "a": "der",
         "n": "Tee",
         "ar": "شاي",
-        "pl": "die Tees",
         "note": "مثل Kaffee، الجمع \"Tees\" يُستخدم للإشارة لأنواع شاي مختلفة",
+        "pl": "die Tees",
         "s": "Bei Halsschmerzen trinke ich warmen Tee mit Honig.",
         "sar": "عند ألم الحلق أشرب شاياً دافئاً مع العسل."
       },
@@ -3237,8 +3237,8 @@
         "a": "der",
         "n": "Kakao",
         "ar": "كاكاو",
-        "pl": "die Kakaos",
         "note": "جمع نادر الاستخدام",
+        "pl": "die Kakaos",
         "s": "Die Kinder trinken im Winter gerne heißen Kakao.",
         "sar": "الأطفال يشربون في الشتاء الكاكاو الساخن بحب."
       },
@@ -3286,8 +3286,8 @@
         "a": "der",
         "n": "Sekt",
         "ar": "شمبانيا ألمانية",
-        "pl": "die Sekte",
         "note": "صيغة الجمع النادرة \"Sekte\" تُكتب مثل مفرد كلمة أخرى \"Sekte\" (طائفة)، رغم اختلاف المعنى تمامًا",
+        "pl": "die Sekte",
         "s": "Zum neuen Jahr stoßen wir mit einem Glas Sekt an.",
         "sar": "في العام الجديد نرفع نخبنا بكأس شمبانيا ألمانية."
       },
@@ -3319,8 +3319,8 @@
         "a": "der",
         "n": "Rum",
         "ar": "رم",
-        "pl": "die Rums",
         "note": "في جنوب ألمانيا والنمسا وسويسرا تُستخدم أيضًا صيغة \"Rume\"",
+        "pl": "die Rums",
         "s": "Für diesen Cocktail benötigt man braunen Rum aus der Karibik.",
         "sar": "لهذا الكوكتيل يحتاج المرء إلى رم بني من الكاريبي."
       },
@@ -3424,8 +3424,8 @@
         "a": "der",
         "n": "Espresso",
         "ar": "إسبريسو",
-        "pl": "die Espressos",
         "note": "يقبل أيضًا الجمع الإيطالي \"Espressi\"",
+        "pl": "die Espressos",
         "s": "In Italien trinkt man nach dem Essen einen starken Espresso.",
         "sar": "في إيطاليا يشربون بعد الأكل إسبريسو قوياً."
       },
@@ -3433,8 +3433,8 @@
         "a": "der",
         "n": "Cappuccino",
         "ar": "كابتشينو",
-        "pl": "die Cappuccinos",
         "note": "يقبل أيضًا الجمع الإيطالي \"Cappuccini\"",
+        "pl": "die Cappuccinos",
         "s": "Der Cappuccino hat einen wunderbar dichten Milchschaum.",
         "sar": "الكابتشينو له رغوة حليب كثيفة ورائعة."
       },
@@ -3442,8 +3442,8 @@
         "a": "der",
         "n": "Latte Macchiato",
         "ar": "لاتيه ماكياتو",
-        "pl": "die Latte Macchiato",
         "note": "غالبًا بلا تغيير في الجمع؛ \"Latte Macchiatos\" شائعة أيضًا",
+        "pl": "die Latte Macchiato",
         "s": "Ein Glas Latte Macchiato besteht aus drei sichtbaren Schichten.",
         "sar": "كأس اللاتيه ماكياتو يتكون من ثلاث طبقات واضحة."
       },
@@ -3459,8 +3459,8 @@
         "a": "die",
         "n": "Apfelschorle",
         "ar": "عصير تفاح مخفف بالماء الغازي",
-        "pl": "die Apfelschorlen",
         "note": "مشروب ألماني شائع جدًا يُخلط فيه عصير التفاح بماء غازي",
+        "pl": "die Apfelschorlen",
         "s": "Eine frische Apfelschorle ist das beliebteste Sportlergetränk.",
         "sar": "عصير التفاح المخفف بالصودا هو المشروب الأكثر شعبية للرياضيين."
       },
@@ -3484,8 +3484,8 @@
         "a": "das",
         "n": "Pils",
         "ar": "بيرة بيلسنر",
-        "pl": "die Pils",
         "note": "نوع بيرة ألمانية فاتحة اللون شائعة جدًا",
+        "pl": "die Pils",
         "s": "Ein kühles Pils hat eine feine herbe Hopfennote.",
         "sar": "بيرة البيلسنر الباردة لها نكهة جنجل مرة خفيفة."
       },
@@ -3493,8 +3493,8 @@
         "a": "der",
         "n": "Glühwein",
         "ar": "نبيذ ساخن بالتوابل",
-        "pl": "die Glühweine",
         "note": "يُقدَّم عادة في أسواق الكريسماس الألمانية",
+        "pl": "die Glühweine",
         "s": "Auf dem Weihnachtsmarkt wärmt ein Becher heißer Glühwein.",
         "sar": "في سوق عيد الميلاد يدفئ كوب من النبيذ الساخن بالتوابل."
       },
@@ -3518,8 +3518,8 @@
         "a": "der",
         "n": "Ayran",
         "ar": "عيران",
-        "pl": null,
         "note": "لبن مخفوق مملح، أصله تركي وشائع جدًا في ألمانيا؛ غير مدرج رسميًا في Duden ويُستخدم عادة كاسم غير معدود",
+        "pl": null,
         "s": "Zu würzigem Döner passt ein kühler Becher Ayran.",
         "sar": "مع الشاورما المتبلة يناسب كوب بارد من العيران."
       },
@@ -3567,8 +3567,8 @@
         "a": "der",
         "n": "Malzkaffee",
         "ar": "قهوة الشعير",
-        "pl": "die Malzkaffees",
         "note": "بديل للقهوة خالٍ من الكافيين مصنوع من الشعير المحمص",
+        "pl": "die Malzkaffees",
         "s": "Malzkaffee ist koffeinfrei und bekömmlich für den Abend.",
         "sar": "قهوة الشعير خالية من الكافيين ومناسبة للمساء."
       },
@@ -3576,8 +3576,8 @@
         "a": "das",
         "n": "Tonicwater",
         "ar": "مياه تونيك",
-        "pl": "die Tonicwaters",
         "note": "يظهر في Duden تحت الشكل المختصر \"Tonic\" (das Tonic؛ الجمع die Tonics)",
+        "pl": "die Tonicwaters",
         "s": "Das bittere Tonicwater wird gerne mit Eis serviert.",
         "sar": "مياه التونيك المرة تُقدَّم غالباً مع الثلج."
       }
@@ -3587,7 +3587,6 @@
     "id": "zahlen",
     "ar": "الأرقام",
     "de": "Zahlen",
-    "hasArticles": false,
     "words": [
       {
         "n": "eins",
@@ -3709,7 +3708,8 @@
         "s": "Zwanzig Gäste feierten ausgelassen den Geburtstag.",
         "sar": "عشرون ضيفاً احتفلوا بعيد الميلاد بحماس كبير."
       }
-    ]
+    ],
+    "hasArticles": false
   },
   {
     "id": "berufe",
@@ -3737,8 +3737,8 @@
         "a": "der",
         "n": "Ingenieur",
         "ar": "مهندس",
-        "pl": "die Ingenieure",
         "note": "رغم انتهائها بحروف تشبه -er، فهي لاحقة فرنسية مختلفة (-eur) وجمعها Ingenieure وليس بلا تغيير",
+        "pl": "die Ingenieure",
         "s": "Der Ingenieur plant eine neue sichere Brücke.",
         "sar": "المهندس يخطط لبناء جسر آمن جديد."
       },
@@ -3762,8 +3762,8 @@
         "a": "der",
         "n": "Bauer",
         "ar": "فلاح",
-        "pl": "die Bauern",
         "note": "استثناء مهم: رغم انتهائها بـ -er فهي اسم \"ضعيف\" (schwache Deklination) وجمعها Bauern، وليس بلا تغيير مثل باقي كلمات -er",
+        "pl": "die Bauern",
         "s": "Der Bauer bestellt im Frühjahr seine Felder.",
         "sar": "الفلاح يحرث حقوله في فصل الربيع."
       },
@@ -3779,8 +3779,8 @@
         "a": "der",
         "n": "Friseur",
         "ar": "حلاق",
-        "pl": "die Friseure",
         "note": "لاحقة فرنسية (-eur)، جمعها Friseure وليس بلا تغيير",
+        "pl": "die Friseure",
         "s": "Der Friseur schneidet dem Kunden modisch die Haare.",
         "sar": "الحلاق يقص شعر الزبون بقصة عصرية."
       },
@@ -3820,8 +3820,8 @@
         "a": "der",
         "n": "Feuerwehrmann",
         "ar": "رجل إطفاء",
-        "pl": "die Feuerwehrleute",
         "note": "الجمع الشامل للجنسين \"Feuerwehrleute\"، ويقبل أيضًا \"Feuerwehrmänner\" للذكور تحديدًا",
+        "pl": "die Feuerwehrleute",
         "s": "Der mutige Feuerwehrmann löscht das brennende Haus.",
         "sar": "رجل الإطفاء الشجاع يخمد الحريق في المنزل المشتعل."
       },
@@ -3934,7 +3934,7 @@
         "n": "Tierarzt",
         "ar": "طبيب بيطري",
         "pl": "die Tierärzte",
-        "s": "Der Tierarzt behandelt den verletzten Hund behutsام.",
+        "s": "Der Tierarzt behandelt den verletzten Hund behutsam.",
         "sar": "الطبيب البيطري يعالج الكلب المصاب برفق."
       },
       {
@@ -3965,8 +3965,8 @@
         "a": "der",
         "n": "Sekretär",
         "ar": "سكرتير",
-        "pl": "die Sekretäre",
         "note": "لاحقة فرنسية/لاتينية (-är)، جمعها Sekretäre وليس بلا تغيير",
+        "pl": "die Sekretäre",
         "s": "Der Sekretär beantwortet E-Mails und vereinbart Termine.",
         "sar": "السكرتير يجيب على رسائل البريد الإلكتروني ويحدد المواعيد."
       },
@@ -3974,8 +3974,8 @@
         "a": "der",
         "n": "Landwirt",
         "ar": "مزارع",
-        "pl": "die Landwirte",
         "note": "مرادف حديث وأكثر رسمية لكلمة Bauer",
+        "pl": "die Landwirte",
         "s": "Der Landwirt setzt auf ökologischen Anbau von Gemüse.",
         "sar": "المزارع يعتمد على الزراعة العضوية للخضروات."
       },
@@ -4111,8 +4111,8 @@
         "a": "der",
         "n": "Dolmetscher",
         "ar": "مترجم فوري",
-        "pl": "die Dolmetscher",
         "note": "مترجم شفهي فوري، بينما Übersetzer مترجم للنصوص المكتوبة",
+        "pl": "die Dolmetscher",
         "s": "Der Dolmetscher übersetzt die Rede simultan bei der Konferenz.",
         "sar": "المترجم الفوري يترجم الخطاب بالتزامن في المؤتمر."
       },
@@ -4320,8 +4320,8 @@
         "a": "der",
         "n": "Kombi",
         "ar": "سيارة ستيشن",
-        "pl": "die Kombis",
         "note": "اختصار لكلمة Kombiwagen",
+        "pl": "die Kombis",
         "s": "Für Familien bietet ein geräumiger Kombi viel Platz für Gepäck und Einkäufe.",
         "sar": "للعائلات تقدم سيارة الستيشن الواسعة مساحة كبيرة للأمتعة والمشتريات."
       },
@@ -4337,8 +4337,8 @@
         "a": "das",
         "n": "Cabrio",
         "ar": "سيارة مكشوفة",
-        "pl": "die Cabrios",
         "note": "اختصار لكلمة Cabriolet",
+        "pl": "die Cabrios",
         "s": "Bei strahlendem Sonnenschein öffnet er das Verdeck an seinem schicken Cabrio.",
         "sar": "مع سطوع الشمس المشرقة يفتح سقف سيارته المكشوفة الأنيقة."
       },
@@ -4386,8 +4386,8 @@
         "a": "der",
         "n": "Heißluftballon",
         "ar": "منطاد الهواء الساخن",
-        "pl": "die Heißluftballons",
         "note": "يقبل أيضًا الجمع \"Heißluftballone\" حسب Duden (Ballons/Ballone)",
+        "pl": "die Heißluftballons",
         "s": "Aus dem Heißluftballon genossen die Passagiere eine atemberaubende Aussicht auf die Alpen.",
         "sar": "من منطاد الهواء الساخن استمتع الركاب بإطلالة تخطف الأنفاس على جبال الألب."
       },
@@ -4507,8 +4507,8 @@
         "a": "das",
         "n": "Benzin",
         "ar": "بنزين",
-        "pl": "die Benzine",
         "note": "اسم غير معدود عادة؛ الجمع \"Benzine\" يُستخدم للإشارة إلى أنواع مختلفة من البنزين",
+        "pl": "die Benzine",
         "s": "An der Autobahntankstelle füllte er den leeren Tank mit unverbleitem Benzin auf.",
         "sar": "في محطة وقود الطريق السريع ملأ الخزان الفارغ بالبنزين الخالي من الرصاص."
       },
@@ -4548,8 +4548,8 @@
         "a": "die",
         "n": "Sonne",
         "ar": "شمس",
-        "pl": "die Sonnen",
         "note": "الجمع \"Sonnen\" يُستخدم في السياق الفلكي (نجوم/شموس أخرى)؛ كظاهرة جوية تبقى الشمس في صيغة المفرد دائمًا",
+        "pl": "die Sonnen",
         "s": "Die goldene Sonne scheint heute den ganzen Tag wärmend.",
         "sar": "الشمس الذهبية تسطع اليوم بدفء طوال اليوم."
       },
@@ -4557,8 +4557,8 @@
         "a": "der",
         "n": "Regen",
         "ar": "مطر",
-        "pl": "die Regen",
         "note": "جمع نادر الاستخدام حسب Duden",
+        "pl": "die Regen",
         "s": "Der kalte Regen prasselt unablässig an die Fensterscheibe.",
         "sar": "المطر البارد ينهمر بلا انقطاع على زجاج النافذة."
       },
@@ -4566,8 +4566,8 @@
         "a": "der",
         "n": "Schnee",
         "ar": "ثلج",
-        "pl": null,
         "note": "اسم غير معدود، لا يوجد جمع له حسب Duden",
+        "pl": null,
         "s": "Im Winter deckt weißer Schnee die Dächer der Stadt zu.",
         "sar": "في الشتاء يغطي الثلج الأبيض أسطح منازل المدينة."
       },
@@ -4615,8 +4615,8 @@
         "a": "die",
         "n": "Hitze",
         "ar": "حر",
-        "pl": null,
         "note": "اسم غير معدود عادة؛ الجمع \"Hitzen\" يُستخدم فقط في اللغة التخصصية حسب Duden",
+        "pl": null,
         "s": "Im Hochsommer kann die flirrende Hitze für den Kreislauf anstrengend sein.",
         "sar": "في منتصف الصيف يمكن للحر الشديد أن يكون مجهداً للدورة الدموية."
       },
@@ -4624,8 +4624,8 @@
         "a": "die",
         "n": "Kälte",
         "ar": "برد",
-        "pl": null,
         "note": "اسم غير معدود، لا يوجد له جمع حسب Duden",
+        "pl": null,
         "s": "Im tiefen Winter schützt eine gefütterte Jacke vor der eisigen Kälte.",
         "sar": "في أعماق الشتاء تحمي السترة المبطنة من البرد القارس."
       },
@@ -4641,8 +4641,8 @@
         "a": "der",
         "n": "Donner",
         "ar": "رعد",
-        "pl": "die Donner",
         "note": "جمع نادر الاستخدام حسب Duden",
+        "pl": "die Donner",
         "s": "Kurz nach dem grellen Licht folgte ein dumpfer Donner.",
         "sar": "بعد الضوء الساطع مباشرة تلا ذلك رعد قوي."
       },
@@ -4674,8 +4674,8 @@
         "a": "das",
         "n": "Klima",
         "ar": "المناخ",
-        "pl": "die Klimata",
         "note": "الأشكال البديلة الأقل شيوعًا: Klimas وKlimate حسب Duden",
+        "pl": "die Klimata",
         "s": "Das mediterrane Klima sorgt für milde Winter und heiße Sommer.",
         "sar": "المناخ المتوسطي يوفر فصول شتاء معتدلة وصيفاً حاراً."
       },
@@ -4691,8 +4691,8 @@
         "a": "der",
         "n": "Grad",
         "ar": "درجة",
-        "pl": "die Grad",
         "note": "بعد الأرقام تبقى بلا تغيير (مثل 30 Grad)؛ الجمع \"Grade\" يُستخدم في معانٍ أخرى غير القياس (مثل درجات القرابة)",
+        "pl": "die Grad",
         "s": "Das Thermometer zeigt heute genau zwanzig Grad im Schatten an.",
         "sar": "ميزان الحرارة يُظهر اليوم عشرين درجة بالضبط في الظل."
       },
@@ -4748,8 +4748,8 @@
         "a": "der",
         "n": "Sonnenschein",
         "ar": "ضوء الشمس",
-        "pl": null,
         "note": "اسم غير معدود، بلا جمع شائع",
+        "pl": null,
         "s": "Warmer Sonnenschein lockt viele Spaziergänger in den Stadtpark.",
         "sar": "ضوء الشمس الدافئ يجذب الكثير من المتنزهين إلى حديقة المدينة."
       },
@@ -4765,8 +4765,8 @@
         "a": "die",
         "n": "Dämmerung",
         "ar": "الشفق",
-        "pl": "die Dämmerungen",
         "note": "نادرة الجمع",
+        "pl": "die Dämmerungen",
         "s": "In der Dämmerung leuchten die ersten Straßenlaternen auf.",
         "sar": "في الشفق تضاء أوائل مصابيح الشوارع."
       },
@@ -4798,8 +4798,8 @@
         "a": "der",
         "n": "Taifun",
         "ar": "إعصار مداري",
-        "pl": "die Taifune",
         "note": "إعصار يحدث في المحيط الهادئ وشرق آسيا",
+        "pl": "die Taifune",
         "s": "Ein verheerender Taifun fegte über die tropische Küstenregion hinweg.",
         "sar": "إعصار مداري مدمر اجتاح المنطقة الساحلية الاستوائية."
       },
@@ -4807,8 +4807,8 @@
         "a": "der",
         "n": "Hurrikan",
         "ar": "إعصار",
-        "pl": "die Hurrikane",
         "note": "إعصار يحدث في المحيط الأطلسي وأمريكا؛ يقبل أيضًا جمع \"Hurrikans\"",
+        "pl": "die Hurrikane",
         "s": "Der Hurrikan hinterließ schwere Schäden an Häusern und Straßen.",
         "sar": "الإعصار خلّف أضراراً جسيمة بالمنازل والطرقات."
       },
@@ -4848,8 +4848,8 @@
         "a": "der",
         "n": "Orkan",
         "ar": "عاصفة هوجاء",
-        "pl": "die Orkane",
         "note": "أقوى درجات مقياس شدة الرياح",
+        "pl": "die Orkane",
         "s": "Der gewaltige Orkan riss alte Bäume entwurzelt um.",
         "sar": "العاصفة الهوجاء العاتية اقتلعت أشجاراً قديمة من جذورها."
       },
@@ -4897,8 +4897,8 @@
         "a": "die",
         "n": "Luft",
         "ar": "الهواء",
-        "pl": null,
         "note": "اسم غير معدود عادة؛ الجمع \"Lüfte\" أدبي/شاعري ونادر الاستخدام",
+        "pl": null,
         "s": "Tiefes Einatmen der reinen Bergluft erfrischt den ganzen Körper.",
         "sar": "الاستنشاق العميق لهواء الجبال النقي ينعش الجسم كله."
       },
@@ -4914,8 +4914,8 @@
         "a": "der",
         "n": "Dunst",
         "ar": "شبورة خفيفة",
-        "pl": null,
         "note": "ضباب خفيف جدًا؛ اسم غير معدود عادة، ونادرًا ما يُستخدم جمع \"Dünste\" للإشارة لأنواع مختلفة من الأبخرة",
+        "pl": null,
         "s": "Ein feiner Dunst lag über der morgendlichen Wasserfläche.",
         "sar": "شبورة خفيفة خيمت على سطح الماء الصباحي."
       },
@@ -4939,8 +4939,8 @@
         "a": "der",
         "n": "Nieselregen",
         "ar": "رذاذ المطر",
-        "pl": null,
         "note": "اسم غير معدود مثل Regen",
+        "pl": null,
         "s": "Aus den grauen Wolken fiel stundenlang nur leichter Nieselregen.",
         "sar": "من الغيوم الرمادية سقط لساعات رذاذ مطر خفيف فقط."
       },
@@ -4948,8 +4948,8 @@
         "a": "die",
         "n": "Wärme",
         "ar": "الدفء",
-        "pl": null,
         "note": "اسم غير معدود عادة",
+        "pl": null,
         "s": "Die angenehme Wärme des Ofens erfüllte das ganze Zimmer.",
         "sar": "الدفء المريح الصادر من المدفأة ملأ الغرفة بأكملها."
       },
@@ -4957,8 +4957,8 @@
         "a": "die",
         "n": "Kühle",
         "ar": "البرودة اللطيفة",
-        "pl": null,
         "note": "اسم غير معدود",
+        "pl": null,
         "s": "Im schattigen Wald genossen sie die wohltuende Kühle.",
         "sar": "في الغابة المظللة استمتعوا بالبرودة اللطيفة المنعشة."
       }
@@ -5046,8 +5046,8 @@
         "a": "die",
         "n": "Kreide",
         "ar": "طباشير",
-        "pl": null,
         "note": "اسم غير معدود بكل معانيها الثلاثة حسب Duden (المادة، القلم الطباشيري، والعصر الجيولوجي)",
+        "pl": null,
         "s": "Der Lehrer nimmt ein Stück weiße Kreide zur Hand.",
         "sar": "المعلم يأخذ قطعة طباشير بيضاء بيده."
       },
@@ -5167,8 +5167,8 @@
         "a": "das",
         "n": "Geodreieck",
         "ar": "مسطرة مثلثة بزاوية",
-        "pl": "die Geodreiecke",
         "note": "مسطرة مثلثة الشكل بها منقلة لقياس الزوايا",
+        "pl": "die Geodreiecke",
         "s": "Mit dem Geodreieck misst man rechte Winkel sehr genau.",
         "sar": "بالمسطرة المثلثة يقيس المرء الزوايا القائمة بدقة."
       },
@@ -5176,8 +5176,8 @@
         "a": "das",
         "n": "Federmäppchen",
         "ar": "مقلمة",
-        "pl": "die Federmäppchen",
         "note": "المصطلح الأكثر شيوعًا للمقلمة (وليس Federmappe)",
+        "pl": "die Federmäppchen",
         "s": "Im Federmäppchen liegen Stifte, Radiergummi und Lineal parat.",
         "sar": "في المقلمة ترقد الأقلام والممحاة والمسطرة جاهزة."
       },
@@ -5193,8 +5193,8 @@
         "a": "das",
         "n": "Pausenbrot",
         "ar": "ساندويتش الفسحة",
-        "pl": "die Pausenbrote",
         "note": "ساندويتش يأخذه الطالب معه ليأكله وقت الفسحة",
+        "pl": "die Pausenbrote",
         "s": "Zum Pausenbrot gibt es heute Vollkornbrot mit Käse und Apfel.",
         "sar": "في ساندويتش الفسحة يوجد اليوم خبز حبوب كاملة مع جبن وتفاحة."
       },
@@ -5234,8 +5234,8 @@
         "a": "der",
         "n": "Unterricht",
         "ar": "الحصة الدراسية",
-        "pl": null,
         "note": "اسم غير معدود، يُستخدم دائمًا في صيغة المفرد",
+        "pl": null,
         "s": "Der Unterricht beginnt an unserer Schule pünktlich um acht Uhr.",
         "sar": "الحصة الدراسية تبدأ في مدرستنا تمام الثامنة صباحاً."
       },
@@ -5251,8 +5251,8 @@
         "a": "der",
         "n": "Direktor",
         "ar": "مدير المدرسة",
-        "pl": "die Direktoren",
         "note": "مذكرة: تنتهي بـ -or بنطق مشدد (لاحقة لاتينية) وليست -er الألمانية الأصلية، فجمعها Direktoren وليس بلا تغيير",
+        "pl": "die Direktoren",
         "s": "Der Direktor begrüßt die neuen Erstklässler in der Aula.",
         "sar": "مدير المدرسة يرحب بالطلاب الجدد في القاعة الكبرى."
       },
@@ -5284,8 +5284,8 @@
         "a": "die",
         "n": "Mathematik",
         "ar": "الرياضيات",
-        "pl": null,
         "note": "اسم غير معدود عادة، مثل باقي أسماء المواد العلمية",
+        "pl": null,
         "s": "Mathematik erfordert logisches Denken und regelmäßiges Üben.",
         "sar": "الرياضيات تتطلب تفكيراً منطقياً وتدريباً مستمراً."
       },
@@ -5293,8 +5293,8 @@
         "a": "die",
         "n": "Geschichte",
         "ar": "مادة التاريخ",
-        "pl": null,
         "note": "بمعنى \"مادة التاريخ\" اسم غير معدود؛ أما بمعنى \"قصة\" فجمعها الشائع \"Geschichten\"",
+        "pl": null,
         "s": "Im Fach Geschichte lernen wir über das antike Rom.",
         "sar": "في مادة التاريخ نتعلم عن روما القديمة."
       },
@@ -5302,8 +5302,8 @@
         "a": "die",
         "n": "Biologie",
         "ar": "الأحياء",
-        "pl": null,
         "note": "اسم غير معدود عادة",
+        "pl": null,
         "s": "In der Biologie mikroskopieren die Schüler Pflanzenzellen.",
         "sar": "في مادة الأحياء يفحص التلاميذ الخلايا النباتية بالمجهر."
       },
@@ -5311,8 +5311,8 @@
         "a": "die",
         "n": "Chemie",
         "ar": "الكيمياء",
-        "pl": null,
         "note": "اسم غير معدود عادة",
+        "pl": null,
         "s": "Im Fach Chemie führen wir spannende Experimente durch.",
         "sar": "في مادة الكيمياء نجري تجارب علمية مشوقة."
       },
@@ -5320,8 +5320,8 @@
         "a": "die",
         "n": "Physik",
         "ar": "الفيزياء",
-        "pl": null,
         "note": "اسم غير معدود عادة",
+        "pl": null,
         "s": "Physik erklärt die grundlegenden Naturgesetze unserer Welt.",
         "sar": "الفيزياء تشرح القوانين الطبيعية الأساسية في عالمنا."
       },
@@ -5345,8 +5345,8 @@
         "a": "der",
         "n": "Wortschatz",
         "ar": "المفردات",
-        "pl": "die Wortschätze",
         "note": "نادر الاستخدام، يشير لمفردات لغات أو مجالات مختلفة",
+        "pl": "die Wortschätze",
         "s": "Jeden Tag erweitert er seinen deutschen Wortschatz um fünf Wörter.",
         "sar": "يومياً يوسع مفرداته الألمانية بخمس كلمات جديدة."
       },
@@ -5354,8 +5354,8 @@
         "a": "die",
         "n": "Grammatik",
         "ar": "القواعد",
-        "pl": "die Grammatiken",
         "note": "نادر الاستخدام، يشير لكتب أو أنظمة قواعد لغوية مختلفة",
+        "pl": "die Grammatiken",
         "s": "Eine klare Grammatik hilft beim korrekten Formulieren von Sätzen.",
         "sar": "القواعد الواضحة تساعد على صياغة الجمل بشكل صحيح."
       },
@@ -5371,8 +5371,8 @@
         "a": "die",
         "n": "Tinte",
         "ar": "الحبر",
-        "pl": "die Tinten",
         "note": "الجمع يشير لأنواع مختلفة من الحبر",
+        "pl": "die Tinten",
         "s": "Der alte Füllfederhalter wird mit blauer Tinte befüllt.",
         "sar": "قلم الحبر القديم يُملأ بالحبر الأزرق."
       },
@@ -5380,8 +5380,8 @@
         "a": "der",
         "n": "Tintenkiller",
         "ar": "ممحاة الحبر",
-        "pl": "die Tintenkiller",
         "note": "قلم خاص لإزالة كتابة الحبر، شائع في المدارس الألمانية",
+        "pl": "die Tintenkiller",
         "s": "Mit dem Tintenkiller lassen sich kleine Schreibfehler unsichtbar machen.",
         "sar": "بممحاة الحبر يمكن إخفاء أخطاء الكتابة الصغيرة."
       }
@@ -5413,8 +5413,8 @@
         "a": "die",
         "n": "Bank",
         "ar": "بنك",
-        "pl": "die Banken",
         "note": "بمعنى بنك (مؤسسة مالية) جمعها Banken؛ أما Bank بمعنى مقعد فجمعها Bänke",
+        "pl": "die Banken",
         "s": "Er hebt am Geldautomaten der Bank Bargeld ab.",
         "sar": "هو يسحب نقوداً من الصراف الآلي للبنك."
       },
@@ -5582,8 +5582,8 @@
         "a": "die",
         "n": "Post",
         "ar": "مكتب البريد",
-        "pl": null,
         "note": "تُستخدم عادة في المفرد فقط؛ للإشارة لعدة مكاتب بريد تُستخدم Postämter أو Poststellen",
+        "pl": null,
         "s": "Er gibt das wichtige Paket bei der nächsten Post auf.",
         "sar": "هو يسلم الطرد الهام في أقرب مكتب بريد."
       },
@@ -5655,8 +5655,8 @@
         "a": "der",
         "n": "See",
         "ar": "البحيرة",
-        "pl": "die Seen",
         "note": "der See = بحيرة (مذكر)، أما die See فتعني البحر",
+        "pl": "die Seen",
         "s": "Das Wasser im tiefen See ist glasklar und sehr kalt.",
         "sar": "الماء في البحيرة العميقة صافٍ كالزجاج وبارد جداً."
       },
@@ -5802,7 +5802,6 @@
     "id": "gefuehle",
     "ar": "المشاعر",
     "de": "Gefühle",
-    "hasArticles": false,
     "words": [
       {
         "n": "glücklich",
@@ -6062,7 +6061,8 @@
         "s": "Nach dem Sieg war die gesamte Mannschaft euphorisch.",
         "sar": "بعد الفوز كان الفريق بأكمله في قمة النشوة والابتهاج."
       }
-    ]
+    ],
+    "hasArticles": false
   },
   {
     "id": "gewuerze",
@@ -6082,8 +6082,8 @@
         "a": "das",
         "n": "Salz",
         "ar": "ملح",
-        "pl": "die Salze",
         "note": "الجمع Salze نادر الاستخدام (يشير لأنواع الملح)",
+        "pl": "die Salze",
         "s": "Ohne Salz schmeckt selbst das beste Essen fad.",
         "sar": "بدون الملح يبدو حتى أشهى طعام بلا طعم."
       },
@@ -6091,8 +6091,8 @@
         "a": "der",
         "n": "Zimt",
         "ar": "قرفة",
-        "pl": "die Zimte",
         "note": "الجمع Zimte نادر الاستخدام (يشير لأنواع القرفة)",
+        "pl": "die Zimte",
         "s": "Im Winter duften die Plätzchen herrlich nach süßem Zimt.",
         "sar": "في الشتاء تفوح رائحة البسكويت بالقرفة الحلوة الرائعة."
       },
@@ -6100,8 +6100,8 @@
         "a": "der",
         "n": "Kümmel",
         "ar": "كراوية",
-        "pl": "die Kümmel",
         "note": "كراوية (Caraway)، وهي مختلفة عن Kreuzkümmel (الكمون الحقيقي)",
+        "pl": "die Kümmel",
         "s": "Kümmel macht schwere Kohlgerichte viel bekömmlicher.",
         "sar": "الكراوية تجعل أطباق الكرنب الدسمة أسهل هضماً."
       },
@@ -6109,8 +6109,8 @@
         "a": "der",
         "n": "Kreuzkümmel",
         "ar": "كمون",
-        "pl": "die Kreuzkümmel",
         "note": "الكمون الحقيقي (Cumin)، مختلف تمامًا عن Kümmel رغم تشابه الاسم",
+        "pl": "die Kreuzkümmel",
         "s": "Kreuzkümmel ist ein unverzichtbares Gewürz in der orientalischen Küche.",
         "sar": "الكمون بهار لا غنى عنه في المطبخ الشرقي."
       },
@@ -6126,8 +6126,8 @@
         "a": "die",
         "n": "Petersilie",
         "ar": "بقدونس",
-        "pl": null,
         "note": "الجمع Petersilien نادر الاستخدام",
+        "pl": null,
         "s": "Gehackte grüne Petersilie streut man frisch über die Kartoffeln.",
         "sar": "البقدونس الأخضر المفروم يُرش طازجاً فوق البطاطس."
       },
@@ -6223,8 +6223,8 @@
         "a": "der",
         "n": "Kardamom",
         "ar": "هيل",
-        "pl": "die Kardamome",
         "note": "الجمع Kardamome أو Kardamomen",
+        "pl": "die Kardamome",
         "s": "Kardamom wird im Orient gerne direkt in den Kaffee gemahlen.",
         "sar": "الهيل يُطحن في الشرق عادة مع القهوة مباشرة."
       },
@@ -6232,8 +6232,8 @@
         "a": "der",
         "n": "Safran",
         "ar": "زعفران",
-        "pl": "die Safrane",
         "note": "الجمع Safrane نادر الاستخدام",
+        "pl": "die Safrane",
         "s": "Echter Safran ist das teuerste und edelste Gewürz der Welt.",
         "sar": "الزعفران الأصلي هو أغلى وأفخر أنواع التوابل في العالم."
       },
@@ -6241,8 +6241,8 @@
         "a": "der",
         "n": "Anis",
         "ar": "يانسون",
-        "pl": "die Anise",
         "note": "الجمع Anise نادر الاستخدام",
+        "pl": "die Anise",
         "s": "Der feine Geschmack von Anis erinnert an süße Lakritze.",
         "sar": "نكهة اليانسون الرقيقة تذكر بحلوى العرقسوس."
       },
@@ -6258,8 +6258,8 @@
         "a": "der",
         "n": "Oregano",
         "ar": "أوريغانو",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Auf jede echte italienische Pizza gehört getrockneter Oregano.",
         "sar": "على كل بيتزا إيطالية أصلية يجب وضع أوريغانو مجفف."
       },
@@ -6267,8 +6267,8 @@
         "a": "der",
         "n": "Thymian",
         "ar": "زعتر",
-        "pl": "die Thymiane",
         "note": "الجمع Thymiane نادر الاستخدام",
+        "pl": "die Thymiane",
         "s": "Thymian passt hervorragend zu gebratenem Fleisch und Gemüse.",
         "sar": "الزعتر يناسب بشكل ممتاز اللحوم والخضروات المشوية."
       },
@@ -6276,8 +6276,8 @@
         "a": "der",
         "n": "Rosmarin",
         "ar": "إكليل الجبل",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Ein Zweig frischer Rosmarin duftet intensiv beim Braten.",
         "sar": "غصن من إكليل الجبل الطازج يفوح برائحة زكية أثناء الشواء."
       },
@@ -6285,8 +6285,8 @@
         "a": "das",
         "n": "Basilikum",
         "ar": "ريحان",
-        "pl": "die Basilikums",
         "note": "الجمع Basilikums أو Basiliken",
+        "pl": "die Basilikums",
         "s": "Frisches Basilikum harmoniert perfekt mit Tomaten und Mozzarella.",
         "sar": "الريحان الطازج يتناغم تماماً مع الطماطم والموتزاريلا."
       },
@@ -6294,8 +6294,8 @@
         "a": "der",
         "n": "Dill",
         "ar": "شبت",
-        "pl": "die Dille",
         "note": "الجمع Dille نادر الاستخدام",
+        "pl": "die Dille",
         "s": "Feiner Dill verfeinert frische Fischgerichte und Gurkensalat.",
         "sar": "الشبت الناعم يزين أطباق السمك الطازجة وسلطة الخيار."
       },
@@ -6303,8 +6303,8 @@
         "a": "der",
         "n": "Schnittlauch",
         "ar": "ثوم معمر",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Frischer Schnittlauch schmeckt köstlich auf einem Butterbrot.",
         "sar": "الثوم المعمر الطازج طعمه لذيذ على شطيرة الخبز بالزبدة."
       },
@@ -6312,8 +6312,8 @@
         "a": "der",
         "n": "Majoran",
         "ar": "مردقوش",
-        "pl": "die Majorane",
         "note": "الجمع Majorane نادر الاستخدام",
+        "pl": "die Majorane",
         "s": "Majoran ist das klassische Gewürz in herzhafter Thüringer Wurst.",
         "sar": "المردقوش هو التابل الكلاسيكي في السجق التورينغي الشهي."
       },
@@ -6321,8 +6321,8 @@
         "a": "der",
         "n": "Estragon",
         "ar": "طرخون",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Französischer Estragon verleiht der berühmten Sauce Béarnaise ihre Note.",
         "sar": "الطرخون الفرنسي يمنح صلصة بيرنيز نكهتها الشهيرة."
       },
@@ -6330,8 +6330,8 @@
         "a": "der",
         "n": "Bärlauch",
         "ar": "ثوم بري",
-        "pl": "die Bärlauche",
         "note": "الجمع Bärlauche نادر الاستخدام",
+        "pl": "die Bärlauche",
         "s": "Im Frühling pflücken viele frischen Bärlauch im Wald.",
         "sar": "في الربيع يقطف الكثيرون الثوم البري الطازج من الغابة."
       },
@@ -6347,8 +6347,8 @@
         "a": "der",
         "n": "Essig",
         "ar": "خل",
-        "pl": "die Essige",
         "note": "الجمع Essige نادر الاستخدام (يشير لأنواع الخل)",
+        "pl": "die Essige",
         "s": "Für das Salatdressing mischt man Essig mit gutem Speiseöl.",
         "sar": "لصلصة السلطة يخلط المرء الخل مع زيت طعام جيد."
       },
@@ -6364,8 +6364,8 @@
         "a": "der",
         "n": "Senf",
         "ar": "خردل",
-        "pl": "die Senfe",
         "note": "الجمع Senfe نادر الاستخدام",
+        "pl": "die Senfe",
         "s": "Zur Bratwurst isst man in Deutschland traditionell scharfen Senf.",
         "sar": "مع السجق المشوي يؤكل في ألمانيا تقليدياً الخردل الحار."
       },
@@ -6421,8 +6421,8 @@
         "a": "der",
         "n": "Piment",
         "ar": "بهارات جامايكية",
-        "pl": "die Pimente",
         "note": "يُعرف أيضًا بالفلفل الإنجليزي؛ الجمع Pimente نادر الاستخدام",
+        "pl": "die Pimente",
         "s": "Piment schmeckt nach einer Kombination aus Nelken, Zimt und Muskat.",
         "sar": "البهار الجامايكي طعمه مزيج يجمع بين القرنفل والقرفة وجوزة الطيب."
       },
@@ -6430,8 +6430,8 @@
         "a": "der",
         "n": "Sumach",
         "ar": "سماق",
-        "pl": "die Sumache",
         "note": "الجمع Sumache نادر الاستخدام",
+        "pl": "die Sumache",
         "s": "Das säuerliche rote Pulver Sumach verfeinert orientalische Salate.",
         "sar": "مسحوق السماق الأحمر الحامض يتبل السلطات الشرقية."
       },
@@ -6439,8 +6439,8 @@
         "a": "der",
         "n": "Bockshornklee",
         "ar": "حلبة",
-        "pl": null,
         "note": "ليس له جمع (مثل Klee)",
+        "pl": null,
         "s": "Bockshornklee hat einen leicht nussigen und würzigen Geschmack.",
         "sar": "الحلبة لها مذاق جوزي متبل خفيف."
       },
@@ -6448,8 +6448,8 @@
         "a": "das",
         "n": "Tahin",
         "ar": "طحينة",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Cremiges Tahin wird aus feingemahlenen Sesamsamen hergestellt.",
         "sar": "الطحينة الكريمية تُصنع من بذور السمسم المطحونة ناعماً."
       },
@@ -6481,8 +6481,8 @@
         "a": "das",
         "n": "Ras-el-Hanout",
         "ar": "خلطة رأس الحانوت",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Ras-el-Hanout vereint bis zu dreißig verschiedene feine Gewürze.",
         "sar": "خلطة رأس الحانوت تجمع حتى ثلاثين نوعاً مختلفاً من التوابل الرفيعة."
       },
@@ -6490,8 +6490,8 @@
         "a": "die",
         "n": "Harissa",
         "ar": "هريسة",
-        "pl": null,
         "note": "ليس لها جمع",
+        "pl": null,
         "s": "Die feurige Paste Harissa bringt scharfe Würze in nordafrikanische Gerichte.",
         "sar": "الهريسة الحارة تضفي نكهة لاذعة على الأطباق المغاربية."
       }
@@ -6507,8 +6507,8 @@
         "a": "der",
         "n": "Reis",
         "ar": "أرز",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Gekochter Reis ist die wichtigste Beilage für Milliarden Menschen.",
         "sar": "الأرز المسلوق هو الغذاء الجانبي الأهم لمليارات البشر."
       },
@@ -6516,8 +6516,8 @@
         "a": "das",
         "n": "Mehl",
         "ar": "دقيق",
-        "pl": "die Mehle",
         "note": "الجمع Mehle نادر الاستخدام (يشير لأنواع الدقيق)",
+        "pl": "die Mehle",
         "s": "Aus weißem Mehl backt der Bäcker knusprige Brötchen.",
         "sar": "من الدقيق الأبيض يخبز الخباز خبزاً مقرمشاً."
       },
@@ -6541,8 +6541,8 @@
         "a": "der",
         "n": "Weizen",
         "ar": "قمح",
-        "pl": "die Weizen",
         "note": "جمعه نفس الكلمة بلا تغيير",
+        "pl": "die Weizen",
         "s": "Auf den sonnigen Feldern reift der goldene Weizen heran.",
         "sar": "في الحقول المشمسة ينضج القمح الذهبي."
       },
@@ -6550,8 +6550,8 @@
         "a": "der",
         "n": "Hafer",
         "ar": "شوفان",
-        "pl": "die Hafer",
         "note": "جمعه نفس الكلمة بلا تغيير",
+        "pl": "die Hafer",
         "s": "Warmer Haferbrei ist ein gesundes und nahrhaftes Frühstück.",
         "sar": "عصيدة الشوفان الدافئة إفطار صحي ومغذٍ."
       },
@@ -6567,8 +6567,8 @@
         "a": "das",
         "n": "Müsli",
         "ar": "موزلي",
-        "pl": "die Müslis",
         "note": "الجمع Müslis نادر الاستخدام",
+        "pl": "die Müslis",
         "s": "Morgens isst er gern ein gesundes Müsli mit Haferflocken und frischen Beeren.",
         "sar": "في الصباح يفضل تناول موزلي صحي مع رقائق الشوفان والتوت الطازج."
       },
@@ -6584,8 +6584,8 @@
         "a": "der",
         "n": "Bulgur",
         "ar": "برغل",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Aus vorgekochtem Bulgur bereitet man einen würzigen orientalischen Salat zu.",
         "sar": "من البرغل المسلوق مسبقاً تُحضَّر سلطة شرقية متبلة."
       }
@@ -6699,7 +6699,6 @@
     "id": "wochentage",
     "ar": "أيام الأسبوع",
     "de": "Wochentage",
-    "hasArticles": false,
     "words": [
       {
         "n": "Montag",
@@ -6743,13 +6742,13 @@
         "s": "Der Sonntag ist in Deutschland traditionell ein ruhiger Ruhetag.",
         "sar": "يوم الأحد في ألمانيا تقليدياً يوم راحة وهدوء."
       }
-    ]
+    ],
+    "hasArticles": false
   },
   {
     "id": "monate",
     "ar": "الأشهر",
     "de": "Monate",
-    "hasArticles": false,
     "words": [
       {
         "n": "Januar",
@@ -6823,13 +6822,13 @@
         "s": "Im festlichen Dezember feiern die Menschen das neue Jahr.",
         "sar": "في شهر ديسمبر الاحتفالي يحتفل الناس برأس السنة الجديدة."
       }
-    ]
+    ],
+    "hasArticles": false
   },
   {
     "id": "jahreszeiten",
     "ar": "الفصول",
     "de": "Jahreszeiten",
-    "hasArticles": false,
     "words": [
       {
         "n": "Frühling",
@@ -6855,7 +6854,8 @@
         "s": "Im eisigen Winter fällt oft weißer Schnee auf die Dächer.",
         "sar": "في الشتاء الجليدي يتساقط الثلج الأبيض غالباً على أسطح المنازل."
       }
-    ]
+    ],
+    "hasArticles": false
   },
   {
     "id": "fleisch",
@@ -6867,8 +6867,8 @@
         "a": "das",
         "n": "Fleisch",
         "ar": "لحم",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Frisches Fleisch sollte man stets gut gekühlt lagern.",
         "sar": "اللحم الطازج يجب دائماً تخزينه مبرداً بشكل جيد."
       },
@@ -6876,8 +6876,8 @@
         "a": "das",
         "n": "Rindfleisch",
         "ar": "لحم بقري",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Zartes Rindfleisch eignet sich hervorragend für ein gutes Steak.",
         "sar": "لحم البقر الطري مناسب جداً لشريحة لحم ممتازة."
       },
@@ -6893,8 +6893,8 @@
         "a": "das",
         "n": "Lammfleisch",
         "ar": "لحم غنم",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Lammfleisch wird im Ofen mit Knoblauch und Rosmarin geschmort.",
         "sar": "لحم الضأن يُطهى في الفرن مع الثوم وإكليل الجبل."
       },
@@ -6966,8 +6966,8 @@
         "a": "das",
         "n": "Hackfleisch",
         "ar": "لحم مفروم",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Aus frischem Hackfleisch vom Metzger knetet sie Frikadellen für das Abendessen.",
         "sar": "من اللحم المفروم الطازج من عند الجزار تعجن كرات لحم لوجبة العشاء."
       },
@@ -6975,8 +6975,8 @@
         "a": "das",
         "n": "Kalbfleisch",
         "ar": "لحم عجل",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "Zartes Kalbfleisch ist hellrosa, mager und schmeckt besonders mild.",
         "sar": "لحم العجل الطري لونه وردي فاتح، قليل الدهن وله مذاق معتدل وخفيف جداً."
       },
@@ -6984,8 +6984,8 @@
         "a": "das",
         "n": "Schweinefleisch",
         "ar": "لحم خنزير",
-        "pl": null,
         "note": "ليس له جمع",
+        "pl": null,
         "s": "In vielen traditionellen Wurstsorten wird feines Schweinefleisch verarbeitet.",
         "sar": "في العديد من أصناف النقانق التقليدية يُستخدم لحم الخنزير المفروم ناعماً."
       },
@@ -7001,8 +7001,8 @@
         "a": "der",
         "n": "Kabeljau",
         "ar": "سمك القد",
-        "pl": "die Kabeljaue",
         "note": "الجمع Kabeljaue، ويصح أيضًا Kabeljaus",
+        "pl": "die Kabeljaue",
         "s": "Frischer Kabeljau aus der kalten Nordsee schmeckt gedünstet mit Senfsoße hervorragend.",
         "sar": "سمك القد الطازج من بحر الشمال البارد مذاقه رائع مطهواً على البخار مع صلصة الخردل."
       },
@@ -7082,8 +7082,8 @@
         "a": "der",
         "n": "Oktopus",
         "ar": "أخطبوط",
-        "pl": "die Oktopusse",
         "note": "الجمع الرسمي Oktopusse، ويصح أيضًا Oktopoden (أصل يوناني)",
+        "pl": "die Oktopusse",
         "s": "Der gefangene Oktopus wird sanft geschmort, bis das Fleisch wunderbar weich wird.",
         "sar": "الأخطبوط المصيد يُطهى على نار هادئة حتى يصبح لحمه طرياً ورائعاً."
       },
@@ -7139,8 +7139,8 @@
         "a": "der",
         "n": "Speck",
         "ar": "لحم مقدد دهني",
-        "pl": "die Specke",
         "note": "الجمع Specke نادر جدًا؛ تُستخدم الكلمة غالبًا بصيغة المفرد",
+        "pl": "die Specke",
         "s": "Kross angebratener Speck verleiht der Linsensuppe eine angenehm rauchige Note.",
         "sar": "اللحم المقدد المحمر يعطي حساء العدس نكهة مدخنة محببة."
       },
@@ -7180,8 +7180,8 @@
         "a": "das",
         "n": "Gulasch",
         "ar": "يخنة لحم",
-        "pl": "die Gulasche",
         "note": "الجمع Gulasche نادر الاستخدام، ويصح أيضًا Gulaschs",
+        "pl": "die Gulasche",
         "s": "Das ungarische Gulasch schmort viele Stunden mit Paprika und Zwiebeln im Schmortopf.",
         "sar": "يخنة اللحم المجرية تُطهى لساعات طويلة مع الفلفل الرومي والبصل في قدر الطبخ."
       },
@@ -7213,8 +7213,8 @@
         "a": "der",
         "n": "Zander",
         "ar": "سمك الفرخ",
-        "pl": "die Zander",
         "note": "سمك مياه عذبة شائع جدًا في المطبخ الألماني",
+        "pl": "die Zander",
         "s": "Auf der Speisekarte empfiehlt der Chefkoch gebratenen Zander auf der Hautseite.",
         "sar": "على قائمة الطعام يوصي رئيس الطهاة بسمك الفرخ المقلي على جهة الجلد."
       },
@@ -7222,8 +7222,8 @@
         "a": "der",
         "n": "Rollmops",
         "ar": "رنجة مخللة ملفوفة",
-        "pl": "die Rollmöpse",
         "note": "طبق ألماني تقليدي من سمك الرنجة المخلل",
+        "pl": "die Rollmöpse",
         "s": "Ein sauer eingelegter Rollmops ist ein traditionelles Katerfrühstück nach langen Nächten.",
         "sar": "سمكة الرنجة المخللة الملفوفة وجبة فطور تقليدية مفضلة بعد السهرات الطويلة."
       },
@@ -7231,8 +7231,8 @@
         "a": "die",
         "n": "Currywurst",
         "ar": "نقانق بصلصة الكاري",
-        "pl": "die Currywürste",
         "note": "أشهر أكلة شارع في ألمانيا",
+        "pl": "die Currywürste",
         "s": "Am bekannten Imbissstand bestellt er eine heiße Currywurst mit Pommes frites.",
         "sar": "عند كشك الوجبات السريعة الشهير يطلب نقانق بصلصة الكاري الساخنة مع البطاطس المقلية."
       },
@@ -7240,8 +7240,8 @@
         "a": "der",
         "n": "Döner",
         "ar": "دونر",
-        "pl": "die Döner",
         "note": "أكلة تركية الأصل انتشرت جدًا في ألمانيا",
+        "pl": "die Döner",
         "s": "In Deutschland ist ein knuspriger Döner mit frischem Salat das beliebteste Fastfood.",
         "sar": "في ألمانيا تُعد شطيرة الدونر المقرمشة مع السلطة الطازجة الوجبة السريعة الأكثر شعبية."
       },
@@ -7329,8 +7329,8 @@
         "a": "der",
         "n": "Honig",
         "ar": "عسل",
-        "pl": null,
         "note": "الجمع \"Honige\" يُستخدم للإشارة إلى أنواع مختلفة من العسل حسب Duden",
+        "pl": null,
         "s": "Goldener Honig von fleißigen Bienen schmeckt wunderbar süß.",
         "sar": "العسل الذهبي من النحل النشيط طعمه حلو ورائع."
       },
@@ -7362,8 +7362,8 @@
         "a": "der",
         "n": "Pudding",
         "ar": "بودينغ",
-        "pl": "die Puddinge",
         "note": "يقبل الجمع \"Puddinge\" و\"Puddings\" معًا حسب Duden",
+        "pl": "die Puddinge",
         "s": "Die Großmutter rührt cremigen gelben Vanillepudding in einem kleinen Stiltopf an.",
         "sar": "الجدة تحرك بودينغ الفانيليا الأصفر الكريمي في قدر صغير."
       },
@@ -7379,8 +7379,8 @@
         "a": "das",
         "n": "Lakritz",
         "ar": "عرق سوس",
-        "pl": "die Lakritze",
         "note": "اسم غير معدود عادة؛ الجمع \"Lakritze\" نادر ورسمي حسب Duden",
+        "pl": "die Lakritze",
         "s": "Schwarzes salziges Lakritz ist besonders in den nordischen Ländern sehr beliebt.",
         "sar": "حلوى عرق السوس السوداء المالحة محبوبة جداً خاصة في دول الشمال."
       },
@@ -7388,8 +7388,8 @@
         "a": "die",
         "n": "Baklava",
         "ar": "بقلاوة",
-        "pl": null,
         "note": "الكلمة غير مدرجة في Duden كمدخل رسمي؛ تُستخدم عادة كاسم غير معدود، وصيغة الجمع غير الرسمية الشائعة \"Baklavas\"",
+        "pl": null,
         "s": "Süße orientalische Baklava besteht aus hauchdünnen Teigschichten mit gehackten Pistazien.",
         "sar": "البقلاوة الشرقية الحلوة تتكون من طبقات عجين رقيقة جداً محشوة بالفستق المجروش."
       },
@@ -7461,8 +7461,8 @@
         "a": "der",
         "n": "Nougat",
         "ar": "نوجا",
-        "pl": null,
         "note": "اسم غير معدود عادة؛ الجمع \"Nougats\" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden",
+        "pl": null,
         "s": "Heller weicher Nougat schmilzt zart im Mund und schmeckt herrlich nussig.",
         "sar": "حلوى النوجا البيضاء الطرية تذوب بنعومة في الفم ولها مذاق مكسرات رائع."
       },
@@ -7470,8 +7470,8 @@
         "a": "das",
         "n": "Gummibärchen",
         "ar": "حلوى الدببة الصمغية",
-        "pl": "die Gummibärchen",
         "note": "من أشهر الحلوى الألمانية على الإطلاق (Haribo)",
+        "pl": "die Gummibärchen",
         "s": "Kinder teilen sich gern eine große bunte Tüte mit fruchtigen Gummibärchen.",
         "sar": "الأطفال يحبون تقاسم كيس كبير ملون من حلوى الدببة الصمغية بنكهة الفواكه."
       },
@@ -7487,8 +7487,8 @@
         "a": "die",
         "n": "Zuckerwatte",
         "ar": "غزل البنات",
-        "pl": "die Zuckerwatten",
         "note": "غالبًا اسم غير معدود؛ الجمع \"Zuckerwatten\" نادر",
+        "pl": "die Zuckerwatten",
         "s": "Auf dem Jahrmarkt freuen sich die Kinder über riesige rosafarbene Zuckerwatte.",
         "sar": "في الملاهي يفرح الأطفال بغزل البنات الوردي الضخم على العصا."
       },
@@ -7496,8 +7496,8 @@
         "a": "das",
         "n": "Gebäck",
         "ar": "حلويات مخبوزة",
-        "pl": null,
         "note": "اسم غير معدود عادة؛ الجمع \"Gebäcke\" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden",
+        "pl": null,
         "s": "Zur nachmittäglichen Teestunde serviert die Gastgeberin feines frisches Gebäck.",
         "sar": "في ساعة الشاي بعد الظهر تقدم المضيفة حلويات مخبوزة طازجة وفاخرة."
       },
@@ -7537,8 +7537,8 @@
         "a": "der",
         "n": "Krapfen",
         "ar": "دونات ألماني",
-        "pl": "die Krapfen",
         "note": "دونات شائع خصوصًا في موسم الكرنفال",
+        "pl": "die Krapfen",
         "s": "Zur Faschingszeit isst man traditionell einen süßen Krapfen mit fruchtiger Hagebuttenmarmelade.",
         "sar": "في موسم الكرنفال يؤكل تقليدياً الدونات الألماني المحشو بمربى الفواكه."
       },
@@ -7546,8 +7546,8 @@
         "a": "der",
         "n": "Berliner",
         "ar": "دونات ألماني",
-        "pl": "die Berliner",
         "note": "اسم آخر لنفس نوع الدونات في مناطق مختلفة من ألمانيا؛ نفس الكلمة تعني أيضًا \"شخص من برلين\"",
+        "pl": "die Berliner",
         "s": "Zu Silvester gehört in vielen deutschen Städten ein frischer Berliner mit feinem Puderzucker.",
         "sar": "في ليلة رأس السنة ينتمي في مدن ألمانية كثيرة الدونات المحلى بالسكر الناعم إلى التقاليد."
       },
@@ -7555,8 +7555,8 @@
         "a": "der",
         "n": "Apfelstrudel",
         "ar": "شتروديل التفاح",
-        "pl": "die Apfelstrudel",
         "note": "حلوى نمساوية-ألمانية مشهورة جدًا",
+        "pl": "die Apfelstrudel",
         "s": "Ein warmer österreichischer Apfelstrudel schmeckt hervorragend mit cremiger Vanillesoße.",
         "sar": "شتروديل التفاح النمساوي الدافئ طعمه لا يُعلى عليه مع صلصة الفانيليا الكريمية."
       },
@@ -7564,8 +7564,8 @@
         "a": "der",
         "n": "Lebkuchen",
         "ar": "كعك التوابل",
-        "pl": "die Lebkuchen",
         "note": "حلوى ألمانية تقليدية شائعة في موسم الكريسماس",
+        "pl": "die Lebkuchen",
         "s": "Nürnberger Lebkuchen duften auf dem winterlichen Weihnachtsmarkt wunderbar nach Gewürzen.",
         "sar": "كعك التوابل النورمبرغي تفوح منه في سوق الكريسماس الشتوي رائحة البهارات الرائعة."
       },
@@ -7581,8 +7581,8 @@
         "a": "die",
         "n": "Sachertorte",
         "ar": "تورتة زاخر",
-        "pl": "die Sachertorten",
         "note": "تورتة شوكولاتة نمساوية شهيرة عالميًا",
+        "pl": "die Sachertorten",
         "s": "In Wien bestellt man im traditionsreichen Kaffeehaus gern ein Stück berühmte Sachertorte.",
         "sar": "في فيينا يطلب المرء في المقاهي العريقة قطعة من تورتة زاخر الشهيرة بالشوكولاتة."
       },
@@ -7598,8 +7598,8 @@
         "a": "der",
         "n": "Windbeutel",
         "ar": "حلوى كريمة منفوخة",
-        "pl": "die Windbeutel",
         "note": "عجين خفيف محشو بالكريمة",
+        "pl": "die Windbeutel",
         "s": "Ein großer Windbeutel aus lockerem Brandteig ist reichlich mit süßer Schlagsahne gefüllt.",
         "sar": "حلوى الشو المنتفخة من عجين البات شو محشوة بوفرة بالقشدة المخفوقة الحلوة."
       },
@@ -7607,8 +7607,8 @@
         "a": "der",
         "n": "Milchreis",
         "ar": "أرز باللبن",
-        "pl": null,
         "note": "اسم غير معدود عادة (طبق وليس قطعًا معدودة)",
+        "pl": null,
         "s": "Warmer süßer Milchreis mit Zimt und Zucker ist ein beliebtes Seelentröster-Essen.",
         "sar": "الأرز باللبن الدافئ مع القرفة والسكر وجبة محبوبة تمنح الراحة والدفء."
       },
@@ -7616,8 +7616,8 @@
         "a": "der",
         "n": "Grießpudding",
         "ar": "بودينغ السميد",
-        "pl": "die Grießpuddings",
         "note": "نادرًا ما يُجمع؛ الجمع \"Grießpuddings\" يُستخدم للإشارة إلى أنواع مختلفة",
+        "pl": "die Grießpuddings",
         "s": "Ein Schälchen cremiger Grießpudding schmeckt gekühlt mit frischem Beerenkompott prima.",
         "sar": "وعاء صغير من بودينغ السميد الكريمي المبرد طعمه رائع مع كمبوت التوت الطازج."
       },
@@ -7625,8 +7625,8 @@
         "a": "die",
         "n": "Rote Grütze",
         "ar": "حلوى التوت الشمالية الألمانية",
-        "pl": null,
         "note": "اسم غير معدود عادة كطبق حلوى",
+        "pl": null,
         "s": "Im Norden Deutschlands serviert man die säuerlich-süße Rote Grütze traditionell mit flüssiger Sahne.",
         "sar": "في شمال ألمانيا تُقدَّم حلوى التوت الشمالية الحامضة والحلوة تقليدياً مع القشدة السائلة."
       },
@@ -7650,8 +7650,8 @@
         "a": "der",
         "n": "Kaiserschmarrn",
         "ar": "كايزرشمارن",
-        "pl": null,
         "note": "حلوى نمساوية تقليدية من الفطائر المقطعة؛ لا يوجد جمع شائع لهذه الكلمة",
+        "pl": null,
         "s": "Auf der Berghütte serviert die Wirtin eine heiße Pfanne mit lockerem Kaiserschmarrn.",
         "sar": "في الكوخ الجبلي تقدم المضيفة مقلاة ساخنة من حلوى الكايزرشمارن الهشة المقطعة."
       },
@@ -7667,8 +7667,8 @@
         "a": "der",
         "n": "Kandiszucker",
         "ar": "سكر نبات",
-        "pl": null,
         "note": "اسم غير معدود عادة",
+        "pl": null,
         "s": "In Ostfriesland gibt man traditionell einen dicken weißen Kandiszucker in die heiße Teetasse.",
         "sar": "في فريزيا الشرقية يضعون تقليدياً سكر نبات أبيض سميكاً في كوب الشاي الساخن."
       },
@@ -7748,8 +7748,8 @@
         "a": "die",
         "n": "Leiter",
         "ar": "سلم",
-        "pl": "die Leitern",
         "note": "مؤنثة هنا بمعنى \"سلم\"، وجمعها Leitern؛ أما der Leiter (مذكر بمعنى \"مدير/قائد\") فجمعه بلا تغيير Leiter",
+        "pl": "die Leitern",
         "s": "Er klettert vorsichtig auf die hohe Leiter, um die Decke zu streichen.",
         "sar": "هو يتسلق السلم العالي بحذر ليطلي السقف."
       },
@@ -7885,8 +7885,8 @@
         "a": "die",
         "n": "Arbeitshandschuhe",
         "ar": "قفازات عمل",
-        "pl": null,
         "note": "الكلمة أصلاً بصيغة الجمع (من Handschuh)",
+        "pl": null,
         "s": "Robuste Arbeitshandschuhe schützen die Hände vor Verletzungen.",
         "sar": "قفازات العمل المتينة تحمي اليدين من الإصابات."
       },
@@ -7918,8 +7918,8 @@
         "a": "der",
         "n": "Spachtel",
         "ar": "سكينة معجون",
-        "pl": "die Spachtel",
         "note": "أداة لوضع أو كشط المعجون؛ الأداة الطبية المشابهة تُسمى Spatel",
+        "pl": "die Spachtel",
         "s": "Mit dem breiten Spachtel füllt er Löcher in der Wand mit Gips.",
         "sar": "بسكينة المعجون العريضة يملأ الثقوب في الجدار بالجبس."
       },
@@ -8031,8 +8031,8 @@
         "a": "das",
         "n": "Schleifpapier",
         "ar": "ورق صنفرة",
-        "pl": "die Schleifpapiere",
         "note": "اسم غير معدود غالبًا؛ الجمع يشير لأنواع/درجات خشونة مختلفة",
+        "pl": "die Schleifpapiere",
         "s": "Mit feinem Schleifpapier schleift er das alte Holz glatt.",
         "sar": "بورق صنفرة ناعم يصنفر الخشب القديم ليصبح أملس."
       },
@@ -8048,8 +8048,8 @@
         "a": "die",
         "n": "Mutter",
         "ar": "صامولة",
-        "pl": "die Muttern",
         "note": "نفس الكلمة تعني أيضًا \"أم\"؛ هنا تعني قطعة معدنية للربط مع البرغي",
+        "pl": "die Muttern",
         "s": "Die Mutter wird fest auf das Gewinde der Schraube geschraubt.",
         "sar": "الصامولة تُربط بإحكام على سن لولب البرغي."
       },
@@ -8073,8 +8073,8 @@
         "a": "der",
         "n": "Fußball",
         "ar": "كرة القدم",
-        "pl": null,
         "note": "اسم غير معدود بمعنى الرياضة نفسها؛ بمعنى \"الكرة\" (الأداة) جمعها Fußbälle",
+        "pl": null,
         "s": "In Deutschland ist Fußball die mit Abstand beliebteste Sportart.",
         "sar": "في ألمانيا كرة القدم هي الرياضة الأكثر شعبية بفارق كبير."
       },
@@ -8082,8 +8082,8 @@
         "a": "das",
         "n": "Schwimmen",
         "ar": "السباحة",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Regelmäßiges Schwimmen schont die Gelenke und stärkt die Ausdauer.",
         "sar": "السباحة المنتظمة تحافظ على المفاصل وتقوي التحمل."
       },
@@ -8115,8 +8115,8 @@
         "a": "das",
         "n": "Boxen",
         "ar": "الملاكمة",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Beim Boxen benötigt man eiserne Disziplin und schnelle Reaktionen.",
         "sar": "في الملاكمة يحتاج المرء إلى انضباط حديدي وردود فعل سريعة."
       },
@@ -8124,8 +8124,8 @@
         "a": "der",
         "n": "Sport",
         "ar": "الرياضة",
-        "pl": null,
         "note": "اسم غير معدود، يُستخدم دائمًا في صيغة المفرد",
+        "pl": null,
         "s": "Regelmäßiger Sport hält den Körper fit und den Geist gesund.",
         "sar": "الرياضة المنتظمة تحافظ على لياقة الجسم وصحة العقل."
       },
@@ -8133,8 +8133,8 @@
         "a": "das",
         "n": "Radfahren",
         "ar": "ركوب الدراجات",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Das Radfahren entlang des Flusses ist herrlich entspannend.",
         "sar": "ركوب الدراجة على طول النهر مريح للأعصاب بروعة."
       },
@@ -8142,8 +8142,8 @@
         "a": "die",
         "n": "Leichtathletik",
         "ar": "ألعاب القوى",
-        "pl": null,
         "note": "اسم غير معدود، مصطلح جامع لألعاب القوى",
+        "pl": null,
         "s": "Laufen, Springen und Werfen gehören zu den Grundlagen der Leichtathletik.",
         "sar": "الجري والقفز والرمي تنتمي لأساسيات ألعاب القوى."
       },
@@ -8167,8 +8167,8 @@
         "a": "das",
         "n": "Laufen",
         "ar": "الجري",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Morgendliches Laufen im Park bringt den Kreislauf in Schwung.",
         "sar": "الجري الصباحي في الحديقة ينشط الدورة الدموية."
       },
@@ -8176,8 +8176,8 @@
         "a": "das",
         "n": "Klettern",
         "ar": "التسلق",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "In den Alpen gehen im Sommer viele Menschen an steilen Wänden klettern.",
         "sar": "في جبال الألب يذهب كثير من الناس في الصيف لتسلق الجدران الحادة."
       },
@@ -8201,8 +8201,8 @@
         "a": "das",
         "n": "Skifahren",
         "ar": "التزلج على الجليد",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Im Winterurlaub in Österreich freuen sich alle aufs Skifahren.",
         "sar": "في إجازة الشتاء بالنمسا يفرح الجميع بالتزلج على الجليد."
       },
@@ -8210,8 +8210,8 @@
         "a": "das",
         "n": "Snowboarden",
         "ar": "التزلج بلوح الثلج",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Auf der Piste zeigt er tolle Sprünge mit dem Snowboard.",
         "sar": "على منحدر التزلج يُظهر قفزات رائعة بلوح الثلج."
       },
@@ -8219,8 +8219,8 @@
         "a": "das",
         "n": "Segeln",
         "ar": "الإبحار الشراعي",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Das Segeln auf dem weiten Bodensee macht bei gutem Wind Spaß.",
         "sar": "الإبحار الشراعي في بحيرة كونستانس ممتع مع الرياح الجيدة."
       },
@@ -8228,8 +8228,8 @@
         "a": "das",
         "n": "Rudern",
         "ar": "التجديف",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Der Achter trainiert das synchrone Rudern auf dem breiten Fluss.",
         "sar": "الفريق الثماني يتدرب على التجديف المتزامن في النهر العريض."
       },
@@ -8237,8 +8237,8 @@
         "a": "das",
         "n": "Reiten",
         "ar": "ركوب الخيل",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Das Reiten auf edlen Pferden erfordert viel Einfühlungsvermögen.",
         "sar": "ركوب الخيل الأصيلة يتطلب الكثير من الإحساس والتفاهم."
       },
@@ -8246,8 +8246,8 @@
         "a": "das",
         "n": "Turnen",
         "ar": "الجمباز",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Beim Turnen am Reck demonstriert sie beachtliche Körperbeherrschung.",
         "sar": "أثناء الجمباز على العقلة تُظهر تحكماً جسدياً لافتاً."
       },
@@ -8255,8 +8255,8 @@
         "a": "das",
         "n": "Fechten",
         "ar": "المبارزة بالسيف",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Beim Fechten duellieren sich zwei Gegner blitzschnell mit dem Degen.",
         "sar": "في المبارزة يتنافس خصمان بسرعة البرق بسيف المبارزة."
       },
@@ -8264,8 +8264,8 @@
         "a": "das",
         "n": "Ringen",
         "ar": "المصارعة",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Beim Ringen versuchen die Kämpfer, den Gegner auf den Boden zu werfen.",
         "sar": "في المصارعة يحاول المقاتلون طرح الخصم أرضاً."
       },
@@ -8345,8 +8345,8 @@
         "a": "das",
         "n": "Bergsteigen",
         "ar": "تسلق الجبال",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Das Bergsteigen im Himalaya erfordert Monate akribischer Vorbereitung.",
         "sar": "تسلق الجبال في الهيمالايا يتطلب أشهراً من الإعداد الدقيق."
       },
@@ -8354,8 +8354,8 @@
         "a": "das",
         "n": "Surfen",
         "ar": "ركوب الأمواج",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Er liebt das Surfen auf den riesigen Wellen des Atlantiks.",
         "sar": "هو يعشق ركوب الأمواج الهائلة في المحيط الأطلسي."
       },
@@ -8371,8 +8371,8 @@
         "a": "das",
         "n": "Tauchen",
         "ar": "الغوص",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Das Tauchen im bunten Korallenriff offenbart eine faszinierende Welt.",
         "sar": "الغوص في الشعاب المرجانية الملونة يكشف عن عالم ساحر."
       },
@@ -8380,8 +8380,8 @@
         "a": "das",
         "n": "Angeln",
         "ar": "الصيد بالصنارة",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Das ruhige Angeln am Seeufer bringt ihm vollkommene Entspannung.",
         "sar": "الصيد الهادئ بالصنارة على ضفة البحيرة يمنحه استرخاءً تاماً."
       },
@@ -8389,8 +8389,8 @@
         "a": "das",
         "n": "Kegeln",
         "ar": "البولينج الألماني التقليدي",
-        "pl": null,
         "note": "لعبة بولينج ألمانية تقليدية بتسع قوارير بدلًا من عشرة",
+        "pl": null,
         "s": "In alten Gasthöfen wird auf traditionellen Holzbahnen gekegelt.",
         "sar": "في المطاعم القديمة يمارس الناس البولينج التقليدي على مسارات خشبية."
       },
@@ -8406,8 +8406,8 @@
         "a": "das",
         "n": "Gewichtheben",
         "ar": "رفع الأثقال",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Beim olympischen Gewichtheben stemmt der Athlet schwere Eisenhanteln.",
         "sar": "في رفع الأثقال الأولمبي يرفع الرياضي أثقالاً حديدية ضخمة."
       },
@@ -8423,8 +8423,8 @@
         "a": "das",
         "n": "Krafttraining",
         "ar": "تدريب القوة",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Regelmäßiges Krafttraining baut Muskeln auf und schützt die Knochen.",
         "sar": "تدريب القوة المنتظم يبني العضلات ويحمي العظام."
       },
@@ -8464,8 +8464,8 @@
         "a": "das",
         "n": "Skateboarden",
         "ar": "التزلج على اللوح",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Die Jugendlichen üben das Skateboarden auf den Rampen im Skatepark.",
         "sar": "الشباب يتدربون على التزلج على اللوح في المنحدرات بحديقة التزلج."
       },
@@ -8473,8 +8473,8 @@
         "a": "das",
         "n": "Inlineskaten",
         "ar": "التزلج بعجلات inline",
-        "pl": null,
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
+        "pl": null,
         "s": "Das Inlineskaten auf dem asphaltierten Weg macht bei Sonnenschein Spaß.",
         "sar": "التزلج بالعجلات على المسار الإسفلتي ممتع تحت أشعة الشمس."
       },
@@ -8586,8 +8586,8 @@
         "a": "das",
         "n": "Cello",
         "ar": "تشيلو",
-        "pl": "die Cellos",
         "note": "يقبل أيضًا الجمع الإيطالي \"Celli\"",
+        "pl": "die Cellos",
         "s": "Das Cello erzeugt einen tiefen, warmen und melancholischen Klang.",
         "sar": "التشيلو يصدر صوتاً عميقاً ودافئاً ومفعماً بالشجن."
       },
@@ -8699,8 +8699,8 @@
         "a": "das",
         "n": "Cembalo",
         "ar": "هاربسيكورد",
-        "pl": "die Cembalos",
         "note": "يقبل أيضًا الجمع الإيطالي \"Cembali\"",
+        "pl": "die Cembalos",
         "s": "Im Barockzeitalter begleitete das feine Cembalo viele Gesangsstücke.",
         "sar": "في عصر الباروك كان الهاربسيكورد يرافق العديد من المقطوعات الغنائية."
       },
@@ -8756,8 +8756,8 @@
         "a": "die",
         "n": "Kastagnetten",
         "ar": "كاستانيت",
-        "pl": null,
         "note": "الكلمة أصلاً بصيغة الجمع، تُستخدم دائمًا مع أداة الجمع",
+        "pl": null,
         "s": "Die Flamencotänzerin klappert virtuos mit den Kastagnetten.",
         "sar": "راقصة الفلامنكو تقرع ببراعة بالكاستيانيت."
       },
@@ -8821,8 +8821,8 @@
         "a": "die",
         "n": "Triangel",
         "ar": "مثلث موسيقي",
-        "pl": "die Triangeln",
         "note": "تأتي أحيانًا مذكرة (der Triangel) وأحيانًا مؤنثة حسب Duden؛ هنا بصيغتها المؤنثة الشائعة وجمعها Triangeln",
+        "pl": "die Triangeln",
         "s": "Im Orchester schlägt der Perkussionist mit einem Metallstab die Triangel an.",
         "sar": "في الأوركسترا يضرب عازف الإيقاع المثلث الموسيقي بقضيب معدني."
       },
@@ -8958,8 +8958,8 @@
         "a": "das",
         "n": "Internet",
         "ar": "إنترنت",
-        "pl": null,
         "note": "اسم غير معدود، يُستخدم دائمًا في صيغة المفرد",
+        "pl": null,
         "s": "Über das schnelle Internet sind Menschen auf der ganzen Welt vernetzt.",
         "sar": "عبر الإنترنت السريع يتواصل الناس في جميع أنحاء العالم."
       },
@@ -9071,8 +9071,8 @@
         "a": "der",
         "n": "Prozessor",
         "ar": "المعالج",
-        "pl": "die Prozessoren",
         "note": "تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Prozessoren وليس بلا تغيير",
+        "pl": "die Prozessoren",
         "s": "Der moderne Prozessor führt Milliarden Rechenschritte pro Sekunde aus.",
         "sar": "المعالج الحديث ينفذ مليارات العمليات الحسابية في الثانية."
       },
@@ -9112,8 +9112,8 @@
         "a": "der",
         "n": "Beamer",
         "ar": "جهاز عرض",
-        "pl": "die Beamer",
         "note": "الاسم الألماني الشائع لجهاز البروجكتور",
+        "pl": "die Beamer",
         "s": "Der Beamer wirft die Präsentation gestochen scharf an die weiße Leinwand.",
         "sar": "جهاز العرض يسلط العرض التقديمي بدقة عالية على الشاشة البيضاء."
       },
@@ -9161,8 +9161,8 @@
         "a": "das",
         "n": "WLAN",
         "ar": "واي فاي",
-        "pl": "die WLANs",
         "note": "اختصار لـ Wireless LAN؛ الجمع يُستخدم للإشارة لعدة شبكات لاسلكية",
+        "pl": "die WLANs",
         "s": "Das schnelle WLAN im Hotel ermöglicht unkompliziertes Surfen.",
         "sar": "الواي فاي السريع في الفندق يتيح تصفحاً مريحاً للإنترنت."
       },
@@ -9250,8 +9250,8 @@
         "a": "der",
         "n": "Ventilator",
         "ar": "مروحة",
-        "pl": "die Ventilatoren",
         "note": "تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Ventilatoren وليس بلا تغيير",
+        "pl": "die Ventilatoren",
         "s": "An heißen Sommertagen sorgt der Ventilator für eine angenehme Brise.",
         "sar": "في أيام الصيف الحارة توفر المروحة نسيماً عليلاً لطيفاً."
       },
@@ -9267,8 +9267,8 @@
         "a": "der",
         "n": "Transistor",
         "ar": "ترانزستور",
-        "pl": "die Transistoren",
         "note": "تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Transistoren وليس بلا تغيير",
+        "pl": "die Transistoren",
         "s": "Der moderne Mikroprozessor enthält viele Millionen winzige Transistoren.",
         "sar": "المعالج الحديث يحتوي على ملايين عديدة من الترانزستورات الدقيقة."
       },
@@ -9284,8 +9284,8 @@
         "a": "der",
         "n": "Generator",
         "ar": "مولد كهرباء",
-        "pl": "die Generatoren",
         "note": "تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Generatoren وليس بلا تغيير",
+        "pl": "die Generatoren",
         "s": "Bei Stromausfall springt sofort der Notstrom-Generator an.",
         "sar": "عند انقطاع التيار الكهربائي يعمل فوراً مولد الكهرباء الاحتياطي."
       },
@@ -9325,8 +9325,8 @@
         "a": "das",
         "n": "Obst",
         "ar": "الفواكه",
-        "pl": null,
         "note": "اسم غير معدود (جمعي)",
+        "pl": null,
         "s": "Frisches Obst schmeckt süß und ist voller Vitamine.",
         "sar": "الفواكه الطازجة طعمها حلو ومليئة بالفيتامينات."
       },
@@ -9334,8 +9334,8 @@
         "a": "das",
         "n": "Gemüse",
         "ar": "الخضروات",
-        "pl": null,
         "note": "اسم غير معدود (جمعي)",
+        "pl": null,
         "s": "Knackiges Gemüse gehört zu einer ausgewogenen Ernährung.",
         "sar": "الخضروات المقرمشة جزء لا يتجزأ من التغذية المتوازنة."
       },
@@ -9343,8 +9343,8 @@
         "a": "die",
         "n": "Milchprodukte",
         "ar": "منتجات الألبان",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Milchprodukt)",
+        "pl": null,
         "s": "Frische Milchprodukte liefern dem Körper wichtiges Kalzium.",
         "sar": "منتجات الألبان الطازجة تمد الجسم بالكالسيوم المهم."
       },
@@ -9352,8 +9352,8 @@
         "a": "die",
         "n": "Tiere",
         "ar": "الحيوانات",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Tier)",
+        "pl": null,
         "s": "In freier Natur leben unzählige faszinierende Tiere.",
         "sar": "في الطبيعة الحرة تعيش حيوانات ساحرة لا حصر لها."
       },
@@ -9369,8 +9369,8 @@
         "a": "die",
         "n": "Farben",
         "ar": "الألوان",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Farbe)",
+        "pl": null,
         "s": "Die Natur erstrahlt im Frühling in den schönsten bunten Farben.",
         "sar": "الطبيعة تتألق في الربيع بأجمل الألوان المبهجة."
       },
@@ -9378,8 +9378,8 @@
         "a": "die",
         "n": "Körperteile",
         "ar": "أجزاء الجسم",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Körperteil)",
+        "pl": null,
         "s": "Regelmäßige Bewegung hält alle Körperteile beweglich und gesund.",
         "sar": "الحركة المنتظمة تحافظ على مرونة وصحة جميع أجزاء الجسم."
       },
@@ -9387,8 +9387,8 @@
         "a": "die",
         "n": "Kleidung",
         "ar": "الملابس",
-        "pl": null,
         "note": "اسم غير معدود (جمعي)",
+        "pl": null,
         "s": "Bequeme Kleidung sorgt den ganzen Tag für ein gutes Gefühl.",
         "sar": "الملابس المريحة تضمن شعوراً طيباً طوال اليوم."
       },
@@ -9396,8 +9396,8 @@
         "a": "das",
         "n": "Zuhause",
         "ar": "المنزل والأثاث",
-        "pl": null,
         "note": "اسم مجرد غير معدود",
+        "pl": null,
         "s": "Nach einer langen Reise freut man sich auf sein gemütliches Zuhause.",
         "sar": "بعد رحلة طويلة يفرح المرء بعودته إلى بيته المريح."
       },
@@ -9405,8 +9405,8 @@
         "a": "die",
         "n": "Getränke",
         "ar": "المشروبات",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Getränk)",
+        "pl": null,
         "s": "Bei warmem Wetter sollte man reichlich erfrischende Getränke trinken.",
         "sar": "في الطقس الحار ينبغي للمرء شرب الكثير من المشروبات المنعشة."
       },
@@ -9414,8 +9414,8 @@
         "a": "die",
         "n": "Zahlen",
         "ar": "الأرقام",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Zahl)",
+        "pl": null,
         "s": "In der Mathematik lernt man den genauen Umgang mit Zahlen.",
         "sar": "في الرياضيات يتعلم المرء التعامل الدقيق مع الأرقام."
       },
@@ -9423,8 +9423,8 @@
         "a": "die",
         "n": "Berufe",
         "ar": "المهن",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Beruf)",
+        "pl": null,
         "s": "Junge Menschen informieren sich über verschiedene Berufe.",
         "sar": "الشباب يستعلمون عن مختلف المهن المتاحة."
       },
@@ -9432,8 +9432,8 @@
         "a": "die",
         "n": "Verkehrsmittel",
         "ar": "وسائل المواصلات",
-        "pl": null,
         "note": "مستخدمة هنا كجمع جامع (مفردها das Verkehrsmittel، جمعها بلا تغيير)",
+        "pl": null,
         "s": "Moderne Verkehrsmittel ermöglichen schnelles und bequemes Reisen.",
         "sar": "وسائل المواصلات الحديثة تتيح سفراً سريعاً ومريحاً."
       },
@@ -9441,8 +9441,8 @@
         "a": "das",
         "n": "Wetter",
         "ar": "الطقس",
-        "pl": null,
         "note": "اسم غير معدود",
+        "pl": null,
         "s": "Das Wetter in den Bergen kann sich innerhalb weniger Minuten ändern.",
         "sar": "الطقس في الجبال يمكن أن يتغير في غضون دقائق معدودة."
       },
@@ -9450,8 +9450,8 @@
         "a": "die",
         "n": "Schulsachen",
         "ar": "أدوات المدرسة",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع",
+        "pl": null,
         "s": "Am Vorabend packt das Schulkind alle Schulsachen in die Tasche.",
         "sar": "في المساء يوضب التلميذ جميع أدوات المدرسة في الحقيبة."
       },
@@ -9459,8 +9459,8 @@
         "a": "die",
         "n": "Orte",
         "ar": "أماكن في المدينة",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Ort)",
+        "pl": null,
         "s": "In einer historischen Stadt gibt es viele sehenswerte Orte.",
         "sar": "في المدينة التاريخية توجد أماكن كثيرة تستحق الزيارة."
       },
@@ -9468,8 +9468,8 @@
         "a": "die",
         "n": "Gefühle",
         "ar": "المشاعر",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Gefühl)",
+        "pl": null,
         "s": "Freude, Trauer und Hoffnung sind ganz natürliche menschliche Gefühle.",
         "sar": "الفرح والحزن والأمل مشاعر إنسانية طبيعية تماماً."
       },
@@ -9477,8 +9477,8 @@
         "a": "die",
         "n": "Gewürze",
         "ar": "التوابل",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Gewürz)",
+        "pl": null,
         "s": "Aromatische Gewürze machen jedes einfache Gericht zu einem Festmahl.",
         "sar": "التوابل العطرية تجعل أي طبق بسيط وليمة حقيقية."
       },
@@ -9486,8 +9486,8 @@
         "a": "das",
         "n": "Getreide",
         "ar": "الحبوب والخبز",
-        "pl": null,
         "note": "اسم غير معدود (جمعي)",
+        "pl": null,
         "s": "Aus verschiedenen Sorten Getreide wird nahrhaftes Brot gebacken.",
         "sar": "من أصناف الحبوب المتنوعة يُخبز خبز مغذٍ."
       },
@@ -9495,8 +9495,8 @@
         "a": "die",
         "n": "Küchengeräte",
         "ar": "أدوات المطبخ",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Küchengerät)",
+        "pl": null,
         "s": "Moderne Küchengeräte erleichtern das Kochen und Backen enorm.",
         "sar": "أدوات المطبخ الحديثة تسهل الطبخ والخبز بشكل كبير جداً."
       },
@@ -9504,8 +9504,8 @@
         "a": "die",
         "n": "Wochentage",
         "ar": "أيام الأسبوع",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Wochentag)",
+        "pl": null,
         "s": "Die sieben Wochentage gliedern die Arbeitszeit und das Wochenende.",
         "sar": "أيام الأسبوع السبعة تنظم وقت العمل وعطلة نهاية الأسبوع."
       },
@@ -9513,8 +9513,8 @@
         "a": "die",
         "n": "Monate",
         "ar": "الأشهر",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Monat)",
+        "pl": null,
         "s": "Das Kalenderjahr ist in zwölf unterschiedliche Monate aufgeteilt.",
         "sar": "السنة الميلادية مقسمة إلى اثني عشر شهراً مختلفاً."
       },
@@ -9522,8 +9522,8 @@
         "a": "die",
         "n": "Jahreszeiten",
         "ar": "الفصول",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Jahreszeit)",
+        "pl": null,
         "s": "Jede der vier Jahreszeiten hat ihren ganz eigenen Zauber.",
         "sar": "لكل فصل من فصول السنة الأربعة سحره الخاص به تماماً."
       },
@@ -9531,8 +9531,8 @@
         "a": "das",
         "n": "Fleisch",
         "ar": "اللحوم والأسماك",
-        "pl": null,
         "note": "اسم غير معدود",
+        "pl": null,
         "s": "In vielen Küchen der Welt spielt frisches Fleisch eine Hauptrolle.",
         "sar": "في العديد من مطابخ العالم تلعب اللحوم الطازجة دور البطولة."
       },
@@ -9540,8 +9540,8 @@
         "a": "die",
         "n": "Süßigkeiten",
         "ar": "الحلويات والوجبات الخفيفة",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Süßigkeit)",
+        "pl": null,
         "s": "Zu besonderen Anlässen naschen Kinder gerne bunte Süßigkeiten.",
         "sar": "في المناسبات الخاصة يحب الأطفال تناول الحلويات الملونة."
       },
@@ -9549,8 +9549,8 @@
         "a": "die",
         "n": "Werkzeuge",
         "ar": "الأدوات",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Werkzeug)",
+        "pl": null,
         "s": "Hochwertige Werkzeuge sind für jeden Handwerker unverzichtbar.",
         "sar": "الأدوات عالية الجودة لا غنى عنها لأي حرفي."
       },
@@ -9558,8 +9558,8 @@
         "a": "die",
         "n": "Sportarten",
         "ar": "الرياضة",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Sportart)",
+        "pl": null,
         "s": "Viele Menschen betreiben in ihrer Freizeit verschiedene Sportarten.",
         "sar": "يمارس كثير من الناس في أوقات فراغهم رياضات مختلفة."
       },
@@ -9567,8 +9567,8 @@
         "a": "die",
         "n": "Musikinstrumente",
         "ar": "الآلات الموسيقية",
-        "pl": null,
         "note": "أصلاً بصيغة الجمع (مفردها Musikinstrument)",
+        "pl": null,
         "s": "Im großen Orchester spielen die Musiker vielfältige Musikinstrumente.",
         "sar": "في الأوركسترا الكبرى يعزف الموسيقيون آلات موسيقية متنوعة."
       },
@@ -9576,8 +9576,8 @@
         "a": "die",
         "n": "Elektronik",
         "ar": "الإلكترونيات",
-        "pl": null,
         "note": "اسم مجرد غير معدود",
+        "pl": null,
         "s": "Moderne Elektronik bestimmt heutzutage weite Teile unseres Alltags.",
         "sar": "الإلكترونيات الحديثة تحدد ملامح أجزاء واسعة من حياتنا اليومية."
       }

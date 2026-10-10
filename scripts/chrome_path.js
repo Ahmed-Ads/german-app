@@ -71,12 +71,28 @@ function getChromeCandidates(env = process.env, platform = process.platform) {
     '/mnt/c/Program Files/Chromium/Application/chrome.exe',
     '/mnt/c/Program Files (x86)/Chromium/Application/chrome.exe'
   ];
+  const ignoredUsers = new Set(['Public', 'Default', 'Default User', 'All Users']);
+  if (env.USERNAME) {
+    wslPaths.push(`/mnt/c/Users/${env.USERNAME}/AppData/Local/Google/Chrome/Application/chrome.exe`);
+    wslPaths.push(`/mnt/c/Users/${env.USERNAME}/AppData/Local/Chromium/Application/chrome.exe`);
+  }
   if (env.USER) {
     wslPaths.push(`/mnt/c/Users/${env.USER}/AppData/Local/Google/Chrome/Application/chrome.exe`);
     wslPaths.push(`/mnt/c/Users/${env.USER}/AppData/Local/Chromium/Application/chrome.exe`);
   }
-  wslPaths.push('/mnt/c/Users/lenovo/AppData/Local/Google/Chrome/Application/chrome.exe');
-  wslPaths.push('/mnt/c/Users/Default/AppData/Local/Google/Chrome/Application/chrome.exe');
+  try {
+    const usersDir = '/mnt/c/Users';
+    if (fsModule.existsSync(usersDir) && typeof fsModule.readdirSync === 'function') {
+      const userEntries = fsModule.readdirSync(usersDir);
+      for (const u of userEntries) {
+        const uStr = typeof u === 'string' ? u : (u && u.name ? u.name : '');
+        if (uStr && !ignoredUsers.has(uStr) && !uStr.startsWith('.')) {
+          wslPaths.push(`/mnt/c/Users/${uStr}/AppData/Local/Google/Chrome/Application/chrome.exe`);
+          wslPaths.push(`/mnt/c/Users/${uStr}/AppData/Local/Chromium/Application/chrome.exe`);
+        }
+      }
+    }
+  } catch (e) {}
 
   for (const wsp of [...new Set(wslPaths)]) {
     candidates.push({ type: 'wsl', path: wsp });
@@ -181,15 +197,29 @@ function getChromePath(options = {}) {
  * @returns {boolean}
  */
 function isWindowsChrome(chromeExecutable = null, platform = process.platform) {
+  if (chromeExecutable) {
+    const lower = chromeExecutable.toLowerCase();
+    if (lower.startsWith('/usr/') || lower.startsWith('/bin/') || lower.startsWith('/snap/')) {
+      return false;
+    }
+    if (lower.endsWith('.exe') || lower.startsWith('/mnt/')) {
+      return true;
+    }
+  }
   if (platform === 'win32') return true;
   if (!chromeExecutable) {
     try {
       chromeExecutable = getChromePath();
+      const lower = chromeExecutable.toLowerCase();
+      if (lower.startsWith('/usr/') || lower.startsWith('/bin/') || lower.startsWith('/snap/')) {
+        return false;
+      }
+      return lower.endsWith('.exe') || lower.startsWith('/mnt/');
     } catch (_) {
       return false;
     }
   }
-  return chromeExecutable.toLowerCase().endsWith('.exe') || chromeExecutable.startsWith('/mnt/');
+  return false;
 }
 
 /**
@@ -206,13 +236,24 @@ function toChromePath(localPath, chromeExecutable = null) {
     return localPath.replace(/\//g, '\\');
   }
 
-  const absPath = path.resolve(localPath);
   const win = isWindowsChrome(chromeExecutable);
-  if (!win) {
-    return absPath;
+
+  // WSL mount path (/mnt/c/...) checked before path.resolve to avoid Windows drive-prefixing
+  const mWsl = localPath.match(/^\/mnt\/([a-zA-Z])\/(.*)$/);
+  if (win && mWsl) {
+    const drive = mWsl[1].toUpperCase();
+    const rest = mWsl[2].replace(/\//g, '\\');
+    return `${drive}:\\${rest}`;
   }
 
-  // WSL mount path (/mnt/c/...)
+  if (!win) {
+    if (localPath.startsWith('/')) {
+      return localPath;
+    }
+    return path.posix.resolve(localPath);
+  }
+
+  const absPath = path.resolve(localPath);
   const m = absPath.match(/^\/mnt\/([a-zA-Z])\/(.*)$/);
   if (m) {
     const drive = m[1].toUpperCase();
@@ -240,20 +281,36 @@ function toFileUrl(localPath, chromeExecutable = null) {
     return `file:///${drive}:/${rest}`;
   }
 
-  const absPath = path.resolve(localPath);
   const win = isWindowsChrome(chromeExecutable);
-  if (win) {
-    // WSL /mnt/<drive>/...
-    const m = absPath.match(/^\/mnt\/([a-zA-Z])\/(.*)$/);
-    if (m) {
-      const drive = m[1].toUpperCase();
-      const rest = m[2].replace(/\\/g, '/');
-      return `file:///${drive}:/${rest}`;
-    }
+
+  // WSL mount path (/mnt/c/...) checked before path.resolve
+  const mWsl = localPath.match(/^\/mnt\/([a-zA-Z])\/(.*)$/);
+  if (win && mWsl) {
+    const drive = mWsl[1].toUpperCase();
+    const rest = mWsl[2].replace(/\\/g, '/');
+    return `file:///${drive}:/${rest}`;
   }
 
-  const unixPath = absPath.replace(/\\/g, '/');
-  return `file://${unixPath.startsWith('/') ? unixPath : '/' + unixPath}`;
+  if (!win) {
+    const unixPath = (localPath.startsWith('/') ? localPath : path.posix.resolve(localPath)).replace(/\\/g, '/');
+    return `file://${unixPath.startsWith('/') ? unixPath : '/' + unixPath}`;
+  }
+
+  const absPath = path.resolve(localPath);
+  const m = absPath.match(/^\/mnt\/([a-zA-Z])\/(.*)$/);
+  if (m) {
+    const drive = m[1].toUpperCase();
+    const rest = m[2].replace(/\\/g, '/');
+    return `file:///${drive}:/${rest}`;
+  }
+
+  const normalized = absPath.replace(/\\/g, '/');
+  const mWinAbs = normalized.match(/^([a-zA-Z]):\/(.*)$/);
+  if (mWinAbs) {
+    return `file:///${mWinAbs[1].toUpperCase()}:/${mWinAbs[2]}`;
+  }
+
+  return `file://${normalized.startsWith('/') ? normalized : '/' + normalized}`;
 }
 
 /**
@@ -276,10 +333,24 @@ function getTempDir(chromeExecutable = null) {
     const candidateDirs = [
       process.env.TEMP,
       process.env.TMP,
-      process.env.USER ? `/mnt/c/Users/${process.env.USER}/AppData/Local/Temp` : null,
-      '/mnt/c/Users/lenovo/AppData/Local/Temp',
-      '/mnt/c/Windows/Temp'
+      process.env.USERNAME ? `/mnt/c/Users/${process.env.USERNAME}/AppData/Local/Temp` : null,
+      process.env.USER ? `/mnt/c/Users/${process.env.USER}/AppData/Local/Temp` : null
     ].filter(Boolean);
+
+    try {
+      const usersDir = '/mnt/c/Users';
+      if (fs.existsSync(usersDir) && typeof fs.readdirSync === 'function') {
+        const ignoredUsers = new Set(['Public', 'Default', 'Default User', 'All Users']);
+        for (const u of fs.readdirSync(usersDir)) {
+          const uStr = typeof u === 'string' ? u : (u && u.name ? u.name : '');
+          if (uStr && !ignoredUsers.has(uStr) && !uStr.startsWith('.')) {
+            candidateDirs.push(`/mnt/c/Users/${uStr}/AppData/Local/Temp`);
+          }
+        }
+      }
+    } catch (_) {}
+
+    candidateDirs.push('/mnt/c/Windows/Temp');
 
     for (const cd of candidateDirs) {
       try {

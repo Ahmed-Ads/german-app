@@ -77,4 +77,64 @@ describe('Phase 5 Data Integrity Tests (Permanent CI Guardrails)', () => {
       }
     }
   });
+
+  it('enforces script purity: no Arabic characters in German fields, no mixed-script tokens in Arabic fields (M6)', () => {
+    const ARABIC_SCRIPT_REGEX = /[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]/;
+    const LATIN_SCRIPT_REGEX = /[A-Za-zÄÖÜäöüß]/;
+
+    // Documented exception rule: Arabic clitic prefixes (e.g. و-, بـ-, كـ-, لـ-, الـ-, كالـ-, للـ-)
+    // attached to a Latin word/acronym (such as 'للـWi-Fi' or 'بالـSIM') are permitted.
+    const ALLOWED_CLITIC_PREFIX = /^(?:[وبلكف]|ال|كال|لل|فال|بال)[\u200C\-]?[A-Za-zÄÖÜäöüß]+$/;
+
+    for (const cat of baseline) {
+      for (let i = 0; i < cat.words.length; i++) {
+        const w = cat.words[i];
+        const wordId = `${cat.id}_${i}`;
+
+        // 1. German fields (a, n, pl, s) must contain NO Arabic-script characters
+        for (const field of ['a', 'n', 'pl', 's']) {
+          if (w[field] && typeof w[field] === 'string') {
+            const hasArabic = ARABIC_SCRIPT_REGEX.test(w[field]);
+            expect(
+              hasArabic,
+              `German field '${field}' in ${wordId} (${w.n}) contains Arabic characters: "${w[field]}"`
+            ).toBe(false);
+          }
+        }
+
+        // 2. Arabic fields (ar, sar) must contain NO mixed-script tokens (unless allowed clitic prefix)
+        for (const field of ['ar', 'sar']) {
+          if (w[field] && typeof w[field] === 'string') {
+            const tokens = w[field].split(/[\s\.,،؛:!؟\(\)\[\]\"\'«»\-_/]+/);
+            for (const token of tokens) {
+              if (!token) continue;
+              const hasArabic = ARABIC_SCRIPT_REGEX.test(token);
+              const hasLatin = LATIN_SCRIPT_REGEX.test(token);
+              if (hasArabic && hasLatin) {
+                const isAllowedClitic = ALLOWED_CLITIC_PREFIX.test(token);
+                expect(
+                  isAllowedClitic,
+                  `Arabic field '${field}' in ${wordId} contains invalid mixed-script token: "${token}" in "${w[field]}"`
+                ).toBe(true);
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+
+  it('proves script purity test fails on old simulated berufe_26 sentence and passes after M6 fix', () => {
+    const ARABIC_SCRIPT_REGEX = /[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]/;
+    const oldDefectiveSentence = 'Der Tierarzt behandelt den verletzten Hund behutsام.';
+    const fixedSentence = 'Der Tierarzt behandelt den verletzten Hund behutsam.';
+
+    // Simulated in memory: old data MUST trigger failure
+    const oldHasArabic = ARABIC_SCRIPT_REGEX.test(oldDefectiveSentence);
+    expect(oldHasArabic).toBe(true); // Fails assertion: expect(hasArabic).toBe(false) would throw
+
+    // Fixed data MUST pass
+    const fixedHasArabic = ARABIC_SCRIPT_REGEX.test(fixedSentence);
+    expect(fixedHasArabic).toBe(false);
+  });
 });

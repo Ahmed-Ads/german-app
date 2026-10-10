@@ -65,7 +65,7 @@ The sync engine uses a decoupled adapter pattern. The core application logic and
 ### Adapter Interface Specification
 Each adapter implements:
 - `signIn()`: Triggers Google OAuth sign-in, returns user object `{ uid, email, displayName }`.
-- `signOut()`: Signs out of cloud session. Keeps local browser data 100% intact.
+- `signOut()`: Signs out of cloud session. Keeps local browser data intact.
 - `onAuthChange(callback)`: Subscribes to authentication lifecycle changes; returns an `unsubscribe` function.
 - `load(uid)`: Fetches cloud document `users/{uid}`, returns raw cloud payload or `null` if not found.
 - `save(uid, payload)`: Writes payload to `users/{uid}`.

@@ -1,14 +1,15 @@
 // @ts-check
 import fs from 'fs';
 import path from 'path';
-import { describe, it, expect } from 'vitest';
+import os from 'os';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { fileURLToPath } from 'url';
 import { buildSite } from '../scripts/build_site.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
-const siteDir = path.join(rootDir, 'site');
+const tempSiteDir = fs.mkdtempSync(path.join(os.tmpdir(), 'german-app-sw-fixture-'));
 
 /**
  * Extracts relative local asset paths from HTML <script src="..."> and <link href="..."> tags.
@@ -74,10 +75,15 @@ export function validateAssetsExist(assetList, targetDir) {
 }
 
 describe('Service Worker Upgrade & Distribution Static Guard', () => {
-  // Ensure site/ is built
-  if (!fs.existsSync(siteDir) || !fs.existsSync(path.join(siteDir, 'sw.js'))) {
-    buildSite();
-  }
+  beforeAll(() => {
+    buildSite(tempSiteDir);
+  });
+
+  afterAll(() => {
+    try {
+      fs.rmSync(tempSiteDir, { recursive: true, force: true });
+    } catch (e) {}
+  });
 
   const indexPath = path.join(rootDir, 'index.html');
   const swPath = path.join(rootDir, 'sw.js');
@@ -88,7 +94,7 @@ describe('Service Worker Upgrade & Distribution Static Guard', () => {
     const referencedAssets = extractHtmlAssets(indexContent);
     expect(referencedAssets.length).toBeGreaterThan(0);
 
-    const missingAssets = validateAssetsExist(referencedAssets, siteDir);
+    const missingAssets = validateAssetsExist(referencedAssets, tempSiteDir);
     if (missingAssets.length > 0) {
       console.error('Missing index.html assets in site/:', missingAssets);
     }
@@ -106,13 +112,13 @@ describe('Service Worker Upgrade & Distribution Static Guard', () => {
     expect(critical.length).toBeGreaterThan(0);
     expect(optional.length).toBeGreaterThan(0);
 
-    const missingCritical = validateAssetsExist(critical, siteDir);
+    const missingCritical = validateAssetsExist(critical, tempSiteDir);
     expect(
       missingCritical,
       `sw.js CRITICAL_ASSETS missing in site/: ${missingCritical.join(', ')}`
     ).toHaveLength(0);
 
-    const missingOptional = validateAssetsExist(optional, siteDir);
+    const missingOptional = validateAssetsExist(optional, tempSiteDir);
     expect(
       missingOptional,
       `sw.js OPTIONAL_ASSETS missing in site/: ${missingOptional.join(', ')}`
@@ -120,7 +126,7 @@ describe('Service Worker Upgrade & Distribution Static Guard', () => {
   });
 
   it('guarantees all fonts referenced in fonts.css exist in site/fonts/', () => {
-    const cssPath = path.join(siteDir, 'fonts', 'fonts.css');
+    const cssPath = path.join(tempSiteDir, 'fonts', 'fonts.css');
     expect(fs.existsSync(cssPath), 'site/fonts/fonts.css must exist').toBe(true);
 
     const cssContent = fs.readFileSync(cssPath, 'utf8');
@@ -131,7 +137,7 @@ describe('Service Worker Upgrade & Distribution Static Guard', () => {
     for (const match of fontMatches) {
       const fontUrl = match[1].trim();
       const cleanFontFile = fontUrl.split('?')[0].replace(/^\.?\//, '');
-      const fullFontPath = path.join(siteDir, 'fonts', cleanFontFile);
+      const fullFontPath = path.join(tempSiteDir, 'fonts', cleanFontFile);
       if (!fs.existsSync(fullFontPath)) {
         missingFonts.push(fontUrl);
       }
@@ -145,7 +151,7 @@ describe('Service Worker Upgrade & Distribution Static Guard', () => {
 
   it('verifies static guard sensitivity: correctly detects missing files when present', () => {
     const fakeAssets = ['non_existent_module.js', 'missing/sync_helper.js'];
-    const detected = validateAssetsExist(fakeAssets, siteDir);
+    const detected = validateAssetsExist(fakeAssets, tempSiteDir);
     expect(detected).toEqual(fakeAssets);
   });
 });

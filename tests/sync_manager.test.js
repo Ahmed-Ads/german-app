@@ -28,7 +28,9 @@ describe('SyncManager Unit & Lifecycle Workflow', () => {
       STORAGE_KEYS: { PROGRESS: 'prog', STATS: 'st', STARRED: 'star', SRS: 'sr', DAILY_GOAL: 'dg' },
       CATEGORIES: [{ id: 'obst', words: new Array(10).fill({ n: 'Apfel' }) }],
       showToast: vi.fn(),
-      render: vi.fn()
+      render: vi.fn(),
+      exportBackup: vi.fn(() => '{"backup":true}'),
+      confirm: vi.fn(() => true)
     };
 
     manager = new SyncManager({
@@ -191,6 +193,89 @@ describe('SyncManager Unit & Lifecycle Workflow', () => {
       expect(manager.getStatus().state).toBe(STATES.OFFLINE);
       expect(manager.getStatus().pendingChanges).toBe(true);
       expect(JSON.stringify(sharedStore.get('test-user-123'))).toBe(before);
+    });
+  });
+
+  describe('Pre-merge backup workflow (Task B)', () => {
+    const cloudInitialData = {
+      schemaVersion: 1,
+      progress: { obst: { mcq: { unlocked: 8, counts: { '0': 7 } } } },
+      stats: { current: 5, longest: 8, lastDate: '2026-10-05', totalAnswered: 50, totalCorrect: 45 },
+      starred: ['obst_1'],
+      srs: { 'obst_0': { box: 2, lastDate: '2026-10-05' } },
+      dailyGoal: { target: 30, updatedAt: '2026-10-05T00:00:00Z' }
+    };
+
+    it('backup ok -> merge happens and state is SYNCED', async () => {
+      sharedStore.set('test-user-123', cloudInitialData);
+      globalThis.exportBackup = vi.fn(() => '{"backup":"valid"}');
+
+      manager.init();
+      await manager.signIn();
+
+      expect(globalThis.exportBackup).toHaveBeenCalledWith('sync');
+      expect(manager.getStatus().state).toBe(STATES.SYNCED);
+      // Merged data written to local
+      expect(globalThis.progress.obst.mcq.unlocked).toBe(8);
+      // Merged data written to cloud
+      expect(sharedStore.get('test-user-123').progress.obst.mcq.unlocked).toBe(8);
+    });
+
+    it('backup blocked + user declines -> no merge and no writes, returns to SIGNED_OUT', async () => {
+      sharedStore.set('test-user-123', JSON.parse(JSON.stringify(cloudInitialData)));
+      const origLocalUnlocked = globalThis.progress.obst.mcq.unlocked; // 5
+
+      // Export fails / blocked, returns null
+      globalThis.exportBackup = vi.fn(() => null);
+      // User clicks Cancel on the warning confirm dialog
+      globalThis.confirm = vi.fn(() => false);
+
+      manager.init();
+      await manager.signIn();
+
+      expect(globalThis.exportBackup).toHaveBeenCalledWith('sync');
+      expect(globalThis.confirm).toHaveBeenCalled();
+      // State returns to SIGNED_OUT
+      expect(manager.getStatus().state).toBe(STATES.SIGNED_OUT);
+      // Local data is untouched (no merge applied)
+      expect(globalThis.progress.obst.mcq.unlocked).toBe(origLocalUnlocked);
+      // Cloud document is untouched (no write back)
+      expect(sharedStore.get('test-user-123').progress.obst.mcq.unlocked).toBe(8);
+      expect(sharedStore.get('test-user-123').starred).toEqual(['obst_1']);
+    });
+
+    it('backup blocked + user confirms -> merge proceeds', async () => {
+      sharedStore.set('test-user-123', JSON.parse(JSON.stringify(cloudInitialData)));
+
+      // Export blocked
+      globalThis.exportBackup = vi.fn(() => null);
+      // User confirms they want to proceed anyway without backup
+      globalThis.confirm = vi.fn(() => true);
+
+      manager.init();
+      await manager.signIn();
+
+      expect(globalThis.exportBackup).toHaveBeenCalledWith('sync');
+      expect(globalThis.confirm).toHaveBeenCalled();
+      expect(manager.getStatus().state).toBe(STATES.SYNCED);
+      expect(globalThis.progress.obst.mcq.unlocked).toBe(8);
+    });
+
+    it('backup throws exception + user declines -> cleanly aborts without writes and signs out', async () => {
+      sharedStore.set('test-user-123', JSON.parse(JSON.stringify(cloudInitialData)));
+      const origLocalUnlocked = globalThis.progress.obst.mcq.unlocked;
+
+      // Export throws unexpected exception
+      globalThis.exportBackup = vi.fn(() => { throw new Error('Download blocked by policy'); });
+      globalThis.confirm = vi.fn(() => false);
+
+      manager.init();
+      await manager.signIn();
+
+      expect(globalThis.exportBackup).toHaveBeenCalledWith('sync');
+      expect(globalThis.confirm).toHaveBeenCalled();
+      expect(manager.getStatus().state).toBe(STATES.SIGNED_OUT);
+      expect(globalThis.progress.obst.mcq.unlocked).toBe(origLocalUnlocked);
     });
   });
 });

@@ -12,7 +12,7 @@ const { createPagesEmulatorServer } = require('../scripts/serve_pages_emulator.j
  *  (c) Go offline and navigate to / AND to /index.html AND to a bookmarked /index.html
  *      launched as a fresh navigation (new page in the same context):
  *      asserts 30 category cards rendered in all 3 cases with zero console/page errors
- *  (d) Verify the toast/update flow continues to function correctly
+ *  (d) Verify the update bar UI flow continues to function correctly
  */
 
 test.describe('Cloudflare Pages Routing & Offline Resilience', () => {
@@ -149,30 +149,37 @@ test.describe('Cloudflare Pages Routing & Offline Resilience', () => {
     expect(consoleErrors.length, `Console errors on primary page: ${consoleErrors.join('; ')}`).toBe(0);
     expect(pageErrors.length, `Page errors on primary page: ${pageErrors.join('; ')}`).toBe(0);
 
-    // (d) Verify the toast/update flow still works
-    console.log('\n[Phase 4] Restoring online mode and verifying toast/update flow...');
+    // (d) Verify the persistent update bar UI flow
+    console.log('\n[Phase 4] Restoring online mode and verifying update bar UI...');
     await context.setOffline(false);
 
-    const toastTriggered = await page.evaluate(async () => {
-      if ('serviceWorker' in navigator) {
-        const reg = await navigator.serviceWorker.ready;
-        if (reg && typeof reg.update === 'function') {
-          await reg.update().catch(() => {});
-        }
-        if (typeof showToast === 'function') {
-          showToast('🔄 يوجد تحديث جديد للتطبيق متوفر! أعد تحميل الصفحة للتحديث.');
-          return true;
-        }
+    const barInvoked = await page.evaluate(() => {
+      if (typeof window.showUpdateBar === 'function') {
+        window.showUpdateBar();
+        // Call a second time to verify deduplication (no duplicate bars)
+        window.showUpdateBar();
+        return true;
       }
       return false;
     });
 
-    expect(toastTriggered).toBe(true);
-    const toast = page.locator('#appToast');
-    await expect(toast).toBeVisible({ timeout: 5000 });
-    const toastText = await toast.textContent();
-    console.log(`[Phase 4] Toast notification verified: "${toastText}"`);
-    expect(toastText).toContain('تحديث جديد');
+    expect(barInvoked).toBe(true);
+    const updateBar = page.locator('#swUpdateBar');
+    await expect(updateBar).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('#swUpdateBar')).toHaveCount(1);
+
+    const reloadBtn = page.locator('#swUpdateReloadBtn');
+    await expect(reloadBtn).toBeVisible();
+    await expect(reloadBtn).toHaveText('تحديث الآن');
+
+    const barText = await updateBar.textContent();
+    console.log(`[Phase 4] Update bar verified: "${barText}"`);
+    expect(barText).toContain('إصدار جديد');
+
+    // Dismiss update bar
+    const dismissBtn = page.locator('#swUpdateDismissBtn');
+    await dismissBtn.click();
+    await expect(updateBar).not.toBeVisible();
 
     console.log('🎉 Cloudflare Pages routing, cache cleanliness, and offline navigation verified successfully!');
     await context.close();

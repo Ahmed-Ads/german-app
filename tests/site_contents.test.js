@@ -1,13 +1,14 @@
 import fs from 'fs';
 import path from 'path';
-import { describe, it, expect } from 'vitest';
+import os from 'os';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { fileURLToPath } from 'url';
-import { execSync } from 'child_process';
+import { buildSite } from '../scripts/build_site.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
-const siteDir = path.join(rootDir, 'site');
+const tempSiteDir = fs.mkdtempSync(path.join(os.tmpdir(), 'german-app-site-contents-'));
 const swPath = path.join(rootDir, 'sw.js');
 
 function extractArray(swCode, name) {
@@ -45,10 +46,15 @@ function getAllFiles(dir, baseDir = dir) {
 }
 
 describe('Site Build & Distribution Integrity (site/)', () => {
-  // Ensure site is built
-  if (!fs.existsSync(siteDir)) {
-    execSync('node scripts/build_site.js', { cwd: rootDir, stdio: 'inherit' });
-  }
+  beforeAll(() => {
+    buildSite(tempSiteDir);
+  });
+
+  afterAll(() => {
+    try {
+      fs.rmSync(tempSiteDir, { recursive: true, force: true });
+    } catch (e) {}
+  });
 
   const swContent = fs.readFileSync(swPath, 'utf8');
   const precacheAssets = extractPrecacheAssets(swContent);
@@ -57,19 +63,19 @@ describe('Site Build & Distribution Integrity (site/)', () => {
     for (const asset of precacheAssets) {
       let relFile = asset.replace(/^\.\//, '');
       if (relFile === '' || relFile === '.') relFile = 'index.html';
-      const filePath = path.join(siteDir, relFile);
+      const filePath = path.join(tempSiteDir, relFile);
       expect(fs.existsSync(filePath), `Missing precached asset in site/: ${relFile}`).toBe(true);
     }
   });
 
   it('contains sw.js, index.html, and manifest.json', () => {
-    expect(fs.existsSync(path.join(siteDir, 'sw.js')), 'Missing site/sw.js').toBe(true);
-    expect(fs.existsSync(path.join(siteDir, 'index.html')), 'Missing site/index.html').toBe(true);
-    expect(fs.existsSync(path.join(siteDir, 'manifest.json')), 'Missing site/manifest.json').toBe(true);
+    expect(fs.existsSync(path.join(tempSiteDir, 'sw.js')), 'Missing site/sw.js').toBe(true);
+    expect(fs.existsSync(path.join(tempSiteDir, 'index.html')), 'Missing site/index.html').toBe(true);
+    expect(fs.existsSync(path.join(tempSiteDir, 'manifest.json')), 'Missing site/manifest.json').toBe(true);
   });
 
   it('contains zero forbidden directories or files (tests, audit, scripts, proof, node_modules, .bak, .git, etc.)', () => {
-    const actualFiles = getAllFiles(siteDir);
+    const actualFiles = getAllFiles(tempSiteDir);
     const forbiddenKeywords = ['test', 'audit', 'script', 'proof', 'node_modules', '.bak', '.git'];
 
     for (const file of actualFiles) {
@@ -82,7 +88,7 @@ describe('Site Build & Distribution Integrity (site/)', () => {
   });
 
   it('contains ONLY allowed production files and directories', () => {
-    const actualFiles = getAllFiles(siteDir);
+    const actualFiles = getAllFiles(tempSiteDir);
     const allowedFiles = new Set([
       'index.html',
       'sw.js',
@@ -114,7 +120,7 @@ describe('Site Build & Distribution Integrity (site/)', () => {
   });
 
   it('contains valid _headers file with Cache-Control: no-cache for sw.js and manifest.json', () => {
-    const headersPath = path.join(siteDir, '_headers');
+    const headersPath = path.join(tempSiteDir, '_headers');
     expect(fs.existsSync(headersPath), 'Missing site/_headers').toBe(true);
     const content = fs.readFileSync(headersPath, 'utf8');
     expect(content).toContain('/sw.js');
@@ -123,7 +129,7 @@ describe('Site Build & Distribution Integrity (site/)', () => {
   });
 
   it('_headers also sets baseline security headers for all paths', () => {
-    const content = fs.readFileSync(path.join(siteDir, '_headers'), 'utf8');
+    const content = fs.readFileSync(path.join(tempSiteDir, '_headers'), 'utf8');
     expect(content).toMatch(/^\/\*\s*$/m);
     expect(content).toContain('X-Content-Type-Options: nosniff');
     expect(content).toContain('Referrer-Policy: strict-origin-when-cross-origin');

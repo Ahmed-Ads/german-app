@@ -63,6 +63,8 @@ describe('Vendor Firebase Sync Bundle Integrity', () => {
     expect(typeof fb.getAuth).toBe('function');
     expect(typeof fb.GoogleAuthProvider).toBe('function');
     expect(typeof fb.signInWithPopup).toBe('function');
+    expect(typeof fb.signInWithRedirect).toBe('function');
+    expect(typeof fb.getRedirectResult).toBe('function');
     expect(typeof fb.signOut).toBe('function');
     expect(typeof fb.onAuthStateChanged).toBe('function');
     expect(typeof fb.getFirestore).toBe('function');

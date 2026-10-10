@@ -13,6 +13,15 @@
   'use strict';
 
   const DEFAULT_PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen'];
+  const FORBIDDEN_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
+
+  function isSafeKey(k) {
+    return typeof k === 'string' && !FORBIDDEN_KEYS.has(k);
+  }
+
+  function hasOwn(obj, key) {
+    return obj !== null && typeof obj === 'object' && Object.prototype.hasOwnProperty.call(obj, key);
+  }
 
   function getProgressModes() {
     if (typeof global !== 'undefined' && Array.isArray(global.PROGRESS_MODES)) {
@@ -45,7 +54,7 @@
         return { valid: false, error: 'حقل التقدم (progress) غير صالح.' };
       }
       for (const [catId, catVal] of Object.entries(data.progress)) {
-        if (!knownCatIds.has(catId)) {
+        if (!isSafeKey(catId) || !knownCatIds.has(catId)) {
           return { valid: false, error: `القسم «${catId}» في التقدم غير معروف في التطبيق.` };
         }
         if (typeof catVal !== 'object' || catVal === null || Array.isArray(catVal)) {
@@ -57,7 +66,7 @@
             if (typeof mVal !== 'boolean') return { valid: false, error: `حقل coreAcked في «${catId}» غير صالح.` };
             continue;
           }
-          if (!modes.has(mKey)) {
+          if (!isSafeKey(mKey) || !modes.has(mKey)) {
             return { valid: false, error: `النمط «${mKey}» في «${catId}» غير معروف.` };
           }
           if (typeof mVal !== 'object' || mVal === null || Array.isArray(mVal)) {
@@ -71,6 +80,9 @@
               return { valid: false, error: `عدادات الكلمات في «${catId}/${mKey}» غير صالحة.` };
             }
             for (const [wIdxStr, cnt] of Object.entries(mVal.counts)) {
+              if (!isSafeKey(wIdxStr)) {
+                return { valid: false, error: `فهرس الكلمة (${wIdxStr}) في «${catId}» غير صالح.` };
+              }
               const wIdx = parseInt(wIdxStr, 10);
               if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
                 return { valid: false, error: `فهرس الكلمة (${wIdxStr}) في «${catId}» خارج النطاق.` };
@@ -109,7 +121,7 @@
         return { valid: false, error: 'حقل المفضلة (starred) يجب أن يكون مصفوفة.' };
       }
       for (const item of data.starred) {
-        if (typeof item !== 'string') return { valid: false, error: 'عنصر في المفضلة غير صالح.' };
+        if (typeof item !== 'string' || !isSafeKey(item)) return { valid: false, error: 'عنصر في المفضلة غير صالح.' };
         const parts = item.split('_');
         if (parts.length !== 2) return { valid: false, error: `معرف المفضلة «${item}» غير صالح.` };
         const [catId, idxStr] = parts;
@@ -127,6 +139,7 @@
         return { valid: false, error: 'حقل التكرار المتباعد (srs) غير صالح.' };
       }
       for (const [k, rec] of Object.entries(data.srs)) {
+        if (!isSafeKey(k)) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
         const parts = k.split('_');
         if (parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
         const [catId, idxStr] = parts;
@@ -138,8 +151,8 @@
         if (typeof rec !== 'object' || rec === null || Array.isArray(rec)) {
           return { valid: false, error: `سجل SRS «${k}» غير صالح.` };
         }
-        if (rec.box !== undefined && (!Number.isInteger(rec.box) || rec.box < 0 || rec.box > 5)) {
-          return { valid: false, error: `صندوق SRS للكلمة «${k}» يجب أن يكون بين 0 و 5.` };
+        if (rec.box !== undefined && (!Number.isInteger(rec.box) || rec.box < 0 || rec.box > 4)) {
+          return { valid: false, error: `صندوق SRS للكلمة «${k}» يجب أن يكون بين 0 و 4.` };
         }
         if (rec.lastDate !== undefined && typeof rec.lastDate !== 'string') {
           return { valid: false, error: `تاريخ المراجعة السابق للكلمة «${k}» غير صالح.` };
@@ -169,13 +182,16 @@
   function mergeProgress(a, b) {
     const progA = a && typeof a === 'object' ? a : {};
     const progB = b && typeof b === 'object' ? b : {};
-    const allCatIds = Array.from(new Set([...Object.keys(progA), ...Object.keys(progB)])).sort();
+    const allCatIds = Array.from(new Set([
+      ...Object.keys(progA).filter(k => hasOwn(progA, k) && isSafeKey(k)),
+      ...Object.keys(progB).filter(k => hasOwn(progB, k) && isSafeKey(k))
+    ])).sort();
     const merged = {};
     const modes = getProgressModes();
 
     for (const catId of allCatIds) {
-      const catA = progA[catId] || {};
-      const catB = progB[catId] || {};
+      const catA = (hasOwn(progA, catId) && typeof progA[catId] === 'object' && progA[catId]) || {};
+      const catB = (hasOwn(progB, catId) && typeof progB[catId] === 'object' && progB[catId]) || {};
       merged[catId] = {};
 
       if (catA.coreAcked || catB.coreAcked) {
@@ -183,21 +199,25 @@
       }
 
       for (const m of modes) {
-        const mA = catA[m] || {};
-        const mB = catB[m] || {};
-        const hasA = catA[m] !== undefined;
-        const hasB = catB[m] !== undefined;
+        if (!isSafeKey(m)) continue;
+        const mA = (hasOwn(catA, m) && typeof catA[m] === 'object' && catA[m]) || {};
+        const mB = (hasOwn(catB, m) && typeof catB[m] === 'object' && catB[m]) || {};
+        const hasA = hasOwn(catA, m) && catA[m] !== undefined;
+        const hasB = hasOwn(catB, m) && catB[m] !== undefined;
         if (!hasA && !hasB) continue;
 
         const unlocked = Math.max(mA.unlocked || 0, mB.unlocked || 0);
-        const countsA = mA.counts || {};
-        const countsB = mB.counts || {};
-        const allWIdx = Array.from(new Set([...Object.keys(countsA), ...Object.keys(countsB)])).sort((x, y) => parseInt(x, 10) - parseInt(y, 10));
+        const countsA = (hasOwn(mA, 'counts') && typeof mA.counts === 'object' && mA.counts) || {};
+        const countsB = (hasOwn(mB, 'counts') && typeof mB.counts === 'object' && mB.counts) || {};
+        const allWIdx = Array.from(new Set([
+          ...Object.keys(countsA).filter(k => hasOwn(countsA, k) && isSafeKey(k)),
+          ...Object.keys(countsB).filter(k => hasOwn(countsB, k) && isSafeKey(k))
+        ])).sort((x, y) => parseInt(x, 10) - parseInt(y, 10));
 
         const mergedCounts = {};
         for (const idxStr of allWIdx) {
-          const cA = countsA[idxStr] || 0;
-          const cB = countsB[idxStr] || 0;
+          const cA = (hasOwn(countsA, idxStr) && countsA[idxStr]) || 0;
+          const cB = (hasOwn(countsB, idxStr) && countsB[idxStr]) || 0;
           mergedCounts[idxStr] = Math.max(cA, cB);
         }
 
@@ -281,8 +301,21 @@
   function mergeStarred(a, b) {
     const listA = Array.isArray(a) ? a : [];
     const listB = Array.isArray(b) ? b : [];
-    const set = new Set([...listA, ...listB]);
+    const set = new Set();
+    for (const item of [...listA, ...listB]) {
+      if (typeof item === 'string' && isSafeKey(item)) {
+        set.add(item);
+      }
+    }
     return Array.from(set).sort();
+  }
+
+  function sanitizeSrsEntry(rec) {
+    if (!rec || typeof rec !== 'object') return null;
+    const out = { box: (Number.isInteger(rec.box) && rec.box >= 0 && rec.box <= 4) ? rec.box : 0 };
+    if (typeof rec.lastDate === 'string') out.lastDate = rec.lastDate;
+    if (typeof rec.nextDate === 'string') out.nextDate = rec.nextDate;
+    return out;
   }
 
   /**
@@ -292,39 +325,58 @@
   function mergeSrs(a, b) {
     const srsA = a && typeof a === 'object' && !Array.isArray(a) ? a : {};
     const srsB = b && typeof b === 'object' && !Array.isArray(b) ? b : {};
-    const allKeys = Array.from(new Set([...Object.keys(srsA), ...Object.keys(srsB)])).sort();
+    const allKeys = Array.from(new Set([
+      ...Object.keys(srsA).filter(k => hasOwn(srsA, k) && isSafeKey(k)),
+      ...Object.keys(srsB).filter(k => hasOwn(srsB, k) && isSafeKey(k))
+    ])).sort();
     const merged = {};
 
     for (const key of allKeys) {
-      const recA = srsA[key];
-      const recB = srsB[key];
+      const recA = hasOwn(srsA, key) ? srsA[key] : null;
+      const recB = hasOwn(srsB, key) ? srsB[key] : null;
 
       if (recA && !recB) {
-        merged[key] = { ...recA };
+        merged[key] = sanitizeSrsEntry(recA);
         continue;
       }
       if (!recA && recB) {
-        merged[key] = { ...recB };
+        merged[key] = sanitizeSrsEntry(recB);
         continue;
       }
 
-      const dateA = typeof recA.lastDate === 'string' ? recA.lastDate : '';
-      const dateB = typeof recB.lastDate === 'string' ? recB.lastDate : '';
+      const dateA = (recA && typeof recA.lastDate === 'string') ? recA.lastDate : '';
+      const dateB = (recB && typeof recB.lastDate === 'string') ? recB.lastDate : '';
 
       if (dateA > dateB) {
-        merged[key] = { ...recA };
+        merged[key] = sanitizeSrsEntry(recA);
       } else if (dateB > dateA) {
-        merged[key] = { ...recB };
+        merged[key] = sanitizeSrsEntry(recB);
       } else {
-        // Equal lastDate or both empty -> higher box wins
-        const boxA = Number.isInteger(recA.box) ? recA.box : 0;
-        const boxB = Number.isInteger(recB.box) ? recB.box : 0;
-        const higherRec = boxA >= boxB ? recA : recB;
-        merged[key] = {
-          box: Math.max(boxA, boxB),
-          lastDate: higherRec.lastDate || dateA || undefined,
-          nextDate: higherRec.nextDate || undefined
-        };
+        // Equal lastDate or both empty -> compare box
+        const boxA = (recA && Number.isInteger(recA.box)) ? recA.box : 0;
+        const boxB = (recB && Number.isInteger(recB.box)) ? recB.box : 0;
+        if (boxA > boxB) {
+          merged[key] = sanitizeSrsEntry({ ...recA, box: boxA });
+        } else if (boxB > boxA) {
+          merged[key] = sanitizeSrsEntry({ ...recB, box: boxB });
+        } else {
+          // Equal lastDate AND equal box -> deterministic tie-break for nextDate.
+          // Choose earlier nextDate (learning-safety rationale: reviewing earlier
+          // prevents memory decay along the Ebbinghaus forgetting curve).
+          const nextA = (recA && typeof recA.nextDate === 'string') ? recA.nextDate : '';
+          const nextB = (recB && typeof recB.nextDate === 'string') ? recB.nextDate : '';
+          let chosenNext = '';
+          if (nextA && nextB) {
+            chosenNext = nextA <= nextB ? nextA : nextB;
+          } else {
+            chosenNext = nextA || nextB || '';
+          }
+          const chosenLast = dateA || dateB || '';
+          const entry = { box: boxA };
+          if (chosenLast) entry.lastDate = chosenLast;
+          if (chosenNext) entry.nextDate = chosenNext;
+          merged[key] = entry;
+        }
       }
     }
 
@@ -350,15 +402,22 @@
     const goalB = normalize(b);
 
     if (goalA.updatedAt && goalB.updatedAt) {
-      return goalA.updatedAt >= goalB.updatedAt ? goalA : goalB;
+      if (goalA.updatedAt > goalB.updatedAt) return goalA;
+      if (goalB.updatedAt > goalA.updatedAt) return goalB;
+      // Equal timestamps: deterministic tie-break -> higher target wins
+      if (goalA.target !== goalB.target) {
+        return goalA.target > goalB.target ? goalA : goalB;
+      }
+      return { target: goalA.target, updatedAt: goalA.updatedAt };
     }
     if (goalA.updatedAt) return goalA;
     if (goalB.updatedAt) return goalB;
 
-    // Neither has timestamp -> prefer non-default or A
-    if (goalA.target !== 20) return goalA;
-    if (goalB.target !== 20) return goalB;
-    return goalA;
+    // Neither has timestamp -> deterministic tie-break -> higher target wins
+    if (goalA.target !== goalB.target) {
+      return goalA.target > goalB.target ? goalA : goalB;
+    }
+    return { target: goalA.target, updatedAt: '' };
   }
 
   /**
@@ -388,9 +447,21 @@
 
   /**
    * Prepares a clean cloud payload from local data objects.
+   * Preserves existing dailyGoal.updatedAt without refreshing it to current time.
    */
   function createCloudPayload(localData) {
     const loc = localData || {};
+    let dgTarget = 20;
+    let dgUpdated = '';
+    if (typeof loc.dailyGoal === 'object' && loc.dailyGoal !== null) {
+      dgTarget = Math.max(5, Math.min(200, Math.round(Number(loc.dailyGoal.target) || 20)));
+      dgUpdated = typeof loc.dailyGoal.updatedAt === 'string' ? loc.dailyGoal.updatedAt : '';
+    } else if (loc.dailyGoal !== undefined) {
+      dgTarget = Math.max(5, Math.min(200, Math.round(Number(loc.dailyGoal) || 20)));
+    }
+    const dgPayload = { target: dgTarget };
+    if (dgUpdated) dgPayload.updatedAt = dgUpdated;
+
     return {
       schemaVersion: 1,
       dataVersion: Number(loc.dataVersion) || 1,
@@ -399,9 +470,7 @@
       stats: loc.stats || {},
       starred: Array.isArray(loc.starred) ? loc.starred : [],
       srs: loc.srs || {},
-      dailyGoal: typeof loc.dailyGoal === 'object' && loc.dailyGoal !== null 
-        ? loc.dailyGoal 
-        : { target: Number(loc.dailyGoal) || 20, updatedAt: new Date().toISOString() }
+      dailyGoal: dgPayload
     };
   }
 

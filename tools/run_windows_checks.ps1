@@ -507,7 +507,7 @@ $verifyOutput = if ($pyExecutable -ne "NOT_FOUND") {
 $verifyOutput | Out-File -FilePath $rawLogPath -Append -Encoding utf8
 $verifyText = ($verifyOutput -join "`n")
 
-$canonicalHash = "bc4f1b85a867c1f126cdde46eed031b0600440e84708c1e4e264d5106ef8e417"
+$canonicalHash = "420c831eaead691b7218b3bef7d7c8c2dee90b47bf2e0a440c03b69829022fed"
 if ($LASTEXITCODE -eq 0 -and $verifyText.Contains($canonicalHash) -and $verifyText.Contains("[PASSED]")) {
     Log-Output "  verify_vocab.py: PASS"
     $stepResults["VerifyVocab"] = "PASS (Ran)"
@@ -736,7 +736,36 @@ try {
 }
 
 # -----------------------------------------------------------------
-# 7. Summary Report Compilation
+# 7. Vitest Full Unit Suite
+# -----------------------------------------------------------------
+Log-Output "`n[9/9] Running Full Unit Test Suite (Vitest)..."
+Log-Output "  Running 'npx --no-install vitest run'..."
+$vitestOut = & npx --no-install vitest run 2>&1
+$vitestOut | Out-File -FilePath $rawLogPath -Append -Encoding utf8
+$vitestText = ($vitestOut -join "`n")
+$vitestExit = $LASTEXITCODE
+
+$vPassed = 0
+$vFailed = 0
+$vSkipped = 0
+if ($vitestText -match '(\d+)\s+passed') { $vPassed = [int]$Matches[1] }
+if ($vitestText -match '(\d+)\s+failed') { $vFailed = [int]$Matches[1] }
+if ($vitestText -match '(\d+)\s+skipped') { $vSkipped = [int]$Matches[1] }
+
+# Ensure Firestore emulator notice is explicitly noted
+Log-Output "  Firestore emulator tests: $vSkipped skipped / NOT MEASURED (emulator not running)"
+
+if ($vitestExit -eq 0 -and $vFailed -eq 0) {
+    Log-Output "  Unit tests (vitest, full suite): PASS ($vPassed passed, $vFailed failed, $vSkipped skipped [Firestore emulator NOT MEASURED])"
+    $stepResults["UnitTestsVitest"] = "PASS (Ran: $vPassed passed, $vFailed failed, $vSkipped skipped [Firestore emulator NOT MEASURED])"
+} else {
+    Log-Output "  Unit tests (vitest, full suite): FAIL (exit code $vitestExit, $vPassed passed, $vFailed failed, $vSkipped skipped)"
+    $stepResults["UnitTestsVitest"] = "FAIL (Ran: $vPassed passed, $vFailed failed, $vSkipped skipped, exit $vitestExit)"
+    $stepErrors["UnitTestsVitest"] = (Get-LastLines $vitestText 30) -join "`n"
+}
+
+# -----------------------------------------------------------------
+# 8. Summary Report Compilation
 # -----------------------------------------------------------------
 $failedCount = 0
 foreach ($v in $stepResults.Values) {
@@ -774,6 +803,7 @@ $summaryLines.Add("  11. Distribution Build (site/) : $($stepResults['SiteConten
 $summaryLines.Add("  12. Sub-Path Hosting (/german-app/) : $($stepResults['SubPathHosting'])")
 $summaryLines.Add("  13. Cloudflare Pages Compatibility : $($stepResults['CfRoutingPlaywright'])")
 $summaryLines.Add("  14. Cross-Device Progress Sync : $($stepResults['CrossDeviceSync'])")
+$summaryLines.Add("  15. Unit tests (vitest, full suite): $($stepResults['UnitTestsVitest'])")
 $summaryLines.Add("")
 $summaryLines.Add("OFFLINE PWA METRICS:")
 $summaryLines.Add("  - $($offlineMetrics.Cards)")

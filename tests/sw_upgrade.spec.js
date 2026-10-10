@@ -12,7 +12,7 @@ const { buildSite } = require('../scripts/build_site.js');
  * 1. Serves legacy build (sw.js v3 + broken fonts.css containing ./fonts/font_ URLs)
  * 2. Playwright loads app, waits for SW v3 controller, asserts cache deutsch-lernen-v3 exists
  * 3. Swaps files in-place with new build (current sw.js + fixed fonts.css)
- * 4. Calls reg.update(), asserts 'update available' toast appears on updatefound
+ * 4. Calls reg.update(), asserts 'update available' persistent bar appears on updatefound
  * 5. Waits for current build cache to activate, asserts legacy v3 cache deleted and current cache active
  * 6. Asserts fonts.css content updated to correct URLs and /fonts/font_1.woff2 returns 200 with 0 404s
  */
@@ -208,13 +208,19 @@ test.describe('Real Service Worker Upgrade Lifecycle (old build (v3) -> current 
       }
     });
 
-    // Assert update available toast appears
-    console.log('[Phase 4] Waiting for update-available toast notification...');
-    const toast = page.locator('#appToast');
-    await expect(toast).toBeVisible({ timeout: 12000 });
-    const toastText = await toast.textContent();
-    console.log(`[Phase 4] Toast appeared: "${toastText}"`);
-    expect(toastText).toContain('تحديث جديد');
+    // Assert update available persistent bar appears
+    console.log('[Phase 4] Waiting for update-available persistent bar notification...');
+    const updateBar = page.locator('#swUpdateBar');
+    await expect(updateBar).toBeVisible({ timeout: 12000 });
+    const barText = await updateBar.textContent();
+    console.log(`[Phase 4] Update bar appeared: "${barText}"`);
+    expect(barText).toContain('تحديث الآن');
+    expect(barText).toContain('إصدار جديد');
+
+    // Dismiss the update bar without clicking reload (spec explicitly reloads in Phase 6)
+    const dismissBtn = page.locator('#swUpdateDismissBtn');
+    await dismissBtn.click();
+    await expect(updateBar).not.toBeVisible();
 
     // Wait for active worker to activate and purge legacy caches
     console.log(`[Phase 5] Waiting for ${activeCacheName} activation and v3 cache purge...`);

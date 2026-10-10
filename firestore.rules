@@ -7,31 +7,74 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Single-owner access control guard.
+    // In production, the owner must manually replace 'ALLOWED_UID_PLACEHOLDER'
+    // with their actual Firebase Auth UID in the Firebase Console.
+    // DO NOT commit the real UID to git.
+    // While the placeholder is present, all requests fail closed (access denied).
+    function isOwner(userId) {
+      return request.auth != null
+        && request.auth.uid == userId
+        && request.auth.uid == 'ALLOWED_UID_PLACEHOLDER';
+    }
+
     // Users can read, write, and delete ONLY their own progress document at users/{userId}
     match /users/{userId} {
-      // 1. Reading own document
-      allow read: if request.auth != null && request.auth.uid == userId;
+      // 1. Reading own document (strictly owner only)
+      allow read: if isOwner(userId);
 
-      // 2. Deleting own document ("حذف بياناتي من السحابة")
-      allow delete: if request.auth != null && request.auth.uid == userId;
+      // 2. Deleting own document (strictly owner only)
+      allow delete: if isOwner(userId);
 
       // 3. Creating or updating own document with strict validation
-      allow create, update: if request.auth != null
-        && request.auth.uid == userId
-        // Only the known top-level keys are allowed (note: map.size() counts keys, NOT bytes)
+      allow create, update: if isOwner(userId)
+        // Key validation: top-level must have all 8 required keys and no extra keys
+        && request.resource.data.keys().hasAll([
+             'schemaVersion', 'dataVersion', 'updatedAt',
+             'progress', 'stats', 'starred', 'srs', 'dailyGoal'
+           ])
         && request.resource.data.keys().hasOnly([
              'schemaVersion', 'dataVersion', 'updatedAt',
              'progress', 'stats', 'starred', 'srs', 'dailyGoal'
            ])
-        // Schema version must be 1
+
+        // Schema & Data Version bounds
         && request.resource.data.schemaVersion is int
         && request.resource.data.schemaVersion == 1
-        // Data types must be valid structures
+        && request.resource.data.dataVersion is int
+        && request.resource.data.dataVersion >= 1
+
+        // Timestamp bounds
+        && request.resource.data.updatedAt is string
+        && request.resource.data.updatedAt.size() <= 40
+
+        // Realistic structural bounds (derived from 30 categories, 1,160 total words)
+        // Note: Firestore rules cannot iterate dynamic map keys. We bound map sizes,
+        // list sizes, and known nested objects.
         && request.resource.data.progress is map
+        && request.resource.data.progress.size() <= 35
+
         && request.resource.data.stats is map
+        && request.resource.data.stats.size() <= 10
+
         && request.resource.data.starred is list
+        && request.resource.data.starred.size() <= 1200
+
         && request.resource.data.srs is map
-        && request.resource.data.dailyGoal is map;
+        && request.resource.data.srs.size() <= 1200
+
+        // dailyGoal bounds: target must be integer within [5, 200]
+        && request.resource.data.dailyGoal is map
+        && request.resource.data.dailyGoal.size() <= 2
+        && request.resource.data.dailyGoal.keys().hasAll(['target'])
+        && request.resource.data.dailyGoal.keys().hasOnly(['target', 'updatedAt'])
+        && request.resource.data.dailyGoal.target is int
+        && request.resource.data.dailyGoal.target >= 5
+        && request.resource.data.dailyGoal.target <= 200
+        && (!('updatedAt' in request.resource.data.dailyGoal)
+            || (request.resource.data.dailyGoal.updatedAt is string
+                && request.resource.data.dailyGoal.updatedAt.size() <= 40));
     }
   }
 }
+

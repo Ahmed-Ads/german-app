@@ -1,107 +1,128 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { extractFunction } from './extract_written.js';
 
-const categories = JSON.parse(fs.readFileSync('vocab_baseline.json', 'utf8'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const indexPath = path.resolve(__dirname, '../index.html');
+const html = fs.readFileSync(indexPath, 'utf8');
 
-// Helper to shuffle
-function shuffle(arr) {
-  const a = arr.slice();
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
+const categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../vocab_baseline.json'), 'utf8'));
+
+// Extract REAL functions from index.html (no copies)
+const shuffleCode = extractFunction(html, 'shuffle');
+const pluralDistCode = extractFunction(html, 'pluralDistractors');
+const mcqDistCode = extractFunction(html, 'buildMcqDistractors');
+
+const shuffle = new Function(`${shuffleCode}\nreturn shuffle;`)();
+const pluralDistractors = new Function('CATEGORIES', 'shuffle', `${pluralDistCode}\nreturn pluralDistractors;`)(categories, shuffle);
+const buildMcqDistractors = new Function('CATEGORIES', 'shuffle', `${mcqDistCode}\nreturn buildMcqDistractors;`)(categories, shuffle);
+
+// Seeded PRNG for reproducible fuzzing
+function createSeededRandom(seed) {
+  let s = seed + 1;
+  return function() {
+    s = (s * 16807) % 2147483647;
+    return (s - 1) / 2147483646;
+  };
 }
 
-// Generate MCQ Question
-function generateMcqQuestion(cat, idx) {
-  const w = cat.words[idx];
-  const correctText = cat.hasArticles && w.a ? `${w.a} ${w.n}` : w.n;
-  const pool = cat.words.filter((d, i) => i !== idx && d.ar.trim() !== w.ar.trim());
-  let distractors = shuffle(pool).slice(0, 3).map(d => cat.hasArticles && d.a ? `${d.a} ${d.n}` : d.n);
-  
-  // Ensure distractors don't duplicate
-  distractors = Array.from(new Set(distractors.filter(d => d !== correctText)));
-  if (distractors.length < 3) {
-    const others = categories
-      .filter(c => c.id !== cat.id && c.hasArticles === cat.hasArticles)
-      .flatMap(c => c.words.map(d => cat.hasArticles && d.a ? `${d.a} ${d.n}` : d.n))
-      .filter(d => d !== correctText && !distractors.includes(d));
-    distractors.push(...shuffle(others).slice(0, 3 - distractors.length));
-  }
+describe('Property & Fuzz Testing with Real Helpers from index.html', () => {
+  it('fuzz tests all 1160 words × 20 seeds for MCQ invariant correctness', () => {
+    let testedCount = 0;
+    for (const cat of categories) {
+      for (let idx = 0; idx < cat.words.length; idx++) {
+        const w = cat.words[idx];
+        const targetGloss = (w.ar || '').trim();
+        testedCount++;
 
-  const options = shuffle([correctText, ...distractors.slice(0, 3)]);
-  return { q: w.ar, correctText, options };
-}
+        for (let seed = 0; seed < 20; seed++) {
+          const prng = createSeededRandom(seed);
+          const origRandom = Math.random;
+          let correctText, distractors, options;
+          try {
+            Math.random = prng;
+            correctText = cat.hasArticles && w.a ? `${w.a} ${w.n}` : w.n;
+            distractors = buildMcqDistractors(cat, idx, 3);
+            options = shuffle([correctText, ...distractors]);
+          } finally {
+            Math.random = origRandom;
+          }
 
-// Generate Article Question
-function generateArticleQuestion(cat, idx) {
-  const w = cat.words[idx];
-  const correct = w.a;
-  const options = ['der', 'die', 'das'];
-  return { q: w.n, correct, options };
-}
+          // Invariant 1: Exactly 4 options
+          expect(options.length, `[${cat.id}:${w.n}:seed${seed}] expected 4 options`).toBe(4);
 
-// Generate Plural Question
-function generatePluralQuestion(cat, idx) {
-  const w = cat.words[idx];
-  if (!w.pl) return null;
-  const correct = w.pl;
-  const catPlurals = cat.words.filter(cw => cw.pl && cw.pl.trim() !== correct.trim()).map(cw => cw.pl.trim());
-  const globalPlurals = categories.filter(c => c.hasArticles).flatMap(c => c.words.filter(cw => cw.pl && cw.pl.trim() !== correct.trim()).map(cw => cw.pl.trim()));
-  const pool = Array.from(new Set([...shuffle(catPlurals), ...shuffle(globalPlurals)]));
-  const options = shuffle([correct, ...pool.slice(0, 3)]);
-  return { q: `${w.a} ${w.n}`, correct, options };
-}
+          // Invariant 2: All displayed texts unique (no duplicate options)
+          expect(new Set(options).size, `[${cat.id}:${w.n}:seed${seed}] duplicate option texts: ${JSON.stringify(options)}`).toBe(4);
 
-describe('Phase 5 Property & Fuzz Testing (10,000 Generations)', () => {
-  it('fuzz tests 10,000 MCQ questions for invariant correctness', () => {
-    for (let i = 0; i < 10000; i++) {
-      const cat = categories[Math.floor(Math.random() * categories.length)];
-      const idx = Math.floor(Math.random() * cat.words.length);
-      const res = generateMcqQuestion(cat, idx);
+          // Invariant 3: Exactly one option equals correct text
+          const correctMatches = options.filter(o => o === correctText);
+          expect(correctMatches.length, `[${cat.id}:${w.n}:seed${seed}] correct option match count != 1`).toBe(1);
 
-      expect(res.q).toBeDefined();
-      expect(res.q.includes('undefined')).toBe(false);
-      expect(res.q.includes('NaN')).toBe(false);
+          // Invariant 4: No distractor shares the question word's trimmed Arabic gloss
+          for (const dist of distractors) {
+            const sharesGloss = (cat.words || []).some(d => {
+              const dt = cat.hasArticles && d.a ? `${d.a} ${d.n}` : d.n;
+              return dt === dist && (d.ar || '').trim() === targetGloss;
+            });
+            expect(sharesGloss, `[${cat.id}:${w.n}:seed${seed}] distractor "${dist}" shares question word Arabic gloss "${targetGloss}"`).toBe(false);
 
-      expect(res.options.length).toBe(4);
-      expect(new Set(res.options).size).toBe(4); // No duplicates
-      expect(res.options).toContain(res.correctText); // Correct option present
-      const correctMatches = res.options.filter(o => o === res.correctText);
-      expect(correctMatches.length).toBe(1); // Exactly one correct option
+            const crossSharesGloss = categories.some(c => (c.words || []).some(d => {
+              const dt = c.hasArticles && d.a ? `${d.a} ${d.n}` : d.n;
+              return dt === dist && (d.ar || '').trim() === targetGloss;
+            }));
+            expect(crossSharesGloss, `[${cat.id}:${w.n}:seed${seed}] distractor "${dist}" cross-category shares question word Arabic gloss "${targetGloss}"`).toBe(false);
+          }
+        }
+      }
     }
-  });
+    expect(testedCount).toBe(1160);
+  }, 30000);
 
-  it('fuzz tests 10,000 Article questions for invariant correctness', () => {
-    const articleCats = categories.filter(c => c.hasArticles);
-    for (let i = 0; i < 10000; i++) {
-      const cat = articleCats[Math.floor(Math.random() * articleCats.length)];
-      const idx = Math.floor(Math.random() * cat.words.length);
-      const res = generateArticleQuestion(cat, idx);
-
-      expect(res.q).toBeDefined();
-      expect(res.options).toEqual(['der', 'die', 'das']);
-      expect(res.options).toContain(res.correct);
-      expect(res.correct.includes('undefined')).toBe(false);
-    }
-  });
-
-  it('fuzz tests 10,000 Plural questions for invariant correctness', () => {
+  it('fuzz tests all words in article categories for article correctness', () => {
     const articleCats = categories.filter(c => c.hasArticles);
     let count = 0;
-    while (count < 10000) {
-      const cat = articleCats[Math.floor(Math.random() * articleCats.length)];
-      const idx = Math.floor(Math.random() * cat.words.length);
-      const res = generatePluralQuestion(cat, idx);
-      if (!res) continue; // Skip pl:null
-
-      count++;
-      expect(res.options.length).toBe(4);
-      expect(new Set(res.options).size).toBe(4); // No duplicates
-      expect(res.options).toContain(res.correct); // Correct present
-      expect(res.options.every(o => o.startsWith('die '))).toBe(true);
-      expect(res.q.includes('undefined')).toBe(false);
+    for (const cat of articleCats) {
+      for (const w of cat.words) {
+        count++;
+        expect(['der', 'die', 'das']).toContain(w.a);
+        expect(w.n).toBeDefined();
+        expect(w.n.includes('undefined')).toBe(false);
+      }
     }
+    expect(count).toBeGreaterThan(0);
+  });
+
+  it('fuzz tests plural questions with real pluralDistractors for invariant correctness', () => {
+    const articleCats = categories.filter(c => c.hasArticles);
+    let testedPlurals = 0;
+    for (const cat of articleCats) {
+      for (const w of cat.words) {
+        if (!w.pl) continue;
+        testedPlurals++;
+        const correct = w.pl;
+
+        for (let seed = 0; seed < 20; seed++) {
+          const prng = createSeededRandom(seed);
+          const origRandom = Math.random;
+          let distractors, options;
+          try {
+            Math.random = prng;
+            distractors = pluralDistractors(w, cat);
+            options = shuffle([correct, ...distractors]);
+          } finally {
+            Math.random = origRandom;
+          }
+
+          expect(options.length).toBe(4);
+          expect(new Set(options).size).toBe(4);
+          expect(options.filter(o => o === correct).length).toBe(1);
+          expect(options.every(o => o.startsWith('die '))).toBe(true);
+        }
+      }
+    }
+    expect(testedPlurals).toBeGreaterThan(0);
   }, 30000);
 });

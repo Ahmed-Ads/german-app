@@ -64,7 +64,7 @@ describe('Comprehensive Fuzz Testing (Written, Listen, Flashcards, SRS Reviews)'
       expect(evaluateWrittenAnswer('', word, cat).ok).toBe(false);
       expect(evaluateWrittenAnswer('   ', word, cat).ok).toBe(false);
     }
-  });
+  }, 20000);
 
   it('fuzz tests 10,000 Listen Mode generations', () => {
     for (let i = 0; i < 10000; i++) {

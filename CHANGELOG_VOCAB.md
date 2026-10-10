@@ -63,3 +63,10 @@
 ### Clarification Note on Sources and Verification Scope
 - **Authoritative Reference Dictionaries:** The sources listed in earlier changelog entries (Duden, DWDS, Hans Wehr, Almaany, PONS) are the authoritative reference dictionaries consulted during the audit process. Not every individual vocabulary entry was reviewed or verified by a human lexicographer.
 - **Verification Scope:** German vocabulary headword spellings, grammatical genders/articles, and plurals are mechanically verified against curated word lists and official lexical databases. Arabic translations and example sentences have not undergone an exhaustive human review.
+
+## [2026-10-10 15:09:52] Authorized Baseline Update
+- **Reason:** Arabic letters accidentally inside German word 'behutsam' in berufe_26 sentence
+- **Source:** German spelling / Duden
+- **Target Item IDs:** berufe_26_s
+- **Previous SHA-256:** `bc4f1b85a867c1f126cdde46eed031b0600440e84708c1e4e264d5106ef8e417`
+- **New SHA-256:** `420c831eaead691b7218b3bef7d7c8c2dee90b47bf2e0a440c03b69829022fed`

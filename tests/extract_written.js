@@ -8,7 +8,10 @@ const indexPath = path.resolve(__dirname, '../index.html');
 const html = fs.readFileSync(indexPath, 'utf8');
 
 export function extractFunction(source, fnName) {
-  const startIdx = source.indexOf(`function ${fnName}(`);
+  let startIdx = source.indexOf(`async function ${fnName}(`);
+  if (startIdx === -1) {
+    startIdx = source.indexOf(`function ${fnName}(`);
+  }
   if (startIdx === -1) throw new Error(`Function ${fnName} not found in index.html`);
   const openBrace = source.indexOf('{', startIdx);
   let depth = 1;

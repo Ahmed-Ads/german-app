@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v10 (Fix: sync flush wrongly treated runtimes without navigator.onLine as offline)
-const CACHE_NAME = 'deutsch-lernen-v10';
+// Cache Version: v14 (Batch 3 sync resilience & security hardening: bounded flush retry policy, in-flight change sequence, hostile key prototype protection, safe SRS 0..4 range)
+const CACHE_NAME = 'deutsch-lernen-v14';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.
@@ -14,6 +14,9 @@ const CRITICAL_ASSETS = [
 
 // Optional assets: Fonts, icons, and sync modules are cached defensively. If any fails to download,
 // a warning is logged but the installation succeeds to maintain full offline functionality.
+// Note: vendor/firebase-sync.bundle.js (~611 KB) is intentionally NOT precached here to prevent
+// downloading dead weight for offline learners when sync is inert; it is fetched and runtime-cached
+// on demand only when sync is configured and activated by the user.
 const OPTIONAL_ASSETS = [
   './fonts/font_1.woff2',
   './fonts/font_2.woff2',
@@ -29,8 +32,7 @@ const OPTIONAL_ASSETS = [
   './firebase-config.js',
   './sync/merge_policy.js',
   './sync/firebase_adapter.js',
-  './sync/sync_manager.js',
-  './vendor/firebase-sync.bundle.js'
+  './sync/sync_manager.js'
 ];
 
 // Combined precache list (single source of truth = CRITICAL + OPTIONAL; used for site/ audits and
