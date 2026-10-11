@@ -107,6 +107,7 @@
       this.retryDelays = options.retryDelays || [30000, 120000, 600000];
       this._listeners = new Set();
       this._initialized = false;
+      this.lastApplyChangedLocal = false;
 
       // Bind handlers
       this._onVisibilityChange = this._onVisibilityChange.bind(this);
@@ -194,11 +195,11 @@
       return () => this._listeners.delete(callback);
     }
 
-    _notify() {
+    _notify(event = {}) {
       const status = this.getStatus();
       for (const cb of this._listeners) {
         try {
-          cb(status);
+          cb(status, event);
         } catch (e) {}
       }
     }
@@ -210,7 +211,8 @@
         lastSyncTime: this.lastSyncTime,
         lastError: this.lastError,
         pendingChanges: this.pendingChanges,
-        isConfigured: Boolean(this.adapter && this.adapter.isConfigured())
+        isConfigured: Boolean(this.adapter && this.adapter.isConfigured()),
+        lastApplyChangedLocal: Boolean(this.lastApplyChangedLocal)
       };
     }
 
@@ -335,6 +337,7 @@
 
       this.state = STATES.SYNCING;
       this.lastError = null;
+      this.lastApplyChangedLocal = false;
       this._notify();
 
       try {
@@ -343,6 +346,7 @@
 
         if (!cloudData) {
           // Case A: Cloud is empty, upload local data
+          this.lastApplyChangedLocal = false;
           const payload = this.policy ? this.policy.createCloudPayload(localData) : localData;
           await this._saveWithRetry(this.user.uid, payload);
           if (typeof window !== 'undefined' && window.localStorage) {
@@ -361,7 +365,7 @@
               this.flushSave().catch(() => {});
             }, this.debounceMs);
           }
-          this._notify();
+          this._notify({ changed: false });
           if (typeof global.showToast === 'function') {
             global.showToast('تم ربط الحساب ورفع تقدمك الحالي إلى السحابة بنجاح ☁️');
           }
@@ -466,14 +470,10 @@
               this.flushSave().catch(() => {});
             }, this.debounceMs);
           }
-          this._notify();
+          this._notify({ changed: Boolean(this.lastApplyChangedLocal) });
 
-          if (typeof global.showToast === 'function') {
+          if (!isFirstMergeDone && typeof global.showToast === 'function') {
             global.showToast('🎉 تمت مزامنة تقدمك بنجاح وحفظ أعلى إتقان من الجهازين!');
-          }
-
-          if (typeof global.render === 'function') {
-            global.render();
           }
         } catch (saveErr) {
           this.pendingChanges = true;
@@ -496,6 +496,7 @@
       if (this._firstMergePending || !this.user || !this.adapter || !this.adapter.isConfigured()) return;
       this._changeSeq++;
       this.pendingChanges = true;
+      this.lastApplyChangedLocal = false;
       this._failedFlushes = 0;
       this._lastFlushErrorType = null;
 
@@ -670,6 +671,7 @@
 
       this.state = STATES.SYNCING;
       this.lastError = null;
+      this.lastApplyChangedLocal = false;
       this._notify();
 
       const localData = this._getLocalData();
@@ -682,6 +684,7 @@
       let shouldWrite = true;
 
       if (!cloudData) {
+        this.lastApplyChangedLocal = false;
         payloadToSave = this.policy ? this.policy.createCloudPayload(localData) : localData;
       } else {
         // 2. Validate cloud document
@@ -725,7 +728,7 @@
       } else {
         this.pendingChanges = true;
       }
-      this._notify();
+      this._notify({ changed: Boolean(this.lastApplyChangedLocal) });
     }
 
     /**
@@ -871,74 +874,85 @@
     }
 
     _applyLocalData(merged) {
-      if (!merged || typeof merged !== 'object') return;
+      if (!merged || typeof merged !== 'object') {
+        this.lastApplyChangedLocal = false;
+        return false;
+      }
+
+      const beforeData = this._getLocalData();
+      const beforeStr = JSON.stringify(beforeData);
 
       if (this.localStateProvider && typeof this.localStateProvider.applyLocalData === 'function') {
         this.localStateProvider.applyLocalData(merged);
-        return;
-      }
-
-      if (merged.progress && typeof global.progress === 'object') {
-        for (const k of Object.keys(global.progress)) {
-          if (!(k in merged.progress)) delete global.progress[k];
-        }
-        Object.assign(global.progress, merged.progress);
-        if (global.appStorage && global.STORAGE_KEYS) {
-          global.appStorage.set(global.STORAGE_KEYS.PROGRESS, global.progress);
-        }
-      }
-
-      if (merged.stats && typeof global.stats === 'object') {
-        Object.assign(global.stats, merged.stats);
-        if (global.appStorage && global.STORAGE_KEYS) {
-          global.appStorage.set(global.STORAGE_KEYS.STATS, global.stats);
-        }
-      }
-
-      if (merged.starred) {
-        if (global.starredSet instanceof Set) {
-          global.starredSet.clear();
-          for (const item of merged.starred) global.starredSet.add(item);
-        }
-        if (Array.isArray(global.starred)) {
-          global.starred.length = 0;
-          global.starred.push(...merged.starred);
-        }
-        if (global.appStorage && global.STORAGE_KEYS) {
-          global.appStorage.set(global.STORAGE_KEYS.STARRED, merged.starred);
-        }
-      }
-
-      if (merged.srs && typeof global.srs === 'object') {
-        for (const k of Object.keys(global.srs)) {
-          if (!(k in merged.srs)) delete global.srs[k];
-        }
-        Object.assign(global.srs, merged.srs);
-        if (global.appStorage && global.STORAGE_KEYS) {
-          global.appStorage.set(global.STORAGE_KEYS.SRS, global.srs);
-        }
-      }
-
-      if (merged.dailyGoal) {
-        const target = typeof merged.dailyGoal === 'object' ? merged.dailyGoal.target : merged.dailyGoal;
-        const updatedAt = typeof merged.dailyGoal === 'object' && typeof merged.dailyGoal.updatedAt === 'string' ? merged.dailyGoal.updatedAt : '';
-        if (Number.isInteger(target) && target >= 5 && target <= 200) {
+      } else {
+        if (merged.progress && typeof global.progress === 'object') {
+          for (const k of Object.keys(global.progress)) {
+            if (!(k in merged.progress)) delete global.progress[k];
+          }
+          Object.assign(global.progress, merged.progress);
           if (global.appStorage && global.STORAGE_KEYS) {
-            global.appStorage.set(global.STORAGE_KEYS.DAILY_GOAL, String(target));
-            if (updatedAt) {
-              global.appStorage.set('deutsch_daily_goal_updated_at_v1', updatedAt);
+            global.appStorage.set(global.STORAGE_KEYS.PROGRESS, global.progress);
+          }
+        }
+
+        if (merged.stats && typeof global.stats === 'object') {
+          Object.assign(global.stats, merged.stats);
+          if (global.appStorage && global.STORAGE_KEYS) {
+            global.appStorage.set(global.STORAGE_KEYS.STATS, global.stats);
+          }
+        }
+
+        if (merged.starred) {
+          if (global.starredSet instanceof Set) {
+            global.starredSet.clear();
+            for (const item of merged.starred) global.starredSet.add(item);
+          }
+          if (Array.isArray(global.starred)) {
+            global.starred.length = 0;
+            global.starred.push(...merged.starred);
+          }
+          if (global.appStorage && global.STORAGE_KEYS) {
+            global.appStorage.set(global.STORAGE_KEYS.STARRED, merged.starred);
+          }
+        }
+
+        if (merged.srs && typeof global.srs === 'object') {
+          for (const k of Object.keys(global.srs)) {
+            if (!(k in merged.srs)) delete global.srs[k];
+          }
+          Object.assign(global.srs, merged.srs);
+          if (global.appStorage && global.STORAGE_KEYS) {
+            global.appStorage.set(global.STORAGE_KEYS.SRS, global.srs);
+          }
+        }
+
+        if (merged.dailyGoal) {
+          const target = typeof merged.dailyGoal === 'object' ? merged.dailyGoal.target : merged.dailyGoal;
+          const updatedAt = typeof merged.dailyGoal === 'object' && typeof merged.dailyGoal.updatedAt === 'string' ? merged.dailyGoal.updatedAt : '';
+          if (Number.isInteger(target) && target >= 5 && target <= 200) {
+            if (global.appStorage && global.STORAGE_KEYS) {
+              global.appStorage.set(global.STORAGE_KEYS.DAILY_GOAL, String(target));
+              if (updatedAt) {
+                global.appStorage.set('deutsch_daily_goal_updated_at_v1', updatedAt);
+              }
+            }
+            if (typeof window !== 'undefined' && window.localStorage) {
+              try {
+                window.localStorage.setItem('deutsch_daily_goal_v1', String(target));
+                if (updatedAt) {
+                  window.localStorage.setItem('deutsch_daily_goal_updated_at_v1', updatedAt);
+                }
+              } catch (e) {}
             }
           }
-          if (typeof window !== 'undefined' && window.localStorage) {
-            try {
-              window.localStorage.setItem('deutsch_daily_goal_v1', String(target));
-              if (updatedAt) {
-                window.localStorage.setItem('deutsch_daily_goal_updated_at_v1', updatedAt);
-              }
-            } catch (e) {}
-          }
         }
       }
+
+      const afterData = this._getLocalData();
+      const afterStr = JSON.stringify(afterData);
+      const changed = (beforeStr !== afterStr);
+      this.lastApplyChangedLocal = changed;
+      return changed;
     }
   }
 

@@ -3825,6 +3825,30 @@ function isSameView(a, b){
          !!a.fromSearch === !!b.fromSearch;
 }
 
+let pendingRefresh = false;
+
+function isExerciseInProgress(){
+  return typeof view !== 'undefined' && view && (view.screen === 'exercise' || view.screen === 'flashcards');
+}
+
+function refreshAfterSync(status, event){
+  const changed = event ? Boolean(event.changed) : Boolean(status && status.lastApplyChangedLocal);
+  if(!changed) return;
+
+  if(typeof showToast === 'function'){
+    showToast('تم تحديث تقدمك من السحابة');
+  }
+
+  if(isExerciseInProgress()){
+    pendingRefresh = true;
+  } else {
+    pendingRefresh = false;
+    if(typeof render === 'function'){
+      render();
+    }
+  }
+}
+
 function go(v, opts){
   opts = opts || {};
   const nextView = Object.assign({}, view, v);
@@ -3842,6 +3866,22 @@ function go(v, opts){
       if (typeof window.history.pushState === 'function') {
         window.history.pushState({ view: cloneView(view), depth: historyDepth }, '');
       }
+    }
+  }
+
+  const hasPending = (typeof pendingRefresh !== 'undefined')
+    ? pendingRefresh
+    : (typeof window !== 'undefined' && Boolean(window.pendingRefresh));
+  const inExercise = (typeof isExerciseInProgress === 'function')
+    ? isExerciseInProgress()
+    : (typeof window !== 'undefined' && typeof window.isExerciseInProgress === 'function' && window.isExerciseInProgress());
+
+  if (hasPending && !inExercise) {
+    if (typeof pendingRefresh !== 'undefined') {
+      try { pendingRefresh = false; } catch (e) {}
+    }
+    if (typeof window !== 'undefined') {
+      window.pendingRefresh = false;
     }
   }
 
@@ -3864,6 +3904,8 @@ if (typeof window !== 'undefined') {
   window.goBack = goBack;
   window.cloneView = cloneView;
   window.isSameView = isSameView;
+  window.refreshAfterSync = refreshAfterSync;
+  window.isExerciseInProgress = isExerciseInProgress;
 }
 
 function attachHeaderListeners(){
@@ -5930,16 +5972,11 @@ async function init(){
             }
           }
         }
-        if(typeof render === 'function'){
-          if(typeof view !== 'undefined' && view.screen === 'stats'){
-            render();
-          }
-        }
       }
     });
     window.syncManager.init();
-    window.syncManager.subscribe(()=>{
-      if(typeof view !== 'undefined' && view.screen === 'stats') render();
+    window.syncManager.subscribe((status, event)=>{
+      refreshAfterSync(status, event);
     });
     const hadSyncEnabled = window.localStorage && window.localStorage.getItem('deutsch_sync_enabled') === '1';
     const redirectPending = window.localStorage && window.localStorage.getItem('deutsch_sync_redirect_pending') === '1';
