@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v15 (Connect to owner Firebase project german-app-ads)
-const CACHE_NAME = 'deutsch-lernen-v15';
+// Cache Version: v16 (syncNow pull sync, foreground throttled auto-pull, avoid pointless writes)
+const CACHE_NAME = 'deutsch-lernen-v16';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.

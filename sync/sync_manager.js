@@ -17,6 +17,75 @@
     IDLE: 'IDLE'
   };
 
+  function _isDeepEqual(a, b) {
+    if (a === b) return true;
+    if (a === null || b === null || typeof a !== 'object' || typeof b !== 'object') return false;
+    if (Array.isArray(a) !== Array.isArray(b)) return false;
+    if (Array.isArray(a)) {
+      if (a.length !== b.length) return false;
+      for (let i = 0; i < a.length; i++) {
+        if (!_isDeepEqual(a[i], b[i])) return false;
+      }
+      return true;
+    }
+    const keysA = Object.keys(a);
+    const keysB = Object.keys(b);
+    if (keysA.length !== keysB.length) return false;
+    for (const k of keysA) {
+      if (!Object.prototype.hasOwnProperty.call(b, k)) return false;
+      if (!_isDeepEqual(a[k], b[k])) return false;
+    }
+    return true;
+  }
+
+  function _areStarredEqual(a, b) {
+    const arrA = Array.isArray(a) ? a : [];
+    const arrB = Array.isArray(b) ? b : [];
+    if (arrA.length !== arrB.length) return false;
+    const setA = new Set(arrA);
+    for (const item of arrB) {
+      if (!setA.has(item)) return false;
+    }
+    return true;
+  }
+
+  function _areSrsEqual(a, b) {
+    const srsA = (a && typeof a === 'object' && !Array.isArray(a)) ? a : {};
+    const srsB = (b && typeof b === 'object' && !Array.isArray(b)) ? b : {};
+    const keysA = Object.keys(srsA);
+    const keysB = Object.keys(srsB);
+    if (keysA.length !== keysB.length) return false;
+    for (const k of keysA) {
+      if (!Object.prototype.hasOwnProperty.call(srsB, k)) return false;
+      const recA = srsA[k] || {};
+      const recB = srsB[k] || {};
+      if ((recA.box || 0) !== (recB.box || 0)) return false;
+      if ((recA.lastDate || '') !== (recB.lastDate || '')) return false;
+      if ((recA.nextDate || '') !== (recB.nextDate || '')) return false;
+    }
+    return true;
+  }
+
+  function _areDailyGoalsEqual(a, b) {
+    const targetA = (a && typeof a === 'object' && a !== null) ? (Number(a.target) || 20) : (Number(a) || 20);
+    const targetB = (b && typeof b === 'object' && b !== null) ? (Number(b.target) || 20) : (Number(b) || 20);
+    const updatedA = (a && typeof a === 'object' && a !== null && typeof a.updatedAt === 'string') ? a.updatedAt : '';
+    const updatedB = (b && typeof b === 'object' && b !== null && typeof b.updatedAt === 'string') ? b.updatedAt : '';
+    return targetA === targetB && updatedA === updatedB;
+  }
+
+  function _areStatsEqual(a, b) {
+    const sA = (a && typeof a === 'object' && a !== null) ? a : {};
+    const sB = (b && typeof b === 'object' && b !== null) ? b : {};
+    if ((sA.totalAnswered || 0) !== (sB.totalAnswered || 0)) return false;
+    if ((sA.totalCorrect || 0) !== (sB.totalCorrect || 0)) return false;
+    if ((sA.current || 0) !== (sB.current || 0)) return false;
+    if ((sA.longest || 0) !== (sB.longest || 0)) return false;
+    if ((sA.lastDate || '') !== (sB.lastDate || '')) return false;
+    if ((sA.todayCount || 0) !== (sB.todayCount || 0)) return false;
+    return true;
+  }
+
   class SyncManager {
     constructor(options = {}) {
       this.adapter = options.adapter || null;
@@ -34,6 +103,7 @@
       this._changeSeq = 0;
       this._failedFlushes = 0;
       this._lastFlushErrorType = null;
+      this._lastAutoPullTime = 0;
       this.retryDelays = options.retryDelays || [30000, 120000, 600000];
       this._listeners = new Set();
       this._initialized = false;
@@ -510,24 +580,23 @@
       }
     }
 
-    /**
-     * Flushes pending saves to the cloud immediately with Read-Merge-Write concurrency safety.
-     * Serialized to coalesce overlapping calls.
-     */
-    flushSave() {
-      if (this.debounceTimer) {
-        clearTimeout(this.debounceTimer);
-        this.debounceTimer = null;
-      }
+    _hasDataDifferences(merged, cloudData) {
+      if (!cloudData || typeof cloudData !== 'object') return true;
+      if (!_isDeepEqual(merged.progress || {}, cloudData.progress || {})) return true;
+      if (!_areStatsEqual(merged.stats, cloudData.stats)) return true;
+      if (!_areStarredEqual(merged.starred, cloudData.starred)) return true;
+      if (!_areSrsEqual(merged.srs, cloudData.srs)) return true;
+      if (!_areDailyGoalsEqual(merged.dailyGoal, cloudData.dailyGoal)) return true;
+      return false;
+    }
 
-      if (this._firstMergePending || !this.user || !this.adapter || !this.adapter.isConfigured()) return Promise.resolve();
-      if (!this.pendingChanges) return Promise.resolve();
-
+    _executeFlushCycle() {
       if (this._flushPromise) {
         return this._flushPromise;
       }
 
       const seqAtStart = this._changeSeq;
+      const hadPendingAtStart = this.pendingChanges;
 
       this._flushPromise = (async () => {
         let errType = null;
@@ -538,7 +607,9 @@
         } catch (err) {
           errType = this._classifyError(err);
           this._lastFlushErrorType = errType;
-          this.pendingChanges = true;
+          if (hadPendingAtStart || this._changeSeq !== seqAtStart) {
+            this.pendingChanges = true;
+          }
           if (errType === 'offline') {
             this.state = STATES.OFFLINE;
             this.lastError = 'الجهاز غير متصل بالإنترنت حالياً';
@@ -554,6 +625,40 @@
       })();
 
       return this._flushPromise;
+    }
+
+    /**
+     * Flushes pending saves to the cloud immediately with Read-Merge-Write concurrency safety.
+     * Serialized to coalesce overlapping calls.
+     */
+    flushSave() {
+      if (this.debounceTimer) {
+        clearTimeout(this.debounceTimer);
+        this.debounceTimer = null;
+      }
+
+      if (this._firstMergePending || !this.user || !this.adapter || !this.adapter.isConfigured()) return Promise.resolve();
+      if (!this.pendingChanges) return Promise.resolve();
+
+      return this._executeFlushCycle();
+    }
+
+    /**
+     * Public method to immediately sync progress with the cloud.
+     * Always performs a full read-merge-apply-write cycle when signed in and configured.
+     * Pulls latest cloud state, merges in-place, and writes back only if differing.
+     */
+    syncNow() {
+      if (this.debounceTimer) {
+        clearTimeout(this.debounceTimer);
+        this.debounceTimer = null;
+      }
+
+      if (this._firstMergePending || !this.user || !this.adapter || !this.adapter.isConfigured()) return Promise.resolve();
+
+      this._lastAutoPullTime = (typeof Date.now === 'function') ? Date.now() : new Date().getTime();
+
+      return this._executeFlushCycle();
     }
 
     async _doFlushSave(seqAtStart) {
@@ -574,6 +679,8 @@
       const cloudData = await this.adapter.load(this.user.uid);
 
       let payloadToSave;
+      let shouldWrite = true;
+
       if (!cloudData) {
         payloadToSave = this.policy ? this.policy.createCloudPayload(localData) : localData;
       } else {
@@ -596,10 +703,17 @@
         this._applyLocalData(merged);
 
         payloadToSave = merged;
+
+        // 5. Only upload merged result if it differs from what the cloud already holds
+        if (!this._hasDataDifferences(merged, cloudData)) {
+          shouldWrite = false;
+        }
       }
 
-      // 5. Upload merged result
-      await this.adapter.save(this.user.uid, payloadToSave);
+      // 6. Upload merged result if needed
+      if (shouldWrite) {
+        await this.adapter.save(this.user.uid, payloadToSave);
+      }
 
       this.state = STATES.SYNCED;
       this.lastSyncTime = new Date().toISOString();
@@ -644,6 +758,33 @@
       }
     }
 
+    _checkAutoPull() {
+      if (!this.user || !this.adapter || !this.adapter.isConfigured() || this._firstMergePending) {
+        return;
+      }
+      if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+        return;
+      }
+      if (this.state === STATES.OFFLINE || this.state === STATES.SYNCING) {
+        return;
+      }
+      if (this._flushPromise) {
+        return;
+      }
+      if (this._lastFlushErrorType === 'non-transient') {
+        return;
+      }
+
+      const now = (typeof Date.now === 'function') ? Date.now() : new Date().getTime();
+      const throttleMs = 60000;
+      if (now - this._lastAutoPullTime < throttleMs) {
+        return;
+      }
+
+      this._lastAutoPullTime = now;
+      this.syncNow().catch(() => {});
+    }
+
     _onVisibilityChange() {
       if (typeof document !== 'undefined') {
         if (document.visibilityState === 'hidden') {
@@ -651,8 +792,12 @@
         } else if (document.visibilityState === 'visible') {
           if (this.pendingChanges && this.user) {
             this._failedFlushes = 0;
-            this._lastFlushErrorType = null;
+            if (this._lastFlushErrorType !== 'non-transient') {
+              this._lastFlushErrorType = null;
+            }
             this.flushSave().catch(() => {});
+          } else {
+            this._checkAutoPull();
           }
         }
       }
@@ -667,10 +812,18 @@
         this.state = this.user ? STATES.SYNCED : STATES.SIGNED_OUT;
         this._notify();
       }
+      if (this._lastFlushErrorType === 'offline') {
+        this._lastFlushErrorType = null;
+        this._failedFlushes = 0;
+      }
       if (this.pendingChanges && this.user) {
         this._failedFlushes = 0;
-        this._lastFlushErrorType = null;
+        if (this._lastFlushErrorType !== 'non-transient') {
+          this._lastFlushErrorType = null;
+        }
         this.flushSave().catch(() => {});
+      } else {
+        this._checkAutoPull();
       }
     }
 

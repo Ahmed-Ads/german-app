@@ -4474,13 +4474,27 @@ function renderStats(){
   if(syncNowBtn){
     syncNowBtn.addEventListener('click', async ()=>{
       if(!window.syncManager) return;
+      if(syncNowBtn.disabled) return;
+      syncNowBtn.disabled = true;
       try {
         showToast('جاري مزامنة التقدم مع السحابة... 🔄');
-        await window.syncManager.flushSave();
+        await window.syncManager.syncNow();
+        const sm = window.syncManager;
+        const errState = window.SYNC_STATES ? window.SYNC_STATES.ERROR : 'ERROR';
+        const offState = window.SYNC_STATES ? window.SYNC_STATES.OFFLINE : 'OFFLINE';
+        if(sm.state === errState){
+          showToast(`فشلت المزامنة: ${sm.lastError || 'تعذر حفظ التقدم سحابياً'}`);
+        } else if(sm.state === offState){
+          showToast(`فشلت المزامنة: ${sm.lastError || 'الجهاز غير متصل بالإنترنت حالياً'}`);
+        } else {
+          showToast('تمت المزامنة');
+        }
         render();
       } catch(err) {
-        showToast(`فشلت المزامنة: ${err.message}`);
+        showToast(`فشلت المزامنة: ${err.message || 'تعذر إتمام المزامنة'}`);
         render();
+      } finally {
+        syncNowBtn.disabled = false;
       }
     });
   }
