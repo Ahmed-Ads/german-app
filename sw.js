@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v14 (Batch 3 sync resilience & security hardening: bounded flush retry policy, in-flight change sequence, hostile key prototype protection, safe SRS 0..4 range)
-const CACHE_NAME = 'deutsch-lernen-v14';
+// Cache Version: v15 (Connect to owner Firebase project german-app-ads)
+const CACHE_NAME = 'deutsch-lernen-v15';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.

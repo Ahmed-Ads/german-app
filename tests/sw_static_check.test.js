@@ -170,7 +170,7 @@ describe('Service Worker Lifecycle & Fallback Simulation', () => {
     const swCode = fs.readFileSync('sw.js', 'utf8');
     expect(swCode).toMatch(/if\s*\(\s*url\.origin\s*!==\s*self\.location\.origin\s*\)\s*return;/);
 
-    const selfLocation = { origin: 'https://german-app.pages.dev' };
+    const selfLocation = { origin: 'https://german-app-ads.pages.dev' };
     const crossOriginUrls = [
       'https://firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel',
       'https://identitytoolkit.googleapis.com/v1/accounts:lookup',

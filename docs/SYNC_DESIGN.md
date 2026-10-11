@@ -135,7 +135,7 @@ To stay comfortably within the 20,000 writes/day free quota:
 
 ### Research & Official Guidance
 According to official Firebase Auth guidance and web standards:
-- **`signInWithRedirect` Limitations:** Modern browsers (Safari iOS standalone mode, Chrome with third-party cookie restrictions, Firefox Total Cookie Protection) partition storage across origins. When redirecting from `app.pages.dev` to `project-id.firebaseapp.com` and back, the cross-origin iframe frequently loses authentication session tokens unless a custom `authDomain` on the same top-level domain is configured.
+- **`signInWithRedirect` Limitations:** Modern browsers (Safari iOS standalone mode, Chrome with third-party cookie restrictions, Firefox Total Cookie Protection) partition storage across origins. When redirecting from `german-app-ads.pages.dev` to `german-app-ads.firebaseapp.com` and back, the cross-origin iframe frequently loses authentication session tokens unless a custom `authDomain` on the same top-level domain is configured.
 - **`signInWithPopup` Advantages:** Executes inside a direct browser popup opened synchronously via user click gesture. It maintains the PWA application context, circumvents storage partitioning, and works reliably on desktop and mobile browsers.
 
 ### Chosen Strategy

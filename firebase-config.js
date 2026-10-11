@@ -2,26 +2,22 @@
  * firebase-config.js
  * Client-side Firebase configuration.
  *
- * NOTE: These configuration values are public by design in client-side web apps.
- * Real security is enforced strictly by Firestore Security Rules (firestore.rules),
- * not by hiding these keys.
- *
- * When PLACEHOLDER values are present, the sync engine remains completely inert:
- * - No Firebase network calls are initiated.
- * - No console errors or warnings are emitted.
- * - UI displays "المزامنة السحابية غير مفعّلة (الإعداد غير مكتمل)".
+ * Configured for the owner's project (german-app-ads).
+ * Public by design in client-side web apps; real security is enforced strictly
+ * by Firestore Security Rules (firestore.rules) and an API key restriction applied manually in Google Cloud Console.
+ * No private keys, service-account credentials, or secrets belong in this file.
  */
 
 (function(global) {
   'use strict';
 
   const FIREBASE_CONFIG = {
-    apiKey: "PLACEHOLDER_API_KEY",
-    authDomain: "PLACEHOLDER_PROJECT_ID.firebaseapp.com",
-    projectId: "PLACEHOLDER_PROJECT_ID",
-    storageBucket: "PLACEHOLDER_PROJECT_ID.appspot.com",
-    messagingSenderId: "000000000000",
-    appId: "1:000000000000:web:0000000000000000000000"
+    apiKey: "AIzaSyApuBJN4hT0_iLg37H5Y0yW5mPL2ZrflS0",
+    authDomain: "german-app-ads.firebaseapp.com",
+    projectId: "german-app-ads",
+    storageBucket: "german-app-ads.firebasestorage.app",
+    messagingSenderId: "79286358420",
+    appId: "1:79286358420:web:846d1f8e613ef5c597ff81"
   };
 
   function isFirebaseConfigured(config) {
