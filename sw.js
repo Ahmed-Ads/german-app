@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v17 (refreshAfterSync UI update, exercise protection, lastApplyChangedLocal)
-const CACHE_NAME = 'deutsch-lernen-v17';
+// Cache Version: v18 (preserve sync launch flag, ignore synthetic null, reliable session reload)
+const CACHE_NAME = 'deutsch-lernen-v18';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.

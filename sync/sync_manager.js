@@ -154,10 +154,11 @@
         return;
       }
 
-      this.state = this.user ? STATES.SYNCED : STATES.SIGNED_OUT;
+      const hasSavedSync = typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('deutsch_sync_enabled') === '1';
+      this.state = this.user ? STATES.SYNCED : (hasSavedSync ? STATES.SYNCING : STATES.SIGNED_OUT);
 
-      this.adapter.onAuthChange(user => {
-        this._handleAuthChanged(user);
+      this.adapter.onAuthChange((user, info) => {
+        this._handleAuthChanged(user, info);
       });
 
       if (typeof this.adapter.checkRedirectResult === 'function') {
@@ -220,23 +221,20 @@
       if (!this.adapter || !this.adapter.isConfigured()) {
         this.state = STATES.UNCONFIGURED;
       } else if (!this.user) {
-        this.state = STATES.SIGNED_OUT;
+        const hasSavedSync = typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('deutsch_sync_enabled') === '1';
+        this.state = hasSavedSync ? STATES.SYNCING : STATES.SIGNED_OUT;
       }
       this._notify();
     }
 
-    async _handleAuthChanged(user) {
-      if (typeof window !== 'undefined' && window.localStorage) {
-        try {
-          if (user) {
-            window.localStorage.setItem('deutsch_sync_enabled', '1');
-          } else {
-            window.localStorage.removeItem('deutsch_sync_enabled');
-          }
-        } catch (e) {}
-      }
-
+    async _handleAuthChanged(user, info = {}) {
       if (user) {
+        if (typeof window !== 'undefined' && window.localStorage) {
+          try {
+            window.localStorage.setItem('deutsch_sync_enabled', '1');
+          } catch (e) {}
+        }
+
         // If the same uid is already signed in and already synced, no-op (prevents re-render storm)
         if (this.user && this.user.uid === user.uid && this.state === STATES.SYNCED) {
           return;
@@ -256,6 +254,18 @@
           this._notify();
         }
       } else {
+        // User is null. If synthetic event (no bundle yet / unconfigured early callback),
+        // do NOT treat as sign-out; preserve flag and current state.
+        if (info && info.synthetic) {
+          return;
+        }
+
+        if (typeof window !== 'undefined' && window.localStorage) {
+          try {
+            window.localStorage.removeItem('deutsch_sync_enabled');
+          } catch (e) {}
+        }
+
         if (!this.user && this.state === STATES.SIGNED_OUT) {
           return; // Duplicate signed out event; no-op
         }
@@ -302,9 +312,16 @@
           await this.flushSave();
         } catch (e) {}
       }
-      await this.adapter.signOut();
+      try {
+        await this.adapter.signOut();
+      } catch (e) {}
+      if (typeof window !== 'undefined' && window.localStorage) {
+        try {
+          window.localStorage.removeItem('deutsch_sync_enabled');
+        } catch (e) {}
+      }
       this.user = null;
-      this.state = STATES.SIGNED_OUT;
+      this.state = (this.adapter && this.adapter.isConfigured()) ? STATES.SIGNED_OUT : STATES.UNCONFIGURED;
       this.pendingChanges = false;
       this._notify();
     }

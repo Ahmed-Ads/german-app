@@ -156,12 +156,12 @@
     onAuthChange(callback) {
       this._authCallback = callback;
       if (!this.isConfigured()) {
-        callback(null);
+        callback(null, { synthetic: true });
         return () => { this._authCallback = null; };
       }
       const fb = typeof global !== 'undefined' ? global.FirebaseSync : null;
       if (!fb) {
-        callback(null);
+        callback(null, { synthetic: true });
         return () => { this._authCallback = null; };
       }
       try {
@@ -176,9 +176,9 @@
               email: user.email || null,
               displayName: user.displayName || null,
               photoURL: user.photoURL || null
-            });
+            }, { synthetic: false });
           } else {
-            callback(null);
+            callback(null, { synthetic: false });
           }
         });
         return () => {
@@ -189,7 +189,7 @@
           this._authCallback = null;
         };
       } catch (e) {
-        callback(null);
+        callback(null, { synthetic: true });
         return () => { this._authCallback = null; };
       }
     }

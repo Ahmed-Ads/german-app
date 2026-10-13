@@ -5974,12 +5974,12 @@ async function init(){
         }
       }
     });
+    const hadSyncEnabled = Boolean(window.localStorage && window.localStorage.getItem('deutsch_sync_enabled') === '1');
+    const redirectPending = Boolean(window.localStorage && window.localStorage.getItem('deutsch_sync_redirect_pending') === '1');
     window.syncManager.init();
     window.syncManager.subscribe((status, event)=>{
       refreshAfterSync(status, event);
     });
-    const hadSyncEnabled = window.localStorage && window.localStorage.getItem('deutsch_sync_enabled') === '1';
-    const redirectPending = window.localStorage && window.localStorage.getItem('deutsch_sync_redirect_pending') === '1';
     if((hadSyncEnabled || redirectPending) && typeof isFirebaseConfigured === 'function' && isFirebaseConfigured(window.FIREBASE_CONFIG)){
       if(typeof window.loadFirebaseSyncBundle === 'function'){
         window.loadFirebaseSyncBundle().then(()=>{
