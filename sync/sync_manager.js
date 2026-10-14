@@ -96,7 +96,7 @@
       this.lastError = null;
       this.pendingChanges = false;
       this.debounceTimer = null;
-      this.debounceMs = options.debounceMs || 30000;
+      this.debounceMs = typeof options.debounceMs === 'number' ? options.debounceMs : 8000;
       this.localStateProvider = options.localStateProvider || null;
       this._firstMergePending = false;
       this._flushPromise = null;
@@ -114,6 +114,24 @@
       this._onPageHide = this._onPageHide.bind(this);
       this._onOnline = this._onOnline.bind(this);
       this._onOffline = this._onOffline.bind(this);
+    }
+
+    _clearDirtyMarker() {
+      const storage = (typeof window !== 'undefined' && window.localStorage) ? window.localStorage : (typeof localStorage !== 'undefined' ? localStorage : null);
+      if (storage) {
+        try {
+          storage.removeItem('deutsch_sync_dirty_v1');
+        } catch (e) {}
+      }
+    }
+
+    _setDirtyMarker() {
+      const storage = (typeof window !== 'undefined' && window.localStorage) ? window.localStorage : (typeof localStorage !== 'undefined' ? localStorage : null);
+      if (storage) {
+        try {
+          storage.setItem('deutsch_sync_dirty_v1', '1');
+        } catch (e) {}
+      }
     }
 
     setLocalStateProvider(provider) {
@@ -253,6 +271,16 @@
           this.state = STATES.SYNCED;
           this._notify();
         }
+
+        // At launch, after the initial signed-in sync cycle, if the marker is still set,
+        // run one syncNow() cycle (read-merge-write) so unsent progress is uploaded, then clear on success.
+        // Never loop: respect existing retry rules; one launch-time attempt only.
+        const storage = (typeof window !== 'undefined' && window.localStorage) ? window.localStorage : (typeof localStorage !== 'undefined' ? localStorage : null);
+        if (storage && storage.getItem('deutsch_sync_dirty_v1') === '1' && this.user) {
+          try {
+            await this.syncNow();
+          } catch (e) {}
+        }
       } else {
         // User is null. If synthetic event (no bundle yet / unconfigured early callback),
         // do NOT treat as sign-out; preserve flag and current state.
@@ -265,6 +293,7 @@
             window.localStorage.removeItem('deutsch_sync_enabled');
           } catch (e) {}
         }
+        this._clearDirtyMarker();
 
         if (!this.user && this.state === STATES.SIGNED_OUT) {
           return; // Duplicate signed out event; no-op
@@ -320,6 +349,7 @@
           window.localStorage.removeItem('deutsch_sync_enabled');
         } catch (e) {}
       }
+      this._clearDirtyMarker();
       this.user = null;
       this.state = (this.adapter && this.adapter.isConfigured()) ? STATES.SIGNED_OUT : STATES.UNCONFIGURED;
       this.pendingChanges = false;
@@ -375,6 +405,7 @@
           this.lastSyncTime = new Date().toISOString();
           if (this._changeSeq === seqAtStart) {
             this.pendingChanges = false;
+            this._clearDirtyMarker();
           } else {
             this.pendingChanges = true;
             if (this.debounceTimer) clearTimeout(this.debounceTimer);
@@ -447,6 +478,7 @@
                   window.localStorage.removeItem('deutsch_sync_enabled');
                 } catch (e) {}
               }
+              this._clearDirtyMarker();
               this._notify();
               return;
             }
@@ -480,6 +512,7 @@
           this.lastSyncTime = new Date().toISOString();
           if (this._changeSeq === seqAtStart) {
             this.pendingChanges = false;
+            this._clearDirtyMarker();
           } else {
             this.pendingChanges = true;
             if (this.debounceTimer) clearTimeout(this.debounceTimer);
@@ -516,6 +549,7 @@
       this.lastApplyChangedLocal = false;
       this._failedFlushes = 0;
       this._lastFlushErrorType = null;
+      this._setDirtyMarker();
 
       if (this.debounceTimer) {
         clearTimeout(this.debounceTimer);
@@ -742,6 +776,7 @@
       // B2-2: Check if new changes occurred while save was in flight
       if (this._changeSeq === seqAtStart) {
         this.pendingChanges = false;
+        this._clearDirtyMarker();
       } else {
         this.pendingChanges = true;
       }
@@ -766,6 +801,7 @@
         }
         this.lastSyncTime = new Date().toISOString();
         this.pendingChanges = false;
+        this._clearDirtyMarker();
         this._notify();
         if (!options.silentToast && typeof global.showToast === 'function') {
           global.showToast('تم حذف بياناتك من السحابة بنجاح. بياناتك المحلية ما زالت محفوظة على هذا الجهاز 🗑️');

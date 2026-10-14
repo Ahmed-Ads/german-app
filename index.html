@@ -2480,6 +2480,7 @@ async function resetAllProgress(){
       window.localStorage.removeItem('deutsch_voice_v1');
       window.localStorage.removeItem('deutsch_no_male_warned_v1');
       window.localStorage.removeItem('deutsch_offline_voice_warned_v1');
+      window.localStorage.removeItem('deutsch_sync_dirty_v1');
     } catch(e) {}
   }
   if(typeof window !== 'undefined' && window.voiceManager && typeof window.voiceManager.resetSavedVoice === 'function'){
@@ -3851,7 +3852,19 @@ function refreshAfterSync(status, event){
 
 function go(v, opts){
   opts = opts || {};
+  const currentScreen = view && view.screen;
   const nextView = Object.assign({}, view, v);
+  const nextScreen = nextView && nextView.screen;
+
+  // Checkpoint flush: when leaving exercise or flashcards to any other screen
+  if ((currentScreen === 'exercise' || currentScreen === 'flashcards') && nextScreen !== currentScreen) {
+    if (typeof window !== 'undefined' && window.syncManager && typeof window.syncManager.flushSave === 'function') {
+      try {
+        window.syncManager.flushSave().catch(() => {});
+      } catch (e) {}
+    }
+  }
+
   const same = isSameView(view, nextView);
   view = nextView;
   exState = null;
