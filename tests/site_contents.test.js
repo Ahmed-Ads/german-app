@@ -95,6 +95,7 @@ describe('Site Build & Distribution Integrity (site/)', () => {
       'manifest.json',
       '_headers',
       'firebase-config.js',
+      'sync/legacy_index_ids.js',
       'sync/merge_policy.js',
       'sync/firebase_adapter.js',
       'sync/sync_manager.js',

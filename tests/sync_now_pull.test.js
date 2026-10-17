@@ -24,8 +24,8 @@ describe('SyncManager.syncNow() & Cross-Device Pull Synchronization', () => {
   beforeEach(() => {
     originalCategories = globalThis.CATEGORIES;
     globalThis.CATEGORIES = [
-      { id: 'obst', words: ['Apfel', 'Banane'] },
-      { id: 'tiere', words: ['Hund', 'Katze'] }
+      { id: 'obst', words: [{ id: 'obst.apfel', de: 'Apfel' }, { id: 'obst.banane', de: 'Banane' }] },
+      { id: 'tiere', words: [{ id: 'tiere.hund', de: 'Hund' }, { id: 'tiere.katze', de: 'Katze' }] }
     ];
   });
 
@@ -42,14 +42,16 @@ describe('SyncManager.syncNow() & Cross-Device Pull Synchronization', () => {
 
     // Device A setup with local progress
     let stateA = {
+      dataFormat: 2,
+      dataVersion: 2,
       progress: {
         obst: {
-          mcq: { unlocked: 10, counts: { '0': 2 } }
+          mcq: { unlocked: 10, counts: { 'obst.apfel': 2 } }
         }
       },
       stats: { totalAnswered: 5, totalCorrect: 5, current: 5, longest: 5, lastDate: '2026-10-11', todayCount: 5 },
-      starred: ['obst_0'],
-      srs: { 'obst_0': { box: 1, lastDate: '2026-10-11', nextDate: '2026-10-12' } },
+      starred: ['obst.apfel'],
+      srs: { 'obst.apfel': { box: 1, lastDate: '2026-10-11', nextDate: '2026-10-12' } },
       dailyGoal: { target: 30, updatedAt: '2026-10-11T12:00:00Z' }
     };
 
@@ -73,6 +75,8 @@ describe('SyncManager.syncNow() & Cross-Device Pull Synchronization', () => {
 
     // Device B starts clean with NO pending changes
     let stateB = {
+      dataFormat: 2,
+      dataVersion: 2,
       progress: {},
       stats: { totalAnswered: 0, totalCorrect: 0, current: 0, longest: 0 },
       starred: [],
@@ -101,9 +105,9 @@ describe('SyncManager.syncNow() & Cross-Device Pull Synchronization', () => {
     // 1. Device B now contains Device A's progress locally
     expect(stateB.progress.obst).toBeDefined();
     expect(stateB.progress.obst.mcq.unlocked).toBe(10);
-    expect(stateB.progress.obst.mcq.counts['0']).toBe(2);
+    expect(stateB.progress.obst.mcq.counts['obst.apfel']).toBe(2);
     expect(stateB.stats.totalAnswered).toBe(5);
-    expect(stateB.starred).toContain('obst_0');
+    expect(stateB.starred).toContain('obst.apfel');
     expect(stateB.dailyGoal.target).toBe(30);
 
     // 2. Adapter call counts on Device B: exactly 1 load, 0 writes (no redundant save)
@@ -123,22 +127,26 @@ describe('SyncManager.syncNow() & Cross-Device Pull Synchronization', () => {
 
     // Device A has progress in 'obst'
     let stateA = {
+      dataFormat: 2,
+      dataVersion: 2,
       progress: {
-        obst: { mcq: { unlocked: 10, counts: { '0': 2 } } }
+        obst: { mcq: { unlocked: 10, counts: { 'obst.apfel': 2 } } }
       },
       stats: { totalAnswered: 5, totalCorrect: 5, current: 5, longest: 5, lastDate: '2026-10-11', todayCount: 5 },
-      starred: ['obst_0'],
+      starred: ['obst.apfel'],
       srs: {},
       dailyGoal: { target: 20, updatedAt: '' }
     };
 
     // Device B has progress in 'tiere'
     let stateB = {
+      dataFormat: 2,
+      dataVersion: 2,
       progress: {
-        tiere: { mcq: { unlocked: 8, counts: { '0': 1 } } }
+        tiere: { mcq: { unlocked: 8, counts: { 'tiere.hund': 1 } } }
       },
       stats: { totalAnswered: 3, totalCorrect: 3, current: 3, longest: 3, lastDate: '2026-10-11', todayCount: 3 },
-      starred: ['tiere_0'],
+      starred: ['tiere.hund'],
       srs: {},
       dailyGoal: { target: 25, updatedAt: '2026-10-11T14:00:00Z' }
     };
@@ -188,10 +196,10 @@ describe('SyncManager.syncNow() & Cross-Device Pull Synchronization', () => {
     // Both devices now have the fully converged merged state
     expect(stateA.progress.obst).toBeDefined();
     expect(stateA.progress.tiere).toBeDefined();
-    expect(stateA.starred).toContain('obst_0');
-    expect(stateA.starred).toContain('tiere_0');
-    expect(stateB.starred).toContain('obst_0');
-    expect(stateB.starred).toContain('tiere_0');
+    expect(stateA.starred).toContain('obst.apfel');
+    expect(stateA.starred).toContain('tiere.hund');
+    expect(stateB.starred).toContain('obst.apfel');
+    expect(stateB.starred).toContain('tiere.hund');
   });
 
   it('(c) invalid cloud document => no overwrite, error state, no retry loop', async () => {

@@ -46,7 +46,7 @@ function decodeHtml(str) {
 function runChrome(htmlFile, profileDir, virtualTimeMs = 6000) {
   const fullHtmlPath = path.isAbsolute(htmlFile) ? htmlFile : path.join(tempDir, htmlFile);
   const winFile = toFileUrl(fullHtmlPath, CHROME_PATH);
-  const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --user-data-dir="${profileDir}" --virtual-time-budget=${virtualTimeMs} --dump-dom "${winFile}"`;
+  const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --disable-background-networking --user-data-dir="${profileDir}" --virtual-time-budget=${virtualTimeMs} --dump-dom "${winFile}"`;
   return execSync(cmd, { encoding: 'utf8', maxBuffer: 15 * 1024 * 1024 });
 }
 
@@ -58,6 +58,9 @@ function createHarnessFile(filename, initialCloudData, testScript, simulateFailu
   const harness = `
   <script>
   (async function() {
+    window.alert = function() {};
+    window.confirm = function() { return true; };
+    window.exportBackup = function() { return '{"backup":true}'; };
     window.__E2E_SYNC_REPORT__ = { logs: [], savedCloudData: null, deletedUid: null, success: true };
     function log(name, pass, detail = '') {
       window.__E2E_SYNC_REPORT__.logs.push({ name, pass, detail });
@@ -138,12 +141,20 @@ async function main() {
   let allPassed = true;
 
   try {
+    const vocabBaseline = JSON.parse(fs.readFileSync(path.join(rootDir, 'vocab_baseline.json'), 'utf8'));
+    const obstWords = vocabBaseline.find(c => c.id === 'obst').words;
+    const w0Id = obstWords[0].id;
+    const w1Id = obstWords[1].id;
+    const w2Id = obstWords[2].id;
+    const w3Id = obstWords[3].id;
+
     // -----------------------------------------------------------------------
     // PHASE 1: Device A learns words 0 & 1 in obst, saves to fake cloud
     // -----------------------------------------------------------------------
     console.log('\n[Phase 1] Device A (Profile A): Sign in, answer questions, flush cloud save...');
     const scriptA1 = `
       await window.syncManager.signIn();
+      const words = CATEGORIES.find(c => c.id === 'obst').words;
       applyResult('obst', 'mcq', 0, true);
       applyResult('obst', 'mcq', 0, true);
       applyResult('obst', 'listen', 0, true);
@@ -151,7 +162,7 @@ async function main() {
       await window.syncManager.flushSave();
 
       const counts = progress.obst ? progress.obst.mcq.counts : {};
-      log('device_a_local_progress', counts['0'] >= 2 && counts['1'] >= 1, 'Words 0 and 1 recorded locally');
+      log('device_a_local_progress', counts[words[0].id] >= 2 && counts[words[1].id] >= 1, 'Words 0 and 1 recorded locally');
       log('device_a_synced_state', window.syncManager.getStatus().state === 'SYNCED', 'Status transitioned to SYNCED');
     `;
     createHarnessFile('temp_e2e_a1.html', cloudStore.get('user_shared_777'), scriptA1);
@@ -165,7 +176,7 @@ async function main() {
     if (reportA1.savedCloudData) {
       cloudStore.set('user_shared_777', reportA1.savedCloudData);
     }
-    const hasCloudA = cloudStore.has('user_shared_777') && cloudStore.get('user_shared_777').progress.obst.mcq.counts['0'] >= 2;
+    const hasCloudA = cloudStore.has('user_shared_777') && cloudStore.get('user_shared_777').progress.obst.mcq.counts[w0Id] >= 2;
     console.log(`  - [${hasCloudA ? 'PASS' : 'FAIL'}] cloud_store_updated: Cloud store received Device A data`);
     if (!hasCloudA) allPassed = false;
 
@@ -175,15 +186,16 @@ async function main() {
     console.log('\n[Phase 2] Device B (Profile B): Sign in, verify cloud progress restored, answer word 2...');
     const scriptB1 = `
       await window.syncManager.signIn();
+      const words = CATEGORIES.find(c => c.id === 'obst').words;
       const counts = progress.obst ? progress.obst.mcq.counts : {};
       const listenCounts = progress.obst ? progress.obst.listen.counts : {};
-      log('device_b_received_cloud_progress', counts['0'] >= 2 && counts['1'] >= 1 && listenCounts['0'] >= 1, 'Device B received words 0 & 1');
+      log('device_b_received_cloud_progress', counts[words[0].id] >= 2 && counts[words[1].id] >= 1 && listenCounts[words[0].id] >= 1, 'Device B received words 0 & 1');
 
       // Device B also answers word 2
       applyResult('obst', 'mcq', 2, true);
       applyResult('obst', 'mcq', 2, true);
       await window.syncManager.flushSave();
-      log('device_b_learned_word_2', progress.obst.mcq.counts['2'] >= 2, 'Device B mastered word 2 locally and saved');
+      log('device_b_learned_word_2', progress.obst.mcq.counts[words[2].id] >= 2, 'Device B mastered word 2 locally and saved');
     `;
     createHarnessFile('temp_e2e_b1.html', cloudStore.get('user_shared_777'), scriptB1);
     const outB1 = runChrome('temp_e2e_b1.html', PROFILE_B);
@@ -203,13 +215,14 @@ async function main() {
     console.log('\n[Phase 3] Device A (Profile A): Re-sync with cloud, verify merged words 0, 1, and 2...');
     const scriptA2 = `
       await window.syncManager.signIn();
+      const words = CATEGORIES.find(c => c.id === 'obst').words;
       const counts = progress.obst ? progress.obst.mcq.counts : {};
-      log('device_a_bidirectional_merge', counts['0'] >= 2 && counts['1'] >= 1 && counts['2'] >= 2, 'Device A merged words 0, 1, and 2');
+      log('device_a_bidirectional_merge', counts[words[0].id] >= 2 && counts[words[1].id] >= 1 && counts[words[2].id] >= 2, 'Device A merged words 0, 1, and 2');
 
       // Test Sign-out: local data must remain intact
       await window.syncManager.signOut();
       const postSignOutCounts = progress.obst ? progress.obst.mcq.counts : {};
-      log('sign_out_retains_local_progress', postSignOutCounts['2'] >= 2, 'Local progress retained after sign-out');
+      log('sign_out_retains_local_progress', postSignOutCounts[words[2].id] >= 2, 'Local progress retained after sign-out');
     `;
     createHarnessFile('temp_e2e_a2.html', cloudStore.get('user_shared_777'), scriptA2);
     const outA2 = runChrome('temp_e2e_a2.html', PROFILE_A);
@@ -226,7 +239,8 @@ async function main() {
     const scriptB2 = `
       await window.syncManager.signIn();
       await window.syncManager.deleteCloudData();
-      log('device_b_retains_after_delete', progress.obst.mcq.counts['2'] >= 2, 'Device B local data intact after cloud delete');
+      const words = CATEGORIES.find(c => c.id === 'obst').words;
+      log('device_b_retains_after_delete', progress.obst.mcq.counts[words[2].id] >= 2, 'Device B local data intact after cloud delete');
     `;
     createHarnessFile('temp_e2e_b2.html', cloudStore.get('user_shared_777'), scriptB2);
     const outB2 = runChrome('temp_e2e_b2.html', PROFILE_B);
@@ -255,7 +269,8 @@ async function main() {
       } catch (e) {
         errorCaught = true;
       }
-      log('outage_local_progress_saved', progress.obst.mcq.counts['3'] >= 1, 'Local learning and progress works normally during cloud outage');
+      const words = CATEGORIES.find(c => c.id === 'obst').words;
+      log('outage_local_progress_saved', progress.obst.mcq.counts[words[3].id] >= 1, 'Local learning and progress works normally during cloud outage');
       log('outage_non_fatal', true, 'App UI remains fully interactive without crash');
     `;
     createHarnessFile('temp_e2e_fail.html', null, scriptFail, true);

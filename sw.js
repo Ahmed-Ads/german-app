@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v19 (lower debounce to 8s, checkpoint flush on exit, launch dirty-recovery)
-const CACHE_NAME = 'deutsch-lernen-v19';
+// Cache Version: v21 (permanent stable word ids and format 2 migration)
+const CACHE_NAME = 'deutsch-lernen-v21';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.
@@ -30,6 +30,7 @@ const OPTIONAL_ASSETS = [
   './icons/icon-maskable-192.png',
   './icons/icon-maskable-512.png',
   './firebase-config.js',
+  './sync/legacy_index_ids.js',
   './sync/merge_policy.js',
   './sync/firebase_adapter.js',
   './sync/sync_manager.js'

@@ -191,8 +191,10 @@ try {
       await new Promise(r => setTimeout(r, 500));
 
       // 1. Verify Progress
+      const obstWord = (CATEGORIES.find(c => c.id === 'obst') && CATEGORIES.find(c => c.id === 'obst').words[0]) || { id: 'obst.apfel' };
+      const obstWordId = obstWord.id;
       const hasCat = progress && progress['obst'] && progress['obst']['mcq'];
-      const obstCount = hasCat ? progress['obst']['mcq'].counts[0] : null;
+      const obstCount = hasCat ? progress['obst']['mcq'].counts[obstWordId] : null;
       assert('Progress Category & MCQ Count', obstCount === 7, 'obst mcq count: ' + obstCount + ' (expected 7)');
       assert('Progress Unlocked', hasCat && progress['obst']['mcq'].unlocked === 10, 'unlocked: ' + (hasCat ? progress['obst']['mcq'].unlocked : null));
 
@@ -202,10 +204,10 @@ try {
       assert('Stats Streak', stats && stats.current === 3, 'current streak: ' + (stats ? stats.current : null));
 
       // 3. Verify Starred
-      assert('Starred Set', starredSet && starredSet.has('obst_0'), 'starredSet has obst_0: ' + (starredSet && starredSet.has('obst_0')));
+      assert('Starred Set', starredSet && starredSet.has(obstWordId), 'starredSet has ' + obstWordId + ': ' + (starredSet && starredSet.has(obstWordId)));
 
       // 4. Verify SRS
-      assert('SRS Store Record', srsStore && srsStore['obst_0'] && srsStore['obst_0'].box === 1, 'srsStore obst_0: ' + JSON.stringify(srsStore ? srsStore['obst_0'] : null));
+      assert('SRS Store Record', srsStore && srsStore[obstWordId] && srsStore[obstWordId].box === 1, 'srsStore ' + obstWordId + ': ' + JSON.stringify(srsStore ? srsStore[obstWordId] : null));
 
       // 5. Verify Daily Goal
       const activeGoal = getDailyGoal();
@@ -292,10 +294,12 @@ try {
       importBackup(mainBackupData);
 
       // 3. Verify restored in-memory state
-      assert('Restored Progress', progress['obst'] && progress['obst']['mcq'] && progress['obst']['mcq'].counts[0] === 7, 'counts[0]=7');
+      const obstWord = (CATEGORIES.find(c => c.id === 'obst') && CATEGORIES.find(c => c.id === 'obst').words[0]) || { id: 'obst.apfel' };
+      const obstWordId = obstWord.id;
+      assert('Restored Progress', progress['obst'] && progress['obst']['mcq'] && progress['obst']['mcq'].counts[obstWordId] === 7, 'counts[' + obstWordId + ']=7');
       assert('Restored Stats', stats && stats.totalAnswered === 15 && stats.totalCorrect === 14, 'answered=15, correct=14');
-      assert('Restored Starred', starredSet && starredSet.has('obst_0'), 'has obst_0');
-      assert('Restored SRS', srsStore && srsStore['obst_0'] && srsStore['obst_0'].box === 1, 'srs obst_0 box=1');
+      assert('Restored Starred', starredSet && starredSet.has(obstWordId), 'has ' + obstWordId);
+      assert('Restored SRS', srsStore && srsStore[obstWordId] && srsStore[obstWordId].box === 1, 'srs ' + obstWordId + ' box=1');
       assert('Restored Goal', getDailyGoal() === 30, 'dailyGoal=30');
 
       // 4. Verify both active and legacy keys populated in storage

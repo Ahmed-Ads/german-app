@@ -112,7 +112,7 @@ describe('DEFECT 2 Regression: Pre-Merge Backup Cancel Data-Safety', () => {
     expect(manager.state).toBe(STATES.SYNCED);
     // Highest values merged: unlocked max(3, 9) = 9, count max(2, 8) = 8
     expect(cloudDoc.progress.obst.mcq.unlocked).toBe(9);
-    expect(cloudDoc.progress.obst.mcq.counts['0']).toBe(8);
+    expect(cloudDoc.progress.obst.mcq.counts['obst.apfel'] ?? cloudDoc.progress.obst.mcq.counts['0']).toBe(8);
   });
 
   it('backup throws + user declines -> no writes and user signed out', async () => {

@@ -137,15 +137,28 @@ run_mutation_test("Sentence_edit", original_html.replace("s:'Der Apfel schmeckt 
 run_mutation_test("Plural_edit", original_html.replace("pl:'die Äpfel'", "pl:'die Apfeln'", 1), "mismatch")
 
 # 10. Word deletion
-run_mutation_test("Word_deletion", original_html.replace("{a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Der Apfel schmeckt süß und frisch.',sar:'التفاحة طعمها حلو وطازج.'},", "", 1), "word count mismatch")
+run_mutation_test("Word_deletion", original_html.replace("{id:'obst.apfel',a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Der Apfel schmeckt süß und frisch.',sar:'التفاحة طعمها حلو وطازج.'},", "", 1), "word count mismatch")
 
 # 11. Word addition
-run_mutation_test("Word_addition", original_html.replace("{a:'der',n:'Apfel'", "{a:'der',n:'Apfel_neu',ar:'تفاحة جديدة',pl:'die Äpfel',s:'s',sar:'s'},{a:'der',n:'Apfel'", 1), "word count mismatch")
+run_mutation_test("Word_addition", original_html.replace("{id:'obst.apfel',a:'der',n:'Apfel'", "{id:'obst.apfel-neu',a:'der',n:'Apfel_neu',ar:'تفاحة جديدة',pl:'die Äpfel',s:'s',sar:'s'},{id:'obst.apfel',a:'der',n:'Apfel'", 1), "word count mismatch")
 
 # 12. Category reordering
-w1 = "{a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Der Apfel schmeckt süß und frisch.',sar:'التفاحة طعمها حلو وطازج.'}"
-w2 = "{a:'die',n:'Banane',ar:'موزة',pl:'die Bananen',s:'Die Banane ist gelb und reif.',sar:'الموزة صفراء وناضجة.'}"
+w1 = "{id:'obst.apfel',a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Der Apfel schmeckt süß und frisch.',sar:'التفاحة طعمها حلو وطازج.'}"
+w2 = "{id:'obst.banane',a:'die',n:'Banane',ar:'موزة',pl:'die Bananen',s:'Die Banane ist gelb und reif.',sar:'الموزة صفراء وناضجة.'}"
 run_mutation_test("Word_reordering", original_html.replace(f"{w1},\n    {w2}", f"{w2},\n    {w1}", 1), "mismatch")
+
+# --- WORD ID INTEGRITY MUTATION TESTS ---
+# 13. Missing ID
+run_mutation_test("Missing_id", original_html.replace("id:'obst.apfel',", "", 1), "missing required 'id' field")
+
+# 14. Duplicate ID
+run_mutation_test("Duplicate_id", original_html.replace("id:'obst.banane'", "id:'obst.apfel'", 1), "Duplicate word id")
+
+# 15. Malformed ID
+run_mutation_test("Malformed_id", original_html.replace("id:'obst.apfel'", "id:'obst.Apfel!'", 1), "malformed 'id'")
+
+# 16. ID changed vs baseline
+run_mutation_test("Id_changed_vs_baseline", original_html.replace("id:'obst.apfel'", "id:'obst.apple'", 1), "mismatch")
 
 def run_custom_target_test(name, target_path, expected_err_keyword):
     global passed_count, failed_count

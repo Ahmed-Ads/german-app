@@ -15,6 +15,39 @@
   const DEFAULT_PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen'];
   const FORBIDDEN_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
 
+  /**
+   * Deterministic mapping of pre-migration category order to permanent word IDs.
+   * Preserved permanently to guarantee lossless migration of legacy user data,
+   * backups, and cloud documents.
+   */
+  /**
+   * Deterministic mapping of pre-migration category order to permanent word IDs.
+   * Loaded dynamically from sync/legacy_index_ids.js (browser window.LEGACY_INDEX_IDS,
+   * self.LEGACY_INDEX_IDS, or require('./legacy_index_ids.js') in Node).
+   */
+  function getLegacyMap() {
+    if (typeof global !== 'undefined' && global && global.LEGACY_INDEX_IDS && typeof global.LEGACY_INDEX_IDS === 'object') {
+      return global.LEGACY_INDEX_IDS;
+    }
+    if (typeof globalThis !== 'undefined' && globalThis && globalThis.LEGACY_INDEX_IDS && typeof globalThis.LEGACY_INDEX_IDS === 'object') {
+      return globalThis.LEGACY_INDEX_IDS;
+    }
+    if (typeof window !== 'undefined' && window && window.LEGACY_INDEX_IDS && typeof window.LEGACY_INDEX_IDS === 'object') {
+      return window.LEGACY_INDEX_IDS;
+    }
+    if (typeof self !== 'undefined' && self && self.LEGACY_INDEX_IDS && typeof self.LEGACY_INDEX_IDS === 'object') {
+      return self.LEGACY_INDEX_IDS;
+    }
+    if (typeof require === 'function') {
+      try {
+        return require('./legacy_index_ids.js');
+      } catch (e) {
+        return null;
+      }
+    }
+    return null;
+  }
+
   function isSafeKey(k) {
     return typeof k === 'string' && !FORBIDDEN_KEYS.has(k);
   }
@@ -30,8 +63,169 @@
     return DEFAULT_PROGRESS_MODES;
   }
 
+  function sanitizeSrsEntry(rec) {
+    if (!rec || typeof rec !== 'object') return null;
+    const out = { box: (Number.isInteger(rec.box) && rec.box >= 0 && rec.box <= 4) ? rec.box : 0 };
+    if (typeof rec.lastDate === 'string') out.lastDate = rec.lastDate;
+    if (typeof rec.nextDate === 'string') out.nextDate = rec.nextDate;
+    return out;
+  }
+
+  /**
+   * Pure function to migrate legacy index-based user data to format-2 stable word IDs.
+   * Converts:
+   * - progress[catId][mode].counts keys from numeric index to word id
+   * - starred array from 'catId_idx' to word id
+   * - srs object keys from 'catId_idx' to word id
+   * Drops out-of-range indices gracefully and preserves already-migrated keys idempotently.
+   */
+  function migrateLegacyUserData(data, categoriesList) {
+    if (!data || typeof data !== 'object' || Array.isArray(data)) {
+      return data;
+    }
+    const legacyMap = (typeof SyncMergePolicy !== 'undefined' && SyncMergePolicy && SyncMergePolicy.LEGACY_INDEX_IDS !== undefined)
+      ? SyncMergePolicy.LEGACY_INDEX_IDS
+      : getLegacyMap();
+    if (!legacyMap || typeof legacyMap !== 'object' || Object.keys(legacyMap).length === 0) {
+      const msg = 'تعذر تحميل خريطة المعرفات القديمة. تم إيقاف الترقية لضمان عدم فقدان البيانات.';
+      if (typeof global !== 'undefined' && typeof global.showToast === 'function') {
+        global.showToast(msg);
+      } else if (typeof window !== 'undefined' && typeof window.showToast === 'function') {
+        window.showToast(msg);
+      } else if (typeof showToast === 'function') {
+        showToast(msg);
+      }
+      return data;
+    }
+    const result = { ...data };
+    const categories = Array.isArray(categoriesList) ? categoriesList : (global && global.CATEGORIES ? global.CATEGORIES : []);
+    const catWordIdMap = new Map();
+    for (const cat of categories) {
+      if (cat && cat.id && Array.isArray(cat.words)) {
+        catWordIdMap.set(cat.id, cat.words.map((w, idx) => {
+          if (w && typeof w === 'object' && w.id) return w.id;
+          if (legacyMap[cat.id] && legacyMap[cat.id][idx]) return legacyMap[cat.id][idx];
+          return `${cat.id}.${idx}`;
+        }));
+      }
+    }
+
+    function getWordId(catId, idx) {
+      if (legacyMap[catId] && legacyMap[catId][idx]) {
+        return legacyMap[catId][idx];
+      }
+      if (catWordIdMap.has(catId)) {
+        const list = catWordIdMap.get(catId);
+        if (list && list[idx]) return list[idx];
+      }
+      return null;
+    }
+
+    // 1. Progress migration
+    if (data.progress && typeof data.progress === 'object' && !Array.isArray(data.progress)) {
+      const newProgress = {};
+      for (const [catId, catVal] of Object.entries(data.progress)) {
+        if (!isSafeKey(catId) || typeof catVal !== 'object' || catVal === null || Array.isArray(catVal)) {
+          continue;
+        }
+        const newCatVal = {};
+        if (catVal.coreAcked !== undefined) {
+          newCatVal.coreAcked = Boolean(catVal.coreAcked);
+        }
+        for (const [mKey, mVal] of Object.entries(catVal)) {
+          if (mKey === 'coreAcked') continue;
+          if (!isSafeKey(mKey) || typeof mVal !== 'object' || mVal === null || Array.isArray(mVal)) {
+            continue;
+          }
+          const newMVal = {
+            unlocked: Number.isInteger(mVal.unlocked) ? Math.max(0, mVal.unlocked) : 0,
+            counts: {}
+          };
+          if (mVal.counts && typeof mVal.counts === 'object' && !Array.isArray(mVal.counts)) {
+            for (const [key, cnt] of Object.entries(mVal.counts)) {
+              if (!isSafeKey(key) || !Number.isInteger(cnt) || cnt < 0) continue;
+              if (key.includes('.')) {
+                // Already a word ID
+                newMVal.counts[key] = cnt;
+              } else if (/^\d+$/.test(key)) {
+                const idx = parseInt(key, 10);
+                const wid = getWordId(catId, idx);
+                if (wid) {
+                  newMVal.counts[wid] = cnt;
+                }
+              } else {
+                newMVal.counts[key] = cnt;
+              }
+            }
+          }
+          newCatVal[mKey] = newMVal;
+        }
+        newProgress[catId] = newCatVal;
+      }
+      result.progress = newProgress;
+    }
+
+    // 2. Starred migration
+    if (data.starred && Array.isArray(data.starred)) {
+      const newStarredSet = new Set();
+      for (const item of data.starred) {
+        if (typeof item !== 'string' || !isSafeKey(item)) continue;
+        if (item.includes('.')) {
+          newStarredSet.add(item);
+        } else if (item.includes('_')) {
+          const lastIdx = item.lastIndexOf('_');
+          const catId = item.slice(0, lastIdx);
+          const idxStr = item.slice(lastIdx + 1);
+          if (/^\d+$/.test(idxStr)) {
+            const idx = parseInt(idxStr, 10);
+            const wid = getWordId(catId, idx);
+            if (wid) newStarredSet.add(wid);
+          }
+        }
+      }
+      result.starred = Array.from(newStarredSet).sort();
+    }
+
+    // 3. SRS migration
+    if (data.srs && typeof data.srs === 'object' && !Array.isArray(data.srs)) {
+      const newSrs = {};
+      for (const [k, rec] of Object.entries(data.srs)) {
+        if (!isSafeKey(k) || typeof rec !== 'object' || rec === null || Array.isArray(rec)) continue;
+        const sanitized = sanitizeSrsEntry(rec);
+        if (!sanitized) continue;
+        if (k.includes('.')) {
+          newSrs[k] = sanitized;
+        } else if (k.includes('_')) {
+          const lastIdx = k.lastIndexOf('_');
+          const catId = k.slice(0, lastIdx);
+          const idxStr = k.slice(lastIdx + 1);
+          if (/^\d+$/.test(idxStr)) {
+            const idx = parseInt(idxStr, 10);
+            const wid = getWordId(catId, idx);
+            if (wid) newSrs[wid] = sanitized;
+          }
+        }
+      }
+      result.srs = newSrs;
+    }
+
+    if (data.dailyGoal !== undefined) {
+      result.dailyGoal = data.dailyGoal;
+    }
+    if (data.stats !== undefined) {
+      result.stats = data.stats;
+    }
+
+    result.dataFormat = 2;
+    if (result.dataVersion !== undefined) {
+      result.dataVersion = Math.max(2, Number(result.dataVersion) || 2);
+    }
+    return result;
+  }
+
   /**
    * Validates a cloud document against structural rules and schema.
+   * Accepts both legacy keys (when dataVersion == 1) and format-2 keys (dataVersion >= 2).
    */
   function validateCloudDocument(data, categoriesList) {
     if (!data || typeof data !== 'object' || Array.isArray(data)) {
@@ -47,6 +241,8 @@
     if (data.schemaVersion !== undefined && data.schemaVersion !== 1) {
       return { valid: false, error: `إصدار المخطط (${data.schemaVersion}) غير مدعوم.` };
     }
+
+    const isFormat2 = (Number(data.dataVersion) >= 2) || (data.dataFormat === 2);
 
     // 1. Progress validation
     if (data.progress !== undefined) {
@@ -79,16 +275,24 @@
             if (typeof mVal.counts !== 'object' || mVal.counts === null || Array.isArray(mVal.counts)) {
               return { valid: false, error: `عدادات الكلمات في «${catId}/${mKey}» غير صالحة.` };
             }
-            for (const [wIdxStr, cnt] of Object.entries(mVal.counts)) {
-              if (!isSafeKey(wIdxStr)) {
-                return { valid: false, error: `فهرس الكلمة (${wIdxStr}) في «${catId}» غير صالح.` };
+            for (const [keyStr, cnt] of Object.entries(mVal.counts)) {
+              if (!isSafeKey(keyStr)) {
+                return { valid: false, error: `مفتاح الكلمة (${keyStr}) في «${catId}» غير صالح.` };
               }
-              const wIdx = parseInt(wIdxStr, 10);
-              if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
-                return { valid: false, error: `فهرس الكلمة (${wIdxStr}) في «${catId}» خارج النطاق.` };
+              if (isFormat2) {
+                // In format 2, keys must be word IDs
+                if (/^\d+$/.test(keyStr) || !keyStr.includes('.')) {
+                  return { valid: false, error: `معرف الكلمة (${keyStr}) في «${catId}» ليس معرفاً مستقراً صالحاً.` };
+                }
+              } else {
+                // In legacy, keys must be integer indices < maxWords
+                const wIdx = parseInt(keyStr, 10);
+                if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
+                  return { valid: false, error: `فهرس الكلمة (${keyStr}) في «${catId}» خارج النطاق.` };
+                }
               }
               if (!Number.isInteger(cnt) || cnt < 0 || cnt > 10000) {
-                return { valid: false, error: `قيمة العداد للكلمة (${wIdxStr}) في «${catId}/${mKey}» غير صالحة.` };
+                return { valid: false, error: `قيمة العداد للكلمة (${keyStr}) في «${catId}/${mKey}» غير صالحة.` };
               }
             }
           }
@@ -122,13 +326,19 @@
       }
       for (const item of data.starred) {
         if (typeof item !== 'string' || !isSafeKey(item)) return { valid: false, error: 'عنصر في المفضلة غير صالح.' };
-        const parts = item.split('_');
-        if (parts.length !== 2) return { valid: false, error: `معرف المفضلة «${item}» غير صالح.` };
-        const [catId, idxStr] = parts;
-        if (!knownCatIds.has(catId)) return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف.` };
-        const idx = parseInt(idxStr, 10);
-        if (!Number.isInteger(idx) || idx < 0 || idx >= (catWordCounts.get(catId) || 0)) {
-          return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج النطاق.` };
+        if (isFormat2) {
+          if (!item.includes('.')) {
+            return { valid: false, error: `معرف المفضلة «${item}» ليس معرفاً مستقراً صالحاً.` };
+          }
+        } else {
+          const parts = item.split('_');
+          if (parts.length !== 2) return { valid: false, error: `معرف المفضلة «${item}» غير صالح.` };
+          const [catId, idxStr] = parts;
+          if (!knownCatIds.has(catId)) return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف.` };
+          const idx = parseInt(idxStr, 10);
+          if (!Number.isInteger(idx) || idx < 0 || idx >= (catWordCounts.get(catId) || 0)) {
+            return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج النطاق.` };
+          }
         }
       }
     }
@@ -140,13 +350,19 @@
       }
       for (const [k, rec] of Object.entries(data.srs)) {
         if (!isSafeKey(k)) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
-        const parts = k.split('_');
-        if (parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
-        const [catId, idxStr] = parts;
-        if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
-        const idx = parseInt(idxStr, 10);
-        if (!Number.isInteger(idx) || idx < 0 || idx >= (catWordCounts.get(catId) || 0)) {
-          return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج النطاق.` };
+        if (isFormat2) {
+          if (!k.includes('.')) {
+            return { valid: false, error: `مفتاح SRS «${k}» ليس معرفاً مستقراً صالحاً.` };
+          }
+        } else {
+          const parts = k.split('_');
+          if (parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
+          const [catId, idxStr] = parts;
+          if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
+          const idx = parseInt(idxStr, 10);
+          if (!Number.isInteger(idx) || idx < 0 || idx >= (catWordCounts.get(catId) || 0)) {
+            return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج النطاق.` };
+          }
         }
         if (typeof rec !== 'object' || rec === null || Array.isArray(rec)) {
           return { valid: false, error: `سجل SRS «${k}» غير صالح.` };
@@ -177,6 +393,7 @@
 
   /**
    * Merges two progress trees deterministically.
+   * Supports both legacy numeric keys and stable format-2 word IDs.
    * Mastery and unlocked counts only increase, never decrease.
    */
   function mergeProgress(a, b) {
@@ -209,16 +426,22 @@
         const unlocked = Math.max(mA.unlocked || 0, mB.unlocked || 0);
         const countsA = (hasOwn(mA, 'counts') && typeof mA.counts === 'object' && mA.counts) || {};
         const countsB = (hasOwn(mB, 'counts') && typeof mB.counts === 'object' && mB.counts) || {};
-        const allWIdx = Array.from(new Set([
+
+        const allKeys = Array.from(new Set([
           ...Object.keys(countsA).filter(k => hasOwn(countsA, k) && isSafeKey(k)),
           ...Object.keys(countsB).filter(k => hasOwn(countsB, k) && isSafeKey(k))
-        ])).sort((x, y) => parseInt(x, 10) - parseInt(y, 10));
+        ])).sort((x, y) => {
+          const nx = Number(x);
+          const ny = Number(y);
+          if (!isNaN(nx) && !isNaN(ny)) return nx - ny;
+          return x.localeCompare(y);
+        });
 
         const mergedCounts = {};
-        for (const idxStr of allWIdx) {
-          const cA = (hasOwn(countsA, idxStr) && countsA[idxStr]) || 0;
-          const cB = (hasOwn(countsB, idxStr) && countsB[idxStr]) || 0;
-          mergedCounts[idxStr] = Math.max(cA, cB);
+        for (const k of allKeys) {
+          const cA = (hasOwn(countsA, k) && countsA[k]) || 0;
+          const cB = (hasOwn(countsB, k) && countsB[k]) || 0;
+          mergedCounts[k] = Math.max(cA, cB);
         }
 
         merged[catId][m] = {
@@ -310,17 +533,9 @@
     return Array.from(set).sort();
   }
 
-  function sanitizeSrsEntry(rec) {
-    if (!rec || typeof rec !== 'object') return null;
-    const out = { box: (Number.isInteger(rec.box) && rec.box >= 0 && rec.box <= 4) ? rec.box : 0 };
-    if (typeof rec.lastDate === 'string') out.lastDate = rec.lastDate;
-    if (typeof rec.nextDate === 'string') out.nextDate = rec.nextDate;
-    return out;
-  }
-
   /**
    * Merges SRS records deterministically.
-   * Latest review date wins; tie goes to higher box.
+   * Latest review date wins; tie goes to higher box; tie goes to earlier nextDate.
    */
   function mergeSrs(a, b) {
     const srsA = a && typeof a === 'object' && !Array.isArray(a) ? a : {};
@@ -361,8 +576,7 @@
           merged[key] = sanitizeSrsEntry({ ...recB, box: boxB });
         } else {
           // Equal lastDate AND equal box -> deterministic tie-break for nextDate.
-          // Choose earlier nextDate (learning-safety rationale: reviewing earlier
-          // prevents memory decay along the Ebbinghaus forgetting curve).
+          // Choose earlier nextDate (learning-safety rationale).
           const nextA = (recA && typeof recA.nextDate === 'string') ? recA.nextDate : '';
           const nextB = (recB && typeof recB.nextDate === 'string') ? recB.nextDate : '';
           let chosenNext = '';
@@ -387,7 +601,6 @@
    * Merges daily goals deterministically.
    */
   function mergeDailyGoal(a, b) {
-    // Normalization to object { target, updatedAt }
     function normalize(g) {
       if (!g) return { target: 20, updatedAt: '' };
       if (typeof g === 'object') {
@@ -422,10 +635,19 @@
 
   /**
    * Merges full local user data with cloud document payload.
+   * Migrates legacy operands with dataVersion < 2 in memory before merging.
+   * Always produces a clean format-2 payload with dataVersion >= 2.
    */
   function mergeFullUserData(localData, cloudData, categoriesList) {
-    const loc = localData || {};
-    const cld = cloudData || {};
+    let loc = localData || {};
+    let cld = cloudData || {};
+
+    if (loc.dataVersion === undefined || loc.dataVersion < 2 || loc.dataFormat === undefined || loc.dataFormat < 2) {
+      loc = migrateLegacyUserData(loc, categoriesList);
+    }
+    if (cld.dataVersion === undefined || cld.dataVersion < 2) {
+      cld = migrateLegacyUserData(cld, categoriesList);
+    }
 
     const mergedProgress = mergeProgress(loc.progress, cld.progress);
     const mergedStats = mergeStats(loc.stats, cld.stats);
@@ -435,7 +657,7 @@
 
     return {
       schemaVersion: 1,
-      dataVersion: Math.max(Number(loc.dataVersion) || 1, Number(cld.dataVersion) || 1) + 1,
+      dataVersion: Math.max(2, Math.max(Number(loc.dataVersion) || 1, Number(cld.dataVersion) || 1) + 1),
       updatedAt: new Date().toISOString(),
       progress: mergedProgress,
       stats: mergedStats,
@@ -447,10 +669,14 @@
 
   /**
    * Prepares a clean cloud payload from local data objects.
+   * Migrates legacy data in memory if needed, always producing dataVersion >= 2.
    * Preserves existing dailyGoal.updatedAt without refreshing it to current time.
    */
   function createCloudPayload(localData) {
-    const loc = localData || {};
+    let loc = localData || {};
+    if (loc.dataVersion === undefined || loc.dataVersion < 2 || loc.dataFormat === undefined || loc.dataFormat < 2) {
+      loc = migrateLegacyUserData(loc);
+    }
     let dgTarget = 20;
     let dgUpdated = '';
     if (typeof loc.dailyGoal === 'object' && loc.dailyGoal !== null) {
@@ -464,7 +690,7 @@
 
     return {
       schemaVersion: 1,
-      dataVersion: Number(loc.dataVersion) || 1,
+      dataVersion: Math.max(2, Number(loc.dataVersion) || 2),
       updatedAt: new Date().toISOString(),
       progress: loc.progress || {},
       stats: loc.stats || {},
@@ -475,6 +701,10 @@
   }
 
   const SyncMergePolicy = {
+    get LEGACY_INDEX_IDS() {
+      return getLegacyMap();
+    },
+    migrateLegacyUserData,
     getProgressModes,
     validateCloudDocument,
     mergeProgress,

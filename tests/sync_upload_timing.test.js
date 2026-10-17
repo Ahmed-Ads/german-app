@@ -172,7 +172,8 @@ describe('Sync Upload Timing & Checkpoint Flush (8s debounce & dirty recovery)',
     // Cloud currently has count = 1
     sharedStore.set('user-mid-kill', {
       schemaVersion: 1,
-      progress: { obst: { mcq: { unlocked: 1, counts: { '0': 1 } } } },
+      dataVersion: 2,
+      progress: { obst: { mcq: { unlocked: 1, counts: { 'obst.apfel': 1 } } } },
       stats: { current: 1, longest: 1, totalAnswered: 1, totalCorrect: 1 },
       starred: [],
       srs: {},
@@ -180,7 +181,7 @@ describe('Sync Upload Timing & Checkpoint Flush (8s debounce & dirty recovery)',
     });
 
     // Local device has count = 5 (unsent because app closed mid-upload)
-    const localProgress = { obst: { mcq: { unlocked: 1, counts: { '0': 5 } } } };
+    const localProgress = { obst: { mcq: { unlocked: 1, counts: { 'obst.apfel': 5 } } } };
     mockStorage.set('deutsch_sync_enabled', '1');
     mockStorage.set('deutsch_sync_dirty_v1', '1');
     mockStorage.set('deutsch_sync_first_merge_done_v1', 'user-mid-kill');
@@ -200,6 +201,8 @@ describe('Sync Upload Timing & Checkpoint Flush (8s debounce & dirty recovery)',
     });
 
     let currentLocal = {
+      dataFormat: 2,
+      dataVersion: 2,
       progress: localProgress,
       stats: { current: 1, longest: 1, totalAnswered: 1, totalCorrect: 1 },
       starred: [],
@@ -224,7 +227,7 @@ describe('Sync Upload Timing & Checkpoint Flush (8s debounce & dirty recovery)',
     // The unsent progress MUST have been uploaded to cloud
     expect(saveSpy).toHaveBeenCalled();
     const cloudDoc = sharedStore.get('user-mid-kill');
-    expect(cloudDoc.progress.obst.mcq.counts['0']).toBe(5);
+    expect(cloudDoc.progress.obst.mcq.counts['obst.apfel']).toBe(5);
 
     // The dirty marker MUST now be cleared
     expect(mockLocalStorage.getItem('deutsch_sync_dirty_v1')).toBeNull();

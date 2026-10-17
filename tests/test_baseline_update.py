@@ -23,6 +23,9 @@ def test_baseline_update():
         shutil.copy2(os.path.join(repo_root, 'vocab_baseline.json'), os.path.join(temp_dir, 'vocab_baseline.json'))
         shutil.copy2(os.path.join(repo_root, 'CHANGELOG_VOCAB.md'), os.path.join(temp_dir, 'CHANGELOG_VOCAB.md'))
         shutil.copy2(os.path.join(repo_root, 'verify_vocab.py'), os.path.join(temp_dir, 'verify_vocab.py'))
+        retired_file = os.path.join(repo_root, 'vocab_ids_retired.json')
+        if os.path.exists(retired_file):
+            shutil.copy2(retired_file, os.path.join(temp_dir, 'vocab_ids_retired.json'))
 
         os.makedirs(os.path.join(temp_dir, 'scripts'), exist_ok=True)
         shutil.copy2(

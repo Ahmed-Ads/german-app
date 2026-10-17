@@ -68,11 +68,19 @@ German_App/
 │   ├── offline_sw.spec.js     # اختبار Playwright لدورة حياة PWA بدون إنترنت
 │   ├── sw_upgrade.spec.js     # اختبار Playwright لترقية Service Worker
 │   ├── viewport_overflow.spec.js # اختبار Playwright لعدم تجاوز عرض 360px
+│   ├── sync_cross_device.spec.js # اختبار Playwright للمزامنة متعددة السياقات
+│   ├── stable_word_ids.test.js # اختبارات المعرفات الثابتة والترقية وفحص الخصائص العشوائي
+│   ├── history_chrome_runner.js # فحص سجل التنقل الداخلي في كروم الحقيقي
+│   ├── written_article_chrome_runner.js # فحص متطلب أداة التعريف في النمط الكتابي
+│   ├── storage_migration_chrome_runner.js # فحص ترقية التخزين إلى المعرفات الثابتة
+│   ├── sync_launch_flag_chrome_runner.js # فحص التحميل الكسول لحزمة المزامنة
+│   ├── extended_browser_test.js # مشغل الفحوصات الأمنية وحقن الأحداث في كروم الحقيقي
+│   ├── sync_chrome_runner.js  # فحص E2E للمزامنة السحابية بسياقين منفصلين
 │   ├── chrome_axe_runner.js   # اختبار إمكانية الوصول في المتصفح الحقيقي (Axe WCAG)
 │   └── run_offline_sw_test.js # مشغّل احتياطي لاختبار العمل بدون إنترنت
 │
 └── tools/
-    └── run_windows_checks.ps1 # الحزمة البرمجية الكاملة للفحص على ويندوز (12 مرحلة)
+    └── run_windows_checks.ps1 # الحزمة البرمجية الكاملة للفحص على ويندوز (15 خطوة)
 ```
 
 ---
@@ -129,7 +137,7 @@ German_App/
    ```
    أو قم بتشغيل فحص ويندوز الشامل عبر النقر المزدوج على `Run_Windows_Checks.bat`.
 2. **ترقية إصدار الكاش (Bump CACHE_NAME):**
-   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً إلى `deutsch-lernen-v19`).
+   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً إلى `deutsch-lernen-v21`).
    - اختبار `tests/sw_static_check.test.js` يتحقق من اسم الكاش تلقائياً.
    - إن غيّرت أي ملف مخزّن مؤقتاً (مثل `sync/*.js` أو الخطوط أو الأيقونات) دون ترقية `CACHE_NAME` سيفشل اختبار `tests/sw_cache_version.test.js` ويخبرك بالخطوة المطلوبة. بعد الترقية شغّل:
      ```bash
@@ -195,6 +203,12 @@ German_App/
 | **`firebase.json`** | Firebase CLI | إعداد محاكي Firestore المحلي لفحوصات القواعد (المنفذ 8080). |
 | **`tests/sync_chrome_runner.js`** | Node/Chrome | اختبار E2E واقعي بسياقين حقيقيين في كروم (جهاز أ + جهاز ب) وسيرفر سحابي وهمي (`node tests/sync_chrome_runner.js`). |
 | **`tests/sync_cross_device.spec.js`** | Playwright | مواصفة Playwright E2E الشاملة للمزامنة متعددة السياقات وحل التعارضات (`npx playwright test tests/sync_cross_device.spec.js`). |
+| **`tests/stable_word_ids.test.js`** | Node/Vitest | اختبارات سلامة معرفات الكلمات الثابتة، والترقية السلسة، وفحص عدم ظهور أي مفاتيح عددية عبر 1,000 عملية عشوائية (`npx vitest run tests/stable_word_ids.test.js`). |
+| **`tests/storage_migration_chrome_runner.js`** | Node/Chrome | فحص ترقية التخزين المحلي إلى المعرفات الثابتة في كروم الحقيقي (`node tests/storage_migration_chrome_runner.js`). |
+| **`tests/history_chrome_runner.js`** | Node/Chrome | فحص تكامل سجل التنقل والأزرار الافتراضية في كروم الحقيقي (`node tests/history_chrome_runner.js`). |
+| **`tests/written_article_chrome_runner.js`** | Node/Chrome | فحص التنبيه العربي وإلزامية كتابة أداة التعريف في النمط الكتابي في كروم الحقيقي (`node tests/written_article_chrome_runner.js`). |
+| **`tests/sync_launch_flag_chrome_runner.js`** | Node/Chrome | فحص التحميل الكسول لحزمة المزامنة وحفظ علم الإطلاق (`node tests/sync_launch_flag_chrome_runner.js`). |
+| **`tests/extended_browser_test.js`** | Node/Chrome | المشغل الموسع لفحص الأمان ومنع ثغرات XSS والأزرار المفوضة واستيراد النسخ في كروم الحقيقي (`node tests/extended_browser_test.js`). |
 
 ---
 
@@ -387,7 +401,7 @@ German_App/
 يعتمد نظام المزامنة والتقدم على مفاتيح مشتقة من فهارس الكلمات داخل كل قسم (`catId_idx`):
 - **لا يجوز أبداً إدراج أو حذف أو إعادة ترتيب الكلمات** داخل أي قسم دون كتابة سكربت ترقية لقاعدة البيانات (Data Migration Script)، لأن تغيير ترتيب الكلمات سينقل إتقان كلمة إلى كلمة أخرى لدى المستخدمين في السحابة.
 - تظل بصمة المفردات التشفيرية المعتمدة (Canonical SHA-256) هي المرجع الحاكم للنزاهة الرقمية:
-  `420c831eaead691b7218b3bef7d7c8c2dee90b47bf2e0a440c03b69829022fed`.
+  `9815eb51167cd7f57191b0fd5ea452a10f1f9df331d871b119d105d9a24a33b7`.
 
 ---
 

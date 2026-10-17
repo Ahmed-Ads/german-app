@@ -212,13 +212,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     saveStarredSoon();
 
     // 6a. Wordlist star toggle
+    const obst0Id = CATEGORIES.find(c => c.id === 'obst').words[0].id;
     const wlContainer = document.createElement('div');
     wlContainer.innerHTML = '<button class="star-btn" data-action="toggle-star-wordlist" data-cat="obst" data-idx="0">⭐</button>';
     document.body.appendChild(wlContainer);
     const wlBtn = wlContainer.querySelector('button');
     wlBtn.click();
     const wlActive = isStarred('obst', 0) && wlBtn.classList.contains('starred');
-    const wlPersisted = JSON.parse(appStorage.get('deutsch_starred_v1') || '[]').includes('obst_0');
+    const wlPersisted = JSON.parse(appStorage.get('deutsch_starred_v1') || '[]').includes(obst0Id);
     record('Delegated Star: Wordlist', wlActive && wlPersisted, 'Wordlist star toggled on, class updated, and persisted.');
 
     // 6b. Exercise feedback star toggle
@@ -236,7 +237,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.body.appendChild(remContainer);
     const remBtn = remContainer.querySelector('button');
     remBtn.click();
-    const remOk = !isStarred('obst', 0) && !JSON.parse(appStorage.get('deutsch_starred_v1') || '[]').includes('obst_0');
+    const remOk = !isStarred('obst', 0) && !JSON.parse(appStorage.get('deutsch_starred_v1') || '[]').includes(obst0Id);
     record('Delegated Star: Remove', remOk, 'Word unstarred via delegated remove button and storage updated.');
 
     // -----------------------------------------------------------------
@@ -416,10 +417,13 @@ window.addEventListener('DOMContentLoaded', async () => {
     window.alert = origAlert;
     HTMLAnchorElement.prototype.click = origAnchorClick;
 
+    const obstWordId = (CATEGORIES.find(c => c.id === 'obst') && CATEGORIES.find(c => c.id === 'obst').words[0].id) || 'obst.apfel';
+    const gemueseWordId = (CATEGORIES.find(c => c.id === 'gemuese') && CATEGORIES.find(c => c.id === 'gemuese').words[0].id) || 'gemuese.karotte';
+
     const restoredOk = (progress.obst && progress.obst.mcq.unlocked === 6 && progress.obst.listen.unlocked === 6) &&
                        (stats.current === 5 && stats.totalAnswered === 40) &&
-                       (starredSet.has('obst_0') && starredSet.has('gemuese_0')) &&
-                       (srsStore['obst_0'] && srsStore['obst_0'].box === 3) &&
+                       (starredSet.has(obstWordId) && starredSet.has(gemueseWordId)) &&
+                       (srsStore[obstWordId] && srsStore[obstWordId].box === 3) &&
                        (getDailyGoal() === 30);
 
     record('Valid Backup Full Restoration', restoredOk,

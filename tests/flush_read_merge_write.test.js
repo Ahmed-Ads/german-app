@@ -44,21 +44,25 @@ describe('DEFECT H5: flushSave Read-Merge-Write and Concurrency Safety', () => {
 
     // Device A state provider
     let localDataA = {
-      progress: { obst: { mcq: { unlocked: 3, counts: { '0': 2 } } } },
+      dataFormat: 2,
+      dataVersion: 2,
+      progress: { obst: { mcq: { unlocked: 3, counts: { 'obst.apfel': 2 } } } },
       stats: { current: 1, longest: 1, totalAnswered: 5, totalCorrect: 5 },
-      starred: ['obst_0'],
+      starred: ['obst.apfel'],
       srs: {},
       dailyGoal: { target: 20, updatedAt: '2026-10-08T00:00:00Z' }
     };
 
     // Device B state provider
     let localDataB = {
+      dataFormat: 2,
+      dataVersion: 2,
       progress: {
-        obst: { mcq: { unlocked: 5, counts: { '0': 4, '1': 3 } } },
-        tiere: { mcq: { unlocked: 2, counts: { '0': 2 } } }
+        obst: { mcq: { unlocked: 5, counts: { 'obst.apfel': 4, 'obst.banane': 3 } } },
+        tiere: { mcq: { unlocked: 2, counts: { 'tiere.hund': 2 } } }
       },
       stats: { current: 2, longest: 2, totalAnswered: 10, totalCorrect: 9 },
-      starred: ['tiere_0'],
+      starred: ['tiere.hund'],
       srs: {},
       dailyGoal: { target: 30, updatedAt: '2026-10-08T12:00:00Z' }
     };
@@ -96,7 +100,7 @@ describe('DEFECT H5: flushSave Read-Merge-Write and Concurrency Safety', () => {
 
     // Now Device A has been open for long.
     // User on Device A studies and masters obst_0 to count 10
-    localDataA.progress.obst.mcq.counts['0'] = 10;
+    localDataA.progress.obst.mcq.counts['obst.apfel'] = 10;
     managerA.notifyChange();
 
     // Device A flushes its changes
@@ -104,15 +108,15 @@ describe('DEFECT H5: flushSave Read-Merge-Write and Concurrency Safety', () => {
 
     // INVARIANT (DEFECT H5): Cloud MUST contain BOTH Device A's changes AND Device B's progress!
     cloudData = sharedStore.get('user-shared');
-    expect(cloudData.progress.obst.mcq.counts['0']).toBe(10);
+    expect(cloudData.progress.obst.mcq.counts['obst.apfel']).toBe(10);
     // Device B's tiere progress and obst_1 progress must NOT be erased!
     expect(cloudData.progress.tiere).toBeDefined();
     expect(cloudData.progress.tiere.mcq.unlocked).toBe(2);
     expect(cloudData.progress.obst.mcq.unlocked).toBe(5);
-    expect(cloudData.progress.obst.mcq.counts['1']).toBe(3);
+    expect(cloudData.progress.obst.mcq.counts['obst.banane']).toBe(3);
     // Starred from both devices should be merged
-    expect(cloudData.starred).toContain('obst_0');
-    expect(cloudData.starred).toContain('tiere_0');
+    expect(cloudData.starred).toContain('obst.apfel');
+    expect(cloudData.starred).toContain('tiere.hund');
   });
 
   it('invalid cloud data rejects overwrite, sets error state, and keeps pendingChanges', async () => {

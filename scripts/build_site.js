@@ -65,6 +65,7 @@ function buildSite(customSiteDir = null) {
 
   // 3. Sync modules and vendor bundle
   const syncFiles = [
+    { src: 'sync/legacy_index_ids.js', dest: 'sync/legacy_index_ids.js' },
     { src: 'sync/merge_policy.js', dest: 'sync/merge_policy.js' },
     { src: 'sync/firebase_adapter.js', dest: 'sync/firebase_adapter.js' },
     { src: 'sync/sync_manager.js', dest: 'sync/sync_manager.js' },

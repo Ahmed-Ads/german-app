@@ -99,6 +99,15 @@ def verify_file(html_path, baseline, baseline_hash, total_baseline_words):
 
     total_words = 0
     diff_errors = []
+    seen_ids = set()
+    retired_path = os.path.join(SCRIPT_DIR, 'vocab_ids_retired.json')
+    retired_ids = set()
+    if os.path.exists(retired_path):
+        try:
+            with open(retired_path, 'r', encoding='utf-8') as rf:
+                retired_ids = set(json.load(rf))
+        except Exception:
+            pass
 
     if len(extracted) != len(baseline):
         diff_errors.append(f"Category count mismatch: expected {len(baseline)}, got {len(extracted)}")
@@ -128,8 +137,26 @@ def verify_file(html_path, baseline, baseline_hash, total_baseline_words):
             total_words += 1
             wn = b_w.get('n', '')
 
+            # Check id field integrity
+            e_id = e_w.get('id')
+            if 'id' in b_w or e_id is not None:
+                slug = e_id[len(cid)+1:] if (isinstance(e_id, str) and e_id.startswith(f"{cid}.")) else ""
+                if not e_id or not isinstance(e_id, str):
+                    diff_errors.append(f"Word '{cid}'[{w_idx}] ({wn}) missing required 'id' field")
+                elif not e_id.startswith(f"{cid}."):
+                    diff_errors.append(f"Word '{cid}'[{w_idx}] ({wn}) malformed 'id': '{e_id}' does not start with '{cid}.'")
+                elif not re.match(r'^[a-z0-9]+(-[a-z0-9]+)*$', slug):
+                    diff_errors.append(f"Word '{cid}'[{w_idx}] ({wn}) malformed 'id': '{e_id}' invalid pattern")
+                elif e_id in seen_ids:
+                    diff_errors.append(f"Duplicate word id '{e_id}' found in '{cid}'[{w_idx}] ({wn})")
+                elif e_id in retired_ids:
+                    diff_errors.append(f"Word id '{e_id}' in '{cid}'[{w_idx}] ({wn}) is in vocab_ids_retired.json")
+                if e_id:
+                    seen_ids.add(e_id)
+
             # Compare every expected field
-            for key in ['a', 'n', 'ar', 'pl', 'note', 's', 'sar']:
+            keys_to_compare = ['id', 'a', 'n', 'ar', 'pl', 'note', 's', 'sar'] if ('id' in b_w or 'id' in e_w) else ['a', 'n', 'ar', 'pl', 'note', 's', 'sar']
+            for key in keys_to_compare:
                 b_val = b_w.get(key)
                 e_val = e_w.get(key)
 
@@ -217,6 +244,40 @@ def update_baseline_cmd(args, baseline):
         for err in errors:
             print("  - " + err)
         sys.exit(1)
+
+    # Verify word id validity on extracted before writing
+    seen_ids = set()
+    retired_path = os.path.join(SCRIPT_DIR, 'vocab_ids_retired.json')
+    retired_ids = set()
+    if os.path.exists(retired_path):
+        try:
+            with open(retired_path, 'r', encoding='utf-8') as rf:
+                retired_ids = set(json.load(rf))
+        except Exception:
+            pass
+
+    for cat in extracted:
+        cid = cat.get('id')
+        for w_idx, w in enumerate(cat.get('words', [])):
+            wid = w.get('id')
+            wn = w.get('n', '')
+            slug = wid[len(cid)+1:] if (isinstance(wid, str) and wid.startswith(f"{cid}.")) else ""
+            if not wid or not isinstance(wid, str):
+                print(f"❌ ERROR: Word in '{cid}'[{w_idx}] ({wn}) missing required 'id' field")
+                sys.exit(1)
+            if not wid.startswith(f"{cid}."):
+                print(f"❌ ERROR: Word in '{cid}'[{w_idx}] ({wn}) has malformed 'id' '{wid}' (expected '{cid}.<slug>')")
+                sys.exit(1)
+            if not re.match(r'^[a-z0-9]+(-[a-z0-9]+)*$', slug):
+                print(f"❌ ERROR: Word in '{cid}'[{w_idx}] ({wn}) has malformed 'id' '{wid}' (pattern mismatch)")
+                sys.exit(1)
+            if wid in seen_ids:
+                print(f"❌ ERROR: Duplicate word 'id' '{wid}' found in '{cid}'[{w_idx}] ({wn})")
+                sys.exit(1)
+            if wid in retired_ids:
+                print(f"❌ ERROR: Word 'id' '{wid}' in '{cid}'[{w_idx}] ({wn}) is in vocab_ids_retired.json")
+                sys.exit(1)
+            seen_ids.add(wid)
 
     old_hash = compute_canonical_hash(baseline)
     new_hash = compute_canonical_hash(extracted)

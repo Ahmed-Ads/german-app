@@ -60,8 +60,8 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
   let localData;
 
   const categories = [
-    { id: 'obst', words: new Array(10).fill({ n: 'Apfel' }), hasArticles: true },
-    { id: 'tiere', words: new Array(10).fill({ n: 'Hund' }), hasArticles: true }
+    { id: 'obst', words: [{ id: 'obst.apfel', n: 'Apfel' }, { id: 'obst.banane', n: 'Banane' }], hasArticles: true },
+    { id: 'tiere', words: [{ id: 'tiere.hund', n: 'Hund' }, { id: 'tiere.katze', n: 'Katze' }], hasArticles: true }
   ];
 
   beforeEach(() => {
@@ -84,9 +84,11 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
     scope = makeIndexScope(renderMock, showToastMock);
 
     localData = {
-      progress: { obst: { mcq: { unlocked: 2, counts: { '0': 1 } } } },
+      dataFormat: 2,
+      dataVersion: 2,
+      progress: { obst: { mcq: { unlocked: 2, counts: { 'obst.apfel': 1 } } } },
       stats: { current: 1, longest: 1, totalAnswered: 3, totalCorrect: 3, todayCount: 1, lastDate: '2026-10-08' },
-      starred: ['obst_0'],
+      starred: ['obst.apfel'],
       srs: {},
       dailyGoal: { target: 20, updatedAt: '2026-10-08T00:00:00Z' }
     };
@@ -132,8 +134,9 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
     // Cloud has newer/more advanced progress from another device
     const cloudPayload = {
       schemaVersion: 1,
+      dataVersion: 2,
       progress: {
-        obst: { mcq: { unlocked: 5, counts: { '0': 3, '1': 2 } } }
+        obst: { mcq: { unlocked: 5, counts: { 'obst.apfel': 3, 'obst.banane': 2 } } }
       },
       stats: {
         totalAnswered: 15,
@@ -143,7 +146,7 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
         todayCount: 5,
         lastDate: '2026-10-08'
       },
-      starred: ['obst_0', 'obst_1'],
+      starred: ['obst.apfel', 'obst.banane'],
       srs: {},
       dailyGoal: { target: 30, updatedAt: '2026-10-08T01:00:00Z' },
       updatedAt: '2026-10-08T01:00:00Z'
@@ -195,8 +198,9 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
 
     const cloudPayload = {
       schemaVersion: 1,
+      dataVersion: 2,
       progress: {
-        obst: { mcq: { unlocked: 6, counts: { '0': 4, '1': 3 } } }
+        obst: { mcq: { unlocked: 6, counts: { 'obst.apfel': 4, 'obst.banane': 3 } } }
       },
       stats: {
         totalAnswered: 20,
@@ -206,7 +210,7 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
         todayCount: 6,
         lastDate: '2026-10-08'
       },
-      starred: ['obst_0'],
+      starred: ['obst.apfel'],
       srs: {},
       dailyGoal: { target: 20, updatedAt: '2026-10-08T00:00:00Z' },
       updatedAt: '2026-10-08T02:00:00Z'
@@ -238,8 +242,9 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
 
     const cloudPayload = {
       schemaVersion: 1,
+      dataVersion: 2,
       progress: {
-        obst: { mcq: { unlocked: 4, counts: { '0': 2 } } }
+        obst: { mcq: { unlocked: 4, counts: { 'obst.apfel': 2 } } }
       },
       stats: {
         totalAnswered: 12,
@@ -249,7 +254,7 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
         todayCount: 3,
         lastDate: '2026-10-08'
       },
-      starred: ['obst_0'],
+      starred: ['obst.apfel'],
       srs: {},
       dailyGoal: { target: 25, updatedAt: '2026-10-08T02:00:00Z' },
       updatedAt: '2026-10-08T02:00:00Z'
@@ -274,8 +279,9 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
 
     const cloudPayload = {
       schemaVersion: 1,
+      dataVersion: 2,
       progress: {
-        obst: { mcq: { unlocked: 5, counts: { '0': 3 } } }
+        obst: { mcq: { unlocked: 5, counts: { 'obst.apfel': 3 } } }
       },
       stats: {
         totalAnswered: 14,
@@ -285,7 +291,7 @@ describe('UI Refresh After Cloud Pull (Requirements a-e)', () => {
         todayCount: 4,
         lastDate: '2026-10-08'
       },
-      starred: ['obst_0'],
+      starred: ['obst.apfel'],
       srs: {},
       dailyGoal: { target: 20, updatedAt: '2026-10-08T00:00:00Z' },
       updatedAt: '2026-10-08T03:00:00Z'

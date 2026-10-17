@@ -19,14 +19,16 @@ describe('SyncManager Unit & Lifecycle Workflow', () => {
     adapter = new MemorySyncAdapter({ store: sharedStore });
 
     mockGlobal = {
-      progress: { obst: { mcq: { unlocked: 5, counts: { '0': 3 } } } },
+      dataFormat: 2,
+      dataVersion: 2,
+      progress: { obst: { mcq: { unlocked: 5, counts: { 'obst.apfel': 3 } } } },
       stats: { current: 3, longest: 5, lastDate: '2026-10-04', totalAnswered: 30, totalCorrect: 25 },
-      starred: ['obst_0'],
-      srs: { 'obst_0': { box: 1, lastDate: '2026-10-04' } },
+      starred: ['obst.apfel'],
+      srs: { 'obst.apfel': { box: 1, lastDate: '2026-10-04' } },
       getDailyGoal: () => 25,
       appStorage: { set: vi.fn() },
       STORAGE_KEYS: { PROGRESS: 'prog', STATS: 'st', STARRED: 'star', SRS: 'sr', DAILY_GOAL: 'dg' },
-      CATEGORIES: [{ id: 'obst', words: new Array(10).fill({ n: 'Apfel' }) }],
+      CATEGORIES: [{ id: 'obst', words: new Array(10).fill(null).map((_, i) => ({ id: i === 0 ? 'obst.apfel' : (i === 1 ? 'obst.banane' : `obst.w_${i}`), n: 'Apfel' })) }],
       showToast: vi.fn(),
       render: vi.fn(),
       exportBackup: vi.fn(() => '{"backup":true}'),
@@ -68,7 +70,7 @@ describe('SyncManager Unit & Lifecycle Workflow', () => {
     const savedDoc = sharedStore.get('test-user-123');
     expect(savedDoc.progress.obst.mcq.unlocked).toBe(5);
     expect(savedDoc.stats.current).toBe(3);
-    expect(savedDoc.starred).toEqual(['obst_0']);
+    expect(savedDoc.starred).toEqual(['obst.apfel']);
     expect(savedDoc.dailyGoal.target).toBe(25);
   });
 
@@ -76,10 +78,11 @@ describe('SyncManager Unit & Lifecycle Workflow', () => {
     // Populate cloud beforehand
     sharedStore.set('test-user-123', {
       schemaVersion: 1,
-      progress: { obst: { mcq: { unlocked: 8, counts: { '0': 7 } } } },
+      dataVersion: 2,
+      progress: { obst: { mcq: { unlocked: 8, counts: { 'obst.apfel': 7 } } } },
       stats: { current: 5, longest: 8, lastDate: '2026-10-05', totalAnswered: 50, totalCorrect: 45 },
-      starred: ['obst_1'],
-      srs: { 'obst_0': { box: 2, lastDate: '2026-10-05' } },
+      starred: ['obst.banane'],
+      srs: { 'obst.apfel': { box: 2, lastDate: '2026-10-05' } },
       dailyGoal: { target: 30, updatedAt: '2026-10-05T00:00:00Z' }
     });
 
@@ -90,10 +93,10 @@ describe('SyncManager Unit & Lifecycle Workflow', () => {
 
     // Assert merged state applied to local memory
     expect(globalThis.progress.obst.mcq.unlocked).toBe(8);
-    expect(globalThis.progress.obst.mcq.counts['0']).toBe(7);
+    expect(globalThis.progress.obst.mcq.counts['obst.apfel']).toBe(7);
     expect(globalThis.stats.current).toBe(5);
-    expect(globalThis.starred).toEqual(['obst_0', 'obst_1']);
-    expect(globalThis.srs['obst_0'].box).toBe(2);
+    expect(globalThis.starred).toEqual(['obst.apfel', 'obst.banane']);
+    expect(globalThis.srs['obst.apfel'].box).toBe(2);
 
     // Assert merged state saved back to cloud
     const cloudDoc = sharedStore.get('test-user-123');
@@ -119,7 +122,7 @@ describe('SyncManager Unit & Lifecycle Workflow', () => {
     await manager.signIn();
 
     // Simulate user answering questions locally
-    globalThis.progress.obst.mcq.counts['0'] = 10;
+    globalThis.progress.obst.mcq.counts['obst.apfel'] = 10;
     manager.notifyChange();
 
     expect(manager.getStatus().pendingChanges).toBe(true);
@@ -129,7 +132,7 @@ describe('SyncManager Unit & Lifecycle Workflow', () => {
 
     expect(manager.getStatus().pendingChanges).toBe(false);
     const updatedCloud = sharedStore.get('test-user-123');
-    expect(updatedCloud.progress.obst.mcq.counts['0']).toBe(10);
+    expect(updatedCloud.progress.obst.mcq.counts['obst.apfel']).toBe(10);
   });
 
   it('deleteCloudData removes remote document and keeps local progress', async () => {
@@ -171,13 +174,13 @@ describe('SyncManager Unit & Lifecycle Workflow', () => {
       manager.init();
       await manager.signIn();
 
-      globalThis.progress.obst.mcq.counts['0'] = 11;
+      globalThis.progress.obst.mcq.counts['obst.apfel'] = 11;
       manager.notifyChange();
       await manager.flushSave();
 
       expect(manager.getStatus().pendingChanges).toBe(false);
       expect(manager.getStatus().state).toBe(STATES.SYNCED);
-      expect(sharedStore.get('test-user-123').progress.obst.mcq.counts['0']).toBe(11);
+      expect(sharedStore.get('test-user-123').progress.obst.mcq.counts['obst.apfel']).toBe(11);
     });
 
     it('does NOT save and reports OFFLINE only when navigator.onLine is explicitly false', async () => {

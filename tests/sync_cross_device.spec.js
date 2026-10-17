@@ -172,6 +172,12 @@ test.describe('Cross-Device Progress Sync: Two-Context E2E Verification', () => 
       await window.syncManager.signIn();
     });
 
+    // Read word IDs from page to avoid hardcoded strings
+    const [word0Id, word1Id, word2Id, word3Id] = await pageA.evaluate(() => {
+      const words = window.CATEGORIES.find(c => c.id === 'obst').words;
+      return [words[0].id, words[1].id, words[2].id, words[3].id];
+    });
+
     // Device A masters word index 0 in obst (mcq and listen)
     await pageA.evaluate(() => {
       window.applyResult('obst', 'mcq', 0, true);
@@ -187,7 +193,7 @@ test.describe('Cross-Device Progress Sync: Two-Context E2E Verification', () => 
     // Assert cloud store received Device A's progress
     expect(cloudStore.has('user_e2e_999')).toBe(true);
     const cloudDoc = cloudStore.get('user_e2e_999');
-    expect(cloudDoc.progress.obst.mcq.counts['0']).toBeGreaterThanOrEqual(2);
+    expect(cloudDoc.progress.obst.mcq.counts[word0Id]).toBeGreaterThanOrEqual(2);
 
     // 3. Load app on Device B
     await pageB.goto(appUrl, { waitUntil: 'domcontentloaded' });
@@ -200,8 +206,8 @@ test.describe('Cross-Device Progress Sync: Two-Context E2E Verification', () => 
 
     // Assert Device B received Device A's progress from cloud!
     const progB = await pageB.evaluate(() => window.progress.obst);
-    expect(progB.mcq.counts['0']).toBeGreaterThanOrEqual(2);
-    expect(progB.listen.counts['0']).toBeGreaterThanOrEqual(1);
+    expect(progB.mcq.counts[word0Id]).toBeGreaterThanOrEqual(2);
+    expect(progB.listen.counts[word0Id]).toBeGreaterThanOrEqual(1);
 
     // 4. Test Offline Conflict Resolution (Concurrent Studying)
     // Device A studies word 1 while isolated
@@ -234,10 +240,10 @@ test.describe('Cross-Device Progress Sync: Two-Context E2E Verification', () => 
     const finalProgA = await pageA.evaluate(() => window.progress.obst.mcq.counts);
     const finalProgB = await pageB.evaluate(() => window.progress.obst.mcq.counts);
 
-    expect(finalProgA['1']).toBeGreaterThanOrEqual(2);
-    expect(finalProgA['2']).toBeGreaterThanOrEqual(2);
-    expect(finalProgB['1']).toBeGreaterThanOrEqual(2);
-    expect(finalProgB['2']).toBeGreaterThanOrEqual(2);
+    expect(finalProgA[word1Id]).toBeGreaterThanOrEqual(2);
+    expect(finalProgA[word2Id]).toBeGreaterThanOrEqual(2);
+    expect(finalProgB[word1Id]).toBeGreaterThanOrEqual(2);
+    expect(finalProgB[word2Id]).toBeGreaterThanOrEqual(2);
 
     // 5. Test Sign-Out on Device A
     await pageA.evaluate(async () => {
@@ -246,8 +252,8 @@ test.describe('Cross-Device Progress Sync: Two-Context E2E Verification', () => 
 
     // Verify local data on A remains completely intact
     const localProgAfterSignOut = await pageA.evaluate(() => window.progress.obst.mcq.counts);
-    expect(localProgAfterSignOut['0']).toBeGreaterThanOrEqual(2);
-    expect(localProgAfterSignOut['1']).toBeGreaterThanOrEqual(2);
+    expect(localProgAfterSignOut[word0Id]).toBeGreaterThanOrEqual(2);
+    expect(localProgAfterSignOut[word1Id]).toBeGreaterThanOrEqual(2);
 
     // 6. Test Delete Cloud Data from Device B
     await pageB.evaluate(async () => {
@@ -258,7 +264,7 @@ test.describe('Cross-Device Progress Sync: Two-Context E2E Verification', () => 
 
     // Verify local data on B remains intact
     const localProgOnBAfterDelete = await pageB.evaluate(() => window.progress.obst.mcq.counts);
-    expect(localProgOnBAfterDelete['2']).toBeGreaterThanOrEqual(2);
+    expect(localProgOnBAfterDelete[word2Id]).toBeGreaterThanOrEqual(2);
 
     // 7. Test Backend Outage Resilience
     simulateCloudError = true;
@@ -273,7 +279,7 @@ test.describe('Cross-Device Progress Sync: Two-Context E2E Verification', () => 
     });
 
     // Local learning succeeded without throwing crash
-    const word3Count = await pageB.evaluate(() => window.progress.obst.mcq.counts['3']);
+    const word3Count = await pageB.evaluate((wid) => window.progress.obst.mcq.counts[wid], word3Id);
     expect(word3Count).toBeGreaterThanOrEqual(1);
 
     // Cleanup contexts

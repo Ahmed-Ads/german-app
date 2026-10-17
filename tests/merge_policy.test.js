@@ -578,18 +578,18 @@ describe('SyncMergePolicy: Prototype Pollution & Hostile Key Hardening (L6)', ()
     expect(merged.starred).not.toContain('__proto__');
     expect(merged.starred).not.toContain('constructor');
     expect(merged.starred).not.toContain('prototype');
-    expect(merged.starred).toEqual(['obst_0', 'obst_1']);
+    expect(merged.starred).toEqual(['obst.apfel', 'obst.banane']);
 
     // Progress counts must not contain hostile keys
     const obstMcqCounts = merged.progress.obst.mcq.counts;
     expect(Object.prototype.hasOwnProperty.call(obstMcqCounts, '__proto__')).toBe(false);
     expect(Object.prototype.hasOwnProperty.call(obstMcqCounts, 'constructor')).toBe(false);
     expect(Object.prototype.hasOwnProperty.call(obstMcqCounts, 'prototype')).toBe(false);
-    expect(obstMcqCounts['0']).toBe(2);
-    expect(obstMcqCounts['1']).toBe(1);
+    expect(obstMcqCounts['obst.apfel']).toBe(2);
+    expect(obstMcqCounts['obst.banane']).toBe(1);
 
-    // SRS entry obst_0 has clean fields
-    expect(merged.srs.obst_0).toEqual({ box: 2, lastDate: '2026-10-04' });
-    expect(Object.getPrototypeOf(merged.srs.obst_0)).toBe(Object.prototype);
+    // SRS entry obst.apfel has clean fields
+    expect(merged.srs['obst.apfel']).toEqual({ box: 2, lastDate: '2026-10-04' });
+    expect(Object.getPrototypeOf(merged.srs['obst.apfel'])).toBe(Object.prototype);
   });
 });

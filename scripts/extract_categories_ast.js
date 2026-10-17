@@ -119,6 +119,18 @@ function main() {
     hasArticles: Boolean(cat.hasArticles)
   }));
 
+  // Validate that if words have id, they are valid non-empty strings
+  for (const cat of normalized) {
+    if (Array.isArray(cat.words)) {
+      for (const w of cat.words) {
+        if (w.id !== undefined && (typeof w.id !== 'string' || !w.id.trim())) {
+          process.stderr.write(`CRITICAL: Word in category ${cat.id} has invalid id: ${w.id}\n`);
+          process.exit(6);
+        }
+      }
+    }
+  }
+
   process.stdout.write(JSON.stringify(normalized));
 }
 

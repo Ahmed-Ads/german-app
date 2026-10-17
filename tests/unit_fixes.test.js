@@ -164,6 +164,8 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
     return { valid: false, error: 'الملف لا يحتوي على أي حقول تقدم صالحة (progress, stats, starred, srs, dailyGoal).' };
   }
 
+  const isFormat2 = data.dataFormat === 2;
+
   // 1. Progress validation
   if (hasProgress) {
     if (typeof data.progress !== 'object' || data.progress === null || Array.isArray(data.progress)) {
@@ -176,7 +178,7 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
       if (typeof catVal !== 'object' || catVal === null || Array.isArray(catVal)) {
         return { valid: false, error: `بيانات القسم «${catId}» غير صالحة.` };
       }
-      const maxWords = catWordCounts.get(catId);
+      const maxWords = catWordCounts.get(catId) || 0;
       for (const [mKey, mVal] of Object.entries(catVal)) {
         if (mKey === 'coreAcked') {
           if (typeof mVal !== 'boolean') return { valid: false, error: `حقل coreAcked في القسم «${catId}» غير صالح.` };
@@ -195,13 +197,21 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
           if (typeof mVal.counts !== 'object' || mVal.counts === null || Array.isArray(mVal.counts)) {
             return { valid: false, error: `عدادات الكلمات في «${catId}/${mKey}» غير صالحة.` };
           }
-          for (const [wIdxStr, cnt] of Object.entries(mVal.counts)) {
-            const wIdx = parseInt(wIdxStr, 10);
-            if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
-              return { valid: false, error: `فهرس الكلمة (${wIdxStr}) في القسم «${catId}» خارج نطاق القسم.` };
+          for (const [keyStr, cnt] of Object.entries(mVal.counts)) {
+            if (isFormat2) {
+              if (/^\d+$/.test(keyStr) || !keyStr.includes('.')) {
+                return { valid: false, error: `معرف الكلمة (${keyStr}) في «${catId}» ليس معرفاً مستقراً صالحاً.` };
+              }
+            } else {
+              if (/^\d+$/.test(keyStr)) {
+                const wIdx = parseInt(keyStr, 10);
+                if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
+                  return { valid: false, error: `فهرس الكلمة (${keyStr}) في القسم «${catId}» خارج نطاق القسم.` };
+                }
+              }
             }
             if (!Number.isInteger(cnt) || cnt < 0 || cnt > 10000) {
-              return { valid: false, error: `قيمة العداد للكلمة (${wIdxStr}) في «${catId}/${mKey}» غير صالحة.` };
+              return { valid: false, error: `قيمة العداد للكلمة (${keyStr}) في «${catId}/${mKey}» غير صالحة.` };
             }
           }
         }
@@ -240,17 +250,24 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
       if (typeof item !== 'string') {
         return { valid: false, error: 'عنصر في المفضلة بصيغة غير صالحة.' };
       }
-      const parts = item.split('_');
-      if (parts.length !== 2) {
-        return { valid: false, error: `معرّف الكلمة المميزة «${item}» غير صالح.` };
-      }
-      const [catId, idxStr] = parts;
-      if (!knownCatIds.has(catId)) {
-        return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف في التطبيق.` };
-      }
-      const idx = parseInt(idxStr, 10);
-      if (!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)) {
-        return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج نطاق القسم.` };
+      if (isFormat2) {
+        if (!item.includes('.')) {
+          return { valid: false, error: `معرّف الكلمة المميزة «${item}» ليس معرفاً مستقراً صالحاً.` };
+        }
+      } else {
+        if (item.includes('.')) continue;
+        const parts = item.split('_');
+        if (parts.length !== 2) {
+          return { valid: false, error: `معرّف الكلمة المميزة «${item}» غير صالح.` };
+        }
+        const [catId, idxStr] = parts;
+        if (!knownCatIds.has(catId)) {
+          return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف في التطبيق.` };
+        }
+        const idx = parseInt(idxStr, 10);
+        if (!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)) {
+          return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج نطاق القسم.` };
+        }
       }
     }
   }
@@ -261,13 +278,21 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
       return { valid: false, error: 'حقل التكرار المتباعد (srs) غير صالح.' };
     }
     for (const [k, rec] of Object.entries(data.srs)) {
-      const parts = k.split('_');
-      if (parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
-      const [catId, idxStr] = parts;
-      if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
-      const idx = parseInt(idxStr, 10);
-      if (!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)) {
-        return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج نطاق القسم.` };
+      if (isFormat2) {
+        if (!k.includes('.')) {
+          return { valid: false, error: `مفتاح SRS «${k}» ليس معرفاً مستقراً صالحاً.` };
+        }
+      } else {
+        if (!k.includes('.')) {
+          const parts = k.split('_');
+          if (parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
+          const [catId, idxStr] = parts;
+          if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
+          const idx = parseInt(idxStr, 10);
+          if (!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)) {
+            return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج نطاق القسم.` };
+          }
+        }
       }
       if (typeof rec !== 'object' || rec === null || Array.isArray(rec)) {
         return { valid: false, error: `سجل SRS للكلمة «${k}» غير صالح.` };
@@ -286,7 +311,8 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
 
   // 5. DailyGoal validation
   if (hasGoal) {
-    const g = Number(data.dailyGoal);
+    const rawGoal = typeof data.dailyGoal === 'object' && data.dailyGoal !== null ? data.dailyGoal.target : data.dailyGoal;
+    const g = Number(rawGoal);
     if (isNaN(g) || !Number.isInteger(g) || g < 5 || g > 200) {
       return { valid: false, error: 'الهدف اليومي (dailyGoal) يجب أن يكون عدداً صحيحاً بين 5 و 200 كلمة.' };
     }
