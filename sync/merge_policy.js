@@ -141,20 +141,21 @@
             unlocked: Number.isInteger(mVal.unlocked) ? Math.max(0, mVal.unlocked) : 0,
             counts: {}
           };
+          if (mVal.coreAcked !== undefined) {
+            newMVal.coreAcked = Boolean(mVal.coreAcked);
+          }
           if (mVal.counts && typeof mVal.counts === 'object' && !Array.isArray(mVal.counts)) {
             for (const [key, cnt] of Object.entries(mVal.counts)) {
               if (!isSafeKey(key) || !Number.isInteger(cnt) || cnt < 0) continue;
-              if (key.includes('.')) {
-                // Already a word ID
-                newMVal.counts[key] = cnt;
-              } else if (/^\d+$/.test(key)) {
+              if (/^\d+$/.test(key)) {
                 const idx = parseInt(key, 10);
                 const wid = getWordId(catId, idx);
                 if (wid) {
-                  newMVal.counts[wid] = cnt;
+                  newMVal.counts[wid] = Math.max(newMVal.counts[wid] || 0, cnt);
                 }
-              } else {
-                newMVal.counts[key] = cnt;
+              } else if (key.includes('.')) {
+                // Already a word ID
+                newMVal.counts[key] = Math.max(newMVal.counts[key] || 0, cnt);
               }
             }
           }
@@ -170,17 +171,15 @@
       const newStarredSet = new Set();
       for (const item of data.starred) {
         if (typeof item !== 'string' || !isSafeKey(item)) continue;
-        if (item.includes('.')) {
-          newStarredSet.add(item);
-        } else if (item.includes('_')) {
+        if (/^[a-z0-9-]+_\d+$/.test(item)) {
           const lastIdx = item.lastIndexOf('_');
           const catId = item.slice(0, lastIdx);
           const idxStr = item.slice(lastIdx + 1);
-          if (/^\d+$/.test(idxStr)) {
-            const idx = parseInt(idxStr, 10);
-            const wid = getWordId(catId, idx);
-            if (wid) newStarredSet.add(wid);
-          }
+          const idx = parseInt(idxStr, 10);
+          const wid = getWordId(catId, idx);
+          if (wid) newStarredSet.add(wid);
+        } else if (item.includes('.')) {
+          newStarredSet.add(item);
         }
       }
       result.starred = Array.from(newStarredSet).sort();
@@ -193,16 +192,21 @@
         if (!isSafeKey(k) || typeof rec !== 'object' || rec === null || Array.isArray(rec)) continue;
         const sanitized = sanitizeSrsEntry(rec);
         if (!sanitized) continue;
-        if (k.includes('.')) {
-          newSrs[k] = sanitized;
-        } else if (k.includes('_')) {
+        let wid = null;
+        if (/^[a-z0-9-]+_\d+$/.test(k)) {
           const lastIdx = k.lastIndexOf('_');
           const catId = k.slice(0, lastIdx);
           const idxStr = k.slice(lastIdx + 1);
-          if (/^\d+$/.test(idxStr)) {
-            const idx = parseInt(idxStr, 10);
-            const wid = getWordId(catId, idx);
-            if (wid) newSrs[wid] = sanitized;
+          const idx = parseInt(idxStr, 10);
+          wid = getWordId(catId, idx);
+        } else if (k.includes('.')) {
+          wid = k;
+        }
+        if (wid) {
+          if (newSrs[wid]) {
+            newSrs[wid] = mergeSrs({ [wid]: newSrs[wid] }, { [wid]: sanitized })[wid];
+          } else {
+            newSrs[wid] = sanitized;
           }
         }
       }
@@ -217,15 +221,12 @@
     }
 
     result.dataFormat = 2;
-    if (result.dataVersion !== undefined) {
-      result.dataVersion = Math.max(2, Number(result.dataVersion) || 2);
-    }
     return result;
   }
 
   /**
    * Validates a cloud document against structural rules and schema.
-   * Accepts both legacy keys (when dataVersion == 1) and format-2 keys (dataVersion >= 2).
+   * Accepts both legacy keys and stable word ID keys determined by key shape.
    */
   function validateCloudDocument(data, categoriesList) {
     if (!data || typeof data !== 'object' || Array.isArray(data)) {
@@ -241,8 +242,6 @@
     if (data.schemaVersion !== undefined && data.schemaVersion !== 1) {
       return { valid: false, error: `إصدار المخطط (${data.schemaVersion}) غير مدعوم.` };
     }
-
-    const isFormat2 = (Number(data.dataVersion) >= 2) || (data.dataFormat === 2);
 
     // 1. Progress validation
     if (data.progress !== undefined) {
@@ -279,17 +278,15 @@
               if (!isSafeKey(keyStr)) {
                 return { valid: false, error: `مفتاح الكلمة (${keyStr}) في «${catId}» غير صالح.` };
               }
-              if (isFormat2) {
-                // In format 2, keys must be word IDs
-                if (/^\d+$/.test(keyStr) || !keyStr.includes('.')) {
-                  return { valid: false, error: `معرف الكلمة (${keyStr}) في «${catId}» ليس معرفاً مستقراً صالحاً.` };
-                }
-              } else {
-                // In legacy, keys must be integer indices < maxWords
+              if (/^\d+$/.test(keyStr)) {
                 const wIdx = parseInt(keyStr, 10);
                 if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
                   return { valid: false, error: `فهرس الكلمة (${keyStr}) في «${catId}» خارج النطاق.` };
                 }
+              } else if (keyStr.startsWith(catId + '.') && keyStr.slice(catId.length + 1).length > 0 && /^[a-z0-9_.-]+$/.test(keyStr.slice(catId.length + 1))) {
+                // Valid word ID
+              } else {
+                return { valid: false, error: `معرف الكلمة (${keyStr}) في «${catId}» ليس معرفاً مستقراً صالحاً.` };
               }
               if (!Number.isInteger(cnt) || cnt < 0 || cnt > 10000) {
                 return { valid: false, error: `قيمة العداد للكلمة (${keyStr}) في «${catId}/${mKey}» غير صالحة.` };
@@ -326,19 +323,25 @@
       }
       for (const item of data.starred) {
         if (typeof item !== 'string' || !isSafeKey(item)) return { valid: false, error: 'عنصر في المفضلة غير صالح.' };
-        if (isFormat2) {
-          if (!item.includes('.')) {
-            return { valid: false, error: `معرف المفضلة «${item}» ليس معرفاً مستقراً صالحاً.` };
-          }
-        } else {
-          const parts = item.split('_');
-          if (parts.length !== 2) return { valid: false, error: `معرف المفضلة «${item}» غير صالح.` };
-          const [catId, idxStr] = parts;
+        if (/^[a-z0-9-]+_\d+$/.test(item)) {
+          const lastIdx = item.lastIndexOf('_');
+          const catId = item.slice(0, lastIdx);
+          const idxStr = item.slice(lastIdx + 1);
           if (!knownCatIds.has(catId)) return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف.` };
           const idx = parseInt(idxStr, 10);
           if (!Number.isInteger(idx) || idx < 0 || idx >= (catWordCounts.get(catId) || 0)) {
             return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج النطاق.` };
           }
+        } else if (item.includes('.')) {
+          const dotIdx = item.indexOf('.');
+          const catId = item.slice(0, dotIdx);
+          const slug = item.slice(dotIdx + 1);
+          if (!knownCatIds.has(catId)) return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف.` };
+          if (!slug || !/^[a-z0-9_.-]+$/.test(slug)) {
+            return { valid: false, error: `معرف المفضلة «${item}» ليس معرفاً مستقراً صالحاً.` };
+          }
+        } else {
+          return { valid: false, error: `معرف المفضلة «${item}» ليس معرفاً مستقراً صالحاً.` };
         }
       }
     }
@@ -350,19 +353,25 @@
       }
       for (const [k, rec] of Object.entries(data.srs)) {
         if (!isSafeKey(k)) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
-        if (isFormat2) {
-          if (!k.includes('.')) {
-            return { valid: false, error: `مفتاح SRS «${k}» ليس معرفاً مستقراً صالحاً.` };
-          }
-        } else {
-          const parts = k.split('_');
-          if (parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
-          const [catId, idxStr] = parts;
+        if (/^[a-z0-9-]+_\d+$/.test(k)) {
+          const lastIdx = k.lastIndexOf('_');
+          const catId = k.slice(0, lastIdx);
+          const idxStr = k.slice(lastIdx + 1);
           if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
           const idx = parseInt(idxStr, 10);
           if (!Number.isInteger(idx) || idx < 0 || idx >= (catWordCounts.get(catId) || 0)) {
             return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج النطاق.` };
           }
+        } else if (k.includes('.')) {
+          const dotIdx = k.indexOf('.');
+          const catId = k.slice(0, dotIdx);
+          const slug = k.slice(dotIdx + 1);
+          if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
+          if (!slug || !/^[a-z0-9_.-]+$/.test(slug)) {
+            return { valid: false, error: `مفتاح SRS «${k}» ليس معرفاً مستقراً صالحاً.` };
+          }
+        } else {
+          return { valid: false, error: `مفتاح SRS «${k}» ليس معرفاً مستقراً صالحاً.` };
         }
         if (typeof rec !== 'object' || rec === null || Array.isArray(rec)) {
           return { valid: false, error: `سجل SRS «${k}» غير صالح.` };
@@ -635,19 +644,12 @@
 
   /**
    * Merges full local user data with cloud document payload.
-   * Migrates legacy operands with dataVersion < 2 in memory before merging.
-   * Always produces a clean format-2 payload with dataVersion >= 2.
+   * Migrates operands by shape in memory before merging.
+   * Always produces a clean payload with monotonic counter semantics.
    */
   function mergeFullUserData(localData, cloudData, categoriesList) {
-    let loc = localData || {};
-    let cld = cloudData || {};
-
-    if (loc.dataVersion === undefined || loc.dataVersion < 2 || loc.dataFormat === undefined || loc.dataFormat < 2) {
-      loc = migrateLegacyUserData(loc, categoriesList);
-    }
-    if (cld.dataVersion === undefined || cld.dataVersion < 2) {
-      cld = migrateLegacyUserData(cld, categoriesList);
-    }
+    const loc = migrateLegacyUserData(localData || {}, categoriesList);
+    const cld = migrateLegacyUserData(cloudData || {}, categoriesList);
 
     const mergedProgress = mergeProgress(loc.progress, cld.progress);
     const mergedStats = mergeStats(loc.stats, cld.stats);
@@ -657,7 +659,7 @@
 
     return {
       schemaVersion: 1,
-      dataVersion: Math.max(2, Math.max(Number(loc.dataVersion) || 1, Number(cld.dataVersion) || 1) + 1),
+      dataVersion: Math.max(Number(loc.dataVersion) || 1, Number(cld.dataVersion) || 1) + 1,
       updatedAt: new Date().toISOString(),
       progress: mergedProgress,
       stats: mergedStats,
@@ -669,14 +671,11 @@
 
   /**
    * Prepares a clean cloud payload from local data objects.
-   * Migrates legacy data in memory if needed, always producing dataVersion >= 2.
-   * Preserves existing dailyGoal.updatedAt without refreshing it to current time.
+   * Migrates legacy data by shape in memory if needed.
+   * Preserves monotonic counter dataVersion and dailyGoal.updatedAt.
    */
   function createCloudPayload(localData) {
-    let loc = localData || {};
-    if (loc.dataVersion === undefined || loc.dataVersion < 2 || loc.dataFormat === undefined || loc.dataFormat < 2) {
-      loc = migrateLegacyUserData(loc);
-    }
+    const loc = migrateLegacyUserData(localData || {});
     let dgTarget = 20;
     let dgUpdated = '';
     if (typeof loc.dailyGoal === 'object' && loc.dailyGoal !== null) {
@@ -690,7 +689,7 @@
 
     return {
       schemaVersion: 1,
-      dataVersion: Math.max(2, Number(loc.dataVersion) || 2),
+      dataVersion: Number(loc.dataVersion) || 1,
       updatedAt: new Date().toISOString(),
       progress: loc.progress || {},
       stats: loc.stats || {},

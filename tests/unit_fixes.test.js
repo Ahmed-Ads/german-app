@@ -164,8 +164,6 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
     return { valid: false, error: 'الملف لا يحتوي على أي حقول تقدم صالحة (progress, stats, starred, srs, dailyGoal).' };
   }
 
-  const isFormat2 = data.dataFormat === 2;
-
   // 1. Progress validation
   if (hasProgress) {
     if (typeof data.progress !== 'object' || data.progress === null || Array.isArray(data.progress)) {
@@ -198,17 +196,15 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
             return { valid: false, error: `عدادات الكلمات في «${catId}/${mKey}» غير صالحة.` };
           }
           for (const [keyStr, cnt] of Object.entries(mVal.counts)) {
-            if (isFormat2) {
-              if (/^\d+$/.test(keyStr) || !keyStr.includes('.')) {
-                return { valid: false, error: `معرف الكلمة (${keyStr}) في «${catId}» ليس معرفاً مستقراً صالحاً.` };
+            if (/^\d+$/.test(keyStr)) {
+              const wIdx = parseInt(keyStr, 10);
+              if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
+                return { valid: false, error: `فهرس الكلمة (${keyStr}) في القسم «${catId}» خارج نطاق القسم.` };
               }
+            } else if (keyStr.startsWith(catId + '.') && keyStr.slice(catId.length + 1).length > 0 && /^[a-z0-9_.-]+$/.test(keyStr.slice(catId.length + 1))) {
+              // Valid word ID
             } else {
-              if (/^\d+$/.test(keyStr)) {
-                const wIdx = parseInt(keyStr, 10);
-                if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
-                  return { valid: false, error: `فهرس الكلمة (${keyStr}) في القسم «${catId}» خارج نطاق القسم.` };
-                }
-              }
+              return { valid: false, error: `معرف الكلمة (${keyStr}) في «${catId}» ليس معرفاً مستقراً صالحاً.` };
             }
             if (!Number.isInteger(cnt) || cnt < 0 || cnt > 10000) {
               return { valid: false, error: `قيمة العداد للكلمة (${keyStr}) في «${catId}/${mKey}» غير صالحة.` };
@@ -250,17 +246,10 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
       if (typeof item !== 'string') {
         return { valid: false, error: 'عنصر في المفضلة بصيغة غير صالحة.' };
       }
-      if (isFormat2) {
-        if (!item.includes('.')) {
-          return { valid: false, error: `معرّف الكلمة المميزة «${item}» ليس معرفاً مستقراً صالحاً.` };
-        }
-      } else {
-        if (item.includes('.')) continue;
-        const parts = item.split('_');
-        if (parts.length !== 2) {
-          return { valid: false, error: `معرّف الكلمة المميزة «${item}» غير صالح.` };
-        }
-        const [catId, idxStr] = parts;
+      if (/^[a-z0-9-]+_\d+$/.test(item)) {
+        const lastIdx = item.lastIndexOf('_');
+        const catId = item.slice(0, lastIdx);
+        const idxStr = item.slice(lastIdx + 1);
         if (!knownCatIds.has(catId)) {
           return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف في التطبيق.` };
         }
@@ -268,6 +257,18 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
         if (!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)) {
           return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج نطاق القسم.` };
         }
+      } else if (item.includes('.')) {
+        const dotIdx = item.indexOf('.');
+        const catId = item.slice(0, dotIdx);
+        const slug = item.slice(dotIdx + 1);
+        if (!knownCatIds.has(catId)) {
+          return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف في التطبيق.` };
+        }
+        if (!slug || !/^[a-z0-9_.-]+$/.test(slug)) {
+          return { valid: false, error: `معرّف الكلمة المميزة «${item}» ليس معرفاً مستقراً صالحاً.` };
+        }
+      } else {
+        return { valid: false, error: `معرّف الكلمة المميزة «${item}» ليس معرفاً مستقراً صالحاً.` };
       }
     }
   }
@@ -278,21 +279,25 @@ export function validateBackupData(data, categoriesList = [], allowedModes = PRO
       return { valid: false, error: 'حقل التكرار المتباعد (srs) غير صالح.' };
     }
     for (const [k, rec] of Object.entries(data.srs)) {
-      if (isFormat2) {
-        if (!k.includes('.')) {
+      if (/^[a-z0-9-]+_\d+$/.test(k)) {
+        const lastIdx = k.lastIndexOf('_');
+        const catId = k.slice(0, lastIdx);
+        const idxStr = k.slice(lastIdx + 1);
+        if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
+        const idx = parseInt(idxStr, 10);
+        if (!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)) {
+          return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج نطاق القسم.` };
+        }
+      } else if (k.includes('.')) {
+        const dotIdx = k.indexOf('.');
+        const catId = k.slice(0, dotIdx);
+        const slug = k.slice(dotIdx + 1);
+        if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
+        if (!slug || !/^[a-z0-9_.-]+$/.test(slug)) {
           return { valid: false, error: `مفتاح SRS «${k}» ليس معرفاً مستقراً صالحاً.` };
         }
       } else {
-        if (!k.includes('.')) {
-          const parts = k.split('_');
-          if (parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
-          const [catId, idxStr] = parts;
-          if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
-          const idx = parseInt(idxStr, 10);
-          if (!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)) {
-            return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج نطاق القسم.` };
-          }
-        }
+        return { valid: false, error: `مفتاح SRS «${k}» ليس معرفاً مستقراً صالحاً.` };
       }
       if (typeof rec !== 'object' || rec === null || Array.isArray(rec)) {
         return { valid: false, error: `سجل SRS للكلمة «${k}» غير صالح.` };

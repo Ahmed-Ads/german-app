@@ -108,7 +108,7 @@ describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () =>
     }
 
     const legacyPayload = {
-      dataVersion: 1,
+      dataVersion: 14,
       progress: legacyProgress,
       stats: { current: 15, longest: 20, totalAnswered: 500, totalCorrect: 480 },
       starred: legacyStarred,
@@ -119,7 +119,7 @@ describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () =>
     const migrated = SyncMergePolicy.migrateLegacyUserData(legacyPayload, CATEGORIES);
 
     expect(migrated.dataFormat).toBe(2);
-    expect(migrated.dataVersion).toBe(2);
+    expect(migrated.dataVersion).toBe(14);
     expect(migrated.stats).toEqual(legacyPayload.stats);
     expect(migrated.dailyGoal).toEqual(legacyPayload.dailyGoal);
 
@@ -264,10 +264,10 @@ describe('Cross-Version Sync Merge: 1v1, 1v2, 2v2 (Item 6)', () => {
     expect(ab.dataVersion).toBe(3);
   });
 
-  it('1v2 merge migrates version 1 operand first and produces valid format-2 document', () => {
+  it('1v2 merge migrates legacy operand first and produces valid format-2 document with counter semantics', () => {
     const legacyDoc = {
       schemaVersion: 1,
-      dataVersion: 1,
+      dataVersion: 14,
       progress: { obst: { mcq: { unlocked: 3, counts: { '0': 3 } } } },
       starred: ['obst_0'],
       srs: { 'obst_0': { box: 1, lastDate: '2026-10-01' } },
@@ -286,7 +286,7 @@ describe('Cross-Version Sync Merge: 1v1, 1v2, 2v2 (Item 6)', () => {
 
     const merged = SyncMergePolicy.mergeFullUserData(legacyDoc, modernDoc, CATEGORIES);
 
-    expect(merged.dataVersion).toBeGreaterThanOrEqual(2);
+    expect(merged.dataVersion).toBe(15);
     expect(merged.progress.obst.mcq.unlocked).toBe(6);
     expect(merged.progress.obst.mcq.counts['obst.apfel']).toBe(5);
     expect(merged.progress.obst.mcq.counts['obst.banane']).toBe(2);
@@ -364,7 +364,7 @@ describe('Backup Export/Import & Round-Trip (Item 7)', () => {
     expect(migrated.srs['obst.apfel'].box).toBe(1);
   });
 
-  it('rejects malformed format 2 backup with invalid word id format', () => {
+  it('rejects genuinely malformed backup with invalid word id format', () => {
     const badBackup = {
       dataFormat: 2,
       progress: {
@@ -372,7 +372,7 @@ describe('Backup Export/Import & Round-Trip (Item 7)', () => {
           mcq: {
             unlocked: 5,
             counts: {
-              '0': 3 // In format 2, numeric keys are not allowed
+              'obst.invalid@word!': 3
             }
           }
         }
@@ -382,6 +382,33 @@ describe('Backup Export/Import & Round-Trip (Item 7)', () => {
     const res = validateBackupData(badBackup, CATEGORIES);
     expect(res.valid).toBe(false);
     expect(res.error).toContain('ليس معرفاً مستقراً صالحاً');
+  });
+
+  it('validates and losslessly migrates a backup claiming dataFormat 2 but containing legacy keys', () => {
+    const mixedBackup = {
+      dataFormat: 2,
+      progress: {
+        obst: {
+          mcq: {
+            unlocked: 5,
+            counts: {
+              '0': 7
+            }
+          }
+        }
+      },
+      starred: ['obst_0'],
+      srs: { 'obst_0': { box: 2, lastDate: '2026-10-01' } }
+    };
+
+    const val = validateBackupData(mixedBackup, CATEGORIES);
+    expect(val.valid).toBe(true);
+
+    const migrated = SyncMergePolicy.migrateLegacyUserData(mixedBackup, CATEGORIES);
+    expect(migrated.progress.obst.mcq.counts['obst.apfel']).toBe(7);
+    expect(migrated.progress.obst.mcq.counts['0']).toBeUndefined();
+    expect(migrated.starred).toEqual(['obst.apfel']);
+    expect(migrated.srs['obst.apfel'].box).toBe(2);
   });
 });
 

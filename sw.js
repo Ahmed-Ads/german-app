@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v21 (permanent stable word ids and format 2 migration)
-const CACHE_NAME = 'deutsch-lernen-v21';
+// Cache Version: v22 (shape-based legacy cloud format migration)
+const CACHE_NAME = 'deutsch-lernen-v22';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.

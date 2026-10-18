@@ -3422,8 +3422,6 @@ function validateBackupData(data, categoriesList = (typeof CATEGORIES !== 'undef
     return { valid: false, error: 'الملف غير صالح أو فارغ: لا يحتوي على أي حقول تقدم صالحة (progress, stats, starred, srs, dailyGoal).' };
   }
 
-  const isFormat2 = data.dataFormat === 2;
-
   // 1. Progress validation
   if(hasProgress){
     if(typeof data.progress !== 'object' || data.progress === null || Array.isArray(data.progress)){
@@ -3456,17 +3454,15 @@ function validateBackupData(data, categoriesList = (typeof CATEGORIES !== 'undef
             return { valid: false, error: `عدادات الكلمات في «${catId}/${mKey}» غير صالحة.` };
           }
           for(const [keyStr, cnt] of Object.entries(mVal.counts)){
-            if(isFormat2){
-              if(/^\d+$/.test(keyStr) || !keyStr.includes('.')){
-                return { valid: false, error: `معرف الكلمة (${keyStr}) في «${catId}» ليس معرفاً مستقراً صالحاً.` };
+            if(/^\d+$/.test(keyStr)){
+              const wIdx = parseInt(keyStr, 10);
+              if(!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords){
+                return { valid: false, error: `فهرس الكلمة (${keyStr}) في القسم «${catId}» خارج نطاق القسم.` };
               }
+            } else if(keyStr.startsWith(catId + '.') && keyStr.slice(catId.length + 1).length > 0 && /^[a-z0-9_.-]+$/.test(keyStr.slice(catId.length + 1))){
+              // Valid word ID
             } else {
-              if(/^\d+$/.test(keyStr)){
-                const wIdx = parseInt(keyStr, 10);
-                if(!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords){
-                  return { valid: false, error: `فهرس الكلمة (${keyStr}) في القسم «${catId}» خارج نطاق القسم.` };
-                }
-              }
+              return { valid: false, error: `معرف الكلمة (${keyStr}) في «${catId}» ليس معرفاً مستقراً صالحاً.` };
             }
             if(!Number.isInteger(cnt) || cnt < 0 || cnt > 10000){
               return { valid: false, error: `قيمة العداد للكلمة (${keyStr}) في «${catId}/${mKey}» غير صالحة.` };
@@ -3508,19 +3504,10 @@ function validateBackupData(data, categoriesList = (typeof CATEGORIES !== 'undef
       if(typeof item !== 'string'){
         return { valid: false, error: 'عنصر في المفضلة بصيغة غير صالحة.' };
       }
-      if(isFormat2){
-        if(!item.includes('.')){
-          return { valid: false, error: `معرّف الكلمة المميزة «${item}» ليس معرفاً مستقراً صالحاً.` };
-        }
-      } else {
-        if(item.includes('.')){
-          continue;
-        }
-        const parts = item.split('_');
-        if(parts.length !== 2){
-          return { valid: false, error: `معرّف الكلمة المميزة «${item}» غير صالح.` };
-        }
-        const [catId, idxStr] = parts;
+      if(/^[a-z0-9-]+_\d+$/.test(item)){
+        const lastIdx = item.lastIndexOf('_');
+        const catId = item.slice(0, lastIdx);
+        const idxStr = item.slice(lastIdx + 1);
         if(!knownCatIds.has(catId)){
           return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف في التطبيق.` };
         }
@@ -3528,6 +3515,18 @@ function validateBackupData(data, categoriesList = (typeof CATEGORIES !== 'undef
         if(!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)){
           return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج نطاق القسم.` };
         }
+      } else if(item.includes('.')){
+        const dotIdx = item.indexOf('.');
+        const catId = item.slice(0, dotIdx);
+        const slug = item.slice(dotIdx + 1);
+        if(!knownCatIds.has(catId)){
+          return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف في التطبيق.` };
+        }
+        if(!slug || !/^[a-z0-9_.-]+$/.test(slug)){
+          return { valid: false, error: `معرّف الكلمة المميزة «${item}» ليس معرفاً مستقراً صالحاً.` };
+        }
+      } else {
+        return { valid: false, error: `معرّف الكلمة المميزة «${item}» ليس معرفاً مستقراً صالحاً.` };
       }
     }
   }
@@ -3538,21 +3537,25 @@ function validateBackupData(data, categoriesList = (typeof CATEGORIES !== 'undef
       return { valid: false, error: 'حقل التكرار المتباعد (srs) غير صالح.' };
     }
     for(const [k, rec] of Object.entries(data.srs)){
-      if(isFormat2){
-        if(!k.includes('.')){
+      if(/^[a-z0-9-]+_\d+$/.test(k)){
+        const lastIdx = k.lastIndexOf('_');
+        const catId = k.slice(0, lastIdx);
+        const idxStr = k.slice(lastIdx + 1);
+        if(!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
+        const idx = parseInt(idxStr, 10);
+        if(!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)){
+          return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج نطاق القسم.` };
+        }
+      } else if(k.includes('.')){
+        const dotIdx = k.indexOf('.');
+        const catId = k.slice(0, dotIdx);
+        const slug = k.slice(dotIdx + 1);
+        if(!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
+        if(!slug || !/^[a-z0-9_.-]+$/.test(slug)){
           return { valid: false, error: `مفتاح SRS «${k}» ليس معرفاً مستقراً صالحاً.` };
         }
       } else {
-        if(!k.includes('.')){
-          const parts = k.split('_');
-          if(parts.length !== 2) return { valid: false, error: `مفتاح SRS «${k}» غير صالح.` };
-          const [catId, idxStr] = parts;
-          if(!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
-          const idx = parseInt(idxStr, 10);
-          if(!Number.isInteger(idx) || idx < 0 || idx >= catWordCounts.get(catId)){
-            return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج نطاق القسم.` };
-          }
-        }
+        return { valid: false, error: `مفتاح SRS «${k}» ليس معرفاً مستقراً صالحاً.` };
       }
       if(typeof rec !== 'object' || rec === null || Array.isArray(rec)){
         return { valid: false, error: `سجل SRS للكلمة «${k}» غير صالح.` };
@@ -3647,7 +3650,7 @@ function importBackup(jsonStr){
     return;
   }
 
-  if(data.dataFormat !== 2 && typeof SyncMergePolicy !== 'undefined' && typeof SyncMergePolicy.migrateLegacyUserData === 'function'){
+  if(typeof SyncMergePolicy !== 'undefined' && typeof SyncMergePolicy.migrateLegacyUserData === 'function'){
     data = SyncMergePolicy.migrateLegacyUserData(data);
   }
 
@@ -6047,10 +6050,36 @@ async function init(){
   app.innerHTML = `<div class="done-card"><h2>...جارِ تحميل تقدّمك</h2></div>`;
   await Promise.all([loadProgress(), loadStats(), loadStarred(), loadSrs()]);
 
+  function hasLegacyStoredKeys(){
+    if(progress && typeof progress === 'object'){
+      for(const c of Object.values(progress)){
+        if(c && typeof c === 'object'){
+          for(const [m, mv] of Object.entries(c)){
+            if(m === 'coreAcked' || !mv || typeof mv !== 'object' || !mv.counts) continue;
+            for(const k of Object.keys(mv.counts)){
+              if(/^\d+$/.test(k)) return true;
+            }
+          }
+        }
+      }
+    }
+    if(starredSet && typeof starredSet.forEach === 'function'){
+      for(const item of starredSet){
+        if(typeof item === 'string' && /^[a-z0-9-]+_\d+$/.test(item)) return true;
+      }
+    }
+    if(srsStore && typeof srsStore === 'object'){
+      for(const k of Object.keys(srsStore)){
+        if(/^[a-z0-9-]+_\d+$/.test(k)) return true;
+      }
+    }
+    return false;
+  }
+
   if(typeof SyncMergePolicy !== 'undefined' && typeof SyncMergePolicy.migrateLegacyUserData === 'function'){
     const formatMarker = (typeof appStorage !== 'undefined' && appStorage && appStorage.get('deutsch_data_format_v1')) ||
                          (typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('deutsch_data_format_v1'));
-    if(formatMarker !== '2'){
+    if(formatMarker !== '2' || hasLegacyStoredKeys()){
       if(!SyncMergePolicy.LEGACY_INDEX_IDS || Object.keys(SyncMergePolicy.LEGACY_INDEX_IDS).length === 0){
         if(typeof showToast === 'function'){
           showToast('تعذر تحميل خريطة المعرفات القديمة. تم إيقاف الترقية لضمان عدم فقدان البيانات.');
@@ -6082,8 +6111,6 @@ async function init(){
   if(window.syncManager){
     window.syncManager.setLocalStateProvider({
       getLocalData: () => ({
-        dataFormat: 2,
-        dataVersion: 2,
         progress: progress || {},
         stats: stats || {},
         starred: Array.from(starredSet || []),

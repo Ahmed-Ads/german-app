@@ -101,6 +101,11 @@ test.describe('Cross-Device Progress Sync: Two-Context E2E Verification', () => 
     console.log(`[Sync-E2E] Fake Cloud Server: ${cloudUrl}`);
   });
 
+  test.beforeEach(() => {
+    simulateCloudError = false;
+    cloudStore.clear();
+  });
+
   test.afterAll(async () => {
     if (appServer) await new Promise(resolve => appServer.close(resolve));
     if (cloudServer) await new Promise(resolve => cloudServer.close(resolve));
@@ -283,6 +288,116 @@ test.describe('Cross-Device Progress Sync: Two-Context E2E Verification', () => 
     expect(word3Count).toBeGreaterThanOrEqual(1);
 
     // Cleanup contexts
+    await contextA.close();
+    await contextB.close();
+  });
+
+  test('Legacy cloud document (dataVersion 14 with numeric keys) is migrated on first sync and synced across devices', async ({ browser }) => {
+    // 0. Seed fake cloud with legacy document of dataVersion 14 and numeric keys
+    const legacyCloudDoc = {
+      schemaVersion: 1,
+      dataVersion: 14,
+      updatedAt: '2026-10-10T12:00:00.000Z',
+      progress: {
+        berufe: { mcq: { unlocked: 5, counts: { '0': 4 } } },
+        obst: { mcq: { unlocked: 5, counts: { '0': 3 } } }
+      },
+      stats: { current: 5, longest: 10, totalAnswered: 50, totalCorrect: 48 },
+      starred: ['berufe_0', 'obst_0'],
+      srs: { 'berufe_0': { box: 2, lastDate: '2026-10-08', nextDate: '2026-10-15' } },
+      dailyGoal: { target: 25 }
+    };
+    cloudStore.set('user_legacy_14', legacyCloudDoc);
+
+    const setupAdapterInPage = async (page) => {
+      await page.evaluate((backendUrl) => {
+        class HttpCloudAdapter {
+          constructor(url) {
+            this.url = url;
+            this.currentUser = null;
+            this.listeners = new Set();
+          }
+          isConfigured() { return true; }
+          async signIn(user = { uid: 'user_legacy_14', email: 'legacy14@example.com', displayName: 'Legacy Learner' }) {
+            this.currentUser = user;
+            for (const cb of this.listeners) cb(this.currentUser);
+            return this.currentUser;
+          }
+          async signOut() {
+            this.currentUser = null;
+            for (const cb of this.listeners) cb(null);
+          }
+          onAuthChange(cb) {
+            this.listeners.add(cb);
+            return () => this.listeners.delete(cb);
+          }
+          async load(uid) {
+            const res = await fetch(`${this.url}/cloud/users/${uid}`);
+            if (res.status === 404) return null;
+            if (!res.ok) throw new Error(`Cloud error ${res.status}`);
+            const json = await res.json();
+            return json.data;
+          }
+          async save(uid, data) {
+            const res = await fetch(`${this.url}/cloud/users/${uid}`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ data })
+            });
+            if (!res.ok) throw new Error(`Cloud save error ${res.status}`);
+          }
+          async deleteData(uid) {
+            const res = await fetch(`${this.url}/cloud/users/${uid}`, { method: 'DELETE' });
+            if (!res.ok) throw new Error(`Cloud delete error ${res.status}`);
+          }
+        }
+
+        window.testHttpAdapter = new HttpCloudAdapter(backendUrl);
+        window.syncManager.setAdapter(window.testHttpAdapter);
+      }, cloudUrl);
+    };
+
+    const contextA = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const contextB = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const pageA = await contextA.newPage();
+    const pageB = await contextB.newPage();
+
+    await pageA.goto(appUrl);
+    await pageA.waitForFunction(() => window.syncManager && window.CATEGORIES);
+    await setupAdapterInPage(pageA);
+
+    // Device A signs in
+    await pageA.evaluate(async () => {
+      await window.syncManager.signIn();
+    });
+
+    // Cloud document must now have ID keys, no numeric keys, and dataVersion >= 15
+    const updatedCloud = cloudStore.get('user_legacy_14');
+    expect(updatedCloud).toBeDefined();
+    expect(updatedCloud.dataVersion).toBeGreaterThanOrEqual(15);
+    expect(updatedCloud.progress.berufe.mcq.counts['berufe.arzt']).toBe(4);
+    expect(updatedCloud.progress.berufe.mcq.counts['0']).toBeUndefined();
+    expect(updatedCloud.starred).toContain('berufe.arzt');
+    expect(updatedCloud.starred).not.toContain('berufe_0');
+    expect(updatedCloud.srs['berufe.arzt']).toBeDefined();
+    expect(updatedCloud.srs['berufe_0']).toBeUndefined();
+
+    // Device B opens and signs in
+    await pageB.goto(appUrl);
+    await pageB.waitForFunction(() => window.syncManager && window.CATEGORIES);
+    await setupAdapterInPage(pageB);
+
+    await pageB.evaluate(async () => {
+      await window.syncManager.signIn();
+    });
+
+    // Assert A and B end with the same progress
+    const progA = await pageA.evaluate(() => window.progress.berufe.mcq.counts);
+    const progB = await pageB.evaluate(() => window.progress.berufe.mcq.counts);
+    expect(progA['berufe.arzt']).toBe(4);
+    expect(progB['berufe.arzt']).toBe(4);
+    expect(progA).toEqual(progB);
+
     await contextA.close();
     await contextB.close();
   });
