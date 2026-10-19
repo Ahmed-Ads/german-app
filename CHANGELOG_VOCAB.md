@@ -77,3 +77,10 @@
 - **Target Item IDs:** all_1160_words
 - **Previous SHA-256:** `420c831eaead691b7218b3bef7d7c8c2dee90b47bf2e0a440c03b69829022fed`
 - **New SHA-256:** `9815eb51167cd7f57191b0fd5ea452a10f1f9df331d871b119d105d9a24a33b7`
+
+## [2026-10-18 20:31:41] Authorized Baseline Update
+- **Reason:** Owner-approved vocabulary review: 208 words removed, 145 field edits; see docs/vocab_changes_batch1.json
+- **Source:** Owner / docs/vocab_changes_batch1.json
+- **Target Item IDs:** docs/vocab_changes_batch1.json (208 removed, 145 edited)
+- **Previous SHA-256:** `9815eb51167cd7f57191b0fd5ea452a10f1f9df331d871b119d105d9a24a33b7`
+- **New SHA-256:** `bdb4224842632072b7a4de2986963e8fa30ce027fedd80847f0e6c45bbe6434d`

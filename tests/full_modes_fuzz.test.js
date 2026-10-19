@@ -84,7 +84,7 @@ describe('Comprehensive Fuzz Testing (Written, Listen, Flashcards, SRS Reviews)'
     }
   });
 
-  it('fuzz tests Flashcards generation across all 1,160 words', () => {
+  it('fuzz tests Flashcards generation across all words', () => {
     for (const cat of categories) {
       for (let i = 0; i < cat.words.length; i++) {
         const w = cat.words[i];

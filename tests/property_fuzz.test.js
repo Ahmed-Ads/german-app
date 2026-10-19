@@ -30,7 +30,7 @@ function createSeededRandom(seed) {
 }
 
 describe('Property & Fuzz Testing with Real Helpers from index.html', () => {
-  it('fuzz tests all 1160 words × 20 seeds for MCQ invariant correctness', () => {
+  it('fuzz tests all words across categories × 20 seeds for MCQ invariant correctness', () => {
     let testedCount = 0;
     for (const cat of categories) {
       for (let idx = 0; idx < cat.words.length; idx++) {
@@ -78,7 +78,9 @@ describe('Property & Fuzz Testing with Real Helpers from index.html', () => {
         }
       }
     }
-    expect(testedCount).toBe(1160);
+    const totalWords = categories.reduce((sum, c) => sum + (c.words || []).length, 0);
+    expect(testedCount).toBe(totalWords);
+    expect(testedCount).toBe(952);
   }, 30000);
 
   it('fuzz tests all words in article categories for article correctness', () => {

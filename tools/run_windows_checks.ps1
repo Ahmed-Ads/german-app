@@ -507,7 +507,7 @@ $verifyOutput = if ($pyExecutable -ne "NOT_FOUND") {
 $verifyOutput | Out-File -FilePath $rawLogPath -Append -Encoding utf8
 $verifyText = ($verifyOutput -join "`n")
 
-$canonicalHash = "9815eb51167cd7f57191b0fd5ea452a10f1f9df331d871b119d105d9a24a33b7"
+$canonicalHash = "bdb4224842632072b7a4de2986963e8fa30ce027fedd80847f0e6c45bbe6434d"
 if ($LASTEXITCODE -eq 0 -and $verifyText.Contains($canonicalHash) -and $verifyText.Contains("[PASSED]")) {
     Log-Output "  verify_vocab.py: PASS"
     $stepResults["VerifyVocab"] = "PASS (Ran)"

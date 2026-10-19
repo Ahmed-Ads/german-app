@@ -1,0 +1,2356 @@
+{
+ "version": 1,
+ "base_vocab_sha256": "9815eb51167cd7f57191b0fd5ea452a10f1f9df331d871b119d105d9a24a33b7",
+ "keep_untouched_categories": [
+  "section-names"
+ ],
+ "remove": [
+  {
+   "id": "berufe.buchhalter",
+   "german": "Buchhalter",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "berufe.schuster",
+   "german": "Schuster",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "berufe.tischler",
+   "german": "Tischler",
+   "reason": "إقليمية أو قليلة الاستعمال"
+  },
+  {
+   "id": "berufe.klempner",
+   "german": "Klempner",
+   "reason": "إقليمية أو قليلة الاستعمال"
+  },
+  {
+   "id": "familie.stiefsohn",
+   "german": "Stiefsohn",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "familie.stieftochter",
+   "german": "Stieftochter",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "familie.urgrosseltern",
+   "german": "Urgroßeltern",
+   "reason": "مكرّرة المعنى مع كلمة أخرى باقية"
+  },
+  {
+   "id": "fleisch.kabeljau",
+   "german": "Kabeljau",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "fleisch.makrele",
+   "german": "Makrele",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "fleisch.karpfen",
+   "german": "Karpfen",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "fleisch.aal",
+   "german": "Aal",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "fleisch.hummer",
+   "german": "Hummer",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "fleisch.sardine",
+   "german": "Sardine",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "fleisch.zander",
+   "german": "Zander",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "fleisch.rollmops",
+   "german": "Rollmops",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "fleisch.fleischbruehe",
+   "german": "Fleischbrühe",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gefuehle.beschaemt",
+   "german": "beschämt",
+   "reason": "مستوى أعلى من B1"
+  },
+  {
+   "id": "gefuehle.pessimistisch",
+   "german": "pessimistisch",
+   "reason": "مستوى أعلى من B1"
+  },
+  {
+   "id": "gefuehle.geruehrt",
+   "german": "gerührt",
+   "reason": "مستوى أعلى من B1"
+  },
+  {
+   "id": "gefuehle.zaertlich",
+   "german": "zärtlich",
+   "reason": "مستوى أعلى من B1"
+  },
+  {
+   "id": "gefuehle.leidenschaftlich",
+   "german": "leidenschaftlich",
+   "reason": "مستوى أعلى من B1"
+  },
+  {
+   "id": "gefuehle.euphorisch",
+   "german": "euphorisch",
+   "reason": "مستوى أعلى من B1"
+  },
+  {
+   "id": "gemuese.artischocke",
+   "german": "Artischocke",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gemuese.weisskohl",
+   "german": "Weißkohl",
+   "reason": "مكرّرة المعنى مع كلمة أخرى باقية"
+  },
+  {
+   "id": "gemuese.wirsing",
+   "german": "Wirsing",
+   "reason": "إقليمية أو قليلة الاستعمال"
+  },
+  {
+   "id": "gemuese.chinakohl",
+   "german": "Chinakohl",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gemuese.schalotte",
+   "german": "Schalotte",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gemuese.sojabohne",
+   "german": "Sojabohne",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gemuese.meerrettich",
+   "german": "Meerrettich",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gemuese.chicore",
+   "german": "Chicorée",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gemuese.mangold",
+   "german": "Mangold",
+   "reason": "تقسيم آلي خاطئ (man+gold) وكلمة نادرة"
+  },
+  {
+   "id": "gemuese.pastinake",
+   "german": "Pastinake",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gemuese.steckruebe",
+   "german": "Steckrübe",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gemuese.kresse",
+   "german": "Kresse",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gemuese.sauerampfer",
+   "german": "Sauerampfer",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.rum",
+   "german": "Rum",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.gin",
+   "german": "Gin",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.likoer",
+   "german": "Likör",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.traubensaft",
+   "german": "Traubensaft",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.ananassaft",
+   "german": "Ananassaft",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.kraeutertee",
+   "german": "Kräutertee",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.sodawasser",
+   "german": "Sodawasser",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.weizenbier",
+   "german": "Weizenbier",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.pils",
+   "german": "Pils",
+   "reason": "إقليمية أو قليلة الاستعمال"
+  },
+  {
+   "id": "getraenke.eierlikoer",
+   "german": "Eierlikör",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.frapp",
+   "german": "Frappé",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.kokoswasser",
+   "german": "Kokoswasser",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.ingwertee",
+   "german": "Ingwertee",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.fencheltee",
+   "german": "Fencheltee",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.hagebuttentee",
+   "german": "Hagebuttentee",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.malzkaffee",
+   "german": "Malzkaffee",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "getraenke.tonicwater",
+   "german": "Tonicwater",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.kuemmel",
+   "german": "Kümmel",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.knoblauchpulver",
+   "german": "Knoblauchpulver",
+   "reason": "صعبة التهجئة/النطق مع فائدة قليلة"
+  },
+  {
+   "id": "gewuerze.nelke",
+   "german": "Nelke",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.majoran",
+   "german": "Majoran",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.estragon",
+   "german": "Estragon",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.baerlauch",
+   "german": "Bärlauch",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.sternanis",
+   "german": "Sternanis",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.piment",
+   "german": "Piment",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.sumach",
+   "german": "Sumach",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.bockshornklee",
+   "german": "Bockshornklee",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.tahin",
+   "german": "Tahin",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.zitronenschale",
+   "german": "Zitronenschale",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.kaper",
+   "german": "Kaper",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.trueffel",
+   "german": "Trüffel",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.ras-el-hanout",
+   "german": "Ras-el-Hanout",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "gewuerze.harissa",
+   "german": "Harissa",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "kleidung.buestenhalter",
+   "german": "Büstenhalter",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "kleidung.poncho",
+   "german": "Poncho",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "kleidung.overall",
+   "german": "Overall",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "kleidung.latzhose",
+   "german": "Latzhose",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "kleidung.umhang",
+   "german": "Umhang",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "kleidung.turban",
+   "german": "Turban",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "kleidung.brosche",
+   "german": "Brosche",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "koerper.wimper",
+   "german": "Wimper",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "koerper.sehne",
+   "german": "Sehne",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "koerper.achsel",
+   "german": "Achsel",
+   "reason": "إقليمية أو قليلة الاستعمال"
+  },
+  {
+   "id": "koerper.pupille",
+   "german": "Pupille",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "milch.kondensmilch",
+   "german": "Kondensmilch",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "milch.kefir",
+   "german": "Kefir",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "milch.skyr",
+   "german": "Skyr",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "milch.camembert",
+   "german": "Camembert",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "musik.oboe",
+   "german": "Oboe",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.fagott",
+   "german": "Fagott",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.tuba",
+   "german": "Tuba",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.xylophon",
+   "german": "Xylophon",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.kontrabass",
+   "german": "Kontrabass",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.bratsche",
+   "german": "Bratsche",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.mundharmonika",
+   "german": "Mundharmonika",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.tamburin",
+   "german": "Tamburin",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.ukulele",
+   "german": "Ukulele",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.cembalo",
+   "german": "Cembalo",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.banjo",
+   "german": "Banjo",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.panfloete",
+   "german": "Panflöte",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.glockenspiel",
+   "german": "Glockenspiel",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.rassel",
+   "german": "Rassel",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.gong",
+   "german": "Gong",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.kastagnetten",
+   "german": "Kastagnetten",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.dudelsack",
+   "german": "Dudelsack",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.zither",
+   "german": "Zither",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.waldhorn",
+   "german": "Waldhorn",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.bassgitarre",
+   "german": "Bassgitarre",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.triangel",
+   "german": "Triangel",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.vibraphon",
+   "german": "Vibraphon",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.marimba",
+   "german": "Marimba",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.sitar",
+   "german": "Sitar",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.bandoneon",
+   "german": "Bandoneon",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.didgeridoo",
+   "german": "Didgeridoo",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.laute",
+   "german": "Laute",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.mandoline",
+   "german": "Mandoline",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.cajon",
+   "german": "Cajon",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "musik.steeldrum",
+   "german": "Steeldrum",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "obst.johannisbeere",
+   "german": "Johannisbeere",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.litschi",
+   "german": "Litschi",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.quitte",
+   "german": "Quitte",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.stachelbeere",
+   "german": "Stachelbeere",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.preiselbeere",
+   "german": "Preiselbeere",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.holunderbeere",
+   "german": "Holunderbeere",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.maulbeere",
+   "german": "Maulbeere",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.guave",
+   "german": "Guave",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.passionsfrucht",
+   "german": "Passionsfrucht",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.drachenfrucht",
+   "german": "Drachenfrucht",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.kaki",
+   "german": "Kaki",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.zwetschge",
+   "german": "Zwetschge",
+   "reason": "إقليمية أو قليلة الاستعمال"
+  },
+  {
+   "id": "obst.mirabelle",
+   "german": "Mirabelle",
+   "reason": "إقليمية أو قليلة الاستعمال"
+  },
+  {
+   "id": "obst.physalis",
+   "german": "Physalis",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.kumquat",
+   "german": "Kumquat",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.sanddorn",
+   "german": "Sanddorn",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.hagebutte",
+   "german": "Hagebutte",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "obst.weichsel",
+   "german": "Weichsel",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "schule.klebstift",
+   "german": "Klebstift",
+   "reason": "غير شائعة بهذا الشكل (الشائع Klebestift)"
+  },
+  {
+   "id": "schule.hefter",
+   "german": "Hefter",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "schule.tintenkiller",
+   "german": "Tintenkiller",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "sport.fechten",
+   "german": "Fechten",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.ringen",
+   "german": "Ringen",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.taekwondo",
+   "german": "Taekwondo",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.darts",
+   "german": "Darts",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.cricket",
+   "german": "Cricket",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.kegeln",
+   "german": "Kegeln",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.gewichtheben",
+   "german": "Gewichtheben",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.speerwurf",
+   "german": "Speerwurf",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.weitsprung",
+   "german": "Weitsprung",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.hochsprung",
+   "german": "Hochsprung",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.staffellauf",
+   "german": "Staffellauf",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.skateboarden",
+   "german": "Skateboarden",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.inlineskaten",
+   "german": "Inlineskaten",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "sport.triathlon",
+   "german": "Triathlon",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "suessigkeiten.fruchtgummi",
+   "german": "Fruchtgummi",
+   "reason": "مكرّرة المعنى مع كلمة أخرى باقية"
+  },
+  {
+   "id": "suessigkeiten.konfekt",
+   "german": "Konfekt",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.krapfen",
+   "german": "Krapfen",
+   "reason": "مكرّرة المعنى مع كلمة أخرى باقية"
+  },
+  {
+   "id": "suessigkeiten.sachertorte",
+   "german": "Sachertorte",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.streuselkuchen",
+   "german": "Streuselkuchen",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.windbeutel",
+   "german": "Windbeutel",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.griesspudding",
+   "german": "Grießpudding",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.rote-gruetze",
+   "german": "Rote Grütze",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.kokosmakrone",
+   "german": "Kokosmakrone",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.kaiserschmarrn",
+   "german": "Kaiserschmarrn",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.zuckerstange",
+   "german": "Zuckerstange",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.kandiszucker",
+   "german": "Kandiszucker",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.nussecke",
+   "german": "Nussecke",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "suessigkeiten.florentiner",
+   "german": "Florentiner",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "technik.antenne",
+   "german": "Antenne",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "technik.transistor",
+   "german": "Transistor",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "technik.solarzelle",
+   "german": "Solarzelle",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "technik.generator",
+   "german": "Generator",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "verkehr.u-boot",
+   "german": "U-Boot",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "verkehr.segelboot",
+   "german": "Segelboot",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "verkehr.kombi",
+   "german": "Kombi",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "verkehr.gelaendewagen",
+   "german": "Geländewagen",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "verkehr.cabrio",
+   "german": "Cabrio",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "verkehr.kutsche",
+   "german": "Kutsche",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "verkehr.heissluftballon",
+   "german": "Heißluftballon",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "verkehr.segelflugzeug",
+   "german": "Segelflugzeug",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.meissel",
+   "german": "Meißel",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.feile",
+   "german": "Feile",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.hobel",
+   "german": "Hobel",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.schraubstock",
+   "german": "Schraubstock",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.akkuschrauber",
+   "german": "Akkuschrauber",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.winkelschleifer",
+   "german": "Winkelschleifer",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.loetkolben",
+   "german": "Lötkolben",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.inbusschluessel",
+   "german": "Inbusschlüssel",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.wasserpumpenzange",
+   "german": "Wasserpumpenzange",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.arbeitshandschuhe",
+   "german": "Arbeitshandschuhe",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.kelle",
+   "german": "Kelle",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.spachtel",
+   "german": "Spachtel",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.farbroller",
+   "german": "Farbroller",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.heckenschere",
+   "german": "Heckenschere",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.sense",
+   "german": "Sense",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.rechen",
+   "german": "Rechen",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.schleifpapier",
+   "german": "Schleifpapier",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "werkzeuge.unterlegscheibe",
+   "german": "Unterlegscheibe",
+   "reason": "متخصصة وقليلة الفائدة لمتعلم حتى B1"
+  },
+  {
+   "id": "wetter.taifun",
+   "german": "Taifun",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "wetter.hurrikan",
+   "german": "Hurrikan",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "wetter.windboee",
+   "german": "Windböe",
+   "reason": "صعبة التهجئة/النطق مع فائدة قليلة"
+  },
+  {
+   "id": "wetter.orkan",
+   "german": "Orkan",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "wetter.sonnenfinsternis",
+   "german": "Sonnenfinsternis",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "wetter.mondfinsternis",
+   "german": "Mondfinsternis",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "wetter.monsun",
+   "german": "Monsun",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "wetter.dunst",
+   "german": "Dunst",
+   "reason": "نادرة في الاستعمال اليومي"
+  },
+  {
+   "id": "fleisch.blutwurst",
+   "german": "Blutwurst",
+   "reason": "حذف إضافي مقترح بعد المراجعة الثانية: Blutwurst قليلة الفائدة"
+  },
+  {
+   "id": "fleisch.fleischkloss",
+   "german": "Fleischkloß",
+   "reason": "حذف إضافي مقترح بعد المراجعة الثانية: Fleischkloß إقليمية (الشائع Frikadelle/Klops)"
+  },
+  {
+   "id": "milch.kaffeesahne",
+   "german": "Kaffeesahne",
+   "reason": "حذف إضافي مقترح بعد المراجعة الثانية: نادرة (Kaffeesahne) وقليلة الفائدة"
+  },
+  {
+   "id": "obst.sternfrucht",
+   "german": "Sternfrucht",
+   "reason": "حذف إضافي مقترح بعد المراجعة الثانية: فاكهة نادرة"
+  },
+  {
+   "id": "sport.wasserski",
+   "german": "Wasserski",
+   "reason": "حذف إضافي مقترح بعد المراجعة الثانية: Wasserski رياضة هامشية"
+  },
+  {
+   "id": "suessigkeiten.baumkuchen",
+   "german": "Baumkuchen",
+   "reason": "حذف إضافي مقترح بعد المراجعة الثانية: Baumkuchen نادر وتعقيده عالٍ"
+  },
+  {
+   "id": "technik.controller",
+   "german": "Controller",
+   "reason": "حذف إضافي مقترح بعد المراجعة الثانية: Controller لها ترجمة قريبة في Spielkonsole"
+  },
+  {
+   "id": "technik.digitaluhr",
+   "german": "Digitaluhr",
+   "reason": "حذف إضافي مقترح بعد المراجعة الثانية: Digitaluhr قليلة الفائدة"
+  }
+ ],
+ "edit": [
+  {
+   "id": "suessigkeiten.chips",
+   "german": "Chips",
+   "field": "ar",
+   "expect_current": "شيبسي",
+   "new": "رقائق البطاطس (شيبسي)",
+   "kind": "DATA",
+   "reason": "الترجمة العربية \"شيبسي\" تخالف ترجمة الجملة (رقائق البطاطس)."
+  },
+  {
+   "id": "suessigkeiten.plaetzchen",
+   "german": "Plätzchen",
+   "field": "a",
+   "expect_current": "die",
+   "new": "das",
+   "kind": "DATA",
+   "reason": "الكلمة محايدة (das Plätzchen)؛ العنوان كان بصيغة الجمع"
+  },
+  {
+   "id": "gefuehle.enttaeuscht",
+   "german": "enttäuscht",
+   "field": "ar",
+   "expect_current": "محبط",
+   "new": "خائب الأمل",
+   "kind": "GLOSS_DUP",
+   "reason": "enttäuscht و frustriert لهما نفس الترجمة \"محبط\""
+  },
+  {
+   "id": "gefuehle.hoffnungsvoll",
+   "german": "hoffnungsvoll",
+   "field": "ar",
+   "expect_current": "متفائل",
+   "new": "مليء بالأمل",
+   "kind": "GLOSS_DUP",
+   "reason": "hoffnungsvoll و optimistisch لهما نفس الترجمة \"متفائل\""
+  },
+  {
+   "id": "schule.ordner",
+   "german": "Ordner",
+   "field": "ar",
+   "expect_current": "ملف",
+   "new": "ملف أرشيف بحلقات",
+   "kind": "GLOSS_DUP",
+   "reason": "Ordner و Mappe لهما نفس الترجمة \"ملف\""
+  },
+  {
+   "id": "schule.mappe",
+   "german": "Mappe",
+   "field": "ar",
+   "expect_current": "ملف",
+   "new": "حافظة أوراق",
+   "kind": "GLOSS_DUP",
+   "reason": "Ordner و Mappe لهما نفس الترجمة \"ملف\""
+  },
+  {
+   "id": "werkzeuge.leiter",
+   "german": "Leiter",
+   "field": "ar",
+   "expect_current": "سلم",
+   "new": "سلّم متحرك",
+   "kind": "GLOSS_DUP",
+   "reason": "Treppe و Leiter لهما نفس الترجمة \"سلم\""
+  },
+  {
+   "id": "wetter.kaelte",
+   "german": "Kälte",
+   "field": "ar",
+   "expect_current": "برد",
+   "new": "برودة شديدة",
+   "kind": "GLOSS_DUP",
+   "reason": "Kälte و Hagel لهما نفس الترجمة \"برد\""
+  },
+  {
+   "id": "wetter.hagel",
+   "german": "Hagel",
+   "field": "ar",
+   "expect_current": "برد",
+   "new": "بَرَد (حبّات جليد تتساقط)",
+   "kind": "GLOSS_DUP",
+   "reason": "Kälte و Hagel لهما نفس الترجمة \"برد\""
+  },
+  {
+   "id": "zuhause.treppe",
+   "german": "Treppe",
+   "field": "ar",
+   "expect_current": "سلم",
+   "new": "درج (سلم ثابت)",
+   "kind": "GLOSS_DUP",
+   "reason": "Treppe و Leiter لهما نفس الترجمة \"سلم\""
+  },
+  {
+   "id": "familie.eltern",
+   "german": "Eltern",
+   "field": "ar",
+   "expect_current": "الوالدين",
+   "new": "والدان (أبوان)",
+   "kind": "AR_FIX",
+   "reason": "\"الوالدين\" بصيغة النصب؛ المقابل المعتاد: والدان/أبوان"
+  },
+  {
+   "id": "familie.schwager",
+   "german": "Schwager",
+   "field": "ar",
+   "expect_current": "نسيب",
+   "new": "شقيق الزوج/الزوجة أو زوج الأخت",
+   "kind": "AR_FIX",
+   "reason": "\"نسيب\" غامضة"
+  },
+  {
+   "id": "fleisch.schinken",
+   "german": "Schinken",
+   "field": "ar",
+   "expect_current": "لحم مقدد",
+   "new": "هام (لحم خنزير مقدد)",
+   "kind": "AR_FIX",
+   "reason": "\"لحم مقدد\" لا يبيّن أنه لحم خنزير"
+  },
+  {
+   "id": "fleisch.kotelett",
+   "german": "Kotelett",
+   "field": "ar",
+   "expect_current": "قطعة لحم",
+   "new": "قطعة لحم بعظم (ضلع)",
+   "kind": "AR_FIX",
+   "reason": "\"قطعة لحم\" عامة جدًا"
+  },
+  {
+   "id": "fleisch.speck",
+   "german": "Speck",
+   "field": "ar",
+   "expect_current": "لحم مقدد دهني",
+   "new": "بيكون (لحم خنزير مقدد دهني)",
+   "kind": "AR_FIX",
+   "reason": "غامضة؛ مهمّ للمسلم أن يعرف أنه من لحم الخنزير"
+  },
+  {
+   "id": "getraenke.sekt",
+   "german": "Sekt",
+   "field": "ar",
+   "expect_current": "شمبانيا ألمانية",
+   "new": "نبيذ فوّار ألماني",
+   "kind": "AR_FIX",
+   "reason": "\"شمبانيا ألمانية\" غير دقيقة (اسم Champagner محمي)"
+  },
+  {
+   "id": "kleidung.strumpfhose",
+   "german": "Strumpfhose",
+   "field": "ar",
+   "expect_current": "كولون",
+   "new": "جوارب نسائية طويلة (كولون)",
+   "kind": "AR_FIX",
+   "reason": "\"كولون\" لهجة"
+  },
+  {
+   "id": "kueche.tasse",
+   "german": "Tasse",
+   "field": "ar",
+   "expect_current": "كوب",
+   "new": "فنجان / كوب",
+   "kind": "AR_FIX",
+   "reason": "\"كوب\" تتعارض مع Glas = كوب زجاج"
+  },
+  {
+   "id": "suessigkeiten.bonbon",
+   "german": "Bonbon",
+   "field": "ar",
+   "expect_current": "حلوى",
+   "new": "حلوى صلبة (سكاكر)",
+   "kind": "AR_FIX",
+   "reason": "\"حلوى\" عامة"
+  },
+  {
+   "id": "fleisch.garnele",
+   "german": "Garnele",
+   "field": "ar",
+   "expect_current": "جمبري",
+   "new": "روبيان (جمبري)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "gemuese.kartoffel",
+   "german": "Kartoffel",
+   "field": "ar",
+   "expect_current": "بطاطس",
+   "new": "بطاطا (بطاطس)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "gemuese.zucchini",
+   "german": "Zucchini",
+   "field": "ar",
+   "expect_current": "كوسة",
+   "new": "كوسا (كوسة)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "gemuese.rote-bete",
+   "german": "Rote Bete",
+   "field": "ar",
+   "expect_current": "بنجر",
+   "new": "شمندر (بنجر)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "gewuerze.chili",
+   "german": "Chili",
+   "field": "ar",
+   "expect_current": "شطة",
+   "new": "فلفل حار (شطة)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "kleidung.muetze",
+   "german": "Mütze",
+   "field": "ar",
+   "expect_current": "طاقية",
+   "new": "قبعة صغيرة (طاقية)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "kleidung.badeanzug",
+   "german": "Badeanzug",
+   "field": "ar",
+   "expect_current": "مايوه",
+   "new": "ثوب سباحة (مايوه)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "kleidung.unterhemd",
+   "german": "Unterhemd",
+   "field": "ar",
+   "expect_current": "فانلة داخلية",
+   "new": "قميص داخلي (فانلة داخلية)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "kleidung.weste",
+   "german": "Weste",
+   "field": "ar",
+   "expect_current": "صديري",
+   "new": "سترة بلا أكمام (صديري)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "technik.handy",
+   "german": "Handy",
+   "field": "ar",
+   "expect_current": "موبايل",
+   "new": "هاتف محمول (موبايل)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "verkehr.bus",
+   "german": "Bus",
+   "field": "ar",
+   "expect_current": "أتوبيس",
+   "new": "حافلة (أتوبيس)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "verkehr.motorrad",
+   "german": "Motorrad",
+   "field": "ar",
+   "expect_current": "موتوسيكل",
+   "new": "دراجة نارية (موتوسيكل)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "werkzeuge.hammer",
+   "german": "Hammer",
+   "field": "ar",
+   "expect_current": "شاكوش",
+   "new": "مطرقة (شاكوش)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "werkzeuge.zange",
+   "german": "Zange",
+   "field": "ar",
+   "expect_current": "زردية",
+   "new": "زرادية (زردية)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "zuhause.sofa",
+   "german": "Sofa",
+   "field": "ar",
+   "expect_current": "كنبة",
+   "new": "أريكة (كنبة)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "zuhause.garage",
+   "german": "Garage",
+   "field": "ar",
+   "expect_current": "جراج",
+   "new": "مرآب (جراج)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "zuhause.kleiderschrank",
+   "german": "Kleiderschrank",
+   "field": "ar",
+   "expect_current": "دولاب الملابس",
+   "new": "خزانة الملابس (دولاب الملابس)",
+   "kind": "DIALECT",
+   "reason": "الفصحى والعامية معًا (قرار المالك)"
+  },
+  {
+   "id": "familie.kinder",
+   "german": "Kinder",
+   "field": "ar",
+   "expect_current": "الأطفال",
+   "new": "أطفال",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "familie.braeutigam",
+   "german": "Bräutigam",
+   "field": "ar",
+   "expect_current": "العريس",
+   "new": "عريس",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "familie.braut",
+   "german": "Braut",
+   "field": "ar",
+   "expect_current": "العروسة",
+   "new": "عروسة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "familie.geschwister",
+   "german": "Geschwister",
+   "field": "ar",
+   "expect_current": "الإخوة",
+   "new": "إخوة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "familie.ehemann",
+   "german": "Ehemann",
+   "field": "ar",
+   "expect_current": "الزوج",
+   "new": "زوج",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "familie.ehefrau",
+   "german": "Ehefrau",
+   "field": "ar",
+   "expect_current": "الزوجة",
+   "new": "زوجة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "familie.grosseltern",
+   "german": "Großeltern",
+   "field": "ar",
+   "expect_current": "الأجداد",
+   "new": "أجداد",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "familie.enkelkinder",
+   "german": "Enkelkinder",
+   "field": "ar",
+   "expect_current": "الأحفاد",
+   "new": "أحفاد",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "familie.verwandtschaft",
+   "german": "Verwandtschaft",
+   "field": "ar",
+   "expect_current": "الأقارب",
+   "new": "أقارب",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "koerper.wirbelsaeule",
+   "german": "Wirbelsäule",
+   "field": "ar",
+   "expect_current": "العمود الفقري",
+   "new": "عمود الفقري",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.gericht",
+   "german": "Gericht",
+   "field": "ar",
+   "expect_current": "المحكمة",
+   "new": "محكمة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.gefaengnis",
+   "german": "Gefängnis",
+   "field": "ar",
+   "expect_current": "السجن",
+   "new": "سجن",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.fabrik",
+   "german": "Fabrik",
+   "field": "ar",
+   "expect_current": "المصنع",
+   "new": "مصنع",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.buero",
+   "german": "Büro",
+   "field": "ar",
+   "expect_current": "المكتب",
+   "new": "مكتب",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.friedhof",
+   "german": "Friedhof",
+   "field": "ar",
+   "expect_current": "المقبرة",
+   "new": "مقبرة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.strand",
+   "german": "Strand",
+   "field": "ar",
+   "expect_current": "الشاطئ",
+   "new": "شاطئ",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.wald",
+   "german": "Wald",
+   "field": "ar",
+   "expect_current": "الغابة",
+   "new": "غابة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.berg",
+   "german": "Berg",
+   "field": "ar",
+   "expect_current": "الجبل",
+   "new": "جبل",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.see",
+   "german": "See",
+   "field": "ar",
+   "expect_current": "البحيرة",
+   "new": "بحيرة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.fluss",
+   "german": "Fluss",
+   "field": "ar",
+   "expect_current": "النهر",
+   "new": "نهر",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.meer",
+   "german": "Meer",
+   "field": "ar",
+   "expect_current": "البحر",
+   "new": "بحر",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.wueste",
+   "german": "Wüste",
+   "field": "ar",
+   "expect_current": "الصحراء",
+   "new": "صحراء",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.dorf",
+   "german": "Dorf",
+   "field": "ar",
+   "expect_current": "القرية",
+   "new": "قرية",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.stadt",
+   "german": "Stadt",
+   "field": "ar",
+   "expect_current": "المدينة",
+   "new": "مدينة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.platz",
+   "german": "Platz",
+   "field": "ar",
+   "expect_current": "الميدان",
+   "new": "ميدان",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.theater",
+   "german": "Theater",
+   "field": "ar",
+   "expect_current": "المسرح",
+   "new": "مسرح",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.grenze",
+   "german": "Grenze",
+   "field": "ar",
+   "expect_current": "الحدود",
+   "new": "حدود",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.hafen",
+   "german": "Hafen",
+   "field": "ar",
+   "expect_current": "الميناء",
+   "new": "ميناء",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.botschaft",
+   "german": "Botschaft",
+   "field": "ar",
+   "expect_current": "السفارة",
+   "new": "سفارة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "orte.vorort",
+   "german": "Vorort",
+   "field": "ar",
+   "expect_current": "الضاحية",
+   "new": "ضاحية",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.stundenplan",
+   "german": "Stundenplan",
+   "field": "ar",
+   "expect_current": "الجدول الدراسي",
+   "new": "جدول الدراسي",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.klassenzimmer",
+   "german": "Klassenzimmer",
+   "field": "ar",
+   "expect_current": "الفصل الدراسي",
+   "new": "فصل الدراسي",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.hausaufgabe",
+   "german": "Hausaufgabe",
+   "field": "ar",
+   "expect_current": "الواجب المدرسي",
+   "new": "واجب المدرسي",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.pruefung",
+   "german": "Prüfung",
+   "field": "ar",
+   "expect_current": "الامتحان",
+   "new": "امتحان",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.note",
+   "german": "Note",
+   "field": "ar",
+   "expect_current": "الدرجة",
+   "new": "درجة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.unterricht",
+   "german": "Unterricht",
+   "field": "ar",
+   "expect_current": "الحصة الدراسية",
+   "new": "حصة الدراسية",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.pause",
+   "german": "Pause",
+   "field": "ar",
+   "expect_current": "الفسحة",
+   "new": "فسحة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.klasse",
+   "german": "Klasse",
+   "field": "ar",
+   "expect_current": "الفصل (كمجموعة طلاب)",
+   "new": "فصل (كمجموعة طلاب)",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.fach",
+   "german": "Fach",
+   "field": "ar",
+   "expect_current": "المادة الدراسية",
+   "new": "مادة الدراسية",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.mathematik",
+   "german": "Mathematik",
+   "field": "ar",
+   "expect_current": "الرياضيات",
+   "new": "رياضيات",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.biologie",
+   "german": "Biologie",
+   "field": "ar",
+   "expect_current": "الأحياء",
+   "new": "أحياء",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.chemie",
+   "german": "Chemie",
+   "field": "ar",
+   "expect_current": "الكيمياء",
+   "new": "كيمياء",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.physik",
+   "german": "Physik",
+   "field": "ar",
+   "expect_current": "الفيزياء",
+   "new": "فيزياء",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.kunst",
+   "german": "Kunst",
+   "field": "ar",
+   "expect_current": "الفن",
+   "new": "فن",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.fremdsprache",
+   "german": "Fremdsprache",
+   "field": "ar",
+   "expect_current": "اللغة الأجنبية",
+   "new": "لغة الأجنبية",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.wortschatz",
+   "german": "Wortschatz",
+   "field": "ar",
+   "expect_current": "المفردات",
+   "new": "مفردات",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.grammatik",
+   "german": "Grammatik",
+   "field": "ar",
+   "expect_current": "القواعد",
+   "new": "قواعد",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "schule.tinte",
+   "german": "Tinte",
+   "field": "ar",
+   "expect_current": "الحبر",
+   "new": "حبر",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.schwimmen",
+   "german": "Schwimmen",
+   "field": "ar",
+   "expect_current": "السباحة",
+   "new": "سباحة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.tennis",
+   "german": "Tennis",
+   "field": "ar",
+   "expect_current": "التنس",
+   "new": "تنس",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.volleyball",
+   "german": "Volleyball",
+   "field": "ar",
+   "expect_current": "الكرة الطائرة",
+   "new": "كرة الطائرة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.boxen",
+   "german": "Boxen",
+   "field": "ar",
+   "expect_current": "الملاكمة",
+   "new": "ملاكمة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.sport",
+   "german": "Sport",
+   "field": "ar",
+   "expect_current": "الرياضة",
+   "new": "رياضة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.yoga",
+   "german": "Yoga",
+   "field": "ar",
+   "expect_current": "اليوغا",
+   "new": "يوغا",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.laufen",
+   "german": "Laufen",
+   "field": "ar",
+   "expect_current": "الجري",
+   "new": "جري",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.klettern",
+   "german": "Klettern",
+   "field": "ar",
+   "expect_current": "التسلق",
+   "new": "تسلق",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.golf",
+   "german": "Golf",
+   "field": "ar",
+   "expect_current": "الجولف",
+   "new": "جولف",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.skifahren",
+   "german": "Skifahren",
+   "field": "ar",
+   "expect_current": "التزلج على الجليد",
+   "new": "تزلج على الجليد",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.snowboarden",
+   "german": "Snowboarden",
+   "field": "ar",
+   "expect_current": "التزلج بلوح الثلج",
+   "new": "تزلج بلوح الثلج",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.segeln",
+   "german": "Segeln",
+   "field": "ar",
+   "expect_current": "الإبحار الشراعي",
+   "new": "إبحار الشراعي",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.rudern",
+   "german": "Rudern",
+   "field": "ar",
+   "expect_current": "التجديف",
+   "new": "تجديف",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.turnen",
+   "german": "Turnen",
+   "field": "ar",
+   "expect_current": "الجمباز",
+   "new": "جمباز",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.judo",
+   "german": "Judo",
+   "field": "ar",
+   "expect_current": "الجودو",
+   "new": "جودو",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.karate",
+   "german": "Karate",
+   "field": "ar",
+   "expect_current": "الكاراتيه",
+   "new": "كاراتيه",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.bowling",
+   "german": "Bowling",
+   "field": "ar",
+   "expect_current": "البولينج",
+   "new": "بولينج",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.billard",
+   "german": "Billard",
+   "field": "ar",
+   "expect_current": "البلياردو",
+   "new": "بلياردو",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.rugby",
+   "german": "Rugby",
+   "field": "ar",
+   "expect_current": "الرغبي",
+   "new": "رغبي",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.tauchen",
+   "german": "Tauchen",
+   "field": "ar",
+   "expect_current": "الغوص",
+   "new": "غوص",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.angeln",
+   "german": "Angeln",
+   "field": "ar",
+   "expect_current": "الصيد بالصنارة",
+   "new": "صيد بالصنارة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.marathon",
+   "german": "Marathon",
+   "field": "ar",
+   "expect_current": "الماراثون",
+   "new": "ماراثون",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "sport.badminton",
+   "german": "Badminton",
+   "field": "ar",
+   "expect_current": "الريشة الطائرة",
+   "new": "ريشة الطائرة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "suessigkeiten.marzipan",
+   "german": "Marzipan",
+   "field": "ar",
+   "expect_current": "المرزبان",
+   "new": "مرزبان",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "technik.prozessor",
+   "german": "Prozessor",
+   "field": "ar",
+   "expect_current": "المعالج",
+   "new": "معالج",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "verkehr.autobahn",
+   "german": "Autobahn",
+   "field": "ar",
+   "expect_current": "الطريق السريع",
+   "new": "طريق السريع",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "verkehr.bremse",
+   "german": "Bremse",
+   "field": "ar",
+   "expect_current": "الفرامل",
+   "new": "فرامل",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "verkehr.motor",
+   "german": "Motor",
+   "field": "ar",
+   "expect_current": "المحرك",
+   "new": "محرك",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "verkehr.windschutzscheibe",
+   "german": "Windschutzscheibe",
+   "field": "ar",
+   "expect_current": "الزجاج الأمامي",
+   "new": "زجاج الأمامي",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "wetter.klima",
+   "german": "Klima",
+   "field": "ar",
+   "expect_current": "المناخ",
+   "new": "مناخ",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "wetter.himmel",
+   "german": "Himmel",
+   "field": "ar",
+   "expect_current": "السماء",
+   "new": "سماء",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "wetter.mond",
+   "german": "Mond",
+   "field": "ar",
+   "expect_current": "القمر",
+   "new": "قمر",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "wetter.stern",
+   "german": "Stern",
+   "field": "ar",
+   "expect_current": "النجمة",
+   "new": "نجمة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "wetter.schatten",
+   "german": "Schatten",
+   "field": "ar",
+   "expect_current": "الظل",
+   "new": "ظل",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "wetter.daemmerung",
+   "german": "Dämmerung",
+   "field": "ar",
+   "expect_current": "الشفق",
+   "new": "شفق",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "wetter.luft",
+   "german": "Luft",
+   "field": "ar",
+   "expect_current": "الهواء",
+   "new": "هواء",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "wetter.waerme",
+   "german": "Wärme",
+   "field": "ar",
+   "expect_current": "الدفء",
+   "new": "دفء",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "wetter.kuehle",
+   "german": "Kühle",
+   "field": "ar",
+   "expect_current": "البرودة اللطيفة",
+   "new": "برودة اللطيفة",
+   "kind": "AR_DEF",
+   "reason": "توحيد العرض: حذف \"ال\" الزائدة"
+  },
+  {
+   "id": "fleisch.wurst",
+   "german": "Wurst",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "fleisch.bratwurst",
+   "german": "Bratwurst",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "fleisch.salami",
+   "german": "Salami",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "fleisch.leberwurst",
+   "german": "Leberwurst",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "fleisch.currywurst",
+   "german": "Currywurst",
+   "field": "note",
+   "expect_current": "أشهر أكلة شارع في ألمانيا",
+   "new": "أشهر أكلة شارع في ألمانيا — تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "getraenke.wein",
+   "german": "Wein",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: يحتوي على كحول",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "getraenke.bier",
+   "german": "Bier",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: يحتوي على كحول",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "getraenke.sekt",
+   "german": "Sekt",
+   "field": "note",
+   "expect_current": "صيغة الجمع النادرة \"Sekte\" تُكتب مثل مفرد كلمة أخرى \"Sekte\" (طائفة)، رغم اختلاف المعنى تمامًا",
+   "new": "صيغة الجمع النادرة \"Sekte\" تُكتب مثل مفرد كلمة أخرى \"Sekte\" (طائفة)، رغم اختلاف المعنى تمامًا — تنبيه غذائي: يحتوي على كحول",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "getraenke.champagner",
+   "german": "Champagner",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: يحتوي على كحول",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "getraenke.whisky",
+   "german": "Whisky",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: يحتوي على كحول",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "getraenke.wodka",
+   "german": "Wodka",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: يحتوي على كحول",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "getraenke.apfelwein",
+   "german": "Apfelwein",
+   "field": "note",
+   "expect_current": "",
+   "new": "تنبيه غذائي: يحتوي على كحول",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "getraenke.gluehwein",
+   "german": "Glühwein",
+   "field": "note",
+   "expect_current": "يُقدَّم عادة في أسواق الكريسماس الألمانية",
+   "new": "يُقدَّم عادة في أسواق الكريسماس الألمانية — تنبيه غذائي: يحتوي على كحول",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "suessigkeiten.gummibaerchen",
+   "german": "Gummibärchen",
+   "field": "note",
+   "expect_current": "من أشهر الحلوى الألمانية على الإطلاق (Haribo)",
+   "new": "من أشهر الحلوى الألمانية على الإطلاق (Haribo) — تنبيه غذائي: قد يحتوي على جيلاتين حيواني",
+   "kind": "NOTE_FOOD",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "werkzeuge.mutter",
+   "german": "Mutter",
+   "field": "note",
+   "expect_current": "نفس الكلمة تعني أيضًا \"أم\"؛ هنا تعني قطعة معدنية للربط مع البرغي",
+   "new": "نفس الكلمة تعني أيضًا \"أم\"؛ هنا تعني قطعة معدنية للربط مع البرغي — Mutter هنا = صامولة (وفي قسم العائلة = أم)",
+   "kind": "HOMONYM",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "zuhause.schloss",
+   "german": "Schloss",
+   "field": "note",
+   "expect_current": "نفس الكلمة تعني أيضًا \"قصر\" حسب السياق",
+   "new": "نفس الكلمة تعني أيضًا \"قصر\" حسب السياق — Schloss = قفل / قصر",
+   "kind": "HOMONYM",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "zuhause.decke",
+   "german": "Decke",
+   "field": "note",
+   "expect_current": "نفس الكلمة تعني \"سقف الغرفة\" أو \"بطانية\" حسب السياق",
+   "new": "نفس الكلمة تعني \"سقف الغرفة\" أو \"بطانية\" حسب السياق — Decke = سقف / بطانية",
+   "kind": "HOMONYM",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "orte.bank",
+   "german": "Bank",
+   "field": "note",
+   "expect_current": "بمعنى بنك (مؤسسة مالية) جمعها Banken؛ أما Bank بمعنى مقعد فجمعها Bänke",
+   "new": "بمعنى بنك (مؤسسة مالية) جمعها Banken؛ أما Bank بمعنى مقعد فجمعها Bänke — Bank = بنك / مقعد",
+   "kind": "HOMONYM",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "orte.gericht",
+   "german": "Gericht",
+   "field": "note",
+   "expect_current": "",
+   "new": "Gericht = محكمة / طبق طعام",
+   "kind": "HOMONYM",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "schule.geschichte",
+   "german": "Geschichte",
+   "field": "note",
+   "expect_current": "بمعنى \"مادة التاريخ\" اسم غير معدود؛ أما بمعنى \"قصة\" فجمعها الشائع \"Geschichten\"",
+   "new": "بمعنى \"مادة التاريخ\" اسم غير معدود؛ أما بمعنى \"قصة\" فجمعها الشائع \"Geschichten\" — Geschichte = تاريخ / قصة",
+   "kind": "HOMONYM",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "koerper.kiefer",
+   "german": "Kiefer",
+   "field": "note",
+   "expect_current": "",
+   "new": "Kiefer = فك / صنوبر",
+   "kind": "HOMONYM",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "werkzeuge.leiter",
+   "german": "Leiter",
+   "field": "note",
+   "expect_current": "مؤنثة هنا بمعنى \"سلم\"، وجمعها Leitern؛ أما der Leiter (مذكر بمعنى \"مدير/قائد\") فجمعه بلا تغيير Leiter",
+   "new": "مؤنثة هنا بمعنى \"سلم\"، وجمعها Leitern؛ أما der Leiter (مذكر بمعنى \"مدير/قائد\") فجمعه بلا تغيير Leiter — Leiter = سلّم / قائد",
+   "kind": "HOMONYM",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  },
+  {
+   "id": "schule.note",
+   "german": "Note",
+   "field": "note",
+   "expect_current": "",
+   "new": "Note = درجة / نوتة موسيقية",
+   "kind": "HOMONYM",
+   "reason": "ملاحظة مضافة بموافقة المالك"
+  }
+ ]
+}

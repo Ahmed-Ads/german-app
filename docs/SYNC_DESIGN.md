@@ -22,7 +22,7 @@ Official documentation checked on **October 5, 2026**:
 - **Document structure:** Exactly **1 document** per user located at `users/{uid}`.
 - **Estimated Document Size:**
   - Progress for 30 categories across 5 modes (`mcq`, `written`, `article`, `plural`, `listen`): ~10–15 KB.
-  - SRS Leitner schedule (1,160 items worst case): ~20–30 KB.
+  - SRS Leitner schedule (952 items worst case): ~20–30 KB.
   - Stats, streak, starred indices, daily goal: ~2 KB.
   - **Total Document Size:** ~35–50 KB (Max Firestore document size: **1 MiB = 1,048,576 bytes** -> **~4.8% of limit**).
 

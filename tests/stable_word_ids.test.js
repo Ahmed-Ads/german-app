@@ -14,6 +14,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
+import vm from 'vm';
 import SyncMergePolicy from '../sync/merge_policy.js';
 import { validateBackupData } from './unit_fixes.test.js';
 
@@ -45,14 +46,16 @@ describe('Stable Word IDs: Specification & Integrity (Item 1 & 3)', () => {
         const slug = w.id.slice(cat.id.length + 1);
         expect(/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)).toBe(true);
 
-        // Must be globally unique across all 1,160 words
+        // Must be globally unique across all words
         expect(allIds.has(w.id)).toBe(false);
         allIds.add(w.id);
       }
     }
 
-    expect(totalWords).toBe(1160);
-    expect(allIds.size).toBe(1160);
+    const totalWordsExpected = CATEGORIES.reduce((s, c) => s + c.words.length, 0);
+    expect(totalWords).toBe(totalWordsExpected);
+    expect(totalWords).toBe(952);
+    expect(allIds.size).toBe(952);
   });
 
   it('no active word ID is in vocab_ids_retired.json', () => {
@@ -66,41 +69,59 @@ describe('Stable Word IDs: Specification & Integrity (Item 1 & 3)', () => {
 });
 
 describe('Legacy Mapping & Order Preservation (Item 2)', () => {
-  it('LEGACY_INDEX_IDS matches the exact pre-migration word order of CATEGORIES', () => {
+  it('LEGACY_INDEX_IDS maps all 1160 legacy entries to active CATEGORIES or vocab_ids_retired.json preserving order', () => {
     const legacyMap = SyncMergePolicy.LEGACY_INDEX_IDS;
     expect(legacyMap).toBeDefined();
 
     const catIds = CATEGORIES.map(c => c.id);
     expect(Object.keys(legacyMap).sort()).toEqual(catIds.slice().sort());
 
+    const retiredSet = new Set(retiredIds);
     let mappedCount = 0;
+    let activeMappedCount = 0;
+    let retiredMappedCount = 0;
+
     for (const cat of CATEGORIES) {
       const list = legacyMap[cat.id];
       expect(Array.isArray(list)).toBe(true);
-      expect(list.length).toBe(cat.words.length);
+      mappedCount += list.length;
 
-      for (let i = 0; i < cat.words.length; i++) {
-        expect(list[i]).toBe(cat.words[i].id);
-        mappedCount++;
+      // Filter legacy list to active words (excluding retired)
+      const nonRetiredFromLegacy = list.filter(id => !retiredSet.has(id));
+      const activeIds = cat.words.map(w => w.id);
+      // Order of remaining words in CATEGORIES must match legacy order exactly
+      expect(nonRetiredFromLegacy).toEqual(activeIds);
+
+      for (const id of list) {
+        if (retiredSet.has(id)) {
+          retiredMappedCount++;
+        } else {
+          activeMappedCount++;
+        }
       }
     }
     expect(mappedCount).toBe(1160);
+    expect(activeMappedCount).toBe(952);
+    expect(retiredMappedCount).toBe(208);
   });
 });
 
 describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () => {
-  it('losslessly converts legacy progress, SRS, and starred across all 1160 words', () => {
+  it('converts legacy progress, SRS, and starred across all 1160 legacy words, dropping retired IDs and preserving active', () => {
+    const legacyMap = SyncMergePolicy.LEGACY_INDEX_IDS;
+    const retiredSet = new Set(retiredIds);
     // Construct legacy data using all 1160 words
     const legacyProgress = {};
     const legacyStarred = [];
     const legacySrs = {};
 
     for (const cat of CATEGORIES) {
+      const list = legacyMap[cat.id];
       legacyProgress[cat.id] = {
-        mcq: { unlocked: cat.words.length, counts: {} },
-        written: { unlocked: cat.words.length, counts: {} }
+        mcq: { unlocked: list.length, counts: {} },
+        written: { unlocked: list.length, counts: {} }
       };
-      cat.words.forEach((_, idx) => {
+      list.forEach((_, idx) => {
         legacyProgress[cat.id].mcq.counts[String(idx)] = (idx % 10) + 1;
         legacyStarred.push(`${cat.id}_${idx}`);
         legacySrs[`${cat.id}_${idx}`] = { box: (idx % 5), lastDate: '2026-10-01', nextDate: '2026-10-05' };
@@ -123,33 +144,45 @@ describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () =>
     expect(migrated.stats).toEqual(legacyPayload.stats);
     expect(migrated.dailyGoal).toEqual(legacyPayload.dailyGoal);
 
-    // Verify progress counts are keyed by word ID
     for (const cat of CATEGORIES) {
-      expect(migrated.progress[cat.id].mcq.unlocked).toBe(cat.words.length);
-      cat.words.forEach((w, idx) => {
+      const list = legacyMap[cat.id];
+      expect(migrated.progress[cat.id].mcq.unlocked).toBe(list.length);
+      list.forEach((wordId, idx) => {
         const expectedCount = (idx % 10) + 1;
-        expect(migrated.progress[cat.id].mcq.counts[w.id]).toBe(expectedCount);
+        if (retiredSet.has(wordId)) {
+          expect(migrated.progress[cat.id].mcq.counts[wordId]).toBeUndefined();
+        } else {
+          expect(migrated.progress[cat.id].mcq.counts[wordId]).toBe(expectedCount);
+        }
         // Numeric index key must be gone
         expect(migrated.progress[cat.id].mcq.counts[String(idx)]).toBeUndefined();
       });
     }
 
-    // Verify starred list contains all word IDs
-    expect(migrated.starred.length).toBe(1160);
+    // Verify starred list contains only active word IDs (retired dropped)
+    expect(migrated.starred.length).toBe(952);
     for (const cat of CATEGORIES) {
       for (const w of cat.words) {
         expect(migrated.starred).toContain(w.id);
       }
     }
+    for (const rId of retiredIds) {
+      expect(migrated.starred).not.toContain(rId);
+    }
 
-    // Verify SRS contains all word IDs with intact scheduling
+    // Verify SRS contains only active word IDs with intact scheduling
     for (const cat of CATEGORIES) {
-      cat.words.forEach((w, idx) => {
-        expect(migrated.srs[w.id]).toEqual({
-          box: (idx % 5),
-          lastDate: '2026-10-01',
-          nextDate: '2026-10-05'
-        });
+      const list = legacyMap[cat.id];
+      list.forEach((wordId, idx) => {
+        if (retiredSet.has(wordId)) {
+          expect(migrated.srs[wordId]).toBeUndefined();
+        } else {
+          expect(migrated.srs[wordId]).toEqual({
+            box: (idx % 5),
+            lastDate: '2026-10-01',
+            nextDate: '2026-10-05'
+          });
+        }
         expect(migrated.srs[`${cat.id}_${idx}`]).toBeUndefined();
       });
     }
@@ -193,7 +226,7 @@ describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () =>
     expect(Object.keys(migrated.srs)).toEqual(['obst.apfel']);
   });
 
-  it('tolerates already present format-2 word IDs and unknown future IDs', () => {
+  it('drops removed or unknown IDs when categories list is provided, but preserves on empty category list (safety)', () => {
     const dataWithFutureIds = {
       dataFormat: 2,
       dataVersion: 2,
@@ -215,10 +248,72 @@ describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () =>
       }
     };
 
-    const migrated = SyncMergePolicy.migrateLegacyUserData(dataWithFutureIds, CATEGORIES);
-    expect(migrated.progress.obst.mcq.counts['obst.future-word-deleted']).toBe(3);
-    expect(migrated.starred).toContain('obst.future-word-deleted');
-    expect(migrated.srs['obst.future-word-deleted']).toBeDefined();
+    const migratedWithCats = SyncMergePolicy.migrateLegacyUserData(dataWithFutureIds, CATEGORIES);
+    expect(migratedWithCats.progress.obst.mcq.counts['obst.apfel']).toBe(5);
+    expect(migratedWithCats.progress.obst.mcq.counts['obst.future-word-deleted']).toBeUndefined();
+    expect(migratedWithCats.starred).toContain('obst.apfel');
+    expect(migratedWithCats.starred).not.toContain('obst.future-word-deleted');
+    expect(migratedWithCats.srs['obst.apfel']).toBeDefined();
+    expect(migratedWithCats.srs['obst.future-word-deleted']).toBeUndefined();
+
+    // Safety: empty category list does not drop unknown IDs
+    const migratedSafe = SyncMergePolicy.migrateLegacyUserData(dataWithFutureIds, []);
+    expect(migratedSafe.progress.obst.mcq.counts['obst.future-word-deleted']).toBe(3);
+    expect(migratedSafe.starred).toContain('obst.future-word-deleted');
+    expect(migratedSafe.srs['obst.future-word-deleted']).toBeDefined();
+  });
+
+  it('(a) isolated vm context with NO require and NO VOCAB_IDS_RETIRED drops removed IDs on merge', () => {
+    const mpCode = fs.readFileSync(path.join(__dirname, '../sync/merge_policy.js'), 'utf8');
+    const vmCtx = {
+      CATEGORIES,
+      globalThis: {},
+      window: { CATEGORIES },
+      module: { exports: {} }
+    };
+    vm.createContext(vmCtx);
+    vm.runInContext(mpCode, vmCtx);
+    const policyInVm = vmCtx.module.exports;
+
+    const retiredWord = 'musik.didgeridoo';
+    const activeWord = 'musik.gitarre';
+
+    const cloudDoc = {
+      schemaVersion: 1,
+      dataFormat: 2,
+      dataVersion: 5,
+      progress: {
+        musik: {
+          mcq: { unlocked: 15, counts: { [retiredWord]: 6, [activeWord]: 4 } }
+        }
+      },
+      starred: [retiredWord, activeWord],
+      srs: {
+        [retiredWord]: { box: 2, lastDate: '2026-10-01', nextDate: '2026-10-05' },
+        [activeWord]: { box: 1, lastDate: '2026-10-01', nextDate: '2026-10-03' }
+      }
+    };
+
+    const localDoc = {
+      dataFormat: 2,
+      dataVersion: 5,
+      progress: { musik: { mcq: { unlocked: 10, counts: { [activeWord]: 2 } } } },
+      starred: [],
+      srs: {}
+    };
+
+    const merged = policyInVm.mergeFullUserData(localDoc, cloudDoc, CATEGORIES);
+    expect(merged.progress.musik.mcq.counts[retiredWord]).toBeUndefined();
+    expect(merged.progress.musik.mcq.counts[activeWord]).toBe(4);
+    expect(merged.starred).toEqual([activeWord]);
+    expect(merged.srs[retiredWord]).toBeUndefined();
+    expect(merged.srs[activeWord]).toBeDefined();
+
+    const payload = policyInVm.createCloudPayload(merged, CATEGORIES);
+    expect(payload.progress.musik.mcq.counts[retiredWord]).toBeUndefined();
+    expect(payload.starred).not.toContain(retiredWord);
+    expect(payload.srs[retiredWord]).toBeUndefined();
+    expect(payload.srs[activeWord]).toBeDefined();
   });
 });
 

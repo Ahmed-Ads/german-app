@@ -48,6 +48,92 @@
     return null;
   }
 
+  function getRetiredIds() {
+    if (typeof global !== 'undefined' && global && global.VOCAB_IDS_RETIRED) {
+      return new Set(global.VOCAB_IDS_RETIRED);
+    }
+    if (typeof globalThis !== 'undefined' && globalThis && globalThis.VOCAB_IDS_RETIRED) {
+      return new Set(globalThis.VOCAB_IDS_RETIRED);
+    }
+    if (typeof window !== 'undefined' && window && window.VOCAB_IDS_RETIRED) {
+      return new Set(window.VOCAB_IDS_RETIRED);
+    }
+    if (typeof require === 'function') {
+      try {
+        const list = require('../vocab_ids_retired.json');
+        if (Array.isArray(list)) return new Set(list);
+      } catch (e) {
+        try {
+          const list = require('./vocab_ids_retired.json');
+          if (Array.isArray(list)) return new Set(list);
+        } catch (_) {}
+      }
+    }
+    return new Set();
+  }
+
+  /**
+   * Resolves the categories list from an explicit argument or globals.
+   * Returns an array (may be empty).
+   */
+  function resolveCategories(categoriesList) {
+    if (Array.isArray(categoriesList) && categoriesList.length > 0) return categoriesList;
+    if (typeof global !== 'undefined' && global && Array.isArray(global.CATEGORIES) && global.CATEGORIES.length > 0) return global.CATEGORIES;
+    if (typeof globalThis !== 'undefined' && globalThis && Array.isArray(globalThis.CATEGORIES) && globalThis.CATEGORIES.length > 0) return globalThis.CATEGORIES;
+    if (typeof window !== 'undefined' && window && Array.isArray(window.CATEGORIES) && window.CATEGORIES.length > 0) return window.CATEGORIES;
+    if (Array.isArray(categoriesList)) return categoriesList; // explicitly passed empty list is okay — safety mode
+    return [];
+  }
+
+  /**
+   * Builds a Set of all active word IDs from a categories list.
+   * Returns an empty Set if the categories list is empty (safety: nothing dropped).
+   */
+  function buildActiveWordIds(categories) {
+    const ids = new Set();
+    if (!Array.isArray(categories)) return ids;
+    for (const cat of categories) {
+      if (cat && Array.isArray(cat.words)) {
+        for (const w of cat.words) {
+          if (w && typeof w === 'object' && w.id) ids.add(w.id);
+        }
+      }
+    }
+    return ids;
+  }
+
+  /**
+   * Unified word-ID validity check used by every merge/migration path.
+   *
+   * A word ID is KEPT iff:
+   *   - It is a non-empty string
+   *   - activeWordIds is non-empty AND contains it  (categories = source of truth)
+   *   - OR activeWordIds is empty (unavailable/broken load) = safety mode, keep everything
+   *   - AND it is not in the retired set (additional guard when available in Node)
+   *
+   * This function works identically in the browser (no require, no VOCAB_IDS_RETIRED)
+   * and in Node (retired set is also consulted as a secondary guard).
+   */
+  function isKeptWordId(wid, categoriesOrActiveIds, retiredSet) {
+    if (!wid || typeof wid !== 'string') return false;
+    const rSet = (retiredSet instanceof Set) ? retiredSet : getRetiredIds();
+    if (rSet && rSet.size > 0 && rSet.has(wid)) return false;
+
+    let aSet;
+    if (categoriesOrActiveIds instanceof Set) {
+      aSet = categoriesOrActiveIds;
+    } else if (Array.isArray(categoriesOrActiveIds)) {
+      aSet = buildActiveWordIds(categoriesOrActiveIds);
+    } else {
+      aSet = buildActiveWordIds(resolveCategories());
+    }
+
+    if (aSet && aSet.size > 0 && !aSet.has(wid)) return false;
+    return true;
+  }
+
+  const isWordKept = isKeptWordId;
+
   function isSafeKey(k) {
     return typeof k === 'string' && !FORBIDDEN_KEYS.has(k);
   }
@@ -98,11 +184,16 @@
       return data;
     }
     const result = { ...data };
-    const categories = Array.isArray(categoriesList) ? categoriesList : (global && global.CATEGORIES ? global.CATEGORIES : []);
+    const retiredSet = getRetiredIds();
+    const categories = resolveCategories(categoriesList);
     const catWordIdMap = new Map();
+    const catWordCountMap = new Map();
+    const activeWordIds = buildActiveWordIds(categories);
     for (const cat of categories) {
-      if (cat && cat.id && Array.isArray(cat.words)) {
-        catWordIdMap.set(cat.id, cat.words.map((w, idx) => {
+      if (cat && cat.id) {
+        const words = Array.isArray(cat.words) ? cat.words : [];
+        catWordCountMap.set(cat.id, words.length);
+        catWordIdMap.set(cat.id, words.map((w, idx) => {
           if (w && typeof w === 'object' && w.id) return w.id;
           if (legacyMap[cat.id] && legacyMap[cat.id][idx]) return legacyMap[cat.id][idx];
           return `${cat.id}.${idx}`;
@@ -110,13 +201,23 @@
       }
     }
 
+    function isKeptWordId(wid) {
+      return isWordKept(wid, activeWordIds, retiredSet);
+    }
+
     function getWordId(catId, idx) {
       if (legacyMap[catId] && legacyMap[catId][idx]) {
-        return legacyMap[catId][idx];
+        const wid = legacyMap[catId][idx];
+        if (!isWordKept(wid, activeWordIds, retiredSet)) return null;
+        return wid;
       }
       if (catWordIdMap.has(catId)) {
         const list = catWordIdMap.get(catId);
-        if (list && list[idx]) return list[idx];
+        if (list && list[idx]) {
+          const wid = list[idx];
+          if (!isWordKept(wid, activeWordIds, retiredSet)) return null;
+          return wid;
+        }
       }
       return null;
     }
@@ -132,6 +233,7 @@
         if (catVal.coreAcked !== undefined) {
           newCatVal.coreAcked = Boolean(catVal.coreAcked);
         }
+        const maxWords = catWordCountMap.has(catId) ? catWordCountMap.get(catId) : null;
         for (const [mKey, mVal] of Object.entries(catVal)) {
           if (mKey === 'coreAcked') continue;
           if (!isSafeKey(mKey) || typeof mVal !== 'object' || mVal === null || Array.isArray(mVal)) {
@@ -155,7 +257,9 @@
                 }
               } else if (key.includes('.')) {
                 // Already a word ID
-                newMVal.counts[key] = Math.max(newMVal.counts[key] || 0, cnt);
+                if (isKeptWordId(key)) {
+                  newMVal.counts[key] = Math.max(newMVal.counts[key] || 0, cnt);
+                }
               }
             }
           }
@@ -179,7 +283,7 @@
           const wid = getWordId(catId, idx);
           if (wid) newStarredSet.add(wid);
         } else if (item.includes('.')) {
-          newStarredSet.add(item);
+          if (isKeptWordId(item)) newStarredSet.add(item);
         }
       }
       result.starred = Array.from(newStarredSet).sort();
@@ -200,7 +304,7 @@
           const idx = parseInt(idxStr, 10);
           wid = getWordId(catId, idx);
         } else if (k.includes('.')) {
-          wid = k;
+          if (isKeptWordId(k)) wid = k;
         }
         if (wid) {
           if (newSrs[wid]) {
@@ -237,6 +341,10 @@
     const knownCatIds = new Set(categories.map(c => c.id));
     const catWordCounts = new Map(categories.map(c => [c.id, c.words ? c.words.length : 0]));
     const modes = new Set(getProgressModes());
+    const legacyMap = (typeof SyncMergePolicy !== 'undefined' && SyncMergePolicy && SyncMergePolicy.LEGACY_INDEX_IDS !== undefined)
+      ? SyncMergePolicy.LEGACY_INDEX_IDS
+      : getLegacyMap();
+    const maxLegacyWords = (catId) => Math.max(catWordCounts.get(catId) || 0, (legacyMap && legacyMap[catId] ? legacyMap[catId].length : 0));
 
     // Check schema version if present
     if (data.schemaVersion !== undefined && data.schemaVersion !== 1) {
@@ -280,7 +388,7 @@
               }
               if (/^\d+$/.test(keyStr)) {
                 const wIdx = parseInt(keyStr, 10);
-                if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxWords) {
+                if (!Number.isInteger(wIdx) || wIdx < 0 || wIdx >= maxLegacyWords(catId)) {
                   return { valid: false, error: `فهرس الكلمة (${keyStr}) في «${catId}» خارج النطاق.` };
                 }
               } else if (keyStr.startsWith(catId + '.') && keyStr.slice(catId.length + 1).length > 0 && /^[a-z0-9_.-]+$/.test(keyStr.slice(catId.length + 1))) {
@@ -329,7 +437,7 @@
           const idxStr = item.slice(lastIdx + 1);
           if (!knownCatIds.has(catId)) return { valid: false, error: `القسم «${catId}» في المفضلة غير معروف.` };
           const idx = parseInt(idxStr, 10);
-          if (!Number.isInteger(idx) || idx < 0 || idx >= (catWordCounts.get(catId) || 0)) {
+          if (!Number.isInteger(idx) || idx < 0 || idx >= maxLegacyWords(catId)) {
             return { valid: false, error: `فهرس الكلمة «${item}» في المفضلة خارج النطاق.` };
           }
         } else if (item.includes('.')) {
@@ -359,7 +467,7 @@
           const idxStr = k.slice(lastIdx + 1);
           if (!knownCatIds.has(catId)) return { valid: false, error: `قسم SRS «${catId}» غير معروف.` };
           const idx = parseInt(idxStr, 10);
-          if (!Number.isInteger(idx) || idx < 0 || idx >= (catWordCounts.get(catId) || 0)) {
+          if (!Number.isInteger(idx) || idx < 0 || idx >= maxLegacyWords(catId)) {
             return { valid: false, error: `فهرس الكلمة «${k}» في SRS خارج النطاق.` };
           }
         } else if (k.includes('.')) {
@@ -405,7 +513,7 @@
    * Supports both legacy numeric keys and stable format-2 word IDs.
    * Mastery and unlocked counts only increase, never decrease.
    */
-  function mergeProgress(a, b) {
+  function mergeProgress(a, b, categoriesList) {
     const progA = a && typeof a === 'object' ? a : {};
     const progB = b && typeof b === 'object' ? b : {};
     const allCatIds = Array.from(new Set([
@@ -414,6 +522,9 @@
     ])).sort();
     const merged = {};
     const modes = getProgressModes();
+    const categories = resolveCategories(categoriesList);
+    const activeWordIds = buildActiveWordIds(categories);
+    const retiredSet = getRetiredIds();
 
     for (const catId of allCatIds) {
       const catA = (hasOwn(progA, catId) && typeof progA[catId] === 'object' && progA[catId]) || {};
@@ -448,6 +559,7 @@
 
         const mergedCounts = {};
         for (const k of allKeys) {
+          if (k.includes('.') ? !isKeptWordId(k, activeWordIds, retiredSet) : retiredSet.has(k)) continue;
           const cA = (hasOwn(countsA, k) && countsA[k]) || 0;
           const cB = (hasOwn(countsB, k) && countsB[k]) || 0;
           mergedCounts[k] = Math.max(cA, cB);
@@ -530,13 +642,18 @@
   /**
    * Merges starred items as a deterministic set union.
    */
-  function mergeStarred(a, b) {
+  function mergeStarred(a, b, categoriesList) {
     const listA = Array.isArray(a) ? a : [];
     const listB = Array.isArray(b) ? b : [];
+    const categories = resolveCategories(categoriesList);
+    const activeWordIds = buildActiveWordIds(categories);
+    const retiredSet = getRetiredIds();
     const set = new Set();
     for (const item of [...listA, ...listB]) {
       if (typeof item === 'string' && isSafeKey(item)) {
-        set.add(item);
+        if (item.includes('.') ? isKeptWordId(item, activeWordIds, retiredSet) : !retiredSet.has(item)) {
+          set.add(item);
+        }
       }
     }
     return Array.from(set).sort();
@@ -546,12 +663,16 @@
    * Merges SRS records deterministically.
    * Latest review date wins; tie goes to higher box; tie goes to earlier nextDate.
    */
-  function mergeSrs(a, b) {
+  function mergeSrs(a, b, categoriesList) {
     const srsA = a && typeof a === 'object' && !Array.isArray(a) ? a : {};
     const srsB = b && typeof b === 'object' && !Array.isArray(b) ? b : {};
+    const categories = resolveCategories(categoriesList);
+    const activeWordIds = buildActiveWordIds(categories);
+    const retiredSet = getRetiredIds();
+    const isSrsKeyKept = (k) => k.includes('.') ? isKeptWordId(k, activeWordIds, retiredSet) : !retiredSet.has(k);
     const allKeys = Array.from(new Set([
-      ...Object.keys(srsA).filter(k => hasOwn(srsA, k) && isSafeKey(k)),
-      ...Object.keys(srsB).filter(k => hasOwn(srsB, k) && isSafeKey(k))
+      ...Object.keys(srsA).filter(k => hasOwn(srsA, k) && isSafeKey(k) && isSrsKeyKept(k)),
+      ...Object.keys(srsB).filter(k => hasOwn(srsB, k) && isSafeKey(k) && isSrsKeyKept(k))
     ])).sort();
     const merged = {};
 
@@ -651,10 +772,10 @@
     const loc = migrateLegacyUserData(localData || {}, categoriesList);
     const cld = migrateLegacyUserData(cloudData || {}, categoriesList);
 
-    const mergedProgress = mergeProgress(loc.progress, cld.progress);
+    const mergedProgress = mergeProgress(loc.progress, cld.progress, categoriesList);
     const mergedStats = mergeStats(loc.stats, cld.stats);
-    const mergedStarred = mergeStarred(loc.starred, cld.starred);
-    const mergedSrs = mergeSrs(loc.srs, cld.srs);
+    const mergedStarred = mergeStarred(loc.starred, cld.starred, categoriesList);
+    const mergedSrs = mergeSrs(loc.srs, cld.srs, categoriesList);
     const mergedDailyGoal = mergeDailyGoal(loc.dailyGoal, cld.dailyGoal);
 
     return {
@@ -674,8 +795,8 @@
    * Migrates legacy data by shape in memory if needed.
    * Preserves monotonic counter dataVersion and dailyGoal.updatedAt.
    */
-  function createCloudPayload(localData) {
-    const loc = migrateLegacyUserData(localData || {});
+  function createCloudPayload(localData, categoriesList) {
+    const loc = migrateLegacyUserData(localData || {}, categoriesList);
     let dgTarget = 20;
     let dgUpdated = '';
     if (typeof loc.dailyGoal === 'object' && loc.dailyGoal !== null) {
@@ -703,6 +824,12 @@
     get LEGACY_INDEX_IDS() {
       return getLegacyMap();
     },
+    get RETIRED_WORD_IDS() {
+      return getRetiredIds();
+    },
+    isKeptWordId,
+    buildActiveWordIds,
+    resolveCategories,
     migrateLegacyUserData,
     getProgressModes,
     validateCloudDocument,

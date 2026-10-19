@@ -122,7 +122,7 @@ run_mutation_test("Arabic_translation", original_html.replace("ar:'تفاحة'",
 run_mutation_test("Arabic_ta_marbuta", original_html.replace("ar:'تفاحة'", "ar:'تفاحه'", 1), "mismatch")
 
 # 5. German ß -> ss
-run_mutation_test("German_sharp_s", original_html.replace("n:'Weißkohl'", "n:'Weisskohl'", 1), "mismatch")
+run_mutation_test("German_sharp_s", original_html.replace("n:'Straße'", "n:'Strasse'", 1), "mismatch")
 
 # 6. Added hyphen
 run_mutation_test("Added_hyphen", original_html.replace("n:'U-Bahn'", "n:'U--Bahn'", 1), "mismatch")
@@ -159,6 +159,9 @@ run_mutation_test("Malformed_id", original_html.replace("id:'obst.apfel'", "id:'
 
 # 16. ID changed vs baseline
 run_mutation_test("Id_changed_vs_baseline", original_html.replace("id:'obst.apfel'", "id:'obst.apple'", 1), "mismatch")
+
+# 17. ID in vocab_ids_retired.json
+run_mutation_test("Retired_id", original_html.replace("id:'obst.apfel'", "id:'obst.guave'", 1), "is in vocab_ids_retired.json")
 
 def run_custom_target_test(name, target_path, expected_err_keyword):
     global passed_count, failed_count

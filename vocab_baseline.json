@@ -205,15 +205,6 @@
         "sar": "التوت الأسود طعمه حامض قليلاً."
       },
       {
-        "id": "obst.johannisbeere",
-        "a": "die",
-        "n": "Johannisbeere",
-        "ar": "كشمش",
-        "pl": "die Johannisbeeren",
-        "s": "Die rote Johannisbeere ist reich an Vitamin C.",
-        "sar": "الكشمش الأحمر غني بفيتامين سي."
-      },
-      {
         "id": "obst.kiwi",
         "a": "die",
         "n": "Kiwi",
@@ -242,15 +233,6 @@
         "sar": "البابايا تحتوي على العديد من الإنزيمات الصحية."
       },
       {
-        "id": "obst.litschi",
-        "a": "die",
-        "n": "Litschi",
-        "ar": "ليتشي",
-        "pl": "die Litschis",
-        "s": "Die kleine Litschi schmeckt zart und süß.",
-        "sar": "حبة الليتشي الصغيرة طعمها لطيف وحلو."
-      },
-      {
         "id": "obst.granatapfel",
         "a": "der",
         "n": "Granatapfel",
@@ -269,90 +251,6 @@
         "sar": "النكتارين لها قشرة ملساء على عكس الخوخ."
       },
       {
-        "id": "obst.quitte",
-        "a": "die",
-        "n": "Quitte",
-        "ar": "سفرجل",
-        "pl": "die Quitten",
-        "s": "Aus der harten Quitte kocht man feines Gelee.",
-        "sar": "من السفرجل الصلب يُطبخ مربى ناعم."
-      },
-      {
-        "id": "obst.stachelbeere",
-        "a": "die",
-        "n": "Stachelbeere",
-        "ar": "عنب الثعلب",
-        "note": "توت أخضر صغير حامض الطعم، شائع في الحلويات الألمانية",
-        "pl": "die Stachelbeeren",
-        "s": "Die grüne Stachelbeere hat kleine Borsten.",
-        "sar": "عنب الثعلب الأخضر له شعيرات صغيرة."
-      },
-      {
-        "id": "obst.preiselbeere",
-        "a": "die",
-        "n": "Preiselbeere",
-        "ar": "توت بري",
-        "pl": "die Preiselbeeren",
-        "s": "Preiselbeere wird oft zu Wildfleisch serviert.",
-        "sar": "التوت البري يُقدَّم عادة مع لحوم الصيد."
-      },
-      {
-        "id": "obst.holunderbeere",
-        "a": "die",
-        "n": "Holunderbeere",
-        "ar": "بلسان",
-        "pl": "die Holunderbeeren",
-        "s": "Die dunkle Holunderbeere wird zu Saft gekocht.",
-        "sar": "ثمار البلسان الداكنة تُطهى كعصير."
-      },
-      {
-        "id": "obst.maulbeere",
-        "a": "die",
-        "n": "Maulbeere",
-        "ar": "توت",
-        "pl": "die Maulbeeren",
-        "s": "Die Maulbeere reift im späten Frühling.",
-        "sar": "التوت ينضج في أواخر فصل الربيع."
-      },
-      {
-        "id": "obst.guave",
-        "a": "die",
-        "n": "Guave",
-        "ar": "جوافة",
-        "pl": "die Guaven",
-        "s": "Die reife Guave verströmt einen exotischen Duft.",
-        "sar": "الجوافة الناضجة تطلق رائحة استوائية فواحة."
-      },
-      {
-        "id": "obst.passionsfrucht",
-        "a": "die",
-        "n": "Passionsfrucht",
-        "ar": "فاكهة الباشن",
-        "pl": "die Passionsfrüchte",
-        "s": "Die Passionsfrucht hat ein aromatisches Fruchtfleisch.",
-        "sar": "فاكهة الباشن لها لب ذو نكهة عطرية."
-      },
-      {
-        "id": "obst.drachenfrucht",
-        "a": "die",
-        "n": "Drachenfrucht",
-        "ar": "فاكهة التنين",
-        "note": "فاكهة استوائية وردية القشرة بنقاط سوداء",
-        "pl": "die Drachenfrüchte",
-        "s": "Die rosa Drachenfrucht hat weißes Fruchtfleisch mit Kernen.",
-        "sar": "فاكهة التنين الوردية لها لب أبيض مع بذور."
-      },
-      {
-        "id": "obst.sternfrucht",
-        "a": "die",
-        "n": "Sternfrucht",
-        "ar": "فاكهة النجمة",
-        "note": "فاكهة صفراء تشبه شكل النجمة عند تقطيعها",
-        "pl": "die Sternfrüchte",
-        "s": "Die Sternfrucht schmückt den Nachtisch als Stern.",
-        "sar": "فاكهة النجمة تزين الحلوى بشكل نجمة."
-      },
-      {
         "id": "obst.avocado",
         "a": "die",
         "n": "Avocado",
@@ -360,16 +258,6 @@
         "pl": "die Avocados",
         "s": "Die cremige Avocado eignet sich für Salat.",
         "sar": "الأفوكادو الكريمي مناسب للسلطة."
-      },
-      {
-        "id": "obst.kaki",
-        "a": "die",
-        "n": "Kaki",
-        "ar": "كاكي",
-        "note": "فاكهة برتقالية طرية تُعرف أيضًا بالبرسيمون",
-        "pl": "die Kakis",
-        "s": "Die süße Kaki isst man im Spätherbst.",
-        "sar": "الكاكي الحلو يؤكل في أواخر الخريف."
       },
       {
         "id": "obst.rhabarber",
@@ -382,25 +270,6 @@
         "sar": "الراوند الحامض يُخلط غالباً مع الفراولة."
       },
       {
-        "id": "obst.zwetschge",
-        "a": "die",
-        "n": "Zwetschge",
-        "ar": "برقوق أزرق بيضاوي",
-        "note": "نوع من البرقوق بيضاوي الشكل داكن اللون",
-        "pl": "die Zwetschgen",
-        "s": "Die Zwetschge schmeckt hervorragend auf dem Kuchen.",
-        "sar": "البرقوق الأزرق البيضاوي طعمه ممتاز على الكعكة."
-      },
-      {
-        "id": "obst.mirabelle",
-        "a": "die",
-        "n": "Mirabelle",
-        "ar": "برقوق أصفر صغير",
-        "pl": "die Mirabellen",
-        "s": "Die gelbe Mirabelle schmeckt aromatisch und fein.",
-        "sar": "البرقوق الأصفر الصغير نكهته عطرية ورفيعة."
-      },
-      {
         "id": "obst.limette",
         "a": "die",
         "n": "Limette",
@@ -410,36 +279,6 @@
         "sar": "رشة من الليم تعطي الطبق نكهة مميزة."
       },
       {
-        "id": "obst.physalis",
-        "a": "die",
-        "n": "Physalis",
-        "ar": "كشمش أرضي",
-        "note": "فاكهة صغيرة صفراء داخل غلاف ورقي يشبه الفانوس؛ الجمع Physalen، ويصح أيضًا Physalis بلا تغيير",
-        "pl": "die Physalen",
-        "s": "Die kleine Physalis ist in zarte Blätter gehüllt.",
-        "sar": "حبة الكشمش الأرضي الصغيرة ملفوفة بأوراق رقيقة."
-      },
-      {
-        "id": "obst.kumquat",
-        "a": "die",
-        "n": "Kumquat",
-        "ar": "كمكوات",
-        "note": "حمضيات صغيرة جدًا تؤكل بقشرها كاملة",
-        "pl": "die Kumquats",
-        "s": "Die Kumquat isst man ganz samt der Schale.",
-        "sar": "الكمكوات يؤكل كاملاً بقشرته."
-      },
-      {
-        "id": "obst.sanddorn",
-        "a": "der",
-        "n": "Sanddorn",
-        "ar": "نبق البحر",
-        "note": "توت برتقالي حامض غني بفيتامين C يُصنع منه عصير شائع في ألمانيا؛ يُستخدم عادة بلا جمع",
-        "pl": null,
-        "s": "Der Sanddorn wächst bevorzugt an sandigen Küsten.",
-        "sar": "نبق البحر ينمو بشكل مفضل على السواحل الرملية."
-      },
-      {
         "id": "obst.clementine",
         "a": "die",
         "n": "Clementine",
@@ -447,26 +286,6 @@
         "pl": "die Clementinen",
         "s": "Die Clementine hat im Winter Hochsaison.",
         "sar": "الكليمنتين في ذروة موسمه خلال الشتاء."
-      },
-      {
-        "id": "obst.hagebutte",
-        "a": "die",
-        "n": "Hagebutte",
-        "ar": "ثمر الورد",
-        "note": "ثمرة حمراء صغيرة تُستخدم لصنع الشاي والمربى",
-        "pl": "die Hagebutten",
-        "s": "Aus der roten Hagebutte braut man Tee.",
-        "sar": "من ثمر الورد الأحمر يُعدّ الشاي."
-      },
-      {
-        "id": "obst.weichsel",
-        "a": "die",
-        "n": "Weichsel",
-        "ar": "كرز حامض",
-        "note": "نوع من الكرز الحامض يُستخدم في الكيك والحلويات",
-        "pl": "die Weichseln",
-        "s": "Die saure Weichsel eignet sich perfekt für Marmelade.",
-        "sar": "الكرز الحامض مناسب تماماً للمربى."
       }
     ]
   },
@@ -480,7 +299,7 @@
         "id": "gemuese.kartoffel",
         "a": "die",
         "n": "Kartoffel",
-        "ar": "بطاطس",
+        "ar": "بطاطا (بطاطس)",
         "pl": "die Kartoffeln",
         "s": "Die Kartoffel ist eine wichtige Beilage in Deutschland.",
         "sar": "البطاطس طبق جانبي مهم في ألمانيا."
@@ -592,7 +411,7 @@
         "id": "gemuese.zucchini",
         "a": "die",
         "n": "Zucchini",
-        "ar": "كوسة",
+        "ar": "كوسا (كوسة)",
         "note": "جمعها نفس الكلمة بلا تغيير",
         "pl": "die Zucchini",
         "s": "Die grüne Zucchini wächst schnell im Garten.",
@@ -648,7 +467,7 @@
         "id": "gemuese.rote-bete",
         "a": "die",
         "n": "Rote Bete",
-        "ar": "بنجر",
+        "ar": "شمندر (بنجر)",
         "note": "لا يوجد لها جمع شائع؛ تُستخدم بنفس الصيغة للمفرد والجمع",
         "pl": null,
         "s": "Rote Bete färbt die Hände tiefrot.",
@@ -723,15 +542,6 @@
         "sar": "الشمر له نكهة يانسون عطرية."
       },
       {
-        "id": "gemuese.artischocke",
-        "a": "die",
-        "n": "Artischocke",
-        "ar": "خرشوف",
-        "pl": "die Artischocken",
-        "s": "Die Artischocke gilt als besondere Delikatesse.",
-        "sar": "الخرشوف يُعتبر طعاماً شهياً فاخراً."
-      },
-      {
         "id": "gemuese.okra",
         "a": "die",
         "n": "Okra",
@@ -739,16 +549,6 @@
         "pl": "die Okras",
         "s": "Die Okra wird in vielen orientalischen Gerichten gekocht.",
         "sar": "البامية تُطبخ في العديد من الأطباق الشرقية."
-      },
-      {
-        "id": "gemuese.weisskohl",
-        "a": "der",
-        "n": "Weißkohl",
-        "ar": "كرنب أبيض",
-        "note": "الجمع Weißkohle نادر الاستخدام",
-        "pl": "die Weißkohle",
-        "s": "Aus Weißkohl macht man klassisches Sauerkraut.",
-        "sar": "من الكرنب الأبيض يُصنع مخلل الكرنب الكلاسيكي."
       },
       {
         "id": "gemuese.rotkohl",
@@ -759,26 +559,6 @@
         "pl": "die Rotkohle",
         "s": "Der Rotkohl passt traditionell zu festlichen Braten.",
         "sar": "الكرنب الأحمر يناسب تقليدياً أطباق اللحوم المشوية في الأعياد."
-      },
-      {
-        "id": "gemuese.wirsing",
-        "a": "der",
-        "n": "Wirsing",
-        "ar": "كرنب مجعد",
-        "note": "نوع من الكرنب أوراقه مجعدة؛ جمعه Wirsinge نادر الاستخدام",
-        "pl": "die Wirsinge",
-        "s": "Wirsing hat gekrauste Blätter und schmeckt würzig.",
-        "sar": "الكرنب المجعد له أوراق مموجة وطعمه متبل."
-      },
-      {
-        "id": "gemuese.chinakohl",
-        "a": "der",
-        "n": "Chinakohl",
-        "ar": "كرنب صيني",
-        "note": "الجمع Chinakohle نادر الاستخدام",
-        "pl": "die Chinakohle",
-        "s": "Der zarte Chinakohl eignet sich bestens für Salate.",
-        "sar": "الكرنب الصيني الطري مناسب جداً للسلطات."
       },
       {
         "id": "gemuese.gruenkohl",
@@ -798,15 +578,6 @@
         "pl": "die Radieschen",
         "s": "Das Radieschen bringt eine frische Schärfe in den Salat.",
         "sar": "الفجل الأحمر يضفي حرارة منعشة على السلطة."
-      },
-      {
-        "id": "gemuese.schalotte",
-        "a": "die",
-        "n": "Schalotte",
-        "ar": "بصل شالوت",
-        "pl": "die Schalotten",
-        "s": "Die feine Schalotte schmeckt milder als die Zwiebel.",
-        "sar": "بصل الشالوت طعمه ألطف من البصل العادي."
       },
       {
         "id": "gemuese.spargel",
@@ -856,15 +627,6 @@
         "sar": "الفطر الأبيض الطازج يناسب مقلاة الخضار."
       },
       {
-        "id": "gemuese.sojabohne",
-        "a": "die",
-        "n": "Sojabohne",
-        "ar": "فول الصويا",
-        "pl": "die Sojabohnen",
-        "s": "Die Sojabohne liefert wertvolles pflanzliches Eiweiß.",
-        "sar": "فول الصويا يوفر بروتيناً نباتياً قيماً."
-      },
-      {
         "id": "gemuese.kichererbse",
         "a": "die",
         "n": "Kichererbse",
@@ -872,26 +634,6 @@
         "pl": "die Kichererbsen",
         "s": "Aus Kichererbsen bereitet man feinen Hummus zu.",
         "sar": "من الحمص يُحضَّر الحمص الناعم الشهي."
-      },
-      {
-        "id": "gemuese.meerrettich",
-        "a": "der",
-        "n": "Meerrettich",
-        "ar": "فجل حار",
-        "note": "جذر حار الطعم يُستخدم كبديل للخردل",
-        "pl": "die Meerrettiche",
-        "s": "Frisch geriebener Meerrettich ist sehr scharf.",
-        "sar": "الفجل الحار المبشور طازجاً حار جداً."
-      },
-      {
-        "id": "gemuese.chicore",
-        "a": "der",
-        "n": "Chicorée",
-        "ar": "شيكوريا",
-        "note": "خضار مر قليلًا يؤكل نيئًا في السلطة؛ ليس له جمع",
-        "pl": null,
-        "s": "Der Chicorée schmeckt leicht bitter und knackig.",
-        "sar": "الشيكوريا طعمها مر قليلاً ومقرمشة."
       },
       {
         "id": "gemuese.rucola",
@@ -902,55 +644,6 @@
         "pl": null,
         "s": "Rucola verleiht der Pizza eine nussige Note.",
         "sar": "الجرجير يمنح البيتزا نكهة جوزية مميزة."
-      },
-      {
-        "id": "gemuese.mangold",
-        "a": "der",
-        "n": "Mangold",
-        "ar": "سلق",
-        "note": "خضار ورقي أخضر ذو سيقان ملونة، يشبه السبانخ",
-        "pl": "die Mangolde",
-        "s": "Mangold lässt sich ähnlich wie Spinat zubereiten.",
-        "sar": "السلق يمكن تحضيره بطريقة مشابهة للسبانخ."
-      },
-      {
-        "id": "gemuese.pastinake",
-        "a": "die",
-        "n": "Pastinake",
-        "ar": "جزر أبيض",
-        "note": "نوع من الجزر الأبيض حلو المذاق",
-        "pl": "die Pastinaken",
-        "s": "Die Pastinake schmeckt nussig und leicht süß.",
-        "sar": "الجزر الأبيض طعمه جوزي ومائل للحلاوة خفيفاً."
-      },
-      {
-        "id": "gemuese.steckruebe",
-        "a": "die",
-        "n": "Steckrübe",
-        "ar": "لفت سويدي",
-        "pl": "die Steckrüben",
-        "s": "Die Steckrübe diente früher als wichtige Notnahrung.",
-        "sar": "اللفت السويدي كان يُستخدم قديماً كغذاء أساسي في الأوقات الصعبة."
-      },
-      {
-        "id": "gemuese.kresse",
-        "a": "die",
-        "n": "Kresse",
-        "ar": "رشاد",
-        "note": "نبات صغير سريع النمو يُستخدم لتزيين وتنكيه السلطات",
-        "pl": "die Kressen",
-        "s": "Frische Kresse schmeckt herrlich auf Butterbrot.",
-        "sar": "الرشاد الطازج طعمه رائع على شطيرة الخبز بالزبدة."
-      },
-      {
-        "id": "gemuese.sauerampfer",
-        "a": "der",
-        "n": "Sauerampfer",
-        "ar": "حميض",
-        "note": "عشب ورقي حامض الطعم يُستخدم في الشوربات؛ جمعه نفس الكلمة بلا تغيير",
-        "pl": "die Sauerampfer",
-        "s": "Sauerampfer verleiht der Frühlingssuppe einen säuerlichen Geschmack.",
-        "sar": "الحميض يمنح حساء الربيع مذاقاً حامضياً طيباً."
       }
     ]
   },
@@ -1050,16 +743,6 @@
         "sar": "في الصيف يحب الأطفال تناول الآيس كريم الحلو."
       },
       {
-        "id": "milch.kondensmilch",
-        "a": "die",
-        "n": "Kondensmilch",
-        "ar": "حليب مكثف",
-        "note": "الجمع Kondensmilche نادر جدًا",
-        "pl": "die Kondensmilche",
-        "s": "Kondensmilch macht den Kaffee besonders cremig.",
-        "sar": "الحليب المكثف يجعل القهوة غنية وكريمية."
-      },
-      {
         "id": "milch.mozzarella",
         "a": "der",
         "n": "Mozzarella",
@@ -1067,35 +750,6 @@
         "pl": "die Mozzarellas",
         "s": "Mozzarella mit Tomaten ist eine beliebte Vorspeise.",
         "sar": "الموتزاريلا مع الطماطم مقبلات محبوبة."
-      },
-      {
-        "id": "milch.kefir",
-        "a": "der",
-        "n": "Kefir",
-        "ar": "كفير",
-        "note": "ليس له جمع",
-        "pl": null,
-        "s": "Kefir fördert eine gesunde Verdauung.",
-        "sar": "الكفير يعزز الهضم الصحي."
-      },
-      {
-        "id": "milch.skyr",
-        "a": "der",
-        "n": "Skyr",
-        "ar": "سكير",
-        "note": "ليس له جمع",
-        "pl": null,
-        "s": "Skyr enthält viel Eiweiß und wenig Fett.",
-        "sar": "السكير يحتوي على بروتين عالٍ ودهون قليلة."
-      },
-      {
-        "id": "milch.kaffeesahne",
-        "a": "die",
-        "n": "Kaffeesahne",
-        "ar": "كريمة القهوة",
-        "pl": null,
-        "s": "Er gießt etwas Kaffeesahne in seine Tasse.",
-        "sar": "هو يصب قليلاً من كريمة القهوة في فنجانه."
       },
       {
         "id": "milch.sojamilch",
@@ -1106,15 +760,6 @@
         "pl": null,
         "s": "Viele Menschen trinken Sojamilch als pflanzliche Alternative.",
         "sar": "كثير من الناس يشربون حليب الصويا كبديل نباتي."
-      },
-      {
-        "id": "milch.camembert",
-        "a": "der",
-        "n": "Camembert",
-        "ar": "جبن كممبير",
-        "pl": "die Camemberts",
-        "s": "Französischer Camembert reift zu einem weichen Kern.",
-        "sar": "جبن الكممبير الفرنسي ينضج ليصبح طرياً من الداخل."
       }
     ]
   },
@@ -1694,7 +1339,7 @@
         "id": "familie.eltern",
         "a": "die",
         "n": "Eltern",
-        "ar": "الوالدين",
+        "ar": "والدان (أبوان)",
         "pl": null,
         "s": "Meine Eltern unterstützen mich bei allen meinen Plänen.",
         "sar": "والداي يدعمانني في كل خططي."
@@ -1703,7 +1348,7 @@
         "id": "familie.kinder",
         "a": "die",
         "n": "Kinder",
-        "ar": "الأطفال",
+        "ar": "أطفال",
         "pl": null,
         "s": "Die fröhlichen Kinder toben laut auf dem Spielplatz.",
         "sar": "الأطفال المرحون يمرحون بصوت عالٍ في الملعب."
@@ -1875,28 +1520,10 @@
         "sar": "زوجة أبيها تعتني بشؤون البيت بكل مودة."
       },
       {
-        "id": "familie.stiefsohn",
-        "a": "der",
-        "n": "Stiefsohn",
-        "ar": "ابن الزوج/الزوجة",
-        "pl": "die Stiefsöhne",
-        "s": "Er behandelt seinen Stiefsohn wie sein eigenes Kind.",
-        "sar": "هو يعامل ابن زوجته تماماً كابنه الخاص."
-      },
-      {
-        "id": "familie.stieftochter",
-        "a": "die",
-        "n": "Stieftochter",
-        "ar": "بنت الزوج/الزوجة",
-        "pl": "die Stieftöchter",
-        "s": "Sie unterstützt ihre Stieftochter bei der Berufswahl.",
-        "sar": "هي تدعم ابنة زوجها في اختيار مهنتها."
-      },
-      {
         "id": "familie.schwager",
         "a": "der",
         "n": "Schwager",
-        "ar": "نسيب",
+        "ar": "شقيق الزوج/الزوجة أو زوج الأخت",
         "note": "زوج الأخت أو أخو الزوج/الزوجة",
         "pl": "die Schwäger",
         "s": "Mein Schwager hilft mir heute beim Umzug in die Wohnung.",
@@ -1934,7 +1561,7 @@
         "id": "familie.braeutigam",
         "a": "der",
         "n": "Bräutigam",
-        "ar": "العريس",
+        "ar": "عريس",
         "pl": "die Bräutigame",
         "s": "Der glückliche Bräutigam wartet gespannt vor dem Traualtar.",
         "sar": "العريس السعيد ينتظر بشوق أمام منصة الزفاف."
@@ -1943,7 +1570,7 @@
         "id": "familie.braut",
         "a": "die",
         "n": "Braut",
-        "ar": "العروسة",
+        "ar": "عروسة",
         "pl": "die Bräute",
         "s": "Die strahlende Braut trägt ein wunderschönes weißes Kleid.",
         "sar": "العروسة المتألقة ترتدي فستاناً أبيض رائع الجمال."
@@ -1971,7 +1598,7 @@
         "id": "familie.geschwister",
         "a": "die",
         "n": "Geschwister",
-        "ar": "الإخوة",
+        "ar": "إخوة",
         "note": "كلمة جمع فقط تعني الإخوة والأخوات معًا، بلا مفرد",
         "pl": null,
         "s": "Ich habe drei Geschwister: zwei Schwestern und einen Bruder.",
@@ -1981,7 +1608,7 @@
         "id": "familie.ehemann",
         "a": "der",
         "n": "Ehemann",
-        "ar": "الزوج",
+        "ar": "زوج",
         "pl": "die Ehemänner",
         "s": "Ihr Ehemann arbeitet als Architekt in Frankfurt.",
         "sar": "زوجها يعمل كمهندس معماري في فرانكفورت."
@@ -1990,7 +1617,7 @@
         "id": "familie.ehefrau",
         "a": "die",
         "n": "Ehefrau",
-        "ar": "الزوجة",
+        "ar": "زوجة",
         "pl": "die Ehefrauen",
         "s": "Seine Ehefrau leitet eine erfolgreiche Buchhandlung.",
         "sar": "زوجته تدير مكتبة كتب ناجحة."
@@ -1999,25 +1626,16 @@
         "id": "familie.grosseltern",
         "a": "die",
         "n": "Großeltern",
-        "ar": "الأجداد",
+        "ar": "أجداد",
         "pl": null,
         "s": "Die Großeltern freuen sich über den Besuch der Kinder.",
         "sar": "الأجداد يسعدون بزيارة الأولاد."
       },
       {
-        "id": "familie.urgrosseltern",
-        "a": "die",
-        "n": "Urgroßeltern",
-        "ar": "أجداد الأجداد",
-        "pl": null,
-        "s": "Unsere Urgroßeltern lebten damals auf dem Land.",
-        "sar": "أجداد أجدادنا عاشوا في ذلك الوقت في الريف."
-      },
-      {
         "id": "familie.enkelkinder",
         "a": "die",
         "n": "Enkelkinder",
-        "ar": "الأحفاد",
+        "ar": "أحفاد",
         "pl": null,
         "s": "Sie spielen gerne stundenlang mit ihren Enkelkindern.",
         "sar": "هم يحبون اللعب لساعات طويلة مع أحفادهم."
@@ -2035,7 +1653,7 @@
         "id": "familie.verwandtschaft",
         "a": "die",
         "n": "Verwandtschaft",
-        "ar": "الأقارب",
+        "ar": "أقارب",
         "pl": "die Verwandtschaften",
         "s": "An den Feiertagen kommt die ganze Verwandtschaft zusammen.",
         "sar": "في أيام الأعياد تجتمع كل العائلة والأقارب معاً."
@@ -2396,25 +2014,6 @@
         "sar": "هي تقص ظفر سبابتها بحذر."
       },
       {
-        "id": "koerper.wimper",
-        "a": "die",
-        "n": "Wimper",
-        "ar": "رمش",
-        "pl": "die Wimpern",
-        "s": "Eine feine Wimper fiel ihr direkt ins Auge.",
-        "sar": "سقطت رمش رقيق مباشرة في عينها."
-      },
-      {
-        "id": "koerper.sehne",
-        "a": "die",
-        "n": "Sehne",
-        "ar": "وتر",
-        "note": "نسيج يربط العضلة بالعظم",
-        "pl": "die Sehnen",
-        "s": "Der Sportler riss sich beim Sprint eine Sehne.",
-        "sar": "الرياضي أصيب بتمزق في الوتر أثناء الجري السريع."
-      },
-      {
         "id": "koerper.muskel",
         "a": "der",
         "n": "Muskel",
@@ -2509,7 +2108,7 @@
         "id": "koerper.wirbelsaeule",
         "a": "die",
         "n": "Wirbelsäule",
-        "ar": "العمود الفقري",
+        "ar": "عمود الفقري",
         "pl": "die Wirbelsäulen",
         "s": "Die Wirbelsäule stützt den gesamten aufrechten Körper.",
         "sar": "العمود الفقري يسند كامل الجسم المنتصب."
@@ -2519,6 +2118,7 @@
         "a": "der",
         "n": "Kiefer",
         "ar": "فك",
+        "note": "Kiefer = فك / صنوبر",
         "pl": "die Kiefer",
         "s": "Er spannte vor Wut den harten Kiefer an.",
         "sar": "هو شدّ فكه القوي من شدة الغضب."
@@ -2541,15 +2141,6 @@
         "pl": "die Nacken",
         "s": "Eine sanfte Massage entspannt den verspannten Nacken.",
         "sar": "التدليك اللطيف يريح الرقبة المتشنجة من الخلف."
-      },
-      {
-        "id": "koerper.achsel",
-        "a": "die",
-        "n": "Achsel",
-        "ar": "إبط",
-        "pl": "die Achseln",
-        "s": "Der Sportler sprüht Deo unter die rechte Achsel.",
-        "sar": "الرياضي يرش مزيل العرق تحت إبطه الأيمن."
       },
       {
         "id": "koerper.handgelenk",
@@ -2605,15 +2196,6 @@
         "pl": "die Fäuste",
         "s": "Aus Protest ballte der Demonstrant die Faust.",
         "sar": "احتجاجاً ضم المتظاهر قبضة يده."
-      },
-      {
-        "id": "koerper.pupille",
-        "a": "die",
-        "n": "Pupille",
-        "ar": "بؤبؤ العين",
-        "pl": "die Pupillen",
-        "s": "Bei Dunkelheit vergrößert sich die Pupille des Auges.",
-        "sar": "في الظلام يتسع بؤبؤ العين."
       }
     ]
   },
@@ -2708,7 +2290,7 @@
         "id": "kleidung.muetze",
         "a": "die",
         "n": "Mütze",
-        "ar": "طاقية",
+        "ar": "قبعة صغيرة (طاقية)",
         "pl": "die Mützen",
         "s": "Die gestrickte Mütze wärmt den Kopf im Schnee.",
         "sar": "الطاقية الصوفية تدفئ الرأس وسط الثلوج."
@@ -2844,7 +2426,7 @@
         "id": "kleidung.badeanzug",
         "a": "der",
         "n": "Badeanzug",
-        "ar": "مايوه",
+        "ar": "ثوب سباحة (مايوه)",
         "pl": "die Badeanzüge",
         "s": "Zum Schwimmen im Hallenbad zieht sie ihren Badeanzug an.",
         "sar": "للسباحة في المسبح الداخلي ترتدي مايوه السباحة الخاص بها."
@@ -2853,7 +2435,7 @@
         "id": "kleidung.unterhemd",
         "a": "das",
         "n": "Unterhemd",
-        "ar": "فانلة داخلية",
+        "ar": "قميص داخلي (فانلة داخلية)",
         "pl": "die Unterhemden",
         "s": "Unter dem Hemd trägt er ein weißes Unterhemd aus Baumwolle.",
         "sar": "تحت القميص يرتدي فانلة داخلية بيضاء من القطن."
@@ -2868,19 +2450,10 @@
         "sar": "هو يرتدي لباساً داخلياً مريحاً من القطن الصافي."
       },
       {
-        "id": "kleidung.buestenhalter",
-        "a": "der",
-        "n": "Büstenhalter",
-        "ar": "حمالة صدر",
-        "pl": "die Büstenhalter",
-        "s": "Die Dame wählt einen passenden Büstenhalter aus Baumwolle.",
-        "sar": "السيدة تختار حمالة صدر قطنية مناسبة."
-      },
-      {
         "id": "kleidung.strumpfhose",
         "a": "die",
         "n": "Strumpfhose",
-        "ar": "كولون",
+        "ar": "جوارب نسائية طويلة (كولون)",
         "note": "جورب طويل يغطي الساق كاملة حتى الخصر",
         "pl": "die Strumpfhosen",
         "s": "Zum kurzen Kleid trägt sie eine blickdichte Strumpfhose.",
@@ -2899,7 +2472,7 @@
         "id": "kleidung.weste",
         "a": "die",
         "n": "Weste",
-        "ar": "صديري",
+        "ar": "سترة بلا أكمام (صديري)",
         "pl": "die Westen",
         "s": "Über dem Hemd trägt der Kellner eine elegante Weste.",
         "sar": "فوق القميص يرتدي النادل صديرياً أنيقاً."
@@ -2942,15 +2515,6 @@
         "sar": "هي تنسق البلوزة الحريرية مع تنورة أنيقة."
       },
       {
-        "id": "kleidung.poncho",
-        "a": "der",
-        "n": "Poncho",
-        "ar": "بونشو",
-        "pl": "die Ponchos",
-        "s": "Der warme Poncho schützt vor der kühlen Abendluft.",
-        "sar": "البونشو الدافئ يحمي من هواء المساء البارد."
-      },
-      {
         "id": "kleidung.abendkleid",
         "a": "das",
         "n": "Abendkleid",
@@ -2960,35 +2524,6 @@
         "sar": "لافتتاحية الأوبرا الاحتفالية تختار فستان سهرة طويلاً."
       },
       {
-        "id": "kleidung.overall",
-        "a": "der",
-        "n": "Overall",
-        "ar": "أفرول",
-        "note": "بدلة عمل كاملة تغطي الجسم كله",
-        "pl": "die Overalls",
-        "s": "Der Handwerker arbeitet in einem praktischen Overall.",
-        "sar": "الحرفي يعمل في أفرول عمل عملي."
-      },
-      {
-        "id": "kleidung.latzhose",
-        "a": "die",
-        "n": "Latzhose",
-        "ar": "بنطلون بحمالات",
-        "note": "بنطلون له حمالات تغطي الصدر",
-        "pl": "die Latzhosen",
-        "s": "Der Maler trägt bei der Arbeit eine robuste Latzhose.",
-        "sar": "الدهان يرتدي أثناء العمل بنطالاً بحمالات متيناً."
-      },
-      {
-        "id": "kleidung.umhang",
-        "a": "der",
-        "n": "Umhang",
-        "ar": "عباءة",
-        "pl": "die Umhänge",
-        "s": "Der König trug bei der Krönung einen purpurnen Umhang.",
-        "sar": "الملك ارتدى في حفل التتويج عباءة أرجوانية."
-      },
-      {
         "id": "kleidung.kopftuch",
         "a": "das",
         "n": "Kopftuch",
@@ -2996,15 +2531,6 @@
         "pl": "die Kopftücher",
         "s": "Sie bindet sich ein gemustertes Kopftuch um das Haar.",
         "sar": "هي تلف غطاء رأس منقوشاً حول شعرها."
-      },
-      {
-        "id": "kleidung.turban",
-        "a": "der",
-        "n": "Turban",
-        "ar": "عمامة",
-        "pl": "die Turbane",
-        "s": "Der Reisende trägt in der Wüste einen traditionellen Turban.",
-        "sar": "المسافر يرتدي في الصحراء عمامة تقليدية."
       },
       {
         "id": "kleidung.armband",
@@ -3023,15 +2549,6 @@
         "pl": "die Ohrringe",
         "s": "Ein kleiner funkelnder Ohrring ziert ihr rechtes Ohr.",
         "sar": "قرط صغير براق يزين أذنها اليمنى."
-      },
-      {
-        "id": "kleidung.brosche",
-        "a": "die",
-        "n": "Brosche",
-        "ar": "بروش",
-        "pl": "die Broschen",
-        "s": "Sie befestigt eine antike Brosche am Kragen ihres Mantels.",
-        "sar": "هي تثبت بروشاً أثرياً على ياقة معطفها."
       },
       {
         "id": "kleidung.handtasche",
@@ -3244,7 +2761,7 @@
         "id": "zuhause.treppe",
         "a": "die",
         "n": "Treppe",
-        "ar": "سلم",
+        "ar": "درج (سلم ثابت)",
         "pl": "die Treppen",
         "s": "Er steigt vorsichtig die steile Treppe hinab.",
         "sar": "هو ينزل الدرج الحاد بحذر."
@@ -3262,7 +2779,7 @@
         "id": "zuhause.sofa",
         "a": "das",
         "n": "Sofa",
-        "ar": "كنبة",
+        "ar": "أريكة (كنبة)",
         "pl": "die Sofas",
         "s": "Auf dem bequemen Sofa kann man herrlich entspannen.",
         "sar": "على الأريكة المريحة يمكن للمرء أن يسترخي بروعة."
@@ -3334,7 +2851,7 @@
         "id": "zuhause.garage",
         "a": "die",
         "n": "Garage",
-        "ar": "جراج",
+        "ar": "مرآب (جراج)",
         "pl": "die Garagen",
         "s": "Das Auto steht sicher geschützt in der Garage.",
         "sar": "السيارة تقف محمية بأمان في الجراج."
@@ -3371,7 +2888,7 @@
         "a": "das",
         "n": "Schloss",
         "ar": "قفل",
-        "note": "نفس الكلمة تعني أيضًا \"قصر\" حسب السياق",
+        "note": "نفس الكلمة تعني أيضًا \"قصر\" حسب السياق — Schloss = قفل / قصر",
         "pl": "die Schlösser",
         "s": "Das feste Schloss an der Haustür schützt vor Einbrechern.",
         "sar": "القفل المتين على باب المنزل يحمي من اللصوص."
@@ -3444,7 +2961,7 @@
         "a": "die",
         "n": "Decke",
         "ar": "سقف/بطانية",
-        "note": "نفس الكلمة تعني \"سقف الغرفة\" أو \"بطانية\" حسب السياق",
+        "note": "نفس الكلمة تعني \"سقف الغرفة\" أو \"بطانية\" حسب السياق — Decke = سقف / بطانية",
         "pl": "die Decken",
         "s": "Sie deckt das schlafende Kind mit einer warmen Decke zu.",
         "sar": "هي تغطي الطفل النائم ببطانية دافئة."
@@ -3525,7 +3042,7 @@
         "id": "zuhause.kleiderschrank",
         "a": "der",
         "n": "Kleiderschrank",
-        "ar": "دولاب الملابس",
+        "ar": "خزانة الملابس (دولاب الملابس)",
         "pl": "die Kleiderschränke",
         "s": "Im großen Kleiderschrank ist genug Platz für alle Jacken.",
         "sar": "في دولاب الملابس الكبير متسع كافٍ لكل السترات."
@@ -3600,6 +3117,7 @@
         "a": "der",
         "n": "Wein",
         "ar": "نبيذ",
+        "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Weine",
         "s": "Zu einem feinen Abendessen wird oft edler Wein gereicht.",
         "sar": "مع العشاء الفاخر يُقدَّم غالباً نبيذ فاخر."
@@ -3609,6 +3127,7 @@
         "a": "das",
         "n": "Bier",
         "ar": "بيرة",
+        "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Biere",
         "s": "In Bayern trinken viele Menschen gerne kühles Bier.",
         "sar": "في بافاريا يحب كثير من الناس شرب البيرة الباردة."
@@ -3681,8 +3200,8 @@
         "id": "getraenke.sekt",
         "a": "der",
         "n": "Sekt",
-        "ar": "شمبانيا ألمانية",
-        "note": "صيغة الجمع النادرة \"Sekte\" تُكتب مثل مفرد كلمة أخرى \"Sekte\" (طائفة)، رغم اختلاف المعنى تمامًا",
+        "ar": "نبيذ فوّار ألماني",
+        "note": "صيغة الجمع النادرة \"Sekte\" تُكتب مثل مفرد كلمة أخرى \"Sekte\" (طائفة)، رغم اختلاف المعنى تمامًا — تنبيه غذائي: يحتوي على كحول",
         "pl": "die Sekte",
         "s": "Zum neuen Jahr stoßen wir mit einem Glas Sekt an.",
         "sar": "في العام الجديد نرفع نخبنا بكأس شمبانيا ألمانية."
@@ -3692,6 +3211,7 @@
         "a": "der",
         "n": "Champagner",
         "ar": "شمبانيا",
+        "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Champagner",
         "s": "Bei der Siegesfeier floss edler Champagner in Strömen.",
         "sar": "في حفل النصر تدفقت الشمبانيا الفاخرة بغزارة."
@@ -3701,6 +3221,7 @@
         "a": "der",
         "n": "Whisky",
         "ar": "ويسكي",
+        "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Whiskys",
         "s": "Der schottische Whisky lagert viele Jahre im Holzfass.",
         "sar": "الويسكي الاسكتلندي يُخزن سنوات عديدة في براميل خشبية."
@@ -3710,37 +3231,10 @@
         "a": "der",
         "n": "Wodka",
         "ar": "فودكا",
+        "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Wodkas",
         "s": "In Russland wird traditionell reiner Wodka getrunken.",
         "sar": "في روسيا يُشرب الفودكا النقية تقليدياً."
-      },
-      {
-        "id": "getraenke.rum",
-        "a": "der",
-        "n": "Rum",
-        "ar": "رم",
-        "note": "في جنوب ألمانيا والنمسا وسويسرا تُستخدم أيضًا صيغة \"Rume\"",
-        "pl": "die Rums",
-        "s": "Für diesen Cocktail benötigt man braunen Rum aus der Karibik.",
-        "sar": "لهذا الكوكتيل يحتاج المرء إلى رم بني من الكاريبي."
-      },
-      {
-        "id": "getraenke.gin",
-        "a": "der",
-        "n": "Gin",
-        "ar": "جن",
-        "pl": "die Gins",
-        "s": "Gin schmeckt am besten gekühlt mit einem Schuss Tonicwater.",
-        "sar": "الجن مذاقه أفضل بارداً مع رشفة من ماء التونيك."
-      },
-      {
-        "id": "getraenke.likoer",
-        "a": "der",
-        "n": "Likör",
-        "ar": "مشروب كحولي حلو",
-        "pl": "die Liköre",
-        "s": "Nach dem Essen wird ein süßer Likör serviert.",
-        "sar": "بعد تناول الطعام يُقدَّم مشروب كحولي حلو."
       },
       {
         "id": "getraenke.apfelsaft",
@@ -3759,24 +3253,6 @@
         "pl": "die Orangensäfte",
         "s": "Frischer Orangensaft enthält besonders viel Vitamin C.",
         "sar": "عصير البرتقال الطازج يحتوي على نسبة عالية من فيتامين سي."
-      },
-      {
-        "id": "getraenke.traubensaft",
-        "a": "der",
-        "n": "Traubensaft",
-        "ar": "عصير عنب",
-        "pl": "die Traubensäfte",
-        "s": "Der dunkle Traubensaft ist von Natur aus sehr süß.",
-        "sar": "عصير العنب الداكن بطبيعته حلو جداً."
-      },
-      {
-        "id": "getraenke.ananassaft",
-        "a": "der",
-        "n": "Ananassaft",
-        "ar": "عصير أناناس",
-        "pl": "die Ananassäfte",
-        "s": "Der tropische Ananassaft eignet sich gut für Cocktails.",
-        "sar": "عصير الأناناس الاستوائي مناسب جداً للكوكتيلات."
       },
       {
         "id": "getraenke.tomatensaft",
@@ -3804,15 +3280,6 @@
         "pl": "die Schwarztees",
         "s": "In England trinkt man traditionell kräftigen Schwarztee mit Milch.",
         "sar": "في إنجلترا يشربون تقليدياً الشاي الأسود القوي بالحليب."
-      },
-      {
-        "id": "getraenke.kraeutertee",
-        "a": "der",
-        "n": "Kräutertee",
-        "ar": "شاي أعشاب",
-        "pl": "die Kräutertees",
-        "s": "Ein beruhigender Kräutertee hilft beim Einschlafen.",
-        "sar": "شاي الأعشاب المهدئ يساعد على الاستغراق في النوم."
       },
       {
         "id": "getraenke.kamillentee",
@@ -3863,15 +3330,6 @@
         "sar": "كأس اللاتيه ماكياتو يتكون من ثلاث طبقات واضحة."
       },
       {
-        "id": "getraenke.sodawasser",
-        "a": "das",
-        "n": "Sodawasser",
-        "ar": "مياه صودا",
-        "pl": "die Sodawässer",
-        "s": "Mit kaltem Sodawasser lässt sich jeder Fruchtsaft aufspritzen.",
-        "sar": "بمياه الصودا الباردة يمكن تخفيف أي عصير فاكهة."
-      },
-      {
         "id": "getraenke.apfelschorle",
         "a": "die",
         "n": "Apfelschorle",
@@ -3886,56 +3344,20 @@
         "a": "der",
         "n": "Apfelwein",
         "ar": "نبيذ التفاح",
+        "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Apfelweine",
         "s": "In Frankfurt trinkt man traditionellen Apfelwein im Bembel.",
         "sar": "في فرانكفورت يشرب الناس نبيذ التفاح التقليدي."
-      },
-      {
-        "id": "getraenke.weizenbier",
-        "a": "das",
-        "n": "Weizenbier",
-        "ar": "بيرة القمح",
-        "pl": "die Weizenbiere",
-        "s": "Das trübe Weizenbier wird typischerweise aus hohen Gläsern getrunken.",
-        "sar": "بيرة القمح غير المصفاة تُشرب عادة في كؤوس طويلة."
-      },
-      {
-        "id": "getraenke.pils",
-        "a": "das",
-        "n": "Pils",
-        "ar": "بيرة بيلسنر",
-        "note": "نوع بيرة ألمانية فاتحة اللون شائعة جدًا",
-        "pl": "die Pils",
-        "s": "Ein kühles Pils hat eine feine herbe Hopfennote.",
-        "sar": "بيرة البيلسنر الباردة لها نكهة جنجل مرة خفيفة."
       },
       {
         "id": "getraenke.gluehwein",
         "a": "der",
         "n": "Glühwein",
         "ar": "نبيذ ساخن بالتوابل",
-        "note": "يُقدَّم عادة في أسواق الكريسماس الألمانية",
+        "note": "يُقدَّم عادة في أسواق الكريسماس الألمانية — تنبيه غذائي: يحتوي على كحول",
         "pl": "die Glühweine",
         "s": "Auf dem Weihnachtsmarkt wärmt ein Becher heißer Glühwein.",
         "sar": "في سوق عيد الميلاد يدفئ كوب من النبيذ الساخن بالتوابل."
-      },
-      {
-        "id": "getraenke.eierlikoer",
-        "a": "der",
-        "n": "Eierlikör",
-        "ar": "مشروب كحولي بالبيض",
-        "pl": "die Eierliköre",
-        "s": "Zu Ostern wird gerne cremiger Eierlikör serviert.",
-        "sar": "في عيد الفصح يُقدَّم غالباً مشروب البيض الكحولي الكريمي."
-      },
-      {
-        "id": "getraenke.frapp",
-        "a": "der",
-        "n": "Frappé",
-        "ar": "قهوة مثلجة مخفوقة",
-        "pl": "die Frappés",
-        "s": "An heißen Tagen in Griechenland genießt man einen kühlen Frappé.",
-        "sar": "في الأيام الحارة في اليونان يستمتع الناس بالفرابيه البارد."
       },
       {
         "id": "getraenke.ayran",
@@ -3948,33 +3370,6 @@
         "sar": "مع الشاورما المتبلة يناسب كوب بارد من العيران."
       },
       {
-        "id": "getraenke.kokoswasser",
-        "a": "das",
-        "n": "Kokoswasser",
-        "ar": "ماء جوز الهند",
-        "pl": "die Kokoswässer",
-        "s": "Frisches Kokoswasser ist ein natürlicher Durstlöscher.",
-        "sar": "ماء جوز الهند الطازج مروٍ طبيعي للعطش."
-      },
-      {
-        "id": "getraenke.ingwertee",
-        "a": "der",
-        "n": "Ingwertee",
-        "ar": "شاي الزنجبيل",
-        "pl": "die Ingwertees",
-        "s": "Ingwertee mit Zitrone stärkt die Abwehrkräfte im Winter.",
-        "sar": "شاي الزنجبيل بالليمون يقوي المناعة في الشتاء."
-      },
-      {
-        "id": "getraenke.fencheltee",
-        "a": "der",
-        "n": "Fencheltee",
-        "ar": "شاي الشمر",
-        "pl": "die Fencheltees",
-        "s": "Fencheltee wird gerne für kleine Babys mit Bauchweh gekocht.",
-        "sar": "شاي الشمر يُعدّ للأطفال الصغار عند ألم البطن."
-      },
-      {
         "id": "getraenke.zitronentee",
         "a": "der",
         "n": "Zitronentee",
@@ -3982,35 +3377,6 @@
         "pl": "die Zitronentees",
         "s": "Zitronentee bringt Frische und Wärme an kalten Tagen.",
         "sar": "شاي الليمون يجلب الانتعاش والدفء في الأيام الباردة."
-      },
-      {
-        "id": "getraenke.hagebuttentee",
-        "a": "der",
-        "n": "Hagebuttentee",
-        "ar": "شاي ثمر الورد",
-        "pl": "die Hagebuttentees",
-        "s": "Hagebuttentee hat eine schöne rötliche Farbe und schmeckt fruchtig.",
-        "sar": "شاي ثمر الورد له لون مائل للحمرة وطعمه منعش."
-      },
-      {
-        "id": "getraenke.malzkaffee",
-        "a": "der",
-        "n": "Malzkaffee",
-        "ar": "قهوة الشعير",
-        "note": "بديل للقهوة خالٍ من الكافيين مصنوع من الشعير المحمص",
-        "pl": "die Malzkaffees",
-        "s": "Malzkaffee ist koffeinfrei und bekömmlich für den Abend.",
-        "sar": "قهوة الشعير خالية من الكافيين ومناسبة للمساء."
-      },
-      {
-        "id": "getraenke.tonicwater",
-        "a": "das",
-        "n": "Tonicwater",
-        "ar": "مياه تونيك",
-        "note": "يظهر في Duden تحت الشكل المختصر \"Tonic\" (das Tonic؛ الجمع die Tonics)",
-        "pl": "die Tonicwaters",
-        "s": "Das bittere Tonicwater wird gerne mit Eis serviert.",
-        "sar": "مياه التونيك المرة تُقدَّم غالباً مع الثلج."
       }
     ]
   },
@@ -4425,15 +3791,6 @@
         "sar": "الأخصائي النفسي يساعد الناس في الأزمات النفسية."
       },
       {
-        "id": "berufe.buchhalter",
-        "a": "der",
-        "n": "Buchhalter",
-        "ar": "محاسب",
-        "pl": "die Buchhalter",
-        "s": "Der Buchhalter prüft am Monatsende alle Rechnungen.",
-        "sar": "المحاسب يدقق جميع الفواتير في نهاية الشهر."
-      },
-      {
         "id": "berufe.manager",
         "a": "der",
         "n": "Manager",
@@ -4490,24 +3847,6 @@
         "sar": "الخياط يحيك بدلة مفصلة حسب المقاس."
       },
       {
-        "id": "berufe.schuster",
-        "a": "der",
-        "n": "Schuster",
-        "ar": "إسكافي",
-        "pl": "die Schuster",
-        "s": "Der Schuster repariert die abgelaufene Sohle des Schuhs.",
-        "sar": "الإسكافي يصلح نعل الحذاء التالف."
-      },
-      {
-        "id": "berufe.tischler",
-        "a": "der",
-        "n": "Tischler",
-        "ar": "نجار",
-        "pl": "die Tischler",
-        "s": "Der Tischler baut maßgefertigte Möbel aus massivem Eichenholz.",
-        "sar": "النجار يصنع أثاثاً مخصصاً من خشب البلوط الصلب."
-      },
-      {
         "id": "berufe.maler",
         "a": "der",
         "n": "Maler",
@@ -4515,15 +3854,6 @@
         "pl": "die Maler",
         "s": "Der Maler streicht die Wände im Wohnzimmer weiß.",
         "sar": "الدهان يطلي جدران غرفة المعيشة باللون الأبيض."
-      },
-      {
-        "id": "berufe.klempner",
-        "a": "der",
-        "n": "Klempner",
-        "ar": "سباك",
-        "pl": "die Klempner",
-        "s": "Der Klempner repariert das tropfende Rohr im Badezimmer.",
-        "sar": "السباك يصلح الماسورة التي تنقط في الحمام."
       },
       {
         "id": "berufe.mechaniker",
@@ -4646,7 +3976,7 @@
         "id": "verkehr.bus",
         "a": "der",
         "n": "Bus",
-        "ar": "أتوبيس",
+        "ar": "حافلة (أتوبيس)",
         "pl": "die Busse",
         "s": "Der Bus hält direkt vor der Universitätsbibliothek.",
         "sar": "الحافلة تقف مباشرة أمام مكتبة الجامعة."
@@ -4718,7 +4048,7 @@
         "id": "verkehr.motorrad",
         "a": "das",
         "n": "Motorrad",
-        "ar": "موتوسيكل",
+        "ar": "دراجة نارية (موتوسيكل)",
         "pl": "die Motorräder",
         "s": "Er fährt mit seinem schnellen Motorrad gern auf kurvigen Landstraßen.",
         "sar": "هو يحب القيادة بدراجته النارية السريعة على الطرق الريفية المتعرجة."
@@ -4778,24 +4108,6 @@
         "sar": "العبّارة البيضاء الكبيرة تنقل السيارات والمسافرين بأمان إلى جزيرة العطلات."
       },
       {
-        "id": "verkehr.u-boot",
-        "a": "das",
-        "n": "U-Boot",
-        "ar": "غواصة",
-        "pl": "die U-Boote",
-        "s": "Das moderne U-Boot kann monatelang unentdeckt tief unter der Meeresoberfläche bleiben.",
-        "sar": "الغواصة الحديثة يمكنها البقاء أشهراً دون اكتشافها عميقاً تحت سطح البحر."
-      },
-      {
-        "id": "verkehr.segelboot",
-        "a": "das",
-        "n": "Segelboot",
-        "ar": "قارب شراعي",
-        "pl": "die Segelboote",
-        "s": "Das weiße Segelboot tanzt sanft auf den Wellen.",
-        "sar": "القارب الشراعي الأبيض يتمايل بلطف على الأمواج."
-      },
-      {
         "id": "verkehr.traktor",
         "a": "der",
         "n": "Traktor",
@@ -4841,35 +4153,6 @@
         "sar": "في عطلة الصيف تتجول العائلة بعربة سكن متنقلة ومريحة عبر السويد."
       },
       {
-        "id": "verkehr.kombi",
-        "a": "der",
-        "n": "Kombi",
-        "ar": "سيارة ستيشن",
-        "note": "اختصار لكلمة Kombiwagen",
-        "pl": "die Kombis",
-        "s": "Für Familien bietet ein geräumiger Kombi viel Platz für Gepäck und Einkäufe.",
-        "sar": "للعائلات تقدم سيارة الستيشن الواسعة مساحة كبيرة للأمتعة والمشتريات."
-      },
-      {
-        "id": "verkehr.gelaendewagen",
-        "a": "der",
-        "n": "Geländewagen",
-        "ar": "سيارة دفع رباعي",
-        "pl": "die Geländewagen",
-        "s": "Der robuste Geländewagen meistert steile matschige Waldwege ohne jedes Problem.",
-        "sar": "سيارة الدفع الرباعي القوية تجتاز الطرق الجبلية الموحلة دون أدنى مشكلة."
-      },
-      {
-        "id": "verkehr.cabrio",
-        "a": "das",
-        "n": "Cabrio",
-        "ar": "سيارة مكشوفة",
-        "note": "اختصار لكلمة Cabriolet",
-        "pl": "die Cabrios",
-        "s": "Bei strahlendem Sonnenschein öffnet er das Verdeck an seinem schicken Cabrio.",
-        "sar": "مع سطوع الشمس المشرقة يفتح سقف سيارته المكشوفة الأنيقة."
-      },
-      {
         "id": "verkehr.kinderwagen",
         "a": "der",
         "n": "Kinderwagen",
@@ -4886,15 +4169,6 @@
         "pl": "die Rollstühle",
         "s": "Dank der flachen Rampe gelangt der Mann im Rollstuhl barrierefrei ins Gebäude.",
         "sar": "بفضل المنحدر المنبسط يدخل الرجل ذو الكرسي المتحرك إلى المبنى دون عوائق."
-      },
-      {
-        "id": "verkehr.kutsche",
-        "a": "die",
-        "n": "Kutsche",
-        "ar": "عربة تجرها الخيول",
-        "pl": "die Kutschen",
-        "s": "Das frisch vermählte Brautpaar fuhr in einer festlich geschmückten Kutsche vor.",
-        "sar": "وصل العروسان حديثاً في عربة فاخرة تجرها الخيول ومزينة للاحتفال."
       },
       {
         "id": "verkehr.skateboard",
@@ -4915,25 +4189,6 @@
         "sar": "الصاروخ المأهول انطلق بدفع هائل نحو الفضاء الخارجي الشاسع."
       },
       {
-        "id": "verkehr.heissluftballon",
-        "a": "der",
-        "n": "Heißluftballon",
-        "ar": "منطاد الهواء الساخن",
-        "note": "يقبل أيضًا الجمع \"Heißluftballone\" حسب Duden (Ballons/Ballone)",
-        "pl": "die Heißluftballons",
-        "s": "Aus dem Heißluftballon genossen die Passagiere eine atemberaubende Aussicht auf die Alpen.",
-        "sar": "من منطاد الهواء الساخن استمتع الركاب بإطلالة تخطف الأنفاس على جبال الألب."
-      },
-      {
-        "id": "verkehr.segelflugzeug",
-        "a": "das",
-        "n": "Segelflugzeug",
-        "ar": "طائرة شراعية",
-        "pl": "die Segelflugzeuge",
-        "s": "Völlig lautlos gleitet das leichte Segelflugzeug getragen von der Thermik durch die Lüfte.",
-        "sar": "بلا أدنى صوت تحلق الطائرة الشراعية الخفيفة محملة بالتيارات الهوائية عبر السماء."
-      },
-      {
         "id": "verkehr.strasse",
         "a": "die",
         "n": "Straße",
@@ -4946,7 +4201,7 @@
         "id": "verkehr.autobahn",
         "a": "die",
         "n": "Autobahn",
-        "ar": "الطريق السريع",
+        "ar": "طريق السريع",
         "pl": "die Autobahnen",
         "s": "Auf der dreispurigen Autobahn darf man außerhalb geschlossener Ortschaften zügig fahren.",
         "sar": "على الطريق السريع ذي المسارات الثلاثة يُسمح بالقيادة بسرعة خارج المناطق السكنية."
@@ -5036,7 +4291,7 @@
         "id": "verkehr.bremse",
         "a": "die",
         "n": "Bremse",
-        "ar": "الفرامل",
+        "ar": "فرامل",
         "pl": "die Bremsen",
         "s": "Bei einer plötzlichen Gefahr trat der Autofahrer sofort kräftig auf die Bremse.",
         "sar": "عند ظهور خطر مفاجئ ضغط سائق السيارة فوراً وبقوة على الفرامل."
@@ -5045,7 +4300,7 @@
         "id": "verkehr.motor",
         "a": "der",
         "n": "Motor",
-        "ar": "المحرك",
+        "ar": "محرك",
         "pl": "die Motoren",
         "s": "Der leistungsstarke Motor läuft nach der großen Inspektion wieder vollkommen ruhig.",
         "sar": "المحرك القوي يعمل بعد الفحص الشامل بسلاسة وهدوء تامين."
@@ -5073,7 +4328,7 @@
         "id": "verkehr.windschutzscheibe",
         "a": "die",
         "n": "Windschutzscheibe",
-        "ar": "الزجاج الأمامي",
+        "ar": "زجاج الأمامي",
         "pl": "die Windschutzscheiben",
         "s": "Nach der frostigen Nacht kratzt er das dicke Eis mühsam von der Windschutzscheibe.",
         "sar": "بعد ليلة صقيعية يكشط الثلج السميك بصعوبة عن الزجاج الأمامي للسيارة."
@@ -5184,7 +4439,7 @@
         "id": "wetter.kaelte",
         "a": "die",
         "n": "Kälte",
-        "ar": "برد",
+        "ar": "برودة شديدة",
         "note": "اسم غير معدود، لا يوجد له جمع حسب Duden",
         "pl": null,
         "s": "Im tiefen Winter schützt eine gefütterte Jacke vor der eisigen Kälte.",
@@ -5231,7 +4486,7 @@
         "id": "wetter.hagel",
         "a": "der",
         "n": "Hagel",
-        "ar": "برد",
+        "ar": "بَرَد (حبّات جليد تتساقط)",
         "pl": "die Hagel",
         "s": "Großer Hagel prasselte lautstark auf die geparkten Autos nieder.",
         "sar": "حبات برد كبيرة انهمرت بصوت عالٍ على السيارات المتوقفة."
@@ -5240,7 +4495,7 @@
         "id": "wetter.klima",
         "a": "das",
         "n": "Klima",
-        "ar": "المناخ",
+        "ar": "مناخ",
         "note": "الأشكال البديلة الأقل شيوعًا: Klimas وKlimate حسب Duden",
         "pl": "die Klimata",
         "s": "Das mediterrane Klima sorgt für milde Winter und heiße Sommer.",
@@ -5278,7 +4533,7 @@
         "id": "wetter.himmel",
         "a": "der",
         "n": "Himmel",
-        "ar": "السماء",
+        "ar": "سماء",
         "pl": "die Himmel",
         "s": "Der blaue Himmel spannt sich weit über das ganze Land.",
         "sar": "السماء الزرقاء تمتد واسعة فوق كل أرجاء البلاد."
@@ -5287,7 +4542,7 @@
         "id": "wetter.mond",
         "a": "der",
         "n": "Mond",
-        "ar": "القمر",
+        "ar": "قمر",
         "pl": "die Monde",
         "s": "Der helle Mond leuchtet voll am dunklen Nachthimmel.",
         "sar": "القمر المضيء يسطع بدراً في سماء الليل المظلمة."
@@ -5296,7 +4551,7 @@
         "id": "wetter.stern",
         "a": "der",
         "n": "Stern",
-        "ar": "النجمة",
+        "ar": "نجمة",
         "pl": "die Sterne",
         "s": "In einer klaren Nacht sieht man fast jeden einzelnen Stern.",
         "sar": "في ليلة صافية يرى المرء كل نجمة تقريباً."
@@ -5333,7 +4588,7 @@
         "id": "wetter.schatten",
         "a": "der",
         "n": "Schatten",
-        "ar": "الظل",
+        "ar": "ظل",
         "pl": "die Schatten",
         "s": "An heißen Tagen sucht man am liebsten den kühlen Schatten.",
         "sar": "في الأيام الحارة يبحث المرء عن الظل البارد."
@@ -5342,7 +4597,7 @@
         "id": "wetter.daemmerung",
         "a": "die",
         "n": "Dämmerung",
-        "ar": "الشفق",
+        "ar": "شفق",
         "note": "نادرة الجمع",
         "pl": "die Dämmerungen",
         "s": "In der Dämmerung leuchten die ersten Straßenlaternen auf.",
@@ -5376,26 +4631,6 @@
         "sar": "بعد المطر المتواصل ينذر فيضان شديد في الوادي."
       },
       {
-        "id": "wetter.taifun",
-        "a": "der",
-        "n": "Taifun",
-        "ar": "إعصار مداري",
-        "note": "إعصار يحدث في المحيط الهادئ وشرق آسيا",
-        "pl": "die Taifune",
-        "s": "Ein verheerender Taifun fegte über die tropische Küstenregion hinweg.",
-        "sar": "إعصار مداري مدمر اجتاح المنطقة الساحلية الاستوائية."
-      },
-      {
-        "id": "wetter.hurrikan",
-        "a": "der",
-        "n": "Hurrikan",
-        "ar": "إعصار",
-        "note": "إعصار يحدث في المحيط الأطلسي وأمريكا؛ يقبل أيضًا جمع \"Hurrikans\"",
-        "pl": "die Hurrikane",
-        "s": "Der Hurrikan hinterließ schwere Schäden an Häusern und Straßen.",
-        "sar": "الإعصار خلّف أضراراً جسيمة بالمنازل والطرقات."
-      },
-      {
         "id": "wetter.tornado",
         "a": "der",
         "n": "Tornado",
@@ -5423,25 +4658,6 @@
         "sar": "هطول الأمطار الشهري كان أعلى بكثير من المعدل المعتاد."
       },
       {
-        "id": "wetter.windboee",
-        "a": "die",
-        "n": "Windböe",
-        "ar": "هبة رياح",
-        "pl": "die Windböen",
-        "s": "Eine plötzliche Windböe riss ihm den Hut vom Kopf.",
-        "sar": "هبة رياح مفاجئة طيرت القبعة من على رأسه."
-      },
-      {
-        "id": "wetter.orkan",
-        "a": "der",
-        "n": "Orkan",
-        "ar": "عاصفة هوجاء",
-        "note": "أقوى درجات مقياس شدة الرياح",
-        "pl": "die Orkane",
-        "s": "Der gewaltige Orkan riss alte Bäume entwurzelt um.",
-        "sar": "العاصفة الهوجاء العاتية اقتلعت أشجاراً قديمة من جذورها."
-      },
-      {
         "id": "wetter.schneesturm",
         "a": "der",
         "n": "Schneesturm",
@@ -5460,24 +4676,6 @@
         "sar": "العاصفة الرملية الشديدة حجبت شمس الصحراء تماماً."
       },
       {
-        "id": "wetter.sonnenfinsternis",
-        "a": "die",
-        "n": "Sonnenfinsternis",
-        "ar": "كسوف الشمس",
-        "pl": "die Sonnenfinsternisse",
-        "s": "Millionen Menschen beobachteten die seltene totale Sonnenfinsternis.",
-        "sar": "ملايين الناس شاهدوا كسوف الشمس الكلي النادر."
-      },
-      {
-        "id": "wetter.mondfinsternis",
-        "a": "die",
-        "n": "Mondfinsternis",
-        "ar": "خسوف القمر",
-        "pl": "die Mondfinsternisse",
-        "s": "Bei der Mondfinsternis schimmerte der Mond in rötlichem Licht.",
-        "sar": "أثناء خسوف القمر تلألأ القمر بضوء مائل للحمرة."
-      },
-      {
         "id": "wetter.wettervorhersage",
         "a": "die",
         "n": "Wettervorhersage",
@@ -5490,30 +4688,11 @@
         "id": "wetter.luft",
         "a": "die",
         "n": "Luft",
-        "ar": "الهواء",
+        "ar": "هواء",
         "note": "اسم غير معدود عادة؛ الجمع \"Lüfte\" أدبي/شاعري ونادر الاستخدام",
         "pl": null,
         "s": "Tiefes Einatmen der reinen Bergluft erfrischt den ganzen Körper.",
         "sar": "الاستنشاق العميق لهواء الجبال النقي ينعش الجسم كله."
-      },
-      {
-        "id": "wetter.monsun",
-        "a": "der",
-        "n": "Monsun",
-        "ar": "الرياح الموسمية",
-        "pl": "die Monsune",
-        "s": "Der indische Monsun bringt monatelang lebenswichtigen Starkregen.",
-        "sar": "الرياح الموسمية الهندية تجلب لأشهر أمطاراً غزيرة حيوية للحياة."
-      },
-      {
-        "id": "wetter.dunst",
-        "a": "der",
-        "n": "Dunst",
-        "ar": "شبورة خفيفة",
-        "note": "ضباب خفيف جدًا؛ اسم غير معدود عادة، ونادرًا ما يُستخدم جمع \"Dünste\" للإشارة لأنواع مختلفة من الأبخرة",
-        "pl": null,
-        "s": "Ein feiner Dunst lag über der morgendlichen Wasserfläche.",
-        "sar": "شبورة خفيفة خيمت على سطح الماء الصباحي."
       },
       {
         "id": "wetter.regenzeit",
@@ -5547,7 +4726,7 @@
         "id": "wetter.waerme",
         "a": "die",
         "n": "Wärme",
-        "ar": "الدفء",
+        "ar": "دفء",
         "note": "اسم غير معدود عادة",
         "pl": null,
         "s": "Die angenehme Wärme des Ofens erfüllte das ganze Zimmer.",
@@ -5557,7 +4736,7 @@
         "id": "wetter.kuehle",
         "a": "die",
         "n": "Kühle",
-        "ar": "البرودة اللطيفة",
+        "ar": "برودة اللطيفة",
         "note": "اسم غير معدود",
         "pl": null,
         "s": "Im schattigen Wald genossen sie die wohltuende Kühle.",
@@ -5666,7 +4845,7 @@
         "id": "schule.ordner",
         "a": "der",
         "n": "Ordner",
-        "ar": "ملف",
+        "ar": "ملف أرشيف بحلقات",
         "pl": "die Ordner",
         "s": "In diesem dicken Ordner sammelt sie alle Arbeitsblätter.",
         "sar": "في هذا الملف السميك تجمع كل أوراق العمل."
@@ -5675,7 +4854,7 @@
         "id": "schule.stundenplan",
         "a": "der",
         "n": "Stundenplan",
-        "ar": "الجدول الدراسي",
+        "ar": "جدول الدراسي",
         "pl": "die Stundenpläne",
         "s": "Der neue Stundenplan hängt gut sichtbar an der Wand.",
         "sar": "الجدول الدراسي الجديد معلق بشكل واضح على الحائط."
@@ -5684,7 +4863,7 @@
         "id": "schule.klassenzimmer",
         "a": "das",
         "n": "Klassenzimmer",
-        "ar": "الفصل الدراسي",
+        "ar": "فصل الدراسي",
         "pl": "die Klassenzimmer",
         "s": "Das helle Klassenzimmer bietet Platz für fünfundzwanzig Schüler.",
         "sar": "الفصل الدراسي المضيء يوفر متسعاً لخمسة وعشرين تلميذاً."
@@ -5747,19 +4926,10 @@
         "id": "schule.mappe",
         "a": "die",
         "n": "Mappe",
-        "ar": "ملف",
+        "ar": "حافظة أوراق",
         "pl": "die Mappen",
         "s": "Sie verstaut die Zeugnisse sicher in einer ledernen Mappe.",
         "sar": "هي تحفظ الشهادات بأمان في ملف جلدي."
-      },
-      {
-        "id": "schule.klebstift",
-        "a": "der",
-        "n": "Klebstift",
-        "ar": "قلم صمغ",
-        "pl": "die Klebstifte",
-        "s": "Mit dem Klebstift klebt er das Foto ordentlich ins Heft.",
-        "sar": "بقلم الصمغ يلصق الصورة بترتيب في الكراسة."
       },
       {
         "id": "schule.bueroklammer",
@@ -5769,15 +4939,6 @@
         "pl": "die Büroklammern",
         "s": "Eine kleine Büroklammer hält die losen Dokumente zusammen.",
         "sar": "مشبك ورق صغير يمسك الأوراق المفروطة معاً."
-      },
-      {
-        "id": "schule.hefter",
-        "a": "der",
-        "n": "Hefter",
-        "ar": "دباسة",
-        "pl": "die Hefter",
-        "s": "Mit dem Hefter heftet die Sekretärin die Blätter fest aneinander.",
-        "sar": "بالدباسة تثبت السكرتيرة الأوراق معاً بإحكام."
       },
       {
         "id": "schule.zirkel",
@@ -5831,7 +4992,7 @@
         "id": "schule.hausaufgabe",
         "a": "die",
         "n": "Hausaufgabe",
-        "ar": "الواجب المدرسي",
+        "ar": "واجب المدرسي",
         "pl": "die Hausaufgaben",
         "s": "Die tägliche Hausaufgabe festigt den gelernten Schulstoff.",
         "sar": "الواجب المدرسي اليومي يرسخ المادة التعليمية المكتسبة."
@@ -5840,7 +5001,7 @@
         "id": "schule.pruefung",
         "a": "die",
         "n": "Prüfung",
-        "ar": "الامتحان",
+        "ar": "امتحان",
         "pl": "die Prüfungen",
         "s": "Vor der schwierigen Prüfung wiederholt er alle wichtigen Formeln.",
         "sar": "قبل الامتحان الصعب يراجع كل المعادلات الهامة."
@@ -5849,7 +5010,8 @@
         "id": "schule.note",
         "a": "die",
         "n": "Note",
-        "ar": "الدرجة",
+        "ar": "درجة",
+        "note": "Note = درجة / نوتة موسيقية",
         "pl": "die Noten",
         "s": "Für ihren herausragenden Aufsatz erhielt sie die beste Note.",
         "sar": "نظير موضوعها الإنشائي المتميز حصلت على أعلى درجة."
@@ -5867,7 +5029,7 @@
         "id": "schule.unterricht",
         "a": "der",
         "n": "Unterricht",
-        "ar": "الحصة الدراسية",
+        "ar": "حصة الدراسية",
         "note": "اسم غير معدود، يُستخدم دائمًا في صيغة المفرد",
         "pl": null,
         "s": "Der Unterricht beginnt an unserer Schule pünktlich um acht Uhr.",
@@ -5877,7 +5039,7 @@
         "id": "schule.pause",
         "a": "die",
         "n": "Pause",
-        "ar": "الفسحة",
+        "ar": "فسحة",
         "pl": "die Pausen",
         "s": "In der großen Pause spielen die Schüler draußen auf dem Hof.",
         "sar": "في الفسحة الكبيرة يلعب التلاميذ بالخارج في باحة المدرسة."
@@ -5896,7 +5058,7 @@
         "id": "schule.klasse",
         "a": "die",
         "n": "Klasse",
-        "ar": "الفصل (كمجموعة طلاب)",
+        "ar": "فصل (كمجموعة طلاب)",
         "pl": "die Klassen",
         "s": "Die ganze Klasse fährt nächste Woche auf Klassenfahrt.",
         "sar": "الفصل بأكمله يسافر الأسبوع المقبل في رحلة مدرسية."
@@ -5914,7 +5076,7 @@
         "id": "schule.fach",
         "a": "das",
         "n": "Fach",
-        "ar": "المادة الدراسية",
+        "ar": "مادة الدراسية",
         "pl": "die Fächer",
         "s": "Sein liebstes Fach in der Schule ist Naturwissenschaft.",
         "sar": "مادته الدراسية المفضلة في المدرسة هي مادة العلوم الطبيعية."
@@ -5923,7 +5085,7 @@
         "id": "schule.mathematik",
         "a": "die",
         "n": "Mathematik",
-        "ar": "الرياضيات",
+        "ar": "رياضيات",
         "note": "اسم غير معدود عادة، مثل باقي أسماء المواد العلمية",
         "pl": null,
         "s": "Mathematik erfordert logisches Denken und regelmäßiges Üben.",
@@ -5934,7 +5096,7 @@
         "a": "die",
         "n": "Geschichte",
         "ar": "مادة التاريخ",
-        "note": "بمعنى \"مادة التاريخ\" اسم غير معدود؛ أما بمعنى \"قصة\" فجمعها الشائع \"Geschichten\"",
+        "note": "بمعنى \"مادة التاريخ\" اسم غير معدود؛ أما بمعنى \"قصة\" فجمعها الشائع \"Geschichten\" — Geschichte = تاريخ / قصة",
         "pl": null,
         "s": "Im Fach Geschichte lernen wir über das antike Rom.",
         "sar": "في مادة التاريخ نتعلم عن روما القديمة."
@@ -5943,7 +5105,7 @@
         "id": "schule.biologie",
         "a": "die",
         "n": "Biologie",
-        "ar": "الأحياء",
+        "ar": "أحياء",
         "note": "اسم غير معدود عادة",
         "pl": null,
         "s": "In der Biologie mikroskopieren die Schüler Pflanzenzellen.",
@@ -5953,7 +5115,7 @@
         "id": "schule.chemie",
         "a": "die",
         "n": "Chemie",
-        "ar": "الكيمياء",
+        "ar": "كيمياء",
         "note": "اسم غير معدود عادة",
         "pl": null,
         "s": "Im Fach Chemie führen wir spannende Experimente durch.",
@@ -5963,7 +5125,7 @@
         "id": "schule.physik",
         "a": "die",
         "n": "Physik",
-        "ar": "الفيزياء",
+        "ar": "فيزياء",
         "note": "اسم غير معدود عادة",
         "pl": null,
         "s": "Physik erklärt die grundlegenden Naturgesetze unserer Welt.",
@@ -5973,7 +5135,7 @@
         "id": "schule.kunst",
         "a": "die",
         "n": "Kunst",
-        "ar": "الفن",
+        "ar": "فن",
         "pl": "die Künste",
         "s": "Im Kunstunterricht malen die Kinder mit Wasserfarben.",
         "sar": "في حصة التربية الفنية يرسم الأطفال بالألوان المائية."
@@ -5982,7 +5144,7 @@
         "id": "schule.fremdsprache",
         "a": "die",
         "n": "Fremdsprache",
-        "ar": "اللغة الأجنبية",
+        "ar": "لغة الأجنبية",
         "pl": "die Fremdsprachen",
         "s": "Deutsch ist für mich eine neue und spannende Fremdsprache.",
         "sar": "الألمانية بالنسبة لي لغة أجنبية جديدة ومشوقة."
@@ -5991,7 +5153,7 @@
         "id": "schule.wortschatz",
         "a": "der",
         "n": "Wortschatz",
-        "ar": "المفردات",
+        "ar": "مفردات",
         "note": "نادر الاستخدام، يشير لمفردات لغات أو مجالات مختلفة",
         "pl": "die Wortschätze",
         "s": "Jeden Tag erweitert er seinen deutschen Wortschatz um fünf Wörter.",
@@ -6001,7 +5163,7 @@
         "id": "schule.grammatik",
         "a": "die",
         "n": "Grammatik",
-        "ar": "القواعد",
+        "ar": "قواعد",
         "note": "نادر الاستخدام، يشير لكتب أو أنظمة قواعد لغوية مختلفة",
         "pl": "die Grammatiken",
         "s": "Eine klare Grammatik hilft beim korrekten Formulieren von Sätzen.",
@@ -6020,21 +5182,11 @@
         "id": "schule.tinte",
         "a": "die",
         "n": "Tinte",
-        "ar": "الحبر",
+        "ar": "حبر",
         "note": "الجمع يشير لأنواع مختلفة من الحبر",
         "pl": "die Tinten",
         "s": "Der alte Füllfederhalter wird mit blauer Tinte befüllt.",
         "sar": "قلم الحبر القديم يُملأ بالحبر الأزرق."
-      },
-      {
-        "id": "schule.tintenkiller",
-        "a": "der",
-        "n": "Tintenkiller",
-        "ar": "ممحاة الحبر",
-        "note": "قلم خاص لإزالة كتابة الحبر، شائع في المدارس الألمانية",
-        "pl": "die Tintenkiller",
-        "s": "Mit dem Tintenkiller lassen sich kleine Schreibfehler unsichtbar machen.",
-        "sar": "بممحاة الحبر يمكن إخفاء أخطاء الكتابة الصغيرة."
       }
     ]
   },
@@ -6067,7 +5219,7 @@
         "a": "die",
         "n": "Bank",
         "ar": "بنك",
-        "note": "بمعنى بنك (مؤسسة مالية) جمعها Banken؛ أما Bank بمعنى مقعد فجمعها Bänke",
+        "note": "بمعنى بنك (مؤسسة مالية) جمعها Banken؛ أما Bank بمعنى مقعد فجمعها Bänke — Bank = بنك / مقعد",
         "pl": "die Banken",
         "s": "Er hebt am Geldautomaten der Bank Bargeld ab.",
         "sar": "هو يسحب نقوداً من الصراف الآلي للبنك."
@@ -6266,7 +5418,8 @@
         "id": "orte.gericht",
         "a": "das",
         "n": "Gericht",
-        "ar": "المحكمة",
+        "ar": "محكمة",
+        "note": "Gericht = محكمة / طبق طعام",
         "pl": "die Gerichte",
         "s": "Der Zeuge sagt wahrheitsgemäß vor dem hohen Gericht aus.",
         "sar": "الشاهد يدلي بشهادته بصدق أمام المحكمة الموقرة."
@@ -6275,7 +5428,7 @@
         "id": "orte.gefaengnis",
         "a": "das",
         "n": "Gefängnis",
-        "ar": "السجن",
+        "ar": "سجن",
         "pl": "die Gefängnisse",
         "s": "Der verurteilte Täter sitzt viele Jahre im Gefängnis.",
         "sar": "الجاني المدان يقضي سنوات عديدة في السجن."
@@ -6284,7 +5437,7 @@
         "id": "orte.fabrik",
         "a": "die",
         "n": "Fabrik",
-        "ar": "المصنع",
+        "ar": "مصنع",
         "pl": "die Fabriken",
         "s": "In dieser modernen Fabrik werden Elektroautos hergestellt.",
         "sar": "في هذا المصنع الحديث تُصنَّع السيارات الكهربائية."
@@ -6293,7 +5446,7 @@
         "id": "orte.buero",
         "a": "das",
         "n": "Büro",
-        "ar": "المكتب",
+        "ar": "مكتب",
         "pl": "die Büros",
         "s": "Er arbeitet von neun bis siebzehn Uhr im Büro.",
         "sar": "هو يعمل من التاسعة إلى الخامسة في المكتب."
@@ -6302,7 +5455,7 @@
         "id": "orte.friedhof",
         "a": "der",
         "n": "Friedhof",
-        "ar": "المقبرة",
+        "ar": "مقبرة",
         "pl": "die Friedhöfe",
         "s": "Auf dem Friedhof herrscht eine friedliche und andächtige Stille.",
         "sar": "في المقبرة يسود صمت هادئ وخشوع تام."
@@ -6311,7 +5464,7 @@
         "id": "orte.strand",
         "a": "der",
         "n": "Strand",
-        "ar": "الشاطئ",
+        "ar": "شاطئ",
         "pl": "die Strände",
         "s": "Am weißen Strand liegen die Urlauber entspannt in der Sonne.",
         "sar": "على الشاطئ الأبيض يستلقي المصطافون مسترخين تحت الشمس."
@@ -6320,7 +5473,7 @@
         "id": "orte.wald",
         "a": "der",
         "n": "Wald",
-        "ar": "الغابة",
+        "ar": "غابة",
         "pl": "die Wälder",
         "s": "Ein Spaziergang durch den dichten Wald beruhigt die Seele.",
         "sar": "المشي عبر الغابة الكثيفة يهدئ الروح."
@@ -6329,7 +5482,7 @@
         "id": "orte.berg",
         "a": "der",
         "n": "Berg",
-        "ar": "الجبل",
+        "ar": "جبل",
         "pl": "die Berge",
         "s": "Der Bergsteiger kletterte mutig auf den höchsten Berg.",
         "sar": "المتسلق صعد بشجاعة إلى أعلى الجبل."
@@ -6338,7 +5491,7 @@
         "id": "orte.see",
         "a": "der",
         "n": "See",
-        "ar": "البحيرة",
+        "ar": "بحيرة",
         "note": "der See = بحيرة (مذكر)، أما die See فتعني البحر",
         "pl": "die Seen",
         "s": "Das Wasser im tiefen See ist glasklar und sehr kalt.",
@@ -6348,7 +5501,7 @@
         "id": "orte.fluss",
         "a": "der",
         "n": "Fluss",
-        "ar": "النهر",
+        "ar": "نهر",
         "pl": "die Flüsse",
         "s": "Ein breiter Fluss fließt gemächlich durch das grüne Tal.",
         "sar": "نهر عريض يتدفق بتمهل عبر الوادي الأخضر."
@@ -6357,7 +5510,7 @@
         "id": "orte.meer",
         "a": "das",
         "n": "Meer",
-        "ar": "البحر",
+        "ar": "بحر",
         "pl": "die Meere",
         "s": "Das offene Meer erstreckt sich endlos bis zum Horizont.",
         "sar": "البحر المفتوح يمتد بلا نهاية حتى الأفق."
@@ -6366,7 +5519,7 @@
         "id": "orte.wueste",
         "a": "die",
         "n": "Wüste",
-        "ar": "الصحراء",
+        "ar": "صحراء",
         "pl": "die Wüsten",
         "s": "In der heißen Wüste gibt es weite Sanddünen und Oasen.",
         "sar": "في الصحراء الحارة توجد كثبان رملية واسعة وواحات."
@@ -6375,7 +5528,7 @@
         "id": "orte.dorf",
         "a": "das",
         "n": "Dorf",
-        "ar": "القرية",
+        "ar": "قرية",
         "pl": "die Dörfer",
         "s": "Das kleine ruhige Dorf liegt idyllisch abseits der Großstadt.",
         "sar": "القرية الصغيرة الهادئة تقع بشكل شاعري بعيداً عن المدينة الكبيرة."
@@ -6384,7 +5537,7 @@
         "id": "orte.stadt",
         "a": "die",
         "n": "Stadt",
-        "ar": "المدينة",
+        "ar": "مدينة",
         "pl": "die Städte",
         "s": "Berlin ist eine lebendige und geschichtsträchtige Stadt.",
         "sar": "برلين مدينة مفعمة بالحياة وحافلة بالتاريخ."
@@ -6393,7 +5546,7 @@
         "id": "orte.platz",
         "a": "der",
         "n": "Platz",
-        "ar": "الميدان",
+        "ar": "ميدان",
         "pl": "die Plätze",
         "s": "Mitten auf dem Marktplatz steht ein alter Brunnen.",
         "sar": "في وسط الميدان ينتصب ينبوع قديم."
@@ -6447,7 +5600,7 @@
         "id": "orte.theater",
         "a": "das",
         "n": "Theater",
-        "ar": "المسرح",
+        "ar": "مسرح",
         "pl": "die Theater",
         "s": "Heute Abend schauen wir ein klassisches Theaterstück im Theater.",
         "sar": "مساء اليوم سنشاهد مسرحية كلاسيكية في المسرح."
@@ -6465,7 +5618,7 @@
         "id": "orte.grenze",
         "a": "die",
         "n": "Grenze",
-        "ar": "الحدود",
+        "ar": "حدود",
         "pl": "die Grenzen",
         "s": "An der offenen Grenze gibt es heutzutage keine Passkontrollen mehr.",
         "sar": "عند الحدود المفتوحة لم يعد هناك فحص للجوازات في هذه الأيام."
@@ -6474,7 +5627,7 @@
         "id": "orte.hafen",
         "a": "der",
         "n": "Hafen",
-        "ar": "الميناء",
+        "ar": "ميناء",
         "pl": "die Häfen",
         "s": "Im großen Hafen legen täglich riesige Frachtschiffe an.",
         "sar": "في الميناء الكبير ترسو يومياً سفن شحن ضخمة."
@@ -6483,7 +5636,7 @@
         "id": "orte.botschaft",
         "a": "die",
         "n": "Botschaft",
-        "ar": "السفارة",
+        "ar": "سفارة",
         "pl": "die Botschaften",
         "s": "Er beantragte sein neues Visum bei der deutschen Botschaft.",
         "sar": "هو تقدم بطلب للحصول على تأشيرته الجديدة في السفارة الألمانية."
@@ -6492,7 +5645,7 @@
         "id": "orte.vorort",
         "a": "der",
         "n": "Vorort",
-        "ar": "الضاحية",
+        "ar": "ضاحية",
         "pl": "die Vororte",
         "s": "Familien mit Kindern ziehen gerne in einen ruhigen Vorort.",
         "sar": "العائلات التي لديها أطفال تحب الانتقال للعيش في ضاحية هادئة."
@@ -6584,7 +5737,7 @@
       {
         "id": "gefuehle.enttaeuscht",
         "n": "enttäuscht",
-        "ar": "محبط",
+        "ar": "خائب الأمل",
         "s": "Nach der Absage war der Bewerber tief enttäuscht.",
         "sar": "بعد الرفض شعر المتقدم للوظيفة بإحباط عميق."
       },
@@ -6598,7 +5751,7 @@
       {
         "id": "gefuehle.hoffnungsvoll",
         "n": "hoffnungsvoll",
-        "ar": "متفائل",
+        "ar": "مليء بالأمل",
         "s": "Sie blickt voller Zuversicht hoffnungsvoll in die Zukunft.",
         "sar": "هي تنظر بأمل وتفاؤل كبير إلى المستقبل."
       },
@@ -6622,13 +5775,6 @@
         "ar": "مذنب",
         "s": "Nach dem Fehler fühlte er sich schuldig.",
         "sar": "بعد الخطأ شعر بأنه مذنب."
-      },
-      {
-        "id": "gefuehle.beschaemt",
-        "n": "beschämt",
-        "ar": "خجلان",
-        "s": "Er senkte beschämt den Blick nach der Rüge.",
-        "sar": "هو خفض بصره خجلاً بعد التوبيخ."
       },
       {
         "id": "gefuehle.mutig",
@@ -6715,13 +5861,6 @@
         "sar": "هو يقبل دائماً بتفاؤل على التحديات الجديدة."
       },
       {
-        "id": "gefuehle.pessimistisch",
-        "n": "pessimistisch",
-        "ar": "متشائم",
-        "s": "Ein pessimistischer Mensch sieht überall nur Probleme.",
-        "sar": "الشخص المتشائم لا يرى في كل مكان إلا المشاكل."
-      },
-      {
         "id": "gefuehle.selbstbewusst",
         "n": "selbstbewusst",
         "ar": "واثق من نفسه",
@@ -6750,27 +5889,6 @@
         "sar": "مع كثرة المهام دفعة واحدة شعرت بالإرهاق الشديد."
       },
       {
-        "id": "gefuehle.geruehrt",
-        "n": "gerührt",
-        "ar": "متأثر",
-        "s": "Sie war tief gerührt von den lieben Worten ihrer Freunde.",
-        "sar": "كانت متأثرة جداً بالكلمات الطيبة لأصدقائها."
-      },
-      {
-        "id": "gefuehle.zaertlich",
-        "n": "zärtlich",
-        "ar": "حنون",
-        "s": "Die Mutter streicht ihrem Baby zärtlich über die Wange.",
-        "sar": "الأم تمسح بحنان على خد رضيعها."
-      },
-      {
-        "id": "gefuehle.leidenschaftlich",
-        "n": "leidenschaftlich",
-        "ar": "شغوف",
-        "s": "Er spielt mit leidenschaftlicher Hingabe auf der Geige.",
-        "sar": "هو يعزف على الكمان بشغف وافتتان كبير."
-      },
-      {
         "id": "gefuehle.gespannt",
         "n": "gespannt",
         "ar": "متشوق",
@@ -6797,13 +5915,6 @@
         "ar": "عاجز",
         "s": "Ohne Werkzeug stand er hilflos vor dem kaputten Motor.",
         "sar": "بدون أدوات وقف عاجزاً أمام المحرك المعطل."
-      },
-      {
-        "id": "gefuehle.euphorisch",
-        "n": "euphorisch",
-        "ar": "في قمة النشوة",
-        "s": "Nach dem Sieg war die gesamte Mannschaft euphorisch.",
-        "sar": "بعد الفوز كان الفريق بأكمله في قمة النشوة والابتهاج."
       }
     ],
     "hasArticles": false
@@ -6842,16 +5953,6 @@
         "pl": "die Zimte",
         "s": "Im Winter duften die Plätzchen herrlich nach süßem Zimt.",
         "sar": "في الشتاء تفوح رائحة البسكويت بالقرفة الحلوة الرائعة."
-      },
-      {
-        "id": "gewuerze.kuemmel",
-        "a": "der",
-        "n": "Kümmel",
-        "ar": "كراوية",
-        "note": "كراوية (Caraway)، وهي مختلفة عن Kreuzkümmel (الكمون الحقيقي)",
-        "pl": "die Kümmel",
-        "s": "Kümmel macht schwere Kohlgerichte viel bekömmlicher.",
-        "sar": "الكراوية تجعل أطباق الكرنب الدسمة أسهل هضماً."
       },
       {
         "id": "gewuerze.kreuzkuemmel",
@@ -6904,7 +6005,7 @@
         "id": "gewuerze.chili",
         "a": "das",
         "n": "Chili",
-        "ar": "شطة",
+        "ar": "فلفل حار (شطة)",
         "pl": "die Chilis",
         "s": "Vorsicht, das rote Chili brennt scharf auf der Zunge.",
         "sar": "احذر، فالشطة الحمراء تلسع بحرارة على اللسان."
@@ -6937,15 +6038,6 @@
         "sar": "الفانيليا الأصلية تمنح المهلبية نكهة راقية."
       },
       {
-        "id": "gewuerze.knoblauchpulver",
-        "a": "das",
-        "n": "Knoblauchpulver",
-        "ar": "بودرة ثوم",
-        "pl": "die Knoblauchpulver",
-        "s": "Knoblauchpulver lässt sich beim Kochen praktisch dosieren.",
-        "sar": "بودرة الثوم يسهل معايرتها عملياً أثناء الطبخ."
-      },
-      {
         "id": "gewuerze.lorbeer",
         "a": "der",
         "n": "Lorbeer",
@@ -6971,15 +6063,6 @@
         "pl": "die Muskatnüsse",
         "s": "Geriebene Muskatnuss gehört unbedingt in ein gutes Kartoffelpüree.",
         "sar": "جوزة الطيب المبشورة ضرورية في بيوريه البطاطس الجيد."
-      },
-      {
-        "id": "gewuerze.nelke",
-        "a": "die",
-        "n": "Nelke",
-        "ar": "قرنفل",
-        "pl": "die Nelken",
-        "s": "Eine getrocknete Nelke verleiht dem Glühwein sein festliches Aroma.",
-        "sar": "حبة قرنفل مجففة تعطي النبيذ الساخن نكهته الاحتفالية."
       },
       {
         "id": "gewuerze.kardamom",
@@ -7081,36 +6164,6 @@
         "sar": "الثوم المعمر الطازج طعمه لذيذ على شطيرة الخبز بالزبدة."
       },
       {
-        "id": "gewuerze.majoran",
-        "a": "der",
-        "n": "Majoran",
-        "ar": "مردقوش",
-        "note": "الجمع Majorane نادر الاستخدام",
-        "pl": "die Majorane",
-        "s": "Majoran ist das klassische Gewürz in herzhafter Thüringer Wurst.",
-        "sar": "المردقوش هو التابل الكلاسيكي في السجق التورينغي الشهي."
-      },
-      {
-        "id": "gewuerze.estragon",
-        "a": "der",
-        "n": "Estragon",
-        "ar": "طرخون",
-        "note": "ليس له جمع",
-        "pl": null,
-        "s": "Französischer Estragon verleiht der berühmten Sauce Béarnaise ihre Note.",
-        "sar": "الطرخون الفرنسي يمنح صلصة بيرنيز نكهتها الشهيرة."
-      },
-      {
-        "id": "gewuerze.baerlauch",
-        "a": "der",
-        "n": "Bärlauch",
-        "ar": "ثوم بري",
-        "note": "الجمع Bärlauche نادر الاستخدام",
-        "pl": "die Bärlauche",
-        "s": "Im Frühling pflücken viele frischen Bärlauch im Wald.",
-        "sar": "في الربيع يقطف الكثيرون الثوم البري الطازج من الغابة."
-      },
-      {
         "id": "gewuerze.sojasosse",
         "a": "die",
         "n": "Sojasoße",
@@ -7192,102 +6245,6 @@
         "pl": "die Backpulver",
         "s": "Ein Päckchen Backpulver macht den süßen Rührkuchen schön locker.",
         "sar": "كيس من البيكنج باودر يجعل الكعكة هشة وإسفنجية."
-      },
-      {
-        "id": "gewuerze.sternanis",
-        "a": "der",
-        "n": "Sternanis",
-        "ar": "يانسون نجمي",
-        "pl": "die Sternanise",
-        "s": "Der hübsche Sternanis sieht aus wie ein kleiner hölzerner Stern.",
-        "sar": "اليانسون النجمي الجميل يبدو كنجمة خشبية صغيرة."
-      },
-      {
-        "id": "gewuerze.piment",
-        "a": "der",
-        "n": "Piment",
-        "ar": "بهارات جامايكية",
-        "note": "يُعرف أيضًا بالفلفل الإنجليزي؛ الجمع Pimente نادر الاستخدام",
-        "pl": "die Pimente",
-        "s": "Piment schmeckt nach einer Kombination aus Nelken, Zimt und Muskat.",
-        "sar": "البهار الجامايكي طعمه مزيج يجمع بين القرنفل والقرفة وجوزة الطيب."
-      },
-      {
-        "id": "gewuerze.sumach",
-        "a": "der",
-        "n": "Sumach",
-        "ar": "سماق",
-        "note": "الجمع Sumache نادر الاستخدام",
-        "pl": "die Sumache",
-        "s": "Das säuerliche rote Pulver Sumach verfeinert orientalische Salate.",
-        "sar": "مسحوق السماق الأحمر الحامض يتبل السلطات الشرقية."
-      },
-      {
-        "id": "gewuerze.bockshornklee",
-        "a": "der",
-        "n": "Bockshornklee",
-        "ar": "حلبة",
-        "note": "ليس له جمع (مثل Klee)",
-        "pl": null,
-        "s": "Bockshornklee hat einen leicht nussigen und würzigen Geschmack.",
-        "sar": "الحلبة لها مذاق جوزي متبل خفيف."
-      },
-      {
-        "id": "gewuerze.tahin",
-        "a": "das",
-        "n": "Tahin",
-        "ar": "طحينة",
-        "note": "ليس له جمع",
-        "pl": null,
-        "s": "Cremiges Tahin wird aus feingemahlenen Sesamsamen hergestellt.",
-        "sar": "الطحينة الكريمية تُصنع من بذور السمسم المطحونة ناعماً."
-      },
-      {
-        "id": "gewuerze.zitronenschale",
-        "a": "die",
-        "n": "Zitronenschale",
-        "ar": "قشر الليمون",
-        "pl": "die Zitronenschalen",
-        "s": "Geriebene Zitronenschale gibt dem Backwerk ein herrliches Frischearoma.",
-        "sar": "قشر الليمون المبشور يمنح المخبوزات نكهة انتعاش رائعة."
-      },
-      {
-        "id": "gewuerze.kaper",
-        "a": "die",
-        "n": "Kaper",
-        "ar": "كبر",
-        "pl": "die Kapern",
-        "s": "Eingelegte Kapern passen klassisch zu Königsberger Klopsen.",
-        "sar": "الكبر المخلل يناسب تقليدياً كرات اللحم الألمانية الشهيرة."
-      },
-      {
-        "id": "gewuerze.trueffel",
-        "a": "die",
-        "n": "Trüffel",
-        "ar": "كمأة",
-        "pl": "die Trüffeln",
-        "s": "Echte Trüffeln werden mit speziell ausgebildeten Hunden im Wald gesucht.",
-        "sar": "الكمأة الحقيقية يُبحث عنها في الغابة بكلاب مدربة خصيصاً."
-      },
-      {
-        "id": "gewuerze.ras-el-hanout",
-        "a": "das",
-        "n": "Ras-el-Hanout",
-        "ar": "خلطة رأس الحانوت",
-        "note": "ليس له جمع",
-        "pl": null,
-        "s": "Ras-el-Hanout vereint bis zu dreißig verschiedene feine Gewürze.",
-        "sar": "خلطة رأس الحانوت تجمع حتى ثلاثين نوعاً مختلفاً من التوابل الرفيعة."
-      },
-      {
-        "id": "gewuerze.harissa",
-        "a": "die",
-        "n": "Harissa",
-        "ar": "هريسة",
-        "note": "ليس لها جمع",
-        "pl": null,
-        "s": "Die feurige Paste Harissa bringt scharfe Würze in nordafrikanische Gerichte.",
-        "sar": "الهريسة الحارة تضفي نكهة لاذعة على الأطباق المغاربية."
       }
     ]
   },
@@ -7459,7 +6416,7 @@
         "id": "kueche.tasse",
         "a": "die",
         "n": "Tasse",
-        "ar": "كوب",
+        "ar": "فنجان / كوب",
         "pl": "die Tassen",
         "s": "Morgens trinkt er eine große Tasse heißen Kaffee.",
         "sar": "في الصباح يشرب فنجاناً كبيراً من القهوة الساخنة."
@@ -7746,6 +6703,7 @@
         "a": "die",
         "n": "Wurst",
         "ar": "نقانق",
+        "note": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Würste",
         "s": "Die deutsche Bratwurst ist weltweit eine berühmte Spezialität.",
         "sar": "السجق الألماني المشوي تخصص شهير عالمياً."
@@ -7754,7 +6712,7 @@
         "id": "fleisch.schinken",
         "a": "der",
         "n": "Schinken",
-        "ar": "لحم مقدد",
+        "ar": "هام (لحم خنزير مقدد)",
         "pl": "die Schinken",
         "s": "Schwarzwälder Schinken hat einen kräftigen und rauchigen Geschmack.",
         "sar": "شحم وخنزير الغابة السوداء المقدد له نكهة مدخنة قوية."
@@ -7763,7 +6721,7 @@
         "id": "fleisch.kotelett",
         "a": "das",
         "n": "Kotelett",
-        "ar": "قطعة لحم",
+        "ar": "قطعة لحم بعظم (ضلع)",
         "pl": "die Koteletts",
         "s": "Der Koch brät ein saftiges Kotelett in der Pfanne an.",
         "sar": "الطباخ يشوي قطعة كستلاتة كثيرة العصارة في المقلاة."
@@ -7772,7 +6730,7 @@
         "id": "fleisch.garnele",
         "a": "die",
         "n": "Garnele",
-        "ar": "جمبري",
+        "ar": "روبيان (جمبري)",
         "pl": "die Garnelen",
         "s": "Frische Garnelen schmecken gebraten mit Knoblauch köstlich.",
         "sar": "الجمبري الطازج المقلي مع الثوم طعمه لذيذ جداً."
@@ -7853,16 +6811,6 @@
         "sar": "لحم الديك الرومي خفيف الدهن ومثالي للنظام الغذائي قليل السعرات."
       },
       {
-        "id": "fleisch.kabeljau",
-        "a": "der",
-        "n": "Kabeljau",
-        "ar": "سمك القد",
-        "note": "الجمع Kabeljaue، ويصح أيضًا Kabeljaus",
-        "pl": "die Kabeljaue",
-        "s": "Frischer Kabeljau aus der kalten Nordsee schmeckt gedünstet mit Senfsoße hervorragend.",
-        "sar": "سمك القد الطازج من بحر الشمال البارد مذاقه رائع مطهواً على البخار مع صلصة الخردل."
-      },
-      {
         "id": "fleisch.hering",
         "a": "der",
         "n": "Hering",
@@ -7872,15 +6820,6 @@
         "sar": "على الساحل يؤكل سمك الرنجة الطري تقليدياً مع البطاطس المسلوقة بقشرها والجبن القريش."
       },
       {
-        "id": "fleisch.makrele",
-        "a": "die",
-        "n": "Makrele",
-        "ar": "سمك الماكريل",
-        "pl": "die Makrelen",
-        "s": "Geräucherte Makrele hat ein würziges Aroma und enthält wertvolle ungesättigte Fette.",
-        "sar": "سمك الماكريل المدخن له نكهة زكية غنية ويحتوي على دهون غير مشبعة قيّمة."
-      },
-      {
         "id": "fleisch.forelle",
         "a": "die",
         "n": "Forelle",
@@ -7888,33 +6827,6 @@
         "pl": "die Forellen",
         "s": "Die frische Forelle wird blau gekocht oder knusprig in der Pfanne gebraten.",
         "sar": "سمكة التروتة الطازجة تُسلق بأسلوب \"بلو\" أو تُقلى مقرمشة في المقلاة."
-      },
-      {
-        "id": "fleisch.karpfen",
-        "a": "der",
-        "n": "Karpfen",
-        "ar": "سمك الكارب",
-        "pl": "die Karpfen",
-        "s": "In Franken serviert man gebackenen Karpfen traditionell in den Monaten mit 'r'.",
-        "sar": "في إقليم فرانكونيا يُقدَّم سمك الكارب المقلي تقليدياً في الشهور التي تحتوي على حرف الراء."
-      },
-      {
-        "id": "fleisch.aal",
-        "a": "der",
-        "n": "Aal",
-        "ar": "ثعبان السمك",
-        "pl": "die Aale",
-        "s": "Geräucherter Aal gilt an der Küste wegen seines delikaten Geschmacks als besondere Spezialität.",
-        "sar": "ثعبان السمك المدخن يُعد على الساحل من الأطباق الخاصة جداً بسبب طعمه الشهي."
-      },
-      {
-        "id": "fleisch.hummer",
-        "a": "der",
-        "n": "Hummer",
-        "ar": "كركند",
-        "pl": "die Hummer",
-        "s": "Ein fangfrischer Hummer gilt in der gehobenen Gastronomie als königliche Delikatesse.",
-        "sar": "الكركند الطازج يُعد في المطاعم الراقية من الأطعمة الملكية الفاخرة."
       },
       {
         "id": "fleisch.krabbe",
@@ -7976,6 +6888,7 @@
         "a": "die",
         "n": "Bratwurst",
         "ar": "نقانق مشوية",
+        "note": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Bratwürste",
         "s": "Auf dem Marktplatz holt er sich eine heiße Thüringer Bratwurst im Brötchen.",
         "sar": "في ساحة السوق يشتري نقانق مشوية تورينغية ساخنة داخل رغيف خبز صغير."
@@ -8011,7 +6924,7 @@
         "id": "fleisch.speck",
         "a": "der",
         "n": "Speck",
-        "ar": "لحم مقدد دهني",
+        "ar": "بيكون (لحم خنزير مقدد دهني)",
         "note": "الجمع Specke نادر جدًا؛ تُستخدم الكلمة غالبًا بصيغة المفرد",
         "pl": "die Specke",
         "s": "Kross angebratener Speck verleiht der Linsensuppe eine angenehm rauchige Note.",
@@ -8022,6 +6935,7 @@
         "a": "die",
         "n": "Salami",
         "ar": "سلامي",
+        "note": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Salamis",
         "s": "Hauchdünne Scheiben würziger Salami schmecken auf frischem Vollkornbrot hervorragend.",
         "sar": "شرائح رقيقة جداً من السلامي المتبل طعمها ممتاز فوق خبز الحبوب الكاملة الطازج."
@@ -8031,27 +6945,10 @@
         "a": "die",
         "n": "Leberwurst",
         "ar": "نقانق الكبد",
+        "note": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Leberwürste",
         "s": "Grobe Pfälzer Leberwurst streicht man traditionell dick auf ein kräftiges Bauernbrot.",
         "sar": "نقانق الكبد الريفية تُدهن تقليدياً بطبقة سميكة على خبز القرية القوي."
-      },
-      {
-        "id": "fleisch.blutwurst",
-        "a": "die",
-        "n": "Blutwurst",
-        "ar": "نقانق الدم",
-        "pl": "die Blutwürste",
-        "s": "Im Rheinland serviert man gebratene Blutwurst traditionell als 'Himmel un Ääd'.",
-        "sar": "في منطقة راينلاند تُقدَّم نقانق الدم المقلية كطبق تقليدي شهير."
-      },
-      {
-        "id": "fleisch.fleischkloss",
-        "a": "der",
-        "n": "Fleischkloß",
-        "ar": "كرة لحم",
-        "pl": "die Fleischklöße",
-        "s": "In der Brühe schwimmt ein lockerer Fleischkloß aus feinem Rindergehacktem.",
-        "sar": "في المرق تطفو كرة لحم هشة مصنوعة من لحم البقر المفروم الناعم."
       },
       {
         "id": "fleisch.gulasch",
@@ -8082,40 +6979,11 @@
         "sar": "يقلب الطاهي فيليه السمك الخالي من الشوك قليلاً في الدقيق قبل قليه."
       },
       {
-        "id": "fleisch.sardine",
-        "a": "die",
-        "n": "Sardine",
-        "ar": "سردين",
-        "pl": "die Sardinen",
-        "s": "In der Dose ist die kleine Sardine in feinstem nativem Olivenöl eingelegt.",
-        "sar": "في العلبة المعدنية توضع سمكة السردين الصغيرة منقوعة في زيت زيتون بكر ممتاز."
-      },
-      {
-        "id": "fleisch.zander",
-        "a": "der",
-        "n": "Zander",
-        "ar": "سمك الفرخ",
-        "note": "سمك مياه عذبة شائع جدًا في المطبخ الألماني",
-        "pl": "die Zander",
-        "s": "Auf der Speisekarte empfiehlt der Chefkoch gebratenen Zander auf der Hautseite.",
-        "sar": "على قائمة الطعام يوصي رئيس الطهاة بسمك الفرخ المقلي على جهة الجلد."
-      },
-      {
-        "id": "fleisch.rollmops",
-        "a": "der",
-        "n": "Rollmops",
-        "ar": "رنجة مخللة ملفوفة",
-        "note": "طبق ألماني تقليدي من سمك الرنجة المخلل",
-        "pl": "die Rollmöpse",
-        "s": "Ein sauer eingelegter Rollmops ist ein traditionelles Katerfrühstück nach langen Nächten.",
-        "sar": "سمكة الرنجة المخللة الملفوفة وجبة فطور تقليدية مفضلة بعد السهرات الطويلة."
-      },
-      {
         "id": "fleisch.currywurst",
         "a": "die",
         "n": "Currywurst",
         "ar": "نقانق بصلصة الكاري",
-        "note": "أشهر أكلة شارع في ألمانيا",
+        "note": "أشهر أكلة شارع في ألمانيا — تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Currywürste",
         "s": "Am bekannten Imbissstand bestellt er eine heiße Currywurst mit Pommes frites.",
         "sar": "عند كشك الوجبات السريعة الشهير يطلب نقانق بصلصة الكاري الساخنة مع البطاطس المقلية."
@@ -8138,15 +7006,6 @@
         "pl": "die Fischstäbchen",
         "s": "Kinder essen knusprig panierte Fischstäbchen am liebsten mit cremigem Kartoffelpüree.",
         "sar": "الأطفال يحبون تناول أصابع السمك المقرمشة مع البطاطس المهروسة الناعمة."
-      },
-      {
-        "id": "fleisch.fleischbruehe",
-        "a": "die",
-        "n": "Fleischbrühe",
-        "ar": "مرقة لحم",
-        "pl": "die Fleischbrühen",
-        "s": "Die Großmutter kocht eine kräftige heiße Fleischbrühe zur schnellen Genesung.",
-        "sar": "الجدة تطبخ مرقة لحم ساخنة وقوية للشفاء السريع."
       }
     ]
   },
@@ -8196,7 +7055,7 @@
         "id": "suessigkeiten.bonbon",
         "a": "der",
         "n": "Bonbon",
-        "ar": "حلوى",
+        "ar": "حلوى صلبة (سكاكر)",
         "pl": "die Bonbons",
         "s": "Das Kind lutscht fröhlich an einem süßen Bonbon.",
         "sar": "الطفل يمتص فرحاً حبة حلوى سكرية."
@@ -8214,7 +7073,7 @@
         "id": "suessigkeiten.chips",
         "a": "die",
         "n": "Chips",
-        "ar": "شيبسي",
+        "ar": "رقائق البطاطس (شيبسي)",
         "pl": null,
         "s": "Beim Fernsehabend knabbern wir gerne knusprige Chips.",
         "sar": "أثناء سهرة التلفاز نحب قرمشة رقائق البطاطس."
@@ -8382,7 +7241,7 @@
         "a": "das",
         "n": "Gummibärchen",
         "ar": "حلوى الدببة الصمغية",
-        "note": "من أشهر الحلوى الألمانية على الإطلاق (Haribo)",
+        "note": "من أشهر الحلوى الألمانية على الإطلاق (Haribo) — تنبيه غذائي: قد يحتوي على جيلاتين حيواني",
         "pl": "die Gummibärchen",
         "s": "Kinder teilen sich gern eine große bunte Tüte mit fruchtigen Gummibärchen.",
         "sar": "الأطفال يحبون تقاسم كيس كبير ملون من حلوى الدببة الصمغية بنكهة الفواكه."
@@ -8418,7 +7277,7 @@
       },
       {
         "id": "suessigkeiten.plaetzchen",
-        "a": "die",
+        "a": "das",
         "n": "Plätzchen",
         "ar": "بسكويت صغير",
         "pl": "die Plätzchen",
@@ -8429,38 +7288,10 @@
         "id": "suessigkeiten.marzipan",
         "a": "das",
         "n": "Marzipan",
-        "ar": "المرزبان",
+        "ar": "مرزبان",
         "pl": "die Marzipane",
         "s": "Aus süßem Marzipan formt der Konditor kleine kunstvolle Figuren für die Festtagstorte.",
         "sar": "من حلوى المرزبان الحلوة يشكل صانع الحلويات مجسمات فنية صغيرة لتورتة العيد."
-      },
-      {
-        "id": "suessigkeiten.fruchtgummi",
-        "a": "der",
-        "n": "Fruchtgummi",
-        "ar": "حلوى الفواكه الصمغية",
-        "pl": "die Fruchtgummis",
-        "s": "Der bunte saure Fruchtgummi prickelt herrlich erfrischend auf der Zunge.",
-        "sar": "حلوى الفواكه الصمغية الحامضة والملونة تدغدغ اللسان بانتعاش رائع."
-      },
-      {
-        "id": "suessigkeiten.konfekt",
-        "a": "das",
-        "n": "Konfekt",
-        "ar": "حلويات صغيرة فاخرة",
-        "pl": "die Konfekte",
-        "s": "In der feinen Schachtel liegt handgemachtes Konfekt aus feinster belgischer Schokolade.",
-        "sar": "في العلبة الفاخرة توجد قطع حلويات صغيرة مصنوعة يدوياً من الشوكولاتة البلجيكية."
-      },
-      {
-        "id": "suessigkeiten.krapfen",
-        "a": "der",
-        "n": "Krapfen",
-        "ar": "دونات ألماني",
-        "note": "دونات شائع خصوصًا في موسم الكرنفال",
-        "pl": "die Krapfen",
-        "s": "Zur Faschingszeit isst man traditionell einen süßen Krapfen mit fruchtiger Hagebuttenmarmelade.",
-        "sar": "في موسم الكرنفال يؤكل تقليدياً الدونات الألماني المحشو بمربى الفواكه."
       },
       {
         "id": "suessigkeiten.berliner",
@@ -8502,35 +7333,6 @@
         "sar": "كيكة الكريسماس من دريسدن بالزبيب وسكر البودرة أشهر كعكة ألمانية للأعياد."
       },
       {
-        "id": "suessigkeiten.sachertorte",
-        "a": "die",
-        "n": "Sachertorte",
-        "ar": "تورتة زاخر",
-        "note": "تورتة شوكولاتة نمساوية شهيرة عالميًا",
-        "pl": "die Sachertorten",
-        "s": "In Wien bestellt man im traditionsreichen Kaffeehaus gern ein Stück berühmte Sachertorte.",
-        "sar": "في فيينا يطلب المرء في المقاهي العريقة قطعة من تورتة زاخر الشهيرة بالشوكولاتة."
-      },
-      {
-        "id": "suessigkeiten.streuselkuchen",
-        "a": "der",
-        "n": "Streuselkuchen",
-        "ar": "كيكة الفتافيت",
-        "pl": "die Streuselkuchen",
-        "s": "Omas frisch gebackener Streuselkuchen mit knusprigen Butterstreuseln schmeckt sonntags allen.",
-        "sar": "كيكة الفتافيت الطازجة من صنع الجدة بفتات الزبدة المقرمشة تعجب الجميع يوم الأحد."
-      },
-      {
-        "id": "suessigkeiten.windbeutel",
-        "a": "der",
-        "n": "Windbeutel",
-        "ar": "حلوى كريمة منفوخة",
-        "note": "عجين خفيف محشو بالكريمة",
-        "pl": "die Windbeutel",
-        "s": "Ein großer Windbeutel aus lockerem Brandteig ist reichlich mit süßer Schlagsahne gefüllt.",
-        "sar": "حلوى الشو المنتفخة من عجين البات شو محشوة بوفرة بالقشدة المخفوقة الحلوة."
-      },
-      {
         "id": "suessigkeiten.milchreis",
         "a": "der",
         "n": "Milchreis",
@@ -8539,91 +7341,6 @@
         "pl": null,
         "s": "Warmer süßer Milchreis mit Zimt und Zucker ist ein beliebtes Seelentröster-Essen.",
         "sar": "الأرز باللبن الدافئ مع القرفة والسكر وجبة محبوبة تمنح الراحة والدفء."
-      },
-      {
-        "id": "suessigkeiten.griesspudding",
-        "a": "der",
-        "n": "Grießpudding",
-        "ar": "بودينغ السميد",
-        "note": "نادرًا ما يُجمع؛ الجمع \"Grießpuddings\" يُستخدم للإشارة إلى أنواع مختلفة",
-        "pl": "die Grießpuddings",
-        "s": "Ein Schälchen cremiger Grießpudding schmeckt gekühlt mit frischem Beerenkompott prima.",
-        "sar": "وعاء صغير من بودينغ السميد الكريمي المبرد طعمه رائع مع كمبوت التوت الطازج."
-      },
-      {
-        "id": "suessigkeiten.rote-gruetze",
-        "a": "die",
-        "n": "Rote Grütze",
-        "ar": "حلوى التوت الشمالية الألمانية",
-        "note": "اسم غير معدود عادة كطبق حلوى",
-        "pl": null,
-        "s": "Im Norden Deutschlands serviert man die säuerlich-süße Rote Grütze traditionell mit flüssiger Sahne.",
-        "sar": "في شمال ألمانيا تُقدَّم حلوى التوت الشمالية الحامضة والحلوة تقليدياً مع القشدة السائلة."
-      },
-      {
-        "id": "suessigkeiten.kokosmakrone",
-        "a": "die",
-        "n": "Kokosmakrone",
-        "ar": "كرات جوز الهند",
-        "pl": "die Kokosmakronen",
-        "s": "Saftige weiße Kokosmakronen gehören fest zur traditionellen Weihnachtsbäckerei dazu.",
-        "sar": "كرات جوز الهند البيضاء الطرية تنتمي بشكل أساسي لمخبوزات أعياد الميلاد التقليدية."
-      },
-      {
-        "id": "suessigkeiten.baumkuchen",
-        "a": "der",
-        "n": "Baumkuchen",
-        "ar": "كيكة الشجرة الألمانية",
-        "pl": "die Baumkuchen",
-        "s": "Wegen seiner charakteristischen Ringe nennt man den aufwendigen Schichtenkuchen Baumkuchen.",
-        "sar": "بسبب حلقاته المميزة يُسمى الكيك الطبقي المتقن بكيكة الشجرة."
-      },
-      {
-        "id": "suessigkeiten.kaiserschmarrn",
-        "a": "der",
-        "n": "Kaiserschmarrn",
-        "ar": "كايزرشمارن",
-        "note": "حلوى نمساوية تقليدية من الفطائر المقطعة؛ لا يوجد جمع شائع لهذه الكلمة",
-        "pl": null,
-        "s": "Auf der Berghütte serviert die Wirtin eine heiße Pfanne mit lockerem Kaiserschmarrn.",
-        "sar": "في الكوخ الجبلي تقدم المضيفة مقلاة ساخنة من حلوى الكايزرشمارن الهشة المقطعة."
-      },
-      {
-        "id": "suessigkeiten.zuckerstange",
-        "a": "die",
-        "n": "Zuckerstange",
-        "ar": "عصا حلوى",
-        "pl": "die Zuckerstangen",
-        "s": "Am Weihnachtsbaum hängt eine rot-weiß gestreifte Zuckerstange mit süßem Pfefferminzgeschmack.",
-        "sar": "على شجرة الكريسماس تعلق عصا حلوى مخططة بالأحمر والأبيض بنكهة النعناع المنعش."
-      },
-      {
-        "id": "suessigkeiten.kandiszucker",
-        "a": "der",
-        "n": "Kandiszucker",
-        "ar": "سكر نبات",
-        "note": "اسم غير معدود عادة",
-        "pl": null,
-        "s": "In Ostfriesland gibt man traditionell einen dicken weißen Kandiszucker in die heiße Teetasse.",
-        "sar": "في فريزيا الشرقية يضعون تقليدياً سكر نبات أبيض سميكاً في كوب الشاي الساخن."
-      },
-      {
-        "id": "suessigkeiten.nussecke",
-        "a": "die",
-        "n": "Nussecke",
-        "ar": "حلوى مثلثة بالمكسرات",
-        "pl": "die Nussecken",
-        "s": "Eine knusprige dreieckige Nussecke ist mit Schokolade an den Ecken überzogen.",
-        "sar": "حلوى زوايا المكسرات المثلثة المقرمشة مغطاة بالشوكولاتة عند أطرافها الثلاثة."
-      },
-      {
-        "id": "suessigkeiten.florentiner",
-        "a": "der",
-        "n": "Florentiner",
-        "ar": "حلوى فلورنتينية بالمكسرات",
-        "pl": "die Florentiner",
-        "s": "Der knusprige Florentiner besteht aus gehobelten Mandeln, kandierten Früchten und Schokolade.",
-        "sar": "حلوى الفلورنتين المقرمشة تتكون من شرائح اللوز والفواكه المسكرة وقاعدة من الشوكولاتة."
       }
     ]
   },
@@ -8637,7 +7354,7 @@
         "id": "werkzeuge.hammer",
         "a": "der",
         "n": "Hammer",
-        "ar": "شاكوش",
+        "ar": "مطرقة (شاكوش)",
         "pl": "die Hämmer",
         "s": "Mit dem schweren Hammer schlägt er den Nagel fest ins Holz.",
         "sar": "بالمطرقة الثقيلة يدق المسمار بإحكام في الخشب."
@@ -8646,7 +7363,7 @@
         "id": "werkzeuge.zange",
         "a": "die",
         "n": "Zange",
-        "ar": "زردية",
+        "ar": "زرادية (زردية)",
         "pl": "die Zangen",
         "s": "Mit der Zange zieht der Handwerker den alten Nagel heraus.",
         "sar": "بالكماشة يسحب الحرفي المسمار القديم للخارج."
@@ -8691,8 +7408,8 @@
         "id": "werkzeuge.leiter",
         "a": "die",
         "n": "Leiter",
-        "ar": "سلم",
-        "note": "مؤنثة هنا بمعنى \"سلم\"، وجمعها Leitern؛ أما der Leiter (مذكر بمعنى \"مدير/قائد\") فجمعه بلا تغيير Leiter",
+        "ar": "سلّم متحرك",
+        "note": "مؤنثة هنا بمعنى \"سلم\"، وجمعها Leitern؛ أما der Leiter (مذكر بمعنى \"مدير/قائد\") فجمعه بلا تغيير Leiter — Leiter = سلّم / قائد",
         "pl": "die Leitern",
         "s": "Er klettert vorsichtig auf die hohe Leiter, um die Decke zu streichen.",
         "sar": "هو يتسلق السلم العالي بحذر ليطلي السقف."
@@ -8743,69 +7460,6 @@
         "sar": "بالمثقاب الكهربائي يحفر الحرفي ثقوباً دقيقة في الجدار."
       },
       {
-        "id": "werkzeuge.meissel",
-        "a": "der",
-        "n": "Meißel",
-        "ar": "إزميل",
-        "pl": "die Meißel",
-        "s": "Mit Hammer und spitzem Meißel bricht er die alten Fliesen vom Boden auf.",
-        "sar": "بالمطرقة والإزميل الحاد يكسر البلاط القديم عن الأرضية."
-      },
-      {
-        "id": "werkzeuge.feile",
-        "a": "die",
-        "n": "Feile",
-        "ar": "مبرد",
-        "pl": "die Feilen",
-        "s": "Mit der Feile entgratet der Schlosser das geschnittene Metallstück.",
-        "sar": "بمبرد الحديد ينعم الحداد حواف القطعة المعدنية."
-      },
-      {
-        "id": "werkzeuge.hobel",
-        "a": "der",
-        "n": "Hobel",
-        "ar": "منحت خشب",
-        "pl": "die Hobel",
-        "s": "Mit dem scharfen Hobel trägt er feine Holzspäne gleichmäßig ab.",
-        "sar": "بالمسحاج الحاد يزيل نشارة الخشب الدقيقة بانتظام."
-      },
-      {
-        "id": "werkzeuge.schraubstock",
-        "a": "der",
-        "n": "Schraubstock",
-        "ar": "ملزمة",
-        "pl": "die Schraubstöcke",
-        "s": "Das Metallrohr wird im schweren Schraubstock fest und wackelfrei eingespannt.",
-        "sar": "يتم تثبيت الأنبوب المعدني بإحكام وبدون اهتزاز في الملزمة الثقيلة."
-      },
-      {
-        "id": "werkzeuge.akkuschrauber",
-        "a": "der",
-        "n": "Akkuschrauber",
-        "ar": "مفك كهربائي لاسلكي",
-        "pl": "die Akkuschrauber",
-        "s": "Mit dem handlichen Akkuschrauber dreht er die langen Holzschrauben mühelos ein.",
-        "sar": "بالمفك الكهربائي اللاسلكي المريح يربط براغي الخشب الطويلة بكل سهولة."
-      },
-      {
-        "id": "werkzeuge.winkelschleifer",
-        "a": "der",
-        "n": "Winkelschleifer",
-        "ar": "جلاخة",
-        "pl": "die Winkelschleifer",
-        "s": "Der Winkelschleifer schneidet mühelos durch harte Fliesen.",
-        "sar": "الجلاخة الزاوية تقطع بسهولة عبر البلاط الصلب."
-      },
-      {
-        "id": "werkzeuge.loetkolben",
-        "a": "der",
-        "n": "Lötkolben",
-        "ar": "كاوية لحام",
-        "pl": "die Lötkolben",
-        "s": "Mit dem heißen Lötkolben verbindet er die Drähte auf der Platine.",
-        "sar": "بكاوية اللحام الساخنة يربط الأسلاك على اللوحة الإلكترونية."
-      },
-      {
         "id": "werkzeuge.rohrzange",
         "a": "die",
         "n": "Rohrzange",
@@ -8815,24 +7469,6 @@
         "sar": "السباك يمسك بكماشة الأنابيب الكبيرة لفك ماسورة الصرف."
       },
       {
-        "id": "werkzeuge.inbusschluessel",
-        "a": "der",
-        "n": "Inbusschlüssel",
-        "ar": "مفتاح ألن",
-        "pl": "die Inbusschlüssel",
-        "s": "Die neuen Möbel baut man meist mit einem Inbusschlüssel zusammen.",
-        "sar": "الأثاث الجديد يُركَّب غالباً بمفتاح ألن السداسي."
-      },
-      {
-        "id": "werkzeuge.wasserpumpenzange",
-        "a": "die",
-        "n": "Wasserpumpenzange",
-        "ar": "كماشة مضخة مياه",
-        "pl": "die Wasserpumpenzangen",
-        "s": "Die Wasserpumpenzange lässt sich flexibel auf jede Rohrbreite einstellen.",
-        "sar": "كماشة مضخة المياه يمكن ضبطها بمرونة على أي قطر للأنبوب."
-      },
-      {
         "id": "werkzeuge.werkzeugkasten",
         "a": "der",
         "n": "Werkzeugkasten",
@@ -8840,16 +7476,6 @@
         "pl": "die Werkzeugkästen",
         "s": "Im ordentlichen Werkzeugkasten findet man jedes Werkzeug sofort.",
         "sar": "في صندوق العدة المرتب يجد المرء كل أداة على الفور."
-      },
-      {
-        "id": "werkzeuge.arbeitshandschuhe",
-        "a": "die",
-        "n": "Arbeitshandschuhe",
-        "ar": "قفازات عمل",
-        "note": "الكلمة أصلاً بصيغة الجمع (من Handschuh)",
-        "pl": null,
-        "s": "Robuste Arbeitshandschuhe schützen die Hände vor Verletzungen.",
-        "sar": "قفازات العمل المتينة تحمي اليدين من الإصابات."
       },
       {
         "id": "werkzeuge.schutzbrille",
@@ -8868,34 +7494,6 @@
         "pl": "die Helme",
         "s": "Auf der Baustelle ist das Tragen eines Helms gesetzliche Pflicht.",
         "sar": "في موقع البناء يعتبر ارتداء الخوذة واجباً قانونياً."
-      },
-      {
-        "id": "werkzeuge.kelle",
-        "a": "die",
-        "n": "Kelle",
-        "ar": "مالج البناء",
-        "pl": "die Kellen",
-        "s": "Mit der Kelle trägt der Maurer den feuchten Zement auf die Ziegel auf.",
-        "sar": "بمالج البناء يضع البنّاء الأسمنت الرطب على الطوب."
-      },
-      {
-        "id": "werkzeuge.spachtel",
-        "a": "der",
-        "n": "Spachtel",
-        "ar": "سكينة معجون",
-        "note": "أداة لوضع أو كشط المعجون؛ الأداة الطبية المشابهة تُسمى Spatel",
-        "pl": "die Spachtel",
-        "s": "Mit dem breiten Spachtel füllt er Löcher in der Wand mit Gips.",
-        "sar": "بسكينة المعجون العريضة يملأ الثقوب في الجدار بالجبس."
-      },
-      {
-        "id": "werkzeuge.farbroller",
-        "a": "der",
-        "n": "Farbroller",
-        "ar": "رولة دهان",
-        "pl": "die Farbroller",
-        "s": "Mit dem breiten Farbroller streicht er die Wand im Handumdrehen.",
-        "sar": "برولة الدهان العريضة يطلي الجدار في لمح البصر."
       },
       {
         "id": "werkzeuge.buerste",
@@ -8952,24 +7550,6 @@
         "sar": "يوم السبت يقص الجار العشب بجزازة العشب."
       },
       {
-        "id": "werkzeuge.heckenschere",
-        "a": "die",
-        "n": "Heckenschere",
-        "ar": "مقص تشذيب",
-        "pl": "die Heckenscheren",
-        "s": "Mit der Heckenschere stutzt der Gärtner die grüne Hecke exakt.",
-        "sar": "بمقص التشذيب يقص البستاني السياج الأخضر بدقة."
-      },
-      {
-        "id": "werkzeuge.sense",
-        "a": "die",
-        "n": "Sense",
-        "ar": "منجل",
-        "pl": "die Sensen",
-        "s": "Früher mähte der Bauer das hohe Getreide mit einer langen Sense.",
-        "sar": "قديماً كان الفلاح يحصد الحبوب العالية بمنجل طويل."
-      },
-      {
         "id": "werkzeuge.spaten",
         "a": "der",
         "n": "Spaten",
@@ -8977,15 +7557,6 @@
         "pl": "die Spaten",
         "s": "Mit dem scharfen Spaten gräbt er ein tiefes Pflanzloch für den Baum.",
         "sar": "بمجرفة الحفر الحادة يحفر حفرة غرس عميقة للشجرة."
-      },
-      {
-        "id": "werkzeuge.rechen",
-        "a": "der",
-        "n": "Rechen",
-        "ar": "مجرفة تجميع أوراق",
-        "pl": "die Rechen",
-        "s": "Mit dem Rechen harkt er das welke Laub ordentlich auf einen Haufen.",
-        "sar": "بمجرفة الأوراق يجمع أوراق الشجر الذابلة بترتيب في كومة."
       },
       {
         "id": "werkzeuge.massband",
@@ -9006,16 +7577,6 @@
         "sar": "عند انقطاع الكهرباء يوفر الكشاف اليدوي المضيء النور فوراً."
       },
       {
-        "id": "werkzeuge.schleifpapier",
-        "a": "das",
-        "n": "Schleifpapier",
-        "ar": "ورق صنفرة",
-        "note": "اسم غير معدود غالبًا؛ الجمع يشير لأنواع/درجات خشونة مختلفة",
-        "pl": "die Schleifpapiere",
-        "s": "Mit feinem Schleifpapier schleift er das alte Holz glatt.",
-        "sar": "بورق صنفرة ناعم يصنفر الخشب القديم ليصبح أملس."
-      },
-      {
         "id": "werkzeuge.draht",
         "a": "der",
         "n": "Draht",
@@ -9029,19 +7590,10 @@
         "a": "die",
         "n": "Mutter",
         "ar": "صامولة",
-        "note": "نفس الكلمة تعني أيضًا \"أم\"؛ هنا تعني قطعة معدنية للربط مع البرغي",
+        "note": "نفس الكلمة تعني أيضًا \"أم\"؛ هنا تعني قطعة معدنية للربط مع البرغي — Mutter هنا = صامولة (وفي قسم العائلة = أم)",
         "pl": "die Muttern",
         "s": "Die Mutter wird fest auf das Gewinde der Schraube geschraubt.",
         "sar": "الصامولة تُربط بإحكام على سن لولب البرغي."
-      },
-      {
-        "id": "werkzeuge.unterlegscheibe",
-        "a": "die",
-        "n": "Unterlegscheibe",
-        "ar": "حلقة معدنية (واشر)",
-        "pl": "die Unterlegscheiben",
-        "s": "Die Unterlegscheibe verteilt den Druck der Schraube gleichmäßig.",
-        "sar": "الحلقة المعدنية توزع ضغط البرغي بالتساوي."
       }
     ]
   },
@@ -9065,7 +7617,7 @@
         "id": "sport.schwimmen",
         "a": "das",
         "n": "Schwimmen",
-        "ar": "السباحة",
+        "ar": "سباحة",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Regelmäßiges Schwimmen schont die Gelenke und stärkt die Ausdauer.",
@@ -9075,7 +7627,7 @@
         "id": "sport.tennis",
         "a": "das",
         "n": "Tennis",
-        "ar": "التنس",
+        "ar": "تنس",
         "pl": null,
         "s": "Am Wochenende spielen die beiden Freunde ein Match Tennis.",
         "sar": "في نهاية الأسبوع يلعب الصديقان مباراة تنس."
@@ -9093,7 +7645,7 @@
         "id": "sport.volleyball",
         "a": "der",
         "n": "Volleyball",
-        "ar": "الكرة الطائرة",
+        "ar": "كرة الطائرة",
         "pl": null,
         "s": "Am Strand spielen wir gerne Volleyball über das gespannte Netz.",
         "sar": "على الشاطئ نحب لعب الكرة الطائرة فوق الشبكة المشدودة."
@@ -9102,7 +7654,7 @@
         "id": "sport.boxen",
         "a": "das",
         "n": "Boxen",
-        "ar": "الملاكمة",
+        "ar": "ملاكمة",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Beim Boxen benötigt man eiserne Disziplin und schnelle Reaktionen.",
@@ -9112,7 +7664,7 @@
         "id": "sport.sport",
         "a": "der",
         "n": "Sport",
-        "ar": "الرياضة",
+        "ar": "رياضة",
         "note": "اسم غير معدود، يُستخدم دائمًا في صيغة المفرد",
         "pl": null,
         "s": "Regelmäßiger Sport hält den Körper fit und den Geist gesund.",
@@ -9142,7 +7694,7 @@
         "id": "sport.yoga",
         "a": "das",
         "n": "Yoga",
-        "ar": "اليوغا",
+        "ar": "يوغا",
         "pl": null,
         "s": "Yoga hilft dabei, den Geist zu beruhigen und die Muskeln zu dehnen.",
         "sar": "اليوغا تساعد على تهدئة الذهن وإطالة العضلات."
@@ -9160,7 +7712,7 @@
         "id": "sport.laufen",
         "a": "das",
         "n": "Laufen",
-        "ar": "الجري",
+        "ar": "جري",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Morgendliches Laufen im Park bringt den Kreislauf in Schwung.",
@@ -9170,7 +7722,7 @@
         "id": "sport.klettern",
         "a": "das",
         "n": "Klettern",
-        "ar": "التسلق",
+        "ar": "تسلق",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "In den Alpen gehen im Sommer viele Menschen an steilen Wänden klettern.",
@@ -9189,7 +7741,7 @@
         "id": "sport.golf",
         "a": "das",
         "n": "Golf",
-        "ar": "الجولف",
+        "ar": "جولف",
         "pl": null,
         "s": "Auf dem gepflegten Rasenplatz spielen die Herren eine Runde Golf.",
         "sar": "على الملعب العشبي الأنيق يلعب السادة جولة جولف."
@@ -9198,7 +7750,7 @@
         "id": "sport.skifahren",
         "a": "das",
         "n": "Skifahren",
-        "ar": "التزلج على الجليد",
+        "ar": "تزلج على الجليد",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Im Winterurlaub in Österreich freuen sich alle aufs Skifahren.",
@@ -9208,7 +7760,7 @@
         "id": "sport.snowboarden",
         "a": "das",
         "n": "Snowboarden",
-        "ar": "التزلج بلوح الثلج",
+        "ar": "تزلج بلوح الثلج",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Auf der Piste zeigt er tolle Sprünge mit dem Snowboard.",
@@ -9218,7 +7770,7 @@
         "id": "sport.segeln",
         "a": "das",
         "n": "Segeln",
-        "ar": "الإبحار الشراعي",
+        "ar": "إبحار الشراعي",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Das Segeln auf dem weiten Bodensee macht bei gutem Wind Spaß.",
@@ -9228,7 +7780,7 @@
         "id": "sport.rudern",
         "a": "das",
         "n": "Rudern",
-        "ar": "التجديف",
+        "ar": "تجديف",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Der Achter trainiert das synchrone Rudern auf dem breiten Fluss.",
@@ -9248,37 +7800,17 @@
         "id": "sport.turnen",
         "a": "das",
         "n": "Turnen",
-        "ar": "الجمباز",
+        "ar": "جمباز",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Beim Turnen am Reck demonstriert sie beachtliche Körperbeherrschung.",
         "sar": "أثناء الجمباز على العقلة تُظهر تحكماً جسدياً لافتاً."
       },
       {
-        "id": "sport.fechten",
-        "a": "das",
-        "n": "Fechten",
-        "ar": "المبارزة بالسيف",
-        "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
-        "pl": null,
-        "s": "Beim Fechten duellieren sich zwei Gegner blitzschnell mit dem Degen.",
-        "sar": "في المبارزة يتنافس خصمان بسرعة البرق بسيف المبارزة."
-      },
-      {
-        "id": "sport.ringen",
-        "a": "das",
-        "n": "Ringen",
-        "ar": "المصارعة",
-        "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
-        "pl": null,
-        "s": "Beim Ringen versuchen die Kämpfer, den Gegner auf den Boden zu werfen.",
-        "sar": "في المصارعة يحاول المقاتلون طرح الخصم أرضاً."
-      },
-      {
         "id": "sport.judo",
         "a": "das",
         "n": "Judo",
-        "ar": "الجودو",
+        "ar": "جودو",
         "pl": null,
         "s": "Judo ist eine traditionelle japanische Kampfkunst der Selbstverteidigung.",
         "sar": "الجودو فن قتالي ياباني تقليدي للدفاع عن النفس."
@@ -9287,25 +7819,16 @@
         "id": "sport.karate",
         "a": "das",
         "n": "Karate",
-        "ar": "الكاراتيه",
+        "ar": "كاراتيه",
         "pl": null,
         "s": "Mit schnellen Tritten und Schlägen übt der Schüler Karate.",
         "sar": "بركلات وضربات سريعة يتدرب التلميذ على الكاراتيه."
       },
       {
-        "id": "sport.taekwondo",
-        "a": "das",
-        "n": "Taekwondo",
-        "ar": "التايكوندو",
-        "pl": null,
-        "s": "Taekwondo zeichnet sich durch spektakuläre hohe Fußtritte aus.",
-        "sar": "التايكوندو يتميز بركلات قدم عالية ومثيرة."
-      },
-      {
         "id": "sport.bowling",
         "a": "das",
         "n": "Bowling",
-        "ar": "البولينج",
+        "ar": "بولينج",
         "pl": null,
         "s": "Mit Freunden verbringen wir den Freitagabend gerne beim Bowling.",
         "sar": "مع الأصدقاء نحب قضاء مساء الجمعة في لعب البولينج."
@@ -9314,19 +7837,10 @@
         "id": "sport.billard",
         "a": "das",
         "n": "Billard",
-        "ar": "البلياردو",
+        "ar": "بلياردو",
         "pl": null,
         "s": "Beim Billard stößt er die weiße Kugel präzise mit dem Queue an.",
         "sar": "في البلياردو يضرب الكرة البيضاء بعصا البلياردو بدقة."
-      },
-      {
-        "id": "sport.darts",
-        "a": "das",
-        "n": "Darts",
-        "ar": "رمي السهام",
-        "pl": null,
-        "s": "Beim Darts werfen die Spieler kleine Pfeile zielsicher auf die Scheibe.",
-        "sar": "في رمي السهام يرمي اللاعبون سهاماً صغيرة بدقة نحو اللوحة."
       },
       {
         "id": "sport.eishockey",
@@ -9341,19 +7855,10 @@
         "id": "sport.rugby",
         "a": "das",
         "n": "Rugby",
-        "ar": "الرغبي",
+        "ar": "رغبي",
         "pl": null,
         "s": "Beim Rugby kämpfen die Teams mit vollem Körpereinsatz um den Ball.",
         "sar": "في الرغبي يقاتل الفريقان بكامل طاقتهما الجسدية على الكرة."
-      },
-      {
-        "id": "sport.cricket",
-        "a": "das",
-        "n": "Cricket",
-        "ar": "الكريكيت",
-        "pl": null,
-        "s": "Cricket ist in England und Indien der traditionsreichste Nationalsport.",
-        "sar": "الكريكيت في إنجلترا والهند هو الرياضة الوطنية الأكثر عراقة."
       },
       {
         "id": "sport.bergsteigen",
@@ -9376,19 +7881,10 @@
         "sar": "هو يعشق ركوب الأمواج الهائلة في المحيط الأطلسي."
       },
       {
-        "id": "sport.wasserski",
-        "a": "das",
-        "n": "Wasserski",
-        "ar": "التزلج على الماء",
-        "pl": null,
-        "s": "Vom Motorboot gezogen saust sie auf Wasserski über die Bucht.",
-        "sar": "تسحبها القارب السريع فتندفع على زلاجات الماء فوق الخليج."
-      },
-      {
         "id": "sport.tauchen",
         "a": "das",
         "n": "Tauchen",
-        "ar": "الغوص",
+        "ar": "غوص",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Das Tauchen im bunten Korallenriff offenbart eine faszinierende Welt.",
@@ -9398,40 +7894,20 @@
         "id": "sport.angeln",
         "a": "das",
         "n": "Angeln",
-        "ar": "الصيد بالصنارة",
+        "ar": "صيد بالصنارة",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
         "s": "Das ruhige Angeln am Seeufer bringt ihm vollkommene Entspannung.",
         "sar": "الصيد الهادئ بالصنارة على ضفة البحيرة يمنحه استرخاءً تاماً."
       },
       {
-        "id": "sport.kegeln",
-        "a": "das",
-        "n": "Kegeln",
-        "ar": "البولينج الألماني التقليدي",
-        "note": "لعبة بولينج ألمانية تقليدية بتسع قوارير بدلًا من عشرة",
-        "pl": null,
-        "s": "In alten Gasthöfen wird auf traditionellen Holzbahnen gekegelt.",
-        "sar": "في المطاعم القديمة يمارس الناس البولينج التقليدي على مسارات خشبية."
-      },
-      {
         "id": "sport.marathon",
         "a": "der",
         "n": "Marathon",
-        "ar": "الماراثون",
+        "ar": "ماراثون",
         "pl": "die Marathons",
         "s": "Der berühmte Marathon führt die Läufer über zweiundvierzig Kilometer.",
         "sar": "الماراثون الشهير يقود العدائين لمسافة اثنين وأربعين كيلومتراً."
-      },
-      {
-        "id": "sport.gewichtheben",
-        "a": "das",
-        "n": "Gewichtheben",
-        "ar": "رفع الأثقال",
-        "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
-        "pl": null,
-        "s": "Beim olympischen Gewichtheben stemmt der Athlet schwere Eisenhanteln.",
-        "sar": "في رفع الأثقال الأولمبي يرفع الرياضي أثقالاً حديدية ضخمة."
       },
       {
         "id": "sport.bodybuilding",
@@ -9453,75 +7929,10 @@
         "sar": "تدريب القوة المنتظم يبني العضلات ويحمي العظام."
       },
       {
-        "id": "sport.speerwurf",
-        "a": "der",
-        "n": "Speerwurf",
-        "ar": "رمي الرمح",
-        "pl": "die Speerwürfe",
-        "s": "Beim Speerwurf schleuderte die Athletin den Speer über sechzig Meter weit.",
-        "sar": "في رمي الرمح قذفت الرياضية الرمح لأكثر من ستين متراً."
-      },
-      {
-        "id": "sport.weitsprung",
-        "a": "der",
-        "n": "Weitsprung",
-        "ar": "الوثب الطويل",
-        "pl": "die Weitsprünge",
-        "s": "Beim Weitsprung erreichte der Springer eine neue persönliche Bestweite.",
-        "sar": "في رياضة الوثب الطويل حقق الواثب مسافة قياسية شخصية جديدة."
-      },
-      {
-        "id": "sport.hochsprung",
-        "a": "der",
-        "n": "Hochsprung",
-        "ar": "الوثب العالي",
-        "pl": "die Hochsprünge",
-        "s": "Beim Hochsprung überquerte sie die Latte in zwei Metern Höhe elegant.",
-        "sar": "في الوثب العالي تجاوزت العارضة على ارتفاع مترين بأناقة."
-      },
-      {
-        "id": "sport.staffellauf",
-        "a": "der",
-        "n": "Staffellauf",
-        "ar": "سباق التتابع",
-        "pl": "die Staffelläufe",
-        "s": "Beim Staffellauf muss der Stab fehlerfrei weitergegeben werden.",
-        "sar": "في سباق التتابع يجب تسليم العصا بلا أي خطأ."
-      },
-      {
-        "id": "sport.skateboarden",
-        "a": "das",
-        "n": "Skateboarden",
-        "ar": "التزلج على اللوح",
-        "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
-        "pl": null,
-        "s": "Die Jugendlichen üben das Skateboarden auf den Rampen im Skatepark.",
-        "sar": "الشباب يتدربون على التزلج على اللوح في المنحدرات بحديقة التزلج."
-      },
-      {
-        "id": "sport.inlineskaten",
-        "a": "das",
-        "n": "Inlineskaten",
-        "ar": "التزلج بعجلات inline",
-        "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
-        "pl": null,
-        "s": "Das Inlineskaten auf dem asphaltierten Weg macht bei Sonnenschein Spaß.",
-        "sar": "التزلج بالعجلات على المسار الإسفلتي ممتع تحت أشعة الشمس."
-      },
-      {
-        "id": "sport.triathlon",
-        "a": "der",
-        "n": "Triathlon",
-        "ar": "الترياثلون",
-        "pl": "die Triathlons",
-        "s": "Der Triathlon vereint Schwimmen, Radfahren und Laufen in einem Wettkampf.",
-        "sar": "الترياثلون يجمع بين السباحة وركوب الدراجات والجري في سباق واحد."
-      },
-      {
         "id": "sport.badminton",
         "a": "das",
         "n": "Badminton",
-        "ar": "الريشة الطائرة",
+        "ar": "ريشة الطائرة",
         "pl": null,
         "s": "Mit leichten Schlägern spielen sie Badminton im Garten.",
         "sar": "بمضارب خفيفة يلعبون الريشة الطائرة في الحديقة."
@@ -9644,24 +8055,6 @@
         "sar": "الكلارينيت لها نغمة نفخ خشبية ناعمة ومعبرة."
       },
       {
-        "id": "musik.oboe",
-        "a": "die",
-        "n": "Oboe",
-        "ar": "أوبوا",
-        "pl": "die Oboen",
-        "s": "Die Oboe gibt im Orchester traditionell den Kammerton an.",
-        "sar": "الأوبوا تحدد في الأوركسترا تقليدياً نغمة الدوزان الأساسية."
-      },
-      {
-        "id": "musik.fagott",
-        "a": "das",
-        "n": "Fagott",
-        "ar": "باسون",
-        "pl": "die Fagotte",
-        "s": "Das tiefe Fagott sorgt für das harmonische Fundament bei den Holzbläsern.",
-        "sar": "الباسون العميق يوفر الأساس الهارموني لآلات النفخ الخشبية."
-      },
-      {
         "id": "musik.horn",
         "a": "das",
         "n": "Horn",
@@ -9669,15 +8062,6 @@
         "pl": "die Hörner",
         "s": "Das klangvolle Horn schallt weithin durch den dichten Wald.",
         "sar": "القرن الرنان يتردد صداه بعيداً عبر الغابة الكثيفة."
-      },
-      {
-        "id": "musik.tuba",
-        "a": "die",
-        "n": "Tuba",
-        "ar": "توبا",
-        "pl": "die Tuben",
-        "s": "Die gewaltige Tuba ist das tiefste und größte Blechblasinstrument.",
-        "sar": "التوبا الضخمة هي أضخم وأعمق آلة نفخ نحاسية."
       },
       {
         "id": "musik.posaune",
@@ -9689,15 +8073,6 @@
         "sar": "بسحب ذراع الترومبون يمكن إصدار نغمات متدرجة بسلاسة."
       },
       {
-        "id": "musik.xylophon",
-        "a": "das",
-        "n": "Xylophon",
-        "ar": "إكسيليفون",
-        "pl": "die Xylophone",
-        "s": "Die Holzstäbe des Xylophons klingen hell und fröhlich, wenn man sie anschlägt.",
-        "sar": "ألواح الإكسيليفون الخشبية ترن بنقاء ومرح عند النقر عليها."
-      },
-      {
         "id": "musik.keyboard",
         "a": "das",
         "n": "Keyboard",
@@ -9707,61 +8082,6 @@
         "sar": "على الكيبورد الإلكتروني يختار أصوات سنثسيزر حديثة."
       },
       {
-        "id": "musik.kontrabass",
-        "a": "der",
-        "n": "Kontrabass",
-        "ar": "كونترباص",
-        "pl": "die Kontrabässe",
-        "s": "Der wuchtige Kontrabass bildet das Fundament im klassischen Orchester.",
-        "sar": "الكونترباص الضخم يشكل قاعدة النغم في الأوركسترا الكلاسيكية."
-      },
-      {
-        "id": "musik.bratsche",
-        "a": "die",
-        "n": "Bratsche",
-        "ar": "فيولا",
-        "pl": "die Bratschen",
-        "s": "Die Bratsche klingt eine Quinte tiefer als die Geige.",
-        "sar": "الفيولا تعزف بنغمة أعمق بخمس درجات من الكمان."
-      },
-      {
-        "id": "musik.mundharmonika",
-        "a": "die",
-        "n": "Mundharmonika",
-        "ar": "هارمونيكا فم",
-        "pl": "die Mundharmonikas",
-        "s": "Der Bluesmusiker spielt melancholische Melodien auf der Mundharmonika.",
-        "sar": "عازف البلوز يعزف ألحاناً شجية على الهارمونيكا."
-      },
-      {
-        "id": "musik.tamburin",
-        "a": "das",
-        "n": "Tamburin",
-        "ar": "دف",
-        "pl": "die Tamburine",
-        "s": "Sie schlägt das Tamburin temperamentvoll im Takt zur Musik.",
-        "sar": "هي تضرب الدف بحيوية على إيقاع الموسيقى."
-      },
-      {
-        "id": "musik.ukulele",
-        "a": "die",
-        "n": "Ukulele",
-        "ar": "أوكوليلي",
-        "pl": "die Ukulelen",
-        "s": "Die kleine hawaiianische Ukulele hat vier Saiten und klingt fröhlich.",
-        "sar": "الأوكوليلي الهاوايية الصغيرة لها أربعة أوتار وصوتها مرح."
-      },
-      {
-        "id": "musik.cembalo",
-        "a": "das",
-        "n": "Cembalo",
-        "ar": "هاربسيكورد",
-        "note": "يقبل أيضًا الجمع الإيطالي \"Cembali\"",
-        "pl": "die Cembalos",
-        "s": "Im Barockzeitalter begleitete das feine Cembalo viele Gesangsstücke.",
-        "sar": "في عصر الباروك كان الهاربسيكورد يرافق العديد من المقطوعات الغنائية."
-      },
-      {
         "id": "musik.orgel",
         "a": "die",
         "n": "Orgel",
@@ -9769,88 +8089,6 @@
         "pl": "die Orgeln",
         "s": "Die mächtige Orgel füllt die ganze Kathedrale mit majestätischem Klang.",
         "sar": "الأرغن الضخم يملأ الكاتدرائية بأكملها بصوت مهيب."
-      },
-      {
-        "id": "musik.banjo",
-        "a": "das",
-        "n": "Banjo",
-        "ar": "بانجو",
-        "pl": "die Banjos",
-        "s": "In der Bluegrass-Band zupft der Musiker schnell auf dem Banjo.",
-        "sar": "في فرقة البلوغراس يعزف الموسيقي بسرعة على أوتار البانجو."
-      },
-      {
-        "id": "musik.panfloete",
-        "a": "die",
-        "n": "Panflöte",
-        "ar": "ناي بان (مزمار بان)",
-        "pl": "die Panflöten",
-        "s": "Mit sanftem Atem entlockt er der Panflöte mystische Naturklänge.",
-        "sar": "بنَفَس لطيف يستخرج من ناي بان أنغاماً طبيعية ساحرة."
-      },
-      {
-        "id": "musik.glockenspiel",
-        "a": "das",
-        "n": "Glockenspiel",
-        "ar": "جرس موسيقي",
-        "pl": "die Glockenspiele",
-        "s": "Das zarte Glockenspiel klingt glockenhell wie funkelnde Sterne.",
-        "sar": "الجرس الموسيقي الرقيق يرن نقياً كالنجوم اللامعة."
-      },
-      {
-        "id": "musik.rassel",
-        "a": "die",
-        "n": "Rassel",
-        "ar": "خشخيشة",
-        "pl": "die Rasseln",
-        "s": "Das Baby schüttelt neugierig die bunte Rassel in seiner Hand.",
-        "sar": "الرضيع يهز بفضول الخشخيشة الملونة في يده."
-      },
-      {
-        "id": "musik.gong",
-        "a": "der",
-        "n": "Gong",
-        "ar": "جونج",
-        "pl": "die Gongs",
-        "s": "Ein tiefer Schlag auf den bronzenen Gong beendete die Meditation.",
-        "sar": "ضربة عميقة على الجونج البرونزي أنهت جلسة التأمل."
-      },
-      {
-        "id": "musik.kastagnetten",
-        "a": "die",
-        "n": "Kastagnetten",
-        "ar": "كاستانيت",
-        "note": "الكلمة أصلاً بصيغة الجمع، تُستخدم دائمًا مع أداة الجمع",
-        "pl": null,
-        "s": "Die Flamencotänzerin klappert virtuos mit den Kastagnetten.",
-        "sar": "راقصة الفلامنكو تقرع ببراعة بالكاستيانيت."
-      },
-      {
-        "id": "musik.dudelsack",
-        "a": "der",
-        "n": "Dudelsack",
-        "ar": "مزمار القربة",
-        "pl": "die Dudelsäcke",
-        "s": "In Schottland marschieren die Dudelsackbläser in traditionellen Kilts.",
-        "sar": "في اسكتلندا يسير عازفو مزمار القربة بالأزياء التقليدية."
-      },
-      {
-        "id": "musik.zither",
-        "a": "die",
-        "n": "Zither",
-        "ar": "سيثر",
-        "pl": "die Zithern",
-        "s": "In den bayerischen Bergen zupft der Musikant traditionelle Volksweisen auf der Zither.",
-        "sar": "في جبال بافاريا يعزف الموسيقي ألحاناً شعبية على آلة السيثر."
-      },
-      {
-        "id": "musik.waldhorn",
-        "a": "das",
-        "n": "Waldhorn",
-        "ar": "قرن الغابة",
-        "pl": "die Waldhörner",
-        "s": "Das edle Waldhorn glänzt golden im Scheinwerferlicht der Bühne.",
-        "sar": "قرن الغابة الأنيق يتلألأ بالذهب تحت أضواء المسرح."
       },
       {
         "id": "musik.blockfloete",
@@ -9878,106 +8116,6 @@
         "pl": "die E-Gitarren",
         "s": "Der Rockgitarrist spielt ein explosives Solo auf der E-Gitarre.",
         "sar": "عازف الروك يعزف صولو حماسياً على الجيتار الكهربائي."
-      },
-      {
-        "id": "musik.bassgitarre",
-        "a": "die",
-        "n": "Bassgitarre",
-        "ar": "جيتار باص",
-        "pl": "die Bassgitarren",
-        "s": "Die Bassgitarre sorgt zusammen mit den Drums für den groovigen Rhythmus.",
-        "sar": "جيتار الباص يوفر مع الطبول إيقاعاً متناغماً جذاباً."
-      },
-      {
-        "id": "musik.triangel",
-        "a": "die",
-        "n": "Triangel",
-        "ar": "مثلث موسيقي",
-        "note": "تأتي أحيانًا مذكرة (der Triangel) وأحيانًا مؤنثة حسب Duden؛ هنا بصيغتها المؤنثة الشائعة وجمعها Triangeln",
-        "pl": "die Triangeln",
-        "s": "Im Orchester schlägt der Perkussionist mit einem Metallstab die Triangel an.",
-        "sar": "في الأوركسترا يضرب عازف الإيقاع المثلث الموسيقي بقضيب معدني."
-      },
-      {
-        "id": "musik.vibraphon",
-        "a": "das",
-        "n": "Vibraphon",
-        "ar": "فيبرافون",
-        "pl": "die Vibraphone",
-        "s": "Das Vibraphon erzeugt schwebende jazzige Akkorde mit warmem Nachhall.",
-        "sar": "الفيبرافون يصدر نغمات جاز انسيابية بصدى صوت دافئ."
-      },
-      {
-        "id": "musik.marimba",
-        "a": "die",
-        "n": "Marimba",
-        "ar": "ماريمبا",
-        "pl": "die Marimbas",
-        "s": "Die Holzplatten der großen Marimba klingen erdig und voll.",
-        "sar": "ألواح الماريمبا الخشبية الكبيرة تصدر صوتاً عميقاً وممتلئاً."
-      },
-      {
-        "id": "musik.sitar",
-        "a": "die",
-        "n": "Sitar",
-        "ar": "سيتار",
-        "pl": "die Sitars",
-        "s": "Die indische Sitar verzaubert mit ihren vielen mitschwingenden Resonanzsaiten.",
-        "sar": "السيتار الهندي يسحر بأوتاره الرنانة المتعددة."
-      },
-      {
-        "id": "musik.bandoneon",
-        "a": "das",
-        "n": "Bandoneon",
-        "ar": "بندونيون",
-        "pl": "die Bandoneons",
-        "s": "Der Tangomusiker in Buenos Aires zieht melancholisch das Bandoneon auseinander.",
-        "sar": "عازف التانغو في بوينس آيرس يسحب البندونيون بأنغام شجية."
-      },
-      {
-        "id": "musik.didgeridoo",
-        "a": "das",
-        "n": "Didgeridoo",
-        "ar": "ديجريدو",
-        "pl": "die Didgeridoos",
-        "s": "Die Ureinwohner Australiens erzeugen auf dem Didgeridoo tiefe Brummtöne.",
-        "sar": "سكان أستراليا الأصليون يصدرون على الديدجريدو أصوات هدير عميقة."
-      },
-      {
-        "id": "musik.laute",
-        "a": "die",
-        "n": "Laute",
-        "ar": "عود/لوت",
-        "pl": "die Lauten",
-        "s": "In der Renaissance begleitete man Balladen auf der zarten Laute.",
-        "sar": "في عصر النهضة كانوا يرافقون القصائد الغنائية بآلة اللوت."
-      },
-      {
-        "id": "musik.mandoline",
-        "a": "die",
-        "n": "Mandoline",
-        "ar": "ماندولين",
-        "pl": "die Mandolinen",
-        "s": "In Italien erklingen süße Melodien auf der gezupften Mandoline.",
-        "sar": "في إيطاليا تصدح ألحان عذبة على أوتار الماندولين."
-      },
-      {
-        "id": "musik.cajon",
-        "a": "das",
-        "n": "Cajon",
-        "ar": "صندوق طبل",
-        "pl": "die Cajons",
-        "s": "Der Trommler sitzt auf dem hölzernen Cajon und schlägt den Takt.",
-        "sar": "ضارب الإيقاع يجلس على صندوق الطبل الخشبي ويضبط الإيقاع."
-      },
-      {
-        "id": "musik.steeldrum",
-        "a": "die",
-        "n": "Steeldrum",
-        "ar": "طبلة الفولاذ",
-        "pl": "die Steeldrums",
-        "s": "In der Karibik erklingt die fröhliche Musik der metallenen Steeldrum.",
-        "sar": "في منطقة الكاريبي تصدح الموسيقى المرحة لطبلة الفولاذ."
       }
     ]
   },
@@ -9991,7 +8129,7 @@
         "id": "technik.handy",
         "a": "das",
         "n": "Handy",
-        "ar": "موبايل",
+        "ar": "هاتف محمول (موبايل)",
         "pl": "die Handys",
         "s": "Mit dem modernen Handy kann man von überall aus telefonieren und chatten.",
         "sar": "بالموبايل الحديث يمكن للمرء إجراء المكالمات والمحادثات من أي مكان."
@@ -10172,7 +8310,7 @@
         "id": "technik.prozessor",
         "a": "der",
         "n": "Prozessor",
-        "ar": "المعالج",
+        "ar": "معالج",
         "note": "تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Prozessoren وليس بلا تغيير",
         "pl": "die Prozessoren",
         "s": "Der moderne Prozessor führt Milliarden Rechenschritte pro Sekunde aus.",
@@ -10307,24 +8445,6 @@
         "sar": "الأطفال يلعبون معاً في نهاية الأسبوع على منصة ألعاب الفيديو."
       },
       {
-        "id": "technik.controller",
-        "a": "der",
-        "n": "Controller",
-        "ar": "يد تحكم الألعاب",
-        "pl": "die Controller",
-        "s": "Er steuert die Rennwagen im Spiel präzise mit dem Controller.",
-        "sar": "هو يتحكم بسيارات السباق في اللعبة بدقة بيد التحكم."
-      },
-      {
-        "id": "technik.digitaluhr",
-        "a": "die",
-        "n": "Digitaluhr",
-        "ar": "ساعة رقمية",
-        "pl": "die Digitaluhren",
-        "s": "Die Digitaluhr an der Wand leuchtet nachts mit roten Ziffern.",
-        "sar": "الساعة الرقمية على الجدار تضيء ليلاً بأرقام حمراء."
-      },
-      {
         "id": "technik.wecker",
         "a": "der",
         "n": "Wecker",
@@ -10378,44 +8498,6 @@
         "pl": "die Ventilatoren",
         "s": "An heißen Sommertagen sorgt der Ventilator für eine angenehme Brise.",
         "sar": "في أيام الصيف الحارة توفر المروحة نسيماً عليلاً لطيفاً."
-      },
-      {
-        "id": "technik.antenne",
-        "a": "die",
-        "n": "Antenne",
-        "ar": "هوائي",
-        "pl": "die Antennen",
-        "s": "Auf dem Dach empfängt die Antenne Signale aus der ganzen Region.",
-        "sar": "على السطح يستقبل الهوائي الإشارات من المنطقة بأكملها."
-      },
-      {
-        "id": "technik.transistor",
-        "a": "der",
-        "n": "Transistor",
-        "ar": "ترانزستور",
-        "note": "تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Transistoren وليس بلا تغيير",
-        "pl": "die Transistoren",
-        "s": "Der moderne Mikroprozessor enthält viele Millionen winzige Transistoren.",
-        "sar": "المعالج الحديث يحتوي على ملايين عديدة من الترانزستورات الدقيقة."
-      },
-      {
-        "id": "technik.solarzelle",
-        "a": "die",
-        "n": "Solarzelle",
-        "ar": "خلية شمسية",
-        "pl": "die Solarzellen",
-        "s": "Auf dem Dach erzeugt jede Solarzelle sauberen Strom aus Sonnenlicht.",
-        "sar": "على السطح تولد كل خلية شمسية كهرباء نظيفة من ضوء الشمس."
-      },
-      {
-        "id": "technik.generator",
-        "a": "der",
-        "n": "Generator",
-        "ar": "مولد كهرباء",
-        "note": "تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Generatoren وليس بلا تغيير",
-        "pl": "die Generatoren",
-        "s": "Bei Stromausfall springt sofort der Notstrom-Generator an.",
-        "sar": "عند انقطاع التيار الكهربائي يعمل فوراً مولد الكهرباء الاحتياطي."
       },
       {
         "id": "technik.drohne",
