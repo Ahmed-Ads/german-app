@@ -63,10 +63,13 @@
       --card: #1E1C18;
       --line: rgba(255,255,255,0.14);
     }
-    .cat-card, .qcard, .done-card, .opt, .wl-row, .stat-card, .backup-box, .goal-selector-box, .voice-box, .sync-box {
+    .cat-card, .qcard, .done-card, .opt, .wl-row, .stat-card, .backup-box, .goal-selector-box, .voice-box, .sync-box, .umlaut-btn {
       background: var(--card) !important;
       color: var(--ink) !important;
       border-color: var(--line) !important;
+    }
+    .umlaut-hint {
+      color: #b0aaa0 !important;
     }
     .opt:hover:not(.disabled) {
       background: rgba(255,255,255,0.08) !important;
@@ -242,6 +245,33 @@
     padding:0 22px; cursor:pointer;
   }
   .submit-btn:disabled{ opacity:.4; cursor:default; }
+
+  /* ---------- Umlaut Buttons Bar ---------- */
+  .umlaut-bar{
+    margin-top:10px; width:100%; max-width:100%;
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    box-sizing:border-box;
+  }
+  .umlaut-btn-row{
+    display:flex; flex-wrap:wrap; gap:6px; justify-content:center;
+    width:100%; max-width:100%; box-sizing:border-box;
+  }
+  .umlaut-btn{
+    font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600;
+    min-width:40px; min-height:40px; padding:0 8px;
+    background:var(--card); color:var(--ink);
+    border:1.5px solid var(--line); border-radius:8px;
+    cursor:pointer; display:inline-flex; align-items:center; justify-content:center;
+    touch-action:manipulation; user-select:none; -webkit-user-select:none;
+    transition:background .15s, border-color .15s;
+    box-sizing:border-box;
+  }
+  .umlaut-btn:hover:not(:disabled){ border-color:var(--blue); }
+  .umlaut-btn:active:not(:disabled){ background:rgba(30,79,163,.1); }
+  .umlaut-btn:disabled{ opacity:.4; cursor:default; }
+  .umlaut-hint{
+    font-size:12.5px; color:#42403b; text-align:center; line-height:1.4;
+  }
 
   .feedback{ margin-top:16px; text-align:center; font-size:14.5px; min-height:20px; font-weight:700; }
   .feedback.ok{ color:var(--green); }
@@ -4088,6 +4118,7 @@ function renderHome(){
   const sInput = document.getElementById('vocabSearchInput');
   const sClear = document.getElementById('clearSearchBtn');
   const sPanel = document.getElementById('searchResults');
+  renderUmlautBar(sInput);
 
   function doSearch(){
     const query = sInput.value.trim();
@@ -4750,6 +4781,102 @@ function pickQuestionIndex(catId, mode, lastIdx){
   let pool = active;
   if(pool.length > 1 && lastIdx !== undefined && lastIdx !== null) pool = pool.filter(i => i !== lastIdx);
   return { idx: pool[Math.floor(Math.random()*pool.length)], review:false };
+}
+
+function renderUmlautBar(inputEl, mountTarget){
+  if(!inputEl) return null;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'umlaut-bar';
+
+  const row = document.createElement('div');
+  row.className = 'umlaut-btn-row';
+  row.setAttribute('dir', 'ltr');
+  row.setAttribute('lang', 'de');
+
+  const chars = ['ä', 'ö', 'ü', 'ß', 'Ä', 'Ö', 'Ü'];
+  let lastTouchTime = 0;
+
+  function doInsert(ch){
+    if(!inputEl || inputEl.disabled || inputEl.readOnly) return;
+    const val = inputEl.value || '';
+    const start = (typeof inputEl.selectionStart === 'number') ? inputEl.selectionStart : val.length;
+    const end = (typeof inputEl.selectionEnd === 'number') ? inputEl.selectionEnd : val.length;
+    const s = Math.min(start, end);
+    const e = Math.max(start, end);
+
+    inputEl.value = val.slice(0, s) + ch + val.slice(e);
+    const newPos = s + ch.length;
+    if(typeof inputEl.setSelectionRange === 'function'){
+      inputEl.setSelectionRange(newPos, newPos);
+    } else {
+      inputEl.selectionStart = newPos;
+      inputEl.selectionEnd = newPos;
+    }
+
+    try {
+      inputEl.dispatchEvent(new Event('input', { bubbles: true }));
+    } catch(err){
+      if(typeof document !== 'undefined' && document.createEvent){
+        const evt = document.createEvent('Event');
+        evt.initEvent('input', true, true);
+        inputEl.dispatchEvent(evt);
+      }
+    }
+
+    if(typeof inputEl.focus === 'function'){
+      inputEl.focus();
+    }
+  }
+
+  chars.forEach(ch => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'umlaut-btn de';
+    btn.setAttribute('dir', 'ltr');
+    btn.setAttribute('lang', 'de');
+    btn.setAttribute('aria-label', `إدراج الحرف ${ch}`);
+    btn.textContent = ch;
+
+    // Prevent blur on mouse click
+    btn.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+    });
+
+    // Touch support: prevent blur & activate immediately
+    btn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      lastTouchTime = Date.now();
+      doInsert(ch);
+    });
+
+    // Click activation (mouse click or keyboard Tab+Enter/Space)
+    btn.addEventListener('click', (e) => {
+      if(Date.now() - lastTouchTime < 500) return;
+      doInsert(ch);
+    });
+
+    row.appendChild(btn);
+  });
+
+  const hint = document.createElement('div');
+  hint.className = 'umlaut-hint';
+  hint.textContent = 'اكتب ae أو oe أو ue أو ss، أو استعمل الأزرار';
+
+  wrap.appendChild(row);
+  wrap.appendChild(hint);
+
+  if(mountTarget && typeof mountTarget.appendChild === 'function'){
+    mountTarget.appendChild(wrap);
+  } else if(inputEl.closest && inputEl.closest('.write-row')){
+    inputEl.closest('.write-row').insertAdjacentElement('afterend', wrap);
+  } else if(inputEl.closest && inputEl.closest('.search-input-box')){
+    inputEl.closest('.search-input-box').insertAdjacentElement('afterend', wrap);
+  } else if(inputEl.parentNode && typeof inputEl.parentNode.insertBefore === 'function'){
+    inputEl.parentNode.insertBefore(wrap, inputEl.nextSibling);
+  }
+
+  return wrap;
 }
 
 function normalizeDe(s){
@@ -5623,6 +5750,7 @@ function renderQuestion(cat, mode, idx, w){
     `;
     const input = document.getElementById('wIn');
     if(input) input.focus();
+    renderUmlautBar(input);
     const correctText = `${w.a?w.a+' ':''}${w.n}`;
     function submit(){
       if(exState.answered) return;
@@ -5641,6 +5769,7 @@ function renderQuestion(cat, mode, idx, w){
       fb.innerHTML = fbHtml;
       input.disabled = true;
       document.getElementById('wSub').disabled = true;
+      zone.querySelectorAll('.umlaut-btn').forEach(b => { b.disabled = true; });
       const nb = document.getElementById('nextBtn');
       if(nb) nb.classList.add('show');
     }
