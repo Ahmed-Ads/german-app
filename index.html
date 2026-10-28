@@ -477,12 +477,21 @@
 
   /* ---------- Starred Vocabulary ---------- */
   .star-btn{
-    background:transparent; border:none; cursor:pointer; font-size:18px;
-    padding:4px 6px; line-height:1; color:#c5c3ba; transition:transform .12s, color .12s;
-    vertical-align:middle;
+    background:transparent; border:none; cursor:pointer; padding:4px 6px; line-height:1;
+    transition:transform .12s; vertical-align:middle; display:inline-flex; align-items:center;
   }
-  .star-btn:hover{ transform:scale(1.2); color:#EBB111; }
-  .star-btn.starred{ color:#EBB111; text-shadow:0 0 4px rgba(235,177,17,0.4); }
+  .star-btn:hover{ transform:scale(1.2); }
+  .star-btn svg{ width:20px; height:20px; overflow:visible; }
+  .star-btn .st-outline{ display:block; stroke:#706d67; fill:none; }
+  .star-btn .st-solid{ display:none; fill:#b47800; }
+  .star-btn.starred .st-outline{ display:none; }
+  .star-btn.starred .st-solid{ display:block; }
+  .star-btn:hover .st-outline{ stroke:#b47800; }
+  @media (prefers-color-scheme: dark){
+    .star-btn .st-outline{ stroke:#9e9b94; }
+    .star-btn .st-solid{ fill:#EBB111; }
+    .star-btn:hover .st-outline{ stroke:#EBB111; }
+  }
 
   .cat-card.card-srs-review, #starredBankCard, #globalReviewCard, #difficultBankCard{
     flex-wrap:wrap; min-width:0;
@@ -644,6 +653,35 @@
     opacity:0; transition:opacity .25s ease; pointer-events:none;
   }
   .app-toast.show{ opacity:1; }
+
+  /* ---------- Action Toast (skip undo) ---------- */
+  .app-action-toast{
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+    background:var(--ink); color:var(--paper); padding:10px 16px; border-radius:12px;
+    font-size:14px; font-weight:600; z-index:9999; box-shadow:0 6px 20px rgba(0,0,0,0.25);
+    opacity:0; transition:opacity .25s ease; pointer-events:none;
+    display:flex; align-items:center; gap:10px; white-space:nowrap; max-width:calc(100vw - 32px);
+  }
+  .app-action-toast.show{ opacity:1; pointer-events:auto; }
+  .app-action-toast__btn{
+    background:var(--yellow); color:var(--ink); border:none; border-radius:6px;
+    padding:4px 10px; font-size:13px; font-weight:700; cursor:pointer; flex-shrink:0;
+  }
+  .app-action-toast__btn:hover{ opacity:0.85; }
+
+  /* ---------- Skip Button (category written exercise) ---------- */
+  .skip-word-btn{
+    display:block; width:100%; margin-top:8px;
+    background:transparent; border:1.5px solid var(--line);
+    color:#6b6966; font-size:13px; font-weight:600;
+    padding:9px 12px; border-radius:8px; cursor:pointer;
+    text-align:center; min-height:40px; transition:background .12s, border-color .12s;
+  }
+  .skip-word-btn:hover{ background:rgba(23,21,18,0.06); border-color:#9e9b94; }
+  @media (prefers-color-scheme: dark){
+    .skip-word-btn{ color:#a8a5a0; }
+    .skip-word-btn:hover{ background:rgba(255,255,255,0.08); border-color:#6e6b64; }
+  }
 
   @media (max-width: 400px) {
     body { padding: 20px 12px 48px; }
@@ -1868,6 +1906,14 @@ const THRESH = { mcq:10, written:10, article:8, plural:8, listen:8 };
 if(typeof window !== 'undefined'){ window.THRESH = THRESH; }
 const UNLOCK_STEP = 5;
 
+// Returns the inner SVG HTML for a star button (both paths always present; CSS shows/hides)
+function starGlyph(){
+  return `<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">`+
+    `<path class="st-outline" d="M12 2l2.9 6.26L22 9.27l-5 5.14 1.18 7.09L12 18.18l-6.18 3.32L7 14.41 2 9.27l7.1-1.01L12 2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>`+
+    `<path class="st-solid" d="M12 2l2.9 6.26L22 9.27l-5 5.14 1.18 7.09L12 18.18l-6.18 3.32L7 14.41 2 9.27l7.1-1.01L12 2z" fill="#EBB111"/>`+
+    `</svg>`;
+}
+
 // "core" = the most essential/common words a learner should master first;
 // the rest are "extra" bonus vocabulary. Categories can set an explicit
 // `core` count; otherwise the first 20 words (already ordered by importance)
@@ -2212,6 +2258,18 @@ function recordActivity(ok){
   }
   saveStatsSoon();
   if(typeof window !== 'undefined' && window.syncManager) window.syncManager.notifyChange();
+}
+
+// Refreshes the 🎯 goal number and streak badge in the existing header DOM
+// without re-rendering the whole header. Called after every answer so the
+// count updates immediately instead of only on the next screen render.
+function refreshGoalDisplay(){
+  if(typeof document === 'undefined') return;
+  const goalEl = document.querySelector('#headGoalBtn .goal-num');
+  if(goalEl) goalEl.textContent = getTodayCount() + '/' + getDailyGoal();
+  // Also refresh streak in case this is the first answer of a new day
+  const streakEl = document.querySelector('#headStreakBtn .streak-num');
+  if(streakEl) streakEl.textContent = String(displayStreak());
 }
 
 // A word counts as fully "mastered" only once every mode it can be tested
@@ -2994,6 +3052,59 @@ function showToast(msg){
   t._timer = setTimeout(()=> t.classList.remove('show'), 2500);
 }
 
+// Minimal action toast: shows a message with a labelled action button for ~6 s.
+// actionLabel: Arabic button text; onAction: callback when button is clicked.
+// Returns a cancel function to dismiss early.
+function showToastWithAction(msg, actionLabel, onAction){
+  if(typeof document === 'undefined') return ()=>{};
+  let el = document.getElementById('appActionToast');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'appActionToast';
+    el.className = 'app-action-toast';
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+    document.body.appendChild(el);
+  }
+  clearTimeout(el._timer);
+  el.innerHTML = '';
+  const msgSpan = document.createElement('span');
+  msgSpan.textContent = msg;
+  el.appendChild(msgSpan);
+  const btn = document.createElement('button');
+  btn.className = 'app-action-toast__btn';
+  btn.textContent = actionLabel;
+  btn.type = 'button';
+  el.appendChild(btn);
+  el.classList.add('show');
+  function dismiss(){
+    clearTimeout(el._timer);
+    el.classList.remove('show');
+    btn.onclick = null;
+    if(typeof el.remove === 'function') el.remove();
+    else if(el.parentNode) el.parentNode.removeChild(el);
+  }
+  el._dismiss = dismiss;
+  btn.onclick = ()=>{ dismiss(); onAction(); };
+  // Allow keyboard access
+  btn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); btn.onclick(); } });
+  el._timer = setTimeout(dismiss, 6000);
+  return dismiss;
+}
+
+// Dismiss any active action toast immediately (e.g. on screen/view transition)
+function dismissActionToast(){
+  if(typeof document === 'undefined') return;
+  const el = document.getElementById('appActionToast');
+  if(!el) return;
+  clearTimeout(el._timer);
+  el.classList.remove('show');
+  const btn = el.querySelector('.app-action-toast__btn');
+  if(btn) btn.onclick = null;
+  if(typeof el.remove === 'function') el.remove();
+  else if(el.parentNode) el.parentNode.removeChild(el);
+}
+
 function showUpdateBar() {
   if (typeof document === 'undefined') return;
   if (document.getElementById('swUpdateBar')) return;
@@ -3107,8 +3218,11 @@ function toggleStar(catId, target){
 function toggleStarFeedback(catId, idx, btn){
   const active = toggleStar(catId, idx);
   if(btn){
-    if(active) btn.classList.add('starred');
-    else btn.classList.remove('starred');
+    if(active){ btn.classList.add('starred'); }
+    else { btn.classList.remove('starred'); }
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    btn.setAttribute('title', active ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة');
+    btn.setAttribute('aria-label', active ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة');
   }
 }
 function starredPool(){
@@ -3664,7 +3778,7 @@ function buildFeedbackHtml(w, cat, ok, correctText, isPluralMode, context){
     const wIdx = cat.words.indexOf(w);
     if(wIdx !== -1){
       const active = isStarred(cat.id, wIdx);
-      starHtml = `<button class="star-btn ${active ? 'starred' : ''}" data-action="toggle-star-feedback" data-cat="${escapeAttr(cat.id)}" data-idx="${wIdx}" title="حفظ الكلمة في المفضلة">⭐</button>`;
+      starHtml = `<button class="star-btn ${active ? 'starred' : ''}" data-action="toggle-star-feedback" data-cat="${escapeAttr(cat.id)}" data-idx="${wIdx}" title="${active ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة'}" aria-pressed="${active ? 'true' : 'false'}" aria-label="${active ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة'}">${starGlyph()}</button>`;
     }
   }
 
@@ -3866,6 +3980,7 @@ function refreshAfterSync(status, event){
 
 function go(v, opts){
   opts = opts || {};
+  if (typeof dismissActionToast === 'function') dismissActionToast();
   const currentScreen = view && view.screen;
   const nextView = Object.assign({}, view, v);
   const nextScreen = nextView && nextView.screen;
@@ -3933,6 +4048,7 @@ if (typeof window !== 'undefined') {
   window.isSameView = isSameView;
   window.refreshAfterSync = refreshAfterSync;
   window.isExerciseInProgress = isExerciseInProgress;
+  window.dismissActionToast = dismissActionToast;
 }
 
 function attachHeaderListeners(){
@@ -3947,6 +4063,7 @@ function attachHeaderListeners(){
 }
 
 function render(){
+  if (typeof dismissActionToast === 'function') dismissActionToast();
   if(view.screen==='home') renderHome();
   else if(view.screen==='stats') renderStats();
   else if(view.screen==='modes') renderModes();
@@ -4720,7 +4837,7 @@ function renderWordList(){
           <div class="wl-sentence-ar">${escapeHtml(w.sar || '')}</div>
         </div>` : ''}
       </div>
-      <button class="star-btn ${starred ? 'starred' : ''}" data-action="toggle-star-wordlist" data-cat="${escapeAttr(cat.id)}" data-idx="${i}" title="حفظ الكلمة في المفضلة">⭐</button>
+      <button class="star-btn ${starred ? 'starred' : ''}" data-action="toggle-star-wordlist" data-cat="${escapeAttr(cat.id)}" data-idx="${i}" title="${starred ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة'}" aria-pressed="${starred ? 'true' : 'false'}" aria-label="${starred ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة'}">${starGlyph()}</button>
       <span class="wl-num">${i+1}</span>
     </div>`;
   }).join('');
@@ -5034,6 +5151,7 @@ function renderQuiz(cat){
       if(ok){ exState.correct++; }
       else { exState.wrongCount++; reinforceWord(cat.id, idx); }
       recordActivity(ok);
+      refreshGoalDisplay();
       speak(correctText);
       const fb = document.getElementById('fb');
       fb.innerHTML = buildFeedbackHtml(w, cat, ok, correctText, false, 'quiz');
@@ -5325,6 +5443,7 @@ function renderReviewScreen(opts){
         });
         if(ok){ exState.correct++; } else { exState.wrongCount++; reinforceWord(cat.id, idx); }
         recordActivity(ok);
+        refreshGoalDisplay();
         speak(correctText);
         const fb = document.getElementById('fb');
         fb.innerHTML = (ok ? `إجابة صحيحة! ${escapeHtml(correctText)}` : `إجابة غير صحيحة، الصحيحة هي: ${escapeHtml(correctText)}`) + noteLine(w) + sentenceLine(w);
@@ -5440,7 +5559,7 @@ function renderFlashcards(){
           ${w.pl ? `<div style="font-size:14px;color:var(--gender-pl);font-weight:700;margin-bottom:10px;">الجمع: ${escapeHtml(w.pl)}</div>` : ''}
           <div style="display:flex;gap:10px;align-items:center;">
             ${miniSpeak(fullDe)}
-            <button class="star-btn ${isSt ? 'starred' : ''}" data-action="toggle-star-flashcard" data-cat="${escapeAttr(cat.id)}" data-idx="${item.idx}" title="المفضلة">⭐</button>
+            <button class="star-btn ${isSt ? 'starred' : ''}" data-action="toggle-star-flashcard" data-cat="${escapeAttr(cat.id)}" data-idx="${item.idx}" title="${isSt ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة'}" aria-pressed="${isSt ? 'true' : 'false'}" aria-label="${isSt ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة'}">${starGlyph()}</button>
           </div>
           <div class="fc-hint">اضغط على البطاقة أو [Space] للقلب واكتشاف المعنى</div>
         </div>
@@ -5469,6 +5588,7 @@ function renderFlashcards(){
   document.getElementById('fcKnowBtn').addEventListener('click', ()=>{
     exState.known++;
     recordActivity(true, item.catId, item.idx);
+    refreshGoalDisplay();
     updateSrs(item.catId, item.idx, true);
     exState.pos++;
     renderFlashcards();
@@ -5477,6 +5597,7 @@ function renderFlashcards(){
   document.getElementById('fcRepeatBtn').addEventListener('click', ()=>{
     exState.repeated++;
     recordActivity(false, item.catId, item.idx);
+    refreshGoalDisplay();
     updateSrs(item.catId, item.idx, false);
     exState.pos++;
     renderFlashcards();
@@ -5512,7 +5633,7 @@ function renderStarredList(){
           <div class="wl-sentence-ar">${escapeHtml(w.sar || '')}</div>
         </div>` : ''}
       </div>
-      <button class="star-btn starred" data-action="toggle-star-remove" data-cat="${escapeAttr(item.catId)}" data-idx="${item.idx}" title="إزالة من المميزة">⭐</button>
+      <button class="star-btn starred" data-action="toggle-star-remove" data-cat="${escapeAttr(item.catId)}" data-idx="${item.idx}" title="إزالة من المفضلة" aria-pressed="true" aria-label="إزالة من المفضلة">${starGlyph()}</button>
     </div>`;
   }).join('');
 
@@ -5735,6 +5856,8 @@ function renderQuestion(cat, mode, idx, w){
 
   // ---------- WRITTEN MODE ----------
   if(mode === 'written'){
+    // Skip button is only visible in the category written exercise (not global/diff/SRS/starred review)
+    const isCatWritten = !exState.kind;
     zone.innerHTML = `
       <div class="qcard">
         <div class="qlabel">اكتب الكلمة بالألمانية</div>
@@ -5745,6 +5868,7 @@ function renderQuestion(cat, mode, idx, w){
         <input type="text" id="wIn" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="de" dir="ltr" inputmode="text" placeholder="..." />
         <button class="submit-btn" id="wSub">تحقق <span class="kbd-key">↵</span></button>
       </div>
+      ${isCatWritten ? `<button class="skip-word-btn" id="skipWordBtn" type="button" aria-label="أعرف هذه الكلمة، تخطَّ">أعرف هذه الكلمة، تخطَّ</button>` : ''}
       <div class="feedback" id="fb" aria-live="polite"></div>
       <div class="next-row"><button class="next-btn" id="nextBtn">التالي ← <span class="kbd-key">↵</span></button></div>
     `;
@@ -5770,11 +5894,45 @@ function renderQuestion(cat, mode, idx, w){
       input.disabled = true;
       document.getElementById('wSub').disabled = true;
       zone.querySelectorAll('.umlaut-btn').forEach(b => { b.disabled = true; });
+      const skipBtn = document.getElementById('skipWordBtn');
+      if(skipBtn) skipBtn.style.display = 'none';
       const nb = document.getElementById('nextBtn');
       if(nb) nb.classList.add('show');
     }
     document.getElementById('wSub').addEventListener('click', submit);
     input.addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
+
+    // Skip button handler — only wired when the element is present (isCatWritten)
+    const skipWordBtn = document.getElementById('skipWordBtn');
+    if(skipWordBtn){
+      skipWordBtn.addEventListener('click', ()=>{
+        if(exState.answered) return;
+        const th = threshFor(mode);
+        const prevCount = getWordCount(cat.id, mode, idx);
+        // Set this word's written counter to mastery threshold via setWordCount
+        setWordCount(cat.id, mode, idx, th);
+        maybeUnlockMore(cat.id, mode);
+        // Move to next question
+        renderExercise();
+        // Show undo toast (6 s) — does NOT call recordActivity
+        showToastWithAction('تم تخطّي الكلمة', 'تراجع', ()=>{
+          // Undo: restore saved counter (always safe regardless of current screen)
+          // Note: undo restores the counter but does not re-lock words that the skip unlocked (harmless).
+          setWordCount(cat.id, mode, idx, prevCount);
+          // Only re-render if learner is still on the exact same category written exercise.
+          // Note: renderExercise passes exState.idx as lastIdx to pickQuestionIndex,
+          // so after undo a DIFFERENT active word may appear; that is acceptable.
+          const stillSameExercise = view && view.screen === 'exercise' && view.catId === cat.id && view.mode === 'written' && (!exState || !exState.kind);
+          if(stillSameExercise){
+            maybeUnlockMore(cat.id, mode);
+            exState = { catId: cat.id, mode, idx, answered: false };
+            renderExercise();
+          } else {
+            showToast('تم استعادة التقدم');
+          }
+        });
+      });
+    }
   }
 
   // ---------- ARTICLE MODE ----------
@@ -5865,6 +6023,7 @@ function applyResult(catId, mode, idx, ok){
   if(exState && (exState.kind === 'globalStep' || exState.kind === 'diffStep' || exState.kind === 'srsStep' || exState.kind === 'starStep')) exState.lastOk = ok;
   updateSrs(catId, idx, ok);
   recordActivity(ok);
+  refreshGoalDisplay();
   const th = threshFor(mode);
   const cur = getWordCount(catId, mode, idx);
   if(ok){
@@ -6005,8 +6164,11 @@ document.addEventListener('click', (e) => {
     e.stopPropagation();
     const catId = starWlBtn.getAttribute('data-cat');
     const idx = parseInt(starWlBtn.getAttribute('data-idx'), 10);
-    toggleStar(catId, idx);
-    starWlBtn.classList.toggle('starred');
+    const wlActive = toggleStar(catId, idx);
+    starWlBtn.classList.toggle('starred', wlActive);
+    starWlBtn.setAttribute('aria-pressed', wlActive ? 'true' : 'false');
+    starWlBtn.setAttribute('title', wlActive ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة');
+    starWlBtn.setAttribute('aria-label', wlActive ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة');
     return;
   }
 
@@ -6016,8 +6178,11 @@ document.addEventListener('click', (e) => {
     e.stopPropagation();
     const catId = starFcBtn.getAttribute('data-cat');
     const idx = parseInt(starFcBtn.getAttribute('data-idx'), 10);
-    toggleStar(catId, idx);
-    starFcBtn.classList.toggle('starred');
+    const fcActive = toggleStar(catId, idx);
+    starFcBtn.classList.toggle('starred', fcActive);
+    starFcBtn.setAttribute('aria-pressed', fcActive ? 'true' : 'false');
+    starFcBtn.setAttribute('title', fcActive ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة');
+    starFcBtn.setAttribute('aria-label', fcActive ? 'إزالة من المفضلة' : 'حفظ الكلمة في المفضلة');
     return;
   }
 
