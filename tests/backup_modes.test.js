@@ -12,16 +12,16 @@ const indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
 
 describe('Backup Modes & Static AST Verification', () => {
   describe('Static scan of index.html for progress modes', () => {
-    it('declares PROGRESS_MODES with all 5 active modes', () => {
+    it('declares PROGRESS_MODES with all 6 active modes including conj', () => {
       const match = indexHtml.match(/const\s+PROGRESS_MODES\s*=\s*\[([^\]]+)\]/);
       expect(match, 'PROGRESS_MODES must be declared in index.html').toBeTruthy();
       const declaredModes = match[1]
         .split(',')
         .map(s => s.trim().replace(/['"]/g, ''));
-      expect(declaredModes).toEqual(['mcq', 'written', 'article', 'plural', 'listen']);
+      expect(declaredModes).toEqual(['mcq', 'written', 'article', 'plural', 'listen', 'conj']);
     });
 
-    it('explicitly defines THRESH for all 5 modes including listen', () => {
+    it('explicitly defines THRESH for all 6 modes including listen and conj', () => {
       const match = indexHtml.match(/const\s+THRESH\s*=\s*\{([^}]+)\}/);
       expect(match, 'THRESH must be declared in index.html').toBeTruthy();
       const entries = match[1].split(',').map(s => s.trim());
@@ -35,6 +35,7 @@ describe('Backup Modes & Static AST Verification', () => {
       expect(threshMap).toHaveProperty('article', 8);
       expect(threshMap).toHaveProperty('plural', 8);
       expect(threshMap).toHaveProperty('listen', 8);
+      expect(threshMap).toHaveProperty('conj', 5);
     });
 
     it('ensures every applyResult call site uses a mode present in PROGRESS_MODES', () => {
@@ -53,7 +54,7 @@ describe('Backup Modes & Static AST Verification', () => {
       for (const mode of modesFound) {
         expect(PROGRESS_MODES).toContain(mode);
       }
-      expect(PROGRESS_MODES).toEqual(expect.arrayContaining(['mcq', 'written', 'article', 'plural', 'listen']));
+      expect(PROGRESS_MODES).toEqual(expect.arrayContaining(['mcq', 'written', 'article', 'plural', 'listen', 'conj']));
     });
 
     it('ensures every ensureProgress call site passes a mode present in PROGRESS_MODES', () => {

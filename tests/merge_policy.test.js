@@ -203,9 +203,9 @@ describe('SyncMergePolicy: Validation and Corruption Rejection', () => {
     expect(res.error).toContain('غير معروف');
   });
 
-  it('validates every supported mode including listen mode', () => {
+  it('validates every supported mode including listen and conj modes', () => {
     const modes = SyncMergePolicy.getProgressModes();
-    expect(modes).toEqual(['mcq', 'written', 'article', 'plural', 'listen']);
+    expect(modes).toEqual(['mcq', 'written', 'article', 'plural', 'listen', 'conj']);
 
     for (const m of modes) {
       const doc = {

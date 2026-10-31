@@ -337,6 +337,11 @@ describe('Static test: every typed German input is followed by renderUmlautBar (
     expect(searchMatch).not.toBeNull();
   });
 
+  it('ensures German conjugation input (#conjIn) in index.html is followed by renderUmlautBar', () => {
+    const conjMatch = html.match(/id=["']conjIn["'][\s\S]*?renderUmlautBar\s*\(/);
+    expect(conjMatch).not.toBeNull();
+  });
+
   it('verifies no other typed German input element exists without renderUmlautBar', () => {
     const inputTags = [...html.matchAll(/<input\b[^>]*>/gi)];
     for (const match of inputTags) {
@@ -344,10 +349,11 @@ describe('Static test: every typed German input is followed by renderUmlautBar (
       const isFile = /type=["']file["']/i.test(tag);
       const isSearch = /id=["']vocabSearchInput["']/i.test(tag);
       const isWritten = /id=["']wIn["']/i.test(tag);
+      const isConj = /id=["']conjIn["']/i.test(tag);
 
       // If it's a typed German input, ensure it is one of the wired inputs
       if (!isFile) {
-        expect(isSearch || isWritten).toBe(true);
+        expect(isSearch || isWritten || isConj).toBe(true);
       }
     }
   });

@@ -3987,11 +3987,11 @@ if(typeof window !== 'undefined'){ window.VERB_FORMS = VERB_FORMS; }
 
 
 /* All modes that track and persist word learning progress */
-const PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen'];
+const PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen', 'conj'];
 if(typeof window !== 'undefined'){ window.PROGRESS_MODES = PROGRESS_MODES; }
 
 /* thresholds requested by user */
-const THRESH = { mcq:10, written:10, article:8, plural:8, listen:8 };
+const THRESH = { mcq:10, written:10, article:8, plural:8, listen:8, conj:5 };
 if(typeof window !== 'undefined'){ window.THRESH = THRESH; }
 const UNLOCK_STEP = 5;
 
@@ -4704,43 +4704,79 @@ function escapeAttr(s){
   return escapeHtml(s);
 }
 
+function verbSynonyms(wordId){
+  const cat = typeof CATEGORIES !== 'undefined' ? CATEGORIES.find(c => c.id === 'verben') : null;
+  if(!cat || !Array.isArray(cat.words)) return [];
+  const target = cat.words.find(w => w.id === wordId || w.n === wordId || (wordId && typeof wordId === 'object' && wordId.id === w.id));
+  if(!target || !target.ar) return [];
+  const targetParts = target.ar.split('/').map(s => s.trim()).filter(Boolean);
+  if(targetParts.length === 0) return [];
+  const targetSet = new Set(targetParts);
+
+  return cat.words.filter(w => {
+    if(w.id === target.id) return false;
+    if(!w.ar) return false;
+    const parts = w.ar.split('/').map(s => s.trim()).filter(Boolean);
+    return parts.some(p => targetSet.has(p));
+  });
+}
+
 function evaluateWrittenAnswer(inputVal, targetWord, category){
   const val = (inputVal || '').trim();
   if(!val) return { ok: false, empty: true };
 
   const given = normalizeDe(val).replace(/\s+/g, ' ');
-  const wantArticle = category.hasArticles && Boolean(targetWord.a);
+  const wantArticle = category && category.hasArticles && Boolean(targetWord.a);
   const correctWithArt = wantArticle ? `${targetWord.a} ${targetWord.n}` : targetWord.n;
   const normCorrectWithArt = normalizeDe(correctWithArt);
   const normWordOnly = normalizeDe(targetWord.n);
 
   let ok = false;
   let casingNotice = false;
+  let isSynonym = false;
+  let matchedSynonym = null;
 
   const articleRegex = /^(der|die|das)\s+/i;
   const matchArt = val.match(articleRegex);
 
-  // Check if answer matches target word OR any synonymous word sharing the same Arabic gloss in this category
-  const matchingWords = category.words ? category.words.filter(w => w.ar.trim() === targetWord.ar.trim()) : [targetWord];
+  if(category && category.id === 'verben'){
+    if(given === normWordOnly){
+      ok = true;
+    } else {
+      const syns = typeof verbSynonyms === 'function' ? verbSynonyms(targetWord.id) : [];
+      for(const syn of syns){
+        if(given === normalizeDe(syn.n)){
+          ok = true;
+          isSynonym = true;
+          matchedSynonym = syn;
+          break;
+        }
+      }
+    }
+  } else {
+    // Non-verb categories: existing logic completely unchanged
+    const matchingWords = (category && category.words) ? category.words.filter(w => w.ar.trim() === targetWord.ar.trim()) : [targetWord];
 
-  for(const mw of matchingWords){
-    const mwWantArticle = category.hasArticles && Boolean(mw.a);
-    if(mwWantArticle){
-      // الأداة إلزامية: الإجابة لازم تكون "der Apfel" (مع تجاهل حالة الحروف)
-      if(matchArt && matchArt[1].toLowerCase() === mw.a.toLowerCase() &&
-        given === normalizeDe(`${mw.a} ${mw.n}`)){
+    for(const mw of matchingWords){
+      const mwWantArticle = category && category.hasArticles && Boolean(mw.a);
+      if(mwWantArticle){
+        // الأداة إلزامية: الإجابة لازم تكون "der Apfel" (مع تجاهل حالة الحروف)
+        if(matchArt && matchArt[1].toLowerCase() === mw.a.toLowerCase() &&
+          given === normalizeDe(`${mw.a} ${mw.n}`)){
+          ok = true;
+          break;
+        }
+      } else if(given === normalizeDe(mw.n)){
         ok = true;
         break;
       }
-    } else if(given === normalizeDe(mw.n)){
-      ok = true;
-      break;
     }
   }
 
   // الكلمة صحيحة لكن بدون أداة التعريف: تُحسب خطأ مع تنبيه
   let missingArticle = false;
-  if(!ok && !matchArt && category.hasArticles){
+  if(!ok && !matchArt && category && category.hasArticles){
+    const matchingWords = category.words ? category.words.filter(w => w.ar.trim() === targetWord.ar.trim()) : [targetWord];
     missingArticle = matchingWords.some(mw => mw.a && given === normalizeDe(mw.n));
   }
 
@@ -4752,7 +4788,12 @@ function evaluateWrittenAnswer(inputVal, targetWord, category){
     }
   }
 
-    return { ok, casingNotice, missingArticle };
+  const out = { ok, casingNotice, missingArticle };
+  if(isSynonym){
+    out.isSynonym = true;
+    out.matchedSynonym = matchedSynonym;
+  }
+  return out;
 }
 
 /* ======================= SPEECH & VOICE SELECTION ======================= */
@@ -5473,7 +5514,7 @@ function validateBackupData(data, categoriesList = (typeof CATEGORIES !== 'undef
 
   const knownCatIds = new Set(categoriesList.map(c => c.id));
   const catWordCounts = new Map(categoriesList.map(c => [c.id, c.words ? c.words.length : 0]));
-  const validModes = new Set(typeof PROGRESS_MODES !== 'undefined' ? PROGRESS_MODES : ['mcq', 'written', 'article', 'plural', 'listen']);
+  const validModes = new Set(typeof PROGRESS_MODES !== 'undefined' ? PROGRESS_MODES : ['mcq', 'written', 'article', 'plural', 'listen', 'conj']);
   const legacyMap = (typeof SyncMergePolicy !== 'undefined' && SyncMergePolicy && SyncMergePolicy.LEGACY_INDEX_IDS) || null;
   const maxLegacyWords = (catId) => Math.max(catWordCounts.get(catId) || 0, (legacyMap && legacyMap[catId] ? legacyMap[catId].length : 0));
 
@@ -5988,6 +6029,418 @@ function renderVerbPanel(wordId){
 }
 if(typeof window !== 'undefined'){ window.renderVerbPanel = renderVerbPanel; }
 
+/* ======================= VERBS CONJUGATION QUIZ (Release v1.18) ======================= */
+const ALL_PRONOUNS = new Set(['ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr']);
+
+function checkConjAnswer(inputVal, wordId, stage, pronounIndex){
+  const cat = typeof CATEGORIES !== 'undefined' ? CATEGORIES.find(c => c.id === 'verben') : null;
+  const word = cat && Array.isArray(cat.words) ? cat.words.find(w => w.id === wordId) : null;
+  const vf = (typeof VERB_FORMS !== 'undefined' && VERB_FORMS) ? VERB_FORMS[wordId] : null;
+
+  if(!vf || !word){
+    return { ok: false, expected: '', altExpected: null, missingPrefix: false, hint: null, isSynonym: false };
+  }
+
+  let expected = '';
+  let altExpected = null;
+
+  if(stage === 1){
+    // Stage 1: Infinitive
+    expected = word.n;
+  } else if(stage === 2){
+    // Stage 2: Praesens for given pronoun
+    const pIdx = (Number.isInteger(pronounIndex) && pronounIndex >= 0 && pronounIndex < 6) ? pronounIndex : 0;
+    expected = (vf.pres && vf.pres[pIdx]) ? vf.pres[pIdx] : '';
+  } else if(stage === 3){
+    // Stage 3: Praeteritum for given pronoun
+    const pIdx = (Number.isInteger(pronounIndex) && pronounIndex >= 0 && pronounIndex < 6) ? pronounIndex : 0;
+    expected = (vf.pret && vf.pret[pIdx]) ? vf.pret[pIdx] : '';
+    if(pIdx === 1 && vf.pretDuAlt){
+      altExpected = vf.pretDuAlt;
+    }
+  } else if(stage === 4){
+    // Stage 4: Perfekt for er/sie/es
+    expected = vf.perfekt || '';
+  }
+
+  const cleanInput = normalizeDe(inputVal || '').replace(/\s+/g, ' ').trim();
+  const cleanExpected = normalizeDe(expected).replace(/\s+/g, ' ').trim();
+  const cleanAlt = altExpected ? normalizeDe(altExpected).replace(/\s+/g, ' ').trim() : null;
+
+  if(!cleanInput){
+    return { ok: false, expected, altExpected, missingPrefix: false, hint: null, isSynonym: false };
+  }
+
+  // --- STAGE 1: Infinitive (never accepts a leading pronoun; accepts synonyms) ---
+  if(stage === 1){
+    if(cleanInput === cleanExpected){
+      return { ok: true, expected, altExpected, missingPrefix: false, hint: null, isSynonym: false };
+    }
+    const syns = typeof verbSynonyms === 'function' ? verbSynonyms(wordId) : [];
+    for(const syn of syns){
+      if(cleanInput === normalizeDe(syn.n).replace(/\s+/g, ' ').trim()){
+        return { ok: true, expected, altExpected, missingPrefix: false, hint: null, isSynonym: true, matchedSynonym: syn };
+      }
+    }
+    if(vf.sep && expected.startsWith(vf.sep)){
+      const stem = expected.slice(vf.sep.length).trim();
+      if(cleanInput === normalizeDe(stem).replace(/\s+/g, ' ').trim()){
+        return {
+          ok: false,
+          expected,
+          altExpected,
+          missingPrefix: true,
+          hint: `تنبيه: هذا فعل منفصل (trennbares Verb)، نسيت كتابة السابقة «${vf.sep}» في بداية المصدر (${expected}).`,
+          isSynonym: false
+        };
+      }
+    }
+    return { ok: false, expected, altExpected, missingPrefix: false, hint: null, isSynonym: false };
+  }
+
+  // --- STAGES 2-4: Optional leading pronoun ---
+  let verbInput = cleanInput;
+  let pronounValid = true;
+
+  let allowedPronouns = null;
+  if(stage === 2 || stage === 3){
+    const pIdx = (Number.isInteger(pronounIndex) && pronounIndex >= 0 && pronounIndex < 6) ? pronounIndex : 0;
+    if(pIdx === 0) allowedPronouns = new Set(['ich']);
+    else if(pIdx === 1) allowedPronouns = new Set(['du']);
+    else if(pIdx === 2) allowedPronouns = new Set(['er', 'sie', 'es']);
+    else if(pIdx === 3) allowedPronouns = new Set(['wir']);
+    else if(pIdx === 4) allowedPronouns = new Set(['ihr']);
+    else if(pIdx === 5) allowedPronouns = new Set(['sie']); // lowercase normalized
+  } else if(stage === 4){
+    allowedPronouns = new Set(['er', 'sie', 'es']);
+  }
+
+  const pronounMatch = cleanInput.match(/^([a-zäöüß]+)\s+(.+)$/i);
+  if(pronounMatch){
+    const leadingWord = pronounMatch[1].toLowerCase();
+    if(ALL_PRONOUNS.has(leadingWord)){
+      if(allowedPronouns && allowedPronouns.has(leadingWord)){
+        verbInput = pronounMatch[2].trim();
+      } else {
+        pronounValid = false;
+      }
+    }
+  }
+
+  if(!pronounValid){
+    return { ok: false, expected, altExpected, missingPrefix: false, hint: null, isSynonym: false };
+  }
+
+  if(verbInput === cleanExpected || (cleanAlt && verbInput === cleanAlt)){
+    return { ok: true, expected, altExpected, missingPrefix: false, hint: null, isSynonym: false };
+  }
+
+  // Check for missing separable prefix in stages 2 & 3:
+  let missingPrefix = false;
+  let hint = null;
+
+  if(vf.sep && (stage === 2 || stage === 3)){
+    if(expected.endsWith(' ' + vf.sep)){
+      const stem = expected.slice(0, -(vf.sep.length + 1)).trim();
+      if(verbInput === normalizeDe(stem).replace(/\s+/g, ' ').trim()){
+        missingPrefix = true;
+        hint = `تنبيه: هذا فعل منفصل (trennbares Verb)، يجب كتابة السابقة «${vf.sep}» في النهاية (مثال: ${expected}).`;
+      }
+    }
+    if(!missingPrefix && altExpected && altExpected.endsWith(' ' + vf.sep)){
+      const stem = altExpected.slice(0, -(vf.sep.length + 1)).trim();
+      if(verbInput === normalizeDe(stem).replace(/\s+/g, ' ').trim()){
+        missingPrefix = true;
+        hint = `تنبيه: هذا فعل منفصل (trennbares Verb)، يجب كتابة السابقة «${vf.sep}» في النهاية (مثال: ${altExpected}).`;
+      }
+    }
+  }
+
+  return { ok: false, expected, altExpected, missingPrefix, hint, isSynonym: false };
+}
+
+function getVerbConjPool(){
+  const cat = typeof CATEGORIES !== 'undefined' ? CATEGORIES.find(c => c.id === 'verben') : null;
+  if(!cat || !Array.isArray(cat.words)) return [];
+  if(typeof progress === 'undefined' || !progress || !progress['verben']) return [];
+  const catProg = progress['verben'];
+  const modes = ['mcq', 'written', 'listen'];
+  const pool = [];
+  for(let i=0; i<cat.words.length; i++){
+    const w = cat.words[i];
+    if(!w || !w.id) continue;
+    const isUnlocked = modes.some(m => catProg[m] && catProg[m].counts && ((catProg[m].counts[w.id] || 0) > 0));
+    if(isUnlocked){
+      pool.push(i);
+    }
+  }
+  return pool;
+}
+
+function selectConjSession(pool, getCountFn, maxCount = 10){
+  if(!Array.isArray(pool) || pool.length < 3) return [];
+  const fn = typeof getCountFn === 'function' ? getCountFn : (idx => getWordCount('verben', 'conj', idx));
+
+  const items = pool.map(idx => ({
+    idx,
+    count: fn(idx),
+    rnd: Math.random()
+  }));
+
+  items.sort((a, b) => (a.count - b.count) || (a.rnd - b.rnd));
+
+  const countToTake = Math.min(maxCount, items.length);
+  return items.slice(0, countToTake).map(item => item.idx);
+}
+
+function computeConjMasteredCount(){
+  const cat = typeof CATEGORIES !== 'undefined' ? CATEGORIES.find(c => c.id === 'verben') : null;
+  if(!cat || !Array.isArray(cat.words)) return 0;
+  const th = threshFor('conj');
+  let mastered = 0;
+  for(let i=0; i<cat.words.length; i++){
+    if(getWordCount('verben', 'conj', i) >= th) mastered++;
+  }
+  return mastered;
+}
+
+let conjState = null;
+
+function renderConjExercise(){
+  const cat = CATEGORIES.find(c => c.id === 'verben');
+  if(!cat) return;
+
+  const pool = getVerbConjPool();
+  if(pool.length < 3){
+    conjState = null;
+    app.innerHTML = `
+      ${headerHtml(true, 'رجوع لأوضاع القسم')}
+      <div class="cat-title">
+        <h2>اختبار التصريفات</h2>
+        <span class="cat-sub"><span class="de" lang="de" dir="ltr">Verben Konjugation</span> · الأفعال وتصريفاتها</span>
+      </div>
+      <div class="qcard" style="text-align:center;padding:32px 16px;">
+        <div style="font-size:36px;margin-bottom:12px;">🔒</div>
+        <div class="qmain" style="font-size:17px;line-height:1.6;font-weight:700;">تحتاج إلى التدرب على 3 أفعال على الأقل في أوضاع الكلمات أولاً لفتح اختبار التصريفات.</div>
+        <div class="qsub" style="margin-top:8px;">تدرّب على بعض الأفعال في الاختيار من متعدد أو الكتابة أو الاستماع، ثم عد إلى هنا!</div>
+        <div style="margin-top:20px;">
+          <button class="primary-btn" id="conjGoOtherQuizzes" style="width:100%;max-width:280px;padding:12px 18px;font-size:15px;font-weight:700;">الذهاب إلى اختبارات الأفعال</button>
+        </div>
+      </div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', () => goBack({ screen: 'modes', catId: 'verben' }));
+    document.getElementById('conjGoOtherQuizzes').addEventListener('click', () => go({ screen: 'modes', catId: 'verben' }));
+    return;
+  }
+
+  if(!conjState || !conjState.sessionIndices || conjState.sessionIndices.length === 0){
+    const sessionIndices = selectConjSession(pool, i => getWordCount('verben', 'conj', i), 10);
+    conjState = {
+      sessionIndices,
+      currentIndex: 0,
+      currentStage: 1,
+      presPronounIdx: Math.floor(Math.random() * 6),
+      pretPronounIdx: Math.floor(Math.random() * 6),
+      stageResults: [],
+      score: 0,
+      answered: false,
+      runRecorded: false,
+      lastResult: null,
+      done: false
+    };
+  }
+
+  if(conjState.done){
+    const totalVerbs = conjState.sessionIndices.length;
+    const score = conjState.score;
+    const pct = totalVerbs > 0 ? Math.round((score / totalVerbs) * 100) : 0;
+    const mastered = computeConjMasteredCount();
+    app.innerHTML = `
+      ${headerHtml(true, 'رجوع لأوضاع القسم')}
+      <div class="done-card">
+        <div class="done-icon">${score === totalVerbs ? '🌟' : score > 0 ? '🎉' : '💪'}</div>
+        <h2>اكتملت الجولة!</h2>
+        <div class="done-sub">${score} / ${totalVerbs} أفعال تم تصريفها بشكل مثالي (${pct}%)</div>
+        <div class="done-meta" style="margin-top:14px;font-size:14.5px;color:#42403b;line-height:1.5;">
+          <b>${mastered}</b> / <b>${cat.words.length}</b> فعلاً أتقنتَ تصريفه حتى الآن
+        </div>
+        <div class="done-actions" style="margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <button class="primary-btn" id="conjNewRoundBtn" style="padding:12px 24px;font-size:15px;font-weight:700;">جولة جديدة</button>
+          <button class="backbtn" id="conjBackModesBtn" style="padding:12px 20px;font-size:15px;">رجوع لأوضاع القسم</button>
+        </div>
+      </div>
+    `;
+    document.getElementById('backBtn').addEventListener('click', () => { conjState = null; goBack({ screen: 'modes', catId: 'verben' }); });
+    document.getElementById('conjBackModesBtn').addEventListener('click', () => { conjState = null; goBack({ screen: 'modes', catId: 'verben' }); });
+    document.getElementById('conjNewRoundBtn').addEventListener('click', () => {
+      conjState = null;
+      renderConjExercise();
+    });
+    return;
+  }
+
+  const verbIdx = conjState.sessionIndices[conjState.currentIndex];
+  const w = cat.words[verbIdx];
+  const stage = conjState.currentStage;
+  const totalVerbs = conjState.sessionIndices.length;
+
+  let qLabel = '';
+  let qMain = '';
+  let qSub = '';
+
+  if(stage === 1){
+    qLabel = `المرحلة 1 من 4 · اكتب المصدر بالألمانية (Infinitive)`;
+    qMain = `<div class="qmain">${escapeHtml(w.ar)}</div>`;
+    qSub = `<div class="qsub">اكتب صيغة المصدر للفعل</div>`;
+  } else if(stage === 2){
+    const pronoun = VERB_PRONOUNS[conjState.presPronounIdx];
+    qLabel = `المرحلة 2 من 4 · صرّف في المضارع (Präsens)`;
+    qMain = `<div class="qmain de" lang="de" dir="ltr">${escapeHtml(w.n)}</div>`;
+    qSub = `<div class="qsub">المعنى: ${escapeHtml(w.ar)} · مع الضمير: <b class="de" lang="de" dir="ltr" style="font-size:16px;color:var(--brand);">${escapeHtml(pronoun)}</b> (كتابة الضمير اختيارية)</div>`;
+  } else if(stage === 3){
+    const pronoun = VERB_PRONOUNS[conjState.pretPronounIdx];
+    qLabel = `المرحلة 3 من 4 · صرّف في الماضي البسيط (Präteritum)`;
+    qMain = `<div class="qmain de" lang="de" dir="ltr">${escapeHtml(w.n)}</div>`;
+    qSub = `<div class="qsub">المعنى: ${escapeHtml(w.ar)} · مع الضمير: <b class="de" lang="de" dir="ltr" style="font-size:16px;color:var(--brand);">${escapeHtml(pronoun)}</b> (كتابة الضمير اختيارية)</div>`;
+  } else if(stage === 4){
+    qLabel = `المرحلة 4 من 4 · صرّف في الماضي التام (Perfekt)`;
+    qMain = `<div class="qmain de" lang="de" dir="ltr">${escapeHtml(w.n)}</div>`;
+    qSub = `<div class="qsub">المعنى: ${escapeHtml(w.ar)} · مع الضمير: <b class="de" lang="de" dir="ltr" style="font-size:16px;color:var(--brand);">er/sie/es</b> (مع فعل المساعدة · كتابة الضمير اختيارية)</div>`;
+  }
+
+  const stepOverall = conjState.currentIndex * 4 + stage;
+  const totalOverall = totalVerbs * 4;
+  const pctOverall = Math.round((stepOverall / totalOverall) * 100);
+
+  const nextLabel = stage < 4 ? 'المرحلة التالية ←' : (conjState.currentIndex + 1 < totalVerbs ? 'الفعل التالي ←' : 'عرض النتيجة ←');
+
+  app.innerHTML = `
+    ${headerHtml(true, 'رجوع لأوضاع القسم')}
+    <div class="cat-title">
+      <h2>اختبار التصريفات</h2>
+      <span class="cat-sub">الفعل ${conjState.currentIndex + 1} من ${totalVerbs} · المرحلة ${stage} من 4</span>
+    </div>
+    <div class="prog-bar" style="margin-bottom:14px;">
+      <div class="prog-fill" style="width:${pctOverall}%;"></div>
+    </div>
+    <div class="qcard">
+      <div class="qlabel">${qLabel}</div>
+      ${qMain}
+      ${qSub}
+    </div>
+    <div class="write-row">
+      <input type="text" id="conjIn" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="de" dir="ltr" inputmode="text" placeholder="..." />
+      <button class="submit-btn" id="conjSub">تحقق <span class="kbd-key">↵</span></button>
+    </div>
+    <div class="feedback" id="fb" aria-live="polite"></div>
+    <div class="next-row"><button class="next-btn" id="nextBtn">${nextLabel} <span class="kbd-key">↵</span></button></div>
+  `;
+
+  document.getElementById('backBtn').addEventListener('click', () => {
+    conjState = null;
+    goBack({ screen: 'modes', catId: 'verben' });
+  });
+
+  const input = document.getElementById('conjIn');
+  const submitBtn = document.getElementById('conjSub');
+  const fb = document.getElementById('fb');
+  const nextBtn = document.getElementById('nextBtn');
+
+  if(input) input.focus();
+  renderUmlautBar(input);
+
+  function submit(){
+    if(conjState.answered) return;
+    const val = input.value.trim();
+    if(!val) return;
+    conjState.answered = true;
+
+    const pIdx = stage === 2 ? conjState.presPronounIdx : (stage === 3 ? conjState.pretPronounIdx : 2);
+    const res = checkConjAnswer(val, w.id, stage, pIdx);
+    conjState.stageResults.push(res.ok);
+    conjState.lastResult = res;
+
+    // FIX 3: Run applyResult immediately upon stage-4 answer submission so run is not lost on back navigation
+    if(stage === 4 && !conjState.runRecorded){
+      conjState.runRecorded = true;
+      const allOk = conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean);
+      if(allOk) conjState.score++;
+      applyResult('verben', 'conj', verbIdx, allOk);
+    }
+
+    speak(res.expected);
+
+    const safeExpected = escapeHtml(res.expected);
+    let fbHtml = `
+      <div class="fb-box">
+        <div class="fb-status-line ${res.ok ? 'ok' : 'bad'}">
+          <span>${res.ok ? `إجابة صحيحة! <span class="de" lang="de" dir="ltr">${safeExpected}</span>` : `إجابة غير صحيحة، الصحيحة هي: <span class="de" lang="de" dir="ltr">${safeExpected}</span>`}</span>
+        </div>
+        ${(res.ok && res.isSynonym) ? `<div class="fbnote" style="margin-top:6px;">مقبول أيضاً. الكلمة المطلوبة: ${safeExpected}</div>` : ''}
+        ${(!res.ok && res.missingPrefix && res.hint) ? `<div class="fbnote" style="margin-top:6px;">${escapeHtml(res.hint)}</div>` : ''}
+        ${renderVerbPanel(w.id)}
+      </div>
+    `;
+    fb.innerHTML = fbHtml;
+    if(typeof input.blur === 'function') input.blur();
+    input.disabled = true;
+    submitBtn.disabled = true;
+    app.querySelectorAll('.umlaut-btn').forEach(b => { b.disabled = true; });
+    nextBtn.classList.add('show');
+  }
+
+  let advancing = false;
+  function advance(){
+    if(!conjState || !conjState.answered || advancing) return;
+    advancing = true;
+    if(conjState.currentStage < 4){
+      conjState.currentStage++;
+      conjState.answered = false;
+      conjState.lastResult = null;
+      renderConjExercise();
+    } else {
+      // FIX 3: applyResult already ran on stage 4 submit; advance only navigates
+      if(conjState.currentIndex + 1 < conjState.sessionIndices.length){
+        conjState.currentIndex++;
+        conjState.currentStage = 1;
+        conjState.presPronounIdx = Math.floor(Math.random() * 6);
+        conjState.pretPronounIdx = Math.floor(Math.random() * 6);
+        conjState.stageResults = [];
+        conjState.answered = false;
+        conjState.runRecorded = false;
+        conjState.lastResult = null;
+        renderConjExercise();
+      } else {
+        conjState.done = true;
+        renderConjExercise();
+      }
+    }
+  }
+
+  submitBtn.addEventListener('click', submit);
+  input.addEventListener('keydown', e => {
+    if(e.repeat) return;
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      submit();
+    }
+  });
+  nextBtn.addEventListener('click', advance);
+  nextBtn.addEventListener('keydown', e => {
+    if(e.repeat) e.preventDefault();
+  });
+}
+
+if(typeof window !== 'undefined'){
+  window.verbSynonyms = verbSynonyms;
+  window.evaluateWrittenAnswer = evaluateWrittenAnswer;
+  window.checkConjAnswer = checkConjAnswer;
+  window.getVerbConjPool = getVerbConjPool;
+  window.selectConjSession = selectConjSession;
+  window.computeConjMasteredCount = computeConjMasteredCount;
+  window.renderConjExercise = renderConjExercise;
+}
+
 function pluralReady(cat){ return cat.hasArticles && cat.words.every(w => w.pl !== undefined); }
 
 function applyUmlaut(word){
@@ -6025,9 +6478,13 @@ function buildMcqDistractors(cat, idx, count = 3){
   const correctText = cat && cat.hasArticles && w && w.a ? `${w.a} ${w.n}` : (w ? w.n : '');
   const distractors = [];
   const chosenTexts = new Set([correctText]);
+  const synIds = (cat && cat.id === 'verben' && w && typeof verbSynonyms === 'function')
+    ? new Set(verbSynonyms(w.id).map(s => s.id))
+    : new Set();
 
   const pool = (cat && Array.isArray(cat.words) ? cat.words : []).filter((d, i) => {
     if(i === idx) return false;
+    if(cat.id === 'verben' && synIds.has(d.id)) return false;
     if((d.ar || '').trim() === targetGloss) return false;
     const dt = cat.hasArticles && d.a ? `${d.a} ${d.n}` : d.n;
     return dt !== correctText;
@@ -6070,9 +6527,13 @@ function buildListenDistractors(cat, idx, count = 3){
   const targetGloss = (w && w.ar ? w.ar : '').trim();
   const distractors = [];
   const chosenGlosses = new Set([targetGloss]);
+  const synIds = (cat && cat.id === 'verben' && w && typeof verbSynonyms === 'function')
+    ? new Set(verbSynonyms(w.id).map(s => s.id))
+    : new Set();
 
   const pool = (cat && Array.isArray(cat.words) ? cat.words : []).filter((d, i) => {
     if(i === idx) return false;
+    if(cat.id === 'verben' && synIds.has(d.id)) return false;
     const g = (d.ar || '').trim();
     return g !== '' && g !== targetGloss;
   });
@@ -6173,6 +6634,7 @@ function go(v, opts){
   const same = isSameView(view, nextView);
   view = nextView;
   exState = null;
+  if(view.mode !== 'conj') conjState = null;
 
   if (typeof window !== 'undefined' && window.history) {
     if (opts.replace) {
@@ -6964,6 +7426,11 @@ function renderModes(){
         <div><div class="mt">صيغة الجمع</div><div class="ms">Plural · تقدّم ${categoryProgressPct(cat.id,'plural')}%</div></div>
         <div class="mode-icon" style="background:${PALETTE[1]};border-radius:50% 50% 4px 4px"></div>
       </div>` : ''}
+      ${cat.id === 'verben' ? `
+      <div class="mode-btn" data-mode="conj">
+        <div><div class="mt">اختبار التصريفات</div><div class="ms">Conjugation · ${computeConjMasteredCount()} / ${cat.words.length} فعلاً أتقنتَ تصريفه</div></div>
+        <div class="mode-icon" style="background:${PALETTE[2]};border-radius:6px"></div>
+      </div>` : ''}
       <div class="mode-btn" data-mode="quiz">
         <div><div class="mt">اختبار القسم</div><div class="ms">يشمل كل كلمات القسم مخلوطة عشوائيًا</div></div>
         <div class="mode-icon" style="background:${PALETTE[3]};border-radius:50% 4px 50% 4px"></div>
@@ -7192,7 +7659,7 @@ function normalizeDe(s){
 }
 
 function modeLabel(mode){
-  return mode==='mcq' ? 'اختيار من متعدد' : mode==='written' ? 'الكتابة' : mode==='article' ? 'أداة التعريف' : mode==='plural' ? 'صيغة الجمع' : mode==='listen' ? 'الاستماع' : mode==='review' ? 'مراجعة القسم' : 'اختبار القسم';
+  return mode==='mcq' ? 'اختيار من متعدد' : mode==='written' ? 'الكتابة' : mode==='article' ? 'أداة التعريف' : mode==='plural' ? 'صيغة الجمع' : mode==='listen' ? 'الاستماع' : mode==='review' ? 'مراجعة القسم' : mode==='conj' ? 'اختبار التصريفات' : 'اختبار القسم';
 }
 
 function renderExercise(){
@@ -7202,6 +7669,7 @@ function renderExercise(){
   if(view.mode === 'diffWritten') return renderDifficultStep('written');
   if(view.mode === 'srsReview') return renderSrsReviewStep();
   if(view.mode === 'starredReview') return renderStarredReviewStep();
+  if(view.mode === 'conj') return renderConjExercise();
   const cat = CATEGORIES.find(c=>c.id===view.catId);
   const mode = view.mode;
   if(mode === 'quiz') return renderQuiz(cat);
@@ -8093,10 +8561,14 @@ function renderQuestion(cat, mode, idx, w){
       speak(correctText);
       const fb = document.getElementById('fb');
       let fbHtml = buildFeedbackHtml(w, cat, ok, correctText, false);
-            if(!ok && evalRes.missingArticle){
+      if(!ok && evalRes.missingArticle){
         fbHtml += `<div class="fbnote" style="margin-top:6px;">تنبيه: الكلمة صحيحة لكن لازم تكتب أداة التعريف (der / die / das) معها.</div>`;
       }
+      if(ok && evalRes.isSynonym){
+        fbHtml += `<div class="fbnote" style="margin-top:6px;">مقبول أيضاً. الكلمة المطلوبة: ${escapeHtml(w.n)}</div>`;
+      }
       fb.innerHTML = fbHtml;
+      if(typeof input.blur === 'function') input.blur();
       input.disabled = true;
       document.getElementById('wSub').disabled = true;
       zone.querySelectorAll('.umlaut-btn').forEach(b => { b.disabled = true; });
@@ -8106,7 +8578,13 @@ function renderQuestion(cat, mode, idx, w){
       if(nb) nb.classList.add('show');
     }
     document.getElementById('wSub').addEventListener('click', submit);
-    input.addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
+    input.addEventListener('keydown', e=>{
+      if(e.repeat) return;
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        submit();
+      }
+    });
 
     // Skip button handler — only wired when the element is present (isCatWritten)
     const skipWordBtn = document.getElementById('skipWordBtn');
@@ -8266,14 +8744,14 @@ function handleGlobalKeydown(e){
 
   const target = e.target;
   const tagName = target && target.tagName ? target.tagName.toUpperCase() : '';
-  const isInteractive = target && (
+  const isInteractive = target && !target.disabled && (
     ['BUTTON', 'A', 'INPUT', 'SELECT', 'TEXTAREA', 'SUMMARY'].includes(tagName) ||
     (typeof target.matches === 'function' && target.matches('[role="button"], [contenteditable], [contenteditable="true"]')) ||
     (target.isContentEditable === true)
   );
 
   // If focus is in text input / textarea / editable, don't hijack anything
-  if(tagName === 'INPUT' || tagName === 'TEXTAREA' || (target && target.isContentEditable)) return;
+  if((tagName === 'INPUT' && !target.disabled) || (tagName === 'TEXTAREA' && !target.disabled) || (target && target.isContentEditable)) return;
 
   // Options shortcuts: 1, 2, 3, 4
   if(['1','2','3','4'].includes(key)){
@@ -8289,6 +8767,7 @@ function handleGlobalKeydown(e){
   // Next / advance shortcut: Enter or Space
   // Do not intercept when focused on an interactive control (button, link, summary, etc.)
   if(key === 'Enter' || key === ' '){
+    if(e.repeat) return;
     if(isInteractive) return;
     const nextBtn = document.getElementById('nextBtn');
     if(nextBtn && nextBtn.classList.contains('show')){

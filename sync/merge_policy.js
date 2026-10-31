@@ -12,7 +12,7 @@
 (function(global) {
   'use strict';
 
-  const DEFAULT_PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen'];
+  const DEFAULT_PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen', 'conj'];
   const FORBIDDEN_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
 
   /**

@@ -53,9 +53,9 @@ function buildSandbox() {
     body: { appendChild() {} },
   };
 
-  const THRESH = { mcq: 10, written: 10, article: 8, plural: 8, listen: 8 };
+  const THRESH = { mcq: 10, written: 10, article: 8, plural: 8, listen: 8, conj: 5 };
   const UNLOCK_STEP = 5;
-  const PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen'];
+  const PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen', 'conj'];
 
   let progress = {};
 

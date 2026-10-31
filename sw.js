@@ -1,6 +1,6 @@
 // Service Worker for Deutsch Lernen PWA
-// Cache Version: v23 (owner-approved vocabulary review batch 1)
-const CACHE_NAME = 'deutsch-lernen-v23';
+// Cache Version: v24 (owner-approved verbs conjugation quiz)
+const CACHE_NAME = 'deutsch-lernen-v24';
 
 // Critical precache assets: Service Worker installation MUST fail if any of these cannot be cached,
 // ensuring the previous Service Worker remains active and clients are not left in a broken state.

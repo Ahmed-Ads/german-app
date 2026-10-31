@@ -143,7 +143,7 @@ export function getPluralDistractors(targetWord, category, allCategories) {
 }
 
 // 7. Backup Data Validator
-export const PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen'];
+export const PROGRESS_MODES = ['mcq', 'written', 'article', 'plural', 'listen', 'conj'];
 
 export function validateBackupData(data, categoriesList = [], allowedModes = PROGRESS_MODES) {
   if (!data || typeof data !== 'object' || Array.isArray(data)) {

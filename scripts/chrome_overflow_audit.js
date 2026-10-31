@@ -25,7 +25,13 @@ const screens = [
   { key: 'verbs_written', name: 'Verbs Written' },
   { key: 'verbs_flashcard', name: 'Verbs Flashcard Back' },
   { key: 'verbs_wordlist', name: 'Verbs Wordlist' },
-  { key: 'verbs_review', name: 'Verbs Category Review' }
+  { key: 'verbs_review', name: 'Verbs Category Review' },
+  { key: 'verbs_conj_lock', name: 'Verbs Conj Lock Screen' },
+  { key: 'verbs_conj_prompt', name: 'Verbs Conj Prompt' },
+  { key: 'verbs_conj_feedback', name: 'Verbs Conj Feedback (Panel)' },
+  { key: 'verbs_conj_synonym', name: 'Verbs Conj Synonym Note' },
+  { key: 'verbs_written_synonym', name: 'Verbs Written Synonym Note' },
+  { key: 'verbs_conj_done', name: 'Verbs Conj Done Screen' }
 ];
 
 const screensDir = path.resolve(__dirname, '..', 'audit', 'windows_results', 'screens');
@@ -200,6 +206,82 @@ window.addEventListener('DOMContentLoaded', async () => {
       await wait(250);
     }
     await auditScreen('verbs_review');
+
+    // 16. Verbs Conj Lock Screen (< 3 verbs)
+    win.go({ screen: 'exercise', catId: 'verben', mode: 'conj' });
+    await wait(200);
+    await auditScreen('verbs_conj_lock');
+
+    // Unlock verbs so conj session can start
+    for (let i = 0; i < 4; i++) {
+      win.setWordCount('verben', 'written', i, 2);
+    }
+
+    // 17. Verbs Conj Prompt (Stage 1)
+    win.conjState = null;
+    win.go({ screen: 'exercise', catId: 'verben', mode: 'conj' });
+    await wait(200);
+    await auditScreen('verbs_conj_prompt');
+
+    // 18. Verbs Conj Feedback (Panel)
+    const conjSub = doc.getElementById('conjSub');
+    const conjIn = doc.getElementById('conjIn');
+    if (conjIn && conjSub) {
+      conjIn.value = 'sein';
+      conjSub.click();
+      await wait(250);
+    }
+    await auditScreen('verbs_conj_feedback');
+
+    // 18b. Verbs Conj Stage 1 with Synonym Note
+    const verbenCatRef = win.CATEGORIES.find(c => c.id === 'verben');
+    const oeffnenIdx = verbenCatRef.words.findIndex(w => w.n === 'öffnen');
+    if (oeffnenIdx !== -1) {
+      win.conjState = {
+        sessionIndices: [oeffnenIdx],
+        currentIndex: 0,
+        currentStage: 1,
+        presPronounIdx: 0,
+        pretPronounIdx: 0,
+        stageResults: [],
+        score: 0,
+        answered: false,
+        runRecorded: false,
+        lastResult: null,
+        done: false
+      };
+      win.renderConjExercise();
+      await wait(150);
+      const cIn = doc.getElementById('conjIn');
+      const cSub = doc.getElementById('conjSub');
+      if (cIn && cSub) {
+        cIn.value = 'aufmachen';
+        cSub.click();
+        await wait(250);
+      }
+      await auditScreen('verbs_conj_synonym');
+
+      // 18c. Verbs Written with Synonym Note
+      win.exState = { catId: 'verben', mode: 'written', idx: oeffnenIdx, answered: false };
+      win.renderExercise();
+      await wait(150);
+      const wIn = doc.getElementById('wIn');
+      const wSub = doc.getElementById('wSub');
+      if (wIn && wSub) {
+        wIn.value = 'aufmachen';
+        wSub.click();
+        await wait(250);
+      }
+      await auditScreen('verbs_written_synonym');
+    }
+
+    // 19. Verbs Conj Done Screen
+    if (win.conjState) {
+      win.conjState.done = true;
+      win.renderConjExercise();
+      await wait(200);
+    }
+    await auditScreen('verbs_conj_done');
 
   } catch(e) {
     results.error = e.message;
