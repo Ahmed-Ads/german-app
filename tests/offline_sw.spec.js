@@ -4,7 +4,7 @@ const { test, expect } = require('@playwright/test');
 /**
  * End-to-End Offline PWA & Service Worker Test Suite
  * Validates:
- *  (a) Home renders exactly 30 distinct categories (.cat-card[data-cat])
+ *  (a) Home renders exactly 31 distinct categories (.cat-card[data-cat])
  *  (b) Interactive offline exercise (open category, answer MCQ question)
  *  (c) Feedback appears
  *  (d) Progress persists after another offline reload
@@ -93,7 +93,7 @@ test.describe('PWA Offline & Service Worker Verification', () => {
     isOffline = true;
     await context.setOffline(true);
 
-    // (a) Reload page while offline and assert 30 category cards
+    // (a) Reload page while offline and assert 31 category cards
     console.log('Reloading page offline...');
     await page.reload({ waitUntil: 'networkidle' });
     await expect(page.locator('#app')).toBeVisible();
@@ -101,12 +101,12 @@ test.describe('PWA Offline & Service Worker Verification', () => {
     const catCards = page.locator('.cat-card[data-cat]');
     const cardCount = await catCards.count();
     console.log(`Rendered category cards offline: ${cardCount}`);
-    expect(cardCount).toBe(30);
+    expect(cardCount).toBe(31);
 
     const catIds = await catCards.evaluateAll(cards => cards.map(c => c.getAttribute('data-cat')));
     const distinctIds = Array.from(new Set(catIds));
     console.log(`Distinct category IDs count: ${distinctIds.length}`);
-    expect(distinctIds.length).toBe(30);
+    expect(distinctIds.length).toBe(31);
 
     // (b) Open one category and answer one MCQ question
     console.log('Testing offline exercise: Opening category obst...');
@@ -160,8 +160,8 @@ test.describe('PWA Offline & Service Worker Verification', () => {
     await expect(page.locator('#app')).toBeVisible();
 
     const directIndexCatCount = await page.locator('.cat-card[data-cat]').count();
-    expect(directIndexCatCount).toBe(30);
-    console.log('Direct navigation to /index.html offline succeeded (30 category cards rendered).');
+    expect(directIndexCatCount).toBe(31);
+    console.log('Direct navigation to /index.html offline succeeded (31 category cards rendered).');
 
     // (g) Report offline requests
     console.log(`\nTotal offline requests made: ${offlineRequests.length}`);

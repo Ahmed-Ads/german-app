@@ -1,0 +1,2312 @@
+[
+ {
+  "id": "verben.sein",
+  "level": "A1",
+  "n": "sein",
+  "ar": "يكون",
+  "s": "Ich bin müde.",
+  "sar": "أنا متعب.",
+  "note": "فعل شاذ. يُستعمل مع الصفات والمهن: Ich bin Arzt.",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "bin",
+   "bist",
+   "ist",
+   "sind",
+   "seid",
+   "sind"
+  ],
+  "pret": [
+   "war",
+   "warst",
+   "war",
+   "waren",
+   "wart",
+   "waren"
+  ],
+  "pp": "gewesen",
+  "perfekt": "ist gewesen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.haben",
+  "level": "A1",
+  "n": "haben",
+  "ar": "يملك / عنده",
+  "s": "Wir haben einen Hund.",
+  "sar": "عندنا كلب.",
+  "note": "يُستعمل أيضاً كفعل مساعد في Perfekt لمعظم الأفعال.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "habe",
+   "hast",
+   "hat",
+   "haben",
+   "habt",
+   "haben"
+  ],
+  "pret": [
+   "hatte",
+   "hattest",
+   "hatte",
+   "hatten",
+   "hattet",
+   "hatten"
+  ],
+  "pp": "gehabt",
+  "perfekt": "hat gehabt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.koennen",
+  "level": "A1",
+  "n": "können",
+  "ar": "يستطيع",
+  "s": "Ich kann gut schwimmen.",
+  "sar": "أستطيع السباحة جيداً.",
+  "note": "فعل مساعد (Modalverb): المصدر يأتي في آخر الجملة.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "kann",
+   "kannst",
+   "kann",
+   "können",
+   "könnt",
+   "können"
+  ],
+  "pret": [
+   "konnte",
+   "konntest",
+   "konnte",
+   "konnten",
+   "konntet",
+   "konnten"
+  ],
+  "pp": "gekonnt",
+  "perfekt": "hat gekonnt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.muessen",
+  "level": "A1",
+  "n": "müssen",
+  "ar": "يجب عليه",
+  "s": "Du musst heute lernen.",
+  "sar": "يجب أن تدرس اليوم.",
+  "note": "فعل مساعد: المصدر يأتي في آخر الجملة. nicht müssen = ليس مضطراً.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "muss",
+   "musst",
+   "muss",
+   "müssen",
+   "müsst",
+   "müssen"
+  ],
+  "pret": [
+   "musste",
+   "musstest",
+   "musste",
+   "mussten",
+   "musstet",
+   "mussten"
+  ],
+  "pp": "gemusst",
+  "perfekt": "hat gemusst",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.wollen",
+  "level": "A1",
+  "n": "wollen",
+  "ar": "يريد",
+  "s": "Er will einen Kaffee.",
+  "sar": "هو يريد قهوة.",
+  "note": "فعل مساعد: المصدر يأتي في آخر الجملة.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "will",
+   "willst",
+   "will",
+   "wollen",
+   "wollt",
+   "wollen"
+  ],
+  "pret": [
+   "wollte",
+   "wolltest",
+   "wollte",
+   "wollten",
+   "wolltet",
+   "wollten"
+  ],
+  "pp": "gewollt",
+  "perfekt": "hat gewollt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.duerfen",
+  "level": "A1",
+  "n": "dürfen",
+  "ar": "يُسمح له",
+  "s": "Darf ich hier sitzen?",
+  "sar": "هل يُسمح لي بالجلوس هنا؟",
+  "note": "فعل مساعد: nicht dürfen = ممنوع.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "darf",
+   "darfst",
+   "darf",
+   "dürfen",
+   "dürft",
+   "dürfen"
+  ],
+  "pret": [
+   "durfte",
+   "durftest",
+   "durfte",
+   "durften",
+   "durftet",
+   "durften"
+  ],
+  "pp": "gedurft",
+  "perfekt": "hat gedurft",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.sollen",
+  "level": "A1",
+  "n": "sollen",
+  "ar": "عليه أن / من المفترض",
+  "s": "Wir sollen um acht kommen.",
+  "sar": "من المفترض أن نأتي في الثامنة.",
+  "note": "فعل مساعد: يعبّر عن طلب من طرف آخر.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "soll",
+   "sollst",
+   "soll",
+   "sollen",
+   "sollt",
+   "sollen"
+  ],
+  "pret": [
+   "sollte",
+   "solltest",
+   "sollte",
+   "sollten",
+   "solltet",
+   "sollten"
+  ],
+  "pp": "gesollt",
+  "perfekt": "hat gesollt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.moegen",
+  "level": "A1",
+  "n": "mögen",
+  "ar": "يحب / يُعجبه",
+  "s": "Ich mag Tee.",
+  "sar": "أحب الشاي.",
+  "note": "للطلب المهذب استعمل: ich möchte (أودّ).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "mag",
+   "magst",
+   "mag",
+   "mögen",
+   "mögt",
+   "mögen"
+  ],
+  "pret": [
+   "mochte",
+   "mochtest",
+   "mochte",
+   "mochten",
+   "mochtet",
+   "mochten"
+  ],
+  "pp": "gemocht",
+  "perfekt": "hat gemocht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.wissen",
+  "level": "A1",
+  "n": "wissen",
+  "ar": "يعرف (معلومة)",
+  "s": "Ich weiß die Antwort nicht.",
+  "sar": "لا أعرف الإجابة.",
+  "note": "wissen للمعلومات، وkennen للأشخاص والأماكن.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "weiß",
+   "weißt",
+   "weiß",
+   "wissen",
+   "wisst",
+   "wissen"
+  ],
+  "pret": [
+   "wusste",
+   "wusstest",
+   "wusste",
+   "wussten",
+   "wusstet",
+   "wussten"
+  ],
+  "pp": "gewusst",
+  "perfekt": "hat gewusst",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.machen",
+  "level": "A1",
+  "n": "machen",
+  "ar": "يفعل / يصنع",
+  "s": "Was machst du heute?",
+  "sar": "ماذا تفعل اليوم؟",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "mache",
+   "machst",
+   "macht",
+   "machen",
+   "macht",
+   "machen"
+  ],
+  "pret": [
+   "machte",
+   "machtest",
+   "machte",
+   "machten",
+   "machtet",
+   "machten"
+  ],
+  "pp": "gemacht",
+  "perfekt": "hat gemacht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.gehen",
+  "level": "A1",
+  "n": "gehen",
+  "ar": "يذهب / يمشي",
+  "s": "Wir gehen nach Hause.",
+  "sar": "نذهب إلى البيت.",
+  "note": "Perfekt مع sein: ist gegangen.",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "gehe",
+   "gehst",
+   "geht",
+   "gehen",
+   "geht",
+   "gehen"
+  ],
+  "pret": [
+   "ging",
+   "gingst",
+   "ging",
+   "gingen",
+   "gingt",
+   "gingen"
+  ],
+  "pp": "gegangen",
+  "perfekt": "ist gegangen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.kommen",
+  "level": "A1",
+  "n": "kommen",
+  "ar": "يأتي",
+  "s": "Er kommt aus Ägypten.",
+  "sar": "هو من مصر.",
+  "note": "kommen aus + Dativ. Perfekt مع sein.",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "komme",
+   "kommst",
+   "kommt",
+   "kommen",
+   "kommt",
+   "kommen"
+  ],
+  "pret": [
+   "kam",
+   "kamst",
+   "kam",
+   "kamen",
+   "kamt",
+   "kamen"
+  ],
+  "pp": "gekommen",
+  "perfekt": "ist gekommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.fahren",
+  "level": "A1",
+  "n": "fahren",
+  "ar": "يسافر / يقود / يذهب بمركبة",
+  "s": "Ihr fahrt mit dem Bus.",
+  "sar": "أنتم تذهبون بالحافلة.",
+  "note": "fahren mit + Dativ. du fährst, er fährt (تغيّر a→ä). Perfekt مع sein.",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "fahre",
+   "fährst",
+   "fährt",
+   "fahren",
+   "fahrt",
+   "fahren"
+  ],
+  "pret": [
+   "fuhr",
+   "fuhrst",
+   "fuhr",
+   "fuhren",
+   "fuhrt",
+   "fuhren"
+  ],
+  "pp": "gefahren",
+  "perfekt": "ist gefahren",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.essen",
+  "level": "A1",
+  "n": "essen",
+  "ar": "يأكل",
+  "s": "Sie isst einen Apfel.",
+  "sar": "هي تأكل تفاحة.",
+  "note": "du isst, er isst (تغيّر e→i).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "esse",
+   "isst",
+   "isst",
+   "essen",
+   "esst",
+   "essen"
+  ],
+  "pret": [
+   "aß",
+   "aßest",
+   "aß",
+   "aßen",
+   "aßt",
+   "aßen"
+  ],
+  "pp": "gegessen",
+  "perfekt": "hat gegessen",
+  "pret_du_alt": "aßt"
+ },
+ {
+  "id": "verben.trinken",
+  "level": "A1",
+  "n": "trinken",
+  "ar": "يشرب",
+  "s": "Wir trinken Wasser.",
+  "sar": "نشرب الماء.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "trinke",
+   "trinkst",
+   "trinkt",
+   "trinken",
+   "trinkt",
+   "trinken"
+  ],
+  "pret": [
+   "trank",
+   "trankst",
+   "trank",
+   "tranken",
+   "trankt",
+   "tranken"
+  ],
+  "pp": "getrunken",
+  "perfekt": "hat getrunken",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.sprechen",
+  "level": "A1",
+  "n": "sprechen",
+  "ar": "يتكلم",
+  "s": "Sprichst du Deutsch?",
+  "sar": "هل تتكلم الألمانية؟",
+  "note": "du sprichst, er spricht (تغيّر e→i). sprechen mit + Dativ.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "spreche",
+   "sprichst",
+   "spricht",
+   "sprechen",
+   "sprecht",
+   "sprechen"
+  ],
+  "pret": [
+   "sprach",
+   "sprachst",
+   "sprach",
+   "sprachen",
+   "spracht",
+   "sprachen"
+  ],
+  "pp": "gesprochen",
+  "perfekt": "hat gesprochen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.sagen",
+  "level": "A1",
+  "n": "sagen",
+  "ar": "يقول",
+  "s": "Was sagt er?",
+  "sar": "ماذا يقول؟",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "sage",
+   "sagst",
+   "sagt",
+   "sagen",
+   "sagt",
+   "sagen"
+  ],
+  "pret": [
+   "sagte",
+   "sagtest",
+   "sagte",
+   "sagten",
+   "sagtet",
+   "sagten"
+  ],
+  "pp": "gesagt",
+  "perfekt": "hat gesagt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.lesen",
+  "level": "A1",
+  "n": "lesen",
+  "ar": "يقرأ",
+  "s": "Sie liest ein Buch.",
+  "sar": "هي تقرأ كتاباً.",
+  "note": "du liest, er liest (تغيّر e→ie).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "lese",
+   "liest",
+   "liest",
+   "lesen",
+   "lest",
+   "lesen"
+  ],
+  "pret": [
+   "las",
+   "lasest",
+   "las",
+   "lasen",
+   "last",
+   "lasen"
+  ],
+  "pp": "gelesen",
+  "perfekt": "hat gelesen",
+  "pret_du_alt": "last"
+ },
+ {
+  "id": "verben.schreiben",
+  "level": "A1",
+  "n": "schreiben",
+  "ar": "يكتب",
+  "s": "Ich schreibe eine E-Mail.",
+  "sar": "أكتب رسالة إلكترونية.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "schreibe",
+   "schreibst",
+   "schreibt",
+   "schreiben",
+   "schreibt",
+   "schreiben"
+  ],
+  "pret": [
+   "schrieb",
+   "schriebst",
+   "schrieb",
+   "schrieben",
+   "schriebt",
+   "schrieben"
+  ],
+  "pp": "geschrieben",
+  "perfekt": "hat geschrieben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.sehen",
+  "level": "A1",
+  "n": "sehen",
+  "ar": "يرى",
+  "s": "Siehst du das Haus?",
+  "sar": "هل ترى البيت؟",
+  "note": "du siehst, er sieht (تغيّر e→ie).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "sehe",
+   "siehst",
+   "sieht",
+   "sehen",
+   "seht",
+   "sehen"
+  ],
+  "pret": [
+   "sah",
+   "sahst",
+   "sah",
+   "sahen",
+   "saht",
+   "sahen"
+  ],
+  "pp": "gesehen",
+  "perfekt": "hat gesehen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.hoeren",
+  "level": "A1",
+  "n": "hören",
+  "ar": "يسمع",
+  "s": "Wir hören Musik.",
+  "sar": "نستمع إلى الموسيقى.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "höre",
+   "hörst",
+   "hört",
+   "hören",
+   "hört",
+   "hören"
+  ],
+  "pret": [
+   "hörte",
+   "hörtest",
+   "hörte",
+   "hörten",
+   "hörtet",
+   "hörten"
+  ],
+  "pp": "gehört",
+  "perfekt": "hat gehört",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.nehmen",
+  "level": "A1",
+  "n": "nehmen",
+  "ar": "يأخذ",
+  "s": "Ich nehme den Bus.",
+  "sar": "آخذ الحافلة.",
+  "note": "du nimmst, er nimmt (تغيّر الحروف).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "nehme",
+   "nimmst",
+   "nimmt",
+   "nehmen",
+   "nehmt",
+   "nehmen"
+  ],
+  "pret": [
+   "nahm",
+   "nahmst",
+   "nahm",
+   "nahmen",
+   "nahmt",
+   "nahmen"
+  ],
+  "pp": "genommen",
+  "perfekt": "hat genommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.geben",
+  "level": "A1",
+  "n": "geben",
+  "ar": "يعطي",
+  "s": "Er gibt mir ein Buch.",
+  "sar": "هو يعطيني كتاباً.",
+  "note": "du gibst, er gibt. es gibt = يوجد.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "gebe",
+   "gibst",
+   "gibt",
+   "geben",
+   "gebt",
+   "geben"
+  ],
+  "pret": [
+   "gab",
+   "gabst",
+   "gab",
+   "gaben",
+   "gabt",
+   "gaben"
+  ],
+  "pp": "gegeben",
+  "perfekt": "hat gegeben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.kaufen",
+  "level": "A1",
+  "n": "kaufen",
+  "ar": "يشتري",
+  "s": "Wir kaufen Brot und Milch.",
+  "sar": "نشتري الخبز والحليب.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "kaufe",
+   "kaufst",
+   "kauft",
+   "kaufen",
+   "kauft",
+   "kaufen"
+  ],
+  "pret": [
+   "kaufte",
+   "kauftest",
+   "kaufte",
+   "kauften",
+   "kauftet",
+   "kauften"
+  ],
+  "pp": "gekauft",
+  "perfekt": "hat gekauft",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.kosten",
+  "level": "A1",
+  "n": "kosten",
+  "ar": "يكلّف",
+  "s": "Was kostet das Brot?",
+  "sar": "كم يكلّف الخبز؟",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "koste",
+   "kostest",
+   "kostet",
+   "kosten",
+   "kostet",
+   "kosten"
+  ],
+  "pret": [
+   "kostete",
+   "kostetest",
+   "kostete",
+   "kosteten",
+   "kostetet",
+   "kosteten"
+  ],
+  "pp": "gekostet",
+  "perfekt": "hat gekostet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.wohnen",
+  "level": "A1",
+  "n": "wohnen",
+  "ar": "يسكن",
+  "s": "Ich wohne in Kairo.",
+  "sar": "أسكن في القاهرة.",
+  "note": "wohnen in + Dativ.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "wohne",
+   "wohnst",
+   "wohnt",
+   "wohnen",
+   "wohnt",
+   "wohnen"
+  ],
+  "pret": [
+   "wohnte",
+   "wohntest",
+   "wohnte",
+   "wohnten",
+   "wohntet",
+   "wohnten"
+  ],
+  "pp": "gewohnt",
+  "perfekt": "hat gewohnt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.arbeiten",
+  "level": "A1",
+  "n": "arbeiten",
+  "ar": "يعمل",
+  "s": "Meine Mutter arbeitet im Krankenhaus.",
+  "sar": "أمي تعمل في المستشفى.",
+  "note": "أضِف e قبل النهاية: du arbeitest, er arbeitet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "arbeite",
+   "arbeitest",
+   "arbeitet",
+   "arbeiten",
+   "arbeitet",
+   "arbeiten"
+  ],
+  "pret": [
+   "arbeitete",
+   "arbeitetest",
+   "arbeitete",
+   "arbeiteten",
+   "arbeitetet",
+   "arbeiteten"
+  ],
+  "pp": "gearbeitet",
+  "perfekt": "hat gearbeitet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.lernen",
+  "level": "A1",
+  "n": "lernen",
+  "ar": "يتعلم / يدرس",
+  "s": "Ihr lernt jeden Tag Deutsch.",
+  "sar": "أنتم تتعلمون الألمانية كل يوم.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "lerne",
+   "lernst",
+   "lernt",
+   "lernen",
+   "lernt",
+   "lernen"
+  ],
+  "pret": [
+   "lernte",
+   "lerntest",
+   "lernte",
+   "lernten",
+   "lerntet",
+   "lernten"
+  ],
+  "pp": "gelernt",
+  "perfekt": "hat gelernt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.spielen",
+  "level": "A1",
+  "n": "spielen",
+  "ar": "يلعب",
+  "s": "Die Kinder spielen im Park.",
+  "sar": "الأطفال يلعبون في الحديقة.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "spiele",
+   "spielst",
+   "spielt",
+   "spielen",
+   "spielt",
+   "spielen"
+  ],
+  "pret": [
+   "spielte",
+   "spieltest",
+   "spielte",
+   "spielten",
+   "spieltet",
+   "spielten"
+  ],
+  "pp": "gespielt",
+  "perfekt": "hat gespielt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.kochen",
+  "level": "A1",
+  "n": "kochen",
+  "ar": "يطبخ",
+  "s": "Ich koche heute Reis.",
+  "sar": "أطبخ الأرز اليوم.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "koche",
+   "kochst",
+   "kocht",
+   "kochen",
+   "kocht",
+   "kochen"
+  ],
+  "pret": [
+   "kochte",
+   "kochtest",
+   "kochte",
+   "kochten",
+   "kochtet",
+   "kochten"
+  ],
+  "pp": "gekocht",
+  "perfekt": "hat gekocht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.heissen",
+  "level": "A1",
+  "n": "heißen",
+  "ar": "اسمه",
+  "s": "Ich heiße Ahmed.",
+  "sar": "اسمي أحمد.",
+  "note": "du heißt (بلا s إضافية).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "heiße",
+   "heißt",
+   "heißt",
+   "heißen",
+   "heißt",
+   "heißen"
+  ],
+  "pret": [
+   "hieß",
+   "hießest",
+   "hieß",
+   "hießen",
+   "hießt",
+   "hießen"
+  ],
+  "pp": "geheißen",
+  "perfekt": "hat geheißen",
+  "pret_du_alt": "hießt"
+ },
+ {
+  "id": "verben.bleiben",
+  "level": "A1",
+  "n": "bleiben",
+  "ar": "يبقى",
+  "s": "Wir bleiben heute zu Hause.",
+  "sar": "نبقى في البيت اليوم.",
+  "note": "Perfekt مع sein: ist geblieben.",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "bleibe",
+   "bleibst",
+   "bleibt",
+   "bleiben",
+   "bleibt",
+   "bleiben"
+  ],
+  "pret": [
+   "blieb",
+   "bliebst",
+   "blieb",
+   "blieben",
+   "bliebt",
+   "blieben"
+  ],
+  "pp": "geblieben",
+  "perfekt": "ist geblieben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.finden",
+  "level": "A1",
+  "n": "finden",
+  "ar": "يجد",
+  "s": "Ich finde meinen Schlüssel nicht.",
+  "sar": "لا أجد مفتاحي.",
+  "note": "du findest, er findet (e قبل النهاية).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "finde",
+   "findest",
+   "findet",
+   "finden",
+   "findet",
+   "finden"
+  ],
+  "pret": [
+   "fand",
+   "fandest",
+   "fand",
+   "fanden",
+   "fandet",
+   "fanden"
+  ],
+  "pp": "gefunden",
+  "perfekt": "hat gefunden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.brauchen",
+  "level": "A1",
+  "n": "brauchen",
+  "ar": "يحتاج",
+  "s": "Ich brauche ein Taxi.",
+  "sar": "أحتاج إلى سيارة أجرة.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "brauche",
+   "brauchst",
+   "braucht",
+   "brauchen",
+   "braucht",
+   "brauchen"
+  ],
+  "pret": [
+   "brauchte",
+   "brauchtest",
+   "brauchte",
+   "brauchten",
+   "brauchtet",
+   "brauchten"
+  ],
+  "pp": "gebraucht",
+  "perfekt": "hat gebraucht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.fragen",
+  "level": "A1",
+  "n": "fragen",
+  "ar": "يسأل",
+  "s": "Ich frage den Lehrer.",
+  "sar": "أسأل المعلم.",
+  "note": "fragen + Akkusativ.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "frage",
+   "fragst",
+   "fragt",
+   "fragen",
+   "fragt",
+   "fragen"
+  ],
+  "pret": [
+   "fragte",
+   "fragtest",
+   "fragte",
+   "fragten",
+   "fragtet",
+   "fragten"
+  ],
+  "pp": "gefragt",
+  "perfekt": "hat gefragt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.antworten",
+  "level": "A1",
+  "n": "antworten",
+  "ar": "يجيب",
+  "s": "Er antwortet nicht.",
+  "sar": "هو لا يجيب.",
+  "note": "antworten + Dativ؛ antworten auf + Akkusativ.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "antworte",
+   "antwortest",
+   "antwortet",
+   "antworten",
+   "antwortet",
+   "antworten"
+  ],
+  "pret": [
+   "antwortete",
+   "antwortetest",
+   "antwortete",
+   "antworteten",
+   "antwortetet",
+   "antworteten"
+  ],
+  "pp": "geantwortet",
+  "perfekt": "hat geantwortet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.leben",
+  "level": "A1",
+  "n": "leben",
+  "ar": "يعيش",
+  "s": "Meine Großeltern leben auf dem Land.",
+  "sar": "أجدادي يعيشون في الريف.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "lebe",
+   "lebst",
+   "lebt",
+   "leben",
+   "lebt",
+   "leben"
+  ],
+  "pret": [
+   "lebte",
+   "lebtest",
+   "lebte",
+   "lebten",
+   "lebtet",
+   "lebten"
+  ],
+  "pp": "gelebt",
+  "perfekt": "hat gelebt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.suchen",
+  "level": "A1",
+  "n": "suchen",
+  "ar": "يبحث عن",
+  "s": "Du suchst deine Tasche.",
+  "sar": "أنت تبحث عن حقيبتك.",
+  "note": "suchen + Akkusativ (بلا حرف جر).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "suche",
+   "suchst",
+   "sucht",
+   "suchen",
+   "sucht",
+   "suchen"
+  ],
+  "pret": [
+   "suchte",
+   "suchtest",
+   "suchte",
+   "suchten",
+   "suchtet",
+   "suchten"
+  ],
+  "pp": "gesucht",
+  "perfekt": "hat gesucht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.oeffnen",
+  "level": "A1",
+  "n": "öffnen",
+  "ar": "يفتح",
+  "s": "Ich öffne das Fenster.",
+  "sar": "أفتح النافذة.",
+  "note": "du öffnest, er öffnet (e قبل النهاية).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "öffne",
+   "öffnest",
+   "öffnet",
+   "öffnen",
+   "öffnet",
+   "öffnen"
+  ],
+  "pret": [
+   "öffnete",
+   "öffnetest",
+   "öffnete",
+   "öffneten",
+   "öffnetet",
+   "öffneten"
+  ],
+  "pp": "geöffnet",
+  "perfekt": "hat geöffnet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.schliessen",
+  "level": "A1",
+  "n": "schließen",
+  "ar": "يغلق",
+  "s": "Sie schließt die Tür.",
+  "sar": "هي تغلق الباب.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "schließe",
+   "schließt",
+   "schließt",
+   "schließen",
+   "schließt",
+   "schließen"
+  ],
+  "pret": [
+   "schloss",
+   "schlossest",
+   "schloss",
+   "schlossen",
+   "schlosst",
+   "schlossen"
+  ],
+  "pp": "geschlossen",
+  "perfekt": "hat geschlossen",
+  "pret_du_alt": "schlosst"
+ },
+ {
+  "id": "verben.warten",
+  "level": "A1",
+  "n": "warten",
+  "ar": "ينتظر",
+  "s": "Wir warten auf den Bus.",
+  "sar": "ننتظر الحافلة.",
+  "note": "warten auf + Akkusativ.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "warte",
+   "wartest",
+   "wartet",
+   "warten",
+   "wartet",
+   "warten"
+  ],
+  "pret": [
+   "wartete",
+   "wartetest",
+   "wartete",
+   "warteten",
+   "wartetet",
+   "warteten"
+  ],
+  "pp": "gewartet",
+  "perfekt": "hat gewartet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.bringen",
+  "level": "A1",
+  "n": "bringen",
+  "ar": "يُحضر",
+  "s": "Ich bringe dir einen Tee.",
+  "sar": "أحضر لك شاياً.",
+  "note": "فعل مختلط: brachte / gebracht.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "bringe",
+   "bringst",
+   "bringt",
+   "bringen",
+   "bringt",
+   "bringen"
+  ],
+  "pret": [
+   "brachte",
+   "brachtest",
+   "brachte",
+   "brachten",
+   "brachtet",
+   "brachten"
+  ],
+  "pp": "gebracht",
+  "perfekt": "hat gebracht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.treffen",
+  "level": "A1",
+  "n": "treffen",
+  "ar": "يقابل",
+  "s": "Wir treffen Freunde am Samstag.",
+  "sar": "نقابل أصدقاء يوم السبت.",
+  "note": "du triffst, er trifft (تغيّر e→i).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "treffe",
+   "triffst",
+   "trifft",
+   "treffen",
+   "trefft",
+   "treffen"
+  ],
+  "pret": [
+   "traf",
+   "trafst",
+   "traf",
+   "trafen",
+   "traft",
+   "trafen"
+  ],
+  "pp": "getroffen",
+  "perfekt": "hat getroffen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.besuchen",
+  "level": "A1",
+  "n": "besuchen",
+  "ar": "يزور",
+  "s": "Ich besuche meine Tante.",
+  "sar": "أزور عمتي (أو خالتي).",
+  "note": "بادئة be- غير منفصلة: Partizip بلا ge (besucht).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "besuche",
+   "besuchst",
+   "besucht",
+   "besuchen",
+   "besucht",
+   "besuchen"
+  ],
+  "pret": [
+   "besuchte",
+   "besuchtest",
+   "besuchte",
+   "besuchten",
+   "besuchtet",
+   "besuchten"
+  ],
+  "pp": "besucht",
+  "perfekt": "hat besucht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.bestellen",
+  "level": "A1",
+  "n": "bestellen",
+  "ar": "يطلب (طعاماً أو بضاعة)",
+  "s": "Wir bestellen eine Pizza.",
+  "sar": "نطلب بيتزا.",
+  "note": "بادئة be- غير منفصلة: Partizip بلا ge (bestellt).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "bestelle",
+   "bestellst",
+   "bestellt",
+   "bestellen",
+   "bestellt",
+   "bestellen"
+  ],
+  "pret": [
+   "bestellte",
+   "bestelltest",
+   "bestellte",
+   "bestellten",
+   "bestelltet",
+   "bestellten"
+  ],
+  "pp": "bestellt",
+  "perfekt": "hat bestellt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.bezahlen",
+  "level": "A1",
+  "n": "bezahlen",
+  "ar": "يدفع",
+  "s": "Ich bezahle mit Karte.",
+  "sar": "أدفع بالبطاقة.",
+  "note": "بادئة be- غير منفصلة: Partizip بلا ge (bezahlt).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "bezahle",
+   "bezahlst",
+   "bezahlt",
+   "bezahlen",
+   "bezahlt",
+   "bezahlen"
+  ],
+  "pret": [
+   "bezahlte",
+   "bezahltest",
+   "bezahlte",
+   "bezahlten",
+   "bezahltet",
+   "bezahlten"
+  ],
+  "pp": "bezahlt",
+  "perfekt": "hat bezahlt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.tanzen",
+  "level": "A1",
+  "n": "tanzen",
+  "ar": "يرقص",
+  "s": "Sie tanzt sehr gut.",
+  "sar": "هي ترقص جيداً جداً.",
+  "note": "du tanzt (بلا s إضافية).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "tanze",
+   "tanzt",
+   "tanzt",
+   "tanzen",
+   "tanzt",
+   "tanzen"
+  ],
+  "pret": [
+   "tanzte",
+   "tanztest",
+   "tanzte",
+   "tanzten",
+   "tanztet",
+   "tanzten"
+  ],
+  "pp": "getanzt",
+  "perfekt": "hat getanzt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.reisen",
+  "level": "A1",
+  "n": "reisen",
+  "ar": "يسافر",
+  "s": "Wir reisen im Sommer nach Berlin.",
+  "sar": "نسافر في الصيف إلى برلين.",
+  "note": "Perfekt مع sein: ist gereist.",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "reise",
+   "reist",
+   "reist",
+   "reisen",
+   "reist",
+   "reisen"
+  ],
+  "pret": [
+   "reiste",
+   "reistest",
+   "reiste",
+   "reisten",
+   "reistet",
+   "reisten"
+  ],
+  "pp": "gereist",
+  "perfekt": "ist gereist",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.telefonieren",
+  "level": "A1",
+  "n": "telefonieren",
+  "ar": "يتحدث بالهاتف",
+  "s": "Mein Bruder telefoniert oft.",
+  "sar": "أخي يتحدث في الهاتف كثيراً.",
+  "note": "الأفعال المنتهية بـ -ieren: Partizip بلا ge (telefoniert).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "telefoniere",
+   "telefonierst",
+   "telefoniert",
+   "telefonieren",
+   "telefoniert",
+   "telefonieren"
+  ],
+  "pret": [
+   "telefonierte",
+   "telefoniertest",
+   "telefonierte",
+   "telefonierten",
+   "telefoniertet",
+   "telefonierten"
+  ],
+  "pp": "telefoniert",
+  "perfekt": "hat telefoniert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.studieren",
+  "level": "A1",
+  "n": "studieren",
+  "ar": "يدرس في الجامعة",
+  "s": "Sie studiert Medizin.",
+  "sar": "هي تدرس الطب.",
+  "note": "الأفعال المنتهية بـ -ieren: Partizip بلا ge (studiert).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "studiere",
+   "studierst",
+   "studiert",
+   "studieren",
+   "studiert",
+   "studieren"
+  ],
+  "pret": [
+   "studierte",
+   "studiertest",
+   "studierte",
+   "studierten",
+   "studiertet",
+   "studierten"
+  ],
+  "pp": "studiert",
+  "perfekt": "hat studiert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.fruehstuecken",
+  "level": "A1",
+  "n": "frühstücken",
+  "ar": "يتناول الفطور",
+  "s": "Wir frühstücken um sieben Uhr.",
+  "sar": "نفطر في الساعة السابعة.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "frühstücke",
+   "frühstückst",
+   "frühstückt",
+   "frühstücken",
+   "frühstückt",
+   "frühstücken"
+  ],
+  "pret": [
+   "frühstückte",
+   "frühstücktest",
+   "frühstückte",
+   "frühstückten",
+   "frühstücktet",
+   "frühstückten"
+  ],
+  "pp": "gefrühstückt",
+  "perfekt": "hat gefrühstückt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.regnen",
+  "level": "A1",
+  "n": "regnen",
+  "ar": "تمطر",
+  "s": "Es regnet heute.",
+  "sar": "تمطر اليوم.",
+  "note": "فعل بفاعل شكلي es فقط: es regnet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "regne",
+   "regnest",
+   "regnet",
+   "regnen",
+   "regnet",
+   "regnen"
+  ],
+  "pret": [
+   "regnete",
+   "regnetest",
+   "regnete",
+   "regneten",
+   "regnetet",
+   "regneten"
+  ],
+  "pp": "geregnet",
+  "perfekt": "hat geregnet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.schmecken",
+  "level": "A1",
+  "n": "schmecken",
+  "ar": "طعمه",
+  "s": "Die Suppe schmeckt gut.",
+  "sar": "الشوربة طعمها جيد.",
+  "note": "schmecken + Dativ: Das schmeckt mir.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "schmecke",
+   "schmeckst",
+   "schmeckt",
+   "schmecken",
+   "schmeckt",
+   "schmecken"
+  ],
+  "pret": [
+   "schmeckte",
+   "schmecktest",
+   "schmeckte",
+   "schmeckten",
+   "schmecktet",
+   "schmeckten"
+  ],
+  "pp": "geschmeckt",
+  "perfekt": "hat geschmeckt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.gefallen",
+  "level": "A1",
+  "n": "gefallen",
+  "ar": "يُعجبه",
+  "s": "Das Haus gefällt mir.",
+  "sar": "البيت يعجبني.",
+  "note": "gefallen + Dativ: الشيء هو الفاعل، والشخص في Dativ.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "gefalle",
+   "gefällst",
+   "gefällt",
+   "gefallen",
+   "gefallt",
+   "gefallen"
+  ],
+  "pret": [
+   "gefiel",
+   "gefielst",
+   "gefiel",
+   "gefielen",
+   "gefielt",
+   "gefielen"
+  ],
+  "pp": "gefallen",
+  "perfekt": "hat gefallen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.verstehen",
+  "level": "A1",
+  "n": "verstehen",
+  "ar": "يفهم",
+  "s": "Ich verstehe dich nicht.",
+  "sar": "لا أفهمك.",
+  "note": "بادئة ver- غير منفصلة: Partizip بلا ge (verstanden).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "verstehe",
+   "verstehst",
+   "versteht",
+   "verstehen",
+   "versteht",
+   "verstehen"
+  ],
+  "pret": [
+   "verstand",
+   "verstandest",
+   "verstand",
+   "verstanden",
+   "verstandet",
+   "verstanden"
+  ],
+  "pp": "verstanden",
+  "perfekt": "hat verstanden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.singen",
+  "level": "A1",
+  "n": "singen",
+  "ar": "يغني",
+  "s": "Wir singen ein Lied.",
+  "sar": "نغني أغنية.",
+  "note": "",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "singe",
+   "singst",
+   "singt",
+   "singen",
+   "singt",
+   "singen"
+  ],
+  "pret": [
+   "sang",
+   "sangst",
+   "sang",
+   "sangen",
+   "sangt",
+   "sangen"
+  ],
+  "pp": "gesungen",
+  "perfekt": "hat gesungen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.schwimmen",
+  "level": "A1",
+  "n": "schwimmen",
+  "ar": "يسبح",
+  "s": "Er schwimmt jeden Tag.",
+  "sar": "هو يسبح كل يوم.",
+  "note": "Perfekt مع sein: ist geschwommen.",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "schwimme",
+   "schwimmst",
+   "schwimmt",
+   "schwimmen",
+   "schwimmt",
+   "schwimmen"
+  ],
+  "pret": [
+   "schwamm",
+   "schwammst",
+   "schwamm",
+   "schwammen",
+   "schwammt",
+   "schwammen"
+  ],
+  "pp": "geschwommen",
+  "perfekt": "ist geschwommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.laufen",
+  "level": "A1",
+  "n": "laufen",
+  "ar": "يجري / يمشي",
+  "s": "Du läufst schnell.",
+  "sar": "أنت تجري بسرعة.",
+  "note": "du läufst, er läuft (تغيّر au→äu). Perfekt مع sein.",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "laufe",
+   "läufst",
+   "läuft",
+   "laufen",
+   "lauft",
+   "laufen"
+  ],
+  "pret": [
+   "lief",
+   "liefst",
+   "lief",
+   "liefen",
+   "lieft",
+   "liefen"
+  ],
+  "pp": "gelaufen",
+  "perfekt": "ist gelaufen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.schlafen",
+  "level": "A1",
+  "n": "schlafen",
+  "ar": "ينام",
+  "s": "Ich schlafe acht Stunden.",
+  "sar": "أنام ثماني ساعات.",
+  "note": "du schläfst, er schläft (تغيّر a→ä).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "schlafe",
+   "schläfst",
+   "schläft",
+   "schlafen",
+   "schlaft",
+   "schlafen"
+  ],
+  "pret": [
+   "schlief",
+   "schliefst",
+   "schlief",
+   "schliefen",
+   "schlieft",
+   "schliefen"
+  ],
+  "pp": "geschlafen",
+  "perfekt": "hat geschlafen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.stehen",
+  "level": "A1",
+  "n": "stehen",
+  "ar": "يقف / يوجد (قائماً)",
+  "s": "Das Auto steht vor dem Haus.",
+  "sar": "السيارة واقفة أمام البيت.",
+  "note": "فعل موضع: يأتي معه مكان في Dativ. Perfekt: hat gestanden (في الجنوب: ist gestanden).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "stehe",
+   "stehst",
+   "steht",
+   "stehen",
+   "steht",
+   "stehen"
+  ],
+  "pret": [
+   "stand",
+   "standest",
+   "stand",
+   "standen",
+   "standet",
+   "standen"
+  ],
+  "pp": "gestanden",
+  "perfekt": "hat gestanden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.sitzen",
+  "level": "A1",
+  "n": "sitzen",
+  "ar": "يجلس",
+  "s": "Wir sitzen im Garten.",
+  "sar": "نجلس في الحديقة.",
+  "note": "فعل موضع: يأتي معه مكان في Dativ. Perfekt: hat gesessen (في الجنوب: ist gesessen).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "sitze",
+   "sitzt",
+   "sitzt",
+   "sitzen",
+   "sitzt",
+   "sitzen"
+  ],
+  "pret": [
+   "saß",
+   "saßest",
+   "saß",
+   "saßen",
+   "saßt",
+   "saßen"
+  ],
+  "pp": "gesessen",
+  "perfekt": "hat gesessen",
+  "pret_du_alt": "saßt"
+ },
+ {
+  "id": "verben.liegen",
+  "level": "A1",
+  "n": "liegen",
+  "ar": "يوجد (مستلقياً) / يقع",
+  "s": "Das Buch liegt auf dem Tisch.",
+  "sar": "الكتاب على الطاولة.",
+  "note": "فعل موضع: يأتي معه مكان في Dativ.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "liege",
+   "liegst",
+   "liegt",
+   "liegen",
+   "liegt",
+   "liegen"
+  ],
+  "pret": [
+   "lag",
+   "lagst",
+   "lag",
+   "lagen",
+   "lagt",
+   "lagen"
+  ],
+  "pp": "gelegen",
+  "perfekt": "hat gelegen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.kennen",
+  "level": "A1",
+  "n": "kennen",
+  "ar": "يعرف (شخصاً أو مكاناً)",
+  "s": "Kennst du Mona?",
+  "sar": "هل تعرف منى؟",
+  "note": "kennen للأشخاص والأماكن، وwissen للمعلومات. فعل مختلط: kannte / gekannt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "kenne",
+   "kennst",
+   "kennt",
+   "kennen",
+   "kennt",
+   "kennen"
+  ],
+  "pret": [
+   "kannte",
+   "kanntest",
+   "kannte",
+   "kannten",
+   "kanntet",
+   "kannten"
+  ],
+  "pp": "gekannt",
+  "perfekt": "hat gekannt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.helfen",
+  "level": "A1",
+  "n": "helfen",
+  "ar": "يساعد",
+  "s": "Ich helfe meiner Mutter.",
+  "sar": "أساعد أمي.",
+  "note": "helfen + Dativ. du hilfst, er hilft (تغيّر e→i).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "helfe",
+   "hilfst",
+   "hilft",
+   "helfen",
+   "helft",
+   "helfen"
+  ],
+  "pret": [
+   "half",
+   "halfst",
+   "half",
+   "halfen",
+   "halft",
+   "halfen"
+  ],
+  "pp": "geholfen",
+  "perfekt": "hat geholfen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.aufstehen",
+  "level": "A1",
+  "n": "aufstehen",
+  "ar": "يستيقظ / ينهض",
+  "s": "Ich stehe um sechs Uhr auf.",
+  "sar": "أستيقظ في الساعة السادسة.",
+  "note": "فعل منفصل: «auf» تذهب إلى آخر الجملة. Perfekt مع sein.",
+  "sep": "auf",
+  "aux": "sein",
+  "pres": [
+   "stehe auf",
+   "stehst auf",
+   "steht auf",
+   "stehen auf",
+   "steht auf",
+   "stehen auf"
+  ],
+  "pret": [
+   "stand auf",
+   "standest auf",
+   "stand auf",
+   "standen auf",
+   "standet auf",
+   "standen auf"
+  ],
+  "pp": "aufgestanden",
+  "perfekt": "ist aufgestanden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.einkaufen",
+  "level": "A1",
+  "n": "einkaufen",
+  "ar": "يتسوق",
+  "s": "Wir kaufen im Supermarkt ein.",
+  "sar": "نتسوق في السوبر ماركت.",
+  "note": "فعل منفصل: «ein» تذهب إلى آخر الجملة.",
+  "sep": "ein",
+  "aux": "haben",
+  "pres": [
+   "kaufe ein",
+   "kaufst ein",
+   "kauft ein",
+   "kaufen ein",
+   "kauft ein",
+   "kaufen ein"
+  ],
+  "pret": [
+   "kaufte ein",
+   "kauftest ein",
+   "kaufte ein",
+   "kauften ein",
+   "kauftet ein",
+   "kauften ein"
+  ],
+  "pp": "eingekauft",
+  "perfekt": "hat eingekauft",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.anrufen",
+  "level": "A1",
+  "n": "anrufen",
+  "ar": "يتصل هاتفياً",
+  "s": "Er ruft seine Mutter an.",
+  "sar": "هو يتصل بأمه.",
+  "note": "فعل منفصل + Akkusativ: jemanden anrufen.",
+  "sep": "an",
+  "aux": "haben",
+  "pres": [
+   "rufe an",
+   "rufst an",
+   "ruft an",
+   "rufen an",
+   "ruft an",
+   "rufen an"
+  ],
+  "pret": [
+   "rief an",
+   "riefst an",
+   "rief an",
+   "riefen an",
+   "rieft an",
+   "riefen an"
+  ],
+  "pp": "angerufen",
+  "perfekt": "hat angerufen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.ankommen",
+  "level": "A1",
+  "n": "ankommen",
+  "ar": "يصل",
+  "s": "Der Zug kommt um acht Uhr an.",
+  "sar": "يصل القطار في الساعة الثامنة.",
+  "note": "فعل منفصل. Perfekt مع sein.",
+  "sep": "an",
+  "aux": "sein",
+  "pres": [
+   "komme an",
+   "kommst an",
+   "kommt an",
+   "kommen an",
+   "kommt an",
+   "kommen an"
+  ],
+  "pret": [
+   "kam an",
+   "kamst an",
+   "kam an",
+   "kamen an",
+   "kamt an",
+   "kamen an"
+  ],
+  "pp": "angekommen",
+  "perfekt": "ist angekommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.abfahren",
+  "level": "A1",
+  "n": "abfahren",
+  "ar": "يغادر (مركبة)",
+  "s": "Der Bus fährt um neun Uhr ab.",
+  "sar": "تغادر الحافلة في الساعة التاسعة.",
+  "note": "فعل منفصل. Perfekt مع sein.",
+  "sep": "ab",
+  "aux": "sein",
+  "pres": [
+   "fahre ab",
+   "fährst ab",
+   "fährt ab",
+   "fahren ab",
+   "fahrt ab",
+   "fahren ab"
+  ],
+  "pret": [
+   "fuhr ab",
+   "fuhrst ab",
+   "fuhr ab",
+   "fuhren ab",
+   "fuhrt ab",
+   "fuhren ab"
+  ],
+  "pp": "abgefahren",
+  "perfekt": "ist abgefahren",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.aufmachen",
+  "level": "A1",
+  "n": "aufmachen",
+  "ar": "يفتح",
+  "s": "Er macht die Tür auf.",
+  "sar": "هو يفتح الباب.",
+  "note": "فعل منفصل: «auf» تذهب إلى آخر الجملة.",
+  "sep": "auf",
+  "aux": "haben",
+  "pres": [
+   "mache auf",
+   "machst auf",
+   "macht auf",
+   "machen auf",
+   "macht auf",
+   "machen auf"
+  ],
+  "pret": [
+   "machte auf",
+   "machtest auf",
+   "machte auf",
+   "machten auf",
+   "machtet auf",
+   "machten auf"
+  ],
+  "pp": "aufgemacht",
+  "perfekt": "hat aufgemacht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.zumachen",
+  "level": "A1",
+  "n": "zumachen",
+  "ar": "يغلق",
+  "s": "Ich mache die Tür zu.",
+  "sar": "أغلق الباب.",
+  "note": "فعل منفصل: «zu» تذهب إلى آخر الجملة.",
+  "sep": "zu",
+  "aux": "haben",
+  "pres": [
+   "mache zu",
+   "machst zu",
+   "macht zu",
+   "machen zu",
+   "macht zu",
+   "machen zu"
+  ],
+  "pret": [
+   "machte zu",
+   "machtest zu",
+   "machte zu",
+   "machten zu",
+   "machtet zu",
+   "machten zu"
+  ],
+  "pp": "zugemacht",
+  "perfekt": "hat zugemacht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.mitkommen",
+  "level": "A1",
+  "n": "mitkommen",
+  "ar": "يأتي معنا",
+  "s": "Kommst du mit?",
+  "sar": "هل تأتي معنا؟",
+  "note": "فعل منفصل. Perfekt مع sein.",
+  "sep": "mit",
+  "aux": "sein",
+  "pres": [
+   "komme mit",
+   "kommst mit",
+   "kommt mit",
+   "kommen mit",
+   "kommt mit",
+   "kommen mit"
+  ],
+  "pret": [
+   "kam mit",
+   "kamst mit",
+   "kam mit",
+   "kamen mit",
+   "kamt mit",
+   "kamen mit"
+  ],
+  "pp": "mitgekommen",
+  "perfekt": "ist mitgekommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.einsteigen",
+  "level": "A1",
+  "n": "einsteigen",
+  "ar": "يركب",
+  "s": "Wir steigen in den Bus ein.",
+  "sar": "نركب الحافلة.",
+  "note": "فعل منفصل. Perfekt مع sein.",
+  "sep": "ein",
+  "aux": "sein",
+  "pres": [
+   "steige ein",
+   "steigst ein",
+   "steigt ein",
+   "steigen ein",
+   "steigt ein",
+   "steigen ein"
+  ],
+  "pret": [
+   "stieg ein",
+   "stiegst ein",
+   "stieg ein",
+   "stiegen ein",
+   "stiegt ein",
+   "stiegen ein"
+  ],
+  "pp": "eingestiegen",
+  "perfekt": "ist eingestiegen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.aussteigen",
+  "level": "A1",
+  "n": "aussteigen",
+  "ar": "ينزل (من مركبة)",
+  "s": "Ich steige am Bahnhof aus.",
+  "sar": "أنزل في المحطة.",
+  "note": "فعل منفصل. Perfekt مع sein.",
+  "sep": "aus",
+  "aux": "sein",
+  "pres": [
+   "steige aus",
+   "steigst aus",
+   "steigt aus",
+   "steigen aus",
+   "steigt aus",
+   "steigen aus"
+  ],
+  "pret": [
+   "stieg aus",
+   "stiegst aus",
+   "stieg aus",
+   "stiegen aus",
+   "stiegt aus",
+   "stiegen aus"
+  ],
+  "pp": "ausgestiegen",
+  "perfekt": "ist ausgestiegen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.anfangen",
+  "level": "A1",
+  "n": "anfangen",
+  "ar": "يبدأ",
+  "s": "Der Kurs fängt um neun Uhr an.",
+  "sar": "يبدأ الدرس في التاسعة.",
+  "note": "فعل منفصل.",
+  "sep": "an",
+  "aux": "haben",
+  "pres": [
+   "fange an",
+   "fängst an",
+   "fängt an",
+   "fangen an",
+   "fangt an",
+   "fangen an"
+  ],
+  "pret": [
+   "fing an",
+   "fingst an",
+   "fing an",
+   "fingen an",
+   "fingt an",
+   "fingen an"
+  ],
+  "pp": "angefangen",
+  "perfekt": "hat angefangen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.fernsehen",
+  "level": "A1",
+  "n": "fernsehen",
+  "ar": "يشاهد التلفاز",
+  "s": "Wir sehen am Abend fern.",
+  "sar": "نشاهد التلفزيون في المساء.",
+  "note": "فعل منفصل: du siehst fern.",
+  "sep": "fern",
+  "aux": "haben",
+  "pres": [
+   "sehe fern",
+   "siehst fern",
+   "sieht fern",
+   "sehen fern",
+   "seht fern",
+   "sehen fern"
+  ],
+  "pret": [
+   "sah fern",
+   "sahst fern",
+   "sah fern",
+   "sahen fern",
+   "saht fern",
+   "sahen fern"
+  ],
+  "pp": "ferngesehen",
+  "perfekt": "hat ferngesehen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.kennenlernen",
+  "level": "A1",
+  "n": "kennenlernen",
+  "ar": "يتعرف على",
+  "s": "Ich lerne neue Freunde kennen.",
+  "sar": "أتعرف على أصدقاء جدد.",
+  "note": "فعل منفصل: Partizip kennengelernt.",
+  "sep": "kennen",
+  "aux": "haben",
+  "pres": [
+   "lerne kennen",
+   "lernst kennen",
+   "lernt kennen",
+   "lernen kennen",
+   "lernt kennen",
+   "lernen kennen"
+  ],
+  "pret": [
+   "lernte kennen",
+   "lerntest kennen",
+   "lernte kennen",
+   "lernten kennen",
+   "lerntet kennen",
+   "lernten kennen"
+  ],
+  "pp": "kennengelernt",
+  "perfekt": "hat kennengelernt",
+  "pret_du_alt": null
+ }
+]

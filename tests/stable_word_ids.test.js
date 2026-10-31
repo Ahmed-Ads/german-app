@@ -54,8 +54,8 @@ describe('Stable Word IDs: Specification & Integrity (Item 1 & 3)', () => {
 
     const totalWordsExpected = CATEGORIES.reduce((s, c) => s + c.words.length, 0);
     expect(totalWords).toBe(totalWordsExpected);
-    expect(totalWords).toBe(952);
-    expect(allIds.size).toBe(952);
+    expect(totalWords).toBe(1029);
+    expect(allIds.size).toBe(1029);
   });
 
   it('no active word ID is in vocab_ids_retired.json', () => {
@@ -73,7 +73,7 @@ describe('Legacy Mapping & Order Preservation (Item 2)', () => {
     const legacyMap = SyncMergePolicy.LEGACY_INDEX_IDS;
     expect(legacyMap).toBeDefined();
 
-    const catIds = CATEGORIES.map(c => c.id);
+    const catIds = CATEGORIES.filter(c => c.id !== 'verben').map(c => c.id);
     expect(Object.keys(legacyMap).sort()).toEqual(catIds.slice().sort());
 
     const retiredSet = new Set(retiredIds);
@@ -81,7 +81,7 @@ describe('Legacy Mapping & Order Preservation (Item 2)', () => {
     let activeMappedCount = 0;
     let retiredMappedCount = 0;
 
-    for (const cat of CATEGORIES) {
+    for (const cat of CATEGORIES.filter(c => c.id !== 'verben')) {
       const list = legacyMap[cat.id];
       expect(Array.isArray(list)).toBe(true);
       mappedCount += list.length;
@@ -115,7 +115,7 @@ describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () =>
     const legacyStarred = [];
     const legacySrs = {};
 
-    for (const cat of CATEGORIES) {
+    for (const cat of CATEGORIES.filter(c => c.id !== 'verben')) {
       const list = legacyMap[cat.id];
       legacyProgress[cat.id] = {
         mcq: { unlocked: list.length, counts: {} },
@@ -144,7 +144,7 @@ describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () =>
     expect(migrated.stats).toEqual(legacyPayload.stats);
     expect(migrated.dailyGoal).toEqual(legacyPayload.dailyGoal);
 
-    for (const cat of CATEGORIES) {
+    for (const cat of CATEGORIES.filter(c => c.id !== 'verben')) {
       const list = legacyMap[cat.id];
       expect(migrated.progress[cat.id].mcq.unlocked).toBe(list.length);
       list.forEach((wordId, idx) => {
@@ -161,7 +161,7 @@ describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () =>
 
     // Verify starred list contains only active word IDs (retired dropped)
     expect(migrated.starred.length).toBe(952);
-    for (const cat of CATEGORIES) {
+    for (const cat of CATEGORIES.filter(c => c.id !== 'verben')) {
       for (const w of cat.words) {
         expect(migrated.starred).toContain(w.id);
       }
@@ -171,7 +171,7 @@ describe('Data Migration: Lossless Conversion & Idempotence (Item 4 & 5)', () =>
     }
 
     // Verify SRS contains only active word IDs with intact scheduling
-    for (const cat of CATEGORIES) {
+    for (const cat of CATEGORIES.filter(c => c.id !== 'verben')) {
       const list = legacyMap[cat.id];
       list.forEach((wordId, idx) => {
         if (retiredSet.has(wordId)) {

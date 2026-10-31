@@ -84,3 +84,10 @@
 - **Target Item IDs:** docs/vocab_changes_batch1.json (208 removed, 145 edited)
 - **Previous SHA-256:** `9815eb51167cd7f57191b0fd5ea452a10f1f9df331d871b119d105d9a24a33b7`
 - **New SHA-256:** `bdb4224842632072b7a4de2986963e8fa30ce027fedd80847f0e6c45bbe6434d`
+
+## [2026-10-29 14:59:24] Authorized Baseline Update
+- **Reason:** Add new category verben with 77 A1 verbs (infinitive, Arabic gloss, hand-written example sentence and note); conjugation data stored separately in VERB_FORMS
+- **Source:** Principal parts of 44 irregular verbs cross-checked against the Klett Deutsch intensiv Wortschatz B2 irregular-verb list (44/44 match); gefallen, lesen, heissen, oeffnen, reisen checked on Duden/Wiktionary/verbformen; levels are the maintainer's own estimate; no exam word lists used
+- **Target Item IDs:** verben.*
+- **Previous SHA-256:** `bdb4224842632072b7a4de2986963e8fa30ce027fedd80847f0e6c45bbe6434d`
+- **New SHA-256:** `7b4dc30d9ca9407142391356beb2eada26c9fabf3ad27a841d4fe6468139aa77`

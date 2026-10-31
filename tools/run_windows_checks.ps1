@@ -20,6 +20,47 @@ try {
 $rootDir = (Resolve-Path "$PSScriptRoot\..").Path
 Set-Location -LiteralPath $rootDir
 
+# Derive expected category count from vocab_baseline.json (no silent fallback)
+$expectedCatCount = $null
+$baselinePath = Join-Path -Path $rootDir -ChildPath 'vocab_baseline.json'
+if (Test-Path -LiteralPath $baselinePath) {
+    try {
+        $baselineData = Get-Content -LiteralPath $baselinePath -Raw -Encoding utf8 | ConvertFrom-Json
+        if ($baselineData -is [System.Array] -and $baselineData.Count -gt 0) {
+            $expectedCatCount = $baselineData.Count
+        }
+    } catch {}
+}
+
+# Derive canonical vocabulary hash from latest entry in CHANGELOG_VOCAB.md (no silent fallback)
+$canonicalHash = $null
+$changelogPath = Join-Path -Path $rootDir -ChildPath 'CHANGELOG_VOCAB.md'
+if (Test-Path -LiteralPath $changelogPath) {
+    try {
+        $clText = Get-Content -LiteralPath $changelogPath -Raw -Encoding utf8
+        $clMatches = [regex]::Matches($clText, '(?ms)^##\s*\[.*?(?=(?:^##\s*\[)|\Z)')
+        if ($clMatches.Count -gt 0) {
+            $latestEntry = $clMatches[$clMatches.Count - 1].Value
+            $latestDate = ''
+            foreach ($entryMatch in $clMatches) {
+                $eText = $entryMatch.Value
+                $dMatch = [regex]::Match($eText, '^##\s*\[(\d{4}-\d{2}-\d{2}[^\]]*)\]')
+                if ($dMatch.Success) {
+                    $eDate = $dMatch.Groups[1].Value
+                    if ($eDate -gt $latestDate) {
+                        $latestDate = $eDate
+                        $latestEntry = $eText
+                    }
+                }
+            }
+            $hMatch = [regex]::Match($latestEntry, '(?im)^(?:\s*-\s*)?\*\*(?!Previous).*?SHA-256(?:\*\*:|:\*\*)\s*[^a-f0-9]*([a-f0-9]{64})')
+            if ($hMatch.Success) {
+                $canonicalHash = $hMatch.Groups[1].Value.ToLower()
+            }
+        }
+    } catch {}
+}
+
 $resultsDir = Join-Path -Path $rootDir -ChildPath "audit\windows_results"
 if (!(Test-Path -LiteralPath $resultsDir)) {
     New-Item -ItemType Directory -Path $resultsDir -Force | Out-Null
@@ -117,8 +158,9 @@ Log-Output "=========================================================="
 $stepResults = [ordered]@{}
 $stepErrors = [ordered]@{}
 $failedAuditsList = [System.Collections.Generic.List[string]]::new()
+$expCardsLabel = if ($null -ne $expectedCatCount) { "$expectedCatCount" } else { "UNKNOWN" }
 $offlineMetrics = [ordered]@{
-    Cards = "Offline: cards found NOT_MEASURED / expected 30"
+    Cards = "Offline: cards found NOT_MEASURED / expected $expCardsLabel"
     Requests = "Offline requests: served by SW NOT_MEASURED / network NOT_MEASURED"
 }
 
@@ -359,7 +401,7 @@ try {
                 } else {
                     $mCards2 = [regex]::Match($fullOfflineOutput, "Distinct category IDs count: (\d+)")
                     if ($mCards2.Success) {
-                        $offlineMetrics.Cards = "Offline: cards found $($mCards2.Groups[1].Value) distinct ids / expected 30"
+                        $offlineMetrics.Cards = "Offline: cards found $($mCards2.Groups[1].Value) distinct ids / expected $expCardsLabel"
                     }
                 }
 
@@ -507,8 +549,16 @@ $verifyOutput = if ($pyExecutable -ne "NOT_FOUND") {
 $verifyOutput | Out-File -FilePath $rawLogPath -Append -Encoding utf8
 $verifyText = ($verifyOutput -join "`n")
 
-$canonicalHash = "bdb4224842632072b7a4de2986963e8fa30ce027fedd80847f0e6c45bbe6434d"
-if ($LASTEXITCODE -eq 0 -and $verifyText.Contains($canonicalHash) -and $verifyText.Contains("[PASSED]")) {
+# Verify canonical hash and category count dynamically derived from repo sources
+if (!$canonicalHash) {
+    Log-Output "  verify_vocab.py: FAIL (Could not extract canonical hash from CHANGELOG_VOCAB.md)"
+    $stepResults["VerifyVocab"] = "FAIL (No canonical hash in changelog)"
+    $stepErrors["VerifyVocab"] = "Could not extract canonical hash from CHANGELOG_VOCAB.md"
+} elseif ($null -eq $expectedCatCount) {
+    Log-Output "  verify_vocab.py: FAIL (Could not extract category count from vocab_baseline.json)"
+    $stepResults["VerifyVocab"] = "FAIL (No category count in baseline)"
+    $stepErrors["VerifyVocab"] = "Could not extract category count from vocab_baseline.json"
+} elseif ($LASTEXITCODE -eq 0 -and $verifyText.ToLower().Contains($canonicalHash) -and $verifyText.Contains("[PASSED]")) {
     Log-Output "  verify_vocab.py: PASS"
     $stepResults["VerifyVocab"] = "PASS (Ran)"
 } else {

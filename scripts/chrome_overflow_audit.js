@@ -18,7 +18,14 @@ const screens = [
   { key: 'written_exercise', name: 'Written Exercise' },
   { key: 'flashcard', name: 'Flashcard' },
   { key: 'stats', name: 'Stats' },
-  { key: 'starred_list', name: 'Starred List' }
+  { key: 'starred_list', name: 'Starred List' },
+  { key: 'verbs_modes', name: 'Verbs Modes' },
+  { key: 'verbs_mcq', name: 'Verbs MCQ' },
+  { key: 'verbs_feedback', name: 'Verbs Feedback (Panel)' },
+  { key: 'verbs_written', name: 'Verbs Written' },
+  { key: 'verbs_flashcard', name: 'Verbs Flashcard Back' },
+  { key: 'verbs_wordlist', name: 'Verbs Wordlist' },
+  { key: 'verbs_review', name: 'Verbs Category Review' }
 ];
 
 const screensDir = path.resolve(__dirname, '..', 'audit', 'windows_results', 'screens');
@@ -149,6 +156,50 @@ window.addEventListener('DOMContentLoaded', async () => {
     // 8. Starred List
     win.go({ screen: 'starredList' });
     await auditScreen('starred_list');
+
+    // 9. Verbs Modes
+    win.go({ screen: 'modes', catId: 'verben' });
+    await auditScreen('verbs_modes');
+
+    // 10. Verbs MCQ
+    win.go({ screen: 'exercise', catId: 'verben', mode: 'mcq' });
+    await auditScreen('verbs_mcq');
+
+    // 11. Verbs Feedback (Panel)
+    const verbOpt = doc.querySelector('.opt');
+    if (verbOpt) {
+      verbOpt.click();
+      await wait(250);
+    }
+    await auditScreen('verbs_feedback');
+
+    // 12. Verbs Written
+    win.go({ screen: 'exercise', catId: 'verben', mode: 'written' });
+    await auditScreen('verbs_written');
+
+    // 13. Verbs Flashcard Back (with panel)
+    win.go({ screen: 'flashcards', catId: 'verben' });
+    await wait(200);
+    const fcCard = doc.getElementById('flashcard');
+    if (fcCard) {
+      fcCard.classList.add('flipped');
+      await wait(250);
+    }
+    await auditScreen('verbs_flashcard');
+
+    // 14. Verbs Wordlist
+    win.go({ screen: 'wordlist', catId: 'verben' });
+    await auditScreen('verbs_wordlist');
+
+    // 15. Verbs Review
+    win.go({ screen: 'exercise', catId: 'verben', mode: 'review' });
+    await wait(200);
+    const revOpt = doc.querySelector('.opt');
+    if (revOpt) {
+      revOpt.click();
+      await wait(250);
+    }
+    await auditScreen('verbs_review');
 
   } catch(e) {
     results.error = e.message;

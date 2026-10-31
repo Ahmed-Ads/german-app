@@ -80,7 +80,7 @@ describe('Property & Fuzz Testing with Real Helpers from index.html', () => {
     }
     const totalWords = categories.reduce((sum, c) => sum + (c.words || []).length, 0);
     expect(testedCount).toBe(totalWords);
-    expect(testedCount).toBe(952);
+    expect(testedCount).toBe(1029);
   }, 30000);
 
   it('fuzz tests all words in article categories for article correctness', () => {

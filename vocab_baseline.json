@@ -8824,5 +8824,614 @@
         "sar": "الإلكترونيات الحديثة تحدد ملامح أجزاء واسعة من حياتنا اليومية."
       }
     ]
+  },
+  {
+    "id": "verben",
+    "ar": "الأفعال",
+    "de": "Verben",
+    "hasArticles": false,
+    "words": [
+      {
+        "id": "verben.sein",
+        "n": "sein",
+        "ar": "يكون",
+        "note": "فعل شاذ. يُستعمل مع الصفات والمهن: Ich bin Arzt.",
+        "s": "Ich bin müde.",
+        "sar": "أنا متعب."
+      },
+      {
+        "id": "verben.haben",
+        "n": "haben",
+        "ar": "يملك / عنده",
+        "note": "يُستعمل أيضاً كفعل مساعد في Perfekt لمعظم الأفعال.",
+        "s": "Wir haben einen Hund.",
+        "sar": "عندنا كلب."
+      },
+      {
+        "id": "verben.koennen",
+        "n": "können",
+        "ar": "يستطيع",
+        "note": "فعل مساعد (Modalverb): المصدر يأتي في آخر الجملة.",
+        "s": "Ich kann gut schwimmen.",
+        "sar": "أستطيع السباحة جيداً."
+      },
+      {
+        "id": "verben.muessen",
+        "n": "müssen",
+        "ar": "يجب عليه",
+        "note": "فعل مساعد: المصدر يأتي في آخر الجملة. nicht müssen = ليس مضطراً.",
+        "s": "Du musst heute lernen.",
+        "sar": "يجب أن تدرس اليوم."
+      },
+      {
+        "id": "verben.wollen",
+        "n": "wollen",
+        "ar": "يريد",
+        "note": "فعل مساعد: المصدر يأتي في آخر الجملة.",
+        "s": "Er will einen Kaffee.",
+        "sar": "هو يريد قهوة."
+      },
+      {
+        "id": "verben.duerfen",
+        "n": "dürfen",
+        "ar": "يُسمح له",
+        "note": "فعل مساعد: nicht dürfen = ممنوع.",
+        "s": "Darf ich hier sitzen?",
+        "sar": "هل يُسمح لي بالجلوس هنا؟"
+      },
+      {
+        "id": "verben.sollen",
+        "n": "sollen",
+        "ar": "عليه أن / من المفترض",
+        "note": "فعل مساعد: يعبّر عن طلب من طرف آخر.",
+        "s": "Wir sollen um acht kommen.",
+        "sar": "من المفترض أن نأتي في الثامنة."
+      },
+      {
+        "id": "verben.moegen",
+        "n": "mögen",
+        "ar": "يحب / يُعجبه",
+        "note": "للطلب المهذب استعمل: ich möchte (أودّ).",
+        "s": "Ich mag Tee.",
+        "sar": "أحب الشاي."
+      },
+      {
+        "id": "verben.wissen",
+        "n": "wissen",
+        "ar": "يعرف (معلومة)",
+        "note": "wissen للمعلومات، وkennen للأشخاص والأماكن.",
+        "s": "Ich weiß die Antwort nicht.",
+        "sar": "لا أعرف الإجابة."
+      },
+      {
+        "id": "verben.machen",
+        "n": "machen",
+        "ar": "يفعل / يصنع",
+        "s": "Was machst du heute?",
+        "sar": "ماذا تفعل اليوم؟"
+      },
+      {
+        "id": "verben.gehen",
+        "n": "gehen",
+        "ar": "يذهب / يمشي",
+        "note": "Perfekt مع sein: ist gegangen.",
+        "s": "Wir gehen nach Hause.",
+        "sar": "نذهب إلى البيت."
+      },
+      {
+        "id": "verben.kommen",
+        "n": "kommen",
+        "ar": "يأتي",
+        "note": "kommen aus + Dativ. Perfekt مع sein.",
+        "s": "Er kommt aus Ägypten.",
+        "sar": "هو من مصر."
+      },
+      {
+        "id": "verben.fahren",
+        "n": "fahren",
+        "ar": "يسافر / يقود / يذهب بمركبة",
+        "note": "fahren mit + Dativ. du fährst, er fährt (تغيّر a→ä). Perfekt مع sein.",
+        "s": "Ihr fahrt mit dem Bus.",
+        "sar": "أنتم تذهبون بالحافلة."
+      },
+      {
+        "id": "verben.essen",
+        "n": "essen",
+        "ar": "يأكل",
+        "note": "du isst, er isst (تغيّر e→i).",
+        "s": "Sie isst einen Apfel.",
+        "sar": "هي تأكل تفاحة."
+      },
+      {
+        "id": "verben.trinken",
+        "n": "trinken",
+        "ar": "يشرب",
+        "s": "Wir trinken Wasser.",
+        "sar": "نشرب الماء."
+      },
+      {
+        "id": "verben.sprechen",
+        "n": "sprechen",
+        "ar": "يتكلم",
+        "note": "du sprichst, er spricht (تغيّر e→i). sprechen mit + Dativ.",
+        "s": "Sprichst du Deutsch?",
+        "sar": "هل تتكلم الألمانية؟"
+      },
+      {
+        "id": "verben.sagen",
+        "n": "sagen",
+        "ar": "يقول",
+        "s": "Was sagt er?",
+        "sar": "ماذا يقول؟"
+      },
+      {
+        "id": "verben.lesen",
+        "n": "lesen",
+        "ar": "يقرأ",
+        "note": "du liest, er liest (تغيّر e→ie).",
+        "s": "Sie liest ein Buch.",
+        "sar": "هي تقرأ كتاباً."
+      },
+      {
+        "id": "verben.schreiben",
+        "n": "schreiben",
+        "ar": "يكتب",
+        "s": "Ich schreibe eine E-Mail.",
+        "sar": "أكتب رسالة إلكترونية."
+      },
+      {
+        "id": "verben.sehen",
+        "n": "sehen",
+        "ar": "يرى",
+        "note": "du siehst, er sieht (تغيّر e→ie).",
+        "s": "Siehst du das Haus?",
+        "sar": "هل ترى البيت؟"
+      },
+      {
+        "id": "verben.hoeren",
+        "n": "hören",
+        "ar": "يسمع",
+        "s": "Wir hören Musik.",
+        "sar": "نستمع إلى الموسيقى."
+      },
+      {
+        "id": "verben.nehmen",
+        "n": "nehmen",
+        "ar": "يأخذ",
+        "note": "du nimmst, er nimmt (تغيّر الحروف).",
+        "s": "Ich nehme den Bus.",
+        "sar": "آخذ الحافلة."
+      },
+      {
+        "id": "verben.geben",
+        "n": "geben",
+        "ar": "يعطي",
+        "note": "du gibst, er gibt. es gibt = يوجد.",
+        "s": "Er gibt mir ein Buch.",
+        "sar": "هو يعطيني كتاباً."
+      },
+      {
+        "id": "verben.kaufen",
+        "n": "kaufen",
+        "ar": "يشتري",
+        "s": "Wir kaufen Brot und Milch.",
+        "sar": "نشتري الخبز والحليب."
+      },
+      {
+        "id": "verben.kosten",
+        "n": "kosten",
+        "ar": "يكلّف",
+        "s": "Was kostet das Brot?",
+        "sar": "كم يكلّف الخبز؟"
+      },
+      {
+        "id": "verben.wohnen",
+        "n": "wohnen",
+        "ar": "يسكن",
+        "note": "wohnen in + Dativ.",
+        "s": "Ich wohne in Kairo.",
+        "sar": "أسكن في القاهرة."
+      },
+      {
+        "id": "verben.arbeiten",
+        "n": "arbeiten",
+        "ar": "يعمل",
+        "note": "أضِف e قبل النهاية: du arbeitest, er arbeitet.",
+        "s": "Meine Mutter arbeitet im Krankenhaus.",
+        "sar": "أمي تعمل في المستشفى."
+      },
+      {
+        "id": "verben.lernen",
+        "n": "lernen",
+        "ar": "يتعلم / يدرس",
+        "s": "Ihr lernt jeden Tag Deutsch.",
+        "sar": "أنتم تتعلمون الألمانية كل يوم."
+      },
+      {
+        "id": "verben.spielen",
+        "n": "spielen",
+        "ar": "يلعب",
+        "s": "Die Kinder spielen im Park.",
+        "sar": "الأطفال يلعبون في الحديقة."
+      },
+      {
+        "id": "verben.kochen",
+        "n": "kochen",
+        "ar": "يطبخ",
+        "s": "Ich koche heute Reis.",
+        "sar": "أطبخ الأرز اليوم."
+      },
+      {
+        "id": "verben.heissen",
+        "n": "heißen",
+        "ar": "اسمه",
+        "note": "du heißt (بلا s إضافية).",
+        "s": "Ich heiße Ahmed.",
+        "sar": "اسمي أحمد."
+      },
+      {
+        "id": "verben.bleiben",
+        "n": "bleiben",
+        "ar": "يبقى",
+        "note": "Perfekt مع sein: ist geblieben.",
+        "s": "Wir bleiben heute zu Hause.",
+        "sar": "نبقى في البيت اليوم."
+      },
+      {
+        "id": "verben.finden",
+        "n": "finden",
+        "ar": "يجد",
+        "note": "du findest, er findet (e قبل النهاية).",
+        "s": "Ich finde meinen Schlüssel nicht.",
+        "sar": "لا أجد مفتاحي."
+      },
+      {
+        "id": "verben.brauchen",
+        "n": "brauchen",
+        "ar": "يحتاج",
+        "s": "Ich brauche ein Taxi.",
+        "sar": "أحتاج إلى سيارة أجرة."
+      },
+      {
+        "id": "verben.fragen",
+        "n": "fragen",
+        "ar": "يسأل",
+        "note": "fragen + Akkusativ.",
+        "s": "Ich frage den Lehrer.",
+        "sar": "أسأل المعلم."
+      },
+      {
+        "id": "verben.antworten",
+        "n": "antworten",
+        "ar": "يجيب",
+        "note": "antworten + Dativ؛ antworten auf + Akkusativ.",
+        "s": "Er antwortet nicht.",
+        "sar": "هو لا يجيب."
+      },
+      {
+        "id": "verben.leben",
+        "n": "leben",
+        "ar": "يعيش",
+        "s": "Meine Großeltern leben auf dem Land.",
+        "sar": "أجدادي يعيشون في الريف."
+      },
+      {
+        "id": "verben.suchen",
+        "n": "suchen",
+        "ar": "يبحث عن",
+        "note": "suchen + Akkusativ (بلا حرف جر).",
+        "s": "Du suchst deine Tasche.",
+        "sar": "أنت تبحث عن حقيبتك."
+      },
+      {
+        "id": "verben.oeffnen",
+        "n": "öffnen",
+        "ar": "يفتح",
+        "note": "du öffnest, er öffnet (e قبل النهاية).",
+        "s": "Ich öffne das Fenster.",
+        "sar": "أفتح النافذة."
+      },
+      {
+        "id": "verben.schliessen",
+        "n": "schließen",
+        "ar": "يغلق",
+        "s": "Sie schließt die Tür.",
+        "sar": "هي تغلق الباب."
+      },
+      {
+        "id": "verben.warten",
+        "n": "warten",
+        "ar": "ينتظر",
+        "note": "warten auf + Akkusativ.",
+        "s": "Wir warten auf den Bus.",
+        "sar": "ننتظر الحافلة."
+      },
+      {
+        "id": "verben.bringen",
+        "n": "bringen",
+        "ar": "يُحضر",
+        "note": "فعل مختلط: brachte / gebracht.",
+        "s": "Ich bringe dir einen Tee.",
+        "sar": "أحضر لك شاياً."
+      },
+      {
+        "id": "verben.treffen",
+        "n": "treffen",
+        "ar": "يقابل",
+        "note": "du triffst, er trifft (تغيّر e→i).",
+        "s": "Wir treffen Freunde am Samstag.",
+        "sar": "نقابل أصدقاء يوم السبت."
+      },
+      {
+        "id": "verben.besuchen",
+        "n": "besuchen",
+        "ar": "يزور",
+        "note": "بادئة be- غير منفصلة: Partizip بلا ge (besucht).",
+        "s": "Ich besuche meine Tante.",
+        "sar": "أزور عمتي (أو خالتي)."
+      },
+      {
+        "id": "verben.bestellen",
+        "n": "bestellen",
+        "ar": "يطلب (طعاماً أو بضاعة)",
+        "note": "بادئة be- غير منفصلة: Partizip بلا ge (bestellt).",
+        "s": "Wir bestellen eine Pizza.",
+        "sar": "نطلب بيتزا."
+      },
+      {
+        "id": "verben.bezahlen",
+        "n": "bezahlen",
+        "ar": "يدفع",
+        "note": "بادئة be- غير منفصلة: Partizip بلا ge (bezahlt).",
+        "s": "Ich bezahle mit Karte.",
+        "sar": "أدفع بالبطاقة."
+      },
+      {
+        "id": "verben.tanzen",
+        "n": "tanzen",
+        "ar": "يرقص",
+        "note": "du tanzt (بلا s إضافية).",
+        "s": "Sie tanzt sehr gut.",
+        "sar": "هي ترقص جيداً جداً."
+      },
+      {
+        "id": "verben.reisen",
+        "n": "reisen",
+        "ar": "يسافر",
+        "note": "Perfekt مع sein: ist gereist.",
+        "s": "Wir reisen im Sommer nach Berlin.",
+        "sar": "نسافر في الصيف إلى برلين."
+      },
+      {
+        "id": "verben.telefonieren",
+        "n": "telefonieren",
+        "ar": "يتحدث بالهاتف",
+        "note": "الأفعال المنتهية بـ -ieren: Partizip بلا ge (telefoniert).",
+        "s": "Mein Bruder telefoniert oft.",
+        "sar": "أخي يتحدث في الهاتف كثيراً."
+      },
+      {
+        "id": "verben.studieren",
+        "n": "studieren",
+        "ar": "يدرس في الجامعة",
+        "note": "الأفعال المنتهية بـ -ieren: Partizip بلا ge (studiert).",
+        "s": "Sie studiert Medizin.",
+        "sar": "هي تدرس الطب."
+      },
+      {
+        "id": "verben.fruehstuecken",
+        "n": "frühstücken",
+        "ar": "يتناول الفطور",
+        "s": "Wir frühstücken um sieben Uhr.",
+        "sar": "نفطر في الساعة السابعة."
+      },
+      {
+        "id": "verben.regnen",
+        "n": "regnen",
+        "ar": "تمطر",
+        "note": "فعل بفاعل شكلي es فقط: es regnet.",
+        "s": "Es regnet heute.",
+        "sar": "تمطر اليوم."
+      },
+      {
+        "id": "verben.schmecken",
+        "n": "schmecken",
+        "ar": "طعمه",
+        "note": "schmecken + Dativ: Das schmeckt mir.",
+        "s": "Die Suppe schmeckt gut.",
+        "sar": "الشوربة طعمها جيد."
+      },
+      {
+        "id": "verben.gefallen",
+        "n": "gefallen",
+        "ar": "يُعجبه",
+        "note": "gefallen + Dativ: الشيء هو الفاعل، والشخص في Dativ.",
+        "s": "Das Haus gefällt mir.",
+        "sar": "البيت يعجبني."
+      },
+      {
+        "id": "verben.verstehen",
+        "n": "verstehen",
+        "ar": "يفهم",
+        "note": "بادئة ver- غير منفصلة: Partizip بلا ge (verstanden).",
+        "s": "Ich verstehe dich nicht.",
+        "sar": "لا أفهمك."
+      },
+      {
+        "id": "verben.singen",
+        "n": "singen",
+        "ar": "يغني",
+        "s": "Wir singen ein Lied.",
+        "sar": "نغني أغنية."
+      },
+      {
+        "id": "verben.schwimmen",
+        "n": "schwimmen",
+        "ar": "يسبح",
+        "note": "Perfekt مع sein: ist geschwommen.",
+        "s": "Er schwimmt jeden Tag.",
+        "sar": "هو يسبح كل يوم."
+      },
+      {
+        "id": "verben.laufen",
+        "n": "laufen",
+        "ar": "يجري / يمشي",
+        "note": "du läufst, er läuft (تغيّر au→äu). Perfekt مع sein.",
+        "s": "Du läufst schnell.",
+        "sar": "أنت تجري بسرعة."
+      },
+      {
+        "id": "verben.schlafen",
+        "n": "schlafen",
+        "ar": "ينام",
+        "note": "du schläfst, er schläft (تغيّر a→ä).",
+        "s": "Ich schlafe acht Stunden.",
+        "sar": "أنام ثماني ساعات."
+      },
+      {
+        "id": "verben.stehen",
+        "n": "stehen",
+        "ar": "يقف / يوجد (قائماً)",
+        "note": "فعل موضع: يأتي معه مكان في Dativ. Perfekt: hat gestanden (في الجنوب: ist gestanden).",
+        "s": "Das Auto steht vor dem Haus.",
+        "sar": "السيارة واقفة أمام البيت."
+      },
+      {
+        "id": "verben.sitzen",
+        "n": "sitzen",
+        "ar": "يجلس",
+        "note": "فعل موضع: يأتي معه مكان في Dativ. Perfekt: hat gesessen (في الجنوب: ist gesessen).",
+        "s": "Wir sitzen im Garten.",
+        "sar": "نجلس في الحديقة."
+      },
+      {
+        "id": "verben.liegen",
+        "n": "liegen",
+        "ar": "يوجد (مستلقياً) / يقع",
+        "note": "فعل موضع: يأتي معه مكان في Dativ.",
+        "s": "Das Buch liegt auf dem Tisch.",
+        "sar": "الكتاب على الطاولة."
+      },
+      {
+        "id": "verben.kennen",
+        "n": "kennen",
+        "ar": "يعرف (شخصاً أو مكاناً)",
+        "note": "kennen للأشخاص والأماكن، وwissen للمعلومات. فعل مختلط: kannte / gekannt.",
+        "s": "Kennst du Mona?",
+        "sar": "هل تعرف منى؟"
+      },
+      {
+        "id": "verben.helfen",
+        "n": "helfen",
+        "ar": "يساعد",
+        "note": "helfen + Dativ. du hilfst, er hilft (تغيّر e→i).",
+        "s": "Ich helfe meiner Mutter.",
+        "sar": "أساعد أمي."
+      },
+      {
+        "id": "verben.aufstehen",
+        "n": "aufstehen",
+        "ar": "يستيقظ / ينهض",
+        "note": "فعل منفصل: «auf» تذهب إلى آخر الجملة. Perfekt مع sein.",
+        "s": "Ich stehe um sechs Uhr auf.",
+        "sar": "أستيقظ في الساعة السادسة."
+      },
+      {
+        "id": "verben.einkaufen",
+        "n": "einkaufen",
+        "ar": "يتسوق",
+        "note": "فعل منفصل: «ein» تذهب إلى آخر الجملة.",
+        "s": "Wir kaufen im Supermarkt ein.",
+        "sar": "نتسوق في السوبر ماركت."
+      },
+      {
+        "id": "verben.anrufen",
+        "n": "anrufen",
+        "ar": "يتصل هاتفياً",
+        "note": "فعل منفصل + Akkusativ: jemanden anrufen.",
+        "s": "Er ruft seine Mutter an.",
+        "sar": "هو يتصل بأمه."
+      },
+      {
+        "id": "verben.ankommen",
+        "n": "ankommen",
+        "ar": "يصل",
+        "note": "فعل منفصل. Perfekt مع sein.",
+        "s": "Der Zug kommt um acht Uhr an.",
+        "sar": "يصل القطار في الساعة الثامنة."
+      },
+      {
+        "id": "verben.abfahren",
+        "n": "abfahren",
+        "ar": "يغادر (مركبة)",
+        "note": "فعل منفصل. Perfekt مع sein.",
+        "s": "Der Bus fährt um neun Uhr ab.",
+        "sar": "تغادر الحافلة في الساعة التاسعة."
+      },
+      {
+        "id": "verben.aufmachen",
+        "n": "aufmachen",
+        "ar": "يفتح",
+        "note": "فعل منفصل: «auf» تذهب إلى آخر الجملة.",
+        "s": "Er macht die Tür auf.",
+        "sar": "هو يفتح الباب."
+      },
+      {
+        "id": "verben.zumachen",
+        "n": "zumachen",
+        "ar": "يغلق",
+        "note": "فعل منفصل: «zu» تذهب إلى آخر الجملة.",
+        "s": "Ich mache die Tür zu.",
+        "sar": "أغلق الباب."
+      },
+      {
+        "id": "verben.mitkommen",
+        "n": "mitkommen",
+        "ar": "يأتي معنا",
+        "note": "فعل منفصل. Perfekt مع sein.",
+        "s": "Kommst du mit?",
+        "sar": "هل تأتي معنا؟"
+      },
+      {
+        "id": "verben.einsteigen",
+        "n": "einsteigen",
+        "ar": "يركب",
+        "note": "فعل منفصل. Perfekt مع sein.",
+        "s": "Wir steigen in den Bus ein.",
+        "sar": "نركب الحافلة."
+      },
+      {
+        "id": "verben.aussteigen",
+        "n": "aussteigen",
+        "ar": "ينزل (من مركبة)",
+        "note": "فعل منفصل. Perfekt مع sein.",
+        "s": "Ich steige am Bahnhof aus.",
+        "sar": "أنزل في المحطة."
+      },
+      {
+        "id": "verben.anfangen",
+        "n": "anfangen",
+        "ar": "يبدأ",
+        "note": "فعل منفصل.",
+        "s": "Der Kurs fängt um neun Uhr an.",
+        "sar": "يبدأ الدرس في التاسعة."
+      },
+      {
+        "id": "verben.fernsehen",
+        "n": "fernsehen",
+        "ar": "يشاهد التلفاز",
+        "note": "فعل منفصل: du siehst fern.",
+        "s": "Wir sehen am Abend fern.",
+        "sar": "نشاهد التلفزيون في المساء."
+      },
+      {
+        "id": "verben.kennenlernen",
+        "n": "kennenlernen",
+        "ar": "يتعرف على",
+        "note": "فعل منفصل: Partizip kennengelernt.",
+        "s": "Ich lerne neue Freunde kennen.",
+        "sar": "أتعرف على أصدقاء جدد."
+      }
+    ]
   }
 ]

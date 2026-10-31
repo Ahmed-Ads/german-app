@@ -11,7 +11,7 @@ const { createPagesEmulatorServer } = require('../scripts/serve_pages_emulator.j
  *  (b) Iterate ALL entries of the cache and assert none has response.redirected === true
  *  (c) Go offline and navigate to / AND to /index.html AND to a bookmarked /index.html
  *      launched as a fresh navigation (new page in the same context):
- *      asserts 30 category cards rendered in all 3 cases with zero console/page errors
+ *      asserts 31 category cards rendered in all 3 cases with zero console/page errors
  *  (d) Verify the update bar UI flow continues to function correctly
  */
 
@@ -77,10 +77,10 @@ test.describe('Cloudflare Pages Routing & Offline Resilience', () => {
       return !!reg && !!navigator.serviceWorker.controller;
     }, { timeout: 15000 });
 
-    // Assert 30 category cards rendered on initial online load
+    // Assert 31 category cards rendered on initial online load
     const initialCards = await page.locator('.cat-card[data-cat]').count();
     console.log(`[Phase 1] Initial category cards rendered: ${initialCards}`);
-    expect(initialCards).toBe(30);
+    expect(initialCards).toBe(31);
 
     // (b) Iterate ALL entries of ALL caches and assert none has response.redirected === true
     console.log('[Phase 2] Auditing all Cache Storage entries for redirected flag...');
@@ -116,7 +116,7 @@ test.describe('Cloudflare Pages Routing & Offline Resilience', () => {
     await page.goto(serverUrl, { waitUntil: 'networkidle' });
     const offlineRootCards = await page.locator('.cat-card[data-cat]').count();
     console.log(`[Phase 3.1] Offline root category cards count: ${offlineRootCards}`);
-    expect(offlineRootCards).toBe(30);
+    expect(offlineRootCards).toBe(31);
 
     // (c.2) Navigate to /index.html offline in existing page
     const indexUrl = new URL('index.html', serverUrl).href;
@@ -124,7 +124,7 @@ test.describe('Cloudflare Pages Routing & Offline Resilience', () => {
     await page.goto(indexUrl, { waitUntil: 'networkidle' });
     const offlineIndexCards = await page.locator('.cat-card[data-cat]').count();
     console.log(`[Phase 3.2] Offline /index.html category cards count: ${offlineIndexCards}`);
-    expect(offlineIndexCards).toBe(30);
+    expect(offlineIndexCards).toBe(31);
 
     // (c.3) Bookmarked /index.html launched as a fresh navigation (new page in the same context)
     console.log(`[Phase 3.3] Simulating bookmarked /index.html launch in a fresh page offline...`);
@@ -140,7 +140,7 @@ test.describe('Cloudflare Pages Routing & Offline Resilience', () => {
     await freshPage.goto(indexUrl, { waitUntil: 'networkidle' });
     const freshCards = await freshPage.locator('.cat-card[data-cat]').count();
     console.log(`[Phase 3.3] Fresh page offline cards count: ${freshCards}`);
-    expect(freshCards).toBe(30);
+    expect(freshCards).toBe(31);
     expect(freshConsoleErrors.length, `Console errors on fresh offline load: ${freshConsoleErrors.join('; ')}`).toBe(0);
     expect(freshPageErrors.length, `Page errors on fresh offline load: ${freshPageErrors.join('; ')}`).toBe(0);
     await freshPage.close();
