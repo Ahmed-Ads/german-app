@@ -2,7 +2,8 @@
 /**
  * scripts/apply_vocab_changes.js
  * ---------------------------------
- * Applies owner-approved vocabulary review described by docs/vocab_changes_batch1.json
+ * Applies owner-approved vocabulary review described by a changes JSON file
+ * (default docs/vocab_changes_batch1.json, or custom e.g. tools/vocab_changes_sentences_batch1.json)
  * to the CATEGORIES data in index.html.
  *
  * Rules:
@@ -11,17 +12,20 @@
  *    to write anything (exits non-zero, lists all mismatches) if any check fails or any id is unknown.
  * 3. Idempotent: a second run reports "already applied" and changes nothing (exit code 0).
  * 4. Refuses to touch category 'section-names' (or any in keep_untouched_categories).
- * 5. Writes removals (delete the word object), edits (field -> new) and nothing else.
- * 6. Supports --dry-run to simulate and verify without writing.
+ * 5. Verifies base_vocab_sha256 against canonical hash of current data before modifying.
+ * 6. Writes removals (delete the word object), edits (field -> new) and nothing else.
+ * 7. Supports fields: a, ar, note, s, sar.
+ * 8. Supports --dry-run to simulate and verify without writing.
  */
 
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const crypto = require('crypto');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
-const HTML_PATH = path.join(ROOT_DIR, 'index.html');
-const CHANGES_PATH = path.join(ROOT_DIR, 'docs', 'vocab_changes_batch1.json');
+const DEFAULT_HTML_PATH = path.join(ROOT_DIR, 'index.html');
+const DEFAULT_CHANGES_PATH = path.join(ROOT_DIR, 'docs', 'vocab_changes_batch1.json');
 
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -91,24 +95,44 @@ function extractCategoriesFromHtml(html) {
   return vm.runInNewContext('(' + arrayJs + ')');
 }
 
+function canonicalJson(obj) {
+  if (obj === null || typeof obj !== 'object') {
+    return JSON.stringify(obj);
+  }
+  if (Array.isArray(obj)) {
+    return '[' + obj.map(canonicalJson).join(',') + ']';
+  }
+  const keys = Object.keys(obj).sort();
+  return '{' + keys.map(k => JSON.stringify(k) + ':' + canonicalJson(obj[k])).join(',') + '}';
+}
+
+function computeCanonicalHash(categories) {
+  const normalized = categories.map(cat => ({
+    ...cat,
+    hasArticles: Boolean(cat.hasArticles)
+  }));
+  const cjson = canonicalJson(normalized);
+  return crypto.createHash('sha256').update(Buffer.from(cjson, 'utf8')).digest('hex');
+}
+
 function checkInlineScriptsSyntax(html) {
   const matches = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)];
-  matches.forEach((m, i) => {
+  matches.forEach((m) => {
     new vm.Script(m[1]);
   });
 }
 
-function main() {
-  const dryRun = process.argv.includes('--dry-run');
-
-  if (!fs.existsSync(CHANGES_PATH)) {
-    console.error(`CRITICAL: Changes file not found: ${CHANGES_PATH}`);
-    process.exit(1);
+function applyVocabChanges({ htmlPath = DEFAULT_HTML_PATH, changesPath = DEFAULT_CHANGES_PATH, dryRun = false } = {}) {
+  if (!fs.existsSync(changesPath)) {
+    throw new Error(`Changes file not found: ${changesPath}`);
+  }
+  if (!fs.existsSync(htmlPath)) {
+    throw new Error(`HTML file not found: ${htmlPath}`);
   }
 
-  const changes = JSON.parse(fs.readFileSync(CHANGES_PATH, 'utf8'));
+  const changes = JSON.parse(fs.readFileSync(changesPath, 'utf8'));
   const keepCategories = new Set(changes.keep_untouched_categories || ['section-names']);
-  const rawHtml = fs.readFileSync(HTML_PATH, 'utf8').replace(/\r\n/g, '\n');
+  const rawHtml = fs.readFileSync(htmlPath, 'utf8').replace(/\r\n/g, '\n');
 
   // Extract current categories
   const currentCategories = extractCategoriesFromHtml(rawHtml);
@@ -126,15 +150,13 @@ function main() {
   for (const r of removeList) {
     const cat = r.id.split('.')[0];
     if (keepCategories.has(cat)) {
-      console.error(`CRITICAL ERROR: Removal targets forbidden category '${cat}': ${r.id}`);
-      process.exit(1);
+      throw new Error(`Removal targets forbidden category '${cat}': ${r.id}`);
     }
   }
   for (const e of editList) {
     const cat = e.id.split('.')[0];
     if (keepCategories.has(cat)) {
-      console.error(`CRITICAL ERROR: Edit targets forbidden category '${cat}': ${e.id}`);
-      process.exit(1);
+      throw new Error(`Edit targets forbidden category '${cat}': ${e.id}`);
     }
   }
 
@@ -161,12 +183,27 @@ function main() {
     }
   }
 
-  if (allRemovesAbsent && allEditsPresent && currentWordsMap.size === 952) {
-    console.log("Notice: Vocabulary changes batch 1 is already applied. Nothing changed.");
-    process.exit(0);
+  const hasModifications = removeList.length > 0 || editList.length > 0;
+  if (hasModifications && allRemovesAbsent && allEditsPresent) {
+    return {
+      alreadyApplied: true,
+      message: `Notice: Vocabulary changes batch (${path.basename(changesPath)}) is already applied. Nothing changed.`
+    };
   }
 
-  // 2. Strict Pre-Application Validation
+  // 2. Base Canonical Hash Verification (before applying unapplied batch)
+  if (changes.base_vocab_sha256) {
+    const currentCanonicalHash = computeCanonicalHash(currentCategories);
+    if (currentCanonicalHash !== changes.base_vocab_sha256) {
+      throw new Error(
+        `base_vocab_sha256 mismatch!\n` +
+        `    Expected base: ${changes.base_vocab_sha256}\n` +
+        `    Current base : ${currentCanonicalHash}`
+      );
+    }
+  }
+
+  // 3. Strict Pre-Application Validation
   const errors = [];
 
   // Check all removals exist
@@ -194,16 +231,14 @@ function main() {
   }
 
   if (errors.length > 0) {
-    console.error("=" .repeat(70));
-    console.error(`CRITICAL VALIDATION FAILURE: ${errors.length} error(s) found! Refusing to modify index.html.`);
-    console.error("=" .repeat(70));
-    for (const err of errors) {
-      console.error("  - " + err);
-    }
-    process.exit(1);
+    const msg = `CRITICAL VALIDATION FAILURE: ${errors.length} error(s) found! Refusing to modify ${path.basename(htmlPath)}.\n` +
+      errors.map(err => "  - " + err).join('\n');
+    const err = new Error(msg);
+    err.validationErrors = errors;
+    throw err;
   }
 
-  // 3. Structured Line-Level Transformation
+  // 4. Structured Line-Level Transformation
   const removeSet = new Set(removeList.map(r => r.id));
   const editMap = new Map();
   for (const e of editList) {
@@ -214,7 +249,6 @@ function main() {
   const lines = rawHtml.split('\n');
   const newLines = [];
   let inCategories = false;
-  let currentCatId = null;
   let catWordIndices = [];
 
   for (let i = 0; i < lines.length; i++) {
@@ -236,7 +270,6 @@ function main() {
 
     const catMatch = line.match(/\{\s*id:['"]([^'"]+)['"]/);
     if (catMatch && line.includes('words:[')) {
-      currentCatId = catMatch[1];
       catWordIndices = [];
       newLines.push(line);
       continue;
@@ -256,7 +289,6 @@ function main() {
           newLines[catWordIndices[catWordIndices.length - 1]] = lastWl.replace(/\},[ \t]*$/, '}');
         }
       }
-      currentCatId = null;
       catWordIndices = [];
       newLines.push(line);
       continue;
@@ -283,6 +315,12 @@ function main() {
           } else if (ed.field === 'ar') {
             const arRegex = new RegExp(`(ar:\\s*['"])${escapeRegExp(ed.expect_current)}(['"])`);
             modifiedLine = modifiedLine.replace(arRegex, `$1${ed.new}$2`);
+          } else if (ed.field === 's') {
+            const sRegex = new RegExp(`(s:\\s*['"])${escapeRegExp(ed.expect_current)}(['"])`);
+            modifiedLine = modifiedLine.replace(sRegex, `$1${ed.new}$2`);
+          } else if (ed.field === 'sar') {
+            const sarRegex = new RegExp(`(sar:\\s*['"])${escapeRegExp(ed.expect_current)}(['"])`);
+            modifiedLine = modifiedLine.replace(sarRegex, `$1${ed.new}$2`);
           } else if (ed.field === 'note') {
             if (ed.expect_current === '') {
               // Insert note after ar
@@ -298,6 +336,8 @@ function main() {
               const noteRegex = new RegExp(`(note:\\s*['"])${escapeRegExp(ed.expect_current)}(['"])`);
               modifiedLine = modifiedLine.replace(noteRegex, `$1${ed.new}$2`);
             }
+          } else {
+            throw new Error(`Unsupported edit field '${ed.field}' for word '${wid}'`);
           }
         }
       }
@@ -313,14 +353,13 @@ function main() {
 
   const transformedHtml = newLines.join('\n');
 
-  // 4. Post-Transformation Integrity Verification
-  console.log("Verifying transformed HTML...");
+  // 5. Post-Transformation Integrity Verification
   checkInlineScriptsSyntax(transformedHtml);
 
   const updatedCategories = extractCategoriesFromHtml(transformedHtml);
-  if (updatedCategories.length !== 30) {
-    console.error(`Post-check failed: category count is ${updatedCategories.length}, expected 30`);
-    process.exit(1);
+  const expectedCategoryCount = currentCategories.length;
+  if (updatedCategories.length !== expectedCategoryCount) {
+    throw new Error(`Post-check failed: category count is ${updatedCategories.length}, expected ${expectedCategoryCount}`);
   }
 
   const updatedWordsMap = new Map();
@@ -332,60 +371,109 @@ function main() {
     }
   }
 
-  if (totalRemainingWords !== 952) {
-    console.error(`Post-check failed: total words is ${totalRemainingWords}, expected 952`);
-    process.exit(1);
+  const expectedWords = currentWordsMap.size - removeSet.size;
+  if (totalRemainingWords !== expectedWords) {
+    throw new Error(`Post-check failed: total words is ${totalRemainingWords}, expected ${expectedWords}`);
   }
 
-  // Verify all 208 removed words are absent
+  // Verify all removed words are absent
   for (const r of removeList) {
     if (updatedWordsMap.has(r.id)) {
-      console.error(`Post-check failed: removed word '${r.id}' is still present!`);
-      process.exit(1);
+      throw new Error(`Post-check failed: removed word '${r.id}' is still present!`);
     }
   }
 
-  // Verify all 145 edits were applied
+  // Verify all edits were applied
   for (const e of editList) {
     const w = updatedWordsMap.get(e.id);
     if (!w) {
-      console.error(`Post-check failed: edited word '${e.id}' is missing!`);
-      process.exit(1);
+      throw new Error(`Post-check failed: edited word '${e.id}' is missing!`);
     }
     if (w.word[e.field] !== e.new) {
-      console.error(`Post-check failed: edit '${e.id}.${e.field}' value mismatch: expected '${e.new}', got '${w.word[e.field]}'`);
-      process.exit(1);
+      throw new Error(`Post-check failed: edit '${e.id}.${e.field}' value mismatch: expected '${e.new}', got '${w.word[e.field]}'`);
     }
   }
 
-  // Verify section-names is identical
-  const origSec = currentCategories.find(c => c.id === 'section-names');
-  const newSec = updatedCategories.find(c => c.id === 'section-names');
-  if (JSON.stringify(origSec) !== JSON.stringify(newSec)) {
-    console.error("Post-check failed: category 'section-names' was touched!");
-    process.exit(1);
+  // Verify keep_untouched_categories are identical
+  for (const catId of keepCategories) {
+    const origCat = currentCategories.find(c => c.id === catId);
+    const newCat = updatedCategories.find(c => c.id === catId);
+    if (origCat && newCat) {
+      if (JSON.stringify(origCat) !== JSON.stringify(newCat)) {
+        throw new Error(`Post-check failed: category '${catId}' was touched!`);
+      }
+    }
   }
 
   // Verify remaining word order in all categories
   for (const origCat of currentCategories) {
     const newCat = updatedCategories.find(c => c.id === origCat.id);
+    if (!newCat) continue;
     const expectedIds = origCat.words.map(w => w.id).filter(id => !removeSet.has(id));
     const actualIds = newCat.words.map(w => w.id);
     if (JSON.stringify(expectedIds) !== JSON.stringify(actualIds)) {
-      console.error(`Post-check failed: word order mismatch in category '${origCat.id}'`);
-      process.exit(1);
+      throw new Error(`Post-check failed: word order mismatch in category '${origCat.id}'`);
     }
   }
 
-  console.log("✅ All post-transformation checks PASSED (30 categories, 952 words, exact removals and edits).");
-
   if (dryRun) {
-    console.log("Dry run: no changes written to disk.");
+    // Do not write to disk
   } else {
-    fs.writeFileSync(HTML_PATH, transformedHtml, 'utf8');
-    console.log(`Successfully updated ${HTML_PATH}`);
+    fs.writeFileSync(htmlPath, transformedHtml, 'utf8');
+  }
+
+  return {
+    alreadyApplied: false,
+    dryRun,
+    transformedHtml,
+    updatedCategories,
+    totalRemainingWords,
+    appliedRemovalsCount: removeList.length,
+    appliedEditsCount: editList.length
+  };
+}
+
+function main() {
+  const args = process.argv.slice(2);
+  const dryRun = args.includes('--dry-run');
+  const fileArgs = args.filter(a => a !== '--dry-run' && !a.startsWith('-'));
+  const changesFile = fileArgs[0] || DEFAULT_CHANGES_PATH;
+  const changesPath = path.resolve(process.cwd(), changesFile);
+
+  try {
+    const res = applyVocabChanges({
+      htmlPath: DEFAULT_HTML_PATH,
+      changesPath,
+      dryRun
+    });
+
+    if (res.alreadyApplied) {
+      console.log(res.message);
+      process.exit(0);
+    }
+
+    console.log(`✅ All post-transformation checks PASSED (${res.updatedCategories.length} categories, ${res.totalRemainingWords} words, exact removals and edits).`);
+    if (res.dryRun) {
+      console.log("Dry run: no changes written to disk.");
+    } else {
+      console.log(`Successfully updated ${DEFAULT_HTML_PATH}`);
+    }
+    process.exit(0);
+  } catch (err) {
+    console.error("=" .repeat(70));
+    console.error(err.message);
+    console.error("=" .repeat(70));
+    process.exit(1);
   }
 }
+
+module.exports = {
+  extractCategoriesFromHtml,
+  canonicalJson,
+  computeCanonicalHash,
+  checkInlineScriptsSyntax,
+  applyVocabChanges
+};
 
 if (require.main === module) {
   main();

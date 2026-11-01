@@ -1,0 +1,3481 @@
+{
+ "version": 1,
+ "base_vocab_sha256": "7b4dc30d9ca9407142391356beb2eada26c9fabf3ad27a841d4fe6468139aa77",
+ "remove": [],
+ "edit": [
+  {
+   "id": "orte.markt",
+   "german": "Markt",
+   "field": "s",
+   "expect_current": "Auf dem Markt kauft sie frisches Obst und Gemüse.",
+   "new": "Ich gehe zum Markt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.markt",
+   "german": "Markt",
+   "field": "sar",
+   "expect_current": "في السوق تشتري فواكه وخضروات طازجة.",
+   "new": "أذهب إلى السوق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.krankenhaus",
+   "german": "Krankenhaus",
+   "field": "s",
+   "expect_current": "Der Notarzt bringt den Patienten sofort ins Krankenhaus.",
+   "new": "Er geht ins Krankenhaus, weil er krank ist.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "orte.krankenhaus",
+   "german": "Krankenhaus",
+   "field": "sar",
+   "expect_current": "طبيب الطوارئ ينقل المريض فوراً إلى المستشفى.",
+   "new": "هو يذهب إلى المستشفى لأنه مريض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.bank",
+   "german": "Bank",
+   "field": "s",
+   "expect_current": "Er hebt am Geldautomaten der Bank Bargeld ab.",
+   "new": "Ich muss heute zur Bank gehen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.bank",
+   "german": "Bank",
+   "field": "sar",
+   "expect_current": "هو يسحب نقوداً من الصراف الآلي للبنك.",
+   "new": "يجب أن أذهب إلى البنك اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.park",
+   "german": "Park",
+   "field": "s",
+   "expect_current": "Im grünen Park spazieren am Wochenende viele Familien.",
+   "new": "Der Park ist groß und schön.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.park",
+   "german": "Park",
+   "field": "sar",
+   "expect_current": "في الحديقة العامة الخضراء تتنزه عائلات كثيرة في نهاية الأسبوع.",
+   "new": "الحديقة العامة كبيرة وجميلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.kirche",
+   "german": "Kirche",
+   "field": "s",
+   "expect_current": "Die Glocken der alten Kirche läuten zur Sonntagsmesse.",
+   "new": "Am Sonntag gehen wir zur Kirche.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.kirche",
+   "german": "Kirche",
+   "field": "sar",
+   "expect_current": "أجراس الكنيسة القديمة تدق لقداس يوم الأحد.",
+   "new": "يوم الأحد نذهب إلى الكنيسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.moschee",
+   "german": "Moschee",
+   "field": "s",
+   "expect_current": "Die Gläubigen versammeln sich zum Freitagsgebet in der Moschee.",
+   "new": "Am Freitag gehen wir zur Moschee.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.moschee",
+   "german": "Moschee",
+   "field": "sar",
+   "expect_current": "المؤمنون يجتمعون لصلاة الجمعة في المسجد.",
+   "new": "يوم الجمعة نذهب إلى المسجد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.restaurant",
+   "german": "Restaurant",
+   "field": "s",
+   "expect_current": "Zum Geburtstag lädt er seine Freunde in ein gutes Restaurant ein.",
+   "new": "Wir essen heute im Restaurant.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.restaurant",
+   "german": "Restaurant",
+   "field": "sar",
+   "expect_current": "بمناسبة عيد ميلاده يدعو أصدقاءه إلى مطعم راقٍ.",
+   "new": "نأكل اليوم في المطعم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.bahnhof",
+   "german": "Bahnhof",
+   "field": "s",
+   "expect_current": "Der Zug fährt pünktlich in den Hauptbahnhof ein.",
+   "new": "Wo ist der Bahnhof, bitte?",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.bahnhof",
+   "german": "Bahnhof",
+   "field": "sar",
+   "expect_current": "القطار يدخل محطة القطار الرئيسية في موعده تماماً.",
+   "new": "أين محطة القطار، من فضلك؟",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.hotel",
+   "german": "Hotel",
+   "field": "s",
+   "expect_current": "Die Touristen buchen ein gemütliches Zimmer im Hotel.",
+   "new": "Ich suche ein Hotel im Zentrum.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.hotel",
+   "german": "Hotel",
+   "field": "sar",
+   "expect_current": "السياح يحجزون غرفة مريحة في الفندق.",
+   "new": "أبحث عن فندق في وسط المدينة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.bibliothek",
+   "german": "Bibliothek",
+   "field": "s",
+   "expect_current": "In der ruhigen Bibliothek kann man konzentriert lernen.",
+   "new": "Ich gehe zur Bibliothek, weil ich Bücher suche.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "orte.bibliothek",
+   "german": "Bibliothek",
+   "field": "sar",
+   "expect_current": "في المكتبة الهادئة يستطيع المرء أن يدرس بتركيز.",
+   "new": "أذهب إلى المكتبة لأنني أبحث عن كتب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.geschaeft",
+   "german": "Geschäft",
+   "field": "s",
+   "expect_current": "In diesem kleinen Geschäft findet man handgemachte Souvenirs.",
+   "new": "Das Geschäft ist heute geschlossen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.geschaeft",
+   "german": "Geschäft",
+   "field": "sar",
+   "expect_current": "في هذا المحل الصغير يجد المرء تذكارات مصنوعة يدوياً.",
+   "new": "المحل مغلق اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.schule",
+   "german": "Schule",
+   "field": "s",
+   "expect_current": "Die Kinder gehen jeden Morgen zu Fuß zur Schule.",
+   "new": "Die Kinder sind in der Schule.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.schule",
+   "german": "Schule",
+   "field": "sar",
+   "expect_current": "الأطفال يذهبون كل صباح سيراً على الأقدام إلى المدرسة.",
+   "new": "الأطفال في المدرسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.flughafen",
+   "german": "Flughafen",
+   "field": "s",
+   "expect_current": "Am modernen Flughafen starten Flüge in die ganze Welt.",
+   "new": "Wir sind am Flughafen, weil wir reisen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "orte.flughafen",
+   "german": "Flughafen",
+   "field": "sar",
+   "expect_current": "في المطار الحديث تقلع رحلات جوية إلى كل أنحاء العالم.",
+   "new": "نحن في المطار لأننا مسافرون.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.kino",
+   "german": "Kino",
+   "field": "s",
+   "expect_current": "Am Freitagabend schauen wir einen neuen Film im Kino.",
+   "new": "Wir gehen heute ins Kino.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.kino",
+   "german": "Kino",
+   "field": "sar",
+   "expect_current": "مساء الجمعة نشاهد فيلماً جديداً في السينما.",
+   "new": "نذهب اليوم إلى السينما.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.museum",
+   "german": "Museum",
+   "field": "s",
+   "expect_current": "Im Museum bewundern die Besucher berühmte antike Kunstwerke.",
+   "new": "Das Museum ist am Montag geschlossen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.museum",
+   "german": "Museum",
+   "field": "sar",
+   "expect_current": "في المتحف يبدي الزوار إعجابهم بالتحف الفنية القديمة الشهيرة.",
+   "new": "المتحف مغلق يوم الاثنين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.supermarkt",
+   "german": "Supermarkt",
+   "field": "s",
+   "expect_current": "Im Supermarkt kaufen wir alle Lebensmittel für die Woche ein.",
+   "new": "Ich kaufe Brot im Supermarkt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.supermarkt",
+   "german": "Supermarkt",
+   "field": "sar",
+   "expect_current": "في السوبر ماركت نشتري كل المواد الغذائية للأسبوع.",
+   "new": "أشتري خبزاً من السوبر ماركت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.apotheke",
+   "german": "Apotheke",
+   "field": "s",
+   "expect_current": "Die Apotheke hat auch am späten Abend Notdienst.",
+   "new": "Die Apotheke ist neben der Bank.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.apotheke",
+   "german": "Apotheke",
+   "field": "sar",
+   "expect_current": "الصيدلية لديها خدمة طوارئ حتى في وقت متأخر من المساء.",
+   "new": "الصيدلية بجانب البنك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.tankstelle",
+   "german": "Tankstelle",
+   "field": "s",
+   "expect_current": "Vor der langen Fahrt tankt er das Auto an der Tankstelle voll.",
+   "new": "Er fährt zur Tankstelle, weil er Benzin braucht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "orte.tankstelle",
+   "german": "Tankstelle",
+   "field": "sar",
+   "expect_current": "قبل الرحلة الطويلة يملأ سيارته بالوقود في محطة الوقود.",
+   "new": "هو يذهب بالسيارة إلى محطة الوقود لأنه يحتاج إلى بنزين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.zoo",
+   "german": "Zoo",
+   "field": "s",
+   "expect_current": "Im Zoo bestaunen die Kinder die exotischen Tiere.",
+   "new": "Im Zoo sehen wir einen Löwen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.zoo",
+   "german": "Zoo",
+   "field": "sar",
+   "expect_current": "في حديقة الحيوان يتأمل الأطفال الحيوانات الاستوائية بدهشة.",
+   "new": "في حديقة الحيوان نرى أسداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.stadion",
+   "german": "Stadion",
+   "field": "s",
+   "expect_current": "Siebzigtausend Fans jubeln im vollbesetzten Stadion.",
+   "new": "Das Stadion ist groß und neu.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.stadion",
+   "german": "Stadion",
+   "field": "sar",
+   "expect_current": "سبعون ألف مشجع يهتفون في الملعب الممتلئ عن آخره.",
+   "new": "الملعب كبير وجديد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.universitaet",
+   "german": "Universität",
+   "field": "s",
+   "expect_current": "An der alten Universität studieren tausende junge Menschen.",
+   "new": "Meine Schwester studiert an der Universität.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.universitaet",
+   "german": "Universität",
+   "field": "sar",
+   "expect_current": "في الجامعة العريقة يدرس آلاف الشباب.",
+   "new": "أختي تدرس في الجامعة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.kindergarten",
+   "german": "Kindergarten",
+   "field": "s",
+   "expect_current": "Die Kleinen spielen fröhlich im Kindergarten mit Bauklötzen.",
+   "new": "Mein Sohn geht in den Kindergarten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.kindergarten",
+   "german": "Kindergarten",
+   "field": "sar",
+   "expect_current": "الصغار يلعبون بمرح في الروضة بالمكعبات.",
+   "new": "ابني يذهب إلى روضة الأطفال.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.rathaus",
+   "german": "Rathaus",
+   "field": "s",
+   "expect_current": "Der Bürgermeister empfängt die Gäste im historischen Rathaus.",
+   "new": "Das Rathaus ist im Zentrum.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.rathaus",
+   "german": "Rathaus",
+   "field": "sar",
+   "expect_current": "عمدة المدينة يستقبل الضيوف في مبنى البلدية التاريخي.",
+   "new": "مبنى البلدية في وسط المدينة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.post",
+   "german": "Post",
+   "field": "s",
+   "expect_current": "Er gibt das wichtige Paket bei der nächsten Post auf.",
+   "new": "Ich gehe zur Post, weil ich Briefe schicke.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "orte.post",
+   "german": "Post",
+   "field": "sar",
+   "expect_current": "هو يسلم الطرد الهام في أقرب مكتب بريد.",
+   "new": "أذهب إلى مكتب البريد لأنني أرسل رسائل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.gericht",
+   "german": "Gericht",
+   "field": "s",
+   "expect_current": "Der Zeuge sagt wahrheitsgemäß vor dem hohen Gericht aus.",
+   "new": "Das Gericht ist neben dem Rathaus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.gericht",
+   "german": "Gericht",
+   "field": "sar",
+   "expect_current": "الشاهد يدلي بشهادته بصدق أمام المحكمة الموقرة.",
+   "new": "المحكمة بجانب مبنى البلدية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.gefaengnis",
+   "german": "Gefängnis",
+   "field": "s",
+   "expect_current": "Der verurteilte Täter sitzt viele Jahre im Gefängnis.",
+   "new": "Das Gefängnis ist sehr groß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.gefaengnis",
+   "german": "Gefängnis",
+   "field": "sar",
+   "expect_current": "الجاني المدان يقضي سنوات عديدة في السجن.",
+   "new": "السجن كبير جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.fabrik",
+   "german": "Fabrik",
+   "field": "s",
+   "expect_current": "In dieser modernen Fabrik werden Elektroautos hergestellt.",
+   "new": "Mein Bruder arbeitet in einer Fabrik.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.fabrik",
+   "german": "Fabrik",
+   "field": "sar",
+   "expect_current": "في هذا المصنع الحديث تُصنَّع السيارات الكهربائية.",
+   "new": "أخي يعمل في مصنع.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.buero",
+   "german": "Büro",
+   "field": "s",
+   "expect_current": "Er arbeitet von neun bis siebzehn Uhr im Büro.",
+   "new": "Ich arbeite in einem Büro.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.buero",
+   "german": "Büro",
+   "field": "sar",
+   "expect_current": "هو يعمل من التاسعة إلى الخامسة في المكتب.",
+   "new": "أعمل في مكتب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.friedhof",
+   "german": "Friedhof",
+   "field": "s",
+   "expect_current": "Auf dem Friedhof herrscht eine friedliche und andächtige Stille.",
+   "new": "Der Friedhof ist sehr ruhig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.friedhof",
+   "german": "Friedhof",
+   "field": "sar",
+   "expect_current": "في المقبرة يسود صمت هادئ وخشوع تام.",
+   "new": "المقبرة هادئة جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.strand",
+   "german": "Strand",
+   "field": "s",
+   "expect_current": "Am weißen Strand liegen die Urlauber entspannt in der Sonne.",
+   "new": "Wir sind heute am Strand.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.strand",
+   "german": "Strand",
+   "field": "sar",
+   "expect_current": "على الشاطئ الأبيض يستلقي المصطافون مسترخين تحت الشمس.",
+   "new": "نحن اليوم على الشاطئ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.wald",
+   "german": "Wald",
+   "field": "s",
+   "expect_current": "Ein Spaziergang durch den dichten Wald beruhigt die Seele.",
+   "new": "Der Wald ist grün und ruhig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.wald",
+   "german": "Wald",
+   "field": "sar",
+   "expect_current": "المشي عبر الغابة الكثيفة يهدئ الروح.",
+   "new": "الغابة خضراء وهادئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.berg",
+   "german": "Berg",
+   "field": "s",
+   "expect_current": "Der Bergsteiger kletterte mutig auf den höchsten Berg.",
+   "new": "Am Samstag wandern wir auf den Berg.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "orte.berg",
+   "german": "Berg",
+   "field": "sar",
+   "expect_current": "المتسلق صعد بشجاعة إلى أعلى الجبل.",
+   "new": "يوم السبت نصعد الجبل سيراً على الأقدام.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.see",
+   "german": "See",
+   "field": "s",
+   "expect_current": "Das Wasser im tiefen See ist glasklar und sehr kalt.",
+   "new": "Im Sommer schwimmen wir gern im See.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.see",
+   "german": "See",
+   "field": "sar",
+   "expect_current": "الماء في البحيرة العميقة صافٍ كالزجاج وبارد جداً.",
+   "new": "في الصيف نحب السباحة في البحيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.fluss",
+   "german": "Fluss",
+   "field": "s",
+   "expect_current": "Ein breiter Fluss fließt gemächlich durch das grüne Tal.",
+   "new": "Der Fluss ist lang und breit.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.fluss",
+   "german": "Fluss",
+   "field": "sar",
+   "expect_current": "نهر عريض يتدفق بتمهل عبر الوادي الأخضر.",
+   "new": "النهر طويل وعريض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.meer",
+   "german": "Meer",
+   "field": "s",
+   "expect_current": "Das offene Meer erstreckt sich endlos bis zum Horizont.",
+   "new": "Wenn es heiß ist, fahren wir ans Meer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "orte.meer",
+   "german": "Meer",
+   "field": "sar",
+   "expect_current": "البحر المفتوح يمتد بلا نهاية حتى الأفق.",
+   "new": "عندما يكون الجو حاراً نذهب إلى البحر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.wueste",
+   "german": "Wüste",
+   "field": "s",
+   "expect_current": "In der heißen Wüste gibt es weite Sanddünen und Oasen.",
+   "new": "In der Wüste ist es sehr heiß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.wueste",
+   "german": "Wüste",
+   "field": "sar",
+   "expect_current": "في الصحراء الحارة توجد كثبان رملية واسعة وواحات.",
+   "new": "في الصحراء الجو حار جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.dorf",
+   "german": "Dorf",
+   "field": "s",
+   "expect_current": "Das kleine ruhige Dorf liegt idyllisch abseits der Großstadt.",
+   "new": "Meine Großeltern wohnen in einem Dorf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.dorf",
+   "german": "Dorf",
+   "field": "sar",
+   "expect_current": "القرية الصغيرة الهادئة تقع بشكل شاعري بعيداً عن المدينة الكبيرة.",
+   "new": "أجدادي يسكنون في قرية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.stadt",
+   "german": "Stadt",
+   "field": "s",
+   "expect_current": "Berlin ist eine lebendige und geschichtsträchtige Stadt.",
+   "new": "Kairo ist eine große Stadt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.stadt",
+   "german": "Stadt",
+   "field": "sar",
+   "expect_current": "برلين مدينة مفعمة بالحياة وحافلة بالتاريخ.",
+   "new": "القاهرة مدينة كبيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.platz",
+   "german": "Platz",
+   "field": "s",
+   "expect_current": "Mitten auf dem Marktplatz steht ein alter Brunnen.",
+   "new": "Die Kinder spielen auf dem Platz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.platz",
+   "german": "Platz",
+   "field": "sar",
+   "expect_current": "في وسط الميدان ينتصب ينبوع قديم.",
+   "new": "الأطفال يلعبون في الميدان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.fussgaengerzone",
+   "german": "Fußgängerzone",
+   "field": "s",
+   "expect_current": "In der autofreien Fußgängerzone schlendern viele Einkäufer gemütlich.",
+   "new": "In der Fußgängerzone gibt es viele Geschäfte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.fussgaengerzone",
+   "german": "Fußgängerzone",
+   "field": "sar",
+   "expect_current": "في منطقة المشاة الخالية من السيارات يتجول المتسوقون براحة.",
+   "new": "في منطقة المشاة توجد محلات كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.spielplatz",
+   "german": "Spielplatz",
+   "field": "s",
+   "expect_current": "Auf dem Spielplatz lachen und schaukeln die kleinen Kinder.",
+   "new": "Wir gehen mit dem Baby auf den Spielplatz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.spielplatz",
+   "german": "Spielplatz",
+   "field": "sar",
+   "expect_current": "في ملعب الأطفال يضحك الصغار ويتأرجحون.",
+   "new": "نذهب مع الرضيع إلى ملعب الأطفال.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.schwimmbad",
+   "german": "Schwimmbad",
+   "field": "s",
+   "expect_current": "Im beheizten Schwimmbad zieht sie jeden Morgen ihre Bahnen.",
+   "new": "Das Schwimmbad ist heute offen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.schwimmbad",
+   "german": "Schwimmbad",
+   "field": "sar",
+   "expect_current": "في حمام السباحة المدفأ تسبح كل صباح عدة دورات.",
+   "new": "حمام السباحة مفتوح اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.fitnessstudio",
+   "german": "Fitnessstudio",
+   "field": "s",
+   "expect_current": "Nach Feierabend trainiert er regelmäßig im Fitnessstudio.",
+   "new": "Ich bin im Fitnessstudio, weil ich Sport mache.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "orte.fitnessstudio",
+   "german": "Fitnessstudio",
+   "field": "sar",
+   "expect_current": "بعد انتهاء العمل يتدرب بانتظام في الصالة الرياضية.",
+   "new": "أنا في الصالة الرياضية لأنني أمارس الرياضة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.werkstatt",
+   "german": "Werkstatt",
+   "field": "s",
+   "expect_current": "In der Werkstatt repariert der Meister alte Holzuhren.",
+   "new": "Das Auto ist in der Werkstatt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.werkstatt",
+   "german": "Werkstatt",
+   "field": "sar",
+   "expect_current": "في الورشة يصلح المعلم الساعات الخشبية القديمة.",
+   "new": "السيارة في الورشة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.theater",
+   "german": "Theater",
+   "field": "s",
+   "expect_current": "Heute Abend schauen wir ein klassisches Theaterstück im Theater.",
+   "new": "Am Abend gehen wir ins Theater.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.theater",
+   "german": "Theater",
+   "field": "sar",
+   "expect_current": "مساء اليوم سنشاهد مسرحية كلاسيكية في المسرح.",
+   "new": "في المساء نذهب إلى المسرح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.oper",
+   "german": "Oper",
+   "field": "s",
+   "expect_current": "Die berühmte Sopranistin singt heute Abend in der großen Oper.",
+   "new": "Die Oper ist neben dem Theater.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.oper",
+   "german": "Oper",
+   "field": "sar",
+   "expect_current": "مغنية السوبرانو الشهيرة تغني هذا المساء في دار الأوبرا الكبرى.",
+   "new": "دار الأوبرا بجانب المسرح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.grenze",
+   "german": "Grenze",
+   "field": "s",
+   "expect_current": "An der offenen Grenze gibt es heutzutage keine Passkontrollen mehr.",
+   "new": "Am Wochenende fahren wir über die Grenze.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "orte.grenze",
+   "german": "Grenze",
+   "field": "sar",
+   "expect_current": "عند الحدود المفتوحة لم يعد هناك فحص للجوازات في هذه الأيام.",
+   "new": "في عطلة الأسبوع نعبر الحدود.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.hafen",
+   "german": "Hafen",
+   "field": "s",
+   "expect_current": "Im großen Hafen legen täglich riesige Frachtschiffe an.",
+   "new": "Das Schiff ist im Hafen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.hafen",
+   "german": "Hafen",
+   "field": "sar",
+   "expect_current": "في الميناء الكبير ترسو يومياً سفن شحن ضخمة.",
+   "new": "السفينة في الميناء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.botschaft",
+   "german": "Botschaft",
+   "field": "s",
+   "expect_current": "Er beantragte sein neues Visum bei der deutschen Botschaft.",
+   "new": "Die Botschaft ist am Montag offen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "orte.botschaft",
+   "german": "Botschaft",
+   "field": "sar",
+   "expect_current": "هو تقدم بطلب للحصول على تأشيرته الجديدة في السفارة الألمانية.",
+   "new": "السفارة مفتوحة يوم الاثنين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "orte.vorort",
+   "german": "Vorort",
+   "field": "s",
+   "expect_current": "Familien mit Kindern ziehen gerne in einen ruhigen Vorort.",
+   "new": "Wir wohnen in einem Vorort von Kairo.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "orte.vorort",
+   "german": "Vorort",
+   "field": "sar",
+   "expect_current": "العائلات التي لديها أطفال تحب الانتقال للعيش في ضاحية هادئة.",
+   "new": "نسكن في ضاحية من ضواحي القاهرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.mutter",
+   "german": "Mutter",
+   "field": "s",
+   "expect_current": "Meine Mutter kocht jeden Tag das beste Essen.",
+   "new": "Meine Mutter kocht jeden Tag.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.mutter",
+   "german": "Mutter",
+   "field": "sar",
+   "expect_current": "أمي تطبخ كل يوم أشهى طعام.",
+   "new": "أمي تطبخ كل يوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.vater",
+   "german": "Vater",
+   "field": "s",
+   "expect_current": "Mein Vater liest abends in Ruhe die Zeitung.",
+   "new": "Mein Vater arbeitet in einer Bank.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.vater",
+   "german": "Vater",
+   "field": "sar",
+   "expect_current": "أبي يقرأ الجريدة بهدوء في المساء.",
+   "new": "أبي يعمل في بنك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.schwester",
+   "german": "Schwester",
+   "field": "s",
+   "expect_current": "Meine Schwester hilft mir oft bei den Hausaufgaben.",
+   "new": "Meine Schwester heißt Mona.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.schwester",
+   "german": "Schwester",
+   "field": "sar",
+   "expect_current": "أختي تساعدني كثيراً في الواجبات المدرسية.",
+   "new": "أختي اسمها منى.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.bruder",
+   "german": "Bruder",
+   "field": "s",
+   "expect_current": "Mein kleiner Bruder spielt gerne draußen im Garten.",
+   "new": "Mein Bruder ist zehn Jahre alt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.bruder",
+   "german": "Bruder",
+   "field": "sar",
+   "expect_current": "أخي الصغير يحب اللعب في الحديقة بالخارج.",
+   "new": "أخي عمره عشر سنوات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.grossmutter",
+   "german": "Großmutter",
+   "field": "s",
+   "expect_current": "Die liebe Großmutter erzählt spannende Geschichten.",
+   "new": "Meine Großmutter backt gern Kuchen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.grossmutter",
+   "german": "Großmutter",
+   "field": "sar",
+   "expect_current": "الجدة الحبيبة تحكي قصصاً مشوقة.",
+   "new": "جدتي تحب أن تخبز الكعك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.grossvater",
+   "german": "Großvater",
+   "field": "s",
+   "expect_current": "Mein Großvater geht jeden Nachmittag im Park spazieren.",
+   "new": "Mein Großvater liest jeden Morgen die Zeitung.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.grossvater",
+   "german": "Großvater",
+   "field": "sar",
+   "expect_current": "جدي يتنزه كل بعد ظهر في الحديقة العامة.",
+   "new": "جدي يقرأ الجريدة كل صباح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.tochter",
+   "german": "Tochter",
+   "field": "s",
+   "expect_current": "Ihre Tochter lernt fleißig für die Prüfung an der Schule.",
+   "new": "Unsere Tochter geht schon zur Schule.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.tochter",
+   "german": "Tochter",
+   "field": "sar",
+   "expect_current": "ابنتها تدرس باجتهاد لامتحان المدرسة.",
+   "new": "ابنتنا تذهب إلى المدرسة بالفعل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.sohn",
+   "german": "Sohn",
+   "field": "s",
+   "expect_current": "Ihr Sohn spielt am liebsten Fußball mit Freunden.",
+   "new": "Mein Sohn spielt gern Fußball.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.sohn",
+   "german": "Sohn",
+   "field": "sar",
+   "expect_current": "ابنها يحب لعب كرة القدم مع أصدقائه.",
+   "new": "ابني يحب لعب كرة القدم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.tante",
+   "german": "Tante",
+   "field": "s",
+   "expect_current": "Meine Tante bringt uns aus dem Urlaub Geschenke mit.",
+   "new": "Meine Tante wohnt in Köln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.tante",
+   "german": "Tante",
+   "field": "sar",
+   "expect_current": "عمتي تحضر لنا هدايا من إجازتها.",
+   "new": "عمتي (أو خالتي) تسكن في كولن.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.onkel",
+   "german": "Onkel",
+   "field": "s",
+   "expect_current": "Mein Onkel repariert gerne alte Fahrräder in seiner Werkstatt.",
+   "new": "Das ist mein Onkel, der in Hamburg wohnt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "familie.onkel",
+   "german": "Onkel",
+   "field": "sar",
+   "expect_current": "عمي يحب تصليح الدراجات القديمة في ورشته.",
+   "new": "هذا عمي (أو خالي) الذي يسكن في هامبورغ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.frau",
+   "german": "Frau",
+   "field": "s",
+   "expect_current": "Die freundliche Frau arbeitet als Ärztin im Hospital.",
+   "new": "Die Frau dort ist sehr freundlich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.frau",
+   "german": "Frau",
+   "field": "sar",
+   "expect_current": "المرأة اللطيفة تعمل كطبيبة في المستشفى.",
+   "new": "المرأة هناك لطيفة جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.mann",
+   "german": "Mann",
+   "field": "s",
+   "expect_current": "Der Mann wartet geduldig an der Bushaltestelle.",
+   "new": "Der Mann trinkt einen Tee.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.mann",
+   "german": "Mann",
+   "field": "sar",
+   "expect_current": "الرجل ينتظر بصبر عند موقف الحافلة.",
+   "new": "الرجل يشرب شاياً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.eltern",
+   "german": "Eltern",
+   "field": "s",
+   "expect_current": "Meine Eltern unterstützen mich bei allen meinen Plänen.",
+   "new": "Meine Eltern wohnen in Kairo.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.eltern",
+   "german": "Eltern",
+   "field": "sar",
+   "expect_current": "والداي يدعمانني في كل خططي.",
+   "new": "والداي يسكنان في القاهرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.kinder",
+   "german": "Kinder",
+   "field": "s",
+   "expect_current": "Die fröhlichen Kinder toben laut auf dem Spielplatz.",
+   "new": "Die Kinder spielen im Garten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.kinder",
+   "german": "Kinder",
+   "field": "sar",
+   "expect_current": "الأطفال المرحون يمرحون بصوت عالٍ في الملعب.",
+   "new": "الأطفال يلعبون في الحديقة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.cousin",
+   "german": "Cousin",
+   "field": "s",
+   "expect_current": "Mein Cousin wohnt mit seiner Familie in Hamburg.",
+   "new": "Mein Cousin ist nach Berlin gezogen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "familie.cousin",
+   "german": "Cousin",
+   "field": "sar",
+   "expect_current": "ابن عمي يسكن مع عائلته في هامبورغ.",
+   "new": "ابن عمي (أو خالي) انتقل إلى برلين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.cousine",
+   "german": "Cousine",
+   "field": "s",
+   "expect_current": "Meine Cousine studiert Medizin an der Berliner Universität.",
+   "new": "Meine Cousine ist meine beste Freundin.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.cousine",
+   "german": "Cousine",
+   "field": "sar",
+   "expect_current": "بنت عمي تدرس الطب في جامعة برلين.",
+   "new": "بنت عمي (أو خالتي) هي أعز صديقاتي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.baby",
+   "german": "Baby",
+   "field": "s",
+   "expect_current": "Das neugeborene Baby schläft ruhig in seiner Wiege.",
+   "new": "Das Baby schläft jetzt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.baby",
+   "german": "Baby",
+   "field": "sar",
+   "expect_current": "الطفل الرضيع المولود ينام بهدوء في مهده.",
+   "new": "الرضيع ينام الآن.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.schwiegervater",
+   "german": "Schwiegervater",
+   "field": "s",
+   "expect_current": "Mein Schwiegervater ist ein sehr herzlicher Mensch.",
+   "new": "Mein Schwiegervater kocht sehr gut.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.schwiegervater",
+   "german": "Schwiegervater",
+   "field": "sar",
+   "expect_current": "حماي رجل طيب القلب جداً.",
+   "new": "حمي يطبخ جيداً جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.schwiegermutter",
+   "german": "Schwiegermutter",
+   "field": "s",
+   "expect_current": "Meine Schwiegermutter backt den besten Apfelkuchen.",
+   "new": "Meine Schwiegermutter besucht uns oft.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.schwiegermutter",
+   "german": "Schwiegermutter",
+   "field": "sar",
+   "expect_current": "حماتي تخبز أطيب كعكة تفاح.",
+   "new": "حماتي تزورنا كثيراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.schwiegersohn",
+   "german": "Schwiegersohn",
+   "field": "s",
+   "expect_current": "Unser Schwiegersohn kümmert sich vorbildlich um die Familie.",
+   "new": "Unser Schwiegersohn arbeitet in einem Krankenhaus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.schwiegersohn",
+   "german": "Schwiegersohn",
+   "field": "sar",
+   "expect_current": "زوج ابنتنا يعتني بالعائلة بصورة مثالية.",
+   "new": "زوج ابنتنا يعمل في مستشفى.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.schwiegertochter",
+   "german": "Schwiegertochter",
+   "field": "s",
+   "expect_current": "Unsere Schwiegertochter hat gestern ihre Promotion erfolgreich beendet.",
+   "new": "Unsere Schwiegertochter ist Lehrerin.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.schwiegertochter",
+   "german": "Schwiegertochter",
+   "field": "sar",
+   "expect_current": "زوجة ابننا أنهت أمس الدكتوراه بنجاح.",
+   "new": "زوجة ابننا مدرّسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.neffe",
+   "german": "Neffe",
+   "field": "s",
+   "expect_current": "Mein Neffe feiert am Wochenende seinen zehnten Geburtstag.",
+   "new": "Mein Neffe malt gern Bilder.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.neffe",
+   "german": "Neffe",
+   "field": "sar",
+   "expect_current": "ابن أخي يحتفل في عطلة نهاية الأسبوع بعيد ميلاده العاشر.",
+   "new": "ابن أخي (أو أختي) يحب رسم الصور.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.nichte",
+   "german": "Nichte",
+   "field": "s",
+   "expect_current": "Meine kleine Nichte malt mir ein buntes Bild.",
+   "new": "Meine Nichte lernt Deutsch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.nichte",
+   "german": "Nichte",
+   "field": "sar",
+   "expect_current": "ابنة أختي الصغيرة ترسم لي لوحة ملونة.",
+   "new": "بنت أخي (أو أختي) تتعلم الألمانية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.enkel",
+   "german": "Enkel",
+   "field": "s",
+   "expect_current": "Der kleine Enkel besucht seine Großeltern voller Freude.",
+   "new": "Mein Enkel ist fünf Jahre alt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.enkel",
+   "german": "Enkel",
+   "field": "sar",
+   "expect_current": "الحفيد الصغير يزور أجداده بكل فرح.",
+   "new": "حفيدي عمره خمس سنوات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.enkelin",
+   "german": "Enkelin",
+   "field": "s",
+   "expect_current": "Die Enkelin spielt mit ihrer Puppe im Wohnzimmer.",
+   "new": "Meine Enkelin geht gern in die Schule.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.enkelin",
+   "german": "Enkelin",
+   "field": "sar",
+   "expect_current": "الحفيدة تلعب بدميتها في غرفة المعيشة.",
+   "new": "حفيدتي تحب الذهاب إلى المدرسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.urgrossvater",
+   "german": "Urgroßvater",
+   "field": "s",
+   "expect_current": "Mein Urgroßvater wurde vor über neunzig Jahren geboren.",
+   "new": "Mein Urgroßvater ist sehr alt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.urgrossvater",
+   "german": "Urgroßvater",
+   "field": "sar",
+   "expect_current": "جد جدي وُلد قبل أكثر من تسعين عاماً.",
+   "new": "والد جدي كبير في السن جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.urgrossmutter",
+   "german": "Urgroßmutter",
+   "field": "s",
+   "expect_current": "Meine Urgroßmutter besitzt noch ein altes handgeschriebenes Kochbuch.",
+   "new": "Meine Urgroßmutter ist neunzig Jahre alt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.urgrossmutter",
+   "german": "Urgroßmutter",
+   "field": "sar",
+   "expect_current": "جدة جدي ما زالت تملك كتاب طبخ قديماً مكتوباً بخط اليد.",
+   "new": "والدة جدي عمرها تسعون سنة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.zwilling",
+   "german": "Zwilling",
+   "field": "s",
+   "expect_current": "Die beiden Brüder sind Zwillinge und sehen gleich aus.",
+   "new": "Mein Bruder ist mein Zwilling.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.zwilling",
+   "german": "Zwilling",
+   "field": "sar",
+   "expect_current": "الأخوان توأم ويبدوان متشابهين تماماً.",
+   "new": "أخي هو توأمي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.halbbruder",
+   "german": "Halbbruder",
+   "field": "s",
+   "expect_current": "Mein Halbbruder hat denselben Vater wie ich.",
+   "new": "Mein Halbbruder wohnt in München.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.halbbruder",
+   "german": "Halbbruder",
+   "field": "sar",
+   "expect_current": "أخي غير الشقيق له نفس الأب مثلي.",
+   "new": "أخي غير الشقيق يسكن في ميونخ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.halbschwester",
+   "german": "Halbschwester",
+   "field": "s",
+   "expect_current": "Meine Halbschwester besucht uns regelmäßig in den Ferien.",
+   "new": "Meine Halbschwester ist Ärztin.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.halbschwester",
+   "german": "Halbschwester",
+   "field": "sar",
+   "expect_current": "أختي غير الشقيقة تزورنا بانتظام في العطلات.",
+   "new": "أختي غير الشقيقة طبيبة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.stiefvater",
+   "german": "Stiefvater",
+   "field": "s",
+   "expect_current": "Sein Stiefvater ist ihm stets ein guter Ratgeber gewesen.",
+   "new": "Mein Stiefvater ist sehr nett.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.stiefvater",
+   "german": "Stiefvater",
+   "field": "sar",
+   "expect_current": "زوج أمه كان له دائماً ناصحاً أميناً.",
+   "new": "زوج أمي لطيف جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.stiefmutter",
+   "german": "Stiefmutter",
+   "field": "s",
+   "expect_current": "Ihre Stiefmutter kümmert sich liebevoll um den Haushalt.",
+   "new": "Meine Stiefmutter kocht gern.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.stiefmutter",
+   "german": "Stiefmutter",
+   "field": "sar",
+   "expect_current": "زوجة أبيها تعتني بشؤون البيت بكل مودة.",
+   "new": "زوجة أبي تحب الطبخ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.schwager",
+   "german": "Schwager",
+   "field": "s",
+   "expect_current": "Mein Schwager hilft mir heute beim Umzug in die Wohnung.",
+   "new": "Mein Schwager arbeitet in einem Büro.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.schwager",
+   "german": "Schwager",
+   "field": "sar",
+   "expect_current": "نسيبي يساعدني اليوم في الانتقال إلى الشقة.",
+   "new": "زوج أختي يعمل في مكتب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.schwaegerin",
+   "german": "Schwägerin",
+   "field": "s",
+   "expect_current": "Meine Schwägerin hat eine neue Arbeitsstelle gefunden.",
+   "new": "Meine Schwägerin kommt aus Alexandria.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.schwaegerin",
+   "german": "Schwägerin",
+   "field": "sar",
+   "expect_current": "نسيبتي وجدت وظيفة جديدة.",
+   "new": "زوجة أخي من الإسكندرية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.witwe",
+   "german": "Witwe",
+   "field": "s",
+   "expect_current": "Die alte Witwe lebt ruhig in einem kleinen Haus.",
+   "new": "Die Witwe wohnt allein im Haus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.witwe",
+   "german": "Witwe",
+   "field": "sar",
+   "expect_current": "الأرملة العجوز تعيش بهدوء في بيت صغير.",
+   "new": "الأرملة تسكن وحدها في البيت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.witwer",
+   "german": "Witwer",
+   "field": "s",
+   "expect_current": "Der einsame Witwer geht oft zum Grab seiner Frau.",
+   "new": "Der Witwer vermisst seine Frau.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "familie.witwer",
+   "german": "Witwer",
+   "field": "sar",
+   "expect_current": "الأرمل الوحيد يذهب كثيراً إلى قبر زوجته.",
+   "new": "الأرمل يشتاق إلى زوجته.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.braeutigam",
+   "german": "Bräutigam",
+   "field": "s",
+   "expect_current": "Der glückliche Bräutigam wartet gespannt vor dem Traualtar.",
+   "new": "Der Bräutigam trägt einen Anzug.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.braeutigam",
+   "german": "Bräutigam",
+   "field": "sar",
+   "expect_current": "العريس السعيد ينتظر بشوق أمام منصة الزفاف.",
+   "new": "العريس يرتدي بدلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.braut",
+   "german": "Braut",
+   "field": "s",
+   "expect_current": "Die strahlende Braut trägt ein wunderschönes weißes Kleid.",
+   "new": "Die Braut trägt ein weißes Kleid.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.braut",
+   "german": "Braut",
+   "field": "sar",
+   "expect_current": "العروسة المتألقة ترتدي فستاناً أبيض رائع الجمال.",
+   "new": "العروس ترتدي فستاناً أبيض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.kleinkind",
+   "german": "Kleinkind",
+   "field": "s",
+   "expect_current": "Das kleine Kleinkind lernt gerade seine ersten Schritte.",
+   "new": "Das Kleinkind spielt mit dem Ball.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.kleinkind",
+   "german": "Kleinkind",
+   "field": "sar",
+   "expect_current": "الطفل الصغير يتعلم الآن خطواته الأولى.",
+   "new": "الطفل الصغير يلعب بالكرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.teenager",
+   "german": "Teenager",
+   "field": "s",
+   "expect_current": "Der Teenager verbringt viel Zeit online mit Freunden.",
+   "new": "Meine Tochter ist ein Teenager.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.teenager",
+   "german": "Teenager",
+   "field": "sar",
+   "expect_current": "المراهق يقضي وقتاً طويلاً على الإنترنت مع الأصدقاء.",
+   "new": "ابنتي مراهقة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.geschwister",
+   "german": "Geschwister",
+   "field": "s",
+   "expect_current": "Ich habe drei Geschwister: zwei Schwestern und einen Bruder.",
+   "new": "Ich habe drei Geschwister.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.geschwister",
+   "german": "Geschwister",
+   "field": "sar",
+   "expect_current": "لدي ثلاثة إخوة: أختان وأخ واحد.",
+   "new": "عندي ثلاثة من الإخوة والأخوات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.ehemann",
+   "german": "Ehemann",
+   "field": "s",
+   "expect_current": "Ihr Ehemann arbeitet als Architekt in Frankfurt.",
+   "new": "Mein Ehemann ist Lehrer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.ehemann",
+   "german": "Ehemann",
+   "field": "sar",
+   "expect_current": "زوجها يعمل كمهندس معماري في فرانكفورت.",
+   "new": "زوجي مدرّس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.ehefrau",
+   "german": "Ehefrau",
+   "field": "s",
+   "expect_current": "Seine Ehefrau leitet eine erfolgreiche Buchhandlung.",
+   "new": "Meine Ehefrau arbeitet in einer Schule.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.ehefrau",
+   "german": "Ehefrau",
+   "field": "sar",
+   "expect_current": "زوجته تدير مكتبة كتب ناجحة.",
+   "new": "زوجتي تعمل في مدرسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.grosseltern",
+   "german": "Großeltern",
+   "field": "s",
+   "expect_current": "Die Großeltern freuen sich über den Besuch der Kinder.",
+   "new": "Meine Großeltern wohnen auf dem Land.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.grosseltern",
+   "german": "Großeltern",
+   "field": "sar",
+   "expect_current": "الأجداد يسعدون بزيارة الأولاد.",
+   "new": "أجدادي يسكنون في الريف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.enkelkinder",
+   "german": "Enkelkinder",
+   "field": "s",
+   "expect_current": "Sie spielen gerne stundenlang mit ihren Enkelkindern.",
+   "new": "Meine Großmutter hat zehn Enkelkinder.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "familie.enkelkinder",
+   "german": "Enkelkinder",
+   "field": "sar",
+   "expect_current": "هم يحبون اللعب لساعات طويلة مع أحفادهم.",
+   "new": "جدتي عندها عشرة أحفاد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.familienname",
+   "german": "Familienname",
+   "field": "s",
+   "expect_current": "Wie lautet Ihr Familienname bitte?",
+   "new": "Mein Familienname ist Hassan.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "familie.familienname",
+   "german": "Familienname",
+   "field": "sar",
+   "expect_current": "ما هو اسم عائلتكم من فضلكم؟",
+   "new": "اسم عائلتي حسن.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "familie.verwandtschaft",
+   "german": "Verwandtschaft",
+   "field": "s",
+   "expect_current": "An den Feiertagen kommt die ganze Verwandtschaft zusammen.",
+   "new": "Die ganze Verwandtschaft kommt zum Essen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "familie.verwandtschaft",
+   "german": "Verwandtschaft",
+   "field": "sar",
+   "expect_current": "في أيام الأعياد تجتمع كل العائلة والأقارب معاً.",
+   "new": "كل الأقارب يأتون إلى الغداء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.kopf",
+   "german": "Kopf",
+   "field": "s",
+   "expect_current": "Nach dem langen Arbeitstag tut mir der Kopf weh.",
+   "new": "Mein Kopf tut weh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.kopf",
+   "german": "Kopf",
+   "field": "sar",
+   "expect_current": "بعد يوم العمل الطويل يؤلمني رأسي.",
+   "new": "رأسي يؤلمني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.auge",
+   "german": "Auge",
+   "field": "s",
+   "expect_current": "Sie schließt müde das linke Auge.",
+   "new": "Ich habe zwei Augen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.auge",
+   "german": "Auge",
+   "field": "sar",
+   "expect_current": "هي تغلق عينها اليسرى بتعب.",
+   "new": "عندي عينان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.nase",
+   "german": "Nase",
+   "field": "s",
+   "expect_current": "Durch die Nase atmet man frische Luft ein.",
+   "new": "Meine Nase ist klein.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.nase",
+   "german": "Nase",
+   "field": "sar",
+   "expect_current": "عبر الأنف يتنفس الإنسان الهواء النقي.",
+   "new": "أنفي صغير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.mund",
+   "german": "Mund",
+   "field": "s",
+   "expect_current": "Der Zahnarzt bittet den Patienten, den Mund weit zu öffnen.",
+   "new": "Ich öffne den Mund.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.mund",
+   "german": "Mund",
+   "field": "sar",
+   "expect_current": "طبيب الأسنان يطلب من المريض فتح الفم جيداً.",
+   "new": "أفتح فمي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.ohr",
+   "german": "Ohr",
+   "field": "s",
+   "expect_current": "Mit dem gesunden Ohr kann er jedes leise Geräusch hören.",
+   "new": "Die Katze hat kleine Ohren.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.ohr",
+   "german": "Ohr",
+   "field": "sar",
+   "expect_current": "بأذنه السليمة يستطيع سماع كل صوت خافت.",
+   "new": "للقطة أذنان صغيرتان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.hand",
+   "german": "Hand",
+   "field": "s",
+   "expect_current": "Er reicht seinem neuen Kollegen freundlich die Hand.",
+   "new": "Ich wasche mir die Hände.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.hand",
+   "german": "Hand",
+   "field": "sar",
+   "expect_current": "هو يمد يده بود لزميله الجديد.",
+   "new": "أغسل يديّ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.arm",
+   "german": "Arm",
+   "field": "s",
+   "expect_current": "Nach dem Krafttraining schmerzt mein rechter Arm.",
+   "new": "Das Baby hat kurze Arme.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.arm",
+   "german": "Arm",
+   "field": "sar",
+   "expect_current": "بعد تمرين القوة يؤلمني ذراعي الأيمن.",
+   "new": "الرضيع له ذراعان قصيرتان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.bein",
+   "german": "Bein",
+   "field": "s",
+   "expect_current": "Der Fußballspieler hat sich am Bein verletzt.",
+   "new": "Wenn ich laufe, tut mein Bein weh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.bein",
+   "german": "Bein",
+   "field": "sar",
+   "expect_current": "لاعب كرة القدم أُصيب في ساقه.",
+   "new": "عندما أركض تؤلمني ساقي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.fuss",
+   "german": "Fuß",
+   "field": "s",
+   "expect_current": "Nach dem langen Wandern schmerzt mein linker Fuß.",
+   "new": "Ich gehe zu Fuß zur Schule.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.fuss",
+   "german": "Fuß",
+   "field": "sar",
+   "expect_current": "بعد المشي الطويل يؤلمني قدمي الأيسر.",
+   "new": "أذهب إلى المدرسة مشياً على الأقدام.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.bauch",
+   "german": "Bauch",
+   "field": "s",
+   "expect_current": "Nach dem üppigen Essen drückt der volle Bauch.",
+   "new": "Nach dem Essen tut mein Bauch weh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.bauch",
+   "german": "Bauch",
+   "field": "sar",
+   "expect_current": "بعد الوجبة الدسمة تشعر بامتلائها في البطن.",
+   "new": "بعد الأكل يؤلمني بطني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.haar",
+   "german": "Haar",
+   "field": "s",
+   "expect_current": "Ein feines Haar fiel ihm auf die Schulter.",
+   "new": "Meine Schwester hat lange Haare.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.haar",
+   "german": "Haar",
+   "field": "sar",
+   "expect_current": "سقطت شعرة دقيقة على كتفه.",
+   "new": "أختي لها شعر طويل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.ruecken",
+   "german": "Rücken",
+   "field": "s",
+   "expect_current": "Er hat sich beim Heben den Rücken verknackst.",
+   "new": "Wenn ich lange sitze, tut mein Rücken weh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.ruecken",
+   "german": "Rücken",
+   "field": "sar",
+   "expect_current": "هو آذاه ظهره أثناء رفع الأشياء الثقيلة.",
+   "new": "عندما أجلس طويلاً يؤلمني ظهري.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.schulter",
+   "german": "Schulter",
+   "field": "s",
+   "expect_current": "Sie tröstet das Kind und legt die Hand auf seine Schulter.",
+   "new": "Der Arzt untersucht meine Schulter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.schulter",
+   "german": "Schulter",
+   "field": "sar",
+   "expect_current": "هي تواسي الطفل وتضع يدها على كتفه.",
+   "new": "الطبيب يفحص كتفي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.knie",
+   "german": "Knie",
+   "field": "s",
+   "expect_current": "Beim Stürzen schlug er hart auf das Knie.",
+   "new": "Mein Knie tut weh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.knie",
+   "german": "Knie",
+   "field": "sar",
+   "expect_current": "أثناء السقوط ارتطمت ركبته بقوة.",
+   "new": "ركبتي تؤلمني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.zahn",
+   "german": "Zahn",
+   "field": "s",
+   "expect_current": "Der kleine Junge hat einen wackelnden Zahn verloren.",
+   "new": "Ich putze mir die Zähne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.zahn",
+   "german": "Zahn",
+   "field": "sar",
+   "expect_current": "الولد الصغير سقطت منه سن كانت تتأرجح.",
+   "new": "أنظّف أسناني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.zunge",
+   "german": "Zunge",
+   "field": "s",
+   "expect_current": "Mit der Zunge schmeckt man süß, sauer und salzig.",
+   "new": "Die Zunge ist im Mund.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.zunge",
+   "german": "Zunge",
+   "field": "sar",
+   "expect_current": "باللسان يتذوق الإنسان الحلو والحامض والمالح.",
+   "new": "اللسان داخل الفم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.hals",
+   "german": "Hals",
+   "field": "s",
+   "expect_current": "Sie trägt eine feine Kette um ihren Hals.",
+   "new": "Die Giraffe hat einen langen Hals.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.hals",
+   "german": "Hals",
+   "field": "sar",
+   "expect_current": "هي ترتدي سلسلة رقيقة حول عنقها.",
+   "new": "للزرافة رقبة طويلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.lippe",
+   "german": "Lippe",
+   "field": "s",
+   "expect_current": "Sie tupft roten Lippenstift auf ihre Lippe.",
+   "new": "Sie hat rote Lippen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.lippe",
+   "german": "Lippe",
+   "field": "sar",
+   "expect_current": "هي تضع أحمر شفاه على شفتها.",
+   "new": "لها شفتان حمراوان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.kinn",
+   "german": "Kinn",
+   "field": "s",
+   "expect_current": "Nach dem Nachdenken kratzt er sich nachdenklich am Kinn.",
+   "new": "Mein Vater hat einen Bart am Kinn.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.kinn",
+   "german": "Kinn",
+   "field": "sar",
+   "expect_current": "بعد التفكير يحك ذقنه بتأمل.",
+   "new": "أبي له لحية على ذقنه.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.augenbraue",
+   "german": "Augenbraue",
+   "field": "s",
+   "expect_current": "Die dichte Augenbraue schützt das Auge vor Schweiß.",
+   "new": "Er hat dicke Augenbrauen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.augenbraue",
+   "german": "Augenbraue",
+   "field": "sar",
+   "expect_current": "الحاجب الكثيف يحمي العين من العرق.",
+   "new": "عنده حاجبان كثيفان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.ellbogen",
+   "german": "Ellbogen",
+   "field": "s",
+   "expect_current": "Er stützt sich mit dem Ellbogen auf dem Schreibtisch ab.",
+   "new": "Ich habe mir den Ellbogen gestoßen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.ellbogen",
+   "german": "Ellbogen",
+   "field": "sar",
+   "expect_current": "هو يستند بمرفقه على المكتب.",
+   "new": "ضربتُ كوعي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.stirn",
+   "german": "Stirn",
+   "field": "s",
+   "expect_current": "Vor Anstrengung traten ihm Schweißperlen auf die Stirn.",
+   "new": "Die Mutter küsst das Kind auf die Stirn.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.stirn",
+   "german": "Stirn",
+   "field": "sar",
+   "expect_current": "من شدة المجهود ظهرت حبات العرق على جبهته.",
+   "new": "الأم تقبّل الطفل على جبهته.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.wange",
+   "german": "Wange",
+   "field": "s",
+   "expect_current": "Sie küsst ihre kleine Tochter sanft auf die Wange.",
+   "new": "Das Baby hat rote Wangen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.wange",
+   "german": "Wange",
+   "field": "sar",
+   "expect_current": "هي تقبّل ابنتها الصغيرة بلطف على خدها.",
+   "new": "الرضيع له خدّان أحمران.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.huefte",
+   "german": "Hüfte",
+   "field": "s",
+   "expect_current": "Sie stemmt die Hände selbstbewusst in die Hüfte.",
+   "new": "Meine Hüfte tut seit gestern weh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.huefte",
+   "german": "Hüfte",
+   "field": "sar",
+   "expect_current": "هي تضع يديها بثقة على خصرها.",
+   "new": "ورِكي يؤلمني منذ أمس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.ferse",
+   "german": "Ferse",
+   "field": "s",
+   "expect_current": "Der neue Schuh drückt unangenehm an der Ferse.",
+   "new": "Der Schuh drückt an der Ferse.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.ferse",
+   "german": "Ferse",
+   "field": "sar",
+   "expect_current": "الحذاء الجديد يضغط بشكل مزعج على كعب القدم.",
+   "new": "الحذاء يضغط على كعب قدمي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.nagel",
+   "german": "Nagel",
+   "field": "s",
+   "expect_current": "Sie schneidet sich vorsichtig den Nagel am Zeigefinger.",
+   "new": "Meine Nägel sind lang.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.nagel",
+   "german": "Nagel",
+   "field": "sar",
+   "expect_current": "هي تقص ظفر سبابتها بحذر.",
+   "new": "أظافري طويلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.muskel",
+   "german": "Muskel",
+   "field": "s",
+   "expect_current": "Regelmäßiges Training stärkt jeden einzelnen Muskel.",
+   "new": "Er hat starke Muskeln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.muskel",
+   "german": "Muskel",
+   "field": "sar",
+   "expect_current": "التدريب المنتظم يقوي كل عضلة مفردة.",
+   "new": "عنده عضلات قوية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.haut",
+   "german": "Haut",
+   "field": "s",
+   "expect_current": "Im Sommer schützt Sonnencreme die empfindliche Haut.",
+   "new": "Meine Haut ist weich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.haut",
+   "german": "Haut",
+   "field": "sar",
+   "expect_current": "في الصيف يحمي كريم الشمس الجلد الحساس.",
+   "new": "جلدي ناعم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.blut",
+   "german": "Blut",
+   "field": "s",
+   "expect_current": "Der Arzt nimmt dem Patienten etwas Blut für die Analyse ab.",
+   "new": "Das Blut ist rot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.blut",
+   "german": "Blut",
+   "field": "sar",
+   "expect_current": "الطبيب يسحب من المريض قليلاً من الدم للتحليل.",
+   "new": "الدم أحمر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.herz",
+   "german": "Herz",
+   "field": "s",
+   "expect_current": "Das menschliche Herz schlägt etwa siebzig Mal pro Minute.",
+   "new": "Das Herz schlägt schnell.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.herz",
+   "german": "Herz",
+   "field": "sar",
+   "expect_current": "قلب الإنسان ينبض نحو سبعين مرة في الدقيقة.",
+   "new": "القلب ينبض بسرعة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.lunge",
+   "german": "Lunge",
+   "field": "s",
+   "expect_current": "Frische Waldluft tut der Lunge gut.",
+   "new": "Wir atmen mit der Lunge.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.lunge",
+   "german": "Lunge",
+   "field": "sar",
+   "expect_current": "هواء الغابة النقي مفيد للرئة.",
+   "new": "نتنفس بالرئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.magen",
+   "german": "Magen",
+   "field": "s",
+   "expect_current": "Bei Hunger knurrt der leere Magen hörbar.",
+   "new": "Mein Magen ist leer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.magen",
+   "german": "Magen",
+   "field": "sar",
+   "expect_current": "عند الجوع تصدر المعدة الفارغة صوتاً مسموعاً.",
+   "new": "معدتي فارغة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.leber",
+   "german": "Leber",
+   "field": "s",
+   "expect_current": "Die Leber ist das wichtigste Entgiftungsorgan des Körpers.",
+   "new": "Die Leber ist ein wichtiges Organ.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.leber",
+   "german": "Leber",
+   "field": "sar",
+   "expect_current": "الكبد هو أهم عضو لإزالة السموم في الجسم.",
+   "new": "الكبد عضو مهم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.niere",
+   "german": "Niere",
+   "field": "s",
+   "expect_current": "Ausreichend Wasser trinken entlastet die gesunde Niere.",
+   "new": "Wir haben zwei Nieren.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.niere",
+   "german": "Niere",
+   "field": "sar",
+   "expect_current": "شرب الماء الكافي يريح الكلية السليمة.",
+   "new": "عندنا كليتان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.gehirn",
+   "german": "Gehirn",
+   "field": "s",
+   "expect_current": "Das menschliche Gehirn verarbeitet unzählige Gedanken am Tag.",
+   "new": "Wir denken mit dem Gehirn.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.gehirn",
+   "german": "Gehirn",
+   "field": "sar",
+   "expect_current": "دماغ الإنسان يعالج أفكاراً لا حصر لها يومياً.",
+   "new": "نفكر بالدماغ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.knochen",
+   "german": "Knochen",
+   "field": "s",
+   "expect_current": "Milch stärkt den wachsenden Knochen bei Kindern.",
+   "new": "Der Hund frisst einen Knochen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.knochen",
+   "german": "Knochen",
+   "field": "sar",
+   "expect_current": "الحليب يقوي العظم النامي لدى الأطفال.",
+   "new": "الكلب يأكل عظمة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.wirbelsaeule",
+   "german": "Wirbelsäule",
+   "field": "s",
+   "expect_current": "Die Wirbelsäule stützt den gesamten aufrechten Körper.",
+   "new": "Meine Wirbelsäule tut seit Montag weh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.wirbelsaeule",
+   "german": "Wirbelsäule",
+   "field": "sar",
+   "expect_current": "العمود الفقري يسند كامل الجسم المنتصب.",
+   "new": "عمودي الفقري يؤلمني منذ يوم الاثنين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.kiefer",
+   "german": "Kiefer",
+   "field": "s",
+   "expect_current": "Er spannte vor Wut den harten Kiefer an.",
+   "new": "Beim Kauen tut mein Kiefer weh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.kiefer",
+   "german": "Kiefer",
+   "field": "sar",
+   "expect_current": "هو شدّ فكه القوي من شدة الغضب.",
+   "new": "عند المضغ يؤلمني فكي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.kehle",
+   "german": "Kehle",
+   "field": "s",
+   "expect_current": "Ein Schluck warmes Wasser befeuchtet die trockene Kehle.",
+   "new": "Meine Kehle ist trocken, ich brauche Wasser.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.kehle",
+   "german": "Kehle",
+   "field": "sar",
+   "expect_current": "جرعة ماء دافئ ترطب الحلق الجاف.",
+   "new": "حلقي جاف، أحتاج إلى ماء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.nacken",
+   "german": "Nacken",
+   "field": "s",
+   "expect_current": "Eine sanfte Massage entspannt den verspannten Nacken.",
+   "new": "Der Schal wärmt meinen Nacken.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.nacken",
+   "german": "Nacken",
+   "field": "sar",
+   "expect_current": "التدليك اللطيف يريح الرقبة المتشنجة من الخلف.",
+   "new": "الوشاح يدفئ مؤخرة رقبتي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.handgelenk",
+   "german": "Handgelenk",
+   "field": "s",
+   "expect_current": "Er trägt seine Armbanduhr locker am linken Handgelenk.",
+   "new": "Ich trage die Uhr am Handgelenk.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.handgelenk",
+   "german": "Handgelenk",
+   "field": "sar",
+   "expect_current": "هو يرتدي ساعته بأريحية على معصم يده اليسرى.",
+   "new": "أرتدي الساعة في رسغي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.knoechel",
+   "german": "Knöchel",
+   "field": "s",
+   "expect_current": "Beim Laufen im Wald knickte sie mit dem Knöchel um.",
+   "new": "Der Knöchel ist dick und rot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.knoechel",
+   "german": "Knöchel",
+   "field": "sar",
+   "expect_current": "أثناء الجري في الغابة التوى كاحلها.",
+   "new": "الكاحل منتفخ وأحمر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.zehe",
+   "german": "Zehe",
+   "field": "s",
+   "expect_current": "Er stieß sich die kleine Zehe am Tischbein.",
+   "new": "Ich habe zehn Zehen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "koerper.zehe",
+   "german": "Zehe",
+   "field": "sar",
+   "expect_current": "هو صدم إصبع قدمه الصغير برجل الطاولة.",
+   "new": "عندي عشرة أصابع في قدميّ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.finger",
+   "german": "Finger",
+   "field": "s",
+   "expect_current": "Er deutet mit dem Finger auf die richtige Landkarte.",
+   "new": "Ich zeige mit dem Finger auf das Buch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.finger",
+   "german": "Finger",
+   "field": "sar",
+   "expect_current": "هو يشير بإصبعه إلى الخريطة الصحيحة.",
+   "new": "أشير بإصبعي إلى الكتاب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.daumen",
+   "german": "Daumen",
+   "field": "s",
+   "expect_current": "Zum Zeichen der Zustimmung hebt er den Daumen.",
+   "new": "Ich drücke dir die Daumen!",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "koerper.daumen",
+   "german": "Daumen",
+   "field": "sar",
+   "expect_current": "كعلامة على الموافقة يرفع إبهامه.",
+   "new": "أضغط على إبهاميّ من أجلك، أي أتمنى لك التوفيق!",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "koerper.faust",
+   "german": "Faust",
+   "field": "s",
+   "expect_current": "Aus Protest ballte der Demonstrant die Faust.",
+   "new": "Er macht eine Faust.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "koerper.faust",
+   "german": "Faust",
+   "field": "sar",
+   "expect_current": "احتجاجاً ضم المتظاهر قبضة يده.",
+   "new": "هو يعقد قبضته.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.haus",
+   "german": "Haus",
+   "field": "s",
+   "expect_current": "Wir wohnen in einem gemütlichen Haus mit Garten.",
+   "new": "Das Haus ist groß und alt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.haus",
+   "german": "Haus",
+   "field": "sar",
+   "expect_current": "نحن نسكن في بيت مريح مع حديقة.",
+   "new": "البيت كبير وقديم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.wohnung",
+   "german": "Wohnung",
+   "field": "s",
+   "expect_current": "Die neue Wohnung im dritten Stock ist sehr hell.",
+   "new": "Wir wohnen in einer kleinen Wohnung.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.wohnung",
+   "german": "Wohnung",
+   "field": "sar",
+   "expect_current": "الشقة الجديدة في الطابق الثالث مضيئة جداً.",
+   "new": "نسكن في شقة صغيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.zimmer",
+   "german": "Zimmer",
+   "field": "s",
+   "expect_current": "Mein Zimmer ist ordentlich und ruhig eingerichtet.",
+   "new": "Mein Zimmer ist neben der Küche.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.zimmer",
+   "german": "Zimmer",
+   "field": "sar",
+   "expect_current": "غرفتي مرتبة ومؤثثة بهدوء.",
+   "new": "غرفتي بجانب المطبخ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.kueche",
+   "german": "Küche",
+   "field": "s",
+   "expect_current": "In der modernen Küche kocht die Familie gemeinsam.",
+   "new": "Ich trinke Tee in der Küche.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.kueche",
+   "german": "Küche",
+   "field": "sar",
+   "expect_current": "في المطبخ الحديث تطبخ العائلة معاً.",
+   "new": "أشرب الشاي في المطبخ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.bad",
+   "german": "Bad",
+   "field": "s",
+   "expect_current": "Das Bad hat eine große Dusche und ein Fenster.",
+   "new": "Ich putze heute das Bad.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.bad",
+   "german": "Bad",
+   "field": "sar",
+   "expect_current": "الحمام فيه دش كبير ونافذة.",
+   "new": "أنظّف الحمّام اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.bett",
+   "german": "Bett",
+   "field": "s",
+   "expect_current": "Nach einem anstrengenden Tag lege ich mich ins weiche Bett.",
+   "new": "Ich gehe um zehn Uhr ins Bett.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.bett",
+   "german": "Bett",
+   "field": "sar",
+   "expect_current": "بعد يوم شاق أستلقي في السرير المريح.",
+   "new": "أذهب إلى السرير في الساعة العاشرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.tisch",
+   "german": "Tisch",
+   "field": "s",
+   "expect_current": "Alle sitzen zusammen am großen hölzernen Tisch.",
+   "new": "Der Tisch steht in der Küche.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.tisch",
+   "german": "Tisch",
+   "field": "sar",
+   "expect_current": "الجميع يجلسون معاً حول الطاولة الخشبية الكبيرة.",
+   "new": "الطاولة في المطبخ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.stuhl",
+   "german": "Stuhl",
+   "field": "s",
+   "expect_current": "Dieser bequeme Stuhl eignet sich gut zum Arbeiten.",
+   "new": "Der Stuhl ist neu.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.stuhl",
+   "german": "Stuhl",
+   "field": "sar",
+   "expect_current": "هذا الكرسي المريح مناسب جداً للعمل.",
+   "new": "الكرسي جديد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.schrank",
+   "german": "Schrank",
+   "field": "s",
+   "expect_current": "Die Kleider hängen ordentlich im großen Schrank.",
+   "new": "Der Schrank steht an der Wand.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.schrank",
+   "german": "Schrank",
+   "field": "sar",
+   "expect_current": "الملابس معلقة بترتيب في الخزانة الكبيرة.",
+   "new": "الخزانة بجانب الحائط.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.fenster",
+   "german": "Fenster",
+   "field": "s",
+   "expect_current": "Er öffnet das Fenster, um frische Luft hereinzulassen.",
+   "new": "Kannst du bitte das Fenster öffnen?",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.fenster",
+   "german": "Fenster",
+   "field": "sar",
+   "expect_current": "هو يفتح النافذة ليدخل هواء نقياً.",
+   "new": "هل يمكنك فتح النافذة من فضلك؟",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.tuer",
+   "german": "Tür",
+   "field": "s",
+   "expect_current": "Vergiss bitte nicht, die Tür abzuschließen.",
+   "new": "Die Tür ist zu.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.tuer",
+   "german": "Tür",
+   "field": "sar",
+   "expect_current": "من فضلك لا تنسَ قفل الباب.",
+   "new": "الباب مغلق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.lampe",
+   "german": "Lampe",
+   "field": "s",
+   "expect_current": "Die Lampe auf dem Tisch spendet ein warmes Licht.",
+   "new": "Die Lampe ist kaputt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.lampe",
+   "german": "Lampe",
+   "field": "sar",
+   "expect_current": "المصباح على الطاولة يبعث ضوءاً دافئاً.",
+   "new": "المصباح معطّل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.balkon",
+   "german": "Balkon",
+   "field": "s",
+   "expect_current": "Vom sonnigen Balkon aus sieht man die ganze Stadt.",
+   "new": "Wir trinken Tee auf dem Balkon.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.balkon",
+   "german": "Balkon",
+   "field": "sar",
+   "expect_current": "من الشرفة المشمسة يرى المرء المدينة بأكملها.",
+   "new": "نشرب الشاي على الشرفة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.garten",
+   "german": "Garten",
+   "field": "s",
+   "expect_current": "Im bunten Garten blühen im Frühling viele Blumen.",
+   "new": "Wir haben einen kleinen Garten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.garten",
+   "german": "Garten",
+   "field": "sar",
+   "expect_current": "في الحديقة الملونة تزهر أزهار كثيرة في الربيع.",
+   "new": "عندنا حديقة صغيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.dach",
+   "german": "Dach",
+   "field": "s",
+   "expect_current": "Die Arbeiter decken das steile Dach mit Ziegeln.",
+   "new": "Das Dach ist rot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.dach",
+   "german": "Dach",
+   "field": "sar",
+   "expect_current": "العمال يغطون السقف المائل بالقرميد.",
+   "new": "السقف أحمر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.wand",
+   "german": "Wand",
+   "field": "s",
+   "expect_current": "An der weißen Wand hängt ein wunderschönes Gemälde.",
+   "new": "Die Wand ist weiß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.wand",
+   "german": "Wand",
+   "field": "sar",
+   "expect_current": "على الحائط الأبيض معلقة لوحة فنية جميلة جداً.",
+   "new": "الحائط أبيض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.boden",
+   "german": "Boden",
+   "field": "s",
+   "expect_current": "Der hölzerne Boden ist frisch gewischt und sauber.",
+   "new": "Der Boden ist nass.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.boden",
+   "german": "Boden",
+   "field": "sar",
+   "expect_current": "الأرضية الخشبية ممسوحة حديثاً ونظيفة.",
+   "new": "الأرضية مبللة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.treppe",
+   "german": "Treppe",
+   "field": "s",
+   "expect_current": "Er steigt vorsichtig die steile Treppe hinab.",
+   "new": "Wir nehmen die Treppe, nicht den Aufzug.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.treppe",
+   "german": "Treppe",
+   "field": "sar",
+   "expect_current": "هو ينزل الدرج الحاد بحذر.",
+   "new": "نستخدم الدرج وليس المصعد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.spiegel",
+   "german": "Spiegel",
+   "field": "s",
+   "expect_current": "Sie betrachtet ihr Gesicht lächelnd im großen Spiegel.",
+   "new": "Der Spiegel hängt an der Wand.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.spiegel",
+   "german": "Spiegel",
+   "field": "sar",
+   "expect_current": "هي تتأمل وجهها مبتسمة في المرآة الكبيرة.",
+   "new": "المرآة معلقة على الحائط.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.sofa",
+   "german": "Sofa",
+   "field": "s",
+   "expect_current": "Auf dem bequemen Sofa kann man herrlich entspannen.",
+   "new": "Das Sofa ist sehr bequem.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.sofa",
+   "german": "Sofa",
+   "field": "sar",
+   "expect_current": "على الأريكة المريحة يمكن للمرء أن يسترخي بروعة.",
+   "new": "الأريكة مريحة جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.teppich",
+   "german": "Teppich",
+   "field": "s",
+   "expect_current": "Der weiche Teppich liegt mitten im Wohnzimmer.",
+   "new": "Der Teppich liegt auf dem Boden.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.teppich",
+   "german": "Teppich",
+   "field": "sar",
+   "expect_current": "السجادة الناعمة موضوعة في وسط غرفة المعيشة.",
+   "new": "السجادة على الأرضية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.regal",
+   "german": "Regal",
+   "field": "s",
+   "expect_current": "Die vielen Bücher stehen geordnet im langen Regal.",
+   "new": "Die Bücher stehen im Regal.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.regal",
+   "german": "Regal",
+   "field": "sar",
+   "expect_current": "الكتب الكثيرة مرتبة في الرف الطويل.",
+   "new": "الكتب في الرف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.waschmaschine",
+   "german": "Waschmaschine",
+   "field": "s",
+   "expect_current": "Die moderne Waschmaschine wäscht leise und gründlich.",
+   "new": "Wir haben eine neue Waschmaschine gekauft.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "zuhause.waschmaschine",
+   "german": "Waschmaschine",
+   "field": "sar",
+   "expect_current": "الغسالة الحديثة تغسل بهدوء وبدقة.",
+   "new": "اشترينا غسالة جديدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.klimaanlage",
+   "german": "Klimaanlage",
+   "field": "s",
+   "expect_current": "Im heißen Sommer kühlt die Klimaanlage die Wohnung.",
+   "new": "Im Sommer brauchen wir eine Klimaanlage.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.klimaanlage",
+   "german": "Klimaanlage",
+   "field": "sar",
+   "expect_current": "في الصيف الحار يبرد مكيف الهواء الشقة.",
+   "new": "في الصيف نحتاج إلى مكيف هواء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.aufzug",
+   "german": "Aufzug",
+   "field": "s",
+   "expect_current": "Mit schweren Einkäufen nimmt er lieber den Aufzug.",
+   "new": "Wir fahren mit dem Aufzug nach oben.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.aufzug",
+   "german": "Aufzug",
+   "field": "sar",
+   "expect_current": "مع المشتريات الثقيلة يفضل ركوب المصعد.",
+   "new": "نصعد بالمصعد إلى الأعلى.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.keller",
+   "german": "Keller",
+   "field": "s",
+   "expect_current": "Im kühlen Keller lagern wir Getränke und Kartoffeln.",
+   "new": "Das Fahrrad steht im Keller.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.keller",
+   "german": "Keller",
+   "field": "sar",
+   "expect_current": "في القبو البارد نخزن المشروبات والبطاطس.",
+   "new": "الدراجة في القبو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.dachboden",
+   "german": "Dachboden",
+   "field": "s",
+   "expect_current": "Auf dem Dachboden finden sich viele alte Erinnerungsstücke.",
+   "new": "Der Dachboden ist unter dem Dach.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "zuhause.dachboden",
+   "german": "Dachboden",
+   "field": "sar",
+   "expect_current": "في العلية توجد الكثير من الذكريات القديمة.",
+   "new": "العلية تحت السقف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.garage",
+   "german": "Garage",
+   "field": "s",
+   "expect_current": "Das Auto steht sicher geschützt in der Garage.",
+   "new": "Das Auto steht in der Garage.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.garage",
+   "german": "Garage",
+   "field": "sar",
+   "expect_current": "السيارة تقف محمية بأمان في الجراج.",
+   "new": "السيارة في المرآب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.flur",
+   "german": "Flur",
+   "field": "s",
+   "expect_current": "Vom langen Flur aus gelangt man in jedes Zimmer.",
+   "new": "Die Schuhe stehen im Flur.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.flur",
+   "german": "Flur",
+   "field": "sar",
+   "expect_current": "من الممر الطويل يصل المرء إلى كل الغرف.",
+   "new": "الأحذية في الممر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.terrasse",
+   "german": "Terrasse",
+   "field": "s",
+   "expect_current": "Im Sommer frühstücken wir gerne draußen auf der Terrasse.",
+   "new": "Wir essen auf der Terrasse.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.terrasse",
+   "german": "Terrasse",
+   "field": "sar",
+   "expect_current": "في الصيف نحب تناول الإفطار بالخارج على التراس.",
+   "new": "نأكل على التراس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.zaun",
+   "german": "Zaun",
+   "field": "s",
+   "expect_current": "Ein weißer hölzerner Zaun umgibt das ganze Grundstück.",
+   "new": "Der Zaun ist um den Garten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.zaun",
+   "german": "Zaun",
+   "field": "sar",
+   "expect_current": "سياج خشبي أبيض يحيط بكامل قطعة الأرض.",
+   "new": "السياج حول الحديقة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.schloss",
+   "german": "Schloss",
+   "field": "s",
+   "expect_current": "Das feste Schloss an der Haustür schützt vor Einbrechern.",
+   "new": "Der Schlüssel passt nicht ins Schloss.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "zuhause.schloss",
+   "german": "Schloss",
+   "field": "sar",
+   "expect_current": "القفل المتين على باب المنزل يحمي من اللصوص.",
+   "new": "المفتاح لا يناسب القفل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.schluessel",
+   "german": "Schlüssel",
+   "field": "s",
+   "expect_current": "Er sucht überall nach seinem verlorenen Schlüssel.",
+   "new": "Ich habe meinen Schlüssel verloren.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "zuhause.schluessel",
+   "german": "Schlüssel",
+   "field": "sar",
+   "expect_current": "هو يبحث في كل مكان عن مفتاحه المفقود.",
+   "new": "فقدتُ مفتاحي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.steckdose",
+   "german": "Steckdose",
+   "field": "s",
+   "expect_current": "Er steckt das Ladekabel vorsichtig in die Steckdose.",
+   "new": "Die Steckdose ist neben dem Bett.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.steckdose",
+   "german": "Steckdose",
+   "field": "sar",
+   "expect_current": "هو يضع كابل الشحن بحذر في مقبس الكهرباء.",
+   "new": "المقبس الكهربائي بجانب السرير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.schalter",
+   "german": "Schalter",
+   "field": "s",
+   "expect_current": "Mit einem Klick auf den Schalter geht das Licht an.",
+   "new": "Der Schalter ist neben der Tür.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.schalter",
+   "german": "Schalter",
+   "field": "sar",
+   "expect_current": "بنقرة واحدة على مفتاح الإضاءة يضيء النور.",
+   "new": "مفتاح الإضاءة بجانب الباب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.heizung",
+   "german": "Heizung",
+   "field": "s",
+   "expect_current": "Im kalten Winter dreht er die Heizung auf drei.",
+   "new": "Wenn es kalt ist, brauche ich die Heizung.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "zuhause.heizung",
+   "german": "Heizung",
+   "field": "sar",
+   "expect_current": "في الشتاء البارد يضبط التدفئة على الدرجة ثلاثة.",
+   "new": "عندما يكون الجو بارداً أحتاج إلى التدفئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.kamin",
+   "german": "Kamin",
+   "field": "s",
+   "expect_current": "Am prasselnden Kamin wird es am Abend wunderbar warm.",
+   "new": "Im Winter sitzen wir am Kamin.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.kamin",
+   "german": "Kamin",
+   "field": "sar",
+   "expect_current": "بجوار المدفأة المشتعلة يصبح الجو في المساء دافئاً رائعاً.",
+   "new": "في الشتاء نجلس بجانب المدفأة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.vorhang",
+   "german": "Vorhang",
+   "field": "s",
+   "expect_current": "Sie zieht den Vorhang zu, um den Raum abzudunkeln.",
+   "new": "Der Vorhang hängt am Fenster.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.vorhang",
+   "german": "Vorhang",
+   "field": "sar",
+   "expect_current": "هي تغلق الستارة لتجعل الغرفة مظلمة.",
+   "new": "الستارة معلقة على النافذة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.kissen",
+   "german": "Kissen",
+   "field": "s",
+   "expect_current": "Ein weiches Kissen stützt den Kopf beim Lesen.",
+   "new": "Das Kissen liegt auf dem Sofa.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.kissen",
+   "german": "Kissen",
+   "field": "sar",
+   "expect_current": "وسادة ناعمة تسند الرأس أثناء القراءة.",
+   "new": "الوسادة على الأريكة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.decke",
+   "german": "Decke",
+   "field": "s",
+   "expect_current": "Sie deckt das schlafende Kind mit einer warmen Decke zu.",
+   "new": "Die Decke liegt auf dem Bett.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.decke",
+   "german": "Decke",
+   "field": "sar",
+   "expect_current": "هي تغطي الطفل النائم ببطانية دافئة.",
+   "new": "البطانية على السرير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.matratze",
+   "german": "Matratze",
+   "field": "s",
+   "expect_current": "Auf der neuen Matratze schläft man ausgezeichnet.",
+   "new": "Die Matratze ist sehr weich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.matratze",
+   "german": "Matratze",
+   "field": "sar",
+   "expect_current": "على المرتبة الجديدة ينام المرء نوماً ممتازاً.",
+   "new": "المرتبة ناعمة جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.bettdecke",
+   "german": "Bettdecke",
+   "field": "s",
+   "expect_current": "Die dicke Bettdecke hält im Winter mollig warm.",
+   "new": "Die Bettdecke ist schön warm.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.bettdecke",
+   "german": "Bettdecke",
+   "field": "sar",
+   "expect_current": "لحاف السرير السميك يوفر دفئاً لطيفاً في الشتاء.",
+   "new": "اللحاف دافئ جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.wasserhahn",
+   "german": "Wasserhahn",
+   "field": "s",
+   "expect_current": "Aus dem Wasserhahn tropft unaufhörlich Wasser.",
+   "new": "Der Wasserhahn tropft.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "zuhause.wasserhahn",
+   "german": "Wasserhahn",
+   "field": "sar",
+   "expect_current": "من صنبور المياه يتقاطر الماء بلا توقف.",
+   "new": "الصنبور يقطر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.waschbecken",
+   "german": "Waschbecken",
+   "field": "s",
+   "expect_current": "Im Bad wäscht er sich gründlich am Waschbecken.",
+   "new": "Das Waschbecken ist im Bad.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.waschbecken",
+   "german": "Waschbecken",
+   "field": "sar",
+   "expect_current": "في الحمام يغسل نفسه بعناية عند حوض الغسيل.",
+   "new": "حوض الغسيل في الحمام.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.badewanne",
+   "german": "Badewanne",
+   "field": "s",
+   "expect_current": "Nach dem Sport nimmt sie ein heißes Bad in der Badewanne.",
+   "new": "Die Badewanne ist zu klein.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.badewanne",
+   "german": "Badewanne",
+   "field": "sar",
+   "expect_current": "بعد الرياضة تأخذ حماماً ساخناً في البانيو.",
+   "new": "البانيو صغير جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.dusche",
+   "german": "Dusche",
+   "field": "s",
+   "expect_current": "Morgens nimmt er zur Erfrischung eine kurze Dusche.",
+   "new": "Ich nehme jeden Morgen eine Dusche.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.dusche",
+   "german": "Dusche",
+   "field": "sar",
+   "expect_current": "في الصباح يأخذ دشاً قصيراً للانتعاش.",
+   "new": "آخذ دشاً كل صباح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.toilette",
+   "german": "Toilette",
+   "field": "s",
+   "expect_current": "Die Gäste suchen die saubere Toilette im Erdgeschoss.",
+   "new": "Wo ist die Toilette, bitte?",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zuhause.toilette",
+   "german": "Toilette",
+   "field": "sar",
+   "expect_current": "الضيوف يبحثون عن المرحاض النظيف في الطابق الأرضي.",
+   "new": "أين المرحاض، من فضلك؟",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.briefkasten",
+   "german": "Briefkasten",
+   "field": "s",
+   "expect_current": "Der Postbote wirft einen Brief in den Briefkasten.",
+   "new": "Der Briefkasten ist vor dem Haus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.briefkasten",
+   "german": "Briefkasten",
+   "field": "sar",
+   "expect_current": "ساعي البريد يضع رسالة في صندوق البريد.",
+   "new": "صندوق البريد أمام البيت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.kleiderschrank",
+   "german": "Kleiderschrank",
+   "field": "s",
+   "expect_current": "Im großen Kleiderschrank ist genug Platz für alle Jacken.",
+   "new": "Meine Kleider sind im Kleiderschrank.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.kleiderschrank",
+   "german": "Kleiderschrank",
+   "field": "sar",
+   "expect_current": "في دولاب الملابس الكبير متسع كافٍ لكل السترات.",
+   "new": "ملابسي في خزانة الملابس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zuhause.nachttisch",
+   "german": "Nachttisch",
+   "field": "s",
+   "expect_current": "Neben dem Bett steht ein kleiner Nachttisch mit Lampe.",
+   "new": "Die Lampe steht auf dem Nachttisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zuhause.nachttisch",
+   "german": "Nachttisch",
+   "field": "sar",
+   "expect_current": "بجوار السرير توجد طاولة سرير جانبية صغيرة مع مصباح.",
+   "new": "المصباح على طاولة السرير الجانبية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  }
+ ]
+}

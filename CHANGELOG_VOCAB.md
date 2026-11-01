@@ -91,3 +91,10 @@
 - **Target Item IDs:** verben.*
 - **Previous SHA-256:** `bdb4224842632072b7a4de2986963e8fa30ce027fedd80847f0e6c45bbe6434d`
 - **New SHA-256:** `7b4dc30d9ca9407142391356beb2eada26c9fabf3ad27a841d4fe6468139aa77`
+
+## [2026-11-01 01:47:28] Authorized Baseline Update
+- **Reason:** Replace the example sentence and its Arabic translation of 193 words in orte, familie, koerper and zuhause with hand-written sentences at A1-A2-B1 level (max 8 words, simple tenses)
+- **Source:** Hand-written by the maintainer's assistant, reviewed and approved word by word by the owner; no copied text
+- **Target Item IDs:** orte.*,familie.*,koerper.*,zuhause.*
+- **Previous SHA-256:** `7b4dc30d9ca9407142391356beb2eada26c9fabf3ad27a841d4fe6468139aa77`
+- **New SHA-256:** `edaeb00dd7f83b4e0360a980bfc32c57bf2c5603f4962446a1becf732f1fe8ac`

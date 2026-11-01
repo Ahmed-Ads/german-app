@@ -1233,8 +1233,8 @@
         "n": "Mutter",
         "ar": "أم",
         "pl": "die Mütter",
-        "s": "Meine Mutter kocht jeden Tag das beste Essen.",
-        "sar": "أمي تطبخ كل يوم أشهى طعام."
+        "s": "Meine Mutter kocht jeden Tag.",
+        "sar": "أمي تطبخ كل يوم."
       },
       {
         "id": "familie.vater",
@@ -1242,8 +1242,8 @@
         "n": "Vater",
         "ar": "أب",
         "pl": "die Väter",
-        "s": "Mein Vater liest abends in Ruhe die Zeitung.",
-        "sar": "أبي يقرأ الجريدة بهدوء في المساء."
+        "s": "Mein Vater arbeitet in einer Bank.",
+        "sar": "أبي يعمل في بنك."
       },
       {
         "id": "familie.schwester",
@@ -1251,8 +1251,8 @@
         "n": "Schwester",
         "ar": "أخت",
         "pl": "die Schwestern",
-        "s": "Meine Schwester hilft mir oft bei den Hausaufgaben.",
-        "sar": "أختي تساعدني كثيراً في الواجبات المدرسية."
+        "s": "Meine Schwester heißt Mona.",
+        "sar": "أختي اسمها منى."
       },
       {
         "id": "familie.bruder",
@@ -1260,8 +1260,8 @@
         "n": "Bruder",
         "ar": "أخ",
         "pl": "die Brüder",
-        "s": "Mein kleiner Bruder spielt gerne draußen im Garten.",
-        "sar": "أخي الصغير يحب اللعب في الحديقة بالخارج."
+        "s": "Mein Bruder ist zehn Jahre alt.",
+        "sar": "أخي عمره عشر سنوات."
       },
       {
         "id": "familie.grossmutter",
@@ -1269,8 +1269,8 @@
         "n": "Großmutter",
         "ar": "جدة",
         "pl": "die Großmütter",
-        "s": "Die liebe Großmutter erzählt spannende Geschichten.",
-        "sar": "الجدة الحبيبة تحكي قصصاً مشوقة."
+        "s": "Meine Großmutter backt gern Kuchen.",
+        "sar": "جدتي تحب أن تخبز الكعك."
       },
       {
         "id": "familie.grossvater",
@@ -1278,8 +1278,8 @@
         "n": "Großvater",
         "ar": "جد",
         "pl": "die Großväter",
-        "s": "Mein Großvater geht jeden Nachmittag im Park spazieren.",
-        "sar": "جدي يتنزه كل بعد ظهر في الحديقة العامة."
+        "s": "Mein Großvater liest jeden Morgen die Zeitung.",
+        "sar": "جدي يقرأ الجريدة كل صباح."
       },
       {
         "id": "familie.tochter",
@@ -1287,8 +1287,8 @@
         "n": "Tochter",
         "ar": "ابنة",
         "pl": "die Töchter",
-        "s": "Ihre Tochter lernt fleißig für die Prüfung an der Schule.",
-        "sar": "ابنتها تدرس باجتهاد لامتحان المدرسة."
+        "s": "Unsere Tochter geht schon zur Schule.",
+        "sar": "ابنتنا تذهب إلى المدرسة بالفعل."
       },
       {
         "id": "familie.sohn",
@@ -1296,8 +1296,8 @@
         "n": "Sohn",
         "ar": "ابن",
         "pl": "die Söhne",
-        "s": "Ihr Sohn spielt am liebsten Fußball mit Freunden.",
-        "sar": "ابنها يحب لعب كرة القدم مع أصدقائه."
+        "s": "Mein Sohn spielt gern Fußball.",
+        "sar": "ابني يحب لعب كرة القدم."
       },
       {
         "id": "familie.tante",
@@ -1305,8 +1305,8 @@
         "n": "Tante",
         "ar": "عمة / خالة",
         "pl": "die Tanten",
-        "s": "Meine Tante bringt uns aus dem Urlaub Geschenke mit.",
-        "sar": "عمتي تحضر لنا هدايا من إجازتها."
+        "s": "Meine Tante wohnt in Köln.",
+        "sar": "عمتي (أو خالتي) تسكن في كولن."
       },
       {
         "id": "familie.onkel",
@@ -1314,8 +1314,8 @@
         "n": "Onkel",
         "ar": "عم / خال",
         "pl": "die Onkel",
-        "s": "Mein Onkel repariert gerne alte Fahrräder in seiner Werkstatt.",
-        "sar": "عمي يحب تصليح الدراجات القديمة في ورشته."
+        "s": "Das ist mein Onkel, der in Hamburg wohnt.",
+        "sar": "هذا عمي (أو خالي) الذي يسكن في هامبورغ."
       },
       {
         "id": "familie.frau",
@@ -1323,8 +1323,8 @@
         "n": "Frau",
         "ar": "امرأة / زوجة",
         "pl": "die Frauen",
-        "s": "Die freundliche Frau arbeitet als Ärztin im Hospital.",
-        "sar": "المرأة اللطيفة تعمل كطبيبة في المستشفى."
+        "s": "Die Frau dort ist sehr freundlich.",
+        "sar": "المرأة هناك لطيفة جداً."
       },
       {
         "id": "familie.mann",
@@ -1332,8 +1332,8 @@
         "n": "Mann",
         "ar": "رجل / زوج",
         "pl": "die Männer",
-        "s": "Der Mann wartet geduldig an der Bushaltestelle.",
-        "sar": "الرجل ينتظر بصبر عند موقف الحافلة."
+        "s": "Der Mann trinkt einen Tee.",
+        "sar": "الرجل يشرب شاياً."
       },
       {
         "id": "familie.eltern",
@@ -1341,8 +1341,8 @@
         "n": "Eltern",
         "ar": "والدان (أبوان)",
         "pl": null,
-        "s": "Meine Eltern unterstützen mich bei allen meinen Plänen.",
-        "sar": "والداي يدعمانني في كل خططي."
+        "s": "Meine Eltern wohnen in Kairo.",
+        "sar": "والداي يسكنان في القاهرة."
       },
       {
         "id": "familie.kinder",
@@ -1350,8 +1350,8 @@
         "n": "Kinder",
         "ar": "أطفال",
         "pl": null,
-        "s": "Die fröhlichen Kinder toben laut auf dem Spielplatz.",
-        "sar": "الأطفال المرحون يمرحون بصوت عالٍ في الملعب."
+        "s": "Die Kinder spielen im Garten.",
+        "sar": "الأطفال يلعبون في الحديقة."
       },
       {
         "id": "familie.cousin",
@@ -1359,8 +1359,8 @@
         "n": "Cousin",
         "ar": "ابن العم/الخال",
         "pl": "die Cousins",
-        "s": "Mein Cousin wohnt mit seiner Familie in Hamburg.",
-        "sar": "ابن عمي يسكن مع عائلته في هامبورغ."
+        "s": "Mein Cousin ist nach Berlin gezogen.",
+        "sar": "ابن عمي (أو خالي) انتقل إلى برلين."
       },
       {
         "id": "familie.cousine",
@@ -1368,8 +1368,8 @@
         "n": "Cousine",
         "ar": "بنت العم/الخالة",
         "pl": "die Cousinen",
-        "s": "Meine Cousine studiert Medizin an der Berliner Universität.",
-        "sar": "بنت عمي تدرس الطب في جامعة برلين."
+        "s": "Meine Cousine ist meine beste Freundin.",
+        "sar": "بنت عمي (أو خالتي) هي أعز صديقاتي."
       },
       {
         "id": "familie.baby",
@@ -1377,8 +1377,8 @@
         "n": "Baby",
         "ar": "رضيع",
         "pl": "die Babys",
-        "s": "Das neugeborene Baby schläft ruhig in seiner Wiege.",
-        "sar": "الطفل الرضيع المولود ينام بهدوء في مهده."
+        "s": "Das Baby schläft jetzt.",
+        "sar": "الرضيع ينام الآن."
       },
       {
         "id": "familie.schwiegervater",
@@ -1386,8 +1386,8 @@
         "n": "Schwiegervater",
         "ar": "حمو",
         "pl": "die Schwiegerväter",
-        "s": "Mein Schwiegervater ist ein sehr herzlicher Mensch.",
-        "sar": "حماي رجل طيب القلب جداً."
+        "s": "Mein Schwiegervater kocht sehr gut.",
+        "sar": "حمي يطبخ جيداً جداً."
       },
       {
         "id": "familie.schwiegermutter",
@@ -1395,8 +1395,8 @@
         "n": "Schwiegermutter",
         "ar": "حماة",
         "pl": "die Schwiegermütter",
-        "s": "Meine Schwiegermutter backt den besten Apfelkuchen.",
-        "sar": "حماتي تخبز أطيب كعكة تفاح."
+        "s": "Meine Schwiegermutter besucht uns oft.",
+        "sar": "حماتي تزورنا كثيراً."
       },
       {
         "id": "familie.schwiegersohn",
@@ -1404,8 +1404,8 @@
         "n": "Schwiegersohn",
         "ar": "زوج الابنة",
         "pl": "die Schwiegersöhne",
-        "s": "Unser Schwiegersohn kümmert sich vorbildlich um die Familie.",
-        "sar": "زوج ابنتنا يعتني بالعائلة بصورة مثالية."
+        "s": "Unser Schwiegersohn arbeitet in einem Krankenhaus.",
+        "sar": "زوج ابنتنا يعمل في مستشفى."
       },
       {
         "id": "familie.schwiegertochter",
@@ -1413,8 +1413,8 @@
         "n": "Schwiegertochter",
         "ar": "زوجة الابن",
         "pl": "die Schwiegertöchter",
-        "s": "Unsere Schwiegertochter hat gestern ihre Promotion erfolgreich beendet.",
-        "sar": "زوجة ابننا أنهت أمس الدكتوراه بنجاح."
+        "s": "Unsere Schwiegertochter ist Lehrerin.",
+        "sar": "زوجة ابننا مدرّسة."
       },
       {
         "id": "familie.neffe",
@@ -1422,8 +1422,8 @@
         "n": "Neffe",
         "ar": "ابن الأخ/الأخت",
         "pl": "die Neffen",
-        "s": "Mein Neffe feiert am Wochenende seinen zehnten Geburtstag.",
-        "sar": "ابن أخي يحتفل في عطلة نهاية الأسبوع بعيد ميلاده العاشر."
+        "s": "Mein Neffe malt gern Bilder.",
+        "sar": "ابن أخي (أو أختي) يحب رسم الصور."
       },
       {
         "id": "familie.nichte",
@@ -1431,8 +1431,8 @@
         "n": "Nichte",
         "ar": "بنت الأخ/الأخت",
         "pl": "die Nichten",
-        "s": "Meine kleine Nichte malt mir ein buntes Bild.",
-        "sar": "ابنة أختي الصغيرة ترسم لي لوحة ملونة."
+        "s": "Meine Nichte lernt Deutsch.",
+        "sar": "بنت أخي (أو أختي) تتعلم الألمانية."
       },
       {
         "id": "familie.enkel",
@@ -1440,8 +1440,8 @@
         "n": "Enkel",
         "ar": "حفيد",
         "pl": "die Enkel",
-        "s": "Der kleine Enkel besucht seine Großeltern voller Freude.",
-        "sar": "الحفيد الصغير يزور أجداده بكل فرح."
+        "s": "Mein Enkel ist fünf Jahre alt.",
+        "sar": "حفيدي عمره خمس سنوات."
       },
       {
         "id": "familie.enkelin",
@@ -1449,8 +1449,8 @@
         "n": "Enkelin",
         "ar": "حفيدة",
         "pl": "die Enkelinnen",
-        "s": "Die Enkelin spielt mit ihrer Puppe im Wohnzimmer.",
-        "sar": "الحفيدة تلعب بدميتها في غرفة المعيشة."
+        "s": "Meine Enkelin geht gern in die Schule.",
+        "sar": "حفيدتي تحب الذهاب إلى المدرسة."
       },
       {
         "id": "familie.urgrossvater",
@@ -1458,8 +1458,8 @@
         "n": "Urgroßvater",
         "ar": "جد الجد",
         "pl": "die Urgroßväter",
-        "s": "Mein Urgroßvater wurde vor über neunzig Jahren geboren.",
-        "sar": "جد جدي وُلد قبل أكثر من تسعين عاماً."
+        "s": "Mein Urgroßvater ist sehr alt.",
+        "sar": "والد جدي كبير في السن جداً."
       },
       {
         "id": "familie.urgrossmutter",
@@ -1467,8 +1467,8 @@
         "n": "Urgroßmutter",
         "ar": "جدة الجد",
         "pl": "die Urgroßmütter",
-        "s": "Meine Urgroßmutter besitzt noch ein altes handgeschriebenes Kochbuch.",
-        "sar": "جدة جدي ما زالت تملك كتاب طبخ قديماً مكتوباً بخط اليد."
+        "s": "Meine Urgroßmutter ist neunzig Jahre alt.",
+        "sar": "والدة جدي عمرها تسعون سنة."
       },
       {
         "id": "familie.zwilling",
@@ -1476,8 +1476,8 @@
         "n": "Zwilling",
         "ar": "توأم",
         "pl": "die Zwillinge",
-        "s": "Die beiden Brüder sind Zwillinge und sehen gleich aus.",
-        "sar": "الأخوان توأم ويبدوان متشابهين تماماً."
+        "s": "Mein Bruder ist mein Zwilling.",
+        "sar": "أخي هو توأمي."
       },
       {
         "id": "familie.halbbruder",
@@ -1486,8 +1486,8 @@
         "ar": "أخ غير شقيق",
         "note": "أخ من أحد الأبوين فقط",
         "pl": "die Halbbrüder",
-        "s": "Mein Halbbruder hat denselben Vater wie ich.",
-        "sar": "أخي غير الشقيق له نفس الأب مثلي."
+        "s": "Mein Halbbruder wohnt in München.",
+        "sar": "أخي غير الشقيق يسكن في ميونخ."
       },
       {
         "id": "familie.halbschwester",
@@ -1496,8 +1496,8 @@
         "ar": "أخت غير شقيقة",
         "note": "أخت من أحد الأبوين فقط",
         "pl": "die Halbschwestern",
-        "s": "Meine Halbschwester besucht uns regelmäßig in den Ferien.",
-        "sar": "أختي غير الشقيقة تزورنا بانتظام في العطلات."
+        "s": "Meine Halbschwester ist Ärztin.",
+        "sar": "أختي غير الشقيقة طبيبة."
       },
       {
         "id": "familie.stiefvater",
@@ -1506,8 +1506,8 @@
         "ar": "زوج الأم",
         "note": "زوج الأم الجديد، وليس الأب البيولوجي",
         "pl": "die Stiefväter",
-        "s": "Sein Stiefvater ist ihm stets ein guter Ratgeber gewesen.",
-        "sar": "زوج أمه كان له دائماً ناصحاً أميناً."
+        "s": "Mein Stiefvater ist sehr nett.",
+        "sar": "زوج أمي لطيف جداً."
       },
       {
         "id": "familie.stiefmutter",
@@ -1516,8 +1516,8 @@
         "ar": "زوجة الأب",
         "note": "زوجة الأب الجديدة، وليست الأم البيولوجية",
         "pl": "die Stiefmütter",
-        "s": "Ihre Stiefmutter kümmert sich liebevoll um den Haushalt.",
-        "sar": "زوجة أبيها تعتني بشؤون البيت بكل مودة."
+        "s": "Meine Stiefmutter kocht gern.",
+        "sar": "زوجة أبي تحب الطبخ."
       },
       {
         "id": "familie.schwager",
@@ -1526,8 +1526,8 @@
         "ar": "شقيق الزوج/الزوجة أو زوج الأخت",
         "note": "زوج الأخت أو أخو الزوج/الزوجة",
         "pl": "die Schwäger",
-        "s": "Mein Schwager hilft mir heute beim Umzug in die Wohnung.",
-        "sar": "نسيبي يساعدني اليوم في الانتقال إلى الشقة."
+        "s": "Mein Schwager arbeitet in einem Büro.",
+        "sar": "زوج أختي يعمل في مكتب."
       },
       {
         "id": "familie.schwaegerin",
@@ -1536,8 +1536,8 @@
         "ar": "نسيبة",
         "note": "زوجة الأخ أو أخت الزوج/الزوجة",
         "pl": "die Schwägerinnen",
-        "s": "Meine Schwägerin hat eine neue Arbeitsstelle gefunden.",
-        "sar": "نسيبتي وجدت وظيفة جديدة."
+        "s": "Meine Schwägerin kommt aus Alexandria.",
+        "sar": "زوجة أخي من الإسكندرية."
       },
       {
         "id": "familie.witwe",
@@ -1545,8 +1545,8 @@
         "n": "Witwe",
         "ar": "أرملة",
         "pl": "die Witwen",
-        "s": "Die alte Witwe lebt ruhig in einem kleinen Haus.",
-        "sar": "الأرملة العجوز تعيش بهدوء في بيت صغير."
+        "s": "Die Witwe wohnt allein im Haus.",
+        "sar": "الأرملة تسكن وحدها في البيت."
       },
       {
         "id": "familie.witwer",
@@ -1554,8 +1554,8 @@
         "n": "Witwer",
         "ar": "أرمل",
         "pl": "die Witwer",
-        "s": "Der einsame Witwer geht oft zum Grab seiner Frau.",
-        "sar": "الأرمل الوحيد يذهب كثيراً إلى قبر زوجته."
+        "s": "Der Witwer vermisst seine Frau.",
+        "sar": "الأرمل يشتاق إلى زوجته."
       },
       {
         "id": "familie.braeutigam",
@@ -1563,8 +1563,8 @@
         "n": "Bräutigam",
         "ar": "عريس",
         "pl": "die Bräutigame",
-        "s": "Der glückliche Bräutigam wartet gespannt vor dem Traualtar.",
-        "sar": "العريس السعيد ينتظر بشوق أمام منصة الزفاف."
+        "s": "Der Bräutigam trägt einen Anzug.",
+        "sar": "العريس يرتدي بدلة."
       },
       {
         "id": "familie.braut",
@@ -1572,8 +1572,8 @@
         "n": "Braut",
         "ar": "عروسة",
         "pl": "die Bräute",
-        "s": "Die strahlende Braut trägt ein wunderschönes weißes Kleid.",
-        "sar": "العروسة المتألقة ترتدي فستاناً أبيض رائع الجمال."
+        "s": "Die Braut trägt ein weißes Kleid.",
+        "sar": "العروس ترتدي فستاناً أبيض."
       },
       {
         "id": "familie.kleinkind",
@@ -1582,8 +1582,8 @@
         "ar": "طفل صغير",
         "note": "أكبر قليلًا من الرضيع (Baby)",
         "pl": "die Kleinkinder",
-        "s": "Das kleine Kleinkind lernt gerade seine ersten Schritte.",
-        "sar": "الطفل الصغير يتعلم الآن خطواته الأولى."
+        "s": "Das Kleinkind spielt mit dem Ball.",
+        "sar": "الطفل الصغير يلعب بالكرة."
       },
       {
         "id": "familie.teenager",
@@ -1591,8 +1591,8 @@
         "n": "Teenager",
         "ar": "مراهق",
         "pl": "die Teenager",
-        "s": "Der Teenager verbringt viel Zeit online mit Freunden.",
-        "sar": "المراهق يقضي وقتاً طويلاً على الإنترنت مع الأصدقاء."
+        "s": "Meine Tochter ist ein Teenager.",
+        "sar": "ابنتي مراهقة."
       },
       {
         "id": "familie.geschwister",
@@ -1601,8 +1601,8 @@
         "ar": "إخوة",
         "note": "كلمة جمع فقط تعني الإخوة والأخوات معًا، بلا مفرد",
         "pl": null,
-        "s": "Ich habe drei Geschwister: zwei Schwestern und einen Bruder.",
-        "sar": "لدي ثلاثة إخوة: أختان وأخ واحد."
+        "s": "Ich habe drei Geschwister.",
+        "sar": "عندي ثلاثة من الإخوة والأخوات."
       },
       {
         "id": "familie.ehemann",
@@ -1610,8 +1610,8 @@
         "n": "Ehemann",
         "ar": "زوج",
         "pl": "die Ehemänner",
-        "s": "Ihr Ehemann arbeitet als Architekt in Frankfurt.",
-        "sar": "زوجها يعمل كمهندس معماري في فرانكفورت."
+        "s": "Mein Ehemann ist Lehrer.",
+        "sar": "زوجي مدرّس."
       },
       {
         "id": "familie.ehefrau",
@@ -1619,8 +1619,8 @@
         "n": "Ehefrau",
         "ar": "زوجة",
         "pl": "die Ehefrauen",
-        "s": "Seine Ehefrau leitet eine erfolgreiche Buchhandlung.",
-        "sar": "زوجته تدير مكتبة كتب ناجحة."
+        "s": "Meine Ehefrau arbeitet in einer Schule.",
+        "sar": "زوجتي تعمل في مدرسة."
       },
       {
         "id": "familie.grosseltern",
@@ -1628,8 +1628,8 @@
         "n": "Großeltern",
         "ar": "أجداد",
         "pl": null,
-        "s": "Die Großeltern freuen sich über den Besuch der Kinder.",
-        "sar": "الأجداد يسعدون بزيارة الأولاد."
+        "s": "Meine Großeltern wohnen auf dem Land.",
+        "sar": "أجدادي يسكنون في الريف."
       },
       {
         "id": "familie.enkelkinder",
@@ -1637,8 +1637,8 @@
         "n": "Enkelkinder",
         "ar": "أحفاد",
         "pl": null,
-        "s": "Sie spielen gerne stundenlang mit ihren Enkelkindern.",
-        "sar": "هم يحبون اللعب لساعات طويلة مع أحفادهم."
+        "s": "Meine Großmutter hat zehn Enkelkinder.",
+        "sar": "جدتي عندها عشرة أحفاد."
       },
       {
         "id": "familie.familienname",
@@ -1646,8 +1646,8 @@
         "n": "Familienname",
         "ar": "اسم العائلة",
         "pl": "die Familiennamen",
-        "s": "Wie lautet Ihr Familienname bitte?",
-        "sar": "ما هو اسم عائلتكم من فضلكم؟"
+        "s": "Mein Familienname ist Hassan.",
+        "sar": "اسم عائلتي حسن."
       },
       {
         "id": "familie.verwandtschaft",
@@ -1655,8 +1655,8 @@
         "n": "Verwandtschaft",
         "ar": "أقارب",
         "pl": "die Verwandtschaften",
-        "s": "An den Feiertagen kommt die ganze Verwandtschaft zusammen.",
-        "sar": "في أيام الأعياد تجتمع كل العائلة والأقارب معاً."
+        "s": "Die ganze Verwandtschaft kommt zum Essen.",
+        "sar": "كل الأقارب يأتون إلى الغداء."
       }
     ]
   },
@@ -1785,8 +1785,8 @@
         "n": "Kopf",
         "ar": "رأس",
         "pl": "die Köpfe",
-        "s": "Nach dem langen Arbeitstag tut mir der Kopf weh.",
-        "sar": "بعد يوم العمل الطويل يؤلمني رأسي."
+        "s": "Mein Kopf tut weh.",
+        "sar": "رأسي يؤلمني."
       },
       {
         "id": "koerper.auge",
@@ -1794,8 +1794,8 @@
         "n": "Auge",
         "ar": "عين",
         "pl": "die Augen",
-        "s": "Sie schließt müde das linke Auge.",
-        "sar": "هي تغلق عينها اليسرى بتعب."
+        "s": "Ich habe zwei Augen.",
+        "sar": "عندي عينان."
       },
       {
         "id": "koerper.nase",
@@ -1803,8 +1803,8 @@
         "n": "Nase",
         "ar": "أنف",
         "pl": "die Nasen",
-        "s": "Durch die Nase atmet man frische Luft ein.",
-        "sar": "عبر الأنف يتنفس الإنسان الهواء النقي."
+        "s": "Meine Nase ist klein.",
+        "sar": "أنفي صغير."
       },
       {
         "id": "koerper.mund",
@@ -1812,8 +1812,8 @@
         "n": "Mund",
         "ar": "فم",
         "pl": "die Münder",
-        "s": "Der Zahnarzt bittet den Patienten, den Mund weit zu öffnen.",
-        "sar": "طبيب الأسنان يطلب من المريض فتح الفم جيداً."
+        "s": "Ich öffne den Mund.",
+        "sar": "أفتح فمي."
       },
       {
         "id": "koerper.ohr",
@@ -1821,8 +1821,8 @@
         "n": "Ohr",
         "ar": "أذن",
         "pl": "die Ohren",
-        "s": "Mit dem gesunden Ohr kann er jedes leise Geräusch hören.",
-        "sar": "بأذنه السليمة يستطيع سماع كل صوت خافت."
+        "s": "Die Katze hat kleine Ohren.",
+        "sar": "للقطة أذنان صغيرتان."
       },
       {
         "id": "koerper.hand",
@@ -1830,8 +1830,8 @@
         "n": "Hand",
         "ar": "يد",
         "pl": "die Hände",
-        "s": "Er reicht seinem neuen Kollegen freundlich die Hand.",
-        "sar": "هو يمد يده بود لزميله الجديد."
+        "s": "Ich wasche mir die Hände.",
+        "sar": "أغسل يديّ."
       },
       {
         "id": "koerper.arm",
@@ -1839,8 +1839,8 @@
         "n": "Arm",
         "ar": "ذراع",
         "pl": "die Arme",
-        "s": "Nach dem Krafttraining schmerzt mein rechter Arm.",
-        "sar": "بعد تمرين القوة يؤلمني ذراعي الأيمن."
+        "s": "Das Baby hat kurze Arme.",
+        "sar": "الرضيع له ذراعان قصيرتان."
       },
       {
         "id": "koerper.bein",
@@ -1848,8 +1848,8 @@
         "n": "Bein",
         "ar": "ساق",
         "pl": "die Beine",
-        "s": "Der Fußballspieler hat sich am Bein verletzt.",
-        "sar": "لاعب كرة القدم أُصيب في ساقه."
+        "s": "Wenn ich laufe, tut mein Bein weh.",
+        "sar": "عندما أركض تؤلمني ساقي."
       },
       {
         "id": "koerper.fuss",
@@ -1857,8 +1857,8 @@
         "n": "Fuß",
         "ar": "قدم",
         "pl": "die Füße",
-        "s": "Nach dem langen Wandern schmerzt mein linker Fuß.",
-        "sar": "بعد المشي الطويل يؤلمني قدمي الأيسر."
+        "s": "Ich gehe zu Fuß zur Schule.",
+        "sar": "أذهب إلى المدرسة مشياً على الأقدام."
       },
       {
         "id": "koerper.bauch",
@@ -1866,8 +1866,8 @@
         "n": "Bauch",
         "ar": "بطن",
         "pl": "die Bäuche",
-        "s": "Nach dem üppigen Essen drückt der volle Bauch.",
-        "sar": "بعد الوجبة الدسمة تشعر بامتلائها في البطن."
+        "s": "Nach dem Essen tut mein Bauch weh.",
+        "sar": "بعد الأكل يؤلمني بطني."
       },
       {
         "id": "koerper.haar",
@@ -1875,8 +1875,8 @@
         "n": "Haar",
         "ar": "شعر",
         "pl": "die Haare",
-        "s": "Ein feines Haar fiel ihm auf die Schulter.",
-        "sar": "سقطت شعرة دقيقة على كتفه."
+        "s": "Meine Schwester hat lange Haare.",
+        "sar": "أختي لها شعر طويل."
       },
       {
         "id": "koerper.ruecken",
@@ -1884,8 +1884,8 @@
         "n": "Rücken",
         "ar": "ظهر",
         "pl": "die Rücken",
-        "s": "Er hat sich beim Heben den Rücken verknackst.",
-        "sar": "هو آذاه ظهره أثناء رفع الأشياء الثقيلة."
+        "s": "Wenn ich lange sitze, tut mein Rücken weh.",
+        "sar": "عندما أجلس طويلاً يؤلمني ظهري."
       },
       {
         "id": "koerper.schulter",
@@ -1893,8 +1893,8 @@
         "n": "Schulter",
         "ar": "كتف",
         "pl": "die Schultern",
-        "s": "Sie tröstet das Kind und legt die Hand auf seine Schulter.",
-        "sar": "هي تواسي الطفل وتضع يدها على كتفه."
+        "s": "Der Arzt untersucht meine Schulter.",
+        "sar": "الطبيب يفحص كتفي."
       },
       {
         "id": "koerper.knie",
@@ -1902,8 +1902,8 @@
         "n": "Knie",
         "ar": "ركبة",
         "pl": "die Knie",
-        "s": "Beim Stürzen schlug er hart auf das Knie.",
-        "sar": "أثناء السقوط ارتطمت ركبته بقوة."
+        "s": "Mein Knie tut weh.",
+        "sar": "ركبتي تؤلمني."
       },
       {
         "id": "koerper.zahn",
@@ -1911,8 +1911,8 @@
         "n": "Zahn",
         "ar": "سن",
         "pl": "die Zähne",
-        "s": "Der kleine Junge hat einen wackelnden Zahn verloren.",
-        "sar": "الولد الصغير سقطت منه سن كانت تتأرجح."
+        "s": "Ich putze mir die Zähne.",
+        "sar": "أنظّف أسناني."
       },
       {
         "id": "koerper.zunge",
@@ -1920,8 +1920,8 @@
         "n": "Zunge",
         "ar": "لسان",
         "pl": "die Zungen",
-        "s": "Mit der Zunge schmeckt man süß, sauer und salzig.",
-        "sar": "باللسان يتذوق الإنسان الحلو والحامض والمالح."
+        "s": "Die Zunge ist im Mund.",
+        "sar": "اللسان داخل الفم."
       },
       {
         "id": "koerper.hals",
@@ -1929,8 +1929,8 @@
         "n": "Hals",
         "ar": "رقبة",
         "pl": "die Hälse",
-        "s": "Sie trägt eine feine Kette um ihren Hals.",
-        "sar": "هي ترتدي سلسلة رقيقة حول عنقها."
+        "s": "Die Giraffe hat einen langen Hals.",
+        "sar": "للزرافة رقبة طويلة."
       },
       {
         "id": "koerper.lippe",
@@ -1938,8 +1938,8 @@
         "n": "Lippe",
         "ar": "شفة",
         "pl": "die Lippen",
-        "s": "Sie tupft roten Lippenstift auf ihre Lippe.",
-        "sar": "هي تضع أحمر شفاه على شفتها."
+        "s": "Sie hat rote Lippen.",
+        "sar": "لها شفتان حمراوان."
       },
       {
         "id": "koerper.kinn",
@@ -1947,8 +1947,8 @@
         "n": "Kinn",
         "ar": "ذقن",
         "pl": "die Kinne",
-        "s": "Nach dem Nachdenken kratzt er sich nachdenklich am Kinn.",
-        "sar": "بعد التفكير يحك ذقنه بتأمل."
+        "s": "Mein Vater hat einen Bart am Kinn.",
+        "sar": "أبي له لحية على ذقنه."
       },
       {
         "id": "koerper.augenbraue",
@@ -1956,8 +1956,8 @@
         "n": "Augenbraue",
         "ar": "حاجب",
         "pl": "die Augenbrauen",
-        "s": "Die dichte Augenbraue schützt das Auge vor Schweiß.",
-        "sar": "الحاجب الكثيف يحمي العين من العرق."
+        "s": "Er hat dicke Augenbrauen.",
+        "sar": "عنده حاجبان كثيفان."
       },
       {
         "id": "koerper.ellbogen",
@@ -1965,8 +1965,8 @@
         "n": "Ellbogen",
         "ar": "كوع",
         "pl": "die Ellbogen",
-        "s": "Er stützt sich mit dem Ellbogen auf dem Schreibtisch ab.",
-        "sar": "هو يستند بمرفقه على المكتب."
+        "s": "Ich habe mir den Ellbogen gestoßen.",
+        "sar": "ضربتُ كوعي."
       },
       {
         "id": "koerper.stirn",
@@ -1974,8 +1974,8 @@
         "n": "Stirn",
         "ar": "جبهة",
         "pl": "die Stirnen",
-        "s": "Vor Anstrengung traten ihm Schweißperlen auf die Stirn.",
-        "sar": "من شدة المجهود ظهرت حبات العرق على جبهته."
+        "s": "Die Mutter küsst das Kind auf die Stirn.",
+        "sar": "الأم تقبّل الطفل على جبهته."
       },
       {
         "id": "koerper.wange",
@@ -1983,8 +1983,8 @@
         "n": "Wange",
         "ar": "خد",
         "pl": "die Wangen",
-        "s": "Sie küsst ihre kleine Tochter sanft auf die Wange.",
-        "sar": "هي تقبّل ابنتها الصغيرة بلطف على خدها."
+        "s": "Das Baby hat rote Wangen.",
+        "sar": "الرضيع له خدّان أحمران."
       },
       {
         "id": "koerper.huefte",
@@ -1992,8 +1992,8 @@
         "n": "Hüfte",
         "ar": "ورك",
         "pl": "die Hüften",
-        "s": "Sie stemmt die Hände selbstbewusst in die Hüfte.",
-        "sar": "هي تضع يديها بثقة على خصرها."
+        "s": "Meine Hüfte tut seit gestern weh.",
+        "sar": "ورِكي يؤلمني منذ أمس."
       },
       {
         "id": "koerper.ferse",
@@ -2001,8 +2001,8 @@
         "n": "Ferse",
         "ar": "كعب القدم",
         "pl": "die Fersen",
-        "s": "Der neue Schuh drückt unangenehm an der Ferse.",
-        "sar": "الحذاء الجديد يضغط بشكل مزعج على كعب القدم."
+        "s": "Der Schuh drückt an der Ferse.",
+        "sar": "الحذاء يضغط على كعب قدمي."
       },
       {
         "id": "koerper.nagel",
@@ -2010,8 +2010,8 @@
         "n": "Nagel",
         "ar": "ظفر",
         "pl": "die Nägel",
-        "s": "Sie schneidet sich vorsichtig den Nagel am Zeigefinger.",
-        "sar": "هي تقص ظفر سبابتها بحذر."
+        "s": "Meine Nägel sind lang.",
+        "sar": "أظافري طويلة."
       },
       {
         "id": "koerper.muskel",
@@ -2019,8 +2019,8 @@
         "n": "Muskel",
         "ar": "عضلة",
         "pl": "die Muskeln",
-        "s": "Regelmäßiges Training stärkt jeden einzelnen Muskel.",
-        "sar": "التدريب المنتظم يقوي كل عضلة مفردة."
+        "s": "Er hat starke Muskeln.",
+        "sar": "عنده عضلات قوية."
       },
       {
         "id": "koerper.haut",
@@ -2028,8 +2028,8 @@
         "n": "Haut",
         "ar": "جلد",
         "pl": "die Häute",
-        "s": "Im Sommer schützt Sonnencreme die empfindliche Haut.",
-        "sar": "في الصيف يحمي كريم الشمس الجلد الحساس."
+        "s": "Meine Haut ist weich.",
+        "sar": "جلدي ناعم."
       },
       {
         "id": "koerper.blut",
@@ -2038,8 +2038,8 @@
         "ar": "دم",
         "note": "كلمة غير معدودة، لا يوجد لها جمع شائع",
         "pl": null,
-        "s": "Der Arzt nimmt dem Patienten etwas Blut für die Analyse ab.",
-        "sar": "الطبيب يسحب من المريض قليلاً من الدم للتحليل."
+        "s": "Das Blut ist rot.",
+        "sar": "الدم أحمر."
       },
       {
         "id": "koerper.herz",
@@ -2047,8 +2047,8 @@
         "n": "Herz",
         "ar": "قلب",
         "pl": "die Herzen",
-        "s": "Das menschliche Herz schlägt etwa siebzig Mal pro Minute.",
-        "sar": "قلب الإنسان ينبض نحو سبعين مرة في الدقيقة."
+        "s": "Das Herz schlägt schnell.",
+        "sar": "القلب ينبض بسرعة."
       },
       {
         "id": "koerper.lunge",
@@ -2056,8 +2056,8 @@
         "n": "Lunge",
         "ar": "رئة",
         "pl": "die Lungen",
-        "s": "Frische Waldluft tut der Lunge gut.",
-        "sar": "هواء الغابة النقي مفيد للرئة."
+        "s": "Wir atmen mit der Lunge.",
+        "sar": "نتنفس بالرئة."
       },
       {
         "id": "koerper.magen",
@@ -2065,8 +2065,8 @@
         "n": "Magen",
         "ar": "معدة",
         "pl": "die Mägen",
-        "s": "Bei Hunger knurrt der leere Magen hörbar.",
-        "sar": "عند الجوع تصدر المعدة الفارغة صوتاً مسموعاً."
+        "s": "Mein Magen ist leer.",
+        "sar": "معدتي فارغة."
       },
       {
         "id": "koerper.leber",
@@ -2074,8 +2074,8 @@
         "n": "Leber",
         "ar": "كبد",
         "pl": "die Lebern",
-        "s": "Die Leber ist das wichtigste Entgiftungsorgan des Körpers.",
-        "sar": "الكبد هو أهم عضو لإزالة السموم في الجسم."
+        "s": "Die Leber ist ein wichtiges Organ.",
+        "sar": "الكبد عضو مهم."
       },
       {
         "id": "koerper.niere",
@@ -2083,8 +2083,8 @@
         "n": "Niere",
         "ar": "كلية",
         "pl": "die Nieren",
-        "s": "Ausreichend Wasser trinken entlastet die gesunde Niere.",
-        "sar": "شرب الماء الكافي يريح الكلية السليمة."
+        "s": "Wir haben zwei Nieren.",
+        "sar": "عندنا كليتان."
       },
       {
         "id": "koerper.gehirn",
@@ -2092,8 +2092,8 @@
         "n": "Gehirn",
         "ar": "دماغ",
         "pl": "die Gehirne",
-        "s": "Das menschliche Gehirn verarbeitet unzählige Gedanken am Tag.",
-        "sar": "دماغ الإنسان يعالج أفكاراً لا حصر لها يومياً."
+        "s": "Wir denken mit dem Gehirn.",
+        "sar": "نفكر بالدماغ."
       },
       {
         "id": "koerper.knochen",
@@ -2101,8 +2101,8 @@
         "n": "Knochen",
         "ar": "عظم",
         "pl": "die Knochen",
-        "s": "Milch stärkt den wachsenden Knochen bei Kindern.",
-        "sar": "الحليب يقوي العظم النامي لدى الأطفال."
+        "s": "Der Hund frisst einen Knochen.",
+        "sar": "الكلب يأكل عظمة."
       },
       {
         "id": "koerper.wirbelsaeule",
@@ -2110,8 +2110,8 @@
         "n": "Wirbelsäule",
         "ar": "عمود الفقري",
         "pl": "die Wirbelsäulen",
-        "s": "Die Wirbelsäule stützt den gesamten aufrechten Körper.",
-        "sar": "العمود الفقري يسند كامل الجسم المنتصب."
+        "s": "Meine Wirbelsäule tut seit Montag weh.",
+        "sar": "عمودي الفقري يؤلمني منذ يوم الاثنين."
       },
       {
         "id": "koerper.kiefer",
@@ -2120,8 +2120,8 @@
         "ar": "فك",
         "note": "Kiefer = فك / صنوبر",
         "pl": "die Kiefer",
-        "s": "Er spannte vor Wut den harten Kiefer an.",
-        "sar": "هو شدّ فكه القوي من شدة الغضب."
+        "s": "Beim Kauen tut mein Kiefer weh.",
+        "sar": "عند المضغ يؤلمني فكي."
       },
       {
         "id": "koerper.kehle",
@@ -2130,8 +2130,8 @@
         "ar": "حلق",
         "note": "الحلق من الداخل، أما Hals فهو الرقبة من الخارج",
         "pl": "die Kehlen",
-        "s": "Ein Schluck warmes Wasser befeuchtet die trockene Kehle.",
-        "sar": "جرعة ماء دافئ ترطب الحلق الجاف."
+        "s": "Meine Kehle ist trocken, ich brauche Wasser.",
+        "sar": "حلقي جاف، أحتاج إلى ماء."
       },
       {
         "id": "koerper.nacken",
@@ -2139,8 +2139,8 @@
         "n": "Nacken",
         "ar": "مؤخرة الرقبة",
         "pl": "die Nacken",
-        "s": "Eine sanfte Massage entspannt den verspannten Nacken.",
-        "sar": "التدليك اللطيف يريح الرقبة المتشنجة من الخلف."
+        "s": "Der Schal wärmt meinen Nacken.",
+        "sar": "الوشاح يدفئ مؤخرة رقبتي."
       },
       {
         "id": "koerper.handgelenk",
@@ -2148,8 +2148,8 @@
         "n": "Handgelenk",
         "ar": "رسغ اليد",
         "pl": "die Handgelenke",
-        "s": "Er trägt seine Armbanduhr locker am linken Handgelenk.",
-        "sar": "هو يرتدي ساعته بأريحية على معصم يده اليسرى."
+        "s": "Ich trage die Uhr am Handgelenk.",
+        "sar": "أرتدي الساعة في رسغي."
       },
       {
         "id": "koerper.knoechel",
@@ -2158,8 +2158,8 @@
         "ar": "كاحل",
         "note": "مفصل القدم، وينطق مختلفًا عن Knochen (عظم)",
         "pl": "die Knöchel",
-        "s": "Beim Laufen im Wald knickte sie mit dem Knöchel um.",
-        "sar": "أثناء الجري في الغابة التوى كاحلها."
+        "s": "Der Knöchel ist dick und rot.",
+        "sar": "الكاحل منتفخ وأحمر."
       },
       {
         "id": "koerper.zehe",
@@ -2167,8 +2167,8 @@
         "n": "Zehe",
         "ar": "إصبع القدم",
         "pl": "die Zehen",
-        "s": "Er stieß sich die kleine Zehe am Tischbein.",
-        "sar": "هو صدم إصبع قدمه الصغير برجل الطاولة."
+        "s": "Ich habe zehn Zehen.",
+        "sar": "عندي عشرة أصابع في قدميّ."
       },
       {
         "id": "koerper.finger",
@@ -2176,8 +2176,8 @@
         "n": "Finger",
         "ar": "إصبع اليد",
         "pl": "die Finger",
-        "s": "Er deutet mit dem Finger auf die richtige Landkarte.",
-        "sar": "هو يشير بإصبعه إلى الخريطة الصحيحة."
+        "s": "Ich zeige mit dem Finger auf das Buch.",
+        "sar": "أشير بإصبعي إلى الكتاب."
       },
       {
         "id": "koerper.daumen",
@@ -2185,8 +2185,8 @@
         "n": "Daumen",
         "ar": "إبهام",
         "pl": "die Daumen",
-        "s": "Zum Zeichen der Zustimmung hebt er den Daumen.",
-        "sar": "كعلامة على الموافقة يرفع إبهامه."
+        "s": "Ich drücke dir die Daumen!",
+        "sar": "أضغط على إبهاميّ من أجلك، أي أتمنى لك التوفيق!"
       },
       {
         "id": "koerper.faust",
@@ -2194,8 +2194,8 @@
         "n": "Faust",
         "ar": "قبضة اليد",
         "pl": "die Fäuste",
-        "s": "Aus Protest ballte der Demonstrant die Faust.",
-        "sar": "احتجاجاً ضم المتظاهر قبضة يده."
+        "s": "Er macht eine Faust.",
+        "sar": "هو يعقد قبضته."
       }
     ]
   },
@@ -2609,8 +2609,8 @@
         "n": "Haus",
         "ar": "بيت",
         "pl": "die Häuser",
-        "s": "Wir wohnen in einem gemütlichen Haus mit Garten.",
-        "sar": "نحن نسكن في بيت مريح مع حديقة."
+        "s": "Das Haus ist groß und alt.",
+        "sar": "البيت كبير وقديم."
       },
       {
         "id": "zuhause.wohnung",
@@ -2618,8 +2618,8 @@
         "n": "Wohnung",
         "ar": "شقة",
         "pl": "die Wohnungen",
-        "s": "Die neue Wohnung im dritten Stock ist sehr hell.",
-        "sar": "الشقة الجديدة في الطابق الثالث مضيئة جداً."
+        "s": "Wir wohnen in einer kleinen Wohnung.",
+        "sar": "نسكن في شقة صغيرة."
       },
       {
         "id": "zuhause.zimmer",
@@ -2627,8 +2627,8 @@
         "n": "Zimmer",
         "ar": "غرفة",
         "pl": "die Zimmer",
-        "s": "Mein Zimmer ist ordentlich und ruhig eingerichtet.",
-        "sar": "غرفتي مرتبة ومؤثثة بهدوء."
+        "s": "Mein Zimmer ist neben der Küche.",
+        "sar": "غرفتي بجانب المطبخ."
       },
       {
         "id": "zuhause.kueche",
@@ -2636,8 +2636,8 @@
         "n": "Küche",
         "ar": "مطبخ",
         "pl": "die Küchen",
-        "s": "In der modernen Küche kocht die Familie gemeinsam.",
-        "sar": "في المطبخ الحديث تطبخ العائلة معاً."
+        "s": "Ich trinke Tee in der Küche.",
+        "sar": "أشرب الشاي في المطبخ."
       },
       {
         "id": "zuhause.bad",
@@ -2645,8 +2645,8 @@
         "n": "Bad",
         "ar": "حمام",
         "pl": "die Bäder",
-        "s": "Das Bad hat eine große Dusche und ein Fenster.",
-        "sar": "الحمام فيه دش كبير ونافذة."
+        "s": "Ich putze heute das Bad.",
+        "sar": "أنظّف الحمّام اليوم."
       },
       {
         "id": "zuhause.bett",
@@ -2654,8 +2654,8 @@
         "n": "Bett",
         "ar": "سرير",
         "pl": "die Betten",
-        "s": "Nach einem anstrengenden Tag lege ich mich ins weiche Bett.",
-        "sar": "بعد يوم شاق أستلقي في السرير المريح."
+        "s": "Ich gehe um zehn Uhr ins Bett.",
+        "sar": "أذهب إلى السرير في الساعة العاشرة."
       },
       {
         "id": "zuhause.tisch",
@@ -2663,8 +2663,8 @@
         "n": "Tisch",
         "ar": "طاولة",
         "pl": "die Tische",
-        "s": "Alle sitzen zusammen am großen hölzernen Tisch.",
-        "sar": "الجميع يجلسون معاً حول الطاولة الخشبية الكبيرة."
+        "s": "Der Tisch steht in der Küche.",
+        "sar": "الطاولة في المطبخ."
       },
       {
         "id": "zuhause.stuhl",
@@ -2672,8 +2672,8 @@
         "n": "Stuhl",
         "ar": "كرسي",
         "pl": "die Stühle",
-        "s": "Dieser bequeme Stuhl eignet sich gut zum Arbeiten.",
-        "sar": "هذا الكرسي المريح مناسب جداً للعمل."
+        "s": "Der Stuhl ist neu.",
+        "sar": "الكرسي جديد."
       },
       {
         "id": "zuhause.schrank",
@@ -2681,8 +2681,8 @@
         "n": "Schrank",
         "ar": "خزانة",
         "pl": "die Schränke",
-        "s": "Die Kleider hängen ordentlich im großen Schrank.",
-        "sar": "الملابس معلقة بترتيب في الخزانة الكبيرة."
+        "s": "Der Schrank steht an der Wand.",
+        "sar": "الخزانة بجانب الحائط."
       },
       {
         "id": "zuhause.fenster",
@@ -2690,8 +2690,8 @@
         "n": "Fenster",
         "ar": "نافذة",
         "pl": "die Fenster",
-        "s": "Er öffnet das Fenster, um frische Luft hereinzulassen.",
-        "sar": "هو يفتح النافذة ليدخل هواء نقياً."
+        "s": "Kannst du bitte das Fenster öffnen?",
+        "sar": "هل يمكنك فتح النافذة من فضلك؟"
       },
       {
         "id": "zuhause.tuer",
@@ -2699,8 +2699,8 @@
         "n": "Tür",
         "ar": "باب",
         "pl": "die Türen",
-        "s": "Vergiss bitte nicht, die Tür abzuschließen.",
-        "sar": "من فضلك لا تنسَ قفل الباب."
+        "s": "Die Tür ist zu.",
+        "sar": "الباب مغلق."
       },
       {
         "id": "zuhause.lampe",
@@ -2708,8 +2708,8 @@
         "n": "Lampe",
         "ar": "مصباح",
         "pl": "die Lampen",
-        "s": "Die Lampe auf dem Tisch spendet ein warmes Licht.",
-        "sar": "المصباح على الطاولة يبعث ضوءاً دافئاً."
+        "s": "Die Lampe ist kaputt.",
+        "sar": "المصباح معطّل."
       },
       {
         "id": "zuhause.balkon",
@@ -2718,8 +2718,8 @@
         "ar": "شرفة",
         "note": "الجمع القياسي Balkons، وBalkone صحيح أيضًا (منتشر في جنوب ألمانيا والنمسا وسويسرا)",
         "pl": "die Balkons",
-        "s": "Vom sonnigen Balkon aus sieht man die ganze Stadt.",
-        "sar": "من الشرفة المشمسة يرى المرء المدينة بأكملها."
+        "s": "Wir trinken Tee auf dem Balkon.",
+        "sar": "نشرب الشاي على الشرفة."
       },
       {
         "id": "zuhause.garten",
@@ -2727,8 +2727,8 @@
         "n": "Garten",
         "ar": "حديقة",
         "pl": "die Gärten",
-        "s": "Im bunten Garten blühen im Frühling viele Blumen.",
-        "sar": "في الحديقة الملونة تزهر أزهار كثيرة في الربيع."
+        "s": "Wir haben einen kleinen Garten.",
+        "sar": "عندنا حديقة صغيرة."
       },
       {
         "id": "zuhause.dach",
@@ -2736,8 +2736,8 @@
         "n": "Dach",
         "ar": "سقف",
         "pl": "die Dächer",
-        "s": "Die Arbeiter decken das steile Dach mit Ziegeln.",
-        "sar": "العمال يغطون السقف المائل بالقرميد."
+        "s": "Das Dach ist rot.",
+        "sar": "السقف أحمر."
       },
       {
         "id": "zuhause.wand",
@@ -2745,8 +2745,8 @@
         "n": "Wand",
         "ar": "حائط",
         "pl": "die Wände",
-        "s": "An der weißen Wand hängt ein wunderschönes Gemälde.",
-        "sar": "على الحائط الأبيض معلقة لوحة فنية جميلة جداً."
+        "s": "Die Wand ist weiß.",
+        "sar": "الحائط أبيض."
       },
       {
         "id": "zuhause.boden",
@@ -2754,8 +2754,8 @@
         "n": "Boden",
         "ar": "أرضية",
         "pl": "die Böden",
-        "s": "Der hölzerne Boden ist frisch gewischt und sauber.",
-        "sar": "الأرضية الخشبية ممسوحة حديثاً ونظيفة."
+        "s": "Der Boden ist nass.",
+        "sar": "الأرضية مبللة."
       },
       {
         "id": "zuhause.treppe",
@@ -2763,8 +2763,8 @@
         "n": "Treppe",
         "ar": "درج (سلم ثابت)",
         "pl": "die Treppen",
-        "s": "Er steigt vorsichtig die steile Treppe hinab.",
-        "sar": "هو ينزل الدرج الحاد بحذر."
+        "s": "Wir nehmen die Treppe, nicht den Aufzug.",
+        "sar": "نستخدم الدرج وليس المصعد."
       },
       {
         "id": "zuhause.spiegel",
@@ -2772,8 +2772,8 @@
         "n": "Spiegel",
         "ar": "مرآة",
         "pl": "die Spiegel",
-        "s": "Sie betrachtet ihr Gesicht lächelnd im großen Spiegel.",
-        "sar": "هي تتأمل وجهها مبتسمة في المرآة الكبيرة."
+        "s": "Der Spiegel hängt an der Wand.",
+        "sar": "المرآة معلقة على الحائط."
       },
       {
         "id": "zuhause.sofa",
@@ -2781,8 +2781,8 @@
         "n": "Sofa",
         "ar": "أريكة (كنبة)",
         "pl": "die Sofas",
-        "s": "Auf dem bequemen Sofa kann man herrlich entspannen.",
-        "sar": "على الأريكة المريحة يمكن للمرء أن يسترخي بروعة."
+        "s": "Das Sofa ist sehr bequem.",
+        "sar": "الأريكة مريحة جداً."
       },
       {
         "id": "zuhause.teppich",
@@ -2790,8 +2790,8 @@
         "n": "Teppich",
         "ar": "سجادة",
         "pl": "die Teppiche",
-        "s": "Der weiche Teppich liegt mitten im Wohnzimmer.",
-        "sar": "السجادة الناعمة موضوعة في وسط غرفة المعيشة."
+        "s": "Der Teppich liegt auf dem Boden.",
+        "sar": "السجادة على الأرضية."
       },
       {
         "id": "zuhause.regal",
@@ -2799,8 +2799,8 @@
         "n": "Regal",
         "ar": "رف",
         "pl": "die Regale",
-        "s": "Die vielen Bücher stehen geordnet im langen Regal.",
-        "sar": "الكتب الكثيرة مرتبة في الرف الطويل."
+        "s": "Die Bücher stehen im Regal.",
+        "sar": "الكتب في الرف."
       },
       {
         "id": "zuhause.waschmaschine",
@@ -2808,8 +2808,8 @@
         "n": "Waschmaschine",
         "ar": "غسالة",
         "pl": "die Waschmaschinen",
-        "s": "Die moderne Waschmaschine wäscht leise und gründlich.",
-        "sar": "الغسالة الحديثة تغسل بهدوء وبدقة."
+        "s": "Wir haben eine neue Waschmaschine gekauft.",
+        "sar": "اشترينا غسالة جديدة."
       },
       {
         "id": "zuhause.klimaanlage",
@@ -2817,8 +2817,8 @@
         "n": "Klimaanlage",
         "ar": "مكيف هواء",
         "pl": "die Klimaanlagen",
-        "s": "Im heißen Sommer kühlt die Klimaanlage die Wohnung.",
-        "sar": "في الصيف الحار يبرد مكيف الهواء الشقة."
+        "s": "Im Sommer brauchen wir eine Klimaanlage.",
+        "sar": "في الصيف نحتاج إلى مكيف هواء."
       },
       {
         "id": "zuhause.aufzug",
@@ -2826,8 +2826,8 @@
         "n": "Aufzug",
         "ar": "مصعد",
         "pl": "die Aufzüge",
-        "s": "Mit schweren Einkäufen nimmt er lieber den Aufzug.",
-        "sar": "مع المشتريات الثقيلة يفضل ركوب المصعد."
+        "s": "Wir fahren mit dem Aufzug nach oben.",
+        "sar": "نصعد بالمصعد إلى الأعلى."
       },
       {
         "id": "zuhause.keller",
@@ -2835,8 +2835,8 @@
         "n": "Keller",
         "ar": "قبو",
         "pl": "die Keller",
-        "s": "Im kühlen Keller lagern wir Getränke und Kartoffeln.",
-        "sar": "في القبو البارد نخزن المشروبات والبطاطس."
+        "s": "Das Fahrrad steht im Keller.",
+        "sar": "الدراجة في القبو."
       },
       {
         "id": "zuhause.dachboden",
@@ -2844,8 +2844,8 @@
         "n": "Dachboden",
         "ar": "علية المنزل",
         "pl": "die Dachböden",
-        "s": "Auf dem Dachboden finden sich viele alte Erinnerungsstücke.",
-        "sar": "في العلية توجد الكثير من الذكريات القديمة."
+        "s": "Der Dachboden ist unter dem Dach.",
+        "sar": "العلية تحت السقف."
       },
       {
         "id": "zuhause.garage",
@@ -2853,8 +2853,8 @@
         "n": "Garage",
         "ar": "مرآب (جراج)",
         "pl": "die Garagen",
-        "s": "Das Auto steht sicher geschützt in der Garage.",
-        "sar": "السيارة تقف محمية بأمان في الجراج."
+        "s": "Das Auto steht in der Garage.",
+        "sar": "السيارة في المرآب."
       },
       {
         "id": "zuhause.flur",
@@ -2862,8 +2862,8 @@
         "n": "Flur",
         "ar": "ممر",
         "pl": "die Flure",
-        "s": "Vom langen Flur aus gelangt man in jedes Zimmer.",
-        "sar": "من الممر الطويل يصل المرء إلى كل الغرف."
+        "s": "Die Schuhe stehen im Flur.",
+        "sar": "الأحذية في الممر."
       },
       {
         "id": "zuhause.terrasse",
@@ -2871,8 +2871,8 @@
         "n": "Terrasse",
         "ar": "تراس",
         "pl": "die Terrassen",
-        "s": "Im Sommer frühstücken wir gerne draußen auf der Terrasse.",
-        "sar": "في الصيف نحب تناول الإفطار بالخارج على التراس."
+        "s": "Wir essen auf der Terrasse.",
+        "sar": "نأكل على التراس."
       },
       {
         "id": "zuhause.zaun",
@@ -2880,8 +2880,8 @@
         "n": "Zaun",
         "ar": "سياج",
         "pl": "die Zäune",
-        "s": "Ein weißer hölzerner Zaun umgibt das ganze Grundstück.",
-        "sar": "سياج خشبي أبيض يحيط بكامل قطعة الأرض."
+        "s": "Der Zaun ist um den Garten.",
+        "sar": "السياج حول الحديقة."
       },
       {
         "id": "zuhause.schloss",
@@ -2890,8 +2890,8 @@
         "ar": "قفل",
         "note": "نفس الكلمة تعني أيضًا \"قصر\" حسب السياق — Schloss = قفل / قصر",
         "pl": "die Schlösser",
-        "s": "Das feste Schloss an der Haustür schützt vor Einbrechern.",
-        "sar": "القفل المتين على باب المنزل يحمي من اللصوص."
+        "s": "Der Schlüssel passt nicht ins Schloss.",
+        "sar": "المفتاح لا يناسب القفل."
       },
       {
         "id": "zuhause.schluessel",
@@ -2899,8 +2899,8 @@
         "n": "Schlüssel",
         "ar": "مفتاح",
         "pl": "die Schlüssel",
-        "s": "Er sucht überall nach seinem verlorenen Schlüssel.",
-        "sar": "هو يبحث في كل مكان عن مفتاحه المفقود."
+        "s": "Ich habe meinen Schlüssel verloren.",
+        "sar": "فقدتُ مفتاحي."
       },
       {
         "id": "zuhause.steckdose",
@@ -2908,8 +2908,8 @@
         "n": "Steckdose",
         "ar": "مقبس كهربائي",
         "pl": "die Steckdosen",
-        "s": "Er steckt das Ladekabel vorsichtig in die Steckdose.",
-        "sar": "هو يضع كابل الشحن بحذر في مقبس الكهرباء."
+        "s": "Die Steckdose ist neben dem Bett.",
+        "sar": "المقبس الكهربائي بجانب السرير."
       },
       {
         "id": "zuhause.schalter",
@@ -2917,8 +2917,8 @@
         "n": "Schalter",
         "ar": "مفتاح الإضاءة",
         "pl": "die Schalter",
-        "s": "Mit einem Klick auf den Schalter geht das Licht an.",
-        "sar": "بنقرة واحدة على مفتاح الإضاءة يضيء النور."
+        "s": "Der Schalter ist neben der Tür.",
+        "sar": "مفتاح الإضاءة بجانب الباب."
       },
       {
         "id": "zuhause.heizung",
@@ -2926,8 +2926,8 @@
         "n": "Heizung",
         "ar": "تدفئة",
         "pl": "die Heizungen",
-        "s": "Im kalten Winter dreht er die Heizung auf drei.",
-        "sar": "في الشتاء البارد يضبط التدفئة على الدرجة ثلاثة."
+        "s": "Wenn es kalt ist, brauche ich die Heizung.",
+        "sar": "عندما يكون الجو بارداً أحتاج إلى التدفئة."
       },
       {
         "id": "zuhause.kamin",
@@ -2935,8 +2935,8 @@
         "n": "Kamin",
         "ar": "مدفأة",
         "pl": "die Kamine",
-        "s": "Am prasselnden Kamin wird es am Abend wunderbar warm.",
-        "sar": "بجوار المدفأة المشتعلة يصبح الجو في المساء دافئاً رائعاً."
+        "s": "Im Winter sitzen wir am Kamin.",
+        "sar": "في الشتاء نجلس بجانب المدفأة."
       },
       {
         "id": "zuhause.vorhang",
@@ -2944,8 +2944,8 @@
         "n": "Vorhang",
         "ar": "ستارة",
         "pl": "die Vorhänge",
-        "s": "Sie zieht den Vorhang zu, um den Raum abzudunkeln.",
-        "sar": "هي تغلق الستارة لتجعل الغرفة مظلمة."
+        "s": "Der Vorhang hängt am Fenster.",
+        "sar": "الستارة معلقة على النافذة."
       },
       {
         "id": "zuhause.kissen",
@@ -2953,8 +2953,8 @@
         "n": "Kissen",
         "ar": "وسادة",
         "pl": "die Kissen",
-        "s": "Ein weiches Kissen stützt den Kopf beim Lesen.",
-        "sar": "وسادة ناعمة تسند الرأس أثناء القراءة."
+        "s": "Das Kissen liegt auf dem Sofa.",
+        "sar": "الوسادة على الأريكة."
       },
       {
         "id": "zuhause.decke",
@@ -2963,8 +2963,8 @@
         "ar": "سقف/بطانية",
         "note": "نفس الكلمة تعني \"سقف الغرفة\" أو \"بطانية\" حسب السياق — Decke = سقف / بطانية",
         "pl": "die Decken",
-        "s": "Sie deckt das schlafende Kind mit einer warmen Decke zu.",
-        "sar": "هي تغطي الطفل النائم ببطانية دافئة."
+        "s": "Die Decke liegt auf dem Bett.",
+        "sar": "البطانية على السرير."
       },
       {
         "id": "zuhause.matratze",
@@ -2972,8 +2972,8 @@
         "n": "Matratze",
         "ar": "مرتبة",
         "pl": "die Matratzen",
-        "s": "Auf der neuen Matratze schläft man ausgezeichnet.",
-        "sar": "على المرتبة الجديدة ينام المرء نوماً ممتازاً."
+        "s": "Die Matratze ist sehr weich.",
+        "sar": "المرتبة ناعمة جداً."
       },
       {
         "id": "zuhause.bettdecke",
@@ -2981,8 +2981,8 @@
         "n": "Bettdecke",
         "ar": "لحاف",
         "pl": "die Bettdecken",
-        "s": "Die dicke Bettdecke hält im Winter mollig warm.",
-        "sar": "لحاف السرير السميك يوفر دفئاً لطيفاً في الشتاء."
+        "s": "Die Bettdecke ist schön warm.",
+        "sar": "اللحاف دافئ جداً."
       },
       {
         "id": "zuhause.wasserhahn",
@@ -2990,8 +2990,8 @@
         "n": "Wasserhahn",
         "ar": "صنبور المياه",
         "pl": "die Wasserhähne",
-        "s": "Aus dem Wasserhahn tropft unaufhörlich Wasser.",
-        "sar": "من صنبور المياه يتقاطر الماء بلا توقف."
+        "s": "Der Wasserhahn tropft.",
+        "sar": "الصنبور يقطر."
       },
       {
         "id": "zuhause.waschbecken",
@@ -2999,8 +2999,8 @@
         "n": "Waschbecken",
         "ar": "حوض الغسيل",
         "pl": "die Waschbecken",
-        "s": "Im Bad wäscht er sich gründlich am Waschbecken.",
-        "sar": "في الحمام يغسل نفسه بعناية عند حوض الغسيل."
+        "s": "Das Waschbecken ist im Bad.",
+        "sar": "حوض الغسيل في الحمام."
       },
       {
         "id": "zuhause.badewanne",
@@ -3008,8 +3008,8 @@
         "n": "Badewanne",
         "ar": "بانيو",
         "pl": "die Badewannen",
-        "s": "Nach dem Sport nimmt sie ein heißes Bad in der Badewanne.",
-        "sar": "بعد الرياضة تأخذ حماماً ساخناً في البانيو."
+        "s": "Die Badewanne ist zu klein.",
+        "sar": "البانيو صغير جداً."
       },
       {
         "id": "zuhause.dusche",
@@ -3017,8 +3017,8 @@
         "n": "Dusche",
         "ar": "دش",
         "pl": "die Duschen",
-        "s": "Morgens nimmt er zur Erfrischung eine kurze Dusche.",
-        "sar": "في الصباح يأخذ دشاً قصيراً للانتعاش."
+        "s": "Ich nehme jeden Morgen eine Dusche.",
+        "sar": "آخذ دشاً كل صباح."
       },
       {
         "id": "zuhause.toilette",
@@ -3026,8 +3026,8 @@
         "n": "Toilette",
         "ar": "مرحاض",
         "pl": "die Toiletten",
-        "s": "Die Gäste suchen die saubere Toilette im Erdgeschoss.",
-        "sar": "الضيوف يبحثون عن المرحاض النظيف في الطابق الأرضي."
+        "s": "Wo ist die Toilette, bitte?",
+        "sar": "أين المرحاض، من فضلك؟"
       },
       {
         "id": "zuhause.briefkasten",
@@ -3035,8 +3035,8 @@
         "n": "Briefkasten",
         "ar": "صندوق البريد",
         "pl": "die Briefkästen",
-        "s": "Der Postbote wirft einen Brief in den Briefkasten.",
-        "sar": "ساعي البريد يضع رسالة في صندوق البريد."
+        "s": "Der Briefkasten ist vor dem Haus.",
+        "sar": "صندوق البريد أمام البيت."
       },
       {
         "id": "zuhause.kleiderschrank",
@@ -3044,8 +3044,8 @@
         "n": "Kleiderschrank",
         "ar": "خزانة الملابس (دولاب الملابس)",
         "pl": "die Kleiderschränke",
-        "s": "Im großen Kleiderschrank ist genug Platz für alle Jacken.",
-        "sar": "في دولاب الملابس الكبير متسع كافٍ لكل السترات."
+        "s": "Meine Kleider sind im Kleiderschrank.",
+        "sar": "ملابسي في خزانة الملابس."
       },
       {
         "id": "zuhause.nachttisch",
@@ -3053,8 +3053,8 @@
         "n": "Nachttisch",
         "ar": "طاولة السرير الجانبية",
         "pl": "die Nachttische",
-        "s": "Neben dem Bett steht ein kleiner Nachttisch mit Lampe.",
-        "sar": "بجوار السرير توجد طاولة سرير جانبية صغيرة مع مصباح."
+        "s": "Die Lampe steht auf dem Nachttisch.",
+        "sar": "المصباح على طاولة السرير الجانبية."
       }
     ]
   },
@@ -5202,8 +5202,8 @@
         "n": "Markt",
         "ar": "سوق",
         "pl": "die Märkte",
-        "s": "Auf dem Markt kauft sie frisches Obst und Gemüse.",
-        "sar": "في السوق تشتري فواكه وخضروات طازجة."
+        "s": "Ich gehe zum Markt.",
+        "sar": "أذهب إلى السوق."
       },
       {
         "id": "orte.krankenhaus",
@@ -5211,8 +5211,8 @@
         "n": "Krankenhaus",
         "ar": "مستشفى",
         "pl": "die Krankenhäuser",
-        "s": "Der Notarzt bringt den Patienten sofort ins Krankenhaus.",
-        "sar": "طبيب الطوارئ ينقل المريض فوراً إلى المستشفى."
+        "s": "Er geht ins Krankenhaus, weil er krank ist.",
+        "sar": "هو يذهب إلى المستشفى لأنه مريض."
       },
       {
         "id": "orte.bank",
@@ -5221,8 +5221,8 @@
         "ar": "بنك",
         "note": "بمعنى بنك (مؤسسة مالية) جمعها Banken؛ أما Bank بمعنى مقعد فجمعها Bänke — Bank = بنك / مقعد",
         "pl": "die Banken",
-        "s": "Er hebt am Geldautomaten der Bank Bargeld ab.",
-        "sar": "هو يسحب نقوداً من الصراف الآلي للبنك."
+        "s": "Ich muss heute zur Bank gehen.",
+        "sar": "يجب أن أذهب إلى البنك اليوم."
       },
       {
         "id": "orte.park",
@@ -5230,8 +5230,8 @@
         "n": "Park",
         "ar": "حديقة عامة",
         "pl": "die Parks",
-        "s": "Im grünen Park spazieren am Wochenende viele Familien.",
-        "sar": "في الحديقة العامة الخضراء تتنزه عائلات كثيرة في نهاية الأسبوع."
+        "s": "Der Park ist groß und schön.",
+        "sar": "الحديقة العامة كبيرة وجميلة."
       },
       {
         "id": "orte.kirche",
@@ -5239,8 +5239,8 @@
         "n": "Kirche",
         "ar": "كنيسة",
         "pl": "die Kirchen",
-        "s": "Die Glocken der alten Kirche läuten zur Sonntagsmesse.",
-        "sar": "أجراس الكنيسة القديمة تدق لقداس يوم الأحد."
+        "s": "Am Sonntag gehen wir zur Kirche.",
+        "sar": "يوم الأحد نذهب إلى الكنيسة."
       },
       {
         "id": "orte.moschee",
@@ -5248,8 +5248,8 @@
         "n": "Moschee",
         "ar": "مسجد",
         "pl": "die Moscheen",
-        "s": "Die Gläubigen versammeln sich zum Freitagsgebet in der Moschee.",
-        "sar": "المؤمنون يجتمعون لصلاة الجمعة في المسجد."
+        "s": "Am Freitag gehen wir zur Moschee.",
+        "sar": "يوم الجمعة نذهب إلى المسجد."
       },
       {
         "id": "orte.restaurant",
@@ -5257,8 +5257,8 @@
         "n": "Restaurant",
         "ar": "مطعم",
         "pl": "die Restaurants",
-        "s": "Zum Geburtstag lädt er seine Freunde in ein gutes Restaurant ein.",
-        "sar": "بمناسبة عيد ميلاده يدعو أصدقاءه إلى مطعم راقٍ."
+        "s": "Wir essen heute im Restaurant.",
+        "sar": "نأكل اليوم في المطعم."
       },
       {
         "id": "orte.bahnhof",
@@ -5266,8 +5266,8 @@
         "n": "Bahnhof",
         "ar": "محطة القطار",
         "pl": "die Bahnhöfe",
-        "s": "Der Zug fährt pünktlich in den Hauptbahnhof ein.",
-        "sar": "القطار يدخل محطة القطار الرئيسية في موعده تماماً."
+        "s": "Wo ist der Bahnhof, bitte?",
+        "sar": "أين محطة القطار، من فضلك؟"
       },
       {
         "id": "orte.hotel",
@@ -5275,8 +5275,8 @@
         "n": "Hotel",
         "ar": "فندق",
         "pl": "die Hotels",
-        "s": "Die Touristen buchen ein gemütliches Zimmer im Hotel.",
-        "sar": "السياح يحجزون غرفة مريحة في الفندق."
+        "s": "Ich suche ein Hotel im Zentrum.",
+        "sar": "أبحث عن فندق في وسط المدينة."
       },
       {
         "id": "orte.bibliothek",
@@ -5284,8 +5284,8 @@
         "n": "Bibliothek",
         "ar": "مكتبة",
         "pl": "die Bibliotheken",
-        "s": "In der ruhigen Bibliothek kann man konzentriert lernen.",
-        "sar": "في المكتبة الهادئة يستطيع المرء أن يدرس بتركيز."
+        "s": "Ich gehe zur Bibliothek, weil ich Bücher suche.",
+        "sar": "أذهب إلى المكتبة لأنني أبحث عن كتب."
       },
       {
         "id": "orte.geschaeft",
@@ -5293,8 +5293,8 @@
         "n": "Geschäft",
         "ar": "محل",
         "pl": "die Geschäfte",
-        "s": "In diesem kleinen Geschäft findet man handgemachte Souvenirs.",
-        "sar": "في هذا المحل الصغير يجد المرء تذكارات مصنوعة يدوياً."
+        "s": "Das Geschäft ist heute geschlossen.",
+        "sar": "المحل مغلق اليوم."
       },
       {
         "id": "orte.schule",
@@ -5302,8 +5302,8 @@
         "n": "Schule",
         "ar": "مدرسة",
         "pl": "die Schulen",
-        "s": "Die Kinder gehen jeden Morgen zu Fuß zur Schule.",
-        "sar": "الأطفال يذهبون كل صباح سيراً على الأقدام إلى المدرسة."
+        "s": "Die Kinder sind in der Schule.",
+        "sar": "الأطفال في المدرسة."
       },
       {
         "id": "orte.flughafen",
@@ -5311,8 +5311,8 @@
         "n": "Flughafen",
         "ar": "مطار",
         "pl": "die Flughäfen",
-        "s": "Am modernen Flughafen starten Flüge in die ganze Welt.",
-        "sar": "في المطار الحديث تقلع رحلات جوية إلى كل أنحاء العالم."
+        "s": "Wir sind am Flughafen, weil wir reisen.",
+        "sar": "نحن في المطار لأننا مسافرون."
       },
       {
         "id": "orte.kino",
@@ -5320,8 +5320,8 @@
         "n": "Kino",
         "ar": "سينما",
         "pl": "die Kinos",
-        "s": "Am Freitagabend schauen wir einen neuen Film im Kino.",
-        "sar": "مساء الجمعة نشاهد فيلماً جديداً في السينما."
+        "s": "Wir gehen heute ins Kino.",
+        "sar": "نذهب اليوم إلى السينما."
       },
       {
         "id": "orte.museum",
@@ -5329,8 +5329,8 @@
         "n": "Museum",
         "ar": "متحف",
         "pl": "die Museen",
-        "s": "Im Museum bewundern die Besucher berühmte antike Kunstwerke.",
-        "sar": "في المتحف يبدي الزوار إعجابهم بالتحف الفنية القديمة الشهيرة."
+        "s": "Das Museum ist am Montag geschlossen.",
+        "sar": "المتحف مغلق يوم الاثنين."
       },
       {
         "id": "orte.supermarkt",
@@ -5338,8 +5338,8 @@
         "n": "Supermarkt",
         "ar": "سوبر ماركت",
         "pl": "die Supermärkte",
-        "s": "Im Supermarkt kaufen wir alle Lebensmittel für die Woche ein.",
-        "sar": "في السوبر ماركت نشتري كل المواد الغذائية للأسبوع."
+        "s": "Ich kaufe Brot im Supermarkt.",
+        "sar": "أشتري خبزاً من السوبر ماركت."
       },
       {
         "id": "orte.apotheke",
@@ -5347,8 +5347,8 @@
         "n": "Apotheke",
         "ar": "صيدلية",
         "pl": "die Apotheken",
-        "s": "Die Apotheke hat auch am späten Abend Notdienst.",
-        "sar": "الصيدلية لديها خدمة طوارئ حتى في وقت متأخر من المساء."
+        "s": "Die Apotheke ist neben der Bank.",
+        "sar": "الصيدلية بجانب البنك."
       },
       {
         "id": "orte.tankstelle",
@@ -5356,8 +5356,8 @@
         "n": "Tankstelle",
         "ar": "محطة وقود",
         "pl": "die Tankstellen",
-        "s": "Vor der langen Fahrt tankt er das Auto an der Tankstelle voll.",
-        "sar": "قبل الرحلة الطويلة يملأ سيارته بالوقود في محطة الوقود."
+        "s": "Er fährt zur Tankstelle, weil er Benzin braucht.",
+        "sar": "هو يذهب بالسيارة إلى محطة الوقود لأنه يحتاج إلى بنزين."
       },
       {
         "id": "orte.zoo",
@@ -5365,8 +5365,8 @@
         "n": "Zoo",
         "ar": "حديقة حيوان",
         "pl": "die Zoos",
-        "s": "Im Zoo bestaunen die Kinder die exotischen Tiere.",
-        "sar": "في حديقة الحيوان يتأمل الأطفال الحيوانات الاستوائية بدهشة."
+        "s": "Im Zoo sehen wir einen Löwen.",
+        "sar": "في حديقة الحيوان نرى أسداً."
       },
       {
         "id": "orte.stadion",
@@ -5374,8 +5374,8 @@
         "n": "Stadion",
         "ar": "ملعب",
         "pl": "die Stadien",
-        "s": "Siebzigtausend Fans jubeln im vollbesetzten Stadion.",
-        "sar": "سبعون ألف مشجع يهتفون في الملعب الممتلئ عن آخره."
+        "s": "Das Stadion ist groß und neu.",
+        "sar": "الملعب كبير وجديد."
       },
       {
         "id": "orte.universitaet",
@@ -5383,8 +5383,8 @@
         "n": "Universität",
         "ar": "جامعة",
         "pl": "die Universitäten",
-        "s": "An der alten Universität studieren tausende junge Menschen.",
-        "sar": "في الجامعة العريقة يدرس آلاف الشباب."
+        "s": "Meine Schwester studiert an der Universität.",
+        "sar": "أختي تدرس في الجامعة."
       },
       {
         "id": "orte.kindergarten",
@@ -5392,8 +5392,8 @@
         "n": "Kindergarten",
         "ar": "روضة أطفال",
         "pl": "die Kindergärten",
-        "s": "Die Kleinen spielen fröhlich im Kindergarten mit Bauklötzen.",
-        "sar": "الصغار يلعبون بمرح في الروضة بالمكعبات."
+        "s": "Mein Sohn geht in den Kindergarten.",
+        "sar": "ابني يذهب إلى روضة الأطفال."
       },
       {
         "id": "orte.rathaus",
@@ -5401,8 +5401,8 @@
         "n": "Rathaus",
         "ar": "مبنى البلدية",
         "pl": "die Rathäuser",
-        "s": "Der Bürgermeister empfängt die Gäste im historischen Rathaus.",
-        "sar": "عمدة المدينة يستقبل الضيوف في مبنى البلدية التاريخي."
+        "s": "Das Rathaus ist im Zentrum.",
+        "sar": "مبنى البلدية في وسط المدينة."
       },
       {
         "id": "orte.post",
@@ -5411,8 +5411,8 @@
         "ar": "مكتب البريد",
         "note": "تُستخدم عادة في المفرد فقط؛ للإشارة لعدة مكاتب بريد تُستخدم Postämter أو Poststellen",
         "pl": null,
-        "s": "Er gibt das wichtige Paket bei der nächsten Post auf.",
-        "sar": "هو يسلم الطرد الهام في أقرب مكتب بريد."
+        "s": "Ich gehe zur Post, weil ich Briefe schicke.",
+        "sar": "أذهب إلى مكتب البريد لأنني أرسل رسائل."
       },
       {
         "id": "orte.gericht",
@@ -5421,8 +5421,8 @@
         "ar": "محكمة",
         "note": "Gericht = محكمة / طبق طعام",
         "pl": "die Gerichte",
-        "s": "Der Zeuge sagt wahrheitsgemäß vor dem hohen Gericht aus.",
-        "sar": "الشاهد يدلي بشهادته بصدق أمام المحكمة الموقرة."
+        "s": "Das Gericht ist neben dem Rathaus.",
+        "sar": "المحكمة بجانب مبنى البلدية."
       },
       {
         "id": "orte.gefaengnis",
@@ -5430,8 +5430,8 @@
         "n": "Gefängnis",
         "ar": "سجن",
         "pl": "die Gefängnisse",
-        "s": "Der verurteilte Täter sitzt viele Jahre im Gefängnis.",
-        "sar": "الجاني المدان يقضي سنوات عديدة في السجن."
+        "s": "Das Gefängnis ist sehr groß.",
+        "sar": "السجن كبير جداً."
       },
       {
         "id": "orte.fabrik",
@@ -5439,8 +5439,8 @@
         "n": "Fabrik",
         "ar": "مصنع",
         "pl": "die Fabriken",
-        "s": "In dieser modernen Fabrik werden Elektroautos hergestellt.",
-        "sar": "في هذا المصنع الحديث تُصنَّع السيارات الكهربائية."
+        "s": "Mein Bruder arbeitet in einer Fabrik.",
+        "sar": "أخي يعمل في مصنع."
       },
       {
         "id": "orte.buero",
@@ -5448,8 +5448,8 @@
         "n": "Büro",
         "ar": "مكتب",
         "pl": "die Büros",
-        "s": "Er arbeitet von neun bis siebzehn Uhr im Büro.",
-        "sar": "هو يعمل من التاسعة إلى الخامسة في المكتب."
+        "s": "Ich arbeite in einem Büro.",
+        "sar": "أعمل في مكتب."
       },
       {
         "id": "orte.friedhof",
@@ -5457,8 +5457,8 @@
         "n": "Friedhof",
         "ar": "مقبرة",
         "pl": "die Friedhöfe",
-        "s": "Auf dem Friedhof herrscht eine friedliche und andächtige Stille.",
-        "sar": "في المقبرة يسود صمت هادئ وخشوع تام."
+        "s": "Der Friedhof ist sehr ruhig.",
+        "sar": "المقبرة هادئة جداً."
       },
       {
         "id": "orte.strand",
@@ -5466,8 +5466,8 @@
         "n": "Strand",
         "ar": "شاطئ",
         "pl": "die Strände",
-        "s": "Am weißen Strand liegen die Urlauber entspannt in der Sonne.",
-        "sar": "على الشاطئ الأبيض يستلقي المصطافون مسترخين تحت الشمس."
+        "s": "Wir sind heute am Strand.",
+        "sar": "نحن اليوم على الشاطئ."
       },
       {
         "id": "orte.wald",
@@ -5475,8 +5475,8 @@
         "n": "Wald",
         "ar": "غابة",
         "pl": "die Wälder",
-        "s": "Ein Spaziergang durch den dichten Wald beruhigt die Seele.",
-        "sar": "المشي عبر الغابة الكثيفة يهدئ الروح."
+        "s": "Der Wald ist grün und ruhig.",
+        "sar": "الغابة خضراء وهادئة."
       },
       {
         "id": "orte.berg",
@@ -5484,8 +5484,8 @@
         "n": "Berg",
         "ar": "جبل",
         "pl": "die Berge",
-        "s": "Der Bergsteiger kletterte mutig auf den höchsten Berg.",
-        "sar": "المتسلق صعد بشجاعة إلى أعلى الجبل."
+        "s": "Am Samstag wandern wir auf den Berg.",
+        "sar": "يوم السبت نصعد الجبل سيراً على الأقدام."
       },
       {
         "id": "orte.see",
@@ -5494,8 +5494,8 @@
         "ar": "بحيرة",
         "note": "der See = بحيرة (مذكر)، أما die See فتعني البحر",
         "pl": "die Seen",
-        "s": "Das Wasser im tiefen See ist glasklar und sehr kalt.",
-        "sar": "الماء في البحيرة العميقة صافٍ كالزجاج وبارد جداً."
+        "s": "Im Sommer schwimmen wir gern im See.",
+        "sar": "في الصيف نحب السباحة في البحيرة."
       },
       {
         "id": "orte.fluss",
@@ -5503,8 +5503,8 @@
         "n": "Fluss",
         "ar": "نهر",
         "pl": "die Flüsse",
-        "s": "Ein breiter Fluss fließt gemächlich durch das grüne Tal.",
-        "sar": "نهر عريض يتدفق بتمهل عبر الوادي الأخضر."
+        "s": "Der Fluss ist lang und breit.",
+        "sar": "النهر طويل وعريض."
       },
       {
         "id": "orte.meer",
@@ -5512,8 +5512,8 @@
         "n": "Meer",
         "ar": "بحر",
         "pl": "die Meere",
-        "s": "Das offene Meer erstreckt sich endlos bis zum Horizont.",
-        "sar": "البحر المفتوح يمتد بلا نهاية حتى الأفق."
+        "s": "Wenn es heiß ist, fahren wir ans Meer.",
+        "sar": "عندما يكون الجو حاراً نذهب إلى البحر."
       },
       {
         "id": "orte.wueste",
@@ -5521,8 +5521,8 @@
         "n": "Wüste",
         "ar": "صحراء",
         "pl": "die Wüsten",
-        "s": "In der heißen Wüste gibt es weite Sanddünen und Oasen.",
-        "sar": "في الصحراء الحارة توجد كثبان رملية واسعة وواحات."
+        "s": "In der Wüste ist es sehr heiß.",
+        "sar": "في الصحراء الجو حار جداً."
       },
       {
         "id": "orte.dorf",
@@ -5530,8 +5530,8 @@
         "n": "Dorf",
         "ar": "قرية",
         "pl": "die Dörfer",
-        "s": "Das kleine ruhige Dorf liegt idyllisch abseits der Großstadt.",
-        "sar": "القرية الصغيرة الهادئة تقع بشكل شاعري بعيداً عن المدينة الكبيرة."
+        "s": "Meine Großeltern wohnen in einem Dorf.",
+        "sar": "أجدادي يسكنون في قرية."
       },
       {
         "id": "orte.stadt",
@@ -5539,8 +5539,8 @@
         "n": "Stadt",
         "ar": "مدينة",
         "pl": "die Städte",
-        "s": "Berlin ist eine lebendige und geschichtsträchtige Stadt.",
-        "sar": "برلين مدينة مفعمة بالحياة وحافلة بالتاريخ."
+        "s": "Kairo ist eine große Stadt.",
+        "sar": "القاهرة مدينة كبيرة."
       },
       {
         "id": "orte.platz",
@@ -5548,8 +5548,8 @@
         "n": "Platz",
         "ar": "ميدان",
         "pl": "die Plätze",
-        "s": "Mitten auf dem Marktplatz steht ein alter Brunnen.",
-        "sar": "في وسط الميدان ينتصب ينبوع قديم."
+        "s": "Die Kinder spielen auf dem Platz.",
+        "sar": "الأطفال يلعبون في الميدان."
       },
       {
         "id": "orte.fussgaengerzone",
@@ -5557,8 +5557,8 @@
         "n": "Fußgängerzone",
         "ar": "منطقة المشاة",
         "pl": "die Fußgängerzonen",
-        "s": "In der autofreien Fußgängerzone schlendern viele Einkäufer gemütlich.",
-        "sar": "في منطقة المشاة الخالية من السيارات يتجول المتسوقون براحة."
+        "s": "In der Fußgängerzone gibt es viele Geschäfte.",
+        "sar": "في منطقة المشاة توجد محلات كثيرة."
       },
       {
         "id": "orte.spielplatz",
@@ -5566,8 +5566,8 @@
         "n": "Spielplatz",
         "ar": "ملعب الأطفال",
         "pl": "die Spielplätze",
-        "s": "Auf dem Spielplatz lachen und schaukeln die kleinen Kinder.",
-        "sar": "في ملعب الأطفال يضحك الصغار ويتأرجحون."
+        "s": "Wir gehen mit dem Baby auf den Spielplatz.",
+        "sar": "نذهب مع الرضيع إلى ملعب الأطفال."
       },
       {
         "id": "orte.schwimmbad",
@@ -5575,8 +5575,8 @@
         "n": "Schwimmbad",
         "ar": "حمام السباحة",
         "pl": "die Schwimmbäder",
-        "s": "Im beheizten Schwimmbad zieht sie jeden Morgen ihre Bahnen.",
-        "sar": "في حمام السباحة المدفأ تسبح كل صباح عدة دورات."
+        "s": "Das Schwimmbad ist heute offen.",
+        "sar": "حمام السباحة مفتوح اليوم."
       },
       {
         "id": "orte.fitnessstudio",
@@ -5584,8 +5584,8 @@
         "n": "Fitnessstudio",
         "ar": "صالة رياضية",
         "pl": "die Fitnessstudios",
-        "s": "Nach Feierabend trainiert er regelmäßig im Fitnessstudio.",
-        "sar": "بعد انتهاء العمل يتدرب بانتظام في الصالة الرياضية."
+        "s": "Ich bin im Fitnessstudio, weil ich Sport mache.",
+        "sar": "أنا في الصالة الرياضية لأنني أمارس الرياضة."
       },
       {
         "id": "orte.werkstatt",
@@ -5593,8 +5593,8 @@
         "n": "Werkstatt",
         "ar": "ورشة عمل",
         "pl": "die Werkstätten",
-        "s": "In der Werkstatt repariert der Meister alte Holzuhren.",
-        "sar": "في الورشة يصلح المعلم الساعات الخشبية القديمة."
+        "s": "Das Auto ist in der Werkstatt.",
+        "sar": "السيارة في الورشة."
       },
       {
         "id": "orte.theater",
@@ -5602,8 +5602,8 @@
         "n": "Theater",
         "ar": "مسرح",
         "pl": "die Theater",
-        "s": "Heute Abend schauen wir ein klassisches Theaterstück im Theater.",
-        "sar": "مساء اليوم سنشاهد مسرحية كلاسيكية في المسرح."
+        "s": "Am Abend gehen wir ins Theater.",
+        "sar": "في المساء نذهب إلى المسرح."
       },
       {
         "id": "orte.oper",
@@ -5611,8 +5611,8 @@
         "n": "Oper",
         "ar": "دار الأوبرا",
         "pl": "die Opern",
-        "s": "Die berühmte Sopranistin singt heute Abend in der großen Oper.",
-        "sar": "مغنية السوبرانو الشهيرة تغني هذا المساء في دار الأوبرا الكبرى."
+        "s": "Die Oper ist neben dem Theater.",
+        "sar": "دار الأوبرا بجانب المسرح."
       },
       {
         "id": "orte.grenze",
@@ -5620,8 +5620,8 @@
         "n": "Grenze",
         "ar": "حدود",
         "pl": "die Grenzen",
-        "s": "An der offenen Grenze gibt es heutzutage keine Passkontrollen mehr.",
-        "sar": "عند الحدود المفتوحة لم يعد هناك فحص للجوازات في هذه الأيام."
+        "s": "Am Wochenende fahren wir über die Grenze.",
+        "sar": "في عطلة الأسبوع نعبر الحدود."
       },
       {
         "id": "orte.hafen",
@@ -5629,8 +5629,8 @@
         "n": "Hafen",
         "ar": "ميناء",
         "pl": "die Häfen",
-        "s": "Im großen Hafen legen täglich riesige Frachtschiffe an.",
-        "sar": "في الميناء الكبير ترسو يومياً سفن شحن ضخمة."
+        "s": "Das Schiff ist im Hafen.",
+        "sar": "السفينة في الميناء."
       },
       {
         "id": "orte.botschaft",
@@ -5638,8 +5638,8 @@
         "n": "Botschaft",
         "ar": "سفارة",
         "pl": "die Botschaften",
-        "s": "Er beantragte sein neues Visum bei der deutschen Botschaft.",
-        "sar": "هو تقدم بطلب للحصول على تأشيرته الجديدة في السفارة الألمانية."
+        "s": "Die Botschaft ist am Montag offen.",
+        "sar": "السفارة مفتوحة يوم الاثنين."
       },
       {
         "id": "orte.vorort",
@@ -5647,8 +5647,8 @@
         "n": "Vorort",
         "ar": "ضاحية",
         "pl": "die Vororte",
-        "s": "Familien mit Kindern ziehen gerne in einen ruhigen Vorort.",
-        "sar": "العائلات التي لديها أطفال تحب الانتقال للعيش في ضاحية هادئة."
+        "s": "Wir wohnen in einem Vorort von Kairo.",
+        "sar": "نسكن في ضاحية من ضواحي القاهرة."
       }
     ]
   },
