@@ -660,8 +660,8 @@
         "ar": "حليب",
         "note": "الجمع Milche نادر جدًا (لغة متخصصة، يشير لأنواع الحليب)",
         "pl": null,
-        "s": "Das Kind trinkt morgens ein Glas warme Milch.",
-        "sar": "يشرب الطفل في الصباح كأساً من الحليب الدافئ."
+        "s": "Ich trinke jeden Morgen Milch.",
+        "sar": "أشرب الحليب كل صباح."
       },
       {
         "id": "milch.kaese",
@@ -670,8 +670,8 @@
         "ar": "جبن",
         "note": "الجمع نفس الكلمة بلا تغيير (يشير لأنواع الجبن)",
         "pl": "die Käse",
-        "s": "Zum Brot essen wir leckeren Käse.",
-        "sar": "مع الخبز نأكل جبناً لذيذاً."
+        "s": "Ich esse Käse mit Brot.",
+        "sar": "آكل الجبن مع الخبز."
       },
       {
         "id": "milch.joghurt",
@@ -679,8 +679,8 @@
         "n": "Joghurt",
         "ar": "زبادي",
         "pl": "die Joghurts",
-        "s": "Ich esse Joghurt mit frischen Früchten.",
-        "sar": "آكل الزبادي مع الفواكه الطازجة."
+        "s": "Der Joghurt ist im Kühlschrank.",
+        "sar": "الزبادي في الثلاجة."
       },
       {
         "id": "milch.butter",
@@ -689,8 +689,8 @@
         "ar": "زبدة",
         "note": "ليس لها جمع",
         "pl": null,
-        "s": "Ich streiche frische Butter auf das Brot.",
-        "sar": "أدهن زبدة طازجة على الخبز."
+        "s": "Kannst du mir die Butter geben?",
+        "sar": "هل يمكنك أن تعطيني الزبدة؟"
       },
       {
         "id": "milch.sahne",
@@ -699,8 +699,8 @@
         "ar": "قشدة",
         "note": "ليس لها جمع",
         "pl": null,
-        "s": "Zum Erdbeerkuchen gehört geschlagene Sahne.",
-        "sar": "كعكة الفراولة تناسبها القشدة المخفوقة."
+        "s": "Ich esse Kuchen mit Sahne.",
+        "sar": "آكل الكعك مع القشدة."
       },
       {
         "id": "milch.quark",
@@ -709,8 +709,8 @@
         "ar": "جبن قريش",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Quark mit Kräutern schmeckt gut zu Pellkartoffeln.",
-        "sar": "جبن القريش بالأعشاب لذيذ مع البطاطس المسلوقة."
+        "s": "Quark ist ein frischer Käse.",
+        "sar": "الكوارك جبن طازج."
       },
       {
         "id": "milch.buttermilch",
@@ -719,8 +719,8 @@
         "ar": "حليب مخيض",
         "note": "الجمع Buttermilche نادر جدًا",
         "pl": null,
-        "s": "Kalte Buttermilch ist ein erfrischendes Getränk.",
-        "sar": "الحليب المخيض البارد مشروب منعش."
+        "s": "Buttermilch schmeckt leicht sauer.",
+        "sar": "طعم حليب المخيض حامض قليلاً."
       },
       {
         "id": "milch.frischkaese",
@@ -729,8 +729,8 @@
         "ar": "جبنة كريمية",
         "note": "الجمع نفس الكلمة بلا تغيير (يشير لأنواعه)",
         "pl": "die Frischkäse",
-        "s": "Frischkäse schmeckt cremig auf dunklem Brot.",
-        "sar": "الجبنة الكريمية لذيذة على الخبز الأسمر."
+        "s": "Ich streiche Frischkäse aufs Brot.",
+        "sar": "أدهن الجبنة الكريمية على الخبز."
       },
       {
         "id": "milch.eis",
@@ -739,8 +739,8 @@
         "ar": "آيس كريم",
         "note": "ليس له جمع؛ للتفريق بين الأنواع تُستخدم كلمة Eissorten",
         "pl": null,
-        "s": "Im Sommer essen die Kinder gerne süßes Eis.",
-        "sar": "في الصيف يحب الأطفال تناول الآيس كريم الحلو."
+        "s": "Im Sommer essen wir gern Eis.",
+        "sar": "في الصيف نحب أكل الآيس كريم."
       },
       {
         "id": "milch.mozzarella",
@@ -748,8 +748,8 @@
         "n": "Mozzarella",
         "ar": "موتزاريلا",
         "pl": "die Mozzarellas",
-        "s": "Mozzarella mit Tomaten ist eine beliebte Vorspeise.",
-        "sar": "الموتزاريلا مع الطماطم مقبلات محبوبة."
+        "s": "Auf der Pizza liegt Mozzarella.",
+        "sar": "على البيتزا توجد موتزاريلا."
       },
       {
         "id": "milch.sojamilch",
@@ -758,8 +758,8 @@
         "ar": "حليب الصويا",
         "note": "الجمع Sojamilchen نادر جدًا",
         "pl": null,
-        "s": "Viele Menschen trinken Sojamilch als pflanzliche Alternative.",
-        "sar": "كثير من الناس يشربون حليب الصويا كبديل نباتي."
+        "s": "Sojamilch ist eine Milch aus Pflanzen.",
+        "sar": "حليب الصويا حليب نباتي."
       }
     ]
   },
@@ -3071,8 +3071,8 @@
         "ar": "ماء",
         "note": "الجمع \"Wässer\" يُستخدم للإشارة إلى أنواع مختلفة من المياه (مثل المياه المعدنية)؛ ونادرًا \"Wasser\" أيضًا حسب Duden",
         "pl": "die Wässer",
-        "s": "Trinken Sie bitte jeden Tag ausreichend klares Wasser.",
-        "sar": "اشرب من فضلك يومياً كمية كافية من الماء الصافي."
+        "s": "Ich trinke ein Glas Wasser.",
+        "sar": "أشرب كوب ماء."
       },
       {
         "id": "getraenke.kaffee",
@@ -3081,8 +3081,8 @@
         "ar": "قهوة",
         "note": "رسميًا بلا جمع عند الإشارة للمشروب نفسه، لكن \"Kaffees\" مقبول ومستخدم للإشارة لأنواع أو طلبات متعددة",
         "pl": "die Kaffees",
-        "s": "Morgens brauche ich immer eine Tasse heißen Kaffee.",
-        "sar": "في الصباح أحتاج دائماً فنجاناً من القهوة الساخنة."
+        "s": "Der Kaffee ist sehr heiß.",
+        "sar": "القهوة ساخنة جداً."
       },
       {
         "id": "getraenke.tee",
@@ -3091,8 +3091,8 @@
         "ar": "شاي",
         "note": "مثل Kaffee، الجمع \"Tees\" يُستخدم للإشارة لأنواع شاي مختلفة",
         "pl": "die Tees",
-        "s": "Bei Halsschmerzen trinke ich warmen Tee mit Honig.",
-        "sar": "عند ألم الحلق أشرب شاياً دافئاً مع العسل."
+        "s": "Wir trinken jeden Abend Tee.",
+        "sar": "نشرب الشاي كل مساء."
       },
       {
         "id": "getraenke.saft",
@@ -3100,8 +3100,8 @@
         "n": "Saft",
         "ar": "عصير",
         "pl": "die Säfte",
-        "s": "Frisch gepresster Saft liefert viele gesunde Vitamine.",
-        "sar": "العصير الطازج يوفر العديد من الفيتامينات الصحية."
+        "s": "Die Kinder trinken gern Saft.",
+        "sar": "الأطفال يحبون شرب العصير."
       },
       {
         "id": "getraenke.limonade",
@@ -3109,8 +3109,8 @@
         "n": "Limonade",
         "ar": "ليموناضة",
         "pl": "die Limonaden",
-        "s": "Im Sommer trinken die Kinder gerne kühle Limonade.",
-        "sar": "في الصيف يحب الأطفال شرب الليموناضة الباردة."
+        "s": "Die Limonade ist süß und kalt.",
+        "sar": "الليموناضة حلوة وباردة."
       },
       {
         "id": "getraenke.wein",
@@ -3119,8 +3119,8 @@
         "ar": "نبيذ",
         "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Weine",
-        "s": "Zu einem feinen Abendessen wird oft edler Wein gereicht.",
-        "sar": "مع العشاء الفاخر يُقدَّم غالباً نبيذ فاخر."
+        "s": "Wein macht man aus Trauben.",
+        "sar": "يُصنع النبيذ من العنب."
       },
       {
         "id": "getraenke.bier",
@@ -3129,8 +3129,8 @@
         "ar": "بيرة",
         "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Biere",
-        "s": "In Bayern trinken viele Menschen gerne kühles Bier.",
-        "sar": "في بافاريا يحب كثير من الناس شرب البيرة الباردة."
+        "s": "In Deutschland trinken viele Leute Bier.",
+        "sar": "في ألمانيا يشرب كثير من الناس البيرة."
       },
       {
         "id": "getraenke.cola",
@@ -3138,8 +3138,8 @@
         "n": "Cola",
         "ar": "كولا",
         "pl": "die Colas",
-        "s": "Er bestellt eine kalte Cola mit Eiswürfeln.",
-        "sar": "هو يطلب كولا باردة مع مكعبات ثلج."
+        "s": "Ich möchte eine Cola, bitte.",
+        "sar": "أودّ كولا من فضلك."
       },
       {
         "id": "getraenke.kakao",
@@ -3148,8 +3148,8 @@
         "ar": "كاكاو",
         "note": "جمع نادر الاستخدام",
         "pl": "die Kakaos",
-        "s": "Die Kinder trinken im Winter gerne heißen Kakao.",
-        "sar": "الأطفال يشربون في الشتاء الكاكاو الساخن بحب."
+        "s": "Zum Frühstück trinkt das Kind Kakao.",
+        "sar": "مع الإفطار يشرب الطفل الكاكاو."
       },
       {
         "id": "getraenke.smoothie",
@@ -3157,8 +3157,8 @@
         "n": "Smoothie",
         "ar": "سموذي",
         "pl": "die Smoothies",
-        "s": "Ein frischer grüner Smoothie schmeckt gesund und lecker.",
-        "sar": "سموذي أخضر طازج طعمه صحي ولذيذ."
+        "s": "Ich mache einen Smoothie mit Banane.",
+        "sar": "أصنع سموذي بالموز."
       },
       {
         "id": "getraenke.energydrink",
@@ -3166,8 +3166,8 @@
         "n": "Energydrink",
         "ar": "مشروب الطاقة",
         "pl": "die Energydrinks",
-        "s": "Vor der langen Autofahrt trinkt er einen Energydrink.",
-        "sar": "قبل القيادة الطويلة يشرب مشروب طاقة."
+        "s": "Energydrinks sind für Kinder nicht gut.",
+        "sar": "مشروبات الطاقة ليست جيدة للأطفال."
       },
       {
         "id": "getraenke.mineralwasser",
@@ -3175,8 +3175,8 @@
         "n": "Mineralwasser",
         "ar": "مياه معدنية",
         "pl": "die Mineralwässer",
-        "s": "Ein Glas sprudelndes Mineralwasser erfrischt sofort.",
-        "sar": "كأس من المياه المعدنية الفوارة ينعش فوراً."
+        "s": "Ich trinke lieber Mineralwasser als Cola.",
+        "sar": "أفضّل شرب المياه المعدنية على الكولا."
       },
       {
         "id": "getraenke.eistee",
@@ -3184,8 +3184,8 @@
         "n": "Eistee",
         "ar": "شاي مثلج",
         "pl": "die Eistees",
-        "s": "Mit Zitrone servierter Eistee ist im Sommer herrlich.",
-        "sar": "الشاي المثلج المقدَّم مع الليمون رائع في الصيف."
+        "s": "Im Sommer trinke ich gern Eistee.",
+        "sar": "في الصيف أحب شرب الشاي المثلج."
       },
       {
         "id": "getraenke.milchshake",
@@ -3193,8 +3193,8 @@
         "n": "Milchshake",
         "ar": "ميلك شيك",
         "pl": "die Milchshakes",
-        "s": "Der cremige Milchshake mit Vanillegeschmack schmeckt super.",
-        "sar": "الميلك شيك الكريمي بنكهة الفانيليا لذيذ جداً."
+        "s": "Der Milchshake schmeckt nach Schokolade.",
+        "sar": "الميلك شيك طعمه شوكولاتة."
       },
       {
         "id": "getraenke.sekt",
@@ -3203,8 +3203,8 @@
         "ar": "نبيذ فوّار ألماني",
         "note": "صيغة الجمع النادرة \"Sekte\" تُكتب مثل مفرد كلمة أخرى \"Sekte\" (طائفة)، رغم اختلاف المعنى تمامًا — تنبيه غذائي: يحتوي على كحول",
         "pl": "die Sekte",
-        "s": "Zum neuen Jahr stoßen wir mit einem Glas Sekt an.",
-        "sar": "في العام الجديد نرفع نخبنا بكأس شمبانيا ألمانية."
+        "s": "Sekt ist ein deutscher Schaumwein.",
+        "sar": "السكت نبيذ فوّار ألماني."
       },
       {
         "id": "getraenke.champagner",
@@ -3213,8 +3213,8 @@
         "ar": "شمبانيا",
         "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Champagner",
-        "s": "Bei der Siegesfeier floss edler Champagner in Strömen.",
-        "sar": "في حفل النصر تدفقت الشمبانيا الفاخرة بغزارة."
+        "s": "Champagner kommt aus Frankreich.",
+        "sar": "الشمبانيا تأتي من فرنسا."
       },
       {
         "id": "getraenke.whisky",
@@ -3223,8 +3223,8 @@
         "ar": "ويسكي",
         "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Whiskys",
-        "s": "Der schottische Whisky lagert viele Jahre im Holzfass.",
-        "sar": "الويسكي الاسكتلندي يُخزن سنوات عديدة في براميل خشبية."
+        "s": "Whisky kommt aus Schottland.",
+        "sar": "الويسكي يأتي من اسكتلندا."
       },
       {
         "id": "getraenke.wodka",
@@ -3233,8 +3233,8 @@
         "ar": "فودكا",
         "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Wodkas",
-        "s": "In Russland wird traditionell reiner Wodka getrunken.",
-        "sar": "في روسيا يُشرب الفودكا النقية تقليدياً."
+        "s": "Wodka ist ein starkes Getränk.",
+        "sar": "الفودكا مشروب قوي."
       },
       {
         "id": "getraenke.apfelsaft",
@@ -3242,8 +3242,8 @@
         "n": "Apfelsaft",
         "ar": "عصير تفاح",
         "pl": "die Apfelsäfte",
-        "s": "Ein Glas naturtrüber Apfelsaft schmeckt fruchtig.",
-        "sar": "كأس من عصير التفاح الطبيعي طعمه منعش بالفاكهة."
+        "s": "Ich trinke Apfelsaft zum Frühstück.",
+        "sar": "أشرب عصير التفاح مع الإفطار."
       },
       {
         "id": "getraenke.orangensaft",
@@ -3251,8 +3251,8 @@
         "n": "Orangensaft",
         "ar": "عصير برتقال",
         "pl": "die Orangensäfte",
-        "s": "Frischer Orangensaft enthält besonders viel Vitamin C.",
-        "sar": "عصير البرتقال الطازج يحتوي على نسبة عالية من فيتامين سي."
+        "s": "Möchtest du Orangensaft?",
+        "sar": "هل تريد عصير برتقال؟"
       },
       {
         "id": "getraenke.tomatensaft",
@@ -3260,8 +3260,8 @@
         "n": "Tomatensaft",
         "ar": "عصير طماطم",
         "pl": "die Tomatensäfte",
-        "s": "Im Flugzeug bestellt sie gerne herzhaften Tomatensaft.",
-        "sar": "في الطائرة تحب طلب عصير الطماطم اللذيذ."
+        "s": "Im Flugzeug trinken viele Tomatensaft.",
+        "sar": "في الطائرة يشرب كثيرون عصير الطماطم."
       },
       {
         "id": "getraenke.gruentee",
@@ -3269,8 +3269,8 @@
         "n": "Grüntee",
         "ar": "شاي أخضر",
         "pl": "die Grüntees",
-        "s": "Japanischer Grüntee ist bekannt für seine heilsame Wirkung.",
-        "sar": "الشاي الأخضر الياباني معروف بفوائده الصحية."
+        "s": "Grüntee ist sehr gesund.",
+        "sar": "الشاي الأخضر صحي جداً."
       },
       {
         "id": "getraenke.schwarztee",
@@ -3278,8 +3278,8 @@
         "n": "Schwarztee",
         "ar": "شاي أسود",
         "pl": "die Schwarztees",
-        "s": "In England trinkt man traditionell kräftigen Schwarztee mit Milch.",
-        "sar": "في إنجلترا يشربون تقليدياً الشاي الأسود القوي بالحليب."
+        "s": "Ich trinke Schwarztee mit Zucker.",
+        "sar": "أشرب الشاي الأسود بالسكر."
       },
       {
         "id": "getraenke.kamillentee",
@@ -3287,8 +3287,8 @@
         "n": "Kamillentee",
         "ar": "شاي بابونج",
         "pl": "die Kamillentees",
-        "s": "Warmer Kamillentee beruhigt den Magen spürbar.",
-        "sar": "شاي البابونج الدافئ يهدئ المعدة بشكل ملحوظ."
+        "s": "Bei Bauchschmerzen trinke ich Kamillentee.",
+        "sar": "عند ألم البطن أشرب شاي البابونج."
       },
       {
         "id": "getraenke.pfefferminztee",
@@ -3296,8 +3296,8 @@
         "n": "Pfefferminztee",
         "ar": "شاي نعناع",
         "pl": "die Pfefferminztees",
-        "s": "Frischer Pfefferminztee schmeckt herrlich minzig und kühlend.",
-        "sar": "شاي النعناع الطازج نكهته رائعة بالنعناع ومنعشة."
+        "s": "Der Pfefferminztee riecht frisch.",
+        "sar": "شاي النعناع رائحته منعشة."
       },
       {
         "id": "getraenke.espresso",
@@ -3306,8 +3306,8 @@
         "ar": "إسبريسو",
         "note": "يقبل أيضًا الجمع الإيطالي \"Espressi\"",
         "pl": "die Espressos",
-        "s": "In Italien trinkt man nach dem Essen einen starken Espresso.",
-        "sar": "في إيطاليا يشربون بعد الأكل إسبريسو قوياً."
+        "s": "Ein Espresso ist klein und stark.",
+        "sar": "الإسبريسو صغير وقوي."
       },
       {
         "id": "getraenke.cappuccino",
@@ -3316,8 +3316,8 @@
         "ar": "كابتشينو",
         "note": "يقبل أيضًا الجمع الإيطالي \"Cappuccini\"",
         "pl": "die Cappuccinos",
-        "s": "Der Cappuccino hat einen wunderbar dichten Milchschaum.",
-        "sar": "الكابتشينو له رغوة حليب كثيفة ورائعة."
+        "s": "Ich nehme einen Cappuccino, bitte.",
+        "sar": "آخذ كابتشينو من فضلك."
       },
       {
         "id": "getraenke.latte-macchiato",
@@ -3326,8 +3326,8 @@
         "ar": "لاتيه ماكياتو",
         "note": "غالبًا بلا تغيير في الجمع؛ \"Latte Macchiatos\" شائعة أيضًا",
         "pl": "die Latte Macchiato",
-        "s": "Ein Glas Latte Macchiato besteht aus drei sichtbaren Schichten.",
-        "sar": "كأس اللاتيه ماكياتو يتكون من ثلاث طبقات واضحة."
+        "s": "Ein Latte Macchiato hat viel Milch.",
+        "sar": "اللاتيه ماكياتو فيه حليب كثير."
       },
       {
         "id": "getraenke.apfelschorle",
@@ -3336,8 +3336,8 @@
         "ar": "عصير تفاح مخفف بالماء الغازي",
         "note": "مشروب ألماني شائع جدًا يُخلط فيه عصير التفاح بماء غازي",
         "pl": "die Apfelschorlen",
-        "s": "Eine frische Apfelschorle ist das beliebteste Sportlergetränk.",
-        "sar": "عصير التفاح المخفف بالصودا هو المشروب الأكثر شعبية للرياضيين."
+        "s": "Die Apfelschorle ist halb Saft, halb Wasser.",
+        "sar": "عصير التفاح المخفف نصفه عصير ونصفه ماء."
       },
       {
         "id": "getraenke.apfelwein",
@@ -3346,8 +3346,8 @@
         "ar": "نبيذ التفاح",
         "note": "تنبيه غذائي: يحتوي على كحول",
         "pl": "die Apfelweine",
-        "s": "In Frankfurt trinkt man traditionellen Apfelwein im Bembel.",
-        "sar": "في فرانكفورت يشرب الناس نبيذ التفاح التقليدي."
+        "s": "Apfelwein ist ein Getränk aus Äpfeln.",
+        "sar": "نبيذ التفاح مشروب من التفاح."
       },
       {
         "id": "getraenke.gluehwein",
@@ -3356,8 +3356,8 @@
         "ar": "نبيذ ساخن بالتوابل",
         "note": "يُقدَّم عادة في أسواق الكريسماس الألمانية — تنبيه غذائي: يحتوي على كحول",
         "pl": "die Glühweine",
-        "s": "Auf dem Weihnachtsmarkt wärmt ein Becher heißer Glühwein.",
-        "sar": "في سوق عيد الميلاد يدفئ كوب من النبيذ الساخن بالتوابل."
+        "s": "Auf dem Weihnachtsmarkt gibt es Glühwein.",
+        "sar": "في سوق عيد الميلاد يوجد النبيذ الساخن بالتوابل."
       },
       {
         "id": "getraenke.ayran",
@@ -3366,8 +3366,8 @@
         "ar": "عيران",
         "note": "لبن مخفوق مملح، أصله تركي وشائع جدًا في ألمانيا؛ غير مدرج رسميًا في Duden ويُستخدم عادة كاسم غير معدود",
         "pl": null,
-        "s": "Zu würzigem Döner passt ein kühler Becher Ayran.",
-        "sar": "مع الشاورما المتبلة يناسب كوب بارد من العيران."
+        "s": "Ayran trinkt man oft zum Döner.",
+        "sar": "العيران يُشرب غالباً مع الدونر."
       },
       {
         "id": "getraenke.zitronentee",
@@ -3375,8 +3375,8 @@
         "n": "Zitronentee",
         "ar": "شاي بالليمون",
         "pl": "die Zitronentees",
-        "s": "Zitronentee bringt Frische und Wärme an kalten Tagen.",
-        "sar": "شاي الليمون يجلب الانتعاش والدفء في الأيام الباردة."
+        "s": "Der Zitronentee schmeckt sauer.",
+        "sar": "شاي الليمون طعمه حامض."
       }
     ]
   },
@@ -5931,8 +5931,8 @@
         "n": "Pfeffer",
         "ar": "فلفل أسود",
         "pl": null,
-        "s": "Er würzt die Suppe mit einer Prise schwarzem Pfeffer.",
-        "sar": "هو يتبل الحساء برشة من الفلفل الأسود."
+        "s": "Die Suppe braucht Pfeffer.",
+        "sar": "الشوربة تحتاج إلى فلفل أسود."
       },
       {
         "id": "gewuerze.salz",
@@ -5941,8 +5941,8 @@
         "ar": "ملح",
         "note": "الجمع Salze نادر الاستخدام (يشير لأنواع الملح)",
         "pl": "die Salze",
-        "s": "Ohne Salz schmeckt selbst das beste Essen fad.",
-        "sar": "بدون الملح يبدو حتى أشهى طعام بلا طعم."
+        "s": "Die Suppe hat zu viel Salz.",
+        "sar": "الشوربة فيها ملح كثير جداً."
       },
       {
         "id": "gewuerze.zimt",
@@ -5951,8 +5951,8 @@
         "ar": "قرفة",
         "note": "الجمع Zimte نادر الاستخدام (يشير لأنواع القرفة)",
         "pl": "die Zimte",
-        "s": "Im Winter duften die Plätzchen herrlich nach süßem Zimt.",
-        "sar": "في الشتاء تفوح رائحة البسكويت بالقرفة الحلوة الرائعة."
+        "s": "Ich mag Zimt im Kaffee.",
+        "sar": "أحب القرفة في القهوة."
       },
       {
         "id": "gewuerze.kreuzkuemmel",
@@ -5961,8 +5961,8 @@
         "ar": "كمون",
         "note": "الكمون الحقيقي (Cumin)، مختلف تمامًا عن Kümmel رغم تشابه الاسم",
         "pl": "die Kreuzkümmel",
-        "s": "Kreuzkümmel ist ein unverzichtbares Gewürz in der orientalischen Küche.",
-        "sar": "الكمون بهار لا غنى عنه في المطبخ الشرقي."
+        "s": "Ägyptische Gerichte haben oft Kreuzkümmel.",
+        "sar": "الأطباق المصرية غالباً فيها كمون."
       },
       {
         "id": "gewuerze.ingwer",
@@ -5970,8 +5970,8 @@
         "n": "Ingwer",
         "ar": "زنجبيل",
         "pl": "die Ingwer",
-        "s": "Frischer Ingwer verleiht dem warmen Tee eine angenehme Schärfe.",
-        "sar": "الزنجبيل الطازج يعطي الشاي الدافئ حرارة مستحبة."
+        "s": "Ingwer schmeckt scharf.",
+        "sar": "الزنجبيل طعمه حار."
       },
       {
         "id": "gewuerze.petersilie",
@@ -5980,8 +5980,8 @@
         "ar": "بقدونس",
         "note": "الجمع Petersilien نادر الاستخدام",
         "pl": null,
-        "s": "Gehackte grüne Petersilie streut man frisch über die Kartoffeln.",
-        "sar": "البقدونس الأخضر المفروم يُرش طازجاً فوق البطاطس."
+        "s": "Ich schneide die Petersilie klein.",
+        "sar": "أقطّع البقدونس ناعماً."
       },
       {
         "id": "gewuerze.koriander",
@@ -5989,8 +5989,8 @@
         "n": "Koriander",
         "ar": "كزبرة",
         "pl": "die Koriander",
-        "s": "Frischer Koriander gibt asiatischen Suppen ihr typisches Aroma.",
-        "sar": "الكزبرة الطازجة تمنح الشوربات الآسيوية نكهتها المميزة."
+        "s": "Der Koriander riecht sehr stark.",
+        "sar": "رائحة الكزبرة قوية جداً."
       },
       {
         "id": "gewuerze.kurkuma",
@@ -5998,8 +5998,8 @@
         "n": "Kurkuma",
         "ar": "كركم",
         "pl": null,
-        "s": "Die gelbe Kurkuma verleiht dem Reisgericht eine schöne goldene Farbe.",
-        "sar": "الكركم الأصفر يمنح طبق الأرز لوناً ذهبياً جميلاً."
+        "s": "Kurkuma macht das Essen gelb.",
+        "sar": "الكركم يجعل الطعام أصفر."
       },
       {
         "id": "gewuerze.chili",
@@ -6007,8 +6007,8 @@
         "n": "Chili",
         "ar": "فلفل حار (شطة)",
         "pl": "die Chilis",
-        "s": "Vorsicht, das rote Chili brennt scharf auf der Zunge.",
-        "sar": "احذر، فالشطة الحمراء تلسع بحرارة على اللسان."
+        "s": "Chili ist sehr scharf.",
+        "sar": "الفلفل الحار حار جداً."
       },
       {
         "id": "gewuerze.minze",
@@ -6016,8 +6016,8 @@
         "n": "Minze",
         "ar": "نعناع",
         "pl": "die Minzen",
-        "s": "Frische Minze kühlt und erfrischt an heißen Sommertagen.",
-        "sar": "النعناع الطازج يبرد وينعش في أيام الصيف الحارة."
+        "s": "Ich trinke Tee mit frischer Minze.",
+        "sar": "أشرب الشاي بنعناع طازج."
       },
       {
         "id": "gewuerze.sesam",
@@ -6025,8 +6025,8 @@
         "n": "Sesam",
         "ar": "سمسم",
         "pl": "die Sesams",
-        "s": "Knuspriger Sesam verfeinert das frische Fladenbrot.",
-        "sar": "السمسم المقرمش يزين الخبز المفرود الطازج."
+        "s": "Sesam ist klein und braun.",
+        "sar": "السمسم صغير وبني."
       },
       {
         "id": "gewuerze.vanille",
@@ -6034,8 +6034,8 @@
         "n": "Vanille",
         "ar": "فانيليا",
         "pl": "die Vanillen",
-        "s": "Echte Vanille verleiht dem Pudding einen edlen Geschmack.",
-        "sar": "الفانيليا الأصلية تمنح المهلبية نكهة راقية."
+        "s": "Die Vanille kommt aus Madagaskar.",
+        "sar": "الفانيليا تأتي من مدغشقر."
       },
       {
         "id": "gewuerze.lorbeer",
@@ -6043,8 +6043,8 @@
         "n": "Lorbeer",
         "ar": "ورق لورا",
         "pl": "die Lorbeeren",
-        "s": "Ein getrocknetes Blatt Lorbeer kocht in der Brühe mit.",
-        "sar": "ورقة لورا مجففة تُطهى في المرق."
+        "s": "Ein Blatt Lorbeer kommt in die Suppe.",
+        "sar": "ورقة لورا تُضاف إلى الشوربة."
       },
       {
         "id": "gewuerze.paprikapulver",
@@ -6052,8 +6052,8 @@
         "n": "Paprikapulver",
         "ar": "بابريكا مطحونة",
         "pl": "die Paprikapulver",
-        "s": "Paprikapulver gibt dem herzhaften Gulasch die kräftige rote Farbe.",
-        "sar": "البابريكا المطحونة تعطي حساء الغولاش لونه الأحمر القوي."
+        "s": "Das Paprikapulver ist rot und mild.",
+        "sar": "البابريكا حمراء ومعتدلة."
       },
       {
         "id": "gewuerze.muskatnuss",
@@ -6061,8 +6061,8 @@
         "n": "Muskatnuss",
         "ar": "جوزة الطيب",
         "pl": "die Muskatnüsse",
-        "s": "Geriebene Muskatnuss gehört unbedingt in ein gutes Kartoffelpüree.",
-        "sar": "جوزة الطيب المبشورة ضرورية في بيوريه البطاطس الجيد."
+        "s": "Etwas Muskatnuss passt zu Kartoffeln.",
+        "sar": "قليل من جوزة الطيب يناسب البطاطس."
       },
       {
         "id": "gewuerze.kardamom",
@@ -6071,8 +6071,8 @@
         "ar": "هيل",
         "note": "الجمع Kardamome أو Kardamomen",
         "pl": "die Kardamome",
-        "s": "Kardamom wird im Orient gerne direkt in den Kaffee gemahlen.",
-        "sar": "الهيل يُطحن في الشرق عادة مع القهوة مباشرة."
+        "s": "Arabischer Kaffee riecht nach Kardamom.",
+        "sar": "رائحة القهوة العربية فيها هيل."
       },
       {
         "id": "gewuerze.safran",
@@ -6081,8 +6081,8 @@
         "ar": "زعفران",
         "note": "الجمع Safrane نادر الاستخدام",
         "pl": "die Safrane",
-        "s": "Echter Safran ist das teuerste und edelste Gewürz der Welt.",
-        "sar": "الزعفران الأصلي هو أغلى وأفخر أنواع التوابل في العالم."
+        "s": "Safran ist das teuerste Gewürz.",
+        "sar": "الزعفران أغلى التوابل."
       },
       {
         "id": "gewuerze.anis",
@@ -6091,8 +6091,8 @@
         "ar": "يانسون",
         "note": "الجمع Anise نادر الاستخدام",
         "pl": "die Anise",
-        "s": "Der feine Geschmack von Anis erinnert an süße Lakritze.",
-        "sar": "نكهة اليانسون الرقيقة تذكر بحلوى العرقسوس."
+        "s": "Anis schmeckt wie Lakritz.",
+        "sar": "اليانسون طعمه كعرق السوس."
       },
       {
         "id": "gewuerze.currypulver",
@@ -6100,8 +6100,8 @@
         "n": "Currypulver",
         "ar": "بودرة كاري",
         "pl": "die Currypulver",
-        "s": "Currypulver ist eine aromatische Mischung aus vielen Gewürzen.",
-        "sar": "بودرة الكاري خليط عطري من بهارات متعددة."
+        "s": "Ich kaufe Currypulver im Supermarkt.",
+        "sar": "أشتري بودرة الكاري من السوبر ماركت."
       },
       {
         "id": "gewuerze.oregano",
@@ -6110,8 +6110,8 @@
         "ar": "أوريغانو",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Auf jede echte italienische Pizza gehört getrockneter Oregano.",
-        "sar": "على كل بيتزا إيطالية أصلية يجب وضع أوريغانو مجفف."
+        "s": "Ich streue Oregano auf die Pizza.",
+        "sar": "أرش الأوريغانو على البيتزا."
       },
       {
         "id": "gewuerze.thymian",
@@ -6120,8 +6120,8 @@
         "ar": "زعتر",
         "note": "الجمع Thymiane نادر الاستخدام",
         "pl": "die Thymiane",
-        "s": "Thymian passt hervorragend zu gebratenem Fleisch und Gemüse.",
-        "sar": "الزعتر يناسب بشكل ممتاز اللحوم والخضروات المشوية."
+        "s": "Thymian wächst in meinem Garten.",
+        "sar": "الزعتر ينمو في حديقتي."
       },
       {
         "id": "gewuerze.rosmarin",
@@ -6130,8 +6130,8 @@
         "ar": "إكليل الجبل",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Ein Zweig frischer Rosmarin duftet intensiv beim Braten.",
-        "sar": "غصن من إكليل الجبل الطازج يفوح برائحة زكية أثناء الشواء."
+        "s": "Rosmarin passt gut zu Lammfleisch.",
+        "sar": "إكليل الجبل يناسب لحم الغنم جيداً."
       },
       {
         "id": "gewuerze.basilikum",
@@ -6140,8 +6140,8 @@
         "ar": "ريحان",
         "note": "الجمع Basilikums أو Basiliken",
         "pl": "die Basilikums",
-        "s": "Frisches Basilikum harmoniert perfekt mit Tomaten und Mozzarella.",
-        "sar": "الريحان الطازج يتناغم تماماً مع الطماطم والموتزاريلا."
+        "s": "Basilikum wächst auf dem Balkon.",
+        "sar": "الريحان ينمو على الشرفة."
       },
       {
         "id": "gewuerze.dill",
@@ -6150,8 +6150,8 @@
         "ar": "شبت",
         "note": "الجمع Dille نادر الاستخدام",
         "pl": "die Dille",
-        "s": "Feiner Dill verfeinert frische Fischgerichte und Gurkensalat.",
-        "sar": "الشبت الناعم يزين أطباق السمك الطازجة وسلطة الخيار."
+        "s": "Dill passt zu Fisch.",
+        "sar": "الشبت يناسب السمك."
       },
       {
         "id": "gewuerze.schnittlauch",
@@ -6160,8 +6160,8 @@
         "ar": "ثوم معمر",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Frischer Schnittlauch schmeckt köstlich auf einem Butterbrot.",
-        "sar": "الثوم المعمر الطازج طعمه لذيذ على شطيرة الخبز بالزبدة."
+        "s": "Schnittlauch schmeckt gut auf Brot.",
+        "sar": "الثوم المعمر طعمه جيد على الخبز."
       },
       {
         "id": "gewuerze.sojasosse",
@@ -6169,8 +6169,8 @@
         "n": "Sojasoße",
         "ar": "صلصة الصويا",
         "pl": "die Sojasoßen",
-        "s": "Dunkle Sojasoße rundet die asiatische Nudelpfanne geschmacklich ab.",
-        "sar": "صلصة الصويا الداكنة تضبط مذاق طبق النودلز الآسيوي."
+        "s": "Zum Reis gibt es Sojasoße.",
+        "sar": "مع الأرز توجد صلصة الصويا."
       },
       {
         "id": "gewuerze.essig",
@@ -6179,8 +6179,8 @@
         "ar": "خل",
         "note": "الجمع Essige نادر الاستخدام (يشير لأنواع الخل)",
         "pl": "die Essige",
-        "s": "Für das Salatdressing mischt man Essig mit gutem Speiseöl.",
-        "sar": "لصلصة السلطة يخلط المرء الخل مع زيت طعام جيد."
+        "s": "Essig riecht sauer.",
+        "sar": "الخل رائحته حامضة."
       },
       {
         "id": "gewuerze.olivenoel",
@@ -6188,8 +6188,8 @@
         "n": "Olivenöl",
         "ar": "زيت زيتون",
         "pl": "die Olivenöle",
-        "s": "Natives Olivenöl extra ist die gesunde Grundlage der Mittelmeerküche.",
-        "sar": "زيت الزيتون البكر الممتاز هو الأساس الصحي لمطبخ البحر المتوسط."
+        "s": "Für den Salat nehme ich Olivenöl.",
+        "sar": "للسلطة أستخدم زيت الزيتون."
       },
       {
         "id": "gewuerze.senf",
@@ -6198,8 +6198,8 @@
         "ar": "خردل",
         "note": "الجمع Senfe نادر الاستخدام",
         "pl": "die Senfe",
-        "s": "Zur Bratwurst isst man in Deutschland traditionell scharfen Senf.",
-        "sar": "مع السجق المشوي يؤكل في ألمانيا تقليدياً الخردل الحار."
+        "s": "Zur Wurst esse ich Senf.",
+        "sar": "مع النقانق آكل الخردل."
       },
       {
         "id": "gewuerze.ketchup",
@@ -6207,8 +6207,8 @@
         "n": "Ketchup",
         "ar": "كاتشب",
         "pl": "die Ketchups",
-        "s": "Die Kinder essen ihre knusprigen Pommes am liebsten mit Ketchup.",
-        "sar": "الأطفال يفضلون تناول البطاطس المقرمشة مع الكاتشب."
+        "s": "Kinder mögen Ketchup.",
+        "sar": "الأطفال يحبون الكاتشب."
       },
       {
         "id": "gewuerze.mayonnaise",
@@ -6216,8 +6216,8 @@
         "n": "Mayonnaise",
         "ar": "مايونيز",
         "pl": "die Mayonnaisen",
-        "s": "Cremige Mayonnaise schmeckt vorzüglich im klassischen Kartoffelsalat.",
-        "sar": "المايونيز الكريمي طعمه رائع في سلطة البطاطس الكلاسيكية."
+        "s": "Ich mag Mayonnaise nicht.",
+        "sar": "لا أحب المايونيز."
       },
       {
         "id": "gewuerze.zucker",
@@ -6225,8 +6225,8 @@
         "n": "Zucker",
         "ar": "سكر",
         "pl": null,
-        "s": "Er trinkt seinen heißen Morgentee am liebsten ganz ohne Zucker.",
-        "sar": "هو يفضل شرب شاي الصباح الساخن تماماً بدون سكر."
+        "s": "Ich nehme Zucker in den Tee.",
+        "sar": "أضع السكر في الشاي."
       },
       {
         "id": "gewuerze.hefe",
@@ -6234,8 +6234,8 @@
         "n": "Hefe",
         "ar": "خميرة",
         "pl": "die Hefen",
-        "s": "Frische Hefe lässt den weichen Brotteig wunderbar aufgehen.",
-        "sar": "الخميرة الطازجة تجعل عجينة الخبز الطرية تختمر بشكل رائع."
+        "s": "Für das Brot brauchen wir Hefe.",
+        "sar": "للخبز نحتاج إلى خميرة."
       },
       {
         "id": "gewuerze.backpulver",
@@ -6243,8 +6243,8 @@
         "n": "Backpulver",
         "ar": "بيكنج باودر",
         "pl": "die Backpulver",
-        "s": "Ein Päckchen Backpulver macht den süßen Rührkuchen schön locker.",
-        "sar": "كيس من البيكنج باودر يجعل الكعكة هشة وإسفنجية."
+        "s": "Für den Kuchen brauche ich Backpulver.",
+        "sar": "للكيكة أحتاج إلى بيكنج باودر."
       }
     ]
   },
@@ -6261,8 +6261,8 @@
         "ar": "أرز",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Gekochter Reis ist die wichtigste Beilage für Milliarden Menschen.",
-        "sar": "الأرز المسلوق هو الغذاء الجانبي الأهم لمليارات البشر."
+        "s": "Wir essen heute Reis mit Hähnchen.",
+        "sar": "نأكل اليوم أرزاً مع دجاج."
       },
       {
         "id": "getreide.mehl",
@@ -6271,8 +6271,8 @@
         "ar": "دقيق",
         "note": "الجمع Mehle نادر الاستخدام (يشير لأنواع الدقيق)",
         "pl": "die Mehle",
-        "s": "Aus weißem Mehl backt der Bäcker knusprige Brötchen.",
-        "sar": "من الدقيق الأبيض يخبز الخباز خبزاً مقرمشاً."
+        "s": "Das Mehl ist im Schrank.",
+        "sar": "الدقيق في الخزانة."
       },
       {
         "id": "getreide.brot",
@@ -6280,8 +6280,8 @@
         "n": "Brot",
         "ar": "خبز",
         "pl": "die Brote",
-        "s": "Frisches warmes Brot duftet herrlich aus der Backstube.",
-        "sar": "الخبز الطازج الدافئ تفوح رائحته الزكية من المخبز."
+        "s": "Ich kaufe frisches Brot.",
+        "sar": "أشتري خبزاً طازجاً."
       },
       {
         "id": "getreide.nudeln",
@@ -6289,8 +6289,8 @@
         "n": "Nudeln",
         "ar": "مكرونة",
         "pl": null,
-        "s": "Italienische Nudeln schmecken mit frischer Tomatensoße am besten.",
-        "sar": "المكرونة الإيطالية ألذ ما تكون مع صلصة الطماطم الطازجة."
+        "s": "Die Kinder essen gern Nudeln.",
+        "sar": "الأطفال يحبون أكل المكرونة."
       },
       {
         "id": "getreide.weizen",
@@ -6299,8 +6299,8 @@
         "ar": "قمح",
         "note": "جمعه نفس الكلمة بلا تغيير",
         "pl": "die Weizen",
-        "s": "Auf den sonnigen Feldern reift der goldene Weizen heran.",
-        "sar": "في الحقول المشمسة ينضج القمح الذهبي."
+        "s": "Aus Weizen macht man Mehl.",
+        "sar": "من القمح يُصنع الدقيق."
       },
       {
         "id": "getreide.hafer",
@@ -6309,8 +6309,8 @@
         "ar": "شوفان",
         "note": "جمعه نفس الكلمة بلا تغيير",
         "pl": "die Hafer",
-        "s": "Warmer Haferbrei ist ein gesundes und nahrhaftes Frühstück.",
-        "sar": "عصيدة الشوفان الدافئة إفطار صحي ومغذٍ."
+        "s": "Pferde fressen gern Hafer.",
+        "sar": "الخيول تحب أكل الشوفان."
       },
       {
         "id": "getreide.gerste",
@@ -6318,8 +6318,8 @@
         "n": "Gerste",
         "ar": "شعير",
         "pl": "die Gersten",
-        "s": "Gerste wird traditionell zum Brauen von Bier angebaut.",
-        "sar": "الشعير يُزرع تقليدياً لصناعة البيرة."
+        "s": "Gerste wächst auf dem Feld.",
+        "sar": "الشعير ينمو في الحقل."
       },
       {
         "id": "getreide.muesli",
@@ -6328,8 +6328,8 @@
         "ar": "موزلي",
         "note": "الجمع Müslis نادر الاستخدام",
         "pl": "die Müslis",
-        "s": "Morgens isst er gern ein gesundes Müsli mit Haferflocken und frischen Beeren.",
-        "sar": "في الصباح يفضل تناول موزلي صحي مع رقائق الشوفان والتوت الطازج."
+        "s": "Zum Frühstück esse ich Müsli.",
+        "sar": "في الإفطار آكل الموزلي."
       },
       {
         "id": "getreide.linse",
@@ -6337,8 +6337,8 @@
         "n": "Linse",
         "ar": "عدس",
         "pl": "die Linsen",
-        "s": "Im Winter wärmt ein traditioneller Eintopf aus braunen Linsen und Gemüse.",
-        "sar": "في الشتاء يبعث الدفء حساء تقليدي من العدس البني والخضار."
+        "s": "Linsen sind klein und rund.",
+        "sar": "العدس صغير ومستدير."
       },
       {
         "id": "getreide.bulgur",
@@ -6347,8 +6347,8 @@
         "ar": "برغل",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Aus vorgekochtem Bulgur bereitet man einen würzigen orientalischen Salat zu.",
-        "sar": "من البرغل المسلوق مسبقاً تُحضَّر سلطة شرقية متبلة."
+        "s": "Zum Fleisch gibt es Bulgur.",
+        "sar": "مع اللحم يوجد برغل."
       }
     ]
   },
@@ -6364,8 +6364,8 @@
         "n": "Topf",
         "ar": "قدر",
         "pl": "die Töpfe",
-        "s": "Die Suppe kocht im großen Topf auf dem Herd.",
-        "sar": "الحساء يغلي في القدر الكبير على الموقد."
+        "s": "Die Suppe ist im Topf.",
+        "sar": "الشوربة في القدر."
       },
       {
         "id": "kueche.pfanne",
@@ -6373,8 +6373,8 @@
         "n": "Pfanne",
         "ar": "مقلاة",
         "pl": "die Pfannen",
-        "s": "Er brät das Spiegelei in einer beschichteten Pfanne.",
-        "sar": "هو يقلي البيض في مقلاة غير لاصقة."
+        "s": "Ich brate das Ei in der Pfanne.",
+        "sar": "أقلي البيضة في المقلاة."
       },
       {
         "id": "kueche.loeffel",
@@ -6382,8 +6382,8 @@
         "n": "Löffel",
         "ar": "ملعقة",
         "pl": "die Löffel",
-        "s": "Man isst die heiße Suppe mit einem silbernen Löffel.",
-        "sar": "يأكل المرء الحساء الساخن بملعقة فضية."
+        "s": "Ich esse die Suppe mit dem Löffel.",
+        "sar": "آكل الشوربة بالملعقة."
       },
       {
         "id": "kueche.gabel",
@@ -6391,8 +6391,8 @@
         "n": "Gabel",
         "ar": "شوكة",
         "pl": "die Gabeln",
-        "s": "Mit der spitzen Gabel spießt er ein Stück Fleisch auf.",
-        "sar": "بالشوكة الحادة يغرز قطعة من اللحم."
+        "s": "Die Gabel liegt links vom Teller.",
+        "sar": "الشوكة على يسار الطبق."
       },
       {
         "id": "kueche.messer",
@@ -6400,8 +6400,8 @@
         "n": "Messer",
         "ar": "سكين",
         "pl": "die Messer",
-        "s": "Das scharfe Messer schneidet das Brot ganz mühelos.",
-        "sar": "السكين الحاد يقطع الخبز بكل سهولة."
+        "s": "Das Messer ist scharf.",
+        "sar": "السكين حادّ."
       },
       {
         "id": "kueche.teller",
@@ -6409,8 +6409,8 @@
         "n": "Teller",
         "ar": "طبق",
         "pl": "die Teller",
-        "s": "Sie stellt den flachen Teller vorsichtig auf den Tisch.",
-        "sar": "هي تضع الصحن المسطح بحذر على الطاولة."
+        "s": "Der Teller ist leer.",
+        "sar": "الطبق فارغ."
       },
       {
         "id": "kueche.tasse",
@@ -6418,8 +6418,8 @@
         "n": "Tasse",
         "ar": "فنجان / كوب",
         "pl": "die Tassen",
-        "s": "Morgens trinkt er eine große Tasse heißen Kaffee.",
-        "sar": "في الصباح يشرب فنجاناً كبيراً من القهوة الساخنة."
+        "s": "Ich möchte eine Tasse Tee.",
+        "sar": "أودّ فنجان شاي."
       },
       {
         "id": "kueche.glas",
@@ -6427,8 +6427,8 @@
         "n": "Glas",
         "ar": "كوب زجاج",
         "pl": "die Gläser",
-        "s": "Er schenkt sich ein kühles Glas Wasser ein.",
-        "sar": "هو يسكب لنفسه كأساً بارداً من الماء."
+        "s": "Das Glas ist voll.",
+        "sar": "الكوب ممتلئ."
       },
       {
         "id": "kueche.schuessel",
@@ -6436,8 +6436,8 @@
         "n": "Schüssel",
         "ar": "وعاء",
         "pl": "die Schüsseln",
-        "s": "Die bunte Schüssel ist randvoll mit frischem Obstsalat.",
-        "sar": "السلطانية الملونة ممتلئة عن آخرها بسلطة الفواكه الطازجة."
+        "s": "Der Salat ist in der Schüssel.",
+        "sar": "السلطة في الوعاء."
       },
       {
         "id": "kueche.herd",
@@ -6445,8 +6445,8 @@
         "n": "Herd",
         "ar": "موقد",
         "pl": "die Herde",
-        "s": "Die heiße Suppe kocht in einem großen Topf auf dem Herd.",
-        "sar": "الحساء الساخن يغلي في قدر كبير على الموقد."
+        "s": "Die Suppe steht auf dem Herd.",
+        "sar": "الشوربة على الموقد."
       },
       {
         "id": "kueche.kuehlschrank",
@@ -6454,8 +6454,8 @@
         "n": "Kühlschrank",
         "ar": "ثلاجة",
         "pl": "die Kühlschränke",
-        "s": "Milch, Joghurt und frisches Gemüse lagern gut gekühlt im Kühlschrank.",
-        "sar": "الحليب والزبادي والخضار الطازج تُحفظ مبردة جيداً في الثلاجة."
+        "s": "Die Milch steht im Kühlschrank.",
+        "sar": "الحليب في الثلاجة."
       },
       {
         "id": "kueche.mikrowelle",
@@ -6463,8 +6463,8 @@
         "n": "Mikrowelle",
         "ar": "ميكروويف",
         "pl": "die Mikrowellen",
-        "s": "In der praktischen Mikrowelle erwärmt er das Mittagessen in wenigen Minuten.",
-        "sar": "في الميكروويف العملي يسخن وجبة الغداء في دقائق معدودة."
+        "s": "Ich wärme das Essen in der Mikrowelle.",
+        "sar": "أسخّن الطعام في الميكروويف."
       }
     ]
   },
@@ -6666,8 +6666,8 @@
         "ar": "لحم",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Frisches Fleisch sollte man stets gut gekühlt lagern.",
-        "sar": "اللحم الطازج يجب دائماً تخزينه مبرداً بشكل جيد."
+        "s": "Ich esse kein Fleisch.",
+        "sar": "لا آكل اللحم."
       },
       {
         "id": "fleisch.rindfleisch",
@@ -6676,8 +6676,8 @@
         "ar": "لحم بقري",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Zartes Rindfleisch eignet sich hervorragend für ein gutes Steak.",
-        "sar": "لحم البقر الطري مناسب جداً لشريحة لحم ممتازة."
+        "s": "Das Rindfleisch kostet zwölf Euro.",
+        "sar": "يكلّف اللحم البقري اثني عشر يورو."
       },
       {
         "id": "fleisch.haehnchen",
@@ -6685,8 +6685,8 @@
         "n": "Hähnchen",
         "ar": "دجاج",
         "pl": "die Hähnchen",
-        "s": "Knusprig gebratenes Hähnchen schmeckt der ganzen Familie.",
-        "sar": "الدجاج المقلي المقرمش يحبه جميع أفراد العائلة."
+        "s": "Zum Mittagessen gibt es Hähnchen.",
+        "sar": "على الغداء يوجد دجاج."
       },
       {
         "id": "fleisch.lammfleisch",
@@ -6695,8 +6695,8 @@
         "ar": "لحم غنم",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Lammfleisch wird im Ofen mit Knoblauch und Rosmarin geschmort.",
-        "sar": "لحم الضأن يُطهى في الفرن مع الثوم وإكليل الجبل."
+        "s": "Lammfleisch ist teuer, aber lecker.",
+        "sar": "لحم الغنم غالٍ لكنه لذيذ."
       },
       {
         "id": "fleisch.wurst",
@@ -6705,8 +6705,8 @@
         "ar": "نقانق",
         "note": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Würste",
-        "s": "Die deutsche Bratwurst ist weltweit eine berühmte Spezialität.",
-        "sar": "السجق الألماني المشوي تخصص شهير عالمياً."
+        "s": "Ich möchte eine Wurst, bitte.",
+        "sar": "أودّ نقانق من فضلك."
       },
       {
         "id": "fleisch.schinken",
@@ -6714,8 +6714,8 @@
         "n": "Schinken",
         "ar": "هام (لحم خنزير مقدد)",
         "pl": "die Schinken",
-        "s": "Schwarzwälder Schinken hat einen kräftigen und rauchigen Geschmack.",
-        "sar": "شحم وخنزير الغابة السوداء المقدد له نكهة مدخنة قوية."
+        "s": "Schinken ist Fleisch vom Schwein.",
+        "sar": "الهام لحم من الخنزير."
       },
       {
         "id": "fleisch.kotelett",
@@ -6723,8 +6723,8 @@
         "n": "Kotelett",
         "ar": "قطعة لحم بعظم (ضلع)",
         "pl": "die Koteletts",
-        "s": "Der Koch brät ein saftiges Kotelett in der Pfanne an.",
-        "sar": "الطباخ يشوي قطعة كستلاتة كثيرة العصارة في المقلاة."
+        "s": "Das Kotelett ist noch roh.",
+        "sar": "قطعة اللحم لا تزال نيئة."
       },
       {
         "id": "fleisch.garnele",
@@ -6732,8 +6732,8 @@
         "n": "Garnele",
         "ar": "روبيان (جمبري)",
         "pl": "die Garnelen",
-        "s": "Frische Garnelen schmecken gebraten mit Knoblauch köstlich.",
-        "sar": "الجمبري الطازج المقلي مع الثوم طعمه لذيذ جداً."
+        "s": "Garnelen leben im Meer.",
+        "sar": "الجمبري يعيش في البحر."
       },
       {
         "id": "fleisch.thunfisch",
@@ -6741,8 +6741,8 @@
         "n": "Thunfisch",
         "ar": "تونة",
         "pl": "die Thunfische",
-        "s": "Aus Thunfisch lässt sich ein schmackhafter Salat zubereiten.",
-        "sar": "من سمك التونة يمكن إعداد سلطة شهية."
+        "s": "Ich esse Thunfisch auf der Pizza.",
+        "sar": "آكل التونة على البيتزا."
       },
       {
         "id": "fleisch.lachs",
@@ -6750,8 +6750,8 @@
         "n": "Lachs",
         "ar": "سلمون",
         "pl": "die Lachse",
-        "s": "Frischer Lachs liefert viele gesunde Omega-Drei-Fettsäuren.",
-        "sar": "سمك السلمون الطازج يوفر أحماض أوميغا 3 الدهنية الصحية."
+        "s": "Der Lachs ist frisch und teuer.",
+        "sar": "السلمون طازج وغالٍ."
       },
       {
         "id": "fleisch.truthahn",
@@ -6759,8 +6759,8 @@
         "n": "Truthahn",
         "ar": "ديك رومي",
         "pl": "die Truthähne",
-        "s": "Zu Erntedank bereitet die Familie einen saftig gefüllten Truthahn im Ofen zu.",
-        "sar": "في عيد الشكر تُعد العائلة ديكاً رومياً محشواً ولذيذاً في الفرن."
+        "s": "Zu Weihnachten essen manche Familien Truthahn.",
+        "sar": "في عيد الميلاد تأكل بعض العائلات الديك الرومي."
       },
       {
         "id": "fleisch.leber",
@@ -6768,8 +6768,8 @@
         "n": "Leber",
         "ar": "كبد",
         "pl": "die Lebern",
-        "s": "Gebratene Leber mit Äpfeln und Röstzwiebeln ist ein klassisches deutsches Gericht.",
-        "sar": "الكبد المقلي مع التفاح والبصل المحمر طبق ألماني كلاسيكي تقليدي."
+        "s": "Ich esse Leber nicht gern.",
+        "sar": "لا أحب أكل الكبدة."
       },
       {
         "id": "fleisch.hackfleisch",
@@ -6778,8 +6778,8 @@
         "ar": "لحم مفروم",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Aus frischem Hackfleisch vom Metzger knetet sie Frikadellen für das Abendessen.",
-        "sar": "من اللحم المفروم الطازج من عند الجزار تعجن كرات لحم لوجبة العشاء."
+        "s": "Für die Frikadellen brauche ich Hackfleisch.",
+        "sar": "لكفتة اللحم أحتاج إلى لحم مفروم."
       },
       {
         "id": "fleisch.kalbfleisch",
@@ -6788,8 +6788,8 @@
         "ar": "لحم عجل",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "Zartes Kalbfleisch ist hellrosa, mager und schmeckt besonders mild.",
-        "sar": "لحم العجل الطري لونه وردي فاتح، قليل الدهن وله مذاق معتدل وخفيف جداً."
+        "s": "Kalbfleisch ist sehr zart.",
+        "sar": "لحم العجل طري جداً."
       },
       {
         "id": "fleisch.schweinefleisch",
@@ -6798,8 +6798,8 @@
         "ar": "لحم خنزير",
         "note": "ليس له جمع",
         "pl": null,
-        "s": "In vielen traditionellen Wurstsorten wird feines Schweinefleisch verarbeitet.",
-        "sar": "في العديد من أصناف النقانق التقليدية يُستخدم لحم الخنزير المفروم ناعماً."
+        "s": "Muslime essen kein Schweinefleisch.",
+        "sar": "المسلمون لا يأكلون لحم الخنزير."
       },
       {
         "id": "fleisch.pute",
@@ -6807,8 +6807,8 @@
         "n": "Pute",
         "ar": "ديك رومي (أنثى)",
         "pl": "die Puten",
-        "s": "Mageres Fleisch von der Pute eignet sich ideal für eine kalorienarme Ernährung.",
-        "sar": "لحم الديك الرومي خفيف الدهن ومثالي للنظام الغذائي قليل السعرات."
+        "s": "Die Pute ist größer als ein Huhn.",
+        "sar": "الديك الرومي (الأنثى) أكبر من الدجاجة."
       },
       {
         "id": "fleisch.hering",
@@ -6816,8 +6816,8 @@
         "n": "Hering",
         "ar": "سمك الرنجة",
         "pl": "die Heringe",
-        "s": "An der Küste isst man zarten Hering traditionell mit Pellkartoffeln und Quark.",
-        "sar": "على الساحل يؤكل سمك الرنجة الطري تقليدياً مع البطاطس المسلوقة بقشرها والجبن القريش."
+        "s": "Der Hering ist ein kleiner Fisch.",
+        "sar": "الرنجة سمكة صغيرة."
       },
       {
         "id": "fleisch.forelle",
@@ -6825,8 +6825,8 @@
         "n": "Forelle",
         "ar": "سمك التروتة",
         "pl": "die Forellen",
-        "s": "Die frische Forelle wird blau gekocht oder knusprig in der Pfanne gebraten.",
-        "sar": "سمكة التروتة الطازجة تُسلق بأسلوب \"بلو\" أو تُقلى مقرمشة في المقلاة."
+        "s": "Die Forelle lebt im Fluss.",
+        "sar": "سمك التروتة يعيش في النهر."
       },
       {
         "id": "fleisch.krabbe",
@@ -6834,8 +6834,8 @@
         "n": "Krabbe",
         "ar": "سلطعون صغير",
         "pl": "die Krabben",
-        "s": "Auf dem Kutter pult man die kleine braune Krabbe frisch aus dem Fang.",
-        "sar": "على متن قارب الصيد يقشرون السلطعون الصغير الطازج مباشرة من الصيد."
+        "s": "Die Krabbe läuft am Strand.",
+        "sar": "السلطعون يمشي على الشاطئ."
       },
       {
         "id": "fleisch.muschel",
@@ -6843,8 +6843,8 @@
         "n": "Muschel",
         "ar": "بلح البحر",
         "pl": "die Muscheln",
-        "s": "Im Herbst kocht man frische Muscheln gern in einem duftenden Gemüsesud.",
-        "sar": "في فصل الخريف يطبخ الناس بلح البحر الطازج في مرق خضار زكي الرائحة."
+        "s": "Wir bestellen Muscheln im Restaurant.",
+        "sar": "نطلب بلح البحر في المطعم."
       },
       {
         "id": "fleisch.tintenfisch",
@@ -6852,8 +6852,8 @@
         "n": "Tintenfisch",
         "ar": "حبار",
         "pl": "die Tintenfische",
-        "s": "Gegrillter Tintenfisch wird mit frischem Knoblauch, Olivenöl und Zitronensaft serviert.",
-        "sar": "الحبار المشوي يُقدَّم مع الثوم الطازج وزيت الزيتون وعصير الليمون."
+        "s": "Der Tintenfisch lebt im Meer.",
+        "sar": "الحبار يعيش في البحر."
       },
       {
         "id": "fleisch.oktopus",
@@ -6862,8 +6862,8 @@
         "ar": "أخطبوط",
         "note": "الجمع الرسمي Oktopusse، ويصح أيضًا Oktopoden (أصل يوناني)",
         "pl": "die Oktopusse",
-        "s": "Der gefangene Oktopus wird sanft geschmort, bis das Fleisch wunderbar weich wird.",
-        "sar": "الأخطبوط المصيد يُطهى على نار هادئة حتى يصبح لحمه طرياً ورائعاً."
+        "s": "Der Oktopus hat acht Arme.",
+        "sar": "الأخطبوط له ثمانية أذرع."
       },
       {
         "id": "fleisch.steak",
@@ -6871,8 +6871,8 @@
         "n": "Steak",
         "ar": "ستيك",
         "pl": "die Steaks",
-        "s": "Ein saftiges Steak brät man von beiden Seiten scharf an, damit es zart bleibt.",
-        "sar": "شريحة الستيك اللذيذة تُشوى من الجانبين على نار قوية لتبقى طرية وعصارية."
+        "s": "Ich bestelle ein Steak.",
+        "sar": "أطلب ستيك."
       },
       {
         "id": "fleisch.filet",
@@ -6880,8 +6880,8 @@
         "n": "Filet",
         "ar": "فيليه",
         "pl": "die Filets",
-        "s": "Das zarte Filet ist das hochwertigste und teuerste Stück Fleisch vom Rind.",
-        "sar": "قطعة الفيليه الطرية هي أرقى وأغلى قطعة لحم من البقر."
+        "s": "Das Filet ist weich.",
+        "sar": "الفيليه طري."
       },
       {
         "id": "fleisch.bratwurst",
@@ -6890,8 +6890,8 @@
         "ar": "نقانق مشوية",
         "note": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Bratwürste",
-        "s": "Auf dem Marktplatz holt er sich eine heiße Thüringer Bratwurst im Brötchen.",
-        "sar": "في ساحة السوق يشتري نقانق مشوية تورينغية ساخنة داخل رغيف خبز صغير."
+        "s": "Die Bratwurst kostet drei Euro.",
+        "sar": "تكلّف النقانق المشوية ثلاثة يورو."
       },
       {
         "id": "fleisch.schnitzel",
@@ -6899,8 +6899,8 @@
         "n": "Schnitzel",
         "ar": "شنيتزل",
         "pl": "die Schnitzel",
-        "s": "Ein echtes Wiener Schnitzel wird dünn geklopft und in Butterschmalz goldgelb gebacken.",
-        "sar": "شريحة الشنيتزل الفيناوية الأصلية تُرقق بالدق وتُقلى في السمن حتى تكتسب لوناً ذهبياً."
+        "s": "Das Schnitzel ist groß und lecker.",
+        "sar": "الشنيتزل كبير ولذيذ."
       },
       {
         "id": "fleisch.braten",
@@ -6908,8 +6908,8 @@
         "n": "Braten",
         "ar": "لحم مشوي",
         "pl": "die Braten",
-        "s": "Am Sonntagmittag duftet das ganze Haus nach einem herzhaften Schweinebraten.",
-        "sar": "في ظهيرة يوم الأحد تفوح في المنزل بأكمله رائحة اللحم المشوي الشهي."
+        "s": "Sonntags gibt es bei uns Braten.",
+        "sar": "أيام الأحد عندنا لحم مشوي."
       },
       {
         "id": "fleisch.frikadelle",
@@ -6917,8 +6917,8 @@
         "n": "Frikadelle",
         "ar": "كفتة لحم ألمانية",
         "pl": "die Frikadellen",
-        "s": "Zur Pause packt er eine gut gewürzte kalte Frikadelle mit Senf aus.",
-        "sar": "في وقت الاستراحة يُخرج كفتة لحم باردة متبلة بعناية مع الخردل."
+        "s": "Meine Oma macht gute Frikadellen.",
+        "sar": "جدتي تصنع كفتة لذيذة."
       },
       {
         "id": "fleisch.speck",
@@ -6927,8 +6927,8 @@
         "ar": "بيكون (لحم خنزير مقدد دهني)",
         "note": "الجمع Specke نادر جدًا؛ تُستخدم الكلمة غالبًا بصيغة المفرد",
         "pl": "die Specke",
-        "s": "Kross angebratener Speck verleiht der Linsensuppe eine angenehm rauchige Note.",
-        "sar": "اللحم المقدد المحمر يعطي حساء العدس نكهة مدخنة محببة."
+        "s": "Speck hat viel Fett.",
+        "sar": "البيكون فيه دهن كثير."
       },
       {
         "id": "fleisch.salami",
@@ -6937,8 +6937,8 @@
         "ar": "سلامي",
         "note": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Salamis",
-        "s": "Hauchdünne Scheiben würziger Salami schmecken auf frischem Vollkornbrot hervorragend.",
-        "sar": "شرائح رقيقة جداً من السلامي المتبل طعمها ممتاز فوق خبز الحبوب الكاملة الطازج."
+        "s": "Die Salami liegt auf dem Brot.",
+        "sar": "السلامي على الخبز."
       },
       {
         "id": "fleisch.leberwurst",
@@ -6947,8 +6947,8 @@
         "ar": "نقانق الكبد",
         "note": "تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Leberwürste",
-        "s": "Grobe Pfälzer Leberwurst streicht man traditionell dick auf ein kräftiges Bauernbrot.",
-        "sar": "نقانق الكبد الريفية تُدهن تقليدياً بطبقة سميكة على خبز القرية القوي."
+        "s": "Leberwurst ist eine weiche Wurst.",
+        "sar": "نقانق الكبد نقانق طرية."
       },
       {
         "id": "fleisch.gulasch",
@@ -6957,8 +6957,8 @@
         "ar": "يخنة لحم",
         "note": "الجمع Gulasche نادر الاستخدام، ويصح أيضًا Gulaschs",
         "pl": "die Gulasche",
-        "s": "Das ungarische Gulasch schmort viele Stunden mit Paprika und Zwiebeln im Schmortopf.",
-        "sar": "يخنة اللحم المجرية تُطهى لساعات طويلة مع الفلفل الرومي والبصل في قدر الطبخ."
+        "s": "Zum Gulasch gibt es Nudeln.",
+        "sar": "مع اليخنة توجد مكرونة."
       },
       {
         "id": "fleisch.rinderbraten",
@@ -6966,8 +6966,8 @@
         "n": "Rinderbraten",
         "ar": "روستو لحم بقري",
         "pl": "die Rinderbraten",
-        "s": "Zum Festtagsessen schneidet der Vater den zarten Rinderbraten in dicke Scheiben.",
-        "sar": "في وجبة العيد يقطع الأب روستو اللحم البقري الطري إلى شرائح سميكة."
+        "s": "Der Rinderbraten braucht zwei Stunden.",
+        "sar": "يحتاج الروستو إلى ساعتين."
       },
       {
         "id": "fleisch.fischfilet",
@@ -6975,8 +6975,8 @@
         "n": "Fischfilet",
         "ar": "فيليه سمك",
         "pl": "die Fischfilets",
-        "s": "Der Koch wendet das grätenfreie Fischfilet vor dem Braten leicht in Mehl.",
-        "sar": "يقلب الطاهي فيليه السمك الخالي من الشوك قليلاً في الدقيق قبل قليه."
+        "s": "Ich brate das Fischfilet in der Pfanne.",
+        "sar": "أقلي فيليه السمك في المقلاة."
       },
       {
         "id": "fleisch.currywurst",
@@ -6985,8 +6985,8 @@
         "ar": "نقانق بصلصة الكاري",
         "note": "أشهر أكلة شارع في ألمانيا — تنبيه غذائي: غالبًا يحتوي على لحم الخنزير",
         "pl": "die Currywürste",
-        "s": "Am bekannten Imbissstand bestellt er eine heiße Currywurst mit Pommes frites.",
-        "sar": "عند كشك الوجبات السريعة الشهير يطلب نقانق بصلصة الكاري الساخنة مع البطاطس المقلية."
+        "s": "Die Currywurst kommt aus Berlin.",
+        "sar": "الكاري فورست تأتي من برلين."
       },
       {
         "id": "fleisch.doener",
@@ -6995,8 +6995,8 @@
         "ar": "دونر",
         "note": "أكلة تركية الأصل انتشرت جدًا في ألمانيا",
         "pl": "die Döner",
-        "s": "In Deutschland ist ein knuspriger Döner mit frischem Salat das beliebteste Fastfood.",
-        "sar": "في ألمانيا تُعد شطيرة الدونر المقرمشة مع السلطة الطازجة الوجبة السريعة الأكثر شعبية."
+        "s": "Ich esse oft einen Döner.",
+        "sar": "آكل الدونر كثيراً."
       },
       {
         "id": "fleisch.fischstaebchen",
@@ -7004,8 +7004,8 @@
         "n": "Fischstäbchen",
         "ar": "أصابع سمك",
         "pl": "die Fischstäbchen",
-        "s": "Kinder essen knusprig panierte Fischstäbchen am liebsten mit cremigem Kartoffelpüree.",
-        "sar": "الأطفال يحبون تناول أصابع السمك المقرمشة مع البطاطس المهروسة الناعمة."
+        "s": "Kinder essen gern Fischstäbchen.",
+        "sar": "الأطفال يحبون أكل أصابع السمك."
       }
     ]
   },
@@ -7021,8 +7021,8 @@
         "n": "Schokolade",
         "ar": "شوكولاتة",
         "pl": "die Schokoladen",
-        "s": "Dunkle Schokolade schmilzt langsam und cremig auf der Zunge.",
-        "sar": "الشوكولاتة الداكنة تذوب ببطء وكريمية على اللسان."
+        "s": "Ich esse gern Schokolade.",
+        "sar": "أحب أكل الشوكولاتة."
       },
       {
         "id": "suessigkeiten.keks",
@@ -7030,8 +7030,8 @@
         "n": "Keks",
         "ar": "بسكويت",
         "pl": "die Kekse",
-        "s": "Zu einer Tasse Kaffee esse ich gerne einen knusprigen Keks.",
-        "sar": "مع فنجان قهوة أحب تناول بسكويت مقرمش."
+        "s": "Der Keks schmeckt süß.",
+        "sar": "البسكويت طعمه حلو."
       },
       {
         "id": "suessigkeiten.kuchen",
@@ -7039,8 +7039,8 @@
         "n": "Kuchen",
         "ar": "كيكة",
         "pl": "die Kuchen",
-        "s": "Die Großmutter backt am Sonntag einen feinen Kuchen.",
-        "sar": "الجدة تخبز يوم الأحد كعكة شهية."
+        "s": "Meine Mutter backt einen Kuchen.",
+        "sar": "أمي تخبز كيكة."
       },
       {
         "id": "suessigkeiten.torte",
@@ -7048,8 +7048,8 @@
         "n": "Torte",
         "ar": "تورتة",
         "pl": "die Torten",
-        "s": "Zur Hochzeitsfeier wurde eine dreistöckige Torte angeschnitten.",
-        "sar": "في حفل الزفاف تم تقطيع تورتة من ثلاثة طوابق."
+        "s": "Zum Geburtstag gibt es eine Torte.",
+        "sar": "في عيد الميلاد توجد تورتة."
       },
       {
         "id": "suessigkeiten.bonbon",
@@ -7057,8 +7057,8 @@
         "n": "Bonbon",
         "ar": "حلوى صلبة (سكاكر)",
         "pl": "die Bonbons",
-        "s": "Das Kind lutscht fröhlich an einem süßen Bonbon.",
-        "sar": "الطفل يمتص فرحاً حبة حلوى سكرية."
+        "s": "Ich kaufe Bonbons für die Kinder.",
+        "sar": "أشتري حلوى صلبة للأطفال."
       },
       {
         "id": "suessigkeiten.popcorn",
@@ -7066,8 +7066,8 @@
         "n": "Popcorn",
         "ar": "فشار",
         "pl": null,
-        "s": "Im Kino gehört eine große Tüte warmes Popcorn dazu.",
-        "sar": "في السينما لا غنى عن كيس كبير من الفشار الدافئ."
+        "s": "Im Kino essen wir Popcorn.",
+        "sar": "في السينما نأكل الفشار."
       },
       {
         "id": "suessigkeiten.chips",
@@ -7075,8 +7075,8 @@
         "n": "Chips",
         "ar": "رقائق البطاطس (شيبسي)",
         "pl": null,
-        "s": "Beim Fernsehabend knabbern wir gerne knusprige Chips.",
-        "sar": "أثناء سهرة التلفاز نحب قرمشة رقائق البطاطس."
+        "s": "Chips sind salzig.",
+        "sar": "الشيبسي مالح."
       },
       {
         "id": "suessigkeiten.honig",
@@ -7085,8 +7085,8 @@
         "ar": "عسل",
         "note": "الجمع \"Honige\" يُستخدم للإشارة إلى أنواع مختلفة من العسل حسب Duden",
         "pl": null,
-        "s": "Goldener Honig von fleißigen Bienen schmeckt wunderbar süß.",
-        "sar": "العسل الذهبي من النحل النشيط طعمه حلو ورائع."
+        "s": "Ich esse Brot mit Honig.",
+        "sar": "آكل الخبز مع العسل."
       },
       {
         "id": "suessigkeiten.marmelade",
@@ -7094,8 +7094,8 @@
         "n": "Marmelade",
         "ar": "مربى",
         "pl": "die Marmeladen",
-        "s": "Zum Frühstück streicht er süße Erdbeer-Marmelade aufs Brot.",
-        "sar": "في الإفطار يدهن مربى الفراولة الحلوة على الخبز."
+        "s": "Meine Oma kocht Marmelade.",
+        "sar": "جدتي تطبخ المربى."
       },
       {
         "id": "suessigkeiten.karamell",
@@ -7103,8 +7103,8 @@
         "n": "Karamell",
         "ar": "كراميل",
         "pl": null,
-        "s": "Weiches Karamell zieht sich herrlich in der Schokolade.",
-        "sar": "الكراميل الطري يتمطط بروعة داخل الشوكولاتة."
+        "s": "Karamell ist süß und klebrig.",
+        "sar": "الكراميل حلو ولزج."
       },
       {
         "id": "suessigkeiten.waffel",
@@ -7112,8 +7112,8 @@
         "n": "Waffel",
         "ar": "وافل",
         "pl": "die Waffeln",
-        "s": "Frisch gebackene belgische Waffeln duften herrlich und schmecken warm mit Puderzucker.",
-        "sar": "الوافل البلجيكي المخبوز طازجاً تفوح منه رائحة زكية ويؤكل دافئاً مع السكر البودرة."
+        "s": "Zum Frühstück gibt es Waffeln.",
+        "sar": "في الإفطار توجد وافل."
       },
       {
         "id": "suessigkeiten.pudding",
@@ -7122,8 +7122,8 @@
         "ar": "بودينغ",
         "note": "يقبل الجمع \"Puddinge\" و\"Puddings\" معًا حسب Duden",
         "pl": "die Puddinge",
-        "s": "Die Großmutter rührt cremigen gelben Vanillepudding in einem kleinen Stiltopf an.",
-        "sar": "الجدة تحرك بودينغ الفانيليا الأصفر الكريمي في قدر صغير."
+        "s": "Der Pudding ist noch warm.",
+        "sar": "البودينغ ما زال دافئاً."
       },
       {
         "id": "suessigkeiten.kaugummi",
@@ -7131,8 +7131,8 @@
         "n": "Kaugummi",
         "ar": "لبان",
         "pl": "die Kaugummis",
-        "s": "Der Jugendliche kaut nach dem Essen einen zuckerfreien Kaugummi mit Minzgeschmack.",
-        "sar": "المراهق يمضغ بعد الأكل لبان خالي من السكر بنكهة النعناع."
+        "s": "Im Unterricht kauen wir keinen Kaugummi.",
+        "sar": "في الدرس لا نمضغ اللبان."
       },
       {
         "id": "suessigkeiten.lakritz",
@@ -7141,8 +7141,8 @@
         "ar": "عرق سوس",
         "note": "اسم غير معدود عادة؛ الجمع \"Lakritze\" نادر ورسمي حسب Duden",
         "pl": "die Lakritze",
-        "s": "Schwarzes salziges Lakritz ist besonders in den nordischen Ländern sehr beliebt.",
-        "sar": "حلوى عرق السوس السوداء المالحة محبوبة جداً خاصة في دول الشمال."
+        "s": "Lakritz ist schwarz und süß.",
+        "sar": "عرق السوس أسود وحلو."
       },
       {
         "id": "suessigkeiten.baklava",
@@ -7151,8 +7151,8 @@
         "ar": "بقلاوة",
         "note": "الكلمة غير مدرجة في Duden كمدخل رسمي؛ تُستخدم عادة كاسم غير معدود، وصيغة الجمع غير الرسمية الشائعة \"Baklavas\"",
         "pl": null,
-        "s": "Süße orientalische Baklava besteht aus hauchdünnen Teigschichten mit gehackten Pistazien.",
-        "sar": "البقلاوة الشرقية الحلوة تتكون من طبقات عجين رقيقة جداً محشوة بالفستق المجروش."
+        "s": "Baklava ist sehr süß.",
+        "sar": "البقلاوة حلوة جداً."
       },
       {
         "id": "suessigkeiten.praline",
@@ -7160,8 +7160,8 @@
         "n": "Praline",
         "ar": "قطعة شوكولاتة فاخرة",
         "pl": "die Pralinen",
-        "s": "Zum Geburtstag überreichte er ihr eine edle Schachtel gefüllt mit feinen Pralinen.",
-        "sar": "في عيد ميلادها أهداها علبة فاخرة مليئة بقطع شوكولاتة برالين راقية."
+        "s": "Die Pralinen sind ein Geschenk.",
+        "sar": "قطع الشوكولاتة الفاخرة هدية."
       },
       {
         "id": "suessigkeiten.lolli",
@@ -7169,8 +7169,8 @@
         "n": "Lolli",
         "ar": "مصاصة حلوى",
         "pl": "die Lollis",
-        "s": "Der kleine Junge wählt an der Kasse einen runden bunten Lolli mit Erdbeergeschmack.",
-        "sar": "الولد الصغير يختار عند صندوق الدفع مصاصة حلوى دائرية ملونة بنكهة الفراولة."
+        "s": "Das Kind will einen Lolli.",
+        "sar": "الطفل يريد مصاصة."
       },
       {
         "id": "suessigkeiten.erdnuss",
@@ -7178,8 +7178,8 @@
         "n": "Erdnuss",
         "ar": "فول سوداني",
         "pl": "die Erdnüsse",
-        "s": "Beim Fernsehabend knabbert er gern frisch geröstete und gesalzene Erdnüsse.",
-        "sar": "أثناء سهرة التلفاز يحب تناول الفول السوداني المحمص والمملح طازجاً."
+        "s": "Ich bin allergisch gegen Erdnüsse.",
+        "sar": "عندي حساسية من الفول السوداني."
       },
       {
         "id": "suessigkeiten.mandel",
@@ -7187,8 +7187,8 @@
         "n": "Mandel",
         "ar": "لوز",
         "pl": "die Mandeln",
-        "s": "Gebrannte Mandeln duften auf dem traditionellen Weihnachtsmarkt nach süßem Karamell.",
-        "sar": "اللوز المحمص بالسكر تفوح منه في سوق الكريسماس التقليدي رائحة الكراميل الحلوة."
+        "s": "Mandeln wachsen auf Bäumen.",
+        "sar": "اللوز ينمو على الأشجار."
       },
       {
         "id": "suessigkeiten.walnuss",
@@ -7196,8 +7196,8 @@
         "n": "Walnuss",
         "ar": "جوز",
         "pl": "die Walnüsse",
-        "s": "Im Herbst sammelt das Mädchen reife Walnüsse unter dem großen Baum im Garten.",
-        "sar": "في الخريف تجمع الفتاة حبات الجوز الناضجة تحت الشجرة الكبيرة في الحديقة."
+        "s": "Die Walnuss hat eine harte Schale.",
+        "sar": "الجوزة لها قشرة صلبة."
       },
       {
         "id": "suessigkeiten.haselnuss",
@@ -7205,8 +7205,8 @@
         "n": "Haselnuss",
         "ar": "بندق",
         "pl": "die Haselnüsse",
-        "s": "Dunkle Schokolade mit ganzen knackigen Haselnüssen ist ihr absoluter Lieblingssnack.",
-        "sar": "الشوكولاتة الداكنة مع حبات البندق الكاملة المقرمشة هي وجبتها الخفيفة المفضلة تماماً."
+        "s": "Ich mag Schokolade mit Haselnüssen.",
+        "sar": "أحب الشوكولاتة بالبندق."
       },
       {
         "id": "suessigkeiten.pistazie",
@@ -7214,8 +7214,8 @@
         "n": "Pistazie",
         "ar": "فستق",
         "pl": "die Pistazien",
-        "s": "Gesalzene Pistazien aus dem Orient lassen sich leicht aus der Schale knacken.",
-        "sar": "الفستق المملح من الشرق يسهل تقشيره من قشرته الخارجية."
+        "s": "Pistazien sind teuer.",
+        "sar": "الفستق غالٍ."
       },
       {
         "id": "suessigkeiten.cashewnuss",
@@ -7223,8 +7223,8 @@
         "n": "Cashewnuss",
         "ar": "كاجو",
         "pl": "die Cashewnüsse",
-        "s": "Die milde Cashewnuss hat einen angenehm weichen Biss und einen sahnigen Geschmack.",
-        "sar": "حبة الكاجو المعتدلة لها قرمشة طرية محببة ومذاق كريمي ناعم."
+        "s": "Cashewnüsse schmecken mir sehr gut.",
+        "sar": "الكاجو طعمه يعجبني جداً."
       },
       {
         "id": "suessigkeiten.nougat",
@@ -7233,8 +7233,8 @@
         "ar": "نوجا",
         "note": "اسم غير معدود عادة؛ الجمع \"Nougats\" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden",
         "pl": null,
-        "s": "Heller weicher Nougat schmilzt zart im Mund und schmeckt herrlich nussig.",
-        "sar": "حلوى النوجا البيضاء الطرية تذوب بنعومة في الفم ولها مذاق مكسرات رائع."
+        "s": "Nougat ist weich und süß.",
+        "sar": "النوجا طرية وحلوة."
       },
       {
         "id": "suessigkeiten.gummibaerchen",
@@ -7243,8 +7243,8 @@
         "ar": "حلوى الدببة الصمغية",
         "note": "من أشهر الحلوى الألمانية على الإطلاق (Haribo) — تنبيه غذائي: قد يحتوي على جيلاتين حيواني",
         "pl": "die Gummibärchen",
-        "s": "Kinder teilen sich gern eine große bunte Tüte mit fruchtigen Gummibärchen.",
-        "sar": "الأطفال يحبون تقاسم كيس كبير ملون من حلوى الدببة الصمغية بنكهة الفواكه."
+        "s": "Die Kinder lieben Gummibärchen.",
+        "sar": "الأطفال يحبون حلوى الدببة."
       },
       {
         "id": "suessigkeiten.schokoriegel",
@@ -7252,8 +7252,8 @@
         "n": "Schokoriegel",
         "ar": "بار شوكولاتة",
         "pl": "die Schokoriegel",
-        "s": "Für die kurze Wanderpause steckt er sich einen nahrhaften Schokoriegel in den Rucksack.",
-        "sar": "لاستراحة المشي القصيرة يضع في حقيبة ظهره بار شوكولاتة مغذياً."
+        "s": "Ich kaufe einen Schokoriegel.",
+        "sar": "أشتري بار شوكولاتة."
       },
       {
         "id": "suessigkeiten.zuckerwatte",
@@ -7262,8 +7262,8 @@
         "ar": "غزل البنات",
         "note": "غالبًا اسم غير معدود؛ الجمع \"Zuckerwatten\" نادر",
         "pl": "die Zuckerwatten",
-        "s": "Auf dem Jahrmarkt freuen sich die Kinder über riesige rosafarbene Zuckerwatte.",
-        "sar": "في الملاهي يفرح الأطفال بغزل البنات الوردي الضخم على العصا."
+        "s": "Auf dem Jahrmarkt gibt es Zuckerwatte.",
+        "sar": "في المهرجان توجد غزل البنات."
       },
       {
         "id": "suessigkeiten.gebaeck",
@@ -7272,8 +7272,8 @@
         "ar": "حلويات مخبوزة",
         "note": "اسم غير معدود عادة؛ الجمع \"Gebäcke\" يُستخدم فقط للإشارة إلى أنواع مختلفة حسب Duden",
         "pl": null,
-        "s": "Zur nachmittäglichen Teestunde serviert die Gastgeberin feines frisches Gebäck.",
-        "sar": "في ساعة الشاي بعد الظهر تقدم المضيفة حلويات مخبوزة طازجة وفاخرة."
+        "s": "Beim Bäcker kaufe ich frisches Gebäck.",
+        "sar": "من الخباز أشتري حلويات مخبوزة طازجة."
       },
       {
         "id": "suessigkeiten.plaetzchen",
@@ -7281,8 +7281,8 @@
         "n": "Plätzchen",
         "ar": "بسكويت صغير",
         "pl": "die Plätzchen",
-        "s": "In der Adventszeit backen Eltern gemeinsam mit den Kindern süße Plätzchen mit Zimt.",
-        "sar": "في موسم ما قبل الكريسماس يخبز الآباء مع الأطفال بسكويتاً حلواً بالقرفة."
+        "s": "Zu Weihnachten backen wir Plätzchen.",
+        "sar": "في عيد الميلاد نخبز بسكويتاً صغيراً."
       },
       {
         "id": "suessigkeiten.marzipan",
@@ -7290,8 +7290,8 @@
         "n": "Marzipan",
         "ar": "مرزبان",
         "pl": "die Marzipane",
-        "s": "Aus süßem Marzipan formt der Konditor kleine kunstvolle Figuren für die Festtagstorte.",
-        "sar": "من حلوى المرزبان الحلوة يشكل صانع الحلويات مجسمات فنية صغيرة لتورتة العيد."
+        "s": "Marzipan wird aus Mandeln gemacht.",
+        "sar": "المرزبان يُصنع من اللوز."
       },
       {
         "id": "suessigkeiten.berliner",
@@ -7300,8 +7300,8 @@
         "ar": "دونات ألماني",
         "note": "اسم آخر لنفس نوع الدونات في مناطق مختلفة من ألمانيا؛ نفس الكلمة تعني أيضًا \"شخص من برلين\"",
         "pl": "die Berliner",
-        "s": "Zu Silvester gehört in vielen deutschen Städten ein frischer Berliner mit feinem Puderzucker.",
-        "sar": "في ليلة رأس السنة ينتمي في مدن ألمانية كثيرة الدونات المحلى بالسكر الناعم إلى التقاليد."
+        "s": "Der Berliner ist mit Marmelade gefüllt.",
+        "sar": "الدونات الألماني محشو بالمربى."
       },
       {
         "id": "suessigkeiten.apfelstrudel",
@@ -7310,8 +7310,8 @@
         "ar": "شتروديل التفاح",
         "note": "حلوى نمساوية-ألمانية مشهورة جدًا",
         "pl": "die Apfelstrudel",
-        "s": "Ein warmer österreichischer Apfelstrudel schmeckt hervorragend mit cremiger Vanillesoße.",
-        "sar": "شتروديل التفاح النمساوي الدافئ طعمه لا يُعلى عليه مع صلصة الفانيليا الكريمية."
+        "s": "Der Apfelstrudel kommt aus Österreich.",
+        "sar": "شتروديل التفاح يأتي من النمسا."
       },
       {
         "id": "suessigkeiten.lebkuchen",
@@ -7320,8 +7320,8 @@
         "ar": "كعك التوابل",
         "note": "حلوى ألمانية تقليدية شائعة في موسم الكريسماس",
         "pl": "die Lebkuchen",
-        "s": "Nürnberger Lebkuchen duften auf dem winterlichen Weihnachtsmarkt wunderbar nach Gewürzen.",
-        "sar": "كعك التوابل النورمبرغي تفوح منه في سوق الكريسماس الشتوي رائحة البهارات الرائعة."
+        "s": "Lebkuchen gibt es im Winter.",
+        "sar": "كعك التوابل يوجد في الشتاء."
       },
       {
         "id": "suessigkeiten.stollen",
@@ -7329,8 +7329,8 @@
         "n": "Stollen",
         "ar": "كيكة الكريسماس الألمانية",
         "pl": "die Stollen",
-        "s": "Dresdner Stollen mit Rosinen und Puderzucker ist der bekannteste deutsche Weihnachtskuchen.",
-        "sar": "كيكة الكريسماس من دريسدن بالزبيب وسكر البودرة أشهر كعكة ألمانية للأعياد."
+        "s": "Der Stollen ist ein Weihnachtskuchen.",
+        "sar": "الشتولن كيكة عيد الميلاد."
       },
       {
         "id": "suessigkeiten.milchreis",
@@ -7339,8 +7339,8 @@
         "ar": "أرز باللبن",
         "note": "اسم غير معدود عادة (طبق وليس قطعًا معدودة)",
         "pl": null,
-        "s": "Warmer süßer Milchreis mit Zimt und Zucker ist ein beliebtes Seelentröster-Essen.",
-        "sar": "الأرز باللبن الدافئ مع القرفة والسكر وجبة محبوبة تمنح الراحة والدفء."
+        "s": "Zum Nachtisch gibt es Milchreis.",
+        "sar": "للتحلية يوجد أرز باللبن."
       }
     ]
   },

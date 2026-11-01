@@ -1,0 +1,3103 @@
+{
+ "version": 1,
+ "base_vocab_sha256": "edaeb00dd7f83b4e0360a980bfc32c57bf2c5603f4962446a1becf732f1fe8ac",
+ "remove": [],
+ "edit": [
+  {
+   "id": "getraenke.wasser",
+   "german": "Wasser",
+   "field": "s",
+   "expect_current": "Trinken Sie bitte jeden Tag ausreichend klares Wasser.",
+   "new": "Ich trinke ein Glas Wasser.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.wasser",
+   "german": "Wasser",
+   "field": "sar",
+   "expect_current": "اشرب من فضلك يومياً كمية كافية من الماء الصافي.",
+   "new": "أشرب كوب ماء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.kaffee",
+   "german": "Kaffee",
+   "field": "s",
+   "expect_current": "Morgens brauche ich immer eine Tasse heißen Kaffee.",
+   "new": "Der Kaffee ist sehr heiß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.kaffee",
+   "german": "Kaffee",
+   "field": "sar",
+   "expect_current": "في الصباح أحتاج دائماً فنجاناً من القهوة الساخنة.",
+   "new": "القهوة ساخنة جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.tee",
+   "german": "Tee",
+   "field": "s",
+   "expect_current": "Bei Halsschmerzen trinke ich warmen Tee mit Honig.",
+   "new": "Wir trinken jeden Abend Tee.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.tee",
+   "german": "Tee",
+   "field": "sar",
+   "expect_current": "عند ألم الحلق أشرب شاياً دافئاً مع العسل.",
+   "new": "نشرب الشاي كل مساء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.saft",
+   "german": "Saft",
+   "field": "s",
+   "expect_current": "Frisch gepresster Saft liefert viele gesunde Vitamine.",
+   "new": "Die Kinder trinken gern Saft.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.saft",
+   "german": "Saft",
+   "field": "sar",
+   "expect_current": "العصير الطازج يوفر العديد من الفيتامينات الصحية.",
+   "new": "الأطفال يحبون شرب العصير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.limonade",
+   "german": "Limonade",
+   "field": "s",
+   "expect_current": "Im Sommer trinken die Kinder gerne kühle Limonade.",
+   "new": "Die Limonade ist süß und kalt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.limonade",
+   "german": "Limonade",
+   "field": "sar",
+   "expect_current": "في الصيف يحب الأطفال شرب الليموناضة الباردة.",
+   "new": "الليموناضة حلوة وباردة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.wein",
+   "german": "Wein",
+   "field": "s",
+   "expect_current": "Zu einem feinen Abendessen wird oft edler Wein gereicht.",
+   "new": "Wein macht man aus Trauben.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.wein",
+   "german": "Wein",
+   "field": "sar",
+   "expect_current": "مع العشاء الفاخر يُقدَّم غالباً نبيذ فاخر.",
+   "new": "يُصنع النبيذ من العنب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.bier",
+   "german": "Bier",
+   "field": "s",
+   "expect_current": "In Bayern trinken viele Menschen gerne kühles Bier.",
+   "new": "In Deutschland trinken viele Leute Bier.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.bier",
+   "german": "Bier",
+   "field": "sar",
+   "expect_current": "في بافاريا يحب كثير من الناس شرب البيرة الباردة.",
+   "new": "في ألمانيا يشرب كثير من الناس البيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.cola",
+   "german": "Cola",
+   "field": "s",
+   "expect_current": "Er bestellt eine kalte Cola mit Eiswürfeln.",
+   "new": "Ich möchte eine Cola, bitte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.cola",
+   "german": "Cola",
+   "field": "sar",
+   "expect_current": "هو يطلب كولا باردة مع مكعبات ثلج.",
+   "new": "أودّ كولا من فضلك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.kakao",
+   "german": "Kakao",
+   "field": "s",
+   "expect_current": "Die Kinder trinken im Winter gerne heißen Kakao.",
+   "new": "Zum Frühstück trinkt das Kind Kakao.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.kakao",
+   "german": "Kakao",
+   "field": "sar",
+   "expect_current": "الأطفال يشربون في الشتاء الكاكاو الساخن بحب.",
+   "new": "مع الإفطار يشرب الطفل الكاكاو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.smoothie",
+   "german": "Smoothie",
+   "field": "s",
+   "expect_current": "Ein frischer grüner Smoothie schmeckt gesund und lecker.",
+   "new": "Ich mache einen Smoothie mit Banane.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.smoothie",
+   "german": "Smoothie",
+   "field": "sar",
+   "expect_current": "سموذي أخضر طازج طعمه صحي ولذيذ.",
+   "new": "أصنع سموذي بالموز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.energydrink",
+   "german": "Energydrink",
+   "field": "s",
+   "expect_current": "Vor der langen Autofahrt trinkt er einen Energydrink.",
+   "new": "Energydrinks sind für Kinder nicht gut.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.energydrink",
+   "german": "Energydrink",
+   "field": "sar",
+   "expect_current": "قبل القيادة الطويلة يشرب مشروب طاقة.",
+   "new": "مشروبات الطاقة ليست جيدة للأطفال.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.mineralwasser",
+   "german": "Mineralwasser",
+   "field": "s",
+   "expect_current": "Ein Glas sprudelndes Mineralwasser erfrischt sofort.",
+   "new": "Ich trinke lieber Mineralwasser als Cola.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.mineralwasser",
+   "german": "Mineralwasser",
+   "field": "sar",
+   "expect_current": "كأس من المياه المعدنية الفوارة ينعش فوراً.",
+   "new": "أفضّل شرب المياه المعدنية على الكولا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.eistee",
+   "german": "Eistee",
+   "field": "s",
+   "expect_current": "Mit Zitrone servierter Eistee ist im Sommer herrlich.",
+   "new": "Im Sommer trinke ich gern Eistee.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.eistee",
+   "german": "Eistee",
+   "field": "sar",
+   "expect_current": "الشاي المثلج المقدَّم مع الليمون رائع في الصيف.",
+   "new": "في الصيف أحب شرب الشاي المثلج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.milchshake",
+   "german": "Milchshake",
+   "field": "s",
+   "expect_current": "Der cremige Milchshake mit Vanillegeschmack schmeckt super.",
+   "new": "Der Milchshake schmeckt nach Schokolade.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.milchshake",
+   "german": "Milchshake",
+   "field": "sar",
+   "expect_current": "الميلك شيك الكريمي بنكهة الفانيليا لذيذ جداً.",
+   "new": "الميلك شيك طعمه شوكولاتة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.sekt",
+   "german": "Sekt",
+   "field": "s",
+   "expect_current": "Zum neuen Jahr stoßen wir mit einem Glas Sekt an.",
+   "new": "Sekt ist ein deutscher Schaumwein.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "getraenke.sekt",
+   "german": "Sekt",
+   "field": "sar",
+   "expect_current": "في العام الجديد نرفع نخبنا بكأس شمبانيا ألمانية.",
+   "new": "السكت نبيذ فوّار ألماني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.champagner",
+   "german": "Champagner",
+   "field": "s",
+   "expect_current": "Bei der Siegesfeier floss edler Champagner in Strömen.",
+   "new": "Champagner kommt aus Frankreich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.champagner",
+   "german": "Champagner",
+   "field": "sar",
+   "expect_current": "في حفل النصر تدفقت الشمبانيا الفاخرة بغزارة.",
+   "new": "الشمبانيا تأتي من فرنسا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.whisky",
+   "german": "Whisky",
+   "field": "s",
+   "expect_current": "Der schottische Whisky lagert viele Jahre im Holzfass.",
+   "new": "Whisky kommt aus Schottland.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.whisky",
+   "german": "Whisky",
+   "field": "sar",
+   "expect_current": "الويسكي الاسكتلندي يُخزن سنوات عديدة في براميل خشبية.",
+   "new": "الويسكي يأتي من اسكتلندا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.wodka",
+   "german": "Wodka",
+   "field": "s",
+   "expect_current": "In Russland wird traditionell reiner Wodka getrunken.",
+   "new": "Wodka ist ein starkes Getränk.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.wodka",
+   "german": "Wodka",
+   "field": "sar",
+   "expect_current": "في روسيا يُشرب الفودكا النقية تقليدياً.",
+   "new": "الفودكا مشروب قوي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.apfelsaft",
+   "german": "Apfelsaft",
+   "field": "s",
+   "expect_current": "Ein Glas naturtrüber Apfelsaft schmeckt fruchtig.",
+   "new": "Ich trinke Apfelsaft zum Frühstück.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.apfelsaft",
+   "german": "Apfelsaft",
+   "field": "sar",
+   "expect_current": "كأس من عصير التفاح الطبيعي طعمه منعش بالفاكهة.",
+   "new": "أشرب عصير التفاح مع الإفطار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.orangensaft",
+   "german": "Orangensaft",
+   "field": "s",
+   "expect_current": "Frischer Orangensaft enthält besonders viel Vitamin C.",
+   "new": "Möchtest du Orangensaft?",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.orangensaft",
+   "german": "Orangensaft",
+   "field": "sar",
+   "expect_current": "عصير البرتقال الطازج يحتوي على نسبة عالية من فيتامين سي.",
+   "new": "هل تريد عصير برتقال؟",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.tomatensaft",
+   "german": "Tomatensaft",
+   "field": "s",
+   "expect_current": "Im Flugzeug bestellt sie gerne herzhaften Tomatensaft.",
+   "new": "Im Flugzeug trinken viele Tomatensaft.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.tomatensaft",
+   "german": "Tomatensaft",
+   "field": "sar",
+   "expect_current": "في الطائرة تحب طلب عصير الطماطم اللذيذ.",
+   "new": "في الطائرة يشرب كثيرون عصير الطماطم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.gruentee",
+   "german": "Grüntee",
+   "field": "s",
+   "expect_current": "Japanischer Grüntee ist bekannt für seine heilsame Wirkung.",
+   "new": "Grüntee ist sehr gesund.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.gruentee",
+   "german": "Grüntee",
+   "field": "sar",
+   "expect_current": "الشاي الأخضر الياباني معروف بفوائده الصحية.",
+   "new": "الشاي الأخضر صحي جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.schwarztee",
+   "german": "Schwarztee",
+   "field": "s",
+   "expect_current": "In England trinkt man traditionell kräftigen Schwarztee mit Milch.",
+   "new": "Ich trinke Schwarztee mit Zucker.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.schwarztee",
+   "german": "Schwarztee",
+   "field": "sar",
+   "expect_current": "في إنجلترا يشربون تقليدياً الشاي الأسود القوي بالحليب.",
+   "new": "أشرب الشاي الأسود بالسكر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.kamillentee",
+   "german": "Kamillentee",
+   "field": "s",
+   "expect_current": "Warmer Kamillentee beruhigt den Magen spürbar.",
+   "new": "Bei Bauchschmerzen trinke ich Kamillentee.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "getraenke.kamillentee",
+   "german": "Kamillentee",
+   "field": "sar",
+   "expect_current": "شاي البابونج الدافئ يهدئ المعدة بشكل ملحوظ.",
+   "new": "عند ألم البطن أشرب شاي البابونج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.pfefferminztee",
+   "german": "Pfefferminztee",
+   "field": "s",
+   "expect_current": "Frischer Pfefferminztee schmeckt herrlich minzig und kühlend.",
+   "new": "Der Pfefferminztee riecht frisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.pfefferminztee",
+   "german": "Pfefferminztee",
+   "field": "sar",
+   "expect_current": "شاي النعناع الطازج نكهته رائعة بالنعناع ومنعشة.",
+   "new": "شاي النعناع رائحته منعشة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.espresso",
+   "german": "Espresso",
+   "field": "s",
+   "expect_current": "In Italien trinkt man nach dem Essen einen starken Espresso.",
+   "new": "Ein Espresso ist klein und stark.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.espresso",
+   "german": "Espresso",
+   "field": "sar",
+   "expect_current": "في إيطاليا يشربون بعد الأكل إسبريسو قوياً.",
+   "new": "الإسبريسو صغير وقوي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.cappuccino",
+   "german": "Cappuccino",
+   "field": "s",
+   "expect_current": "Der Cappuccino hat einen wunderbar dichten Milchschaum.",
+   "new": "Ich nehme einen Cappuccino, bitte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getraenke.cappuccino",
+   "german": "Cappuccino",
+   "field": "sar",
+   "expect_current": "الكابتشينو له رغوة حليب كثيفة ورائعة.",
+   "new": "آخذ كابتشينو من فضلك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.latte-macchiato",
+   "german": "Latte Macchiato",
+   "field": "s",
+   "expect_current": "Ein Glas Latte Macchiato besteht aus drei sichtbaren Schichten.",
+   "new": "Ein Latte Macchiato hat viel Milch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.latte-macchiato",
+   "german": "Latte Macchiato",
+   "field": "sar",
+   "expect_current": "كأس اللاتيه ماكياتو يتكون من ثلاث طبقات واضحة.",
+   "new": "اللاتيه ماكياتو فيه حليب كثير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.apfelschorle",
+   "german": "Apfelschorle",
+   "field": "s",
+   "expect_current": "Eine frische Apfelschorle ist das beliebteste Sportlergetränk.",
+   "new": "Die Apfelschorle ist halb Saft, halb Wasser.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "getraenke.apfelschorle",
+   "german": "Apfelschorle",
+   "field": "sar",
+   "expect_current": "عصير التفاح المخفف بالصودا هو المشروب الأكثر شعبية للرياضيين.",
+   "new": "عصير التفاح المخفف نصفه عصير ونصفه ماء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.apfelwein",
+   "german": "Apfelwein",
+   "field": "s",
+   "expect_current": "In Frankfurt trinkt man traditionellen Apfelwein im Bembel.",
+   "new": "Apfelwein ist ein Getränk aus Äpfeln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.apfelwein",
+   "german": "Apfelwein",
+   "field": "sar",
+   "expect_current": "في فرانكفورت يشرب الناس نبيذ التفاح التقليدي.",
+   "new": "نبيذ التفاح مشروب من التفاح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.gluehwein",
+   "german": "Glühwein",
+   "field": "s",
+   "expect_current": "Auf dem Weihnachtsmarkt wärmt ein Becher heißer Glühwein.",
+   "new": "Auf dem Weihnachtsmarkt gibt es Glühwein.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.gluehwein",
+   "german": "Glühwein",
+   "field": "sar",
+   "expect_current": "في سوق عيد الميلاد يدفئ كوب من النبيذ الساخن بالتوابل.",
+   "new": "في سوق عيد الميلاد يوجد النبيذ الساخن بالتوابل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.ayran",
+   "german": "Ayran",
+   "field": "s",
+   "expect_current": "Zu würzigem Döner passt ein kühler Becher Ayran.",
+   "new": "Ayran trinkt man oft zum Döner.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.ayran",
+   "german": "Ayran",
+   "field": "sar",
+   "expect_current": "مع الشاورما المتبلة يناسب كوب بارد من العيران.",
+   "new": "العيران يُشرب غالباً مع الدونر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getraenke.zitronentee",
+   "german": "Zitronentee",
+   "field": "s",
+   "expect_current": "Zitronentee bringt Frische und Wärme an kalten Tagen.",
+   "new": "Der Zitronentee schmeckt sauer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getraenke.zitronentee",
+   "german": "Zitronentee",
+   "field": "sar",
+   "expect_current": "شاي الليمون يجلب الانتعاش والدفء في الأيام الباردة.",
+   "new": "شاي الليمون طعمه حامض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.fleisch",
+   "german": "Fleisch",
+   "field": "s",
+   "expect_current": "Frisches Fleisch sollte man stets gut gekühlt lagern.",
+   "new": "Ich esse kein Fleisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "fleisch.fleisch",
+   "german": "Fleisch",
+   "field": "sar",
+   "expect_current": "اللحم الطازج يجب دائماً تخزينه مبرداً بشكل جيد.",
+   "new": "لا آكل اللحم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.rindfleisch",
+   "german": "Rindfleisch",
+   "field": "s",
+   "expect_current": "Zartes Rindfleisch eignet sich hervorragend für ein gutes Steak.",
+   "new": "Das Rindfleisch kostet zwölf Euro.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.rindfleisch",
+   "german": "Rindfleisch",
+   "field": "sar",
+   "expect_current": "لحم البقر الطري مناسب جداً لشريحة لحم ممتازة.",
+   "new": "يكلّف اللحم البقري اثني عشر يورو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.haehnchen",
+   "german": "Hähnchen",
+   "field": "s",
+   "expect_current": "Knusprig gebratenes Hähnchen schmeckt der ganzen Familie.",
+   "new": "Zum Mittagessen gibt es Hähnchen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.haehnchen",
+   "german": "Hähnchen",
+   "field": "sar",
+   "expect_current": "الدجاج المقلي المقرمش يحبه جميع أفراد العائلة.",
+   "new": "على الغداء يوجد دجاج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.lammfleisch",
+   "german": "Lammfleisch",
+   "field": "s",
+   "expect_current": "Lammfleisch wird im Ofen mit Knoblauch und Rosmarin geschmort.",
+   "new": "Lammfleisch ist teuer, aber lecker.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.lammfleisch",
+   "german": "Lammfleisch",
+   "field": "sar",
+   "expect_current": "لحم الضأن يُطهى في الفرن مع الثوم وإكليل الجبل.",
+   "new": "لحم الغنم غالٍ لكنه لذيذ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.wurst",
+   "german": "Wurst",
+   "field": "s",
+   "expect_current": "Die deutsche Bratwurst ist weltweit eine berühmte Spezialität.",
+   "new": "Ich möchte eine Wurst, bitte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "fleisch.wurst",
+   "german": "Wurst",
+   "field": "sar",
+   "expect_current": "السجق الألماني المشوي تخصص شهير عالمياً.",
+   "new": "أودّ نقانق من فضلك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.schinken",
+   "german": "Schinken",
+   "field": "s",
+   "expect_current": "Schwarzwälder Schinken hat einen kräftigen und rauchigen Geschmack.",
+   "new": "Schinken ist Fleisch vom Schwein.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.schinken",
+   "german": "Schinken",
+   "field": "sar",
+   "expect_current": "شحم وخنزير الغابة السوداء المقدد له نكهة مدخنة قوية.",
+   "new": "الهام لحم من الخنزير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.kotelett",
+   "german": "Kotelett",
+   "field": "s",
+   "expect_current": "Der Koch brät ein saftiges Kotelett in der Pfanne an.",
+   "new": "Das Kotelett ist noch roh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.kotelett",
+   "german": "Kotelett",
+   "field": "sar",
+   "expect_current": "الطباخ يشوي قطعة كستلاتة كثيرة العصارة في المقلاة.",
+   "new": "قطعة اللحم لا تزال نيئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.garnele",
+   "german": "Garnele",
+   "field": "s",
+   "expect_current": "Frische Garnelen schmecken gebraten mit Knoblauch köstlich.",
+   "new": "Garnelen leben im Meer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "fleisch.garnele",
+   "german": "Garnele",
+   "field": "sar",
+   "expect_current": "الجمبري الطازج المقلي مع الثوم طعمه لذيذ جداً.",
+   "new": "الجمبري يعيش في البحر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.thunfisch",
+   "german": "Thunfisch",
+   "field": "s",
+   "expect_current": "Aus Thunfisch lässt sich ein schmackhafter Salat zubereiten.",
+   "new": "Ich esse Thunfisch auf der Pizza.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.thunfisch",
+   "german": "Thunfisch",
+   "field": "sar",
+   "expect_current": "من سمك التونة يمكن إعداد سلطة شهية.",
+   "new": "آكل التونة على البيتزا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.lachs",
+   "german": "Lachs",
+   "field": "s",
+   "expect_current": "Frischer Lachs liefert viele gesunde Omega-Drei-Fettsäuren.",
+   "new": "Der Lachs ist frisch und teuer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.lachs",
+   "german": "Lachs",
+   "field": "sar",
+   "expect_current": "سمك السلمون الطازج يوفر أحماض أوميغا 3 الدهنية الصحية.",
+   "new": "السلمون طازج وغالٍ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.truthahn",
+   "german": "Truthahn",
+   "field": "s",
+   "expect_current": "Zu Erntedank bereitet die Familie einen saftig gefüllten Truthahn im Ofen zu.",
+   "new": "Zu Weihnachten essen manche Familien Truthahn.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "fleisch.truthahn",
+   "german": "Truthahn",
+   "field": "sar",
+   "expect_current": "في عيد الشكر تُعد العائلة ديكاً رومياً محشواً ولذيذاً في الفرن.",
+   "new": "في عيد الميلاد تأكل بعض العائلات الديك الرومي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.leber",
+   "german": "Leber",
+   "field": "s",
+   "expect_current": "Gebratene Leber mit Äpfeln und Röstzwiebeln ist ein klassisches deutsches Gericht.",
+   "new": "Ich esse Leber nicht gern.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.leber",
+   "german": "Leber",
+   "field": "sar",
+   "expect_current": "الكبد المقلي مع التفاح والبصل المحمر طبق ألماني كلاسيكي تقليدي.",
+   "new": "لا أحب أكل الكبدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.hackfleisch",
+   "german": "Hackfleisch",
+   "field": "s",
+   "expect_current": "Aus frischem Hackfleisch vom Metzger knetet sie Frikadellen für das Abendessen.",
+   "new": "Für die Frikadellen brauche ich Hackfleisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.hackfleisch",
+   "german": "Hackfleisch",
+   "field": "sar",
+   "expect_current": "من اللحم المفروم الطازج من عند الجزار تعجن كرات لحم لوجبة العشاء.",
+   "new": "لكفتة اللحم أحتاج إلى لحم مفروم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.kalbfleisch",
+   "german": "Kalbfleisch",
+   "field": "s",
+   "expect_current": "Zartes Kalbfleisch ist hellrosa, mager und schmeckt besonders mild.",
+   "new": "Kalbfleisch ist sehr zart.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "fleisch.kalbfleisch",
+   "german": "Kalbfleisch",
+   "field": "sar",
+   "expect_current": "لحم العجل الطري لونه وردي فاتح، قليل الدهن وله مذاق معتدل وخفيف جداً.",
+   "new": "لحم العجل طري جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.schweinefleisch",
+   "german": "Schweinefleisch",
+   "field": "s",
+   "expect_current": "In vielen traditionellen Wurstsorten wird feines Schweinefleisch verarbeitet.",
+   "new": "Muslime essen kein Schweinefleisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.schweinefleisch",
+   "german": "Schweinefleisch",
+   "field": "sar",
+   "expect_current": "في العديد من أصناف النقانق التقليدية يُستخدم لحم الخنزير المفروم ناعماً.",
+   "new": "المسلمون لا يأكلون لحم الخنزير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.pute",
+   "german": "Pute",
+   "field": "s",
+   "expect_current": "Mageres Fleisch von der Pute eignet sich ideal für eine kalorienarme Ernährung.",
+   "new": "Die Pute ist größer als ein Huhn.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "fleisch.pute",
+   "german": "Pute",
+   "field": "sar",
+   "expect_current": "لحم الديك الرومي خفيف الدهن ومثالي للنظام الغذائي قليل السعرات.",
+   "new": "الديك الرومي (الأنثى) أكبر من الدجاجة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.hering",
+   "german": "Hering",
+   "field": "s",
+   "expect_current": "An der Küste isst man zarten Hering traditionell mit Pellkartoffeln und Quark.",
+   "new": "Der Hering ist ein kleiner Fisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.hering",
+   "german": "Hering",
+   "field": "sar",
+   "expect_current": "على الساحل يؤكل سمك الرنجة الطري تقليدياً مع البطاطس المسلوقة بقشرها والجبن القريش.",
+   "new": "الرنجة سمكة صغيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.forelle",
+   "german": "Forelle",
+   "field": "s",
+   "expect_current": "Die frische Forelle wird blau gekocht oder knusprig in der Pfanne gebraten.",
+   "new": "Die Forelle lebt im Fluss.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.forelle",
+   "german": "Forelle",
+   "field": "sar",
+   "expect_current": "سمكة التروتة الطازجة تُسلق بأسلوب \"بلو\" أو تُقلى مقرمشة في المقلاة.",
+   "new": "سمك التروتة يعيش في النهر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.krabbe",
+   "german": "Krabbe",
+   "field": "s",
+   "expect_current": "Auf dem Kutter pult man die kleine braune Krabbe frisch aus dem Fang.",
+   "new": "Die Krabbe läuft am Strand.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.krabbe",
+   "german": "Krabbe",
+   "field": "sar",
+   "expect_current": "على متن قارب الصيد يقشرون السلطعون الصغير الطازج مباشرة من الصيد.",
+   "new": "السلطعون يمشي على الشاطئ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.muschel",
+   "german": "Muschel",
+   "field": "s",
+   "expect_current": "Im Herbst kocht man frische Muscheln gern in einem duftenden Gemüsesud.",
+   "new": "Wir bestellen Muscheln im Restaurant.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.muschel",
+   "german": "Muschel",
+   "field": "sar",
+   "expect_current": "في فصل الخريف يطبخ الناس بلح البحر الطازج في مرق خضار زكي الرائحة.",
+   "new": "نطلب بلح البحر في المطعم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.tintenfisch",
+   "german": "Tintenfisch",
+   "field": "s",
+   "expect_current": "Gegrillter Tintenfisch wird mit frischem Knoblauch, Olivenöl und Zitronensaft serviert.",
+   "new": "Der Tintenfisch lebt im Meer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.tintenfisch",
+   "german": "Tintenfisch",
+   "field": "sar",
+   "expect_current": "الحبار المشوي يُقدَّم مع الثوم الطازج وزيت الزيتون وعصير الليمون.",
+   "new": "الحبار يعيش في البحر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.oktopus",
+   "german": "Oktopus",
+   "field": "s",
+   "expect_current": "Der gefangene Oktopus wird sanft geschmort, bis das Fleisch wunderbar weich wird.",
+   "new": "Der Oktopus hat acht Arme.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.oktopus",
+   "german": "Oktopus",
+   "field": "sar",
+   "expect_current": "الأخطبوط المصيد يُطهى على نار هادئة حتى يصبح لحمه طرياً ورائعاً.",
+   "new": "الأخطبوط له ثمانية أذرع.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.steak",
+   "german": "Steak",
+   "field": "s",
+   "expect_current": "Ein saftiges Steak brät man von beiden Seiten scharf an, damit es zart bleibt.",
+   "new": "Ich bestelle ein Steak.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "fleisch.steak",
+   "german": "Steak",
+   "field": "sar",
+   "expect_current": "شريحة الستيك اللذيذة تُشوى من الجانبين على نار قوية لتبقى طرية وعصارية.",
+   "new": "أطلب ستيك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.filet",
+   "german": "Filet",
+   "field": "s",
+   "expect_current": "Das zarte Filet ist das hochwertigste und teuerste Stück Fleisch vom Rind.",
+   "new": "Das Filet ist weich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.filet",
+   "german": "Filet",
+   "field": "sar",
+   "expect_current": "قطعة الفيليه الطرية هي أرقى وأغلى قطعة لحم من البقر.",
+   "new": "الفيليه طري.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.bratwurst",
+   "german": "Bratwurst",
+   "field": "s",
+   "expect_current": "Auf dem Marktplatz holt er sich eine heiße Thüringer Bratwurst im Brötchen.",
+   "new": "Die Bratwurst kostet drei Euro.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "fleisch.bratwurst",
+   "german": "Bratwurst",
+   "field": "sar",
+   "expect_current": "في ساحة السوق يشتري نقانق مشوية تورينغية ساخنة داخل رغيف خبز صغير.",
+   "new": "تكلّف النقانق المشوية ثلاثة يورو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.schnitzel",
+   "german": "Schnitzel",
+   "field": "s",
+   "expect_current": "Ein echtes Wiener Schnitzel wird dünn geklopft und in Butterschmalz goldgelb gebacken.",
+   "new": "Das Schnitzel ist groß und lecker.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "fleisch.schnitzel",
+   "german": "Schnitzel",
+   "field": "sar",
+   "expect_current": "شريحة الشنيتزل الفيناوية الأصلية تُرقق بالدق وتُقلى في السمن حتى تكتسب لوناً ذهبياً.",
+   "new": "الشنيتزل كبير ولذيذ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.braten",
+   "german": "Braten",
+   "field": "s",
+   "expect_current": "Am Sonntagmittag duftet das ganze Haus nach einem herzhaften Schweinebraten.",
+   "new": "Sonntags gibt es bei uns Braten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.braten",
+   "german": "Braten",
+   "field": "sar",
+   "expect_current": "في ظهيرة يوم الأحد تفوح في المنزل بأكمله رائحة اللحم المشوي الشهي.",
+   "new": "أيام الأحد عندنا لحم مشوي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.frikadelle",
+   "german": "Frikadelle",
+   "field": "s",
+   "expect_current": "Zur Pause packt er eine gut gewürzte kalte Frikadelle mit Senf aus.",
+   "new": "Meine Oma macht gute Frikadellen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.frikadelle",
+   "german": "Frikadelle",
+   "field": "sar",
+   "expect_current": "في وقت الاستراحة يُخرج كفتة لحم باردة متبلة بعناية مع الخردل.",
+   "new": "جدتي تصنع كفتة لذيذة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.speck",
+   "german": "Speck",
+   "field": "s",
+   "expect_current": "Kross angebratener Speck verleiht der Linsensuppe eine angenehm rauchige Note.",
+   "new": "Speck hat viel Fett.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "fleisch.speck",
+   "german": "Speck",
+   "field": "sar",
+   "expect_current": "اللحم المقدد المحمر يعطي حساء العدس نكهة مدخنة محببة.",
+   "new": "البيكون فيه دهن كثير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.salami",
+   "german": "Salami",
+   "field": "s",
+   "expect_current": "Hauchdünne Scheiben würziger Salami schmecken auf frischem Vollkornbrot hervorragend.",
+   "new": "Die Salami liegt auf dem Brot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.salami",
+   "german": "Salami",
+   "field": "sar",
+   "expect_current": "شرائح رقيقة جداً من السلامي المتبل طعمها ممتاز فوق خبز الحبوب الكاملة الطازج.",
+   "new": "السلامي على الخبز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.leberwurst",
+   "german": "Leberwurst",
+   "field": "s",
+   "expect_current": "Grobe Pfälzer Leberwurst streicht man traditionell dick auf ein kräftiges Bauernbrot.",
+   "new": "Leberwurst ist eine weiche Wurst.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "fleisch.leberwurst",
+   "german": "Leberwurst",
+   "field": "sar",
+   "expect_current": "نقانق الكبد الريفية تُدهن تقليدياً بطبقة سميكة على خبز القرية القوي.",
+   "new": "نقانق الكبد نقانق طرية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.gulasch",
+   "german": "Gulasch",
+   "field": "s",
+   "expect_current": "Das ungarische Gulasch schmort viele Stunden mit Paprika und Zwiebeln im Schmortopf.",
+   "new": "Zum Gulasch gibt es Nudeln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.gulasch",
+   "german": "Gulasch",
+   "field": "sar",
+   "expect_current": "يخنة اللحم المجرية تُطهى لساعات طويلة مع الفلفل الرومي والبصل في قدر الطبخ.",
+   "new": "مع اليخنة توجد مكرونة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.rinderbraten",
+   "german": "Rinderbraten",
+   "field": "s",
+   "expect_current": "Zum Festtagsessen schneidet der Vater den zarten Rinderbraten in dicke Scheiben.",
+   "new": "Der Rinderbraten braucht zwei Stunden.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "fleisch.rinderbraten",
+   "german": "Rinderbraten",
+   "field": "sar",
+   "expect_current": "في وجبة العيد يقطع الأب روستو اللحم البقري الطري إلى شرائح سميكة.",
+   "new": "يحتاج الروستو إلى ساعتين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.fischfilet",
+   "german": "Fischfilet",
+   "field": "s",
+   "expect_current": "Der Koch wendet das grätenfreie Fischfilet vor dem Braten leicht in Mehl.",
+   "new": "Ich brate das Fischfilet in der Pfanne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.fischfilet",
+   "german": "Fischfilet",
+   "field": "sar",
+   "expect_current": "يقلب الطاهي فيليه السمك الخالي من الشوك قليلاً في الدقيق قبل قليه.",
+   "new": "أقلي فيليه السمك في المقلاة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.currywurst",
+   "german": "Currywurst",
+   "field": "s",
+   "expect_current": "Am bekannten Imbissstand bestellt er eine heiße Currywurst mit Pommes frites.",
+   "new": "Die Currywurst kommt aus Berlin.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.currywurst",
+   "german": "Currywurst",
+   "field": "sar",
+   "expect_current": "عند كشك الوجبات السريعة الشهير يطلب نقانق بصلصة الكاري الساخنة مع البطاطس المقلية.",
+   "new": "الكاري فورست تأتي من برلين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.doener",
+   "german": "Döner",
+   "field": "s",
+   "expect_current": "In Deutschland ist ein knuspriger Döner mit frischem Salat das beliebteste Fastfood.",
+   "new": "Ich esse oft einen Döner.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.doener",
+   "german": "Döner",
+   "field": "sar",
+   "expect_current": "في ألمانيا تُعد شطيرة الدونر المقرمشة مع السلطة الطازجة الوجبة السريعة الأكثر شعبية.",
+   "new": "آكل الدونر كثيراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "fleisch.fischstaebchen",
+   "german": "Fischstäbchen",
+   "field": "s",
+   "expect_current": "Kinder essen knusprig panierte Fischstäbchen am liebsten mit cremigem Kartoffelpüree.",
+   "new": "Kinder essen gern Fischstäbchen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "fleisch.fischstaebchen",
+   "german": "Fischstäbchen",
+   "field": "sar",
+   "expect_current": "الأطفال يحبون تناول أصابع السمك المقرمشة مع البطاطس المهروسة الناعمة.",
+   "new": "الأطفال يحبون أكل أصابع السمك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.milch",
+   "german": "Milch",
+   "field": "s",
+   "expect_current": "Das Kind trinkt morgens ein Glas warme Milch.",
+   "new": "Ich trinke jeden Morgen Milch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "milch.milch",
+   "german": "Milch",
+   "field": "sar",
+   "expect_current": "يشرب الطفل في الصباح كأساً من الحليب الدافئ.",
+   "new": "أشرب الحليب كل صباح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.kaese",
+   "german": "Käse",
+   "field": "s",
+   "expect_current": "Zum Brot essen wir leckeren Käse.",
+   "new": "Ich esse Käse mit Brot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "milch.kaese",
+   "german": "Käse",
+   "field": "sar",
+   "expect_current": "مع الخبز نأكل جبناً لذيذاً.",
+   "new": "آكل الجبن مع الخبز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.joghurt",
+   "german": "Joghurt",
+   "field": "s",
+   "expect_current": "Ich esse Joghurt mit frischen Früchten.",
+   "new": "Der Joghurt ist im Kühlschrank.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "milch.joghurt",
+   "german": "Joghurt",
+   "field": "sar",
+   "expect_current": "آكل الزبادي مع الفواكه الطازجة.",
+   "new": "الزبادي في الثلاجة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.butter",
+   "german": "Butter",
+   "field": "s",
+   "expect_current": "Ich streiche frische Butter auf das Brot.",
+   "new": "Kannst du mir die Butter geben?",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "milch.butter",
+   "german": "Butter",
+   "field": "sar",
+   "expect_current": "أدهن زبدة طازجة على الخبز.",
+   "new": "هل يمكنك أن تعطيني الزبدة؟",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.sahne",
+   "german": "Sahne",
+   "field": "s",
+   "expect_current": "Zum Erdbeerkuchen gehört geschlagene Sahne.",
+   "new": "Ich esse Kuchen mit Sahne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "milch.sahne",
+   "german": "Sahne",
+   "field": "sar",
+   "expect_current": "كعكة الفراولة تناسبها القشدة المخفوقة.",
+   "new": "آكل الكعك مع القشدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.quark",
+   "german": "Quark",
+   "field": "s",
+   "expect_current": "Quark mit Kräutern schmeckt gut zu Pellkartoffeln.",
+   "new": "Quark ist ein frischer Käse.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "milch.quark",
+   "german": "Quark",
+   "field": "sar",
+   "expect_current": "جبن القريش بالأعشاب لذيذ مع البطاطس المسلوقة.",
+   "new": "الكوارك جبن طازج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.buttermilch",
+   "german": "Buttermilch",
+   "field": "s",
+   "expect_current": "Kalte Buttermilch ist ein erfrischendes Getränk.",
+   "new": "Buttermilch schmeckt leicht sauer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "milch.buttermilch",
+   "german": "Buttermilch",
+   "field": "sar",
+   "expect_current": "الحليب المخيض البارد مشروب منعش.",
+   "new": "طعم حليب المخيض حامض قليلاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.frischkaese",
+   "german": "Frischkäse",
+   "field": "s",
+   "expect_current": "Frischkäse schmeckt cremig auf dunklem Brot.",
+   "new": "Ich streiche Frischkäse aufs Brot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "milch.frischkaese",
+   "german": "Frischkäse",
+   "field": "sar",
+   "expect_current": "الجبنة الكريمية لذيذة على الخبز الأسمر.",
+   "new": "أدهن الجبنة الكريمية على الخبز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.eis",
+   "german": "Eis",
+   "field": "s",
+   "expect_current": "Im Sommer essen die Kinder gerne süßes Eis.",
+   "new": "Im Sommer essen wir gern Eis.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "milch.eis",
+   "german": "Eis",
+   "field": "sar",
+   "expect_current": "في الصيف يحب الأطفال تناول الآيس كريم الحلو.",
+   "new": "في الصيف نحب أكل الآيس كريم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.mozzarella",
+   "german": "Mozzarella",
+   "field": "s",
+   "expect_current": "Mozzarella mit Tomaten ist eine beliebte Vorspeise.",
+   "new": "Auf der Pizza liegt Mozzarella.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "milch.mozzarella",
+   "german": "Mozzarella",
+   "field": "sar",
+   "expect_current": "الموتزاريلا مع الطماطم مقبلات محبوبة.",
+   "new": "على البيتزا توجد موتزاريلا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "milch.sojamilch",
+   "german": "Sojamilch",
+   "field": "s",
+   "expect_current": "Viele Menschen trinken Sojamilch als pflanzliche Alternative.",
+   "new": "Sojamilch ist eine Milch aus Pflanzen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "milch.sojamilch",
+   "german": "Sojamilch",
+   "field": "sar",
+   "expect_current": "كثير من الناس يشربون حليب الصويا كبديل نباتي.",
+   "new": "حليب الصويا حليب نباتي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.pfeffer",
+   "german": "Pfeffer",
+   "field": "s",
+   "expect_current": "Er würzt die Suppe mit einer Prise schwarzem Pfeffer.",
+   "new": "Die Suppe braucht Pfeffer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.pfeffer",
+   "german": "Pfeffer",
+   "field": "sar",
+   "expect_current": "هو يتبل الحساء برشة من الفلفل الأسود.",
+   "new": "الشوربة تحتاج إلى فلفل أسود.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.salz",
+   "german": "Salz",
+   "field": "s",
+   "expect_current": "Ohne Salz schmeckt selbst das beste Essen fad.",
+   "new": "Die Suppe hat zu viel Salz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.salz",
+   "german": "Salz",
+   "field": "sar",
+   "expect_current": "بدون الملح يبدو حتى أشهى طعام بلا طعم.",
+   "new": "الشوربة فيها ملح كثير جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.zimt",
+   "german": "Zimt",
+   "field": "s",
+   "expect_current": "Im Winter duften die Plätzchen herrlich nach süßem Zimt.",
+   "new": "Ich mag Zimt im Kaffee.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.zimt",
+   "german": "Zimt",
+   "field": "sar",
+   "expect_current": "في الشتاء تفوح رائحة البسكويت بالقرفة الحلوة الرائعة.",
+   "new": "أحب القرفة في القهوة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.kreuzkuemmel",
+   "german": "Kreuzkümmel",
+   "field": "s",
+   "expect_current": "Kreuzkümmel ist ein unverzichtbares Gewürz in der orientalischen Küche.",
+   "new": "Ägyptische Gerichte haben oft Kreuzkümmel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.kreuzkuemmel",
+   "german": "Kreuzkümmel",
+   "field": "sar",
+   "expect_current": "الكمون بهار لا غنى عنه في المطبخ الشرقي.",
+   "new": "الأطباق المصرية غالباً فيها كمون.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.ingwer",
+   "german": "Ingwer",
+   "field": "s",
+   "expect_current": "Frischer Ingwer verleiht dem warmen Tee eine angenehme Schärfe.",
+   "new": "Ingwer schmeckt scharf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.ingwer",
+   "german": "Ingwer",
+   "field": "sar",
+   "expect_current": "الزنجبيل الطازج يعطي الشاي الدافئ حرارة مستحبة.",
+   "new": "الزنجبيل طعمه حار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.petersilie",
+   "german": "Petersilie",
+   "field": "s",
+   "expect_current": "Gehackte grüne Petersilie streut man frisch über die Kartoffeln.",
+   "new": "Ich schneide die Petersilie klein.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.petersilie",
+   "german": "Petersilie",
+   "field": "sar",
+   "expect_current": "البقدونس الأخضر المفروم يُرش طازجاً فوق البطاطس.",
+   "new": "أقطّع البقدونس ناعماً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.koriander",
+   "german": "Koriander",
+   "field": "s",
+   "expect_current": "Frischer Koriander gibt asiatischen Suppen ihr typisches Aroma.",
+   "new": "Der Koriander riecht sehr stark.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.koriander",
+   "german": "Koriander",
+   "field": "sar",
+   "expect_current": "الكزبرة الطازجة تمنح الشوربات الآسيوية نكهتها المميزة.",
+   "new": "رائحة الكزبرة قوية جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.kurkuma",
+   "german": "Kurkuma",
+   "field": "s",
+   "expect_current": "Die gelbe Kurkuma verleiht dem Reisgericht eine schöne goldene Farbe.",
+   "new": "Kurkuma macht das Essen gelb.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.kurkuma",
+   "german": "Kurkuma",
+   "field": "sar",
+   "expect_current": "الكركم الأصفر يمنح طبق الأرز لوناً ذهبياً جميلاً.",
+   "new": "الكركم يجعل الطعام أصفر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.chili",
+   "german": "Chili",
+   "field": "s",
+   "expect_current": "Vorsicht, das rote Chili brennt scharf auf der Zunge.",
+   "new": "Chili ist sehr scharf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gewuerze.chili",
+   "german": "Chili",
+   "field": "sar",
+   "expect_current": "احذر، فالشطة الحمراء تلسع بحرارة على اللسان.",
+   "new": "الفلفل الحار حار جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.minze",
+   "german": "Minze",
+   "field": "s",
+   "expect_current": "Frische Minze kühlt und erfrischt an heißen Sommertagen.",
+   "new": "Ich trinke Tee mit frischer Minze.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.minze",
+   "german": "Minze",
+   "field": "sar",
+   "expect_current": "النعناع الطازج يبرد وينعش في أيام الصيف الحارة.",
+   "new": "أشرب الشاي بنعناع طازج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.sesam",
+   "german": "Sesam",
+   "field": "s",
+   "expect_current": "Knuspriger Sesam verfeinert das frische Fladenbrot.",
+   "new": "Sesam ist klein und braun.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.sesam",
+   "german": "Sesam",
+   "field": "sar",
+   "expect_current": "السمسم المقرمش يزين الخبز المفرود الطازج.",
+   "new": "السمسم صغير وبني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.vanille",
+   "german": "Vanille",
+   "field": "s",
+   "expect_current": "Echte Vanille verleiht dem Pudding einen edlen Geschmack.",
+   "new": "Die Vanille kommt aus Madagaskar.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.vanille",
+   "german": "Vanille",
+   "field": "sar",
+   "expect_current": "الفانيليا الأصلية تمنح المهلبية نكهة راقية.",
+   "new": "الفانيليا تأتي من مدغشقر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.lorbeer",
+   "german": "Lorbeer",
+   "field": "s",
+   "expect_current": "Ein getrocknetes Blatt Lorbeer kocht in der Brühe mit.",
+   "new": "Ein Blatt Lorbeer kommt in die Suppe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.lorbeer",
+   "german": "Lorbeer",
+   "field": "sar",
+   "expect_current": "ورقة لورا مجففة تُطهى في المرق.",
+   "new": "ورقة لورا تُضاف إلى الشوربة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.paprikapulver",
+   "german": "Paprikapulver",
+   "field": "s",
+   "expect_current": "Paprikapulver gibt dem herzhaften Gulasch die kräftige rote Farbe.",
+   "new": "Das Paprikapulver ist rot und mild.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.paprikapulver",
+   "german": "Paprikapulver",
+   "field": "sar",
+   "expect_current": "البابريكا المطحونة تعطي حساء الغولاش لونه الأحمر القوي.",
+   "new": "البابريكا حمراء ومعتدلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.muskatnuss",
+   "german": "Muskatnuss",
+   "field": "s",
+   "expect_current": "Geriebene Muskatnuss gehört unbedingt in ein gutes Kartoffelpüree.",
+   "new": "Etwas Muskatnuss passt zu Kartoffeln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.muskatnuss",
+   "german": "Muskatnuss",
+   "field": "sar",
+   "expect_current": "جوزة الطيب المبشورة ضرورية في بيوريه البطاطس الجيد.",
+   "new": "قليل من جوزة الطيب يناسب البطاطس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.kardamom",
+   "german": "Kardamom",
+   "field": "s",
+   "expect_current": "Kardamom wird im Orient gerne direkt in den Kaffee gemahlen.",
+   "new": "Arabischer Kaffee riecht nach Kardamom.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.kardamom",
+   "german": "Kardamom",
+   "field": "sar",
+   "expect_current": "الهيل يُطحن في الشرق عادة مع القهوة مباشرة.",
+   "new": "رائحة القهوة العربية فيها هيل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.safran",
+   "german": "Safran",
+   "field": "s",
+   "expect_current": "Echter Safran ist das teuerste und edelste Gewürz der Welt.",
+   "new": "Safran ist das teuerste Gewürz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.safran",
+   "german": "Safran",
+   "field": "sar",
+   "expect_current": "الزعفران الأصلي هو أغلى وأفخر أنواع التوابل في العالم.",
+   "new": "الزعفران أغلى التوابل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.anis",
+   "german": "Anis",
+   "field": "s",
+   "expect_current": "Der feine Geschmack von Anis erinnert an süße Lakritze.",
+   "new": "Anis schmeckt wie Lakritz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.anis",
+   "german": "Anis",
+   "field": "sar",
+   "expect_current": "نكهة اليانسون الرقيقة تذكر بحلوى العرقسوس.",
+   "new": "اليانسون طعمه كعرق السوس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.currypulver",
+   "german": "Currypulver",
+   "field": "s",
+   "expect_current": "Currypulver ist eine aromatische Mischung aus vielen Gewürzen.",
+   "new": "Ich kaufe Currypulver im Supermarkt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.currypulver",
+   "german": "Currypulver",
+   "field": "sar",
+   "expect_current": "بودرة الكاري خليط عطري من بهارات متعددة.",
+   "new": "أشتري بودرة الكاري من السوبر ماركت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.oregano",
+   "german": "Oregano",
+   "field": "s",
+   "expect_current": "Auf jede echte italienische Pizza gehört getrockneter Oregano.",
+   "new": "Ich streue Oregano auf die Pizza.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.oregano",
+   "german": "Oregano",
+   "field": "sar",
+   "expect_current": "على كل بيتزا إيطالية أصلية يجب وضع أوريغانو مجفف.",
+   "new": "أرش الأوريغانو على البيتزا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.thymian",
+   "german": "Thymian",
+   "field": "s",
+   "expect_current": "Thymian passt hervorragend zu gebratenem Fleisch und Gemüse.",
+   "new": "Thymian wächst in meinem Garten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.thymian",
+   "german": "Thymian",
+   "field": "sar",
+   "expect_current": "الزعتر يناسب بشكل ممتاز اللحوم والخضروات المشوية.",
+   "new": "الزعتر ينمو في حديقتي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.rosmarin",
+   "german": "Rosmarin",
+   "field": "s",
+   "expect_current": "Ein Zweig frischer Rosmarin duftet intensiv beim Braten.",
+   "new": "Rosmarin passt gut zu Lammfleisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.rosmarin",
+   "german": "Rosmarin",
+   "field": "sar",
+   "expect_current": "غصن من إكليل الجبل الطازج يفوح برائحة زكية أثناء الشواء.",
+   "new": "إكليل الجبل يناسب لحم الغنم جيداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.basilikum",
+   "german": "Basilikum",
+   "field": "s",
+   "expect_current": "Frisches Basilikum harmoniert perfekt mit Tomaten und Mozzarella.",
+   "new": "Basilikum wächst auf dem Balkon.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.basilikum",
+   "german": "Basilikum",
+   "field": "sar",
+   "expect_current": "الريحان الطازج يتناغم تماماً مع الطماطم والموتزاريلا.",
+   "new": "الريحان ينمو على الشرفة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.dill",
+   "german": "Dill",
+   "field": "s",
+   "expect_current": "Feiner Dill verfeinert frische Fischgerichte und Gurkensalat.",
+   "new": "Dill passt zu Fisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.dill",
+   "german": "Dill",
+   "field": "sar",
+   "expect_current": "الشبت الناعم يزين أطباق السمك الطازجة وسلطة الخيار.",
+   "new": "الشبت يناسب السمك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.schnittlauch",
+   "german": "Schnittlauch",
+   "field": "s",
+   "expect_current": "Frischer Schnittlauch schmeckt köstlich auf einem Butterbrot.",
+   "new": "Schnittlauch schmeckt gut auf Brot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.schnittlauch",
+   "german": "Schnittlauch",
+   "field": "sar",
+   "expect_current": "الثوم المعمر الطازج طعمه لذيذ على شطيرة الخبز بالزبدة.",
+   "new": "الثوم المعمر طعمه جيد على الخبز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.sojasosse",
+   "german": "Sojasoße",
+   "field": "s",
+   "expect_current": "Dunkle Sojasoße rundet die asiatische Nudelpfanne geschmacklich ab.",
+   "new": "Zum Reis gibt es Sojasoße.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.sojasosse",
+   "german": "Sojasoße",
+   "field": "sar",
+   "expect_current": "صلصة الصويا الداكنة تضبط مذاق طبق النودلز الآسيوي.",
+   "new": "مع الأرز توجد صلصة الصويا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.essig",
+   "german": "Essig",
+   "field": "s",
+   "expect_current": "Für das Salatdressing mischt man Essig mit gutem Speiseöl.",
+   "new": "Essig riecht sauer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.essig",
+   "german": "Essig",
+   "field": "sar",
+   "expect_current": "لصلصة السلطة يخلط المرء الخل مع زيت طعام جيد.",
+   "new": "الخل رائحته حامضة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.olivenoel",
+   "german": "Olivenöl",
+   "field": "s",
+   "expect_current": "Natives Olivenöl extra ist die gesunde Grundlage der Mittelmeerküche.",
+   "new": "Für den Salat nehme ich Olivenöl.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.olivenoel",
+   "german": "Olivenöl",
+   "field": "sar",
+   "expect_current": "زيت الزيتون البكر الممتاز هو الأساس الصحي لمطبخ البحر المتوسط.",
+   "new": "للسلطة أستخدم زيت الزيتون.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.senf",
+   "german": "Senf",
+   "field": "s",
+   "expect_current": "Zur Bratwurst isst man in Deutschland traditionell scharfen Senf.",
+   "new": "Zur Wurst esse ich Senf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.senf",
+   "german": "Senf",
+   "field": "sar",
+   "expect_current": "مع السجق المشوي يؤكل في ألمانيا تقليدياً الخردل الحار.",
+   "new": "مع النقانق آكل الخردل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.ketchup",
+   "german": "Ketchup",
+   "field": "s",
+   "expect_current": "Die Kinder essen ihre knusprigen Pommes am liebsten mit Ketchup.",
+   "new": "Kinder mögen Ketchup.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gewuerze.ketchup",
+   "german": "Ketchup",
+   "field": "sar",
+   "expect_current": "الأطفال يفضلون تناول البطاطس المقرمشة مع الكاتشب.",
+   "new": "الأطفال يحبون الكاتشب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.mayonnaise",
+   "german": "Mayonnaise",
+   "field": "s",
+   "expect_current": "Cremige Mayonnaise schmeckt vorzüglich im klassischen Kartoffelsalat.",
+   "new": "Ich mag Mayonnaise nicht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gewuerze.mayonnaise",
+   "german": "Mayonnaise",
+   "field": "sar",
+   "expect_current": "المايونيز الكريمي طعمه رائع في سلطة البطاطس الكلاسيكية.",
+   "new": "لا أحب المايونيز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.zucker",
+   "german": "Zucker",
+   "field": "s",
+   "expect_current": "Er trinkt seinen heißen Morgentee am liebsten ganz ohne Zucker.",
+   "new": "Ich nehme Zucker in den Tee.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.zucker",
+   "german": "Zucker",
+   "field": "sar",
+   "expect_current": "هو يفضل شرب شاي الصباح الساخن تماماً بدون سكر.",
+   "new": "أضع السكر في الشاي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.hefe",
+   "german": "Hefe",
+   "field": "s",
+   "expect_current": "Frische Hefe lässt den weichen Brotteig wunderbar aufgehen.",
+   "new": "Für das Brot brauchen wir Hefe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gewuerze.hefe",
+   "german": "Hefe",
+   "field": "sar",
+   "expect_current": "الخميرة الطازجة تجعل عجينة الخبز الطرية تختمر بشكل رائع.",
+   "new": "للخبز نحتاج إلى خميرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gewuerze.backpulver",
+   "german": "Backpulver",
+   "field": "s",
+   "expect_current": "Ein Päckchen Backpulver macht den süßen Rührkuchen schön locker.",
+   "new": "Für den Kuchen brauche ich Backpulver.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gewuerze.backpulver",
+   "german": "Backpulver",
+   "field": "sar",
+   "expect_current": "كيس من البيكنج باودر يجعل الكعكة هشة وإسفنجية.",
+   "new": "للكيكة أحتاج إلى بيكنج باودر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.reis",
+   "german": "Reis",
+   "field": "s",
+   "expect_current": "Gekochter Reis ist die wichtigste Beilage für Milliarden Menschen.",
+   "new": "Wir essen heute Reis mit Hähnchen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getreide.reis",
+   "german": "Reis",
+   "field": "sar",
+   "expect_current": "الأرز المسلوق هو الغذاء الجانبي الأهم لمليارات البشر.",
+   "new": "نأكل اليوم أرزاً مع دجاج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.mehl",
+   "german": "Mehl",
+   "field": "s",
+   "expect_current": "Aus weißem Mehl backt der Bäcker knusprige Brötchen.",
+   "new": "Das Mehl ist im Schrank.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getreide.mehl",
+   "german": "Mehl",
+   "field": "sar",
+   "expect_current": "من الدقيق الأبيض يخبز الخباز خبزاً مقرمشاً.",
+   "new": "الدقيق في الخزانة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.brot",
+   "german": "Brot",
+   "field": "s",
+   "expect_current": "Frisches warmes Brot duftet herrlich aus der Backstube.",
+   "new": "Ich kaufe frisches Brot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getreide.brot",
+   "german": "Brot",
+   "field": "sar",
+   "expect_current": "الخبز الطازج الدافئ تفوح رائحته الزكية من المخبز.",
+   "new": "أشتري خبزاً طازجاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.nudeln",
+   "german": "Nudeln",
+   "field": "s",
+   "expect_current": "Italienische Nudeln schmecken mit frischer Tomatensoße am besten.",
+   "new": "Die Kinder essen gern Nudeln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "getreide.nudeln",
+   "german": "Nudeln",
+   "field": "sar",
+   "expect_current": "المكرونة الإيطالية ألذ ما تكون مع صلصة الطماطم الطازجة.",
+   "new": "الأطفال يحبون أكل المكرونة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.weizen",
+   "german": "Weizen",
+   "field": "s",
+   "expect_current": "Auf den sonnigen Feldern reift der goldene Weizen heran.",
+   "new": "Aus Weizen macht man Mehl.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "getreide.weizen",
+   "german": "Weizen",
+   "field": "sar",
+   "expect_current": "في الحقول المشمسة ينضج القمح الذهبي.",
+   "new": "من القمح يُصنع الدقيق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.hafer",
+   "german": "Hafer",
+   "field": "s",
+   "expect_current": "Warmer Haferbrei ist ein gesundes und nahrhaftes Frühstück.",
+   "new": "Pferde fressen gern Hafer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getreide.hafer",
+   "german": "Hafer",
+   "field": "sar",
+   "expect_current": "عصيدة الشوفان الدافئة إفطار صحي ومغذٍ.",
+   "new": "الخيول تحب أكل الشوفان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.gerste",
+   "german": "Gerste",
+   "field": "s",
+   "expect_current": "Gerste wird traditionell zum Brauen von Bier angebaut.",
+   "new": "Gerste wächst auf dem Feld.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getreide.gerste",
+   "german": "Gerste",
+   "field": "sar",
+   "expect_current": "الشعير يُزرع تقليدياً لصناعة البيرة.",
+   "new": "الشعير ينمو في الحقل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.muesli",
+   "german": "Müsli",
+   "field": "s",
+   "expect_current": "Morgens isst er gern ein gesundes Müsli mit Haferflocken und frischen Beeren.",
+   "new": "Zum Frühstück esse ich Müsli.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getreide.muesli",
+   "german": "Müsli",
+   "field": "sar",
+   "expect_current": "في الصباح يفضل تناول موزلي صحي مع رقائق الشوفان والتوت الطازج.",
+   "new": "في الإفطار آكل الموزلي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.linse",
+   "german": "Linse",
+   "field": "s",
+   "expect_current": "Im Winter wärmt ein traditioneller Eintopf aus braunen Linsen und Gemüse.",
+   "new": "Linsen sind klein und rund.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getreide.linse",
+   "german": "Linse",
+   "field": "sar",
+   "expect_current": "في الشتاء يبعث الدفء حساء تقليدي من العدس البني والخضار.",
+   "new": "العدس صغير ومستدير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "getreide.bulgur",
+   "german": "Bulgur",
+   "field": "s",
+   "expect_current": "Aus vorgekochtem Bulgur bereitet man einen würzigen orientalischen Salat zu.",
+   "new": "Zum Fleisch gibt es Bulgur.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "getreide.bulgur",
+   "german": "Bulgur",
+   "field": "sar",
+   "expect_current": "من البرغل المسلوق مسبقاً تُحضَّر سلطة شرقية متبلة.",
+   "new": "مع اللحم يوجد برغل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.topf",
+   "german": "Topf",
+   "field": "s",
+   "expect_current": "Die Suppe kocht im großen Topf auf dem Herd.",
+   "new": "Die Suppe ist im Topf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kueche.topf",
+   "german": "Topf",
+   "field": "sar",
+   "expect_current": "الحساء يغلي في القدر الكبير على الموقد.",
+   "new": "الشوربة في القدر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.pfanne",
+   "german": "Pfanne",
+   "field": "s",
+   "expect_current": "Er brät das Spiegelei in einer beschichteten Pfanne.",
+   "new": "Ich brate das Ei in der Pfanne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kueche.pfanne",
+   "german": "Pfanne",
+   "field": "sar",
+   "expect_current": "هو يقلي البيض في مقلاة غير لاصقة.",
+   "new": "أقلي البيضة في المقلاة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.loeffel",
+   "german": "Löffel",
+   "field": "s",
+   "expect_current": "Man isst die heiße Suppe mit einem silbernen Löffel.",
+   "new": "Ich esse die Suppe mit dem Löffel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kueche.loeffel",
+   "german": "Löffel",
+   "field": "sar",
+   "expect_current": "يأكل المرء الحساء الساخن بملعقة فضية.",
+   "new": "آكل الشوربة بالملعقة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.gabel",
+   "german": "Gabel",
+   "field": "s",
+   "expect_current": "Mit der spitzen Gabel spießt er ein Stück Fleisch auf.",
+   "new": "Die Gabel liegt links vom Teller.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kueche.gabel",
+   "german": "Gabel",
+   "field": "sar",
+   "expect_current": "بالشوكة الحادة يغرز قطعة من اللحم.",
+   "new": "الشوكة على يسار الطبق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.messer",
+   "german": "Messer",
+   "field": "s",
+   "expect_current": "Das scharfe Messer schneidet das Brot ganz mühelos.",
+   "new": "Das Messer ist scharf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kueche.messer",
+   "german": "Messer",
+   "field": "sar",
+   "expect_current": "السكين الحاد يقطع الخبز بكل سهولة.",
+   "new": "السكين حادّ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.teller",
+   "german": "Teller",
+   "field": "s",
+   "expect_current": "Sie stellt den flachen Teller vorsichtig auf den Tisch.",
+   "new": "Der Teller ist leer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kueche.teller",
+   "german": "Teller",
+   "field": "sar",
+   "expect_current": "هي تضع الصحن المسطح بحذر على الطاولة.",
+   "new": "الطبق فارغ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.tasse",
+   "german": "Tasse",
+   "field": "s",
+   "expect_current": "Morgens trinkt er eine große Tasse heißen Kaffee.",
+   "new": "Ich möchte eine Tasse Tee.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kueche.tasse",
+   "german": "Tasse",
+   "field": "sar",
+   "expect_current": "في الصباح يشرب فنجاناً كبيراً من القهوة الساخنة.",
+   "new": "أودّ فنجان شاي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.glas",
+   "german": "Glas",
+   "field": "s",
+   "expect_current": "Er schenkt sich ein kühles Glas Wasser ein.",
+   "new": "Das Glas ist voll.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kueche.glas",
+   "german": "Glas",
+   "field": "sar",
+   "expect_current": "هو يسكب لنفسه كأساً بارداً من الماء.",
+   "new": "الكوب ممتلئ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.schuessel",
+   "german": "Schüssel",
+   "field": "s",
+   "expect_current": "Die bunte Schüssel ist randvoll mit frischem Obstsalat.",
+   "new": "Der Salat ist in der Schüssel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kueche.schuessel",
+   "german": "Schüssel",
+   "field": "sar",
+   "expect_current": "السلطانية الملونة ممتلئة عن آخرها بسلطة الفواكه الطازجة.",
+   "new": "السلطة في الوعاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.herd",
+   "german": "Herd",
+   "field": "s",
+   "expect_current": "Die heiße Suppe kocht in einem großen Topf auf dem Herd.",
+   "new": "Die Suppe steht auf dem Herd.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kueche.herd",
+   "german": "Herd",
+   "field": "sar",
+   "expect_current": "الحساء الساخن يغلي في قدر كبير على الموقد.",
+   "new": "الشوربة على الموقد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.kuehlschrank",
+   "german": "Kühlschrank",
+   "field": "s",
+   "expect_current": "Milch, Joghurt und frisches Gemüse lagern gut gekühlt im Kühlschrank.",
+   "new": "Die Milch steht im Kühlschrank.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kueche.kuehlschrank",
+   "german": "Kühlschrank",
+   "field": "sar",
+   "expect_current": "الحليب والزبادي والخضار الطازج تُحفظ مبردة جيداً في الثلاجة.",
+   "new": "الحليب في الثلاجة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kueche.mikrowelle",
+   "german": "Mikrowelle",
+   "field": "s",
+   "expect_current": "In der praktischen Mikrowelle erwärmt er das Mittagessen in wenigen Minuten.",
+   "new": "Ich wärme das Essen in der Mikrowelle.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "kueche.mikrowelle",
+   "german": "Mikrowelle",
+   "field": "sar",
+   "expect_current": "في الميكروويف العملي يسخن وجبة الغداء في دقائق معدودة.",
+   "new": "أسخّن الطعام في الميكروويف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.schokolade",
+   "german": "Schokolade",
+   "field": "s",
+   "expect_current": "Dunkle Schokolade schmilzt langsam und cremig auf der Zunge.",
+   "new": "Ich esse gern Schokolade.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "suessigkeiten.schokolade",
+   "german": "Schokolade",
+   "field": "sar",
+   "expect_current": "الشوكولاتة الداكنة تذوب ببطء وكريمية على اللسان.",
+   "new": "أحب أكل الشوكولاتة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.keks",
+   "german": "Keks",
+   "field": "s",
+   "expect_current": "Zu einer Tasse Kaffee esse ich gerne einen knusprigen Keks.",
+   "new": "Der Keks schmeckt süß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "suessigkeiten.keks",
+   "german": "Keks",
+   "field": "sar",
+   "expect_current": "مع فنجان قهوة أحب تناول بسكويت مقرمش.",
+   "new": "البسكويت طعمه حلو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.kuchen",
+   "german": "Kuchen",
+   "field": "s",
+   "expect_current": "Die Großmutter backt am Sonntag einen feinen Kuchen.",
+   "new": "Meine Mutter backt einen Kuchen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.kuchen",
+   "german": "Kuchen",
+   "field": "sar",
+   "expect_current": "الجدة تخبز يوم الأحد كعكة شهية.",
+   "new": "أمي تخبز كيكة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.torte",
+   "german": "Torte",
+   "field": "s",
+   "expect_current": "Zur Hochzeitsfeier wurde eine dreistöckige Torte angeschnitten.",
+   "new": "Zum Geburtstag gibt es eine Torte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.torte",
+   "german": "Torte",
+   "field": "sar",
+   "expect_current": "في حفل الزفاف تم تقطيع تورتة من ثلاثة طوابق.",
+   "new": "في عيد الميلاد توجد تورتة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.bonbon",
+   "german": "Bonbon",
+   "field": "s",
+   "expect_current": "Das Kind lutscht fröhlich an einem süßen Bonbon.",
+   "new": "Ich kaufe Bonbons für die Kinder.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.bonbon",
+   "german": "Bonbon",
+   "field": "sar",
+   "expect_current": "الطفل يمتص فرحاً حبة حلوى سكرية.",
+   "new": "أشتري حلوى صلبة للأطفال.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.popcorn",
+   "german": "Popcorn",
+   "field": "s",
+   "expect_current": "Im Kino gehört eine große Tüte warmes Popcorn dazu.",
+   "new": "Im Kino essen wir Popcorn.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "suessigkeiten.popcorn",
+   "german": "Popcorn",
+   "field": "sar",
+   "expect_current": "في السينما لا غنى عن كيس كبير من الفشار الدافئ.",
+   "new": "في السينما نأكل الفشار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.chips",
+   "german": "Chips",
+   "field": "s",
+   "expect_current": "Beim Fernsehabend knabbern wir gerne knusprige Chips.",
+   "new": "Chips sind salzig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.chips",
+   "german": "Chips",
+   "field": "sar",
+   "expect_current": "أثناء سهرة التلفاز نحب قرمشة رقائق البطاطس.",
+   "new": "الشيبسي مالح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.honig",
+   "german": "Honig",
+   "field": "s",
+   "expect_current": "Goldener Honig von fleißigen Bienen schmeckt wunderbar süß.",
+   "new": "Ich esse Brot mit Honig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "suessigkeiten.honig",
+   "german": "Honig",
+   "field": "sar",
+   "expect_current": "العسل الذهبي من النحل النشيط طعمه حلو ورائع.",
+   "new": "آكل الخبز مع العسل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.marmelade",
+   "german": "Marmelade",
+   "field": "s",
+   "expect_current": "Zum Frühstück streicht er süße Erdbeer-Marmelade aufs Brot.",
+   "new": "Meine Oma kocht Marmelade.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.marmelade",
+   "german": "Marmelade",
+   "field": "sar",
+   "expect_current": "في الإفطار يدهن مربى الفراولة الحلوة على الخبز.",
+   "new": "جدتي تطبخ المربى.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.karamell",
+   "german": "Karamell",
+   "field": "s",
+   "expect_current": "Weiches Karamell zieht sich herrlich in der Schokolade.",
+   "new": "Karamell ist süß und klebrig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.karamell",
+   "german": "Karamell",
+   "field": "sar",
+   "expect_current": "الكراميل الطري يتمطط بروعة داخل الشوكولاتة.",
+   "new": "الكراميل حلو ولزج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.waffel",
+   "german": "Waffel",
+   "field": "s",
+   "expect_current": "Frisch gebackene belgische Waffeln duften herrlich und schmecken warm mit Puderzucker.",
+   "new": "Zum Frühstück gibt es Waffeln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.waffel",
+   "german": "Waffel",
+   "field": "sar",
+   "expect_current": "الوافل البلجيكي المخبوز طازجاً تفوح منه رائحة زكية ويؤكل دافئاً مع السكر البودرة.",
+   "new": "في الإفطار توجد وافل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.pudding",
+   "german": "Pudding",
+   "field": "s",
+   "expect_current": "Die Großmutter rührt cremigen gelben Vanillepudding in einem kleinen Stiltopf an.",
+   "new": "Der Pudding ist noch warm.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.pudding",
+   "german": "Pudding",
+   "field": "sar",
+   "expect_current": "الجدة تحرك بودينغ الفانيليا الأصفر الكريمي في قدر صغير.",
+   "new": "البودينغ ما زال دافئاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.kaugummi",
+   "german": "Kaugummi",
+   "field": "s",
+   "expect_current": "Der Jugendliche kaut nach dem Essen einen zuckerfreien Kaugummi mit Minzgeschmack.",
+   "new": "Im Unterricht kauen wir keinen Kaugummi.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.kaugummi",
+   "german": "Kaugummi",
+   "field": "sar",
+   "expect_current": "المراهق يمضغ بعد الأكل لبان خالي من السكر بنكهة النعناع.",
+   "new": "في الدرس لا نمضغ اللبان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.lakritz",
+   "german": "Lakritz",
+   "field": "s",
+   "expect_current": "Schwarzes salziges Lakritz ist besonders in den nordischen Ländern sehr beliebt.",
+   "new": "Lakritz ist schwarz und süß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.lakritz",
+   "german": "Lakritz",
+   "field": "sar",
+   "expect_current": "حلوى عرق السوس السوداء المالحة محبوبة جداً خاصة في دول الشمال.",
+   "new": "عرق السوس أسود وحلو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.baklava",
+   "german": "Baklava",
+   "field": "s",
+   "expect_current": "Süße orientalische Baklava besteht aus hauchdünnen Teigschichten mit gehackten Pistazien.",
+   "new": "Baklava ist sehr süß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "suessigkeiten.baklava",
+   "german": "Baklava",
+   "field": "sar",
+   "expect_current": "البقلاوة الشرقية الحلوة تتكون من طبقات عجين رقيقة جداً محشوة بالفستق المجروش.",
+   "new": "البقلاوة حلوة جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.praline",
+   "german": "Praline",
+   "field": "s",
+   "expect_current": "Zum Geburtstag überreichte er ihr eine edle Schachtel gefüllt mit feinen Pralinen.",
+   "new": "Die Pralinen sind ein Geschenk.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.praline",
+   "german": "Praline",
+   "field": "sar",
+   "expect_current": "في عيد ميلادها أهداها علبة فاخرة مليئة بقطع شوكولاتة برالين راقية.",
+   "new": "قطع الشوكولاتة الفاخرة هدية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.lolli",
+   "german": "Lolli",
+   "field": "s",
+   "expect_current": "Der kleine Junge wählt an der Kasse einen runden bunten Lolli mit Erdbeergeschmack.",
+   "new": "Das Kind will einen Lolli.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.lolli",
+   "german": "Lolli",
+   "field": "sar",
+   "expect_current": "الولد الصغير يختار عند صندوق الدفع مصاصة حلوى دائرية ملونة بنكهة الفراولة.",
+   "new": "الطفل يريد مصاصة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.erdnuss",
+   "german": "Erdnuss",
+   "field": "s",
+   "expect_current": "Beim Fernsehabend knabbert er gern frisch geröstete und gesalzene Erdnüsse.",
+   "new": "Ich bin allergisch gegen Erdnüsse.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.erdnuss",
+   "german": "Erdnuss",
+   "field": "sar",
+   "expect_current": "أثناء سهرة التلفاز يحب تناول الفول السوداني المحمص والمملح طازجاً.",
+   "new": "عندي حساسية من الفول السوداني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.mandel",
+   "german": "Mandel",
+   "field": "s",
+   "expect_current": "Gebrannte Mandeln duften auf dem traditionellen Weihnachtsmarkt nach süßem Karamell.",
+   "new": "Mandeln wachsen auf Bäumen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.mandel",
+   "german": "Mandel",
+   "field": "sar",
+   "expect_current": "اللوز المحمص بالسكر تفوح منه في سوق الكريسماس التقليدي رائحة الكراميل الحلوة.",
+   "new": "اللوز ينمو على الأشجار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.walnuss",
+   "german": "Walnuss",
+   "field": "s",
+   "expect_current": "Im Herbst sammelt das Mädchen reife Walnüsse unter dem großen Baum im Garten.",
+   "new": "Die Walnuss hat eine harte Schale.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.walnuss",
+   "german": "Walnuss",
+   "field": "sar",
+   "expect_current": "في الخريف تجمع الفتاة حبات الجوز الناضجة تحت الشجرة الكبيرة في الحديقة.",
+   "new": "الجوزة لها قشرة صلبة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.haselnuss",
+   "german": "Haselnuss",
+   "field": "s",
+   "expect_current": "Dunkle Schokolade mit ganzen knackigen Haselnüssen ist ihr absoluter Lieblingssnack.",
+   "new": "Ich mag Schokolade mit Haselnüssen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.haselnuss",
+   "german": "Haselnuss",
+   "field": "sar",
+   "expect_current": "الشوكولاتة الداكنة مع حبات البندق الكاملة المقرمشة هي وجبتها الخفيفة المفضلة تماماً.",
+   "new": "أحب الشوكولاتة بالبندق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.pistazie",
+   "german": "Pistazie",
+   "field": "s",
+   "expect_current": "Gesalzene Pistazien aus dem Orient lassen sich leicht aus der Schale knacken.",
+   "new": "Pistazien sind teuer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.pistazie",
+   "german": "Pistazie",
+   "field": "sar",
+   "expect_current": "الفستق المملح من الشرق يسهل تقشيره من قشرته الخارجية.",
+   "new": "الفستق غالٍ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.cashewnuss",
+   "german": "Cashewnuss",
+   "field": "s",
+   "expect_current": "Die milde Cashewnuss hat einen angenehm weichen Biss und einen sahnigen Geschmack.",
+   "new": "Cashewnüsse schmecken mir sehr gut.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.cashewnuss",
+   "german": "Cashewnuss",
+   "field": "sar",
+   "expect_current": "حبة الكاجو المعتدلة لها قرمشة طرية محببة ومذاق كريمي ناعم.",
+   "new": "الكاجو طعمه يعجبني جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.nougat",
+   "german": "Nougat",
+   "field": "s",
+   "expect_current": "Heller weicher Nougat schmilzt zart im Mund und schmeckt herrlich nussig.",
+   "new": "Nougat ist weich und süß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.nougat",
+   "german": "Nougat",
+   "field": "sar",
+   "expect_current": "حلوى النوجا البيضاء الطرية تذوب بنعومة في الفم ولها مذاق مكسرات رائع.",
+   "new": "النوجا طرية وحلوة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.gummibaerchen",
+   "german": "Gummibärchen",
+   "field": "s",
+   "expect_current": "Kinder teilen sich gern eine große bunte Tüte mit fruchtigen Gummibärchen.",
+   "new": "Die Kinder lieben Gummibärchen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.gummibaerchen",
+   "german": "Gummibärchen",
+   "field": "sar",
+   "expect_current": "الأطفال يحبون تقاسم كيس كبير ملون من حلوى الدببة الصمغية بنكهة الفواكه.",
+   "new": "الأطفال يحبون حلوى الدببة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.schokoriegel",
+   "german": "Schokoriegel",
+   "field": "s",
+   "expect_current": "Für die kurze Wanderpause steckt er sich einen nahrhaften Schokoriegel in den Rucksack.",
+   "new": "Ich kaufe einen Schokoriegel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "suessigkeiten.schokoriegel",
+   "german": "Schokoriegel",
+   "field": "sar",
+   "expect_current": "لاستراحة المشي القصيرة يضع في حقيبة ظهره بار شوكولاتة مغذياً.",
+   "new": "أشتري بار شوكولاتة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.zuckerwatte",
+   "german": "Zuckerwatte",
+   "field": "s",
+   "expect_current": "Auf dem Jahrmarkt freuen sich die Kinder über riesige rosafarbene Zuckerwatte.",
+   "new": "Auf dem Jahrmarkt gibt es Zuckerwatte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.zuckerwatte",
+   "german": "Zuckerwatte",
+   "field": "sar",
+   "expect_current": "في الملاهي يفرح الأطفال بغزل البنات الوردي الضخم على العصا.",
+   "new": "في المهرجان توجد غزل البنات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.gebaeck",
+   "german": "Gebäck",
+   "field": "s",
+   "expect_current": "Zur nachmittäglichen Teestunde serviert die Gastgeberin feines frisches Gebäck.",
+   "new": "Beim Bäcker kaufe ich frisches Gebäck.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.gebaeck",
+   "german": "Gebäck",
+   "field": "sar",
+   "expect_current": "في ساعة الشاي بعد الظهر تقدم المضيفة حلويات مخبوزة طازجة وفاخرة.",
+   "new": "من الخباز أشتري حلويات مخبوزة طازجة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.plaetzchen",
+   "german": "Plätzchen",
+   "field": "s",
+   "expect_current": "In der Adventszeit backen Eltern gemeinsam mit den Kindern süße Plätzchen mit Zimt.",
+   "new": "Zu Weihnachten backen wir Plätzchen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.plaetzchen",
+   "german": "Plätzchen",
+   "field": "sar",
+   "expect_current": "في موسم ما قبل الكريسماس يخبز الآباء مع الأطفال بسكويتاً حلواً بالقرفة.",
+   "new": "في عيد الميلاد نخبز بسكويتاً صغيراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.marzipan",
+   "german": "Marzipan",
+   "field": "s",
+   "expect_current": "Aus süßem Marzipan formt der Konditor kleine kunstvolle Figuren für die Festtagstorte.",
+   "new": "Marzipan wird aus Mandeln gemacht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.marzipan",
+   "german": "Marzipan",
+   "field": "sar",
+   "expect_current": "من حلوى المرزبان الحلوة يشكل صانع الحلويات مجسمات فنية صغيرة لتورتة العيد.",
+   "new": "المرزبان يُصنع من اللوز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.berliner",
+   "german": "Berliner",
+   "field": "s",
+   "expect_current": "Zu Silvester gehört in vielen deutschen Städten ein frischer Berliner mit feinem Puderzucker.",
+   "new": "Der Berliner ist mit Marmelade gefüllt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.berliner",
+   "german": "Berliner",
+   "field": "sar",
+   "expect_current": "في ليلة رأس السنة ينتمي في مدن ألمانية كثيرة الدونات المحلى بالسكر الناعم إلى التقاليد.",
+   "new": "الدونات الألماني محشو بالمربى.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.apfelstrudel",
+   "german": "Apfelstrudel",
+   "field": "s",
+   "expect_current": "Ein warmer österreichischer Apfelstrudel schmeckt hervorragend mit cremiger Vanillesoße.",
+   "new": "Der Apfelstrudel kommt aus Österreich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.apfelstrudel",
+   "german": "Apfelstrudel",
+   "field": "sar",
+   "expect_current": "شتروديل التفاح النمساوي الدافئ طعمه لا يُعلى عليه مع صلصة الفانيليا الكريمية.",
+   "new": "شتروديل التفاح يأتي من النمسا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.lebkuchen",
+   "german": "Lebkuchen",
+   "field": "s",
+   "expect_current": "Nürnberger Lebkuchen duften auf dem winterlichen Weihnachtsmarkt wunderbar nach Gewürzen.",
+   "new": "Lebkuchen gibt es im Winter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "suessigkeiten.lebkuchen",
+   "german": "Lebkuchen",
+   "field": "sar",
+   "expect_current": "كعك التوابل النورمبرغي تفوح منه في سوق الكريسماس الشتوي رائحة البهارات الرائعة.",
+   "new": "كعك التوابل يوجد في الشتاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.stollen",
+   "german": "Stollen",
+   "field": "s",
+   "expect_current": "Dresdner Stollen mit Rosinen und Puderzucker ist der bekannteste deutsche Weihnachtskuchen.",
+   "new": "Der Stollen ist ein Weihnachtskuchen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.stollen",
+   "german": "Stollen",
+   "field": "sar",
+   "expect_current": "كيكة الكريسماس من دريسدن بالزبيب وسكر البودرة أشهر كعكة ألمانية للأعياد.",
+   "new": "الشتولن كيكة عيد الميلاد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "suessigkeiten.milchreis",
+   "german": "Milchreis",
+   "field": "s",
+   "expect_current": "Warmer süßer Milchreis mit Zimt und Zucker ist ein beliebtes Seelentröster-Essen.",
+   "new": "Zum Nachtisch gibt es Milchreis.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "suessigkeiten.milchreis",
+   "german": "Milchreis",
+   "field": "sar",
+   "expect_current": "الأرز باللبن الدافئ مع القرفة والسكر وجبة محبوبة تمنح الراحة والدفء.",
+   "new": "للتحلية يوجد أرز باللبن.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  }
+ ]
+}

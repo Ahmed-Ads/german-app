@@ -98,3 +98,10 @@
 - **Target Item IDs:** orte.*,familie.*,koerper.*,zuhause.*
 - **Previous SHA-256:** `7b4dc30d9ca9407142391356beb2eada26c9fabf3ad27a841d4fe6468139aa77`
 - **New SHA-256:** `edaeb00dd7f83b4e0360a980bfc32c57bf2c5603f4962446a1becf732f1fe8ac`
+
+## [2026-11-01 21:11:27] Authorized Baseline Update
+- **Reason:** Hand-written example sentences batch 2 (172 words)
+- **Source:** Owner-approved review of tools/vocab_changes_sentences_batch2.json
+- **Target Item IDs:** getraenke.*,fleisch.*,milch.*,gewuerze.*,getreide.*,kueche.*,suessigkeiten.*
+- **Previous SHA-256:** `edaeb00dd7f83b4e0360a980bfc32c57bf2c5603f4962446a1becf732f1fe8ac`
+- **New SHA-256:** `677954c564d622bbaa1d188f9f71b674a889187c4f523774435bf9adb2c92f69`
