@@ -1,0 +1,2905 @@
+{
+ "version": 1,
+ "base_vocab_sha256": "677954c564d622bbaa1d188f9f71b674a889187c4f523774435bf9adb2c92f69",
+ "remove": [],
+ "edit": [
+  {
+   "id": "obst.apfel",
+   "german": "Apfel",
+   "field": "s",
+   "expect_current": "Der Apfel schmeckt süß und frisch.",
+   "new": "Ich esse jeden Tag einen Apfel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "obst.apfel",
+   "german": "Apfel",
+   "field": "sar",
+   "expect_current": "التفاحة طعمها حلو وطازج.",
+   "new": "آكل تفاحة كل يوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.banane",
+   "german": "Banane",
+   "field": "s",
+   "expect_current": "Die Banane ist gelb und reif.",
+   "new": "Die Banane ist gelb.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "obst.banane",
+   "german": "Banane",
+   "field": "sar",
+   "expect_current": "الموزة صفراء وناضجة.",
+   "new": "الموزة صفراء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.orange",
+   "german": "Orange",
+   "field": "s",
+   "expect_current": "Ich trinke den Saft einer Orange.",
+   "new": "Die Orange ist süß und saftig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.orange",
+   "german": "Orange",
+   "field": "sar",
+   "expect_current": "أشرب عصير برتقالة.",
+   "new": "البرتقالة حلوة وعصيرية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.traube",
+   "german": "Traube",
+   "field": "s",
+   "expect_current": "Die süße Traube wächst am Weinstock.",
+   "new": "Die Trauben sind grün und süß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.traube",
+   "german": "Traube",
+   "field": "sar",
+   "expect_current": "العنبة الحلوة تنمو على كرمة العنب.",
+   "new": "حبات العنب خضراء وحلوة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.erdbeere",
+   "german": "Erdbeere",
+   "field": "s",
+   "expect_current": "Die rote Erdbeere schmeckt köstlich.",
+   "new": "Ich esse gern Erdbeeren mit Sahne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.erdbeere",
+   "german": "Erdbeere",
+   "field": "sar",
+   "expect_current": "الفراولة الحمراء طعمها لذيذ.",
+   "new": "أحب أكل الفراولة بالقشطة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.kirsche",
+   "german": "Kirsche",
+   "field": "s",
+   "expect_current": "Auf dem Teller liegt eine rote Kirsche.",
+   "new": "Die Kirschen wachsen im Sommer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.kirsche",
+   "german": "Kirsche",
+   "field": "sar",
+   "expect_current": "على الصحن حبة كرز حمراء.",
+   "new": "الكرز ينمو في الصيف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.birne",
+   "german": "Birne",
+   "field": "s",
+   "expect_current": "Die Birne ist saftig und weich.",
+   "new": "Die Birne ist noch hart.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.birne",
+   "german": "Birne",
+   "field": "sar",
+   "expect_current": "الكمثرى كثيرة العصارة وطرية.",
+   "new": "الكمثرى ما زالت صلبة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.zitrone",
+   "german": "Zitrone",
+   "field": "s",
+   "expect_current": "Die Zitrone schmeckt sehr sauer.",
+   "new": "Die Zitrone ist sauer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "obst.zitrone",
+   "german": "Zitrone",
+   "field": "sar",
+   "expect_current": "الليمونة طعمها حامض جداً.",
+   "new": "الليمونة حامضة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.ananas",
+   "german": "Ananas",
+   "field": "s",
+   "expect_current": "Die Ananas ist eine süße Südfrucht.",
+   "new": "Ananas schmeckt süß und frisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.ananas",
+   "german": "Ananas",
+   "field": "sar",
+   "expect_current": "الأناناس فاكهة استوائية حلوة.",
+   "new": "الأناناس طعمه حلو ومنعش.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.pfirsich",
+   "german": "Pfirsich",
+   "field": "s",
+   "expect_current": "Der Pfirsich hat eine samtige Haut.",
+   "new": "Ich kaufe Pfirsiche, weil sie reif sind.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "obst.pfirsich",
+   "german": "Pfirsich",
+   "field": "sar",
+   "expect_current": "الخوخ له قشرة مخملية.",
+   "new": "أشتري الخوخ لأنه ناضج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.wassermelone",
+   "german": "Wassermelone",
+   "field": "s",
+   "expect_current": "Im Sommer esse ich kalte Wassermelone.",
+   "new": "Im Sommer essen wir Wassermelone.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "obst.wassermelone",
+   "german": "Wassermelone",
+   "field": "sar",
+   "expect_current": "في الصيف آكل بطيخاً بارداً.",
+   "new": "في الصيف نأكل البطيخ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.melone",
+   "german": "Melone",
+   "field": "s",
+   "expect_current": "Die gelbe Melone duftet herrlich.",
+   "new": "Die Melone ist schwer und süß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.melone",
+   "german": "Melone",
+   "field": "sar",
+   "expect_current": "الشمام الأصفر تفوح منه رائحة رائعة.",
+   "new": "الشمام ثقيل وحلو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.himbeere",
+   "german": "Himbeere",
+   "field": "s",
+   "expect_current": "Im Wald pflücke ich eine Himbeere.",
+   "new": "Himbeeren sind teurer als Äpfel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "obst.himbeere",
+   "german": "Himbeere",
+   "field": "sar",
+   "expect_current": "في الغابة أقطف حبة توت عليق.",
+   "new": "التوت العليق أغلى من التفاح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.pflaume",
+   "german": "Pflaume",
+   "field": "s",
+   "expect_current": "Die reife Pflaume fällt vom Ast.",
+   "new": "Aus Pflaumen macht man Marmelade.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.pflaume",
+   "german": "Pflaume",
+   "field": "sar",
+   "expect_current": "البرقوقة الناضجة تسقط من الغصن.",
+   "new": "يصنعون المربى من البرقوق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.mandarine",
+   "german": "Mandarine",
+   "field": "s",
+   "expect_current": "Ich schäle eine süße Mandarine.",
+   "new": "Ich schäle eine Mandarine.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.mandarine",
+   "german": "Mandarine",
+   "field": "sar",
+   "expect_current": "أقشر حبة يوسفي حلوة.",
+   "new": "أقشّر حبة يوسفي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.kokosnuss",
+   "german": "Kokosnuss",
+   "field": "s",
+   "expect_current": "Die Kokosnuss hat kühles Wasser im Inneren.",
+   "new": "Die Kokosnuss wächst auf einer Palme.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.kokosnuss",
+   "german": "Kokosnuss",
+   "field": "sar",
+   "expect_current": "جوز الهند يحتوي على ماء بارد في داخله.",
+   "new": "ينمو جوز الهند على شجرة النخيل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.feige",
+   "german": "Feige",
+   "field": "s",
+   "expect_current": "Die Feige schmeckt süß wie Honig.",
+   "new": "Frische Feigen sind sehr weich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.feige",
+   "german": "Feige",
+   "field": "sar",
+   "expect_current": "التينة طعمها حلو مثل العسل.",
+   "new": "التين الطازج طري جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.dattel",
+   "german": "Dattel",
+   "field": "s",
+   "expect_current": "Ich esse eine Dattel zum Frühstück.",
+   "new": "Im Ramadan esse ich Datteln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.dattel",
+   "german": "Dattel",
+   "field": "sar",
+   "expect_current": "آكل تمرة في وجبة الإفطار.",
+   "new": "في رمضان آكل التمر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.aprikose",
+   "german": "Aprikose",
+   "field": "s",
+   "expect_current": "Die Aprikose hat eine leuchtend orange Farbe.",
+   "new": "Die Aprikosen reifen im Juli.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.aprikose",
+   "german": "Aprikose",
+   "field": "sar",
+   "expect_current": "المشمشة لها لون برتقالي ناصع.",
+   "new": "المشمش ينضج في يوليو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.grapefruit",
+   "german": "Grapefruit",
+   "field": "s",
+   "expect_current": "Die Grapefruit ist gesund, aber bitter.",
+   "new": "Die Grapefruit schmeckt etwas bitter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.grapefruit",
+   "german": "Grapefruit",
+   "field": "sar",
+   "expect_current": "الجريب فروت صحي ولكنه مر.",
+   "new": "الجريب فروت طعمه مرّ قليلاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.heidelbeere",
+   "german": "Heidelbeere",
+   "field": "s",
+   "expect_current": "Die blaue Heidelbeere wächst im Wald.",
+   "new": "Ich esse Heidelbeeren im Joghurt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.heidelbeere",
+   "german": "Heidelbeere",
+   "field": "sar",
+   "expect_current": "التوت الأزرق ينمو في الغابة.",
+   "new": "آكل التوت الأزرق مع الزبادي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.brombeere",
+   "german": "Brombeere",
+   "field": "s",
+   "expect_current": "Die dunkle Brombeere schmeckt leicht sauer.",
+   "new": "Brombeeren wachsen im Garten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.brombeere",
+   "german": "Brombeere",
+   "field": "sar",
+   "expect_current": "التوت الأسود طعمه حامض قليلاً.",
+   "new": "التوت الأسود ينمو في الحديقة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.kiwi",
+   "german": "Kiwi",
+   "field": "s",
+   "expect_current": "Die grüne Kiwi schmeckt sehr erfrischend.",
+   "new": "Eine Kiwi hat viel Vitamin C.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.kiwi",
+   "german": "Kiwi",
+   "field": "sar",
+   "expect_current": "الكيوي الأخضر طعمه منعش جداً.",
+   "new": "الكيوي فيها الكثير من فيتامين سي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.mango",
+   "german": "Mango",
+   "field": "s",
+   "expect_current": "Die tropische Mango ist butterweich und süß.",
+   "new": "Die Mango kommt aus Indien.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.mango",
+   "german": "Mango",
+   "field": "sar",
+   "expect_current": "المانجو الاستوائية طرية جداً وحلوة.",
+   "new": "المانجو تأتي من الهند.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.papaya",
+   "german": "Papaya",
+   "field": "s",
+   "expect_current": "Die Papaya enthält viele gesunde Enzyme.",
+   "new": "Papayas wachsen nur in warmen Ländern.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "obst.papaya",
+   "german": "Papaya",
+   "field": "sar",
+   "expect_current": "البابايا تحتوي على العديد من الإنزيمات الصحية.",
+   "new": "البابايا تنمو فقط في البلاد الدافئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.granatapfel",
+   "german": "Granatapfel",
+   "field": "s",
+   "expect_current": "Der Granatapfel hat viele rubinrote Kerne.",
+   "new": "Der Granatapfel hat viele rote Kerne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.granatapfel",
+   "german": "Granatapfel",
+   "field": "sar",
+   "expect_current": "الرمان يحتوي على حبات حمراء ياقوتية كثيرة.",
+   "new": "الرمان فيه الكثير من البذور الحمراء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.nektarine",
+   "german": "Nektarine",
+   "field": "s",
+   "expect_current": "Die Nektarine hat im Gegensatz zum Pfirsich eine glatte Schale.",
+   "new": "Die Nektarine ist eine Art Pfirsich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "obst.nektarine",
+   "german": "Nektarine",
+   "field": "sar",
+   "expect_current": "النكتارين لها قشرة ملساء على عكس الخوخ.",
+   "new": "النكتارين نوع من الخوخ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.avocado",
+   "german": "Avocado",
+   "field": "s",
+   "expect_current": "Die cremige Avocado eignet sich für Salat.",
+   "new": "Ich esse Avocado auf dem Brot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.avocado",
+   "german": "Avocado",
+   "field": "sar",
+   "expect_current": "الأفوكادو الكريمي مناسب للسلطة.",
+   "new": "آكل الأفوكادو على الخبز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.rhabarber",
+   "german": "Rhabarber",
+   "field": "s",
+   "expect_current": "Der saure Rhabarber wird oft mit Erdbeeren kombiniert.",
+   "new": "Rhabarber ist sauer, man braucht Zucker.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "obst.rhabarber",
+   "german": "Rhabarber",
+   "field": "sar",
+   "expect_current": "الراوند الحامض يُخلط غالباً مع الفراولة.",
+   "new": "الراوند حامض ويحتاج إلى سكر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.limette",
+   "german": "Limette",
+   "field": "s",
+   "expect_current": "Ein Spritzer Limette verfeinert das Gericht.",
+   "new": "Die Limette ist grün und sauer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.limette",
+   "german": "Limette",
+   "field": "sar",
+   "expect_current": "رشة من الليم تعطي الطبق نكهة مميزة.",
+   "new": "الليم أخضر وحامض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "obst.clementine",
+   "german": "Clementine",
+   "field": "s",
+   "expect_current": "Die Clementine hat im Winter Hochsaison.",
+   "new": "Im Winter essen wir Clementinen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "obst.clementine",
+   "german": "Clementine",
+   "field": "sar",
+   "expect_current": "الكليمنتين في ذروة موسمه خلال الشتاء.",
+   "new": "في الشتاء نأكل الكليمنتين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.kartoffel",
+   "german": "Kartoffel",
+   "field": "s",
+   "expect_current": "Die Kartoffel ist eine wichtige Beilage in Deutschland.",
+   "new": "Ich esse gern Kartoffeln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gemuese.kartoffel",
+   "german": "Kartoffel",
+   "field": "sar",
+   "expect_current": "البطاطس طبق جانبي مهم في ألمانيا.",
+   "new": "أحب أكل البطاطا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.tomate",
+   "german": "Tomate",
+   "field": "s",
+   "expect_current": "Die rote Tomate kommt frisch in den Salat.",
+   "new": "Die Tomate ist rot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gemuese.tomate",
+   "german": "Tomate",
+   "field": "sar",
+   "expect_current": "الطماطم الحمراء توضع طازجة في السلطة.",
+   "new": "الطماطم حمراء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.gurke",
+   "german": "Gurke",
+   "field": "s",
+   "expect_current": "Die grüne Gurke besteht größtenteils aus Wasser.",
+   "new": "Die Gurke ist grün.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gemuese.gurke",
+   "german": "Gurke",
+   "field": "sar",
+   "expect_current": "الخيار الأخضر يتكون في معظمه من الماء.",
+   "new": "الخيار أخضر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.karotte",
+   "german": "Karotte",
+   "field": "s",
+   "expect_current": "Das Kaninchen nagt an einer Karotte.",
+   "new": "Der Hase isst eine Karotte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gemuese.karotte",
+   "german": "Karotte",
+   "field": "sar",
+   "expect_current": "الأرنب يقضم جزرة.",
+   "new": "الأرنب البري يأكل جزرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.zwiebel",
+   "german": "Zwiebel",
+   "field": "s",
+   "expect_current": "Beim Schneiden der Zwiebel brennen die Augen.",
+   "new": "Beim Schneiden einer Zwiebel weine ich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.zwiebel",
+   "german": "Zwiebel",
+   "field": "sar",
+   "expect_current": "عند تقطيع البصلة تدمع العيون.",
+   "new": "أبكي عندما أقطّع البصل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.knoblauch",
+   "german": "Knoblauch",
+   "field": "s",
+   "expect_current": "Frischer Knoblauch gibt der Soße einen würzigen Geschmack.",
+   "new": "Knoblauch riecht sehr stark.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.knoblauch",
+   "german": "Knoblauch",
+   "field": "sar",
+   "expect_current": "الثوم الطازج يعطي الصلصة نكهة حارة زكية.",
+   "new": "الثوم رائحته قوية جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.kohl",
+   "german": "Kohl",
+   "field": "s",
+   "expect_current": "Im Winter kochen viele Menschen Suppe mit Kohl.",
+   "new": "Im Winter essen wir viel Kohl.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.kohl",
+   "german": "Kohl",
+   "field": "sar",
+   "expect_current": "في الشتاء يطبخ كثير من الناس حساءً بالكرنب.",
+   "new": "في الشتاء نأكل الكثير من الكرنب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.paprika",
+   "german": "Paprika",
+   "field": "s",
+   "expect_current": "Der rote Paprika schmeckt süßlich und knackig.",
+   "new": "Ich brauche einen roten Paprika.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.paprika",
+   "german": "Paprika",
+   "field": "sar",
+   "expect_current": "الفلفل الرومي الأحمر طعمه حلو ومقرمش.",
+   "new": "أحتاج إلى فلفل رومي أحمر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.aubergine",
+   "german": "Aubergine",
+   "field": "s",
+   "expect_current": "Die dunkle Aubergine wird im Ofen gebraten.",
+   "new": "Die Aubergine ist innen weich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.aubergine",
+   "german": "Aubergine",
+   "field": "sar",
+   "expect_current": "الباذنجان الداكن يُشوى في الفرن.",
+   "new": "الباذنجان طري من الداخل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.spinat",
+   "german": "Spinat",
+   "field": "s",
+   "expect_current": "Frischer Spinat enthält viele gesunde Mineralien.",
+   "new": "Spinat ist gesund und hat viel Eisen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.spinat",
+   "german": "Spinat",
+   "field": "sar",
+   "expect_current": "السبانخ الطازج يحتوي على العديد من المعادن الصحية.",
+   "new": "السبانخ صحية وفيها الكثير من الحديد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.bohne",
+   "german": "Bohne",
+   "field": "s",
+   "expect_current": "Die grüne Bohne schmeckt gekocht mit Butter.",
+   "new": "Die Bohnen müssen lange kochen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.bohne",
+   "german": "Bohne",
+   "field": "sar",
+   "expect_current": "الفاصوليا الخضراء طعمها طيب مسلوقة مع الزبدة.",
+   "new": "الفاصوليا تحتاج إلى طبخ طويل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.salat",
+   "german": "Salat",
+   "field": "s",
+   "expect_current": "Zum Mittagessen gibt es einen frischen Salat.",
+   "new": "Der Salat ist frisch und grün.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gemuese.salat",
+   "german": "Salat",
+   "field": "sar",
+   "expect_current": "على الغداء توجد سلطة خضراء طازجة.",
+   "new": "الخس طازج وأخضر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.zucchini",
+   "german": "Zucchini",
+   "field": "s",
+   "expect_current": "Die grüne Zucchini wächst schnell im Garten.",
+   "new": "Ich schneide die Zucchini in Scheiben.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.zucchini",
+   "german": "Zucchini",
+   "field": "sar",
+   "expect_current": "الكوسة الخضراء تنمو بسرعة في الحديقة.",
+   "new": "أقطّع الكوسة إلى شرائح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.brokkoli",
+   "german": "Brokkoli",
+   "field": "s",
+   "expect_current": "Gedämpfter Brokkoli ist gesund und schmackhaft.",
+   "new": "Brokkoli kochen wir nur kurz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.brokkoli",
+   "german": "Brokkoli",
+   "field": "sar",
+   "expect_current": "البروكلي المطهو على البخار صحي ولذيذ.",
+   "new": "نطبخ البروكلي لوقت قصير فقط.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.pilz",
+   "german": "Pilz",
+   "field": "s",
+   "expect_current": "Im Herbst sammeln wir Pilze im Wald.",
+   "new": "Im Wald wachsen viele Pilze.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.pilz",
+   "german": "Pilz",
+   "field": "sar",
+   "expect_current": "في الخريف نجمع الفطر في الغابة.",
+   "new": "في الغابة ينمو الكثير من الفطر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.mais",
+   "german": "Mais",
+   "field": "s",
+   "expect_current": "Gegrillter Mais schmeckt mit etwas Salz vorzüglich.",
+   "new": "Mais wächst auf großen Feldern.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.mais",
+   "german": "Mais",
+   "field": "sar",
+   "expect_current": "الذرة المشوية طعمها رائع مع القليل من الملح.",
+   "new": "الذرة تنمو في حقول كبيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.erbse",
+   "german": "Erbse",
+   "field": "s",
+   "expect_current": "Die kleine grüne Erbse schmeckt süßlich.",
+   "new": "Die Erbsen sind klein und rund.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.erbse",
+   "german": "Erbse",
+   "field": "sar",
+   "expect_current": "البازلاء الخضراء الصغيرة طعمها مائل للحلاوة.",
+   "new": "البازلاء صغيرة ومستديرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.rettich",
+   "german": "Rettich",
+   "field": "s",
+   "expect_current": "Der weiße Rettich schmeckt scharf und knackig.",
+   "new": "Der Rettich ist weiß und scharf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.rettich",
+   "german": "Rettich",
+   "field": "sar",
+   "expect_current": "الفجل الأبيض طعمه لاذع ومقرمش.",
+   "new": "الفجل أبيض وحار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.rote-bete",
+   "german": "Rote Bete",
+   "field": "s",
+   "expect_current": "Rote Bete färbt die Hände tiefrot.",
+   "new": "Rote Bete färbt die Finger rot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.rote-bete",
+   "german": "Rote Bete",
+   "field": "sar",
+   "expect_current": "البنجر يصبغ اليدين باللون الأحمر الداكن.",
+   "new": "الشمندر يلوّن الأصابع بالأحمر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.sellerie",
+   "german": "Sellerie",
+   "field": "s",
+   "expect_current": "Frischer Sellerie passt gut in jede Gemüsesuppe.",
+   "new": "Ich gebe Sellerie in die Suppe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.sellerie",
+   "german": "Sellerie",
+   "field": "sar",
+   "expect_current": "الكرفس الطازج يناسب كل أنواع حساء الخضار.",
+   "new": "أضع الكرفس في الشوربة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.suesskartoffel",
+   "german": "Süßkartoffel",
+   "field": "s",
+   "expect_current": "Die Süßkartoffel kann man wie Pommes frittieren.",
+   "new": "Süßkartoffeln sind süßer als Kartoffeln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.suesskartoffel",
+   "german": "Süßkartoffel",
+   "field": "sar",
+   "expect_current": "البطاطا الحلوة يمكن قليها مثل البطاطس المقرمشة.",
+   "new": "البطاطا الحلوة أحلى من البطاطا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.kuerbis",
+   "german": "Kürbis",
+   "field": "s",
+   "expect_current": "Aus dem Kürbis machen wir eine wärmende Suppe.",
+   "new": "Im Herbst koche ich Kürbissuppe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.kuerbis",
+   "german": "Kürbis",
+   "field": "sar",
+   "expect_current": "من اليقطين نصنع حساءً دافئاً.",
+   "new": "في الخريف أطبخ شوربة اليقطين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.lauch",
+   "german": "Lauch",
+   "field": "s",
+   "expect_current": "Der Lauch schmeckt herzhaft in Aufläufen.",
+   "new": "Lauch passt gut zur Kartoffelsuppe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.lauch",
+   "german": "Lauch",
+   "field": "sar",
+   "expect_current": "الكراث طعمه شهي في صواني الفرن.",
+   "new": "الكراث يناسب شوربة البطاطا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.rosenkohl",
+   "german": "Rosenkohl",
+   "field": "s",
+   "expect_current": "Rosenkohl wird traditionell im Winter serviert.",
+   "new": "Viele Kinder mögen keinen Rosenkohl.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.rosenkohl",
+   "german": "Rosenkohl",
+   "field": "sar",
+   "expect_current": "كرنب بروكسل يُقدَّم تقليدياً في الشتاء.",
+   "new": "كثير من الأطفال لا يحبون كرنب بروكسل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.blumenkohl",
+   "german": "Blumenkohl",
+   "field": "s",
+   "expect_current": "Gekochter Blumenkohl schmeckt mild und zart.",
+   "new": "Blumenkohl ist weiß und gesund.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.blumenkohl",
+   "german": "Blumenkohl",
+   "field": "sar",
+   "expect_current": "القرنبيط المسلوق طعمه خفيف وطري.",
+   "new": "القرنبيط أبيض وصحي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.fenchel",
+   "german": "Fenchel",
+   "field": "s",
+   "expect_current": "Der Fenchel hat einen aromatischen Anisgeschmack.",
+   "new": "Aus Fenchel kann man Tee machen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.fenchel",
+   "german": "Fenchel",
+   "field": "sar",
+   "expect_current": "الشمر له نكهة يانسون عطرية.",
+   "new": "يمكن صنع الشاي من الشمر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.okra",
+   "german": "Okra",
+   "field": "s",
+   "expect_current": "Die Okra wird in vielen orientalischen Gerichten gekocht.",
+   "new": "Okra ist in Ägypten sehr beliebt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.okra",
+   "german": "Okra",
+   "field": "sar",
+   "expect_current": "البامية تُطبخ في العديد من الأطباق الشرقية.",
+   "new": "البامية محبوبة جداً في مصر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.rotkohl",
+   "german": "Rotkohl",
+   "field": "s",
+   "expect_current": "Der Rotkohl passt traditionell zu festlichen Braten.",
+   "new": "Rotkohl isst man oft mit Fleisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.rotkohl",
+   "german": "Rotkohl",
+   "field": "sar",
+   "expect_current": "الكرنب الأحمر يناسب تقليدياً أطباق اللحوم المشوية في الأعياد.",
+   "new": "يؤكل الكرنب الأحمر غالباً مع اللحم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.gruenkohl",
+   "german": "Grünkohl",
+   "field": "s",
+   "expect_current": "Grünkohl ist ein beliebtes Wintergericht im Norden.",
+   "new": "Grünkohl ist ein Wintergemüse aus Norddeutschland.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.gruenkohl",
+   "german": "Grünkohl",
+   "field": "sar",
+   "expect_current": "الكرنب الأخضر طبق شتوي محبب في الشمال.",
+   "new": "الكرنب الأخضر المجعد خضار شتوي من شمال ألمانيا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.radieschen",
+   "german": "Radieschen",
+   "field": "s",
+   "expect_current": "Das Radieschen bringt eine frische Schärfe in den Salat.",
+   "new": "Radieschen sind klein, rot und scharf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.radieschen",
+   "german": "Radieschen",
+   "field": "sar",
+   "expect_current": "الفجل الأحمر يضفي حرارة منعشة على السلطة.",
+   "new": "الفجل الأحمر الصغير حار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.spargel",
+   "german": "Spargel",
+   "field": "s",
+   "expect_current": "Im Frühling freuen sich alle auf frischen Spargel.",
+   "new": "Im Frühling ist Spargel sehr beliebt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.spargel",
+   "german": "Spargel",
+   "field": "sar",
+   "expect_current": "في الربيع يفرح الجميع بالهليون الطازج.",
+   "new": "في الربيع يكون الهليون محبوباً جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.feldsalat",
+   "german": "Feldsalat",
+   "field": "s",
+   "expect_current": "Feldsalat schmeckt hervorragend mit Walnüssen.",
+   "new": "Feldsalat ist ein Salat für den Winter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.feldsalat",
+   "german": "Feldsalat",
+   "field": "sar",
+   "expect_current": "خس الحقل طعمه ممتاز مع عين الجمل.",
+   "new": "خس الحقل سلطة للشتاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.eisbergsalat",
+   "german": "Eisbergsalat",
+   "field": "s",
+   "expect_current": "Eisbergsalat bleibt im Kühlschrank lange knackig.",
+   "new": "Im Burger ist oft Eisbergsalat.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.eisbergsalat",
+   "german": "Eisbergsalat",
+   "field": "sar",
+   "expect_current": "خس الأيسبرغ يظل مقرمشاً لفترة طويلة في الثلاجة.",
+   "new": "في البرجر غالباً خس أيسبرغ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.kohlrabi",
+   "german": "Kohlrabi",
+   "field": "s",
+   "expect_current": "Der Kohlrabi schmeckt roh in Scheiben geschnitten sehr gut.",
+   "new": "Kohlrabi isst man roh oder gekocht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gemuese.kohlrabi",
+   "german": "Kohlrabi",
+   "field": "sar",
+   "expect_current": "الكرنب السلقي طعمه رائع نيئاً ومقطعاً لشرائح.",
+   "new": "يؤكل الكرنب السلقي نيئاً أو مطبوخاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.champignon",
+   "german": "Champignon",
+   "field": "s",
+   "expect_current": "Ein frischer Champignon passt in die Gemüsepfanne.",
+   "new": "Ich brate Champignons in der Pfanne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.champignon",
+   "german": "Champignon",
+   "field": "sar",
+   "expect_current": "الفطر الأبيض الطازج يناسب مقلاة الخضار.",
+   "new": "أقلي الفطر الأبيض في المقلاة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.kichererbse",
+   "german": "Kichererbse",
+   "field": "s",
+   "expect_current": "Aus Kichererbsen bereitet man feinen Hummus zu.",
+   "new": "Aus Kichererbsen macht man Falafel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.kichererbse",
+   "german": "Kichererbse",
+   "field": "sar",
+   "expect_current": "من الحمص يُحضَّر الحمص الناعم الشهي.",
+   "new": "يصنعون الفلافل من الحمص.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gemuese.rucola",
+   "german": "Rucola",
+   "field": "s",
+   "expect_current": "Rucola verleiht der Pizza eine nussige Note.",
+   "new": "Ich mache Pizza mit Rucola.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gemuese.rucola",
+   "german": "Rucola",
+   "field": "sar",
+   "expect_current": "الجرجير يمنح البيتزا نكهة جوزية مميزة.",
+   "new": "أصنع بيتزا بالجرجير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.hund",
+   "german": "Hund",
+   "field": "s",
+   "expect_current": "Der treue Hund bewacht das Haus.",
+   "new": "Der Hund spielt im Garten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.hund",
+   "german": "Hund",
+   "field": "sar",
+   "expect_current": "الكلب الوفي يحرس المنزل.",
+   "new": "الكلب يلعب في الحديقة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.katze",
+   "german": "Katze",
+   "field": "s",
+   "expect_current": "Die Katze schläft gemütlich auf dem Sofa.",
+   "new": "Die Katze schläft auf dem Sofa.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.katze",
+   "german": "Katze",
+   "field": "sar",
+   "expect_current": "القطة تنام بهدوء على الأريكة.",
+   "new": "القطة تنام على الأريكة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.vogel",
+   "german": "Vogel",
+   "field": "s",
+   "expect_current": "Der Vogel singt ein schönes Lied im Baum.",
+   "new": "Der Vogel singt am Morgen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.vogel",
+   "german": "Vogel",
+   "field": "sar",
+   "expect_current": "العصفور يغرد بأغنية جميلة على الشجرة.",
+   "new": "العصفور يغرّد في الصباح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.pferd",
+   "german": "Pferd",
+   "field": "s",
+   "expect_current": "Das braune Pferd galoppiert über die Wiese.",
+   "new": "Das Pferd ist groß und schnell.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.pferd",
+   "german": "Pferd",
+   "field": "sar",
+   "expect_current": "الحصان البني يركض سريعاً فوق المرعى.",
+   "new": "الحصان كبير وسريع.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.kuh",
+   "german": "Kuh",
+   "field": "s",
+   "expect_current": "Die bunte Kuh gibt jeden Tag frische Milch.",
+   "new": "Die Kuh gibt Milch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.kuh",
+   "german": "Kuh",
+   "field": "sar",
+   "expect_current": "البقرة الملونة تعطي حليباً طازجاً كل يوم.",
+   "new": "البقرة تعطي الحليب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.schaf",
+   "german": "Schaf",
+   "field": "s",
+   "expect_current": "Das weiße Schaf grast friedlich auf der Weide.",
+   "new": "Die Schafe fressen Gras auf der Wiese.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.schaf",
+   "german": "Schaf",
+   "field": "sar",
+   "expect_current": "الخروف الأبيض يرعى بسلام في المرعى.",
+   "new": "الخراف تأكل العشب في المرعى.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.ziege",
+   "german": "Ziege",
+   "field": "s",
+   "expect_current": "Die Bergziege klettert geschickt auf die Felsen.",
+   "new": "Die Ziege gibt auch Milch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.ziege",
+   "german": "Ziege",
+   "field": "sar",
+   "expect_current": "الماعز الجبلي يتسلق الصخور ببراعة.",
+   "new": "الماعز تعطي الحليب أيضاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.huhn",
+   "german": "Huhn",
+   "field": "s",
+   "expect_current": "Das Huhn legt jeden Morgen ein frisches Ei.",
+   "new": "Das Huhn legt jeden Tag ein Ei.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.huhn",
+   "german": "Huhn",
+   "field": "sar",
+   "expect_current": "الدجاجة تضع كل صباح بيضة طازجة.",
+   "new": "الدجاجة تبيض بيضة كل يوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.fisch",
+   "german": "Fisch",
+   "field": "s",
+   "expect_current": "Der kleine Fisch schwimmt schnell im klaren Wasser.",
+   "new": "Der Fisch schwimmt im Wasser.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.fisch",
+   "german": "Fisch",
+   "field": "sar",
+   "expect_current": "السمكة الصغيرة تسبح بسرعة في الماء الصافي.",
+   "new": "السمكة تسبح في الماء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.maus",
+   "german": "Maus",
+   "field": "s",
+   "expect_current": "Die kleine graue Maus huscht durch die Küche.",
+   "new": "Die Katze jagt die Maus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.maus",
+   "german": "Maus",
+   "field": "sar",
+   "expect_current": "الفأر الرمادي الصغير يركض مسرعاً عبر المطبخ.",
+   "new": "القطة تطارد الفأر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.loewe",
+   "german": "Löwe",
+   "field": "s",
+   "expect_current": "Der Löwe gilt als der König der Tiere.",
+   "new": "Der Löwe ist der König der Tiere.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.loewe",
+   "german": "Löwe",
+   "field": "sar",
+   "expect_current": "الأسد يُعتبر ملك الحيوانات.",
+   "new": "الأسد ملك الحيوانات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.elefant",
+   "german": "Elefant",
+   "field": "s",
+   "expect_current": "Der afrikanische Elefant hat sehr große Ohren.",
+   "new": "Der Elefant ist sehr groß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.elefant",
+   "german": "Elefant",
+   "field": "sar",
+   "expect_current": "الفيل الأفريقي له أذنان كبيرتان جداً.",
+   "new": "الفيل كبير جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.baer",
+   "german": "Bär",
+   "field": "s",
+   "expect_current": "Der große braune Bär sucht im Fluss nach Lachs.",
+   "new": "Im Winter schläft der Bär lange.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.baer",
+   "german": "Bär",
+   "field": "sar",
+   "expect_current": "الدب البني الكبير يبحث عن السلمون في النهر.",
+   "new": "في الشتاء ينام الدب طويلاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.affe",
+   "german": "Affe",
+   "field": "s",
+   "expect_current": "Der Affe klettert geschickt von Ast zu Ast.",
+   "new": "Der Affe isst eine Banane.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.affe",
+   "german": "Affe",
+   "field": "sar",
+   "expect_current": "القرد يتسلق ببراعة من غصن إلى غصن.",
+   "new": "القرد يأكل موزة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.schlange",
+   "german": "Schlange",
+   "field": "s",
+   "expect_current": "Die grüne Schlange gleitet leise durch das Gras.",
+   "new": "Die Schlange hat keine Beine.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.schlange",
+   "german": "Schlange",
+   "field": "sar",
+   "expect_current": "الثعبان الأخضر ينساب بهدوء عبر العشب.",
+   "new": "الثعبان ليس له أرجل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.frosch",
+   "german": "Frosch",
+   "field": "s",
+   "expect_current": "Der grüne Frosch springt mit einem Satz in den Teich.",
+   "new": "Der Frosch springt ins Wasser.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.frosch",
+   "german": "Frosch",
+   "field": "sar",
+   "expect_current": "الضفدع الأخضر يقفز بقفزة واحدة إلى البركة.",
+   "new": "الضفدع يقفز في الماء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.kaninchen",
+   "german": "Kaninchen",
+   "field": "s",
+   "expect_current": "Das weiße Kaninchen hoppelt durch den Garten.",
+   "new": "Das Kaninchen frisst gern Karotten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.kaninchen",
+   "german": "Kaninchen",
+   "field": "sar",
+   "expect_current": "الأرنب الأبيض يقفز عبر الحديقة.",
+   "new": "الأرنب يحب أكل الجزر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.ente",
+   "german": "Ente",
+   "field": "s",
+   "expect_current": "Die Ente schwimmt ruhig auf dem See.",
+   "new": "Die Ente schwimmt auf dem See.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.ente",
+   "german": "Ente",
+   "field": "sar",
+   "expect_current": "البطة تسبح بهدوء على البحيرة.",
+   "new": "البطة تسبح على البحيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.spinne",
+   "german": "Spinne",
+   "field": "s",
+   "expect_current": "Die Spinne webt ein kunstvolles Netz in der Ecke.",
+   "new": "Ich habe Angst vor Spinnen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.spinne",
+   "german": "Spinne",
+   "field": "sar",
+   "expect_current": "العنكبوت ينسج شبكة متقنة في الزاوية.",
+   "new": "أخاف من العناكب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.schmetterling",
+   "german": "Schmetterling",
+   "field": "s",
+   "expect_current": "Der bunte Schmetterling fliegt von Blüte zu Blüte.",
+   "new": "Der Schmetterling hat bunte Flügel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.schmetterling",
+   "german": "Schmetterling",
+   "field": "sar",
+   "expect_current": "الفراشة الملونة تطير من زهرة إلى زهرة.",
+   "new": "الفراشة لها أجنحة ملونة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.biene",
+   "german": "Biene",
+   "field": "s",
+   "expect_current": "Die fleißige Biene sammelt süßen Nektar.",
+   "new": "Die Bienen machen Honig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.biene",
+   "german": "Biene",
+   "field": "sar",
+   "expect_current": "النحلة النشيطة تجمع الرحيق الحلو.",
+   "new": "النحل يصنع العسل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.fliege",
+   "german": "Fliege",
+   "field": "s",
+   "expect_current": "Die kleine Fliege schwirrt um die Lampe.",
+   "new": "Eine Fliege sitzt auf dem Tisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.fliege",
+   "german": "Fliege",
+   "field": "sar",
+   "expect_current": "الذبابة الصغيرة تطن حول المصباح.",
+   "new": "ذبابة تقف على الطاولة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.wal",
+   "german": "Wal",
+   "field": "s",
+   "expect_current": "Der riesige Wal schwimmt tief im Ozean.",
+   "new": "Der Wal ist das größte Tier.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.wal",
+   "german": "Wal",
+   "field": "sar",
+   "expect_current": "الحوت الضخم يسبح عميقاً في المحيط.",
+   "new": "الحوت هو أكبر حيوان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.hai",
+   "german": "Hai",
+   "field": "s",
+   "expect_current": "Der hungrige Hai kreist majestätisch im Meer.",
+   "new": "Haie leben im Meer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.hai",
+   "german": "Hai",
+   "field": "sar",
+   "expect_current": "القرش الجائع يدور بمهابة في البحر.",
+   "new": "أسماك القرش تعيش في البحر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.schildkroete",
+   "german": "Schildkröte",
+   "field": "s",
+   "expect_current": "Die langsame Schildkröte trägt ihren Panzer auf dem Rücken.",
+   "new": "Schildkröten werden sehr alt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.schildkroete",
+   "german": "Schildkröte",
+   "field": "sar",
+   "expect_current": "السلحفاة البطيئة تحمل درعها على ظهرها.",
+   "new": "السلاحف تعيش عمراً طويلاً جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.delfin",
+   "german": "Delfin",
+   "field": "s",
+   "expect_current": "Der freundliche Delfin springt hoch aus dem Wasser.",
+   "new": "Delfine sind sehr klug.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.delfin",
+   "german": "Delfin",
+   "field": "sar",
+   "expect_current": "الدلفين الودود يقفز عالياً من الماء.",
+   "new": "الدلافين ذكية جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.tiger",
+   "german": "Tiger",
+   "field": "s",
+   "expect_current": "Der sibirische Tiger schleicht lautlos durch den Schnee.",
+   "new": "Der Tiger lebt in Asien.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.tiger",
+   "german": "Tiger",
+   "field": "sar",
+   "expect_current": "النمر السيبيري يتسلل بصمت عبر الثلج.",
+   "new": "النمر يعيش في آسيا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.giraffe",
+   "german": "Giraffe",
+   "field": "s",
+   "expect_current": "Die Giraffe hat einen auffallend langen Hals.",
+   "new": "Die Giraffe hat einen langen Hals.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.giraffe",
+   "german": "Giraffe",
+   "field": "sar",
+   "expect_current": "الزرافة لها رقبة طويلة لافتة.",
+   "new": "الزرافة لها رقبة طويلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.kamel",
+   "german": "Kamel",
+   "field": "s",
+   "expect_current": "Das ausdauernde Kamel wandert durch die heiße Wüste.",
+   "new": "Ein Kamel kann lange ohne Wasser leben.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.kamel",
+   "german": "Kamel",
+   "field": "sar",
+   "expect_current": "الجمل الصبور يسير عبر الصحراء الحارة.",
+   "new": "يستطيع الجمل أن يعيش طويلاً بدون ماء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.wolf",
+   "german": "Wolf",
+   "field": "s",
+   "expect_current": "Der scheue Wolf heult nachts den Vollmond an.",
+   "new": "Der Wolf heult nachts im Wald.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.wolf",
+   "german": "Wolf",
+   "field": "sar",
+   "expect_current": "الذئب الخجول يعوي ليلاً نحو البدر.",
+   "new": "الذئب يعوي ليلاً في الغابة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.fuchs",
+   "german": "Fuchs",
+   "field": "s",
+   "expect_current": "Der schlaue Fuchs stiehlt sich leise heran.",
+   "new": "Der Fuchs ist schlau.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "tiere.fuchs",
+   "german": "Fuchs",
+   "field": "sar",
+   "expect_current": "الثعلب الماكر يتسلل مقترباً بهدوء.",
+   "new": "الثعلب ماكر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.hase",
+   "german": "Hase",
+   "field": "s",
+   "expect_current": "Der flinke Hase flieht schnell über das offene Feld.",
+   "new": "Der Hase läuft sehr schnell.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.hase",
+   "german": "Hase",
+   "field": "sar",
+   "expect_current": "الأرنب البري الرشيق يهرب بسرعة عبر الحقل المفتوح.",
+   "new": "الأرنب البري يركض بسرعة كبيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.eule",
+   "german": "Eule",
+   "field": "s",
+   "expect_current": "Die kluge Eule jagt geräuschlos in der Nacht.",
+   "new": "Die Eule sieht nachts sehr gut.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.eule",
+   "german": "Eule",
+   "field": "sar",
+   "expect_current": "البومة الذكية تصيد بلا صوت في الليل.",
+   "new": "البومة ترى جيداً في الليل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.pinguin",
+   "german": "Pinguin",
+   "field": "s",
+   "expect_current": "Der drollige Pinguin watschelt über das kalte Eis.",
+   "new": "Pinguine können nicht fliegen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.pinguin",
+   "german": "Pinguin",
+   "field": "sar",
+   "expect_current": "البطريق الظريف يتهادى في مشيته فوق الجليد البارد.",
+   "new": "البطاريق لا تستطيع الطيران.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.krokodil",
+   "german": "Krokodil",
+   "field": "s",
+   "expect_current": "Das gefährliche Krokodil lauert regungslos am Flussufer.",
+   "new": "Das Krokodil lebt im Nil.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.krokodil",
+   "german": "Krokodil",
+   "field": "sar",
+   "expect_current": "التمساح الخطير يتربص ساكناً عند ضفة النهر.",
+   "new": "التمساح يعيش في النيل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.zebra",
+   "german": "Zebra",
+   "field": "s",
+   "expect_current": "Das gestreifte Zebra grast in der afrikanischen Steppe.",
+   "new": "Das Zebra hat schwarze und weiße Streifen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.zebra",
+   "german": "Zebra",
+   "field": "sar",
+   "expect_current": "الحمار الوحشي المخطط يرعى في السافانا الأفريقية.",
+   "new": "الحمار الوحشي له خطوط سوداء وبيضاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.gorilla",
+   "german": "Gorilla",
+   "field": "s",
+   "expect_current": "Der mächtige Gorilla lebt geschützt im dichten Regenwald.",
+   "new": "Der Gorilla ist stark, aber friedlich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.gorilla",
+   "german": "Gorilla",
+   "field": "sar",
+   "expect_current": "الغوريلا القوية تعيش محمية في الغابة المطيرة الكثيفة.",
+   "new": "الغوريلا قوية لكنها مسالمة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.nashorn",
+   "german": "Nashorn",
+   "field": "s",
+   "expect_current": "Das schwere Nashorn besitzt ein spitzes Horn.",
+   "new": "Das Nashorn hat ein Horn auf der Nase.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.nashorn",
+   "german": "Nashorn",
+   "field": "sar",
+   "expect_current": "وحيد القرن الثقيل يملك قرناً حاداً.",
+   "new": "وحيد القرن له قرن على أنفه.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.nilpferd",
+   "german": "Nilpferd",
+   "field": "s",
+   "expect_current": "Das dicke Nilpferd taucht tagsüber im Fluss ab.",
+   "new": "Das Nilpferd verbringt den Tag im Wasser.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.nilpferd",
+   "german": "Nilpferd",
+   "field": "sar",
+   "expect_current": "فرس النهر الضخم يغطس نهاراً في مياه النهر.",
+   "new": "فرس النهر يقضي النهار في الماء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.kaenguru",
+   "german": "Känguru",
+   "field": "s",
+   "expect_current": "Das australische Känguru hüpft mit weiten Sprüngen vorwärts.",
+   "new": "Das Känguru kommt aus Australien.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.kaenguru",
+   "german": "Känguru",
+   "field": "sar",
+   "expect_current": "الكنغر الأسترالي يقفز للأمام بقفزات واسعة.",
+   "new": "الكنغر يأتي من أستراليا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.koala",
+   "german": "Koala",
+   "field": "s",
+   "expect_current": "Der niedliche Koala schläft friedlich auf dem Eukalyptusbaum.",
+   "new": "Der Koala schläft fast den ganzen Tag.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.koala",
+   "german": "Koala",
+   "field": "sar",
+   "expect_current": "الكوالا اللطيف ينام بسلام على شجرة الكافور.",
+   "new": "الكوالا ينام تقريباً طوال اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.eichhoernchen",
+   "german": "Eichhörnchen",
+   "field": "s",
+   "expect_current": "Das flinke Eichhörnchen versteckt fleißig Nüsse für den Winter.",
+   "new": "Das Eichhörnchen sammelt Nüsse für den Winter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.eichhoernchen",
+   "german": "Eichhörnchen",
+   "field": "sar",
+   "expect_current": "السنجاب السريع يخبئ بنشاط حبات الجوز للشتاء.",
+   "new": "السنجاب يجمع المكسرات للشتاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.igel",
+   "german": "Igel",
+   "field": "s",
+   "expect_current": "Bei Gefahr rollt sich der Igel zu einer stachligen Kugel zusammen.",
+   "new": "Der Igel schläft im Winter unter Blättern.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.igel",
+   "german": "Igel",
+   "field": "sar",
+   "expect_current": "عند الخطر يلتف القنفذ ليصبح كرة شائكة.",
+   "new": "القنفذ ينام في الشتاء تحت الأوراق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.reh",
+   "german": "Reh",
+   "field": "s",
+   "expect_current": "Das scheue Reh steht am friedlichen Waldrand.",
+   "new": "Das Reh steht im Wald.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.reh",
+   "german": "Reh",
+   "field": "sar",
+   "expect_current": "الغزال الخجول يقف عند حافة الغابة الهادئة.",
+   "new": "الغزال الصغير يقف في الغابة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.hirsch",
+   "german": "Hirsch",
+   "field": "s",
+   "expect_current": "Der stolze Hirsch trägt ein großes Geweih.",
+   "new": "Der Hirsch hat ein großes Geweih.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.hirsch",
+   "german": "Hirsch",
+   "field": "sar",
+   "expect_current": "الأيل المهيب يحمل قروناً متشعبة كبيرة.",
+   "new": "الأيل له قرون كبيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.ratte",
+   "german": "Ratte",
+   "field": "s",
+   "expect_current": "Die Ratte ist ein erstaunlich intelligentes Nagetier.",
+   "new": "Die Ratte ist größer als die Maus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.ratte",
+   "german": "Ratte",
+   "field": "sar",
+   "expect_current": "الجرذ قارض ذكي بصورة مدهشة.",
+   "new": "الجرذ أكبر من الفأر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.papagei",
+   "german": "Papagei",
+   "field": "s",
+   "expect_current": "Der bunte Papagei kann einzelne Wörter nachsprechen.",
+   "new": "Der Papagei kann sprechen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.papagei",
+   "german": "Papagei",
+   "field": "sar",
+   "expect_current": "الببغاء الملون يمكنه ترديد بعض الكلمات المفردة.",
+   "new": "الببغاء يستطيع الكلام.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.storch",
+   "german": "Storch",
+   "field": "s",
+   "expect_current": "Der weiße Storch baut sein Nest hoch auf dem Dach.",
+   "new": "Der Storch baut sein Nest auf dem Dach.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "tiere.storch",
+   "german": "Storch",
+   "field": "sar",
+   "expect_current": "اللقلق الأبيض يبني عشه عالياً على السطح.",
+   "new": "اللقلق يبني عشه على السطح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.adler",
+   "german": "Adler",
+   "field": "s",
+   "expect_current": "Der stolze Adler kreist hoch oben in den Lüften.",
+   "new": "Der Adler fliegt sehr hoch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.adler",
+   "german": "Adler",
+   "field": "sar",
+   "expect_current": "النسر المهيب يحلق عالياً في السماء.",
+   "new": "النسر يطير عالياً جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "tiere.taube",
+   "german": "Taube",
+   "field": "s",
+   "expect_current": "Die weiße Taube gilt weltweit als Symbol des Friedens.",
+   "new": "Auf dem Platz sitzen viele Tauben.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "tiere.taube",
+   "german": "Taube",
+   "field": "sar",
+   "expect_current": "الحمامة البيضاء تُعتبر في كل العالم رمزاً للسلام.",
+   "new": "على الساحة تجلس حمامات كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.hemd",
+   "german": "Hemd",
+   "field": "s",
+   "expect_current": "Zum Vorstellungsgespräch bügelt er ein weißes Hemd.",
+   "new": "Das Hemd ist weiß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kleidung.hemd",
+   "german": "Hemd",
+   "field": "sar",
+   "expect_current": "لمقابلة العمل يكوي قميصاً أبيض.",
+   "new": "القميص أبيض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.hose",
+   "german": "Hose",
+   "field": "s",
+   "expect_current": "Die blaue Hose passt perfekt zu seinen braunen Schuhen.",
+   "new": "Ich trage eine blaue Hose.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kleidung.hose",
+   "german": "Hose",
+   "field": "sar",
+   "expect_current": "البنطال الأزرق يناسب تماماً حذاءه البني.",
+   "new": "أرتدي بنطلوناً أزرق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.kleid",
+   "german": "Kleid",
+   "field": "s",
+   "expect_current": "Sie trägt zur Hochzeitsfeier ein elegantes Kleid.",
+   "new": "Das Kleid ist sehr schön.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kleidung.kleid",
+   "german": "Kleid",
+   "field": "sar",
+   "expect_current": "هي ترتدي في حفل الزفاف فستاناً أنيقاً.",
+   "new": "الفستان جميل جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.rock",
+   "german": "Rock",
+   "field": "s",
+   "expect_current": "Der Rock schwingt beim Tanzen im Takt der Musik.",
+   "new": "Der Rock ist kurz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kleidung.rock",
+   "german": "Rock",
+   "field": "sar",
+   "expect_current": "التنورة تتأرجح أثناء الرقص على إيقاع الموسيقى.",
+   "new": "التنورة قصيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.jacke",
+   "german": "Jacke",
+   "field": "s",
+   "expect_current": "Bei kaltem Wind zieht er eine warme Jacke an.",
+   "new": "Ich ziehe meine Jacke an.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.jacke",
+   "german": "Jacke",
+   "field": "sar",
+   "expect_current": "عند هبوب رياح باردة يرتدي سترة دافئة.",
+   "new": "أرتدي جاكيتي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.mantel",
+   "german": "Mantel",
+   "field": "s",
+   "expect_current": "Im tiefen Winter braucht man einen dicken Mantel.",
+   "new": "Im Winter trage ich einen Mantel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.mantel",
+   "german": "Mantel",
+   "field": "sar",
+   "expect_current": "في ذروة الشتاء يحتاج المرء إلى معطف ثقيل.",
+   "new": "في الشتاء أرتدي معطفاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.schuh",
+   "german": "Schuh",
+   "field": "s",
+   "expect_current": "Er putzt jeden Samstag seine ledernen Schuhe.",
+   "new": "Ich brauche neue Schuhe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kleidung.schuh",
+   "german": "Schuh",
+   "field": "sar",
+   "expect_current": "هو ينظف كل سبت حذاءه الجلدي.",
+   "new": "أحتاج إلى أحذية جديدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.socke",
+   "german": "Socke",
+   "field": "s",
+   "expect_current": "In den neuen Schuhen trägt er eine warme Socke.",
+   "new": "Wo ist die zweite Socke?",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.socke",
+   "german": "Socke",
+   "field": "sar",
+   "expect_current": "في الحذاء الجديد يرتدي جورباً دافئاً.",
+   "new": "أين الجورب الثاني؟",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.hut",
+   "german": "Hut",
+   "field": "s",
+   "expect_current": "Ein eleganter Hut schützt vor der starken Sonne.",
+   "new": "Der Hut schützt vor der Sonne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.hut",
+   "german": "Hut",
+   "field": "sar",
+   "expect_current": "قبعة أنيقة تحمي من حرارة الشمس القوية.",
+   "new": "القبعة تحمي من الشمس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.muetze",
+   "german": "Mütze",
+   "field": "s",
+   "expect_current": "Die gestrickte Mütze wärmt den Kopf im Schnee.",
+   "new": "Meine Mütze ist warm und weich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.muetze",
+   "german": "Mütze",
+   "field": "sar",
+   "expect_current": "الطاقية الصوفية تدفئ الرأس وسط الثلوج.",
+   "new": "طاقيتي دافئة وناعمة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.schal",
+   "german": "Schal",
+   "field": "s",
+   "expect_current": "Er wickelt sich einen weichen Schal um den Hals.",
+   "new": "Der Schal hält den Hals warm.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.schal",
+   "german": "Schal",
+   "field": "sar",
+   "expect_current": "هو يلف وشاحاً ناعماً حول عنقه.",
+   "new": "الوشاح يبقي الرقبة دافئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.krawatte",
+   "german": "Krawatte",
+   "field": "s",
+   "expect_current": "Zum schicken Anzug bindet er eine seidige Krawatte.",
+   "new": "Er trägt eine rote Krawatte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.krawatte",
+   "german": "Krawatte",
+   "field": "sar",
+   "expect_current": "مع البدلة الأنيقة يربط ربطة عنق حريرية.",
+   "new": "هو يرتدي ربطة عنق حمراء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.anzug",
+   "german": "Anzug",
+   "field": "s",
+   "expect_current": "Der Bräutigam wählt für die Hochzeit einen edlen Anzug.",
+   "new": "Mein Vater trägt einen dunklen Anzug.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.anzug",
+   "german": "Anzug",
+   "field": "sar",
+   "expect_current": "العريس يختار لحفل الزفاف بدلة فاخرة.",
+   "new": "والدي يرتدي بدلة داكنة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.pullover",
+   "german": "Pullover",
+   "field": "s",
+   "expect_current": "Der kuschelige Pullover aus Wolle hält ihn warm.",
+   "new": "Mir ist kalt, ich brauche einen Pullover.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.pullover",
+   "german": "Pullover",
+   "field": "sar",
+   "expect_current": "الكنزة الصوفية المريحة تبقيه دافئاً.",
+   "new": "أشعر بالبرد، أحتاج إلى كنزة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.pyjama",
+   "german": "Pyjama",
+   "field": "s",
+   "expect_current": "Vor dem Schlafengehen zieht er einen bequemen Pyjama an.",
+   "new": "Ich schlafe im Pyjama.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kleidung.pyjama",
+   "german": "Pyjama",
+   "field": "sar",
+   "expect_current": "قبل النوم يرتدي بيجاما مريحة.",
+   "new": "أنام بالبيجاما.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.guertel",
+   "german": "Gürtel",
+   "field": "s",
+   "expect_current": "Der lederne Gürtel hält die Hose sicher am Platz.",
+   "new": "Die Hose braucht einen Gürtel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.guertel",
+   "german": "Gürtel",
+   "field": "sar",
+   "expect_current": "الحزام الجلدي يحكم البنطال في مكانه.",
+   "new": "البنطلون يحتاج إلى حزام.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.sonnenbrille",
+   "german": "Sonnenbrille",
+   "field": "s",
+   "expect_current": "Am sonnigen Strand setzt sie ihre dunkle Sonnenbrille auf.",
+   "new": "Die Sonnenbrille liegt auf dem Tisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kleidung.sonnenbrille",
+   "german": "Sonnenbrille",
+   "field": "sar",
+   "expect_current": "على الشاطئ المشمس ترتدي نظارتها الشمسية الداكنة.",
+   "new": "النظارة الشمسية على الطاولة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.ring",
+   "german": "Ring",
+   "field": "s",
+   "expect_current": "Er schenkt ihr zum Jahrestag einen funkelnden Ring.",
+   "new": "Sie trägt einen goldenen Ring.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.ring",
+   "german": "Ring",
+   "field": "sar",
+   "expect_current": "هو يهديها في ذكرى زواجهما خاتماً براقاً.",
+   "new": "هي ترتدي خاتماً ذهبياً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.kette",
+   "german": "Kette",
+   "field": "s",
+   "expect_current": "Sie trägt eine feine goldene Kette um den Hals.",
+   "new": "Die Kette ist ein Geschenk.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.kette",
+   "german": "Kette",
+   "field": "sar",
+   "expect_current": "هي تضع سلسلة ذهبية ناعمة حول عنقها.",
+   "new": "العقد هدية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.uhr",
+   "german": "Uhr",
+   "field": "s",
+   "expect_current": "Seine moderne Uhr zeigt präzise die genaue Zeit an.",
+   "new": "Meine Uhr zeigt halb acht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.uhr",
+   "german": "Uhr",
+   "field": "sar",
+   "expect_current": "ساعته الحديثة تُظهر الوقت الدقيق بكل ضبط.",
+   "new": "ساعتي تشير إلى السابعة والنصف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.handschuh",
+   "german": "Handschuh",
+   "field": "s",
+   "expect_current": "Gegen die Kälte zieht er dicke Handschuhe an.",
+   "new": "Meine Handschuhe sind aus Wolle.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.handschuh",
+   "german": "Handschuh",
+   "field": "sar",
+   "expect_current": "ضد البرد يرتدي قفازين سميكين.",
+   "new": "قفازاتي من الصوف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.regenmantel",
+   "german": "Regenmantel",
+   "field": "s",
+   "expect_current": "Bei starkem Regenwetter schützt ein dichter Regenmantel.",
+   "new": "Bei Regen trage ich einen Regenmantel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.regenmantel",
+   "german": "Regenmantel",
+   "field": "sar",
+   "expect_current": "في طقس المطر الشديد يحمي معطف المطر العازل.",
+   "new": "عند المطر أرتدي معطف مطر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.stiefel",
+   "german": "Stiefel",
+   "field": "s",
+   "expect_current": "Im matschigen Wald trägt der Wanderer feste Stiefel.",
+   "new": "Im Schnee trage ich Stiefel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.stiefel",
+   "german": "Stiefel",
+   "field": "sar",
+   "expect_current": "في الغابة الموحلة يرتدي المتجول حذاءً طويلاً متيناً.",
+   "new": "في الثلج أرتدي حذاءً طويلاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.sandale",
+   "german": "Sandale",
+   "field": "s",
+   "expect_current": "Im heißen Sommerurlaub läuft man gern in einer Sandale.",
+   "new": "Im Sommer trage ich gern Sandalen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.sandale",
+   "german": "Sandale",
+   "field": "sar",
+   "expect_current": "في عطلة الصيف الحارة يحب المرء المشي بالصندل.",
+   "new": "في الصيف أحب ارتداء الصنادل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.badeanzug",
+   "german": "Badeanzug",
+   "field": "s",
+   "expect_current": "Zum Schwimmen im Hallenbad zieht sie ihren Badeanzug an.",
+   "new": "Ich nehme meinen Badeanzug ins Schwimmbad mit.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "kleidung.badeanzug",
+   "german": "Badeanzug",
+   "field": "sar",
+   "expect_current": "للسباحة في المسبح الداخلي ترتدي مايوه السباحة الخاص بها.",
+   "new": "آخذ ثوب السباحة معي إلى المسبح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.unterhemd",
+   "german": "Unterhemd",
+   "field": "s",
+   "expect_current": "Unter dem Hemd trägt er ein weißes Unterhemd aus Baumwolle.",
+   "new": "Das Unterhemd ist aus Baumwolle.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.unterhemd",
+   "german": "Unterhemd",
+   "field": "sar",
+   "expect_current": "تحت القميص يرتدي فانلة داخلية بيضاء من القطن.",
+   "new": "القميص الداخلي من القطن.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.unterhose",
+   "german": "Unterhose",
+   "field": "s",
+   "expect_current": "Er zieht sich eine bequeme Unterhose aus reiner Baumwolle an.",
+   "new": "Ich wechsle jeden Tag die Unterhose.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.unterhose",
+   "german": "Unterhose",
+   "field": "sar",
+   "expect_current": "هو يرتدي لباساً داخلياً مريحاً من القطن الصافي.",
+   "new": "أغيّر لباسي الداخلي كل يوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.strumpfhose",
+   "german": "Strumpfhose",
+   "field": "s",
+   "expect_current": "Zum kurzen Kleid trägt sie eine blickdichte Strumpfhose.",
+   "new": "Unter dem Rock trägt sie eine Strumpfhose.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "kleidung.strumpfhose",
+   "german": "Strumpfhose",
+   "field": "sar",
+   "expect_current": "مع الفستان القصير ترتدي كولوناً غير شفاف.",
+   "new": "تحت التنورة ترتدي جوارب نسائية طويلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.t-shirt",
+   "german": "T-Shirt",
+   "field": "s",
+   "expect_current": "Im Freizeitpark reicht heute ein lockeres T-Shirt völlig aus.",
+   "new": "Ich trage ein weißes T-Shirt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "kleidung.t-shirt",
+   "german": "T-Shirt",
+   "field": "sar",
+   "expect_current": "في مدينة الألعاب يكفي اليوم تماماً ارتداء تي شيرت مريح.",
+   "new": "أرتدي تي شيرت أبيض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.weste",
+   "german": "Weste",
+   "field": "s",
+   "expect_current": "Über dem Hemd trägt der Kellner eine elegante Weste.",
+   "new": "Die Weste hat vier Taschen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.weste",
+   "german": "Weste",
+   "field": "sar",
+   "expect_current": "فوق القميص يرتدي النادل صديرياً أنيقاً.",
+   "new": "السترة بلا أكمام لها أربعة جيوب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.trainingsanzug",
+   "german": "Trainingsanzug",
+   "field": "s",
+   "expect_current": "Zum morgendlichen Joggen zieht er einen Trainingsanzug an.",
+   "new": "Zum Sport ziehe ich einen Trainingsanzug an.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "kleidung.trainingsanzug",
+   "german": "Trainingsanzug",
+   "field": "sar",
+   "expect_current": "للركض الصباحي يرتدي بدلة رياضية.",
+   "new": "للرياضة أرتدي بدلة رياضية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.shorts",
+   "german": "Shorts",
+   "field": "s",
+   "expect_current": "Bei dreißig Grad Hitze sind kurze Shorts sehr angenehm.",
+   "new": "Shorts sind kurz und bequem.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.shorts",
+   "german": "Shorts",
+   "field": "sar",
+   "expect_current": "عند درجة حرارة ثلاثين درجة تكون الشورتات القصيرة مريحة جداً.",
+   "new": "الشورت قصير ومريح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.sakko",
+   "german": "Sakko",
+   "field": "s",
+   "expect_current": "Er trägt im Büro ein sportliches Sakko zur Jeans.",
+   "new": "Das Sakko hängt im Schrank.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.sakko",
+   "german": "Sakko",
+   "field": "sar",
+   "expect_current": "هو يرتدي في المكتب سترة رسمية سبور مع الجينز.",
+   "new": "الجاكيت الرسمي معلّق في الخزانة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.bluse",
+   "german": "Bluse",
+   "field": "s",
+   "expect_current": "Sie kombiniert die seidene Bluse mit einem eleganten Rock.",
+   "new": "Die Bluse ist aus Seide.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.bluse",
+   "german": "Bluse",
+   "field": "sar",
+   "expect_current": "هي تنسق البلوزة الحريرية مع تنورة أنيقة.",
+   "new": "البلوزة من الحرير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.abendkleid",
+   "german": "Abendkleid",
+   "field": "s",
+   "expect_current": "Zur feierlichen Opernpremiere wählt sie ein langes Abendkleid.",
+   "new": "Für die Hochzeit kauft sie ein Abendkleid.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "kleidung.abendkleid",
+   "german": "Abendkleid",
+   "field": "sar",
+   "expect_current": "لافتتاحية الأوبرا الاحتفالية تختار فستان سهرة طويلاً.",
+   "new": "من أجل الزفاف تشتري فستان سهرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.kopftuch",
+   "german": "Kopftuch",
+   "field": "s",
+   "expect_current": "Sie bindet sich ein gemustertes Kopftuch um das Haar.",
+   "new": "Meine Mutter trägt ein Kopftuch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.kopftuch",
+   "german": "Kopftuch",
+   "field": "sar",
+   "expect_current": "هي تلف غطاء رأس منقوشاً حول شعرها.",
+   "new": "أمي ترتدي غطاء رأس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.armband",
+   "german": "Armband",
+   "field": "s",
+   "expect_current": "Um das Handgelenk funkelt ein silbernes Armband.",
+   "new": "Das Armband passt zu meiner Uhr.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "kleidung.armband",
+   "german": "Armband",
+   "field": "sar",
+   "expect_current": "حول المعصم يتلألأ سوار فضي.",
+   "new": "السوار يناسب ساعتي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.ohrring",
+   "german": "Ohrring",
+   "field": "s",
+   "expect_current": "Ein kleiner funkelnder Ohrring ziert ihr rechtes Ohr.",
+   "new": "Ich habe einen Ohrring verloren.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "kleidung.ohrring",
+   "german": "Ohrring",
+   "field": "sar",
+   "expect_current": "قرط صغير براق يزين أذنها اليمنى.",
+   "new": "فقدت قرطاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.handtasche",
+   "german": "Handtasche",
+   "field": "s",
+   "expect_current": "In ihrer ledernen Handtasche trägt sie Schlüssel und Handy.",
+   "new": "Ihre Handtasche ist sehr teuer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.handtasche",
+   "german": "Handtasche",
+   "field": "sar",
+   "expect_current": "في حقيبة يدها الجلدية تحمل المفاتيح والموبايل.",
+   "new": "حقيبة يدها غالية جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.portemonnaie",
+   "german": "Portemonnaie",
+   "field": "s",
+   "expect_current": "Er holt das Portemonnaie heraus, um die Rechnung zu bezahlen.",
+   "new": "Mein Portemonnaie ist leer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.portemonnaie",
+   "german": "Portemonnaie",
+   "field": "sar",
+   "expect_current": "هو يُخرج محفظة النقود ليدفع الفاتورة.",
+   "new": "محفظتي فارغة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.reissverschluss",
+   "german": "Reißverschluss",
+   "field": "s",
+   "expect_current": "Der Reißverschluss der Winterjacke lässt sich leicht schließen.",
+   "new": "Der Reißverschluss an der Jacke ist kaputt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "kleidung.reissverschluss",
+   "german": "Reißverschluss",
+   "field": "sar",
+   "expect_current": "سحاب سترة الشتاء يُغلق بسهولة.",
+   "new": "سحاب الجاكيت مكسور.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.knopf",
+   "german": "Knopf",
+   "field": "s",
+   "expect_current": "An seinem Hemd fehlt der oberste kleine Knopf.",
+   "new": "Am Hemd fehlt ein Knopf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "kleidung.knopf",
+   "german": "Knopf",
+   "field": "sar",
+   "expect_current": "قميصه ينقصه الزر العلوي الصغير.",
+   "new": "القميص ينقصه زر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "kleidung.stoff",
+   "german": "Stoff",
+   "field": "s",
+   "expect_current": "Dieser feine Stoff fühlt sich auf der Haut besonders weich an.",
+   "new": "Der Stoff fühlt sich weich an.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "kleidung.stoff",
+   "german": "Stoff",
+   "field": "sar",
+   "expect_current": "هذا القماش الفاخر ملمسه ناعم جداً على الجلد.",
+   "new": "القماش ملمسه ناعم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  }
+ ]
+}

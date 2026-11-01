@@ -11,8 +11,8 @@
         "n": "Apfel",
         "ar": "تفاحة",
         "pl": "die Äpfel",
-        "s": "Der Apfel schmeckt süß und frisch.",
-        "sar": "التفاحة طعمها حلو وطازج."
+        "s": "Ich esse jeden Tag einen Apfel.",
+        "sar": "آكل تفاحة كل يوم."
       },
       {
         "id": "obst.banane",
@@ -20,8 +20,8 @@
         "n": "Banane",
         "ar": "موزة",
         "pl": "die Bananen",
-        "s": "Die Banane ist gelb und reif.",
-        "sar": "الموزة صفراء وناضجة."
+        "s": "Die Banane ist gelb.",
+        "sar": "الموزة صفراء."
       },
       {
         "id": "obst.orange",
@@ -29,8 +29,8 @@
         "n": "Orange",
         "ar": "برتقالة",
         "pl": "die Orangen",
-        "s": "Ich trinke den Saft einer Orange.",
-        "sar": "أشرب عصير برتقالة."
+        "s": "Die Orange ist süß und saftig.",
+        "sar": "البرتقالة حلوة وعصيرية."
       },
       {
         "id": "obst.traube",
@@ -38,8 +38,8 @@
         "n": "Traube",
         "ar": "عنبة",
         "pl": "die Trauben",
-        "s": "Die süße Traube wächst am Weinstock.",
-        "sar": "العنبة الحلوة تنمو على كرمة العنب."
+        "s": "Die Trauben sind grün und süß.",
+        "sar": "حبات العنب خضراء وحلوة."
       },
       {
         "id": "obst.erdbeere",
@@ -47,8 +47,8 @@
         "n": "Erdbeere",
         "ar": "فراولة",
         "pl": "die Erdbeeren",
-        "s": "Die rote Erdbeere schmeckt köstlich.",
-        "sar": "الفراولة الحمراء طعمها لذيذ."
+        "s": "Ich esse gern Erdbeeren mit Sahne.",
+        "sar": "أحب أكل الفراولة بالقشطة."
       },
       {
         "id": "obst.kirsche",
@@ -56,8 +56,8 @@
         "n": "Kirsche",
         "ar": "كرزة",
         "pl": "die Kirschen",
-        "s": "Auf dem Teller liegt eine rote Kirsche.",
-        "sar": "على الصحن حبة كرز حمراء."
+        "s": "Die Kirschen wachsen im Sommer.",
+        "sar": "الكرز ينمو في الصيف."
       },
       {
         "id": "obst.birne",
@@ -65,8 +65,8 @@
         "n": "Birne",
         "ar": "كمثرى",
         "pl": "die Birnen",
-        "s": "Die Birne ist saftig und weich.",
-        "sar": "الكمثرى كثيرة العصارة وطرية."
+        "s": "Die Birne ist noch hart.",
+        "sar": "الكمثرى ما زالت صلبة."
       },
       {
         "id": "obst.zitrone",
@@ -74,8 +74,8 @@
         "n": "Zitrone",
         "ar": "ليمونة",
         "pl": "die Zitronen",
-        "s": "Die Zitrone schmeckt sehr sauer.",
-        "sar": "الليمونة طعمها حامض جداً."
+        "s": "Die Zitrone ist sauer.",
+        "sar": "الليمونة حامضة."
       },
       {
         "id": "obst.ananas",
@@ -84,8 +84,8 @@
         "ar": "أناناس",
         "note": "الجمع الرسمي هو نفس الكلمة Ananas بلا تغيير، وAnanasse نادر الاستخدام",
         "pl": "die Ananas",
-        "s": "Die Ananas ist eine süße Südfrucht.",
-        "sar": "الأناناس فاكهة استوائية حلوة."
+        "s": "Ananas schmeckt süß und frisch.",
+        "sar": "الأناناس طعمه حلو ومنعش."
       },
       {
         "id": "obst.pfirsich",
@@ -93,8 +93,8 @@
         "n": "Pfirsich",
         "ar": "خوخة",
         "pl": "die Pfirsiche",
-        "s": "Der Pfirsich hat eine samtige Haut.",
-        "sar": "الخوخ له قشرة مخملية."
+        "s": "Ich kaufe Pfirsiche, weil sie reif sind.",
+        "sar": "أشتري الخوخ لأنه ناضج."
       },
       {
         "id": "obst.wassermelone",
@@ -102,8 +102,8 @@
         "n": "Wassermelone",
         "ar": "بطيخة",
         "pl": "die Wassermelonen",
-        "s": "Im Sommer esse ich kalte Wassermelone.",
-        "sar": "في الصيف آكل بطيخاً بارداً."
+        "s": "Im Sommer essen wir Wassermelone.",
+        "sar": "في الصيف نأكل البطيخ."
       },
       {
         "id": "obst.melone",
@@ -111,8 +111,8 @@
         "n": "Melone",
         "ar": "شمام",
         "pl": "die Melonen",
-        "s": "Die gelbe Melone duftet herrlich.",
-        "sar": "الشمام الأصفر تفوح منه رائحة رائعة."
+        "s": "Die Melone ist schwer und süß.",
+        "sar": "الشمام ثقيل وحلو."
       },
       {
         "id": "obst.himbeere",
@@ -120,8 +120,8 @@
         "n": "Himbeere",
         "ar": "توت العليق",
         "pl": "die Himbeeren",
-        "s": "Im Wald pflücke ich eine Himbeere.",
-        "sar": "في الغابة أقطف حبة توت عليق."
+        "s": "Himbeeren sind teurer als Äpfel.",
+        "sar": "التوت العليق أغلى من التفاح."
       },
       {
         "id": "obst.pflaume",
@@ -129,8 +129,8 @@
         "n": "Pflaume",
         "ar": "برقوق",
         "pl": "die Pflaumen",
-        "s": "Die reife Pflaume fällt vom Ast.",
-        "sar": "البرقوقة الناضجة تسقط من الغصن."
+        "s": "Aus Pflaumen macht man Marmelade.",
+        "sar": "يصنعون المربى من البرقوق."
       },
       {
         "id": "obst.mandarine",
@@ -138,8 +138,8 @@
         "n": "Mandarine",
         "ar": "يوسفي",
         "pl": "die Mandarinen",
-        "s": "Ich schäle eine süße Mandarine.",
-        "sar": "أقشر حبة يوسفي حلوة."
+        "s": "Ich schäle eine Mandarine.",
+        "sar": "أقشّر حبة يوسفي."
       },
       {
         "id": "obst.kokosnuss",
@@ -147,8 +147,8 @@
         "n": "Kokosnuss",
         "ar": "جوز الهند",
         "pl": "die Kokosnüsse",
-        "s": "Die Kokosnuss hat kühles Wasser im Inneren.",
-        "sar": "جوز الهند يحتوي على ماء بارد في داخله."
+        "s": "Die Kokosnuss wächst auf einer Palme.",
+        "sar": "ينمو جوز الهند على شجرة النخيل."
       },
       {
         "id": "obst.feige",
@@ -156,8 +156,8 @@
         "n": "Feige",
         "ar": "تين",
         "pl": "die Feigen",
-        "s": "Die Feige schmeckt süß wie Honig.",
-        "sar": "التينة طعمها حلو مثل العسل."
+        "s": "Frische Feigen sind sehr weich.",
+        "sar": "التين الطازج طري جداً."
       },
       {
         "id": "obst.dattel",
@@ -165,8 +165,8 @@
         "n": "Dattel",
         "ar": "تمر",
         "pl": "die Datteln",
-        "s": "Ich esse eine Dattel zum Frühstück.",
-        "sar": "آكل تمرة في وجبة الإفطار."
+        "s": "Im Ramadan esse ich Datteln.",
+        "sar": "في رمضان آكل التمر."
       },
       {
         "id": "obst.aprikose",
@@ -174,8 +174,8 @@
         "n": "Aprikose",
         "ar": "مشمش",
         "pl": "die Aprikosen",
-        "s": "Die Aprikose hat eine leuchtend orange Farbe.",
-        "sar": "المشمشة لها لون برتقالي ناصع."
+        "s": "Die Aprikosen reifen im Juli.",
+        "sar": "المشمش ينضج في يوليو."
       },
       {
         "id": "obst.grapefruit",
@@ -183,8 +183,8 @@
         "n": "Grapefruit",
         "ar": "جريب فروت",
         "pl": "die Grapefruits",
-        "s": "Die Grapefruit ist gesund, aber bitter.",
-        "sar": "الجريب فروت صحي ولكنه مر."
+        "s": "Die Grapefruit schmeckt etwas bitter.",
+        "sar": "الجريب فروت طعمه مرّ قليلاً."
       },
       {
         "id": "obst.heidelbeere",
@@ -192,8 +192,8 @@
         "n": "Heidelbeere",
         "ar": "توت أزرق",
         "pl": "die Heidelbeeren",
-        "s": "Die blaue Heidelbeere wächst im Wald.",
-        "sar": "التوت الأزرق ينمو في الغابة."
+        "s": "Ich esse Heidelbeeren im Joghurt.",
+        "sar": "آكل التوت الأزرق مع الزبادي."
       },
       {
         "id": "obst.brombeere",
@@ -201,8 +201,8 @@
         "n": "Brombeere",
         "ar": "توت أسود",
         "pl": "die Brombeeren",
-        "s": "Die dunkle Brombeere schmeckt leicht sauer.",
-        "sar": "التوت الأسود طعمه حامض قليلاً."
+        "s": "Brombeeren wachsen im Garten.",
+        "sar": "التوت الأسود ينمو في الحديقة."
       },
       {
         "id": "obst.kiwi",
@@ -210,8 +210,8 @@
         "n": "Kiwi",
         "ar": "كيوي",
         "pl": "die Kiwis",
-        "s": "Die grüne Kiwi schmeckt sehr erfrischend.",
-        "sar": "الكيوي الأخضر طعمه منعش جداً."
+        "s": "Eine Kiwi hat viel Vitamin C.",
+        "sar": "الكيوي فيها الكثير من فيتامين سي."
       },
       {
         "id": "obst.mango",
@@ -220,8 +220,8 @@
         "ar": "مانجو",
         "note": "الجمع الرسمي Mangos، ونادرًا Mangonen",
         "pl": "die Mangos",
-        "s": "Die tropische Mango ist butterweich und süß.",
-        "sar": "المانجو الاستوائية طرية جداً وحلوة."
+        "s": "Die Mango kommt aus Indien.",
+        "sar": "المانجو تأتي من الهند."
       },
       {
         "id": "obst.papaya",
@@ -229,8 +229,8 @@
         "n": "Papaya",
         "ar": "بابايا",
         "pl": "die Papayas",
-        "s": "Die Papaya enthält viele gesunde Enzyme.",
-        "sar": "البابايا تحتوي على العديد من الإنزيمات الصحية."
+        "s": "Papayas wachsen nur in warmen Ländern.",
+        "sar": "البابايا تنمو فقط في البلاد الدافئة."
       },
       {
         "id": "obst.granatapfel",
@@ -238,8 +238,8 @@
         "n": "Granatapfel",
         "ar": "رمان",
         "pl": "die Granatäpfel",
-        "s": "Der Granatapfel hat viele rubinrote Kerne.",
-        "sar": "الرمان يحتوي على حبات حمراء ياقوتية كثيرة."
+        "s": "Der Granatapfel hat viele rote Kerne.",
+        "sar": "الرمان فيه الكثير من البذور الحمراء."
       },
       {
         "id": "obst.nektarine",
@@ -247,8 +247,8 @@
         "n": "Nektarine",
         "ar": "نكتارين",
         "pl": "die Nektarinen",
-        "s": "Die Nektarine hat im Gegensatz zum Pfirsich eine glatte Schale.",
-        "sar": "النكتارين لها قشرة ملساء على عكس الخوخ."
+        "s": "Die Nektarine ist eine Art Pfirsich.",
+        "sar": "النكتارين نوع من الخوخ."
       },
       {
         "id": "obst.avocado",
@@ -256,8 +256,8 @@
         "n": "Avocado",
         "ar": "أفوكادو",
         "pl": "die Avocados",
-        "s": "Die cremige Avocado eignet sich für Salat.",
-        "sar": "الأفوكادو الكريمي مناسب للسلطة."
+        "s": "Ich esse Avocado auf dem Brot.",
+        "sar": "آكل الأفوكادو على الخبز."
       },
       {
         "id": "obst.rhabarber",
@@ -266,8 +266,8 @@
         "ar": "راوند",
         "note": "نبات ساقه حامض يُطبخ كالفاكهة في الحلويات الألمانية؛ جمعه نفس الكلمة بلا تغيير",
         "pl": "die Rhabarber",
-        "s": "Der saure Rhabarber wird oft mit Erdbeeren kombiniert.",
-        "sar": "الراوند الحامض يُخلط غالباً مع الفراولة."
+        "s": "Rhabarber ist sauer, man braucht Zucker.",
+        "sar": "الراوند حامض ويحتاج إلى سكر."
       },
       {
         "id": "obst.limette",
@@ -275,8 +275,8 @@
         "n": "Limette",
         "ar": "ليم",
         "pl": "die Limetten",
-        "s": "Ein Spritzer Limette verfeinert das Gericht.",
-        "sar": "رشة من الليم تعطي الطبق نكهة مميزة."
+        "s": "Die Limette ist grün und sauer.",
+        "sar": "الليم أخضر وحامض."
       },
       {
         "id": "obst.clementine",
@@ -284,8 +284,8 @@
         "n": "Clementine",
         "ar": "كليمنتين",
         "pl": "die Clementinen",
-        "s": "Die Clementine hat im Winter Hochsaison.",
-        "sar": "الكليمنتين في ذروة موسمه خلال الشتاء."
+        "s": "Im Winter essen wir Clementinen.",
+        "sar": "في الشتاء نأكل الكليمنتين."
       }
     ]
   },
@@ -301,8 +301,8 @@
         "n": "Kartoffel",
         "ar": "بطاطا (بطاطس)",
         "pl": "die Kartoffeln",
-        "s": "Die Kartoffel ist eine wichtige Beilage in Deutschland.",
-        "sar": "البطاطس طبق جانبي مهم في ألمانيا."
+        "s": "Ich esse gern Kartoffeln.",
+        "sar": "أحب أكل البطاطا."
       },
       {
         "id": "gemuese.tomate",
@@ -310,8 +310,8 @@
         "n": "Tomate",
         "ar": "طماطم",
         "pl": "die Tomaten",
-        "s": "Die rote Tomate kommt frisch in den Salat.",
-        "sar": "الطماطم الحمراء توضع طازجة في السلطة."
+        "s": "Die Tomate ist rot.",
+        "sar": "الطماطم حمراء."
       },
       {
         "id": "gemuese.gurke",
@@ -319,8 +319,8 @@
         "n": "Gurke",
         "ar": "خيار",
         "pl": "die Gurken",
-        "s": "Die grüne Gurke besteht größtenteils aus Wasser.",
-        "sar": "الخيار الأخضر يتكون في معظمه من الماء."
+        "s": "Die Gurke ist grün.",
+        "sar": "الخيار أخضر."
       },
       {
         "id": "gemuese.karotte",
@@ -328,8 +328,8 @@
         "n": "Karotte",
         "ar": "جزرة",
         "pl": "die Karotten",
-        "s": "Das Kaninchen nagt an einer Karotte.",
-        "sar": "الأرنب يقضم جزرة."
+        "s": "Der Hase isst eine Karotte.",
+        "sar": "الأرنب البري يأكل جزرة."
       },
       {
         "id": "gemuese.zwiebel",
@@ -337,8 +337,8 @@
         "n": "Zwiebel",
         "ar": "بصلة",
         "pl": "die Zwiebeln",
-        "s": "Beim Schneiden der Zwiebel brennen die Augen.",
-        "sar": "عند تقطيع البصلة تدمع العيون."
+        "s": "Beim Schneiden einer Zwiebel weine ich.",
+        "sar": "أبكي عندما أقطّع البصل."
       },
       {
         "id": "gemuese.knoblauch",
@@ -347,8 +347,8 @@
         "ar": "ثوم",
         "note": "ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد",
         "pl": null,
-        "s": "Frischer Knoblauch gibt der Soße einen würzigen Geschmack.",
-        "sar": "الثوم الطازج يعطي الصلصة نكهة حارة زكية."
+        "s": "Knoblauch riecht sehr stark.",
+        "sar": "الثوم رائحته قوية جداً."
       },
       {
         "id": "gemuese.kohl",
@@ -357,8 +357,8 @@
         "ar": "كرنب",
         "note": "الجمع Kohle نادر الاستخدام (يشير لأنواع الكرنب المختلفة)",
         "pl": "die Kohle",
-        "s": "Im Winter kochen viele Menschen Suppe mit Kohl.",
-        "sar": "في الشتاء يطبخ كثير من الناس حساءً بالكرنب."
+        "s": "Im Winter essen wir viel Kohl.",
+        "sar": "في الشتاء نأكل الكثير من الكرنب."
       },
       {
         "id": "gemuese.paprika",
@@ -367,8 +367,8 @@
         "ar": "فلفل رومي",
         "note": "الجمع الرسمي نفس الكلمة بلا تغيير، ويصح أيضًا Paprikas",
         "pl": "die Paprika",
-        "s": "Der rote Paprika schmeckt süßlich und knackig.",
-        "sar": "الفلفل الرومي الأحمر طعمه حلو ومقرمش."
+        "s": "Ich brauche einen roten Paprika.",
+        "sar": "أحتاج إلى فلفل رومي أحمر."
       },
       {
         "id": "gemuese.aubergine",
@@ -376,8 +376,8 @@
         "n": "Aubergine",
         "ar": "باذنجان",
         "pl": "die Auberginen",
-        "s": "Die dunkle Aubergine wird im Ofen gebraten.",
-        "sar": "الباذنجان الداكن يُشوى في الفرن."
+        "s": "Die Aubergine ist innen weich.",
+        "sar": "الباذنجان طري من الداخل."
       },
       {
         "id": "gemuese.spinat",
@@ -386,8 +386,8 @@
         "ar": "سبانخ",
         "note": "الجمع Spinate نادر الاستخدام (يشير لأنواع السبانخ)",
         "pl": null,
-        "s": "Frischer Spinat enthält viele gesunde Mineralien.",
-        "sar": "السبانخ الطازج يحتوي على العديد من المعادن الصحية."
+        "s": "Spinat ist gesund und hat viel Eisen.",
+        "sar": "السبانخ صحية وفيها الكثير من الحديد."
       },
       {
         "id": "gemuese.bohne",
@@ -395,8 +395,8 @@
         "n": "Bohne",
         "ar": "فاصوليا",
         "pl": "die Bohnen",
-        "s": "Die grüne Bohne schmeckt gekocht mit Butter.",
-        "sar": "الفاصوليا الخضراء طعمها طيب مسلوقة مع الزبدة."
+        "s": "Die Bohnen müssen lange kochen.",
+        "sar": "الفاصوليا تحتاج إلى طبخ طويل."
       },
       {
         "id": "gemuese.salat",
@@ -404,8 +404,8 @@
         "n": "Salat",
         "ar": "خس",
         "pl": "die Salate",
-        "s": "Zum Mittagessen gibt es einen frischen Salat.",
-        "sar": "على الغداء توجد سلطة خضراء طازجة."
+        "s": "Der Salat ist frisch und grün.",
+        "sar": "الخس طازج وأخضر."
       },
       {
         "id": "gemuese.zucchini",
@@ -414,8 +414,8 @@
         "ar": "كوسا (كوسة)",
         "note": "جمعها نفس الكلمة بلا تغيير",
         "pl": "die Zucchini",
-        "s": "Die grüne Zucchini wächst schnell im Garten.",
-        "sar": "الكوسة الخضراء تنمو بسرعة في الحديقة."
+        "s": "Ich schneide die Zucchini in Scheiben.",
+        "sar": "أقطّع الكوسة إلى شرائح."
       },
       {
         "id": "gemuese.brokkoli",
@@ -423,8 +423,8 @@
         "n": "Brokkoli",
         "ar": "بروكلي",
         "pl": "die Brokkolis",
-        "s": "Gedämpfter Brokkoli ist gesund und schmackhaft.",
-        "sar": "البروكلي المطهو على البخار صحي ولذيذ."
+        "s": "Brokkoli kochen wir nur kurz.",
+        "sar": "نطبخ البروكلي لوقت قصير فقط."
       },
       {
         "id": "gemuese.pilz",
@@ -432,8 +432,8 @@
         "n": "Pilz",
         "ar": "فطر",
         "pl": "die Pilze",
-        "s": "Im Herbst sammeln wir Pilze im Wald.",
-        "sar": "في الخريف نجمع الفطر في الغابة."
+        "s": "Im Wald wachsen viele Pilze.",
+        "sar": "في الغابة ينمو الكثير من الفطر."
       },
       {
         "id": "gemuese.mais",
@@ -442,8 +442,8 @@
         "ar": "ذرة",
         "note": "الجمع Maise نادر الاستخدام (يشير لأنواع الذرة)",
         "pl": null,
-        "s": "Gegrillter Mais schmeckt mit etwas Salz vorzüglich.",
-        "sar": "الذرة المشوية طعمها رائع مع القليل من الملح."
+        "s": "Mais wächst auf großen Feldern.",
+        "sar": "الذرة تنمو في حقول كبيرة."
       },
       {
         "id": "gemuese.erbse",
@@ -451,8 +451,8 @@
         "n": "Erbse",
         "ar": "بازلاء",
         "pl": "die Erbsen",
-        "s": "Die kleine grüne Erbse schmeckt süßlich.",
-        "sar": "البازلاء الخضراء الصغيرة طعمها مائل للحلاوة."
+        "s": "Die Erbsen sind klein und rund.",
+        "sar": "البازلاء صغيرة ومستديرة."
       },
       {
         "id": "gemuese.rettich",
@@ -460,8 +460,8 @@
         "n": "Rettich",
         "ar": "فجل",
         "pl": "die Rettiche",
-        "s": "Der weiße Rettich schmeckt scharf und knackig.",
-        "sar": "الفجل الأبيض طعمه لاذع ومقرمش."
+        "s": "Der Rettich ist weiß und scharf.",
+        "sar": "الفجل أبيض وحار."
       },
       {
         "id": "gemuese.rote-bete",
@@ -470,8 +470,8 @@
         "ar": "شمندر (بنجر)",
         "note": "لا يوجد لها جمع شائع؛ تُستخدم بنفس الصيغة للمفرد والجمع",
         "pl": null,
-        "s": "Rote Bete färbt die Hände tiefrot.",
-        "sar": "البنجر يصبغ اليدين باللون الأحمر الداكن."
+        "s": "Rote Bete färbt die Finger rot.",
+        "sar": "الشمندر يلوّن الأصابع بالأحمر."
       },
       {
         "id": "gemuese.sellerie",
@@ -480,8 +480,8 @@
         "ar": "كرفس",
         "note": "الجمع die Sellerie أو die Selleries، وفي النمسا Sellerien",
         "pl": "die Sellerie",
-        "s": "Frischer Sellerie passt gut in jede Gemüsesuppe.",
-        "sar": "الكرفس الطازج يناسب كل أنواع حساء الخضار."
+        "s": "Ich gebe Sellerie in die Suppe.",
+        "sar": "أضع الكرفس في الشوربة."
       },
       {
         "id": "gemuese.suesskartoffel",
@@ -489,8 +489,8 @@
         "n": "Süßkartoffel",
         "ar": "بطاطا حلوة",
         "pl": "die Süßkartoffeln",
-        "s": "Die Süßkartoffel kann man wie Pommes frittieren.",
-        "sar": "البطاطا الحلوة يمكن قليها مثل البطاطس المقرمشة."
+        "s": "Süßkartoffeln sind süßer als Kartoffeln.",
+        "sar": "البطاطا الحلوة أحلى من البطاطا."
       },
       {
         "id": "gemuese.kuerbis",
@@ -498,8 +498,8 @@
         "n": "Kürbis",
         "ar": "يقطين",
         "pl": "die Kürbisse",
-        "s": "Aus dem Kürbis machen wir eine wärmende Suppe.",
-        "sar": "من اليقطين نصنع حساءً دافئاً."
+        "s": "Im Herbst koche ich Kürbissuppe.",
+        "sar": "في الخريف أطبخ شوربة اليقطين."
       },
       {
         "id": "gemuese.lauch",
@@ -508,8 +508,8 @@
         "ar": "كراث",
         "note": "الجمع Lauche نادر الاستخدام جدًا",
         "pl": null,
-        "s": "Der Lauch schmeckt herzhaft in Aufläufen.",
-        "sar": "الكراث طعمه شهي في صواني الفرن."
+        "s": "Lauch passt gut zur Kartoffelsuppe.",
+        "sar": "الكراث يناسب شوربة البطاطا."
       },
       {
         "id": "gemuese.rosenkohl",
@@ -518,8 +518,8 @@
         "ar": "كرنب بروكسل",
         "note": "ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد",
         "pl": null,
-        "s": "Rosenkohl wird traditionell im Winter serviert.",
-        "sar": "كرنب بروكسل يُقدَّم تقليدياً في الشتاء."
+        "s": "Viele Kinder mögen keinen Rosenkohl.",
+        "sar": "كثير من الأطفال لا يحبون كرنب بروكسل."
       },
       {
         "id": "gemuese.blumenkohl",
@@ -528,8 +528,8 @@
         "ar": "قرنبيط",
         "note": "الجمع Blumenkohle نادر الاستخدام",
         "pl": null,
-        "s": "Gekochter Blumenkohl schmeckt mild und zart.",
-        "sar": "القرنبيط المسلوق طعمه خفيف وطري."
+        "s": "Blumenkohl ist weiß und gesund.",
+        "sar": "القرنبيط أبيض وصحي."
       },
       {
         "id": "gemuese.fenchel",
@@ -538,8 +538,8 @@
         "ar": "شمر",
         "note": "ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد",
         "pl": null,
-        "s": "Der Fenchel hat einen aromatischen Anisgeschmack.",
-        "sar": "الشمر له نكهة يانسون عطرية."
+        "s": "Aus Fenchel kann man Tee machen.",
+        "sar": "يمكن صنع الشاي من الشمر."
       },
       {
         "id": "gemuese.okra",
@@ -547,8 +547,8 @@
         "n": "Okra",
         "ar": "بامية",
         "pl": "die Okras",
-        "s": "Die Okra wird in vielen orientalischen Gerichten gekocht.",
-        "sar": "البامية تُطبخ في العديد من الأطباق الشرقية."
+        "s": "Okra ist in Ägypten sehr beliebt.",
+        "sar": "البامية محبوبة جداً في مصر."
       },
       {
         "id": "gemuese.rotkohl",
@@ -557,8 +557,8 @@
         "ar": "كرنب أحمر",
         "note": "الجمع Rotkohle نادر الاستخدام",
         "pl": "die Rotkohle",
-        "s": "Der Rotkohl passt traditionell zu festlichen Braten.",
-        "sar": "الكرنب الأحمر يناسب تقليدياً أطباق اللحوم المشوية في الأعياد."
+        "s": "Rotkohl isst man oft mit Fleisch.",
+        "sar": "يؤكل الكرنب الأحمر غالباً مع اللحم."
       },
       {
         "id": "gemuese.gruenkohl",
@@ -566,8 +566,8 @@
         "n": "Grünkohl",
         "ar": "كرنب أخضر مجعد",
         "pl": "die Grünkohle",
-        "s": "Grünkohl ist ein beliebtes Wintergericht im Norden.",
-        "sar": "الكرنب الأخضر طبق شتوي محبب في الشمال."
+        "s": "Grünkohl ist ein Wintergemüse aus Norddeutschland.",
+        "sar": "الكرنب الأخضر المجعد خضار شتوي من شمال ألمانيا."
       },
       {
         "id": "gemuese.radieschen",
@@ -576,8 +576,8 @@
         "ar": "فجل أحمر صغير",
         "note": "جمعه نفس الكلمة بلا تغيير (كل الكلمات المصغّرة بـ chen لا تتغير في الجمع)",
         "pl": "die Radieschen",
-        "s": "Das Radieschen bringt eine frische Schärfe in den Salat.",
-        "sar": "الفجل الأحمر يضفي حرارة منعشة على السلطة."
+        "s": "Radieschen sind klein, rot und scharf.",
+        "sar": "الفجل الأحمر الصغير حار."
       },
       {
         "id": "gemuese.spargel",
@@ -586,8 +586,8 @@
         "ar": "هليون",
         "note": "جمعه نفس الكلمة بلا تغيير",
         "pl": "die Spargel",
-        "s": "Im Frühling freuen sich alle auf frischen Spargel.",
-        "sar": "في الربيع يفرح الجميع بالهليون الطازج."
+        "s": "Im Frühling ist Spargel sehr beliebt.",
+        "sar": "في الربيع يكون الهليون محبوباً جداً."
       },
       {
         "id": "gemuese.feldsalat",
@@ -596,8 +596,8 @@
         "ar": "خس الحقل",
         "note": "نوع خس صغير الأوراق طري",
         "pl": "die Feldsalate",
-        "s": "Feldsalat schmeckt hervorragend mit Walnüssen.",
-        "sar": "خس الحقل طعمه ممتاز مع عين الجمل."
+        "s": "Feldsalat ist ein Salat für den Winter.",
+        "sar": "خس الحقل سلطة للشتاء."
       },
       {
         "id": "gemuese.eisbergsalat",
@@ -605,8 +605,8 @@
         "n": "Eisbergsalat",
         "ar": "خس أيسبرغ",
         "pl": "die Eisbergsalate",
-        "s": "Eisbergsalat bleibt im Kühlschrank lange knackig.",
-        "sar": "خس الأيسبرغ يظل مقرمشاً لفترة طويلة في الثلاجة."
+        "s": "Im Burger ist oft Eisbergsalat.",
+        "sar": "في البرجر غالباً خس أيسبرغ."
       },
       {
         "id": "gemuese.kohlrabi",
@@ -614,8 +614,8 @@
         "n": "Kohlrabi",
         "ar": "كرنب سلقي",
         "pl": "die Kohlrabis",
-        "s": "Der Kohlrabi schmeckt roh in Scheiben geschnitten sehr gut.",
-        "sar": "الكرنب السلقي طعمه رائع نيئاً ومقطعاً لشرائح."
+        "s": "Kohlrabi isst man roh oder gekocht.",
+        "sar": "يؤكل الكرنب السلقي نيئاً أو مطبوخاً."
       },
       {
         "id": "gemuese.champignon",
@@ -623,8 +623,8 @@
         "n": "Champignon",
         "ar": "فطر أبيض",
         "pl": "die Champignons",
-        "s": "Ein frischer Champignon passt in die Gemüsepfanne.",
-        "sar": "الفطر الأبيض الطازج يناسب مقلاة الخضار."
+        "s": "Ich brate Champignons in der Pfanne.",
+        "sar": "أقلي الفطر الأبيض في المقلاة."
       },
       {
         "id": "gemuese.kichererbse",
@@ -632,8 +632,8 @@
         "n": "Kichererbse",
         "ar": "حمص",
         "pl": "die Kichererbsen",
-        "s": "Aus Kichererbsen bereitet man feinen Hummus zu.",
-        "sar": "من الحمص يُحضَّر الحمص الناعم الشهي."
+        "s": "Aus Kichererbsen macht man Falafel.",
+        "sar": "يصنعون الفلافل من الحمص."
       },
       {
         "id": "gemuese.rucola",
@@ -642,8 +642,8 @@
         "ar": "جرجير",
         "note": "ليس له جمع؛ يُستخدم دائمًا بصيغة المفرد",
         "pl": null,
-        "s": "Rucola verleiht der Pizza eine nussige Note.",
-        "sar": "الجرجير يمنح البيتزا نكهة جوزية مميزة."
+        "s": "Ich mache Pizza mit Rucola.",
+        "sar": "أصنع بيتزا بالجرجير."
       }
     ]
   },
@@ -775,8 +775,8 @@
         "n": "Hund",
         "ar": "كلب",
         "pl": "die Hunde",
-        "s": "Der treue Hund bewacht das Haus.",
-        "sar": "الكلب الوفي يحرس المنزل."
+        "s": "Der Hund spielt im Garten.",
+        "sar": "الكلب يلعب في الحديقة."
       },
       {
         "id": "tiere.katze",
@@ -784,8 +784,8 @@
         "n": "Katze",
         "ar": "قطة",
         "pl": "die Katzen",
-        "s": "Die Katze schläft gemütlich auf dem Sofa.",
-        "sar": "القطة تنام بهدوء على الأريكة."
+        "s": "Die Katze schläft auf dem Sofa.",
+        "sar": "القطة تنام على الأريكة."
       },
       {
         "id": "tiere.vogel",
@@ -793,8 +793,8 @@
         "n": "Vogel",
         "ar": "عصفور",
         "pl": "die Vögel",
-        "s": "Der Vogel singt ein schönes Lied im Baum.",
-        "sar": "العصفور يغرد بأغنية جميلة على الشجرة."
+        "s": "Der Vogel singt am Morgen.",
+        "sar": "العصفور يغرّد في الصباح."
       },
       {
         "id": "tiere.pferd",
@@ -802,8 +802,8 @@
         "n": "Pferd",
         "ar": "حصان",
         "pl": "die Pferde",
-        "s": "Das braune Pferd galoppiert über die Wiese.",
-        "sar": "الحصان البني يركض سريعاً فوق المرعى."
+        "s": "Das Pferd ist groß und schnell.",
+        "sar": "الحصان كبير وسريع."
       },
       {
         "id": "tiere.kuh",
@@ -811,8 +811,8 @@
         "n": "Kuh",
         "ar": "بقرة",
         "pl": "die Kühe",
-        "s": "Die bunte Kuh gibt jeden Tag frische Milch.",
-        "sar": "البقرة الملونة تعطي حليباً طازجاً كل يوم."
+        "s": "Die Kuh gibt Milch.",
+        "sar": "البقرة تعطي الحليب."
       },
       {
         "id": "tiere.schaf",
@@ -820,8 +820,8 @@
         "n": "Schaf",
         "ar": "خروف",
         "pl": "die Schafe",
-        "s": "Das weiße Schaf grast friedlich auf der Weide.",
-        "sar": "الخروف الأبيض يرعى بسلام في المرعى."
+        "s": "Die Schafe fressen Gras auf der Wiese.",
+        "sar": "الخراف تأكل العشب في المرعى."
       },
       {
         "id": "tiere.ziege",
@@ -829,8 +829,8 @@
         "n": "Ziege",
         "ar": "ماعز",
         "pl": "die Ziegen",
-        "s": "Die Bergziege klettert geschickt auf die Felsen.",
-        "sar": "الماعز الجبلي يتسلق الصخور ببراعة."
+        "s": "Die Ziege gibt auch Milch.",
+        "sar": "الماعز تعطي الحليب أيضاً."
       },
       {
         "id": "tiere.huhn",
@@ -838,8 +838,8 @@
         "n": "Huhn",
         "ar": "دجاجة",
         "pl": "die Hühner",
-        "s": "Das Huhn legt jeden Morgen ein frisches Ei.",
-        "sar": "الدجاجة تضع كل صباح بيضة طازجة."
+        "s": "Das Huhn legt jeden Tag ein Ei.",
+        "sar": "الدجاجة تبيض بيضة كل يوم."
       },
       {
         "id": "tiere.fisch",
@@ -847,8 +847,8 @@
         "n": "Fisch",
         "ar": "سمكة",
         "pl": "die Fische",
-        "s": "Der kleine Fisch schwimmt schnell im klaren Wasser.",
-        "sar": "السمكة الصغيرة تسبح بسرعة في الماء الصافي."
+        "s": "Der Fisch schwimmt im Wasser.",
+        "sar": "السمكة تسبح في الماء."
       },
       {
         "id": "tiere.maus",
@@ -856,8 +856,8 @@
         "n": "Maus",
         "ar": "فأر",
         "pl": "die Mäuse",
-        "s": "Die kleine graue Maus huscht durch die Küche.",
-        "sar": "الفأر الرمادي الصغير يركض مسرعاً عبر المطبخ."
+        "s": "Die Katze jagt die Maus.",
+        "sar": "القطة تطارد الفأر."
       },
       {
         "id": "tiere.loewe",
@@ -865,8 +865,8 @@
         "n": "Löwe",
         "ar": "أسد",
         "pl": "die Löwen",
-        "s": "Der Löwe gilt als der König der Tiere.",
-        "sar": "الأسد يُعتبر ملك الحيوانات."
+        "s": "Der Löwe ist der König der Tiere.",
+        "sar": "الأسد ملك الحيوانات."
       },
       {
         "id": "tiere.elefant",
@@ -874,8 +874,8 @@
         "n": "Elefant",
         "ar": "فيل",
         "pl": "die Elefanten",
-        "s": "Der afrikanische Elefant hat sehr große Ohren.",
-        "sar": "الفيل الأفريقي له أذنان كبيرتان جداً."
+        "s": "Der Elefant ist sehr groß.",
+        "sar": "الفيل كبير جداً."
       },
       {
         "id": "tiere.baer",
@@ -883,8 +883,8 @@
         "n": "Bär",
         "ar": "دب",
         "pl": "die Bären",
-        "s": "Der große braune Bär sucht im Fluss nach Lachs.",
-        "sar": "الدب البني الكبير يبحث عن السلمون في النهر."
+        "s": "Im Winter schläft der Bär lange.",
+        "sar": "في الشتاء ينام الدب طويلاً."
       },
       {
         "id": "tiere.affe",
@@ -892,8 +892,8 @@
         "n": "Affe",
         "ar": "قرد",
         "pl": "die Affen",
-        "s": "Der Affe klettert geschickt von Ast zu Ast.",
-        "sar": "القرد يتسلق ببراعة من غصن إلى غصن."
+        "s": "Der Affe isst eine Banane.",
+        "sar": "القرد يأكل موزة."
       },
       {
         "id": "tiere.schlange",
@@ -901,8 +901,8 @@
         "n": "Schlange",
         "ar": "ثعبان",
         "pl": "die Schlangen",
-        "s": "Die grüne Schlange gleitet leise durch das Gras.",
-        "sar": "الثعبان الأخضر ينساب بهدوء عبر العشب."
+        "s": "Die Schlange hat keine Beine.",
+        "sar": "الثعبان ليس له أرجل."
       },
       {
         "id": "tiere.frosch",
@@ -910,8 +910,8 @@
         "n": "Frosch",
         "ar": "ضفدع",
         "pl": "die Frösche",
-        "s": "Der grüne Frosch springt mit einem Satz in den Teich.",
-        "sar": "الضفدع الأخضر يقفز بقفزة واحدة إلى البركة."
+        "s": "Der Frosch springt ins Wasser.",
+        "sar": "الضفدع يقفز في الماء."
       },
       {
         "id": "tiere.kaninchen",
@@ -919,8 +919,8 @@
         "n": "Kaninchen",
         "ar": "أرنب",
         "pl": "die Kaninchen",
-        "s": "Das weiße Kaninchen hoppelt durch den Garten.",
-        "sar": "الأرنب الأبيض يقفز عبر الحديقة."
+        "s": "Das Kaninchen frisst gern Karotten.",
+        "sar": "الأرنب يحب أكل الجزر."
       },
       {
         "id": "tiere.ente",
@@ -928,8 +928,8 @@
         "n": "Ente",
         "ar": "بطة",
         "pl": "die Enten",
-        "s": "Die Ente schwimmt ruhig auf dem See.",
-        "sar": "البطة تسبح بهدوء على البحيرة."
+        "s": "Die Ente schwimmt auf dem See.",
+        "sar": "البطة تسبح على البحيرة."
       },
       {
         "id": "tiere.spinne",
@@ -937,8 +937,8 @@
         "n": "Spinne",
         "ar": "عنكبوت",
         "pl": "die Spinnen",
-        "s": "Die Spinne webt ein kunstvolles Netz in der Ecke.",
-        "sar": "العنكبوت ينسج شبكة متقنة في الزاوية."
+        "s": "Ich habe Angst vor Spinnen.",
+        "sar": "أخاف من العناكب."
       },
       {
         "id": "tiere.schmetterling",
@@ -946,8 +946,8 @@
         "n": "Schmetterling",
         "ar": "فراشة",
         "pl": "die Schmetterlinge",
-        "s": "Der bunte Schmetterling fliegt von Blüte zu Blüte.",
-        "sar": "الفراشة الملونة تطير من زهرة إلى زهرة."
+        "s": "Der Schmetterling hat bunte Flügel.",
+        "sar": "الفراشة لها أجنحة ملونة."
       },
       {
         "id": "tiere.biene",
@@ -955,8 +955,8 @@
         "n": "Biene",
         "ar": "نحلة",
         "pl": "die Bienen",
-        "s": "Die fleißige Biene sammelt süßen Nektar.",
-        "sar": "النحلة النشيطة تجمع الرحيق الحلو."
+        "s": "Die Bienen machen Honig.",
+        "sar": "النحل يصنع العسل."
       },
       {
         "id": "tiere.fliege",
@@ -964,8 +964,8 @@
         "n": "Fliege",
         "ar": "ذبابة",
         "pl": "die Fliegen",
-        "s": "Die kleine Fliege schwirrt um die Lampe.",
-        "sar": "الذبابة الصغيرة تطن حول المصباح."
+        "s": "Eine Fliege sitzt auf dem Tisch.",
+        "sar": "ذبابة تقف على الطاولة."
       },
       {
         "id": "tiere.wal",
@@ -973,8 +973,8 @@
         "n": "Wal",
         "ar": "حوت",
         "pl": "die Wale",
-        "s": "Der riesige Wal schwimmt tief im Ozean.",
-        "sar": "الحوت الضخم يسبح عميقاً في المحيط."
+        "s": "Der Wal ist das größte Tier.",
+        "sar": "الحوت هو أكبر حيوان."
       },
       {
         "id": "tiere.hai",
@@ -982,8 +982,8 @@
         "n": "Hai",
         "ar": "قرش",
         "pl": "die Haie",
-        "s": "Der hungrige Hai kreist majestätisch im Meer.",
-        "sar": "القرش الجائع يدور بمهابة في البحر."
+        "s": "Haie leben im Meer.",
+        "sar": "أسماك القرش تعيش في البحر."
       },
       {
         "id": "tiere.schildkroete",
@@ -991,8 +991,8 @@
         "n": "Schildkröte",
         "ar": "سلحفاة",
         "pl": "die Schildkröten",
-        "s": "Die langsame Schildkröte trägt ihren Panzer auf dem Rücken.",
-        "sar": "السلحفاة البطيئة تحمل درعها على ظهرها."
+        "s": "Schildkröten werden sehr alt.",
+        "sar": "السلاحف تعيش عمراً طويلاً جداً."
       },
       {
         "id": "tiere.delfin",
@@ -1000,8 +1000,8 @@
         "n": "Delfin",
         "ar": "دلفين",
         "pl": "die Delfine",
-        "s": "Der freundliche Delfin springt hoch aus dem Wasser.",
-        "sar": "الدلفين الودود يقفز عالياً من الماء."
+        "s": "Delfine sind sehr klug.",
+        "sar": "الدلافين ذكية جداً."
       },
       {
         "id": "tiere.tiger",
@@ -1009,8 +1009,8 @@
         "n": "Tiger",
         "ar": "نمر",
         "pl": "die Tiger",
-        "s": "Der sibirische Tiger schleicht lautlos durch den Schnee.",
-        "sar": "النمر السيبيري يتسلل بصمت عبر الثلج."
+        "s": "Der Tiger lebt in Asien.",
+        "sar": "النمر يعيش في آسيا."
       },
       {
         "id": "tiere.giraffe",
@@ -1018,8 +1018,8 @@
         "n": "Giraffe",
         "ar": "زرافة",
         "pl": "die Giraffen",
-        "s": "Die Giraffe hat einen auffallend langen Hals.",
-        "sar": "الزرافة لها رقبة طويلة لافتة."
+        "s": "Die Giraffe hat einen langen Hals.",
+        "sar": "الزرافة لها رقبة طويلة."
       },
       {
         "id": "tiere.kamel",
@@ -1027,8 +1027,8 @@
         "n": "Kamel",
         "ar": "جمل",
         "pl": "die Kamele",
-        "s": "Das ausdauernde Kamel wandert durch die heiße Wüste.",
-        "sar": "الجمل الصبور يسير عبر الصحراء الحارة."
+        "s": "Ein Kamel kann lange ohne Wasser leben.",
+        "sar": "يستطيع الجمل أن يعيش طويلاً بدون ماء."
       },
       {
         "id": "tiere.wolf",
@@ -1036,8 +1036,8 @@
         "n": "Wolf",
         "ar": "ذئب",
         "pl": "die Wölfe",
-        "s": "Der scheue Wolf heult nachts den Vollmond an.",
-        "sar": "الذئب الخجول يعوي ليلاً نحو البدر."
+        "s": "Der Wolf heult nachts im Wald.",
+        "sar": "الذئب يعوي ليلاً في الغابة."
       },
       {
         "id": "tiere.fuchs",
@@ -1045,8 +1045,8 @@
         "n": "Fuchs",
         "ar": "ثعلب",
         "pl": "die Füchse",
-        "s": "Der schlaue Fuchs stiehlt sich leise heran.",
-        "sar": "الثعلب الماكر يتسلل مقترباً بهدوء."
+        "s": "Der Fuchs ist schlau.",
+        "sar": "الثعلب ماكر."
       },
       {
         "id": "tiere.hase",
@@ -1054,8 +1054,8 @@
         "n": "Hase",
         "ar": "أرنب بري",
         "pl": "die Hasen",
-        "s": "Der flinke Hase flieht schnell über das offene Feld.",
-        "sar": "الأرنب البري الرشيق يهرب بسرعة عبر الحقل المفتوح."
+        "s": "Der Hase läuft sehr schnell.",
+        "sar": "الأرنب البري يركض بسرعة كبيرة."
       },
       {
         "id": "tiere.eule",
@@ -1063,8 +1063,8 @@
         "n": "Eule",
         "ar": "بومة",
         "pl": "die Eulen",
-        "s": "Die kluge Eule jagt geräuschlos in der Nacht.",
-        "sar": "البومة الذكية تصيد بلا صوت في الليل."
+        "s": "Die Eule sieht nachts sehr gut.",
+        "sar": "البومة ترى جيداً في الليل."
       },
       {
         "id": "tiere.pinguin",
@@ -1072,8 +1072,8 @@
         "n": "Pinguin",
         "ar": "بطريق",
         "pl": "die Pinguine",
-        "s": "Der drollige Pinguin watschelt über das kalte Eis.",
-        "sar": "البطريق الظريف يتهادى في مشيته فوق الجليد البارد."
+        "s": "Pinguine können nicht fliegen.",
+        "sar": "البطاريق لا تستطيع الطيران."
       },
       {
         "id": "tiere.krokodil",
@@ -1081,8 +1081,8 @@
         "n": "Krokodil",
         "ar": "تمساح",
         "pl": "die Krokodile",
-        "s": "Das gefährliche Krokodil lauert regungslos am Flussufer.",
-        "sar": "التمساح الخطير يتربص ساكناً عند ضفة النهر."
+        "s": "Das Krokodil lebt im Nil.",
+        "sar": "التمساح يعيش في النيل."
       },
       {
         "id": "tiere.zebra",
@@ -1090,8 +1090,8 @@
         "n": "Zebra",
         "ar": "حمار وحشي",
         "pl": "die Zebras",
-        "s": "Das gestreifte Zebra grast in der afrikanischen Steppe.",
-        "sar": "الحمار الوحشي المخطط يرعى في السافانا الأفريقية."
+        "s": "Das Zebra hat schwarze und weiße Streifen.",
+        "sar": "الحمار الوحشي له خطوط سوداء وبيضاء."
       },
       {
         "id": "tiere.gorilla",
@@ -1099,8 +1099,8 @@
         "n": "Gorilla",
         "ar": "غوريلا",
         "pl": "die Gorillas",
-        "s": "Der mächtige Gorilla lebt geschützt im dichten Regenwald.",
-        "sar": "الغوريلا القوية تعيش محمية في الغابة المطيرة الكثيفة."
+        "s": "Der Gorilla ist stark, aber friedlich.",
+        "sar": "الغوريلا قوية لكنها مسالمة."
       },
       {
         "id": "tiere.nashorn",
@@ -1108,8 +1108,8 @@
         "n": "Nashorn",
         "ar": "وحيد القرن",
         "pl": "die Nashörner",
-        "s": "Das schwere Nashorn besitzt ein spitzes Horn.",
-        "sar": "وحيد القرن الثقيل يملك قرناً حاداً."
+        "s": "Das Nashorn hat ein Horn auf der Nase.",
+        "sar": "وحيد القرن له قرن على أنفه."
       },
       {
         "id": "tiere.nilpferd",
@@ -1117,8 +1117,8 @@
         "n": "Nilpferd",
         "ar": "فرس النهر",
         "pl": "die Nilpferde",
-        "s": "Das dicke Nilpferd taucht tagsüber im Fluss ab.",
-        "sar": "فرس النهر الضخم يغطس نهاراً في مياه النهر."
+        "s": "Das Nilpferd verbringt den Tag im Wasser.",
+        "sar": "فرس النهر يقضي النهار في الماء."
       },
       {
         "id": "tiere.kaenguru",
@@ -1126,8 +1126,8 @@
         "n": "Känguru",
         "ar": "كنغر",
         "pl": "die Kängurus",
-        "s": "Das australische Känguru hüpft mit weiten Sprüngen vorwärts.",
-        "sar": "الكنغر الأسترالي يقفز للأمام بقفزات واسعة."
+        "s": "Das Känguru kommt aus Australien.",
+        "sar": "الكنغر يأتي من أستراليا."
       },
       {
         "id": "tiere.koala",
@@ -1135,8 +1135,8 @@
         "n": "Koala",
         "ar": "كوالا",
         "pl": "die Koalas",
-        "s": "Der niedliche Koala schläft friedlich auf dem Eukalyptusbaum.",
-        "sar": "الكوالا اللطيف ينام بسلام على شجرة الكافور."
+        "s": "Der Koala schläft fast den ganzen Tag.",
+        "sar": "الكوالا ينام تقريباً طوال اليوم."
       },
       {
         "id": "tiere.eichhoernchen",
@@ -1144,8 +1144,8 @@
         "n": "Eichhörnchen",
         "ar": "سنجاب",
         "pl": "die Eichhörnchen",
-        "s": "Das flinke Eichhörnchen versteckt fleißig Nüsse für den Winter.",
-        "sar": "السنجاب السريع يخبئ بنشاط حبات الجوز للشتاء."
+        "s": "Das Eichhörnchen sammelt Nüsse für den Winter.",
+        "sar": "السنجاب يجمع المكسرات للشتاء."
       },
       {
         "id": "tiere.igel",
@@ -1153,8 +1153,8 @@
         "n": "Igel",
         "ar": "قنفذ",
         "pl": "die Igel",
-        "s": "Bei Gefahr rollt sich der Igel zu einer stachligen Kugel zusammen.",
-        "sar": "عند الخطر يلتف القنفذ ليصبح كرة شائكة."
+        "s": "Der Igel schläft im Winter unter Blättern.",
+        "sar": "القنفذ ينام في الشتاء تحت الأوراق."
       },
       {
         "id": "tiere.reh",
@@ -1162,8 +1162,8 @@
         "n": "Reh",
         "ar": "غزال صغير",
         "pl": "die Rehe",
-        "s": "Das scheue Reh steht am friedlichen Waldrand.",
-        "sar": "الغزال الخجول يقف عند حافة الغابة الهادئة."
+        "s": "Das Reh steht im Wald.",
+        "sar": "الغزال الصغير يقف في الغابة."
       },
       {
         "id": "tiere.hirsch",
@@ -1171,8 +1171,8 @@
         "n": "Hirsch",
         "ar": "أيل",
         "pl": "die Hirsche",
-        "s": "Der stolze Hirsch trägt ein großes Geweih.",
-        "sar": "الأيل المهيب يحمل قروناً متشعبة كبيرة."
+        "s": "Der Hirsch hat ein großes Geweih.",
+        "sar": "الأيل له قرون كبيرة."
       },
       {
         "id": "tiere.ratte",
@@ -1180,8 +1180,8 @@
         "n": "Ratte",
         "ar": "جرذ",
         "pl": "die Ratten",
-        "s": "Die Ratte ist ein erstaunlich intelligentes Nagetier.",
-        "sar": "الجرذ قارض ذكي بصورة مدهشة."
+        "s": "Die Ratte ist größer als die Maus.",
+        "sar": "الجرذ أكبر من الفأر."
       },
       {
         "id": "tiere.papagei",
@@ -1189,8 +1189,8 @@
         "n": "Papagei",
         "ar": "ببغاء",
         "pl": "die Papageien",
-        "s": "Der bunte Papagei kann einzelne Wörter nachsprechen.",
-        "sar": "الببغاء الملون يمكنه ترديد بعض الكلمات المفردة."
+        "s": "Der Papagei kann sprechen.",
+        "sar": "الببغاء يستطيع الكلام."
       },
       {
         "id": "tiere.storch",
@@ -1198,8 +1198,8 @@
         "n": "Storch",
         "ar": "لقلق",
         "pl": "die Störche",
-        "s": "Der weiße Storch baut sein Nest hoch auf dem Dach.",
-        "sar": "اللقلق الأبيض يبني عشه عالياً على السطح."
+        "s": "Der Storch baut sein Nest auf dem Dach.",
+        "sar": "اللقلق يبني عشه على السطح."
       },
       {
         "id": "tiere.adler",
@@ -1207,8 +1207,8 @@
         "n": "Adler",
         "ar": "نسر",
         "pl": "die Adler",
-        "s": "Der stolze Adler kreist hoch oben in den Lüften.",
-        "sar": "النسر المهيب يحلق عالياً في السماء."
+        "s": "Der Adler fliegt sehr hoch.",
+        "sar": "النسر يطير عالياً جداً."
       },
       {
         "id": "tiere.taube",
@@ -1216,8 +1216,8 @@
         "n": "Taube",
         "ar": "حمامة",
         "pl": "die Tauben",
-        "s": "Die weiße Taube gilt weltweit als Symbol des Friedens.",
-        "sar": "الحمامة البيضاء تُعتبر في كل العالم رمزاً للسلام."
+        "s": "Auf dem Platz sitzen viele Tauben.",
+        "sar": "على الساحة تجلس حمامات كثيرة."
       }
     ]
   },
@@ -2211,8 +2211,8 @@
         "n": "Hemd",
         "ar": "قميص",
         "pl": "die Hemden",
-        "s": "Zum Vorstellungsgespräch bügelt er ein weißes Hemd.",
-        "sar": "لمقابلة العمل يكوي قميصاً أبيض."
+        "s": "Das Hemd ist weiß.",
+        "sar": "القميص أبيض."
       },
       {
         "id": "kleidung.hose",
@@ -2220,8 +2220,8 @@
         "n": "Hose",
         "ar": "بنطلون",
         "pl": "die Hosen",
-        "s": "Die blaue Hose passt perfekt zu seinen braunen Schuhen.",
-        "sar": "البنطال الأزرق يناسب تماماً حذاءه البني."
+        "s": "Ich trage eine blaue Hose.",
+        "sar": "أرتدي بنطلوناً أزرق."
       },
       {
         "id": "kleidung.kleid",
@@ -2229,8 +2229,8 @@
         "n": "Kleid",
         "ar": "فستان",
         "pl": "die Kleider",
-        "s": "Sie trägt zur Hochzeitsfeier ein elegantes Kleid.",
-        "sar": "هي ترتدي في حفل الزفاف فستاناً أنيقاً."
+        "s": "Das Kleid ist sehr schön.",
+        "sar": "الفستان جميل جداً."
       },
       {
         "id": "kleidung.rock",
@@ -2238,8 +2238,8 @@
         "n": "Rock",
         "ar": "تنورة",
         "pl": "die Röcke",
-        "s": "Der Rock schwingt beim Tanzen im Takt der Musik.",
-        "sar": "التنورة تتأرجح أثناء الرقص على إيقاع الموسيقى."
+        "s": "Der Rock ist kurz.",
+        "sar": "التنورة قصيرة."
       },
       {
         "id": "kleidung.jacke",
@@ -2247,8 +2247,8 @@
         "n": "Jacke",
         "ar": "جاكيت",
         "pl": "die Jacken",
-        "s": "Bei kaltem Wind zieht er eine warme Jacke an.",
-        "sar": "عند هبوب رياح باردة يرتدي سترة دافئة."
+        "s": "Ich ziehe meine Jacke an.",
+        "sar": "أرتدي جاكيتي."
       },
       {
         "id": "kleidung.mantel",
@@ -2256,8 +2256,8 @@
         "n": "Mantel",
         "ar": "معطف",
         "pl": "die Mäntel",
-        "s": "Im tiefen Winter braucht man einen dicken Mantel.",
-        "sar": "في ذروة الشتاء يحتاج المرء إلى معطف ثقيل."
+        "s": "Im Winter trage ich einen Mantel.",
+        "sar": "في الشتاء أرتدي معطفاً."
       },
       {
         "id": "kleidung.schuh",
@@ -2265,8 +2265,8 @@
         "n": "Schuh",
         "ar": "حذاء",
         "pl": "die Schuhe",
-        "s": "Er putzt jeden Samstag seine ledernen Schuhe.",
-        "sar": "هو ينظف كل سبت حذاءه الجلدي."
+        "s": "Ich brauche neue Schuhe.",
+        "sar": "أحتاج إلى أحذية جديدة."
       },
       {
         "id": "kleidung.socke",
@@ -2274,8 +2274,8 @@
         "n": "Socke",
         "ar": "جورب",
         "pl": "die Socken",
-        "s": "In den neuen Schuhen trägt er eine warme Socke.",
-        "sar": "في الحذاء الجديد يرتدي جورباً دافئاً."
+        "s": "Wo ist die zweite Socke?",
+        "sar": "أين الجورب الثاني؟"
       },
       {
         "id": "kleidung.hut",
@@ -2283,8 +2283,8 @@
         "n": "Hut",
         "ar": "قبعة",
         "pl": "die Hüte",
-        "s": "Ein eleganter Hut schützt vor der starken Sonne.",
-        "sar": "قبعة أنيقة تحمي من حرارة الشمس القوية."
+        "s": "Der Hut schützt vor der Sonne.",
+        "sar": "القبعة تحمي من الشمس."
       },
       {
         "id": "kleidung.muetze",
@@ -2292,8 +2292,8 @@
         "n": "Mütze",
         "ar": "قبعة صغيرة (طاقية)",
         "pl": "die Mützen",
-        "s": "Die gestrickte Mütze wärmt den Kopf im Schnee.",
-        "sar": "الطاقية الصوفية تدفئ الرأس وسط الثلوج."
+        "s": "Meine Mütze ist warm und weich.",
+        "sar": "طاقيتي دافئة وناعمة."
       },
       {
         "id": "kleidung.schal",
@@ -2302,8 +2302,8 @@
         "ar": "وشاح",
         "note": "الجمع الأشيع Schals، ويقبل أيضًا Schale رسميًا حسب Duden",
         "pl": "die Schals",
-        "s": "Er wickelt sich einen weichen Schal um den Hals.",
-        "sar": "هو يلف وشاحاً ناعماً حول عنقه."
+        "s": "Der Schal hält den Hals warm.",
+        "sar": "الوشاح يبقي الرقبة دافئة."
       },
       {
         "id": "kleidung.krawatte",
@@ -2311,8 +2311,8 @@
         "n": "Krawatte",
         "ar": "ربطة عنق",
         "pl": "die Krawatten",
-        "s": "Zum schicken Anzug bindet er eine seidige Krawatte.",
-        "sar": "مع البدلة الأنيقة يربط ربطة عنق حريرية."
+        "s": "Er trägt eine rote Krawatte.",
+        "sar": "هو يرتدي ربطة عنق حمراء."
       },
       {
         "id": "kleidung.anzug",
@@ -2320,8 +2320,8 @@
         "n": "Anzug",
         "ar": "بدلة",
         "pl": "die Anzüge",
-        "s": "Der Bräutigam wählt für die Hochzeit einen edlen Anzug.",
-        "sar": "العريس يختار لحفل الزفاف بدلة فاخرة."
+        "s": "Mein Vater trägt einen dunklen Anzug.",
+        "sar": "والدي يرتدي بدلة داكنة."
       },
       {
         "id": "kleidung.pullover",
@@ -2329,8 +2329,8 @@
         "n": "Pullover",
         "ar": "كنزة",
         "pl": "die Pullover",
-        "s": "Der kuschelige Pullover aus Wolle hält ihn warm.",
-        "sar": "الكنزة الصوفية المريحة تبقيه دافئاً."
+        "s": "Mir ist kalt, ich brauche einen Pullover.",
+        "sar": "أشعر بالبرد، أحتاج إلى كنزة."
       },
       {
         "id": "kleidung.pyjama",
@@ -2338,8 +2338,8 @@
         "n": "Pyjama",
         "ar": "بيجاما",
         "pl": "die Pyjamas",
-        "s": "Vor dem Schlafengehen zieht er einen bequemen Pyjama an.",
-        "sar": "قبل النوم يرتدي بيجاما مريحة."
+        "s": "Ich schlafe im Pyjama.",
+        "sar": "أنام بالبيجاما."
       },
       {
         "id": "kleidung.guertel",
@@ -2347,8 +2347,8 @@
         "n": "Gürtel",
         "ar": "حزام",
         "pl": "die Gürtel",
-        "s": "Der lederne Gürtel hält die Hose sicher am Platz.",
-        "sar": "الحزام الجلدي يحكم البنطال في مكانه."
+        "s": "Die Hose braucht einen Gürtel.",
+        "sar": "البنطلون يحتاج إلى حزام."
       },
       {
         "id": "kleidung.sonnenbrille",
@@ -2356,8 +2356,8 @@
         "n": "Sonnenbrille",
         "ar": "نظارة شمسية",
         "pl": "die Sonnenbrillen",
-        "s": "Am sonnigen Strand setzt sie ihre dunkle Sonnenbrille auf.",
-        "sar": "على الشاطئ المشمس ترتدي نظارتها الشمسية الداكنة."
+        "s": "Die Sonnenbrille liegt auf dem Tisch.",
+        "sar": "النظارة الشمسية على الطاولة."
       },
       {
         "id": "kleidung.ring",
@@ -2365,8 +2365,8 @@
         "n": "Ring",
         "ar": "خاتم",
         "pl": "die Ringe",
-        "s": "Er schenkt ihr zum Jahrestag einen funkelnden Ring.",
-        "sar": "هو يهديها في ذكرى زواجهما خاتماً براقاً."
+        "s": "Sie trägt einen goldenen Ring.",
+        "sar": "هي ترتدي خاتماً ذهبياً."
       },
       {
         "id": "kleidung.kette",
@@ -2374,8 +2374,8 @@
         "n": "Kette",
         "ar": "عقد/سلسلة",
         "pl": "die Ketten",
-        "s": "Sie trägt eine feine goldene Kette um den Hals.",
-        "sar": "هي تضع سلسلة ذهبية ناعمة حول عنقها."
+        "s": "Die Kette ist ein Geschenk.",
+        "sar": "العقد هدية."
       },
       {
         "id": "kleidung.uhr",
@@ -2383,8 +2383,8 @@
         "n": "Uhr",
         "ar": "ساعة",
         "pl": "die Uhren",
-        "s": "Seine moderne Uhr zeigt präzise die genaue Zeit an.",
-        "sar": "ساعته الحديثة تُظهر الوقت الدقيق بكل ضبط."
+        "s": "Meine Uhr zeigt halb acht.",
+        "sar": "ساعتي تشير إلى السابعة والنصف."
       },
       {
         "id": "kleidung.handschuh",
@@ -2392,8 +2392,8 @@
         "n": "Handschuh",
         "ar": "قفاز",
         "pl": "die Handschuhe",
-        "s": "Gegen die Kälte zieht er dicke Handschuhe an.",
-        "sar": "ضد البرد يرتدي قفازين سميكين."
+        "s": "Meine Handschuhe sind aus Wolle.",
+        "sar": "قفازاتي من الصوف."
       },
       {
         "id": "kleidung.regenmantel",
@@ -2401,8 +2401,8 @@
         "n": "Regenmantel",
         "ar": "معطف مطر",
         "pl": "die Regenmäntel",
-        "s": "Bei starkem Regenwetter schützt ein dichter Regenmantel.",
-        "sar": "في طقس المطر الشديد يحمي معطف المطر العازل."
+        "s": "Bei Regen trage ich einen Regenmantel.",
+        "sar": "عند المطر أرتدي معطف مطر."
       },
       {
         "id": "kleidung.stiefel",
@@ -2410,8 +2410,8 @@
         "n": "Stiefel",
         "ar": "حذاء طويل",
         "pl": "die Stiefel",
-        "s": "Im matschigen Wald trägt der Wanderer feste Stiefel.",
-        "sar": "في الغابة الموحلة يرتدي المتجول حذاءً طويلاً متيناً."
+        "s": "Im Schnee trage ich Stiefel.",
+        "sar": "في الثلج أرتدي حذاءً طويلاً."
       },
       {
         "id": "kleidung.sandale",
@@ -2419,8 +2419,8 @@
         "n": "Sandale",
         "ar": "صندل",
         "pl": "die Sandalen",
-        "s": "Im heißen Sommerurlaub läuft man gern in einer Sandale.",
-        "sar": "في عطلة الصيف الحارة يحب المرء المشي بالصندل."
+        "s": "Im Sommer trage ich gern Sandalen.",
+        "sar": "في الصيف أحب ارتداء الصنادل."
       },
       {
         "id": "kleidung.badeanzug",
@@ -2428,8 +2428,8 @@
         "n": "Badeanzug",
         "ar": "ثوب سباحة (مايوه)",
         "pl": "die Badeanzüge",
-        "s": "Zum Schwimmen im Hallenbad zieht sie ihren Badeanzug an.",
-        "sar": "للسباحة في المسبح الداخلي ترتدي مايوه السباحة الخاص بها."
+        "s": "Ich nehme meinen Badeanzug ins Schwimmbad mit.",
+        "sar": "آخذ ثوب السباحة معي إلى المسبح."
       },
       {
         "id": "kleidung.unterhemd",
@@ -2437,8 +2437,8 @@
         "n": "Unterhemd",
         "ar": "قميص داخلي (فانلة داخلية)",
         "pl": "die Unterhemden",
-        "s": "Unter dem Hemd trägt er ein weißes Unterhemd aus Baumwolle.",
-        "sar": "تحت القميص يرتدي فانلة داخلية بيضاء من القطن."
+        "s": "Das Unterhemd ist aus Baumwolle.",
+        "sar": "القميص الداخلي من القطن."
       },
       {
         "id": "kleidung.unterhose",
@@ -2446,8 +2446,8 @@
         "n": "Unterhose",
         "ar": "لباس داخلي",
         "pl": "die Unterhosen",
-        "s": "Er zieht sich eine bequeme Unterhose aus reiner Baumwolle an.",
-        "sar": "هو يرتدي لباساً داخلياً مريحاً من القطن الصافي."
+        "s": "Ich wechsle jeden Tag die Unterhose.",
+        "sar": "أغيّر لباسي الداخلي كل يوم."
       },
       {
         "id": "kleidung.strumpfhose",
@@ -2456,8 +2456,8 @@
         "ar": "جوارب نسائية طويلة (كولون)",
         "note": "جورب طويل يغطي الساق كاملة حتى الخصر",
         "pl": "die Strumpfhosen",
-        "s": "Zum kurzen Kleid trägt sie eine blickdichte Strumpfhose.",
-        "sar": "مع الفستان القصير ترتدي كولوناً غير شفاف."
+        "s": "Unter dem Rock trägt sie eine Strumpfhose.",
+        "sar": "تحت التنورة ترتدي جوارب نسائية طويلة."
       },
       {
         "id": "kleidung.t-shirt",
@@ -2465,8 +2465,8 @@
         "n": "T-Shirt",
         "ar": "تي شيرت",
         "pl": "die T-Shirts",
-        "s": "Im Freizeitpark reicht heute ein lockeres T-Shirt völlig aus.",
-        "sar": "في مدينة الألعاب يكفي اليوم تماماً ارتداء تي شيرت مريح."
+        "s": "Ich trage ein weißes T-Shirt.",
+        "sar": "أرتدي تي شيرت أبيض."
       },
       {
         "id": "kleidung.weste",
@@ -2474,8 +2474,8 @@
         "n": "Weste",
         "ar": "سترة بلا أكمام (صديري)",
         "pl": "die Westen",
-        "s": "Über dem Hemd trägt der Kellner eine elegante Weste.",
-        "sar": "فوق القميص يرتدي النادل صديرياً أنيقاً."
+        "s": "Die Weste hat vier Taschen.",
+        "sar": "السترة بلا أكمام لها أربعة جيوب."
       },
       {
         "id": "kleidung.trainingsanzug",
@@ -2483,8 +2483,8 @@
         "n": "Trainingsanzug",
         "ar": "بدلة رياضية",
         "pl": "die Trainingsanzüge",
-        "s": "Zum morgendlichen Joggen zieht er einen Trainingsanzug an.",
-        "sar": "للركض الصباحي يرتدي بدلة رياضية."
+        "s": "Zum Sport ziehe ich einen Trainingsanzug an.",
+        "sar": "للرياضة أرتدي بدلة رياضية."
       },
       {
         "id": "kleidung.shorts",
@@ -2492,8 +2492,8 @@
         "n": "Shorts",
         "ar": "شورت",
         "pl": null,
-        "s": "Bei dreißig Grad Hitze sind kurze Shorts sehr angenehm.",
-        "sar": "عند درجة حرارة ثلاثين درجة تكون الشورتات القصيرة مريحة جداً."
+        "s": "Shorts sind kurz und bequem.",
+        "sar": "الشورت قصير ومريح."
       },
       {
         "id": "kleidung.sakko",
@@ -2502,8 +2502,8 @@
         "ar": "جاكيت رسمي",
         "note": "جاكيت رسمي للرجال؛ في ألمانيا يُقال der Sakko، وفي النمسا das Sakko (كلاهما صحيح رسميًا)",
         "pl": "die Sakkos",
-        "s": "Er trägt im Büro ein sportliches Sakko zur Jeans.",
-        "sar": "هو يرتدي في المكتب سترة رسمية سبور مع الجينز."
+        "s": "Das Sakko hängt im Schrank.",
+        "sar": "الجاكيت الرسمي معلّق في الخزانة."
       },
       {
         "id": "kleidung.bluse",
@@ -2511,8 +2511,8 @@
         "n": "Bluse",
         "ar": "بلوزة",
         "pl": "die Blusen",
-        "s": "Sie kombiniert die seidene Bluse mit einem eleganten Rock.",
-        "sar": "هي تنسق البلوزة الحريرية مع تنورة أنيقة."
+        "s": "Die Bluse ist aus Seide.",
+        "sar": "البلوزة من الحرير."
       },
       {
         "id": "kleidung.abendkleid",
@@ -2520,8 +2520,8 @@
         "n": "Abendkleid",
         "ar": "فستان سهرة",
         "pl": "die Abendkleider",
-        "s": "Zur feierlichen Opernpremiere wählt sie ein langes Abendkleid.",
-        "sar": "لافتتاحية الأوبرا الاحتفالية تختار فستان سهرة طويلاً."
+        "s": "Für die Hochzeit kauft sie ein Abendkleid.",
+        "sar": "من أجل الزفاف تشتري فستان سهرة."
       },
       {
         "id": "kleidung.kopftuch",
@@ -2529,8 +2529,8 @@
         "n": "Kopftuch",
         "ar": "غطاء رأس",
         "pl": "die Kopftücher",
-        "s": "Sie bindet sich ein gemustertes Kopftuch um das Haar.",
-        "sar": "هي تلف غطاء رأس منقوشاً حول شعرها."
+        "s": "Meine Mutter trägt ein Kopftuch.",
+        "sar": "أمي ترتدي غطاء رأس."
       },
       {
         "id": "kleidung.armband",
@@ -2538,8 +2538,8 @@
         "n": "Armband",
         "ar": "سوار",
         "pl": "die Armbänder",
-        "s": "Um das Handgelenk funkelt ein silbernes Armband.",
-        "sar": "حول المعصم يتلألأ سوار فضي."
+        "s": "Das Armband passt zu meiner Uhr.",
+        "sar": "السوار يناسب ساعتي."
       },
       {
         "id": "kleidung.ohrring",
@@ -2547,8 +2547,8 @@
         "n": "Ohrring",
         "ar": "قرط",
         "pl": "die Ohrringe",
-        "s": "Ein kleiner funkelnder Ohrring ziert ihr rechtes Ohr.",
-        "sar": "قرط صغير براق يزين أذنها اليمنى."
+        "s": "Ich habe einen Ohrring verloren.",
+        "sar": "فقدت قرطاً."
       },
       {
         "id": "kleidung.handtasche",
@@ -2556,8 +2556,8 @@
         "n": "Handtasche",
         "ar": "حقيبة يد",
         "pl": "die Handtaschen",
-        "s": "In ihrer ledernen Handtasche trägt sie Schlüssel und Handy.",
-        "sar": "في حقيبة يدها الجلدية تحمل المفاتيح والموبايل."
+        "s": "Ihre Handtasche ist sehr teuer.",
+        "sar": "حقيبة يدها غالية جداً."
       },
       {
         "id": "kleidung.portemonnaie",
@@ -2565,8 +2565,8 @@
         "n": "Portemonnaie",
         "ar": "محفظة نقود",
         "pl": "die Portemonnaies",
-        "s": "Er holt das Portemonnaie heraus, um die Rechnung zu bezahlen.",
-        "sar": "هو يُخرج محفظة النقود ليدفع الفاتورة."
+        "s": "Mein Portemonnaie ist leer.",
+        "sar": "محفظتي فارغة."
       },
       {
         "id": "kleidung.reissverschluss",
@@ -2574,8 +2574,8 @@
         "n": "Reißverschluss",
         "ar": "سحاب",
         "pl": "die Reißverschlüsse",
-        "s": "Der Reißverschluss der Winterjacke lässt sich leicht schließen.",
-        "sar": "سحاب سترة الشتاء يُغلق بسهولة."
+        "s": "Der Reißverschluss an der Jacke ist kaputt.",
+        "sar": "سحاب الجاكيت مكسور."
       },
       {
         "id": "kleidung.knopf",
@@ -2583,8 +2583,8 @@
         "n": "Knopf",
         "ar": "زر",
         "pl": "die Knöpfe",
-        "s": "An seinem Hemd fehlt der oberste kleine Knopf.",
-        "sar": "قميصه ينقصه الزر العلوي الصغير."
+        "s": "Am Hemd fehlt ein Knopf.",
+        "sar": "القميص ينقصه زر."
       },
       {
         "id": "kleidung.stoff",
@@ -2592,8 +2592,8 @@
         "n": "Stoff",
         "ar": "قماش",
         "pl": "die Stoffe",
-        "s": "Dieser feine Stoff fühlt sich auf der Haut besonders weich an.",
-        "sar": "هذا القماش الفاخر ملمسه ناعم جداً على الجلد."
+        "s": "Der Stoff fühlt sich weich an.",
+        "sar": "القماش ملمسه ناعم."
       }
     ]
   },

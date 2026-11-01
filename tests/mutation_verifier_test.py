@@ -131,20 +131,20 @@ run_mutation_test("Added_hyphen", original_html.replace("n:'U-Bahn'", "n:'U--Bah
 run_mutation_test("Trailing_space", original_html.replace("n:'Apfel'", "n:'Apfel '", 1), "mismatch")
 
 # 8. Sentence change
-run_mutation_test("Sentence_edit", original_html.replace("s:'Der Apfel schmeckt süß und frisch.'", "s:'Der Apfel ist rot.'", 1), "mismatch")
+run_mutation_test("Sentence_edit", original_html.replace("s:'Ich esse jeden Tag einen Apfel.'", "s:'Der Apfel ist rot.'", 1), "mismatch")
 
 # 9. Plural change
 run_mutation_test("Plural_edit", original_html.replace("pl:'die Äpfel'", "pl:'die Apfeln'", 1), "mismatch")
 
 # 10. Word deletion
-run_mutation_test("Word_deletion", original_html.replace("{id:'obst.apfel',a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Der Apfel schmeckt süß und frisch.',sar:'التفاحة طعمها حلو وطازج.'},", "", 1), "word count mismatch")
+run_mutation_test("Word_deletion", original_html.replace("{id:'obst.apfel',a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Ich esse jeden Tag einen Apfel.',sar:'آكل تفاحة كل يوم.'},", "", 1), "word count mismatch")
 
 # 11. Word addition
 run_mutation_test("Word_addition", original_html.replace("{id:'obst.apfel',a:'der',n:'Apfel'", "{id:'obst.apfel-neu',a:'der',n:'Apfel_neu',ar:'تفاحة جديدة',pl:'die Äpfel',s:'s',sar:'s'},{id:'obst.apfel',a:'der',n:'Apfel'", 1), "word count mismatch")
 
 # 12. Category reordering
-w1 = "{id:'obst.apfel',a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Der Apfel schmeckt süß und frisch.',sar:'التفاحة طعمها حلو وطازج.'}"
-w2 = "{id:'obst.banane',a:'die',n:'Banane',ar:'موزة',pl:'die Bananen',s:'Die Banane ist gelb und reif.',sar:'الموزة صفراء وناضجة.'}"
+w1 = "{id:'obst.apfel',a:'der',n:'Apfel',ar:'تفاحة',pl:'die Äpfel',s:'Ich esse jeden Tag einen Apfel.',sar:'آكل تفاحة كل يوم.'}"
+w2 = "{id:'obst.banane',a:'die',n:'Banane',ar:'موزة',pl:'die Bananen',s:'Die Banane ist gelb.',sar:'الموزة صفراء.'}"
 run_mutation_test("Word_reordering", original_html.replace(f"{w1},\n    {w2}", f"{w2},\n    {w1}", 1), "mismatch")
 
 # --- WORD ID INTEGRITY MUTATION TESTS ---

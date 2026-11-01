@@ -105,3 +105,10 @@
 - **Target Item IDs:** getraenke.*,fleisch.*,milch.*,gewuerze.*,getreide.*,kueche.*,suessigkeiten.*
 - **Previous SHA-256:** `edaeb00dd7f83b4e0360a980bfc32c57bf2c5603f4962446a1becf732f1fe8ac`
 - **New SHA-256:** `677954c564d622bbaa1d188f9f71b674a889187c4f523774435bf9adb2c92f69`
+
+## [2026-11-01 22:34:20] Authorized Baseline Update
+- **Reason:** Hand-written example sentences pilot 4: obst, gemuese, tiere, kleidung (161 words)
+- **Source:** Owner-approved review of tools/vocab_changes_sentences_pilot4.json
+- **Target Item IDs:** obst.*,gemuese.*,tiere.*,kleidung.*
+- **Previous SHA-256:** `677954c564d622bbaa1d188f9f71b674a889187c4f523774435bf9adb2c92f69`
+- **New SHA-256:** `ed269c3e53f2df595e8ab81a656d535debf66b223535ce9490c9ea8e8338c5b7`
