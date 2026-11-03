@@ -616,10 +616,12 @@ describe('Task 4: Run Scoring & Progress Tracking', () => {
     ctx = createTestContext();
   });
 
-  it('increments conj counter by 1 and updates daily goal ONLY once when all 4 stages are correct', () => {
+  it('increments conj counter by 1 and updates daily goal ONLY once when all 4 stages are correct and word reaches threshold', () => {
     const catId = 'verben';
     const wordIdx = 0; // gehen
 
+    // Preset count to THRESH.conj - 1 (4) so reaching threshold 5 credits daily goal mastery
+    ctx.setWordCount(catId, 'conj', wordIdx, 4);
     const initialConjCount = ctx.getWordCount(catId, 'conj', wordIdx);
     const initialTodayCount = ctx.getTodayCount();
 
@@ -656,6 +658,8 @@ describe('Task 4: Run Scoring & Progress Tracking', () => {
     const catId = 'verben';
     const wordIdx = 0; // gehen
 
+    // Preset count to THRESH.conj - 1 (4) so reaching threshold 5 credits daily goal mastery
+    ctx.setWordCount(catId, 'conj', wordIdx, 4);
     const initialCount = ctx.getWordCount(catId, 'conj', wordIdx);
     const initialToday = ctx.getTodayCount();
 

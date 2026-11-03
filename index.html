@@ -4340,10 +4340,8 @@ function recordActivity(ok){
       stats.current = 1;
     }
     stats.lastDate = today;
-    stats.todayCount = 1;
+    stats.todayCount = 0;
     if(stats.current > (stats.longest || 0)) stats.longest = stats.current;
-  } else {
-    stats.todayCount = (stats.todayCount || 0) + 1;
   }
   saveStatsSoon();
   if(typeof window !== 'undefined' && window.syncManager) window.syncManager.notifyChange();
@@ -7216,7 +7214,7 @@ function renderStats(){
     <!-- Daily Goal Selector -->
     <div class="goal-selector-box">
       <div style="font-weight:700;font-size:15px;margin-bottom:4px;">🎯 تحديد الهدف اليومي</div>
-      <div style="font-size:12.5px;color:#42403b;">اختر عدد الكلمات التي ترغب في إتقانها أو مراجعتها كل يوم:</div>
+      <div style="font-size:12.5px;color:#42403b;">اختر عدد الكلمات التي ترغب في إتقانها كل يوم:</div>
       <div class="goal-btns">
         ${[10, 20, 30, 50].map(g => `
           <button class="goal-sel-btn ${getDailyGoal()===g ? 'active' : ''}" data-action="set-daily-goal" data-goal="${g}">${g} كلمة</button>
@@ -8700,6 +8698,32 @@ function renderQuestion(cat, mode, idx, w){
 }
 
 
+function creditMasteryIfNew(catId, mode, idx, wid, th){
+  if(typeof wid === 'number' && th === undefined){
+    th = wid;
+    wid = null;
+  }
+  const wordId = wid || resolveWordId(catId, idx);
+  if(!wordId) return;
+  const threshold = th || threshFor(mode);
+  const catProg = progress[catId];
+  if(catProg){
+    for(let i=0; i<PROGRESS_MODES.length; i++){
+      const m = PROGRESS_MODES[i];
+      if(m === mode) continue;
+      const mProg = catProg[m];
+      if(mProg && mProg.counts && (mProg.counts[wordId] || 0) >= threshFor(m)){
+        return; // Already mastered in another mode; do not double count
+      }
+    }
+  }
+  stats.todayCount = (stats.todayCount || 0) + 1;
+  saveStatsSoon();
+  if(typeof window !== 'undefined' && window.syncManager) window.syncManager.notifyChange();
+  refreshGoalDisplay();
+}
+if(typeof window !== 'undefined'){ window.creditMasteryIfNew = creditMasteryIfNew; }
+
 function applyResult(catId, mode, idx, ok){
   if(!PROGRESS_MODES.includes(mode)){
     throw new Error(`Unknown progress mode: ${mode}`);
@@ -8712,6 +8736,9 @@ function applyResult(catId, mode, idx, ok){
   const cur = getWordCount(catId, mode, idx);
   if(ok){
     setWordCount(catId, mode, idx, Math.min(th, cur + 1));
+    if(cur < th && cur + 1 >= th){
+      creditMasteryIfNew(catId, mode, idx, null, th);
+    }
   } else {
     // wrong: if it was mastered (review), demote it back into active practice
     // otherwise just reset streak-ish progress down a bit (not to zero, to avoid discouragement)

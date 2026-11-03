@@ -44,8 +44,8 @@ def test_baseline_update():
         with open(os.path.join(temp_dir, 'index.html'), 'r', encoding='utf-8') as f:
             html = f.read()
 
-        target_str = "s:'Der Apfel schmeckt süß und frisch.'"
-        replacement_str = "s:'Der Apfel schmeckt besonders süß und frisch.'"
+        target_str = "s:'Ich esse jeden Tag einen Apfel.'"
+        replacement_str = "s:'Ich esse jeden Tag einen besonders leckeren Apfel.'"
         assert target_str in html, f"Target string not found in index.html"
         mutated_html = html.replace(target_str, replacement_str, 1)
 
@@ -80,7 +80,7 @@ def test_baseline_update():
         new_hash = hashlib.sha256(new_canonical.encode('utf-8')).hexdigest()
 
         assert old_hash != new_hash, "Old hash and new hash should be different after mutation"
-        assert new_baseline_data[0]['words'][0]['s'] == 'Der Apfel schmeckt besonders süß und frisch.'
+        assert new_baseline_data[0]['words'][0]['s'] == 'Ich esse jeden Tag einen besonders leckeren Apfel.'
 
         # Verify CHANGELOG_VOCAB.md
         with open(os.path.join(temp_dir, 'CHANGELOG_VOCAB.md'), 'r', encoding='utf-8') as f:

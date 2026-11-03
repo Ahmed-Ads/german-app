@@ -121,10 +121,8 @@ function buildSandbox() {
         stats.current = 1;
       }
       stats.lastDate = today;
-      stats.todayCount = 1;
+      stats.todayCount = 0;
       if (stats.current > (stats.longest || 0)) stats.longest = stats.current;
-    } else {
-      stats.todayCount = (stats.todayCount || 0) + 1;
     }
   }
 
@@ -362,6 +360,7 @@ describe('TASK 3 — refreshGoalDisplay updates the header goal counter', () => 
 
     sb.recordActivity(true);
     sb.recordActivity(false);
+    sb.stats().todayCount = 2;
 
     const refreshCode = extractFunction(html, 'refreshGoalDisplay');
     const todayStrCode = extractFunction(html, 'todayStr');
@@ -426,15 +425,19 @@ describe('TASK 3 — refreshGoalDisplay updates the header goal counter', () => 
     expect(refreshIdx).toBeGreaterThan(recordIdx);
   });
 
-  it('wrong answer increments todayCount (recordActivity is called for ok=false)', () => {
+  it('wrong answer does NOT increment todayCount (recordActivity called for ok=false)', () => {
     const sb = buildSandbox();
     sb.resetStats();
     expect(sb.getTodayCount()).toBe(0);
 
     sb.recordActivity(false);
-    expect(sb.getTodayCount()).toBe(1);
+    expect(sb.getTodayCount()).toBe(0);
+    expect(sb.stats().totalAnswered).toBe(1);
+    expect(sb.stats().totalCorrect).toBe(0);
 
     sb.recordActivity(true);
-    expect(sb.getTodayCount()).toBe(2);
+    expect(sb.getTodayCount()).toBe(0);
+    expect(sb.stats().totalAnswered).toBe(2);
+    expect(sb.stats().totalCorrect).toBe(1);
   });
 });

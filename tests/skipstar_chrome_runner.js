@@ -126,13 +126,13 @@ window.addEventListener('DOMContentLoaded', async function() {
     }
 
     var goalAfterWrong = goalEl ? goalEl.textContent : 'N/A';
-    // todayCount should now be 1
-    var goalWrongOk = goalAfterWrong !== goalBefore && goalAfterWrong.startsWith('1/');
-    addCheck('Wrong answer → goal counter increments immediately (no re-render)',
+    // Under mastery-based daily goal, wrong answer does not credit todayCount (remains 0/20)
+    var goalWrongOk = goalAfterWrong === goalBefore && goalAfterWrong.startsWith('0/');
+    addCheck('Wrong answer → goal counter remains unchanged (0/20)',
       goalWrongOk,
       'before=' + goalBefore + ', afterWrong=' + goalAfterWrong);
 
-    // Move to next question and submit a CORRECT answer
+    // Move to next question and submit a CORRECT answer that crosses mastery threshold
     var nextBtn = document.getElementById('nextBtn');
     if (nextBtn) {
       nextBtn.click();
@@ -141,10 +141,13 @@ window.addEventListener('DOMContentLoaded', async function() {
 
     wIn = document.getElementById('wIn');
     wSub = document.getElementById('wSub');
-    // Find correct answer (first word of milch category: die Milch)
+    // Find active word and correct text
     var catMilch = typeof CATEGORIES !== 'undefined' && CATEGORIES.find(function(c){ return c.id==='milch'; });
-    var firstWord = catMilch && catMilch.words[0];
-    var correctText = firstWord ? ((firstWord.a ? firstWord.a+' ' : '') + firstWord.n) : 'die Milch';
+    var activeWord = catMilch && catMilch.words[exState.idx];
+    var correctText = activeWord ? ((activeWord.a ? activeWord.a+' ' : '') + activeWord.n) : 'die Milch';
+
+    // Preset count to threshold - 1 (9) so this correct answer crosses threshold 10 and credits mastery
+    setWordCount('milch', 'written', exState.idx, threshFor('written') - 1);
 
     goalEl = document.querySelector('#headGoalBtn .goal-num');
     var goalBefore2 = goalEl ? goalEl.textContent : 'N/A';
@@ -156,8 +159,8 @@ window.addEventListener('DOMContentLoaded', async function() {
     }
 
     var goalAfterCorrect = goalEl ? goalEl.textContent : 'N/A';
-    var goalCorrectOk = goalAfterCorrect !== goalBefore2;
-    addCheck('Correct answer → goal counter increments immediately',
+    var goalCorrectOk = goalAfterCorrect !== goalBefore2 && goalAfterCorrect.startsWith('1/');
+    addCheck('Correct mastery answer (reaching threshold) → goal counter increments immediately to 1/20',
       goalCorrectOk,
       'before=' + goalBefore2 + ', after=' + goalAfterCorrect);
 

@@ -160,9 +160,11 @@ window.addEventListener('DOMContentLoaded', async function() {
     }
 
     // Capture initial metrics
-    var startToday = getTodayCount();
     var activeVerbIdx = conjState.sessionIndices[conjState.currentIndex];
     var activeWord = CATEGORIES.find(c => c.id === 'verben').words[activeVerbIdx];
+    // Preset count to THRESH.conj - 1 (4) so reaching threshold 5 credits daily goal mastery
+    setWordCount('verben', 'conj', activeVerbIdx, THRESH.conj - 1);
+    var startToday = getTodayCount();
     var startVerbCount = getWordCount('verben', 'conj', activeVerbIdx);
 
     // 5. Complete a PERFECT 4-stage run on first verb
@@ -407,7 +409,7 @@ window.addEventListener('DOMContentLoaded', async function() {
     var v3EndCount = getWordCount('verben', 'conj', v3Idx);
     var v3EndToday = getTodayCount();
     addCheck('Imperfect Run: Word Conj Counter does not rise', v3EndCount <= v3StartCount, 'start=' + v3StartCount + ', end=' + v3EndCount);
-    addCheck('Imperfect Run: recordActivity runs once per run', v3EndToday === v3StartToday + 1, 'startToday=' + v3StartToday + ', endToday=' + v3EndToday);
+    addCheck('Imperfect Run: Goal Counter does not rise on wrong answer', v3EndToday === v3StartToday, 'startToday=' + v3StartToday + ', endToday=' + v3EndToday);
 
     // 7b. Real Keyboard Interaction Suite (Owner Bug Regression)
     function dispatchKey(el, keyName, repeatFlag) {
