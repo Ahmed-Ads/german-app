@@ -3540,8 +3540,8 @@
         "n": "Arzt",
         "ar": "طبيب",
         "pl": "die Ärzte",
-        "s": "Der Arzt untersucht den kranken Patienten gründlich.",
-        "sar": "الطبيب يفحص المريض بعناية فائقة."
+        "s": "Ich gehe zum Arzt.",
+        "sar": "أذهب إلى الطبيب."
       },
       {
         "id": "berufe.lehrer",
@@ -3549,8 +3549,8 @@
         "n": "Lehrer",
         "ar": "معلم",
         "pl": "die Lehrer",
-        "s": "Der geduldige Lehrer erklärt der Klasse die Grammatik.",
-        "sar": "المعلم الصبور يشرح للفصل القواعد."
+        "s": "Der Lehrer erklärt die Aufgabe.",
+        "sar": "المعلم يشرح التمرين."
       },
       {
         "id": "berufe.ingenieur",
@@ -3559,8 +3559,8 @@
         "ar": "مهندس",
         "note": "رغم انتهائها بحروف تشبه -er، فهي لاحقة فرنسية مختلفة (-eur) وجمعها Ingenieure وليس بلا تغيير",
         "pl": "die Ingenieure",
-        "s": "Der Ingenieur plant eine neue sichere Brücke.",
-        "sar": "المهندس يخطط لبناء جسر آمن جديد."
+        "s": "Der Ingenieur plant eine Brücke.",
+        "sar": "المهندس يخطط لجسر."
       },
       {
         "id": "berufe.polizist",
@@ -3568,8 +3568,8 @@
         "n": "Polizist",
         "ar": "شرطي",
         "pl": "die Polizisten",
-        "s": "Der Polizist regelt den dichten Verkehr an der Kreuzung.",
-        "sar": "الشرطي ينظم حركة المرور الكثيفة عند التقاطع."
+        "s": "Der Polizist hilft uns.",
+        "sar": "الشرطي يساعدنا."
       },
       {
         "id": "berufe.koch",
@@ -3577,8 +3577,8 @@
         "n": "Koch",
         "ar": "طباخ",
         "pl": "die Köche",
-        "s": "Der geschickte Koch zaubert ein delikates Menü.",
-        "sar": "الطباخ الماهر يبدع في إعداد قائمة طعام شهية."
+        "s": "Der Koch kocht im Restaurant.",
+        "sar": "الطباخ يطبخ في المطعم."
       },
       {
         "id": "berufe.bauer",
@@ -3587,8 +3587,8 @@
         "ar": "فلاح",
         "note": "استثناء مهم: رغم انتهائها بـ -er فهي اسم \"ضعيف\" (schwache Deklination) وجمعها Bauern، وليس بلا تغيير مثل باقي كلمات -er",
         "pl": "die Bauern",
-        "s": "Der Bauer bestellt im Frühjahr seine Felder.",
-        "sar": "الفلاح يحرث حقوله في فصل الربيع."
+        "s": "Der Bauer arbeitet auf dem Feld.",
+        "sar": "الفلاح يعمل في الحقل."
       },
       {
         "id": "berufe.anwalt",
@@ -3596,8 +3596,8 @@
         "n": "Anwalt",
         "ar": "محامي",
         "pl": "die Anwälte",
-        "s": "Der erfahrene Anwalt verteidigt seinen Mandanten vor Gericht.",
-        "sar": "المحامي الخبير يدافع عن موكله أمام المحكمة."
+        "s": "Der Anwalt kennt das Gesetz.",
+        "sar": "المحامي يعرف القانون."
       },
       {
         "id": "berufe.friseur",
@@ -3606,8 +3606,8 @@
         "ar": "حلاق",
         "note": "لاحقة فرنسية (-eur)، جمعها Friseure وليس بلا تغيير",
         "pl": "die Friseure",
-        "s": "Der Friseur schneidet dem Kunden modisch die Haare.",
-        "sar": "الحلاق يقص شعر الزبون بقصة عصرية."
+        "s": "Der Friseur schneidet mir die Haare.",
+        "sar": "الحلاق يقص لي شعري."
       },
       {
         "id": "berufe.pilot",
@@ -3615,8 +3615,8 @@
         "n": "Pilot",
         "ar": "طيار",
         "pl": "die Piloten",
-        "s": "Der erfahrene Pilot steuert das Flugzeug sicher durch den Sturm.",
-        "sar": "الطيار الخبير يقود الطائرة بأمان وسط العاصفة."
+        "s": "Der Pilot fliegt das Flugzeug.",
+        "sar": "الطيار يقود الطائرة."
       },
       {
         "id": "berufe.krankenschwester",
@@ -3624,8 +3624,8 @@
         "n": "Krankenschwester",
         "ar": "ممرضة",
         "pl": "die Krankenschwestern",
-        "s": "Die aufmerksame Krankenschwester versorgt die Patienten auf der Station.",
-        "sar": "الممرضة اليقظة تعتني بالمرضى في القسم."
+        "s": "Die Krankenschwester arbeitet im Krankenhaus.",
+        "sar": "الممرضة تعمل في المستشفى."
       },
       {
         "id": "berufe.verkaeufer",
@@ -3633,8 +3633,8 @@
         "n": "Verkäufer",
         "ar": "بائع",
         "pl": "die Verkäufer",
-        "s": "Der freundliche Verkäufer berät die Kundin im Geschäft.",
-        "sar": "البائع الودود يقدم النصح للزبونة في المحل."
+        "s": "Der Verkäufer zeigt mir die Jacke.",
+        "sar": "البائع يريني الجاكيت."
       },
       {
         "id": "berufe.student",
@@ -3642,8 +3642,8 @@
         "n": "Student",
         "ar": "طالب",
         "pl": "die Studenten",
-        "s": "Der fleißige Student lernt täglich in der Universitätsbibliothek.",
-        "sar": "الطالب المجتهد يدرس يومياً في مكتبة الجامعة."
+        "s": "Mein Bruder ist Student.",
+        "sar": "أخي طالب جامعي."
       },
       {
         "id": "berufe.feuerwehrmann",
@@ -3652,8 +3652,8 @@
         "ar": "رجل إطفاء",
         "note": "الجمع الشامل للجنسين \"Feuerwehrleute\"، ويقبل أيضًا \"Feuerwehrmänner\" للذكور تحديدًا",
         "pl": "die Feuerwehrleute",
-        "s": "Der mutige Feuerwehrmann löscht das brennende Haus.",
-        "sar": "رجل الإطفاء الشجاع يخمد الحريق في المنزل المشتعل."
+        "s": "Der Feuerwehrmann löscht das Feuer.",
+        "sar": "رجل الإطفاء يطفئ الحريق."
       },
       {
         "id": "berufe.kellner",
@@ -3661,8 +3661,8 @@
         "n": "Kellner",
         "ar": "نادل",
         "pl": "die Kellner",
-        "s": "Der aufmerksame Kellner bringt die Speisekarte an den Tisch.",
-        "sar": "النادل اليقظ يحضر قائمة الطعام إلى الطاولة."
+        "s": "Der Kellner bringt die Speisekarte.",
+        "sar": "النادل يحضر قائمة الطعام."
       },
       {
         "id": "berufe.baecker",
@@ -3670,8 +3670,8 @@
         "n": "Bäcker",
         "ar": "خباز",
         "pl": "die Bäcker",
-        "s": "Der Bäcker backt schon frühmorgens frische Brötchen.",
-        "sar": "الخباز يخبز الخبز الطازج في الصباح الباكر جداً."
+        "s": "Der Bäcker backt frisches Brot.",
+        "sar": "الخباز يخبز خبزاً طازجاً."
       },
       {
         "id": "berufe.elektriker",
@@ -3679,8 +3679,8 @@
         "n": "Elektriker",
         "ar": "كهربائي",
         "pl": "die Elektriker",
-        "s": "Der Elektriker verlegt neue Stromleitungen im Gebäude.",
-        "sar": "الكهربائي يمدد خطوط كهرباء جديدة في المبنى."
+        "s": "Der Elektriker repariert die Lampe.",
+        "sar": "الكهربائي يصلح المصباح."
       },
       {
         "id": "berufe.zahnarzt",
@@ -3688,8 +3688,8 @@
         "n": "Zahnarzt",
         "ar": "طبيب أسنان",
         "pl": "die Zahnärzte",
-        "s": "Der Zahnarzt empfiehlt eine regelmäßige Kontrolle der Zähne.",
-        "sar": "طبيب الأسنان يوصي بفحص منتظم للأسنان."
+        "s": "Der Zahnarzt untersucht meine Zähne.",
+        "sar": "طبيب الأسنان يفحص أسناني."
       },
       {
         "id": "berufe.journalist",
@@ -3697,8 +3697,8 @@
         "n": "Journalist",
         "ar": "صحفي",
         "pl": "die Journalisten",
-        "s": "Der Journalist recherchiert für einen brisanten Zeitungsartikel.",
-        "sar": "الصحفي يجري بحثاً لمقال صحفي مهم."
+        "s": "Der Journalist schreibt einen Artikel.",
+        "sar": "الصحفي يكتب مقالاً."
       },
       {
         "id": "berufe.fotograf",
@@ -3706,8 +3706,8 @@
         "n": "Fotograf",
         "ar": "مصور",
         "pl": "die Fotografen",
-        "s": "Der Fotograf macht wunderschöne Porträtaufnahmen im Studio.",
-        "sar": "المصور يلتقط صوراً شخصية جميلة في الأستوديو."
+        "s": "Der Fotograf macht ein Foto.",
+        "sar": "المصور يلتقط صورة."
       },
       {
         "id": "berufe.architekt",
@@ -3715,8 +3715,8 @@
         "n": "Architekt",
         "ar": "مهندس معماري",
         "pl": "die Architekten",
-        "s": "Der kreative Architekt entwirft moderne energieeffiziente Häuser.",
-        "sar": "المهندس المعماري المبدع يصمم منازل حديثة موفرة للطاقة."
+        "s": "Der Architekt zeichnet das Haus.",
+        "sar": "المهندس المعماري يرسم البيت."
       },
       {
         "id": "berufe.programmierer",
@@ -3724,8 +3724,8 @@
         "n": "Programmierer",
         "ar": "مبرمج",
         "pl": "die Programmierer",
-        "s": "Der Programmierer schreibt fehlerfreien Code für die Software.",
-        "sar": "المبرمج يكتب كوداً برمجياً خالياً من الأخطاء للبرنامج."
+        "s": "Der Programmierer arbeitet am Computer.",
+        "sar": "المبرمج يعمل على الحاسوب."
       },
       {
         "id": "berufe.uebersetzer",
@@ -3733,8 +3733,8 @@
         "n": "Übersetzer",
         "ar": "مترجم",
         "pl": "die Übersetzer",
-        "s": "Der Übersetzer überträgt den Roman ins Deutsche.",
-        "sar": "المترجم ينقل الرواية الأدبية إلى الألمانية."
+        "s": "Der Übersetzer übersetzt den Brief.",
+        "sar": "المترجم يترجم الرسالة."
       },
       {
         "id": "berufe.soldat",
@@ -3742,8 +3742,8 @@
         "n": "Soldat",
         "ar": "جندي",
         "pl": "die Soldaten",
-        "s": "Der Soldat dient seinem Land mit Disziplin.",
-        "sar": "الجندي يخدم وطنه بانضباط."
+        "s": "Der Soldat trägt eine Uniform.",
+        "sar": "الجندي يرتدي زياً عسكرياً."
       },
       {
         "id": "berufe.richter",
@@ -3751,8 +3751,8 @@
         "n": "Richter",
         "ar": "قاضي",
         "pl": "die Richter",
-        "s": "Der Richter spricht das gerechte Urteil im Namen des Volkes.",
-        "sar": "القاضي ينطق بالحكم العادل باسم الشعب."
+        "s": "Der Richter entscheidet im Gericht.",
+        "sar": "القاضي يحكم في المحكمة."
       },
       {
         "id": "berufe.chirurg",
@@ -3760,8 +3760,8 @@
         "n": "Chirurg",
         "ar": "جراح",
         "pl": "die Chirurgen",
-        "s": "Der geschickte Chirurg führt die schwierige Operation durch.",
-        "sar": "الجراح الماهر يجري العملية الجراحية الصعبة."
+        "s": "Der Chirurg operiert den Patienten.",
+        "sar": "الجراح يجري عملية للمريض."
       },
       {
         "id": "berufe.apotheker",
@@ -3769,8 +3769,8 @@
         "n": "Apotheker",
         "ar": "صيدلي",
         "pl": "die Apotheker",
-        "s": "Der Apotheker erklärt die richtige Dosierung des Medikaments.",
-        "sar": "الصيدلي يوضح الجرعة الصحيحة للدواء."
+        "s": "Der Apotheker gibt mir die Medizin.",
+        "sar": "الصيدلي يعطيني الدواء."
       },
       {
         "id": "berufe.tierarzt",
@@ -3778,8 +3778,8 @@
         "n": "Tierarzt",
         "ar": "طبيب بيطري",
         "pl": "die Tierärzte",
-        "s": "Der Tierarzt behandelt den verletzten Hund behutsam.",
-        "sar": "الطبيب البيطري يعالج الكلب المصاب برفق."
+        "s": "Der Tierarzt untersucht den Hund.",
+        "sar": "الطبيب البيطري يفحص الكلب."
       },
       {
         "id": "berufe.psychologe",
@@ -3787,8 +3787,8 @@
         "n": "Psychologe",
         "ar": "أخصائي نفسي",
         "pl": "die Psychologen",
-        "s": "Der Psychologe hilft Menschen in seelischen Krisen.",
-        "sar": "الأخصائي النفسي يساعد الناس في الأزمات النفسية."
+        "s": "Der Psychologe hört seinen Patienten zu.",
+        "sar": "الأخصائي النفسي يستمع إلى مرضاه."
       },
       {
         "id": "berufe.manager",
@@ -3796,8 +3796,8 @@
         "n": "Manager",
         "ar": "مدير",
         "pl": "die Manager",
-        "s": "Der Manager leitet die Besprechung mit dem gesamten Team.",
-        "sar": "المدير يقود الاجتماع مع كامل فريق العمل."
+        "s": "Der Manager leitet ein großes Team.",
+        "sar": "المدير يقود فريقاً كبيراً."
       },
       {
         "id": "berufe.sekretaer",
@@ -3806,8 +3806,8 @@
         "ar": "سكرتير",
         "note": "لاحقة فرنسية/لاتينية (-är)، جمعها Sekretäre وليس بلا تغيير",
         "pl": "die Sekretäre",
-        "s": "Der Sekretär beantwortet E-Mails und vereinbart Termine.",
-        "sar": "السكرتير يجيب على رسائل البريد الإلكتروني ويحدد المواعيد."
+        "s": "Der Sekretär schreibt die E-Mails.",
+        "sar": "السكرتير يكتب رسائل البريد الإلكتروني."
       },
       {
         "id": "berufe.landwirt",
@@ -3816,8 +3816,8 @@
         "ar": "مزارع",
         "note": "مرادف حديث وأكثر رسمية لكلمة Bauer",
         "pl": "die Landwirte",
-        "s": "Der Landwirt setzt auf ökologischen Anbau von Gemüse.",
-        "sar": "المزارع يعتمد على الزراعة العضوية للخضروات."
+        "s": "Der Landwirt arbeitet mit dem Traktor.",
+        "sar": "المزارع يعمل بالجرار."
       },
       {
         "id": "berufe.fischer",
@@ -3825,8 +3825,8 @@
         "n": "Fischer",
         "ar": "صياد سمك",
         "pl": "die Fischer",
-        "s": "Der Fischer kehrt am Abend mit reichem Fang zurück.",
-        "sar": "صياد السمك يعود في المساء بصيد وفير."
+        "s": "Der Fischer fängt viele Fische.",
+        "sar": "الصياد يصطاد أسماكاً كثيرة."
       },
       {
         "id": "berufe.metzger",
@@ -3834,8 +3834,8 @@
         "n": "Metzger",
         "ar": "جزار",
         "pl": "die Metzger",
-        "s": "Der Metzger schneidet das Fleisch fachgerecht zu.",
-        "sar": "الجزار يقطع اللحم باحترافية."
+        "s": "Der Metzger verkauft frisches Fleisch.",
+        "sar": "الجزار يبيع لحماً طازجاً."
       },
       {
         "id": "berufe.schneider",
@@ -3843,8 +3843,8 @@
         "n": "Schneider",
         "ar": "خياط",
         "pl": "die Schneider",
-        "s": "Der Schneider näht einen maßgeschneiderten Anzug.",
-        "sar": "الخياط يحيك بدلة مفصلة حسب المقاس."
+        "s": "Der Schneider näht ein Hemd.",
+        "sar": "الخياط يخيط قميصاً."
       },
       {
         "id": "berufe.maler",
@@ -3852,8 +3852,8 @@
         "n": "Maler",
         "ar": "رسام/دهان",
         "pl": "die Maler",
-        "s": "Der Maler streicht die Wände im Wohnzimmer weiß.",
-        "sar": "الدهان يطلي جدران غرفة المعيشة باللون الأبيض."
+        "s": "Der Maler streicht die Wand.",
+        "sar": "الدهان يطلي الجدار."
       },
       {
         "id": "berufe.mechaniker",
@@ -3861,8 +3861,8 @@
         "n": "Mechaniker",
         "ar": "ميكانيكي",
         "pl": "die Mechaniker",
-        "s": "Der Mechaniker wechselt die Bremsen am Auto fachgerecht.",
-        "sar": "الميكانيكي يغير مكابح السيارة بحرفية."
+        "s": "Der Mechaniker repariert mein Auto.",
+        "sar": "الميكانيكي يصلح سيارتي."
       },
       {
         "id": "berufe.fahrer",
@@ -3870,8 +3870,8 @@
         "n": "Fahrer",
         "ar": "سائق",
         "pl": "die Fahrer",
-        "s": "Der Fahrer lenkt den Stadtbus sicher durch den Berufsverkehr.",
-        "sar": "السائق يقود حافلة المدينة بأمان وسط زحمة العمل."
+        "s": "Der Fahrer wartet vor dem Haus.",
+        "sar": "السائق ينتظر أمام البيت."
       },
       {
         "id": "berufe.musiker",
@@ -3879,8 +3879,8 @@
         "n": "Musiker",
         "ar": "موسيقي",
         "pl": "die Musiker",
-        "s": "Der begabte Musiker übt stundenlang auf seinem Instrument.",
-        "sar": "الموسيقي الموهوب يتدرب لساعات على آلته."
+        "s": "Der Musiker spielt Gitarre.",
+        "sar": "الموسيقي يعزف الجيتار."
       },
       {
         "id": "berufe.schauspieler",
@@ -3888,8 +3888,8 @@
         "n": "Schauspieler",
         "ar": "ممثل",
         "pl": "die Schauspieler",
-        "s": "Der bekannte Schauspieler spielt die Hauptrolle im neuen Film.",
-        "sar": "الممثل المشهور يؤدي دور البطولة في الفيلم الجديد."
+        "s": "Der Schauspieler spielt im Theater.",
+        "sar": "الممثل يمثل في المسرح."
       },
       {
         "id": "berufe.saenger",
@@ -3897,8 +3897,8 @@
         "n": "Sänger",
         "ar": "مغني",
         "pl": "die Sänger",
-        "s": "Der talentierte Sänger begeistert das Publikum im Konzertsaal.",
-        "sar": "المغني الموهوب يثير إعجاب الجمهور في قاعة الحفلات."
+        "s": "Der Sänger singt ein Lied.",
+        "sar": "المغني يغني أغنية."
       },
       {
         "id": "berufe.taenzer",
@@ -3906,8 +3906,8 @@
         "n": "Tänzer",
         "ar": "راقص",
         "pl": "die Tänzer",
-        "s": "Der grazile Tänzer bewegt sich mühelos zur Musik.",
-        "sar": "الراقص الرشيق يتحرك بانسيابية تامة مع الموسيقى."
+        "s": "Der Tänzer übt jeden Tag.",
+        "sar": "الراقص يتدرب كل يوم."
       },
       {
         "id": "berufe.schriftsteller",
@@ -3915,8 +3915,8 @@
         "n": "Schriftsteller",
         "ar": "كاتب",
         "pl": "die Schriftsteller",
-        "s": "Der Schriftsteller arbeitet intensiv an seinem neuen Roman.",
-        "sar": "الكاتب يعمل بكثافة على روايته الجديدة."
+        "s": "Der Schriftsteller schreibt ein Buch.",
+        "sar": "الكاتب يكتب كتاباً."
       },
       {
         "id": "berufe.designer",
@@ -3924,8 +3924,8 @@
         "n": "Designer",
         "ar": "مصمم",
         "pl": "die Designer",
-        "s": "Der kreative Designer gestaltet ein modernes Logo für die Firma.",
-        "sar": "المصمم المبدع يصمم شعاراً حديثاً للشركة."
+        "s": "Der Designer zeichnet ein Logo.",
+        "sar": "المصمم يرسم شعاراً."
       },
       {
         "id": "berufe.wissenschaftler",
@@ -3933,8 +3933,8 @@
         "n": "Wissenschaftler",
         "ar": "عالم",
         "pl": "die Wissenschaftler",
-        "s": "Der Wissenschaftler erforscht neue Heilmethoden im Labor.",
-        "sar": "العالم يبحث عن طرق علاج جديدة في المختبر."
+        "s": "Der Wissenschaftler macht ein Experiment.",
+        "sar": "العالم يجري تجربة."
       },
       {
         "id": "berufe.dolmetscher",
@@ -3943,8 +3943,8 @@
         "ar": "مترجم فوري",
         "note": "مترجم شفهي فوري، بينما Übersetzer مترجم للنصوص المكتوبة",
         "pl": "die Dolmetscher",
-        "s": "Der Dolmetscher übersetzt die Rede simultan bei der Konferenz.",
-        "sar": "المترجم الفوري يترجم الخطاب بالتزامن في المؤتمر."
+        "s": "Der Dolmetscher übersetzt, während wir sprechen.",
+        "sar": "المترجم الفوري يترجم أثناء حديثنا."
       },
       {
         "id": "berufe.hausmeister",
@@ -3952,8 +3952,8 @@
         "n": "Hausmeister",
         "ar": "عامل صيانة المبنى",
         "pl": "die Hausmeister",
-        "s": "Der hilfsbereite Hausmeister kümmert sich um die Reparaturen im Haus.",
-        "sar": "عامل صيانة المبنى المتعاون يعتني بالإصلاحات في العمارة."
+        "s": "Der Hausmeister repariert die Heizung.",
+        "sar": "عامل الصيانة يصلح التدفئة."
       }
     ]
   },
@@ -3969,8 +3969,8 @@
         "n": "Auto",
         "ar": "سيارة",
         "pl": "die Autos",
-        "s": "Er fährt jeden Morgen mit dem Auto zur Arbeit.",
-        "sar": "هو يذهب كل صباح بالسيارة إلى العمل."
+        "s": "Mein Auto ist neu.",
+        "sar": "سيارتي جديدة."
       },
       {
         "id": "verkehr.bus",
@@ -3978,8 +3978,8 @@
         "n": "Bus",
         "ar": "حافلة (أتوبيس)",
         "pl": "die Busse",
-        "s": "Der Bus hält direkt vor der Universitätsbibliothek.",
-        "sar": "الحافلة تقف مباشرة أمام مكتبة الجامعة."
+        "s": "Der Bus kommt gleich.",
+        "sar": "الحافلة تصل بعد قليل."
       },
       {
         "id": "verkehr.zug",
@@ -3987,8 +3987,8 @@
         "n": "Zug",
         "ar": "قطار",
         "pl": "die Züge",
-        "s": "Der Zug nach München fährt pünktlich von Gleis drei ab.",
-        "sar": "القطار المتجه إلى ميونيخ ينطلق في موعده من الرصيف ثلاثة."
+        "s": "Der Zug fährt nach Berlin.",
+        "sar": "القطار يذهب إلى برلين."
       },
       {
         "id": "verkehr.fahrrad",
@@ -3996,8 +3996,8 @@
         "n": "Fahrrad",
         "ar": "دراجة",
         "pl": "die Fahrräder",
-        "s": "In der Stadt fahre ich am liebsten mit dem Fahrrad.",
-        "sar": "في المدينة أفضل التنقل بالدراجة الهوائية."
+        "s": "Ich fahre mit dem Fahrrad.",
+        "sar": "أذهب بالدراجة."
       },
       {
         "id": "verkehr.flugzeug",
@@ -4005,8 +4005,8 @@
         "n": "Flugzeug",
         "ar": "طائرة",
         "pl": "die Flugzeuge",
-        "s": "Das Flugzeug startet vom Frankfurter Flughafen nach Tokio.",
-        "sar": "الطائرة تقلع من مطار فرانكفورت متجهة إلى طوكيو."
+        "s": "Das Flugzeug landet um acht Uhr.",
+        "sar": "الطائرة تهبط الساعة الثامنة."
       },
       {
         "id": "verkehr.schiff",
@@ -4014,8 +4014,8 @@
         "n": "Schiff",
         "ar": "سفينة",
         "pl": "die Schiffe",
-        "s": "Das große Schiff gleitet ruhig über den Rhein.",
-        "sar": "السفينة الكبيرة تنساب بهدوء عبر نهر الراين."
+        "s": "Das Schiff fährt über das Meer.",
+        "sar": "السفينة تبحر عبر البحر."
       },
       {
         "id": "verkehr.u-bahn",
@@ -4023,8 +4023,8 @@
         "n": "U-Bahn",
         "ar": "مترو",
         "pl": "die U-Bahnen",
-        "s": "Die U-Bahn fährt schnell und pünktlich unter den belebten Straßen der Stadt.",
-        "sar": "يسير المترو بسرعة وانتظام تحت شوارع المدينة المزدحمة."
+        "s": "Die U-Bahn ist schnell und pünktlich.",
+        "sar": "المترو سريع ودقيق في مواعيده."
       },
       {
         "id": "verkehr.taxi",
@@ -4032,8 +4032,8 @@
         "n": "Taxi",
         "ar": "تاكسي",
         "pl": "die Taxis",
-        "s": "Weil die letzte Bahn verpasst wurde, rief er sich nachts ein Taxi.",
-        "sar": "لأنه فاته القطار الأخير، طلب لنفسه سيارة أجرة ليلاً."
+        "s": "Wir nehmen ein Taxi.",
+        "sar": "نأخذ تاكسي."
       },
       {
         "id": "verkehr.lastwagen",
@@ -4041,8 +4041,8 @@
         "n": "Lastwagen",
         "ar": "شاحنة",
         "pl": "die Lastwagen",
-        "s": "Der schwere Lastwagen transportiert frische Lebensmittel von der Fabrik zum Supermarkt.",
-        "sar": "الشاحنة الثقيلة تنقل المواد الغذائية الطازجة من المصنع إلى السوبرماركت."
+        "s": "Der Lastwagen transportiert viele Kisten.",
+        "sar": "الشاحنة تنقل صناديق كثيرة."
       },
       {
         "id": "verkehr.motorrad",
@@ -4050,8 +4050,8 @@
         "n": "Motorrad",
         "ar": "دراجة نارية (موتوسيكل)",
         "pl": "die Motorräder",
-        "s": "Er fährt mit seinem schnellen Motorrad gern auf kurvigen Landstraßen.",
-        "sar": "هو يحب القيادة بدراجته النارية السريعة على الطرق الريفية المتعرجة."
+        "s": "Das Motorrad ist sehr laut.",
+        "sar": "الدراجة النارية صوتها عالٍ جداً."
       },
       {
         "id": "verkehr.strassenbahn",
@@ -4059,8 +4059,8 @@
         "n": "Straßenbahn",
         "ar": "ترام",
         "pl": "die Straßenbahnen",
-        "s": "Die Straßenbahn fährt im Zehn-Minuten-Takt mitten durch die belebte Innenstadt.",
-        "sar": "الترام يسير كل عشر دقائق في قلب وسط المدينة الحيوي."
+        "s": "Die Straßenbahn fährt durch die Stadt.",
+        "sar": "الترام يسير في المدينة."
       },
       {
         "id": "verkehr.boot",
@@ -4068,8 +4068,8 @@
         "n": "Boot",
         "ar": "قارب",
         "pl": "die Boote",
-        "s": "Wir mieteten ein kleines hölzernes Boot und ruderten über den ruhigen Waldsee.",
-        "sar": "استأجرنا قارباً خشبياً صغيراً وجدفنا عبر بحيرة الغابة الهادئة."
+        "s": "Das Boot schwimmt auf dem Fluss.",
+        "sar": "القارب يطفو على النهر."
       },
       {
         "id": "verkehr.hubschrauber",
@@ -4077,8 +4077,8 @@
         "n": "Hubschrauber",
         "ar": "هليكوبتر",
         "pl": "die Hubschrauber",
-        "s": "Der gelbe Rettungshubschrauber landete zügig direkt auf dem Dach des Krankenhauses.",
-        "sar": "هبطت مروحية الإنقاذ الصفراء بسرعة مباشرة على سطح المستشفى."
+        "s": "Der Hubschrauber fliegt über die Stadt.",
+        "sar": "الهليكوبتر تحلّق فوق المدينة."
       },
       {
         "id": "verkehr.ampel",
@@ -4086,8 +4086,8 @@
         "n": "Ampel",
         "ar": "إشارة مرور",
         "pl": "die Ampeln",
-        "s": "An der großen Kreuzung schaltet die Ampel für Fußgänger auf Grün.",
-        "sar": "عند التقاطع الكبير تتحول إشارة المرور للمشاة إلى اللون الأخضر."
+        "s": "Die Ampel ist rot.",
+        "sar": "إشارة المرور حمراء."
       },
       {
         "id": "verkehr.roller",
@@ -4095,8 +4095,8 @@
         "n": "Roller",
         "ar": "سكوتر",
         "pl": "die Roller",
-        "s": "Der Schüler fährt mit seinem wendigen Roller morgens schnell zur Schule.",
-        "sar": "الطالب يذهب بسكوتره الرشيق صباحاً سريعاً إلى المدرسة."
+        "s": "Mein Sohn fährt Roller.",
+        "sar": "ابني يركب السكوتر."
       },
       {
         "id": "verkehr.faehre",
@@ -4104,8 +4104,8 @@
         "n": "Fähre",
         "ar": "عبّارة",
         "pl": "die Fähren",
-        "s": "Die große weiße Fähre bringt Autos und Passagiere sicher zur Ferieninsel.",
-        "sar": "العبّارة البيضاء الكبيرة تنقل السيارات والمسافرين بأمان إلى جزيرة العطلات."
+        "s": "Die Fähre bringt uns zur Insel.",
+        "sar": "العبّارة تأخذنا إلى الجزيرة."
       },
       {
         "id": "verkehr.traktor",
@@ -4113,8 +4113,8 @@
         "n": "Traktor",
         "ar": "جرار",
         "pl": "die Traktoren",
-        "s": "Der Bauer pflügt mit seinem starken grünen Traktor den weiten Ackerboden um.",
-        "sar": "المزارع يحرث بتركتوره الأخضر القوي التربة الزراعية الشاسعة."
+        "s": "Der Traktor fährt langsam.",
+        "sar": "الجرار يسير ببطء."
       },
       {
         "id": "verkehr.krankenwagen",
@@ -4122,8 +4122,8 @@
         "n": "Krankenwagen",
         "ar": "سيارة إسعاف",
         "pl": "die Krankenwagen",
-        "s": "Der Krankenwagen raste mit dröhnendem Martinshorn und hellem Blaulicht zum Unfallort.",
-        "sar": "سيارة الإسعاف أسرعت بصافرتها المدوية وضوئها الأزرق إلى موقع الحادث."
+        "s": "Der Krankenwagen kommt schnell.",
+        "sar": "سيارة الإسعاف تصل بسرعة."
       },
       {
         "id": "verkehr.polizeiauto",
@@ -4131,8 +4131,8 @@
         "n": "Polizeiauto",
         "ar": "سيارة شرطة",
         "pl": "die Polizeiautos",
-        "s": "Das blau-silberne Polizeiauto patrouilliert aufmerksam im Wohngebiet.",
-        "sar": "سيارة الشرطة الزرقاء والفضية تسير في دورية منتبهة داخل المنطقة السكنية."
+        "s": "Das Polizeiauto steht an der Ecke.",
+        "sar": "سيارة الشرطة تقف عند الناصية."
       },
       {
         "id": "verkehr.feuerwehrwagen",
@@ -4140,8 +4140,8 @@
         "n": "Feuerwehrwagen",
         "ar": "سيارة إطفاء",
         "pl": "die Feuerwehrwagen",
-        "s": "Aus dem roten Feuerwehrwagen rollten die Feuerwehrleute lange Schläuche aus.",
-        "sar": "من سيارة الإطفاء الحمراء مد رجال الإطفاء خراطيم مياه طويلة."
+        "s": "Der Feuerwehrwagen ist rot.",
+        "sar": "سيارة الإطفاء حمراء."
       },
       {
         "id": "verkehr.wohnwagen",
@@ -4149,8 +4149,8 @@
         "n": "Wohnwagen",
         "ar": "عربة سكن متنقلة",
         "pl": "die Wohnwagen",
-        "s": "Im Sommerurlaub zieht die Familie mit einem gemütlichen Wohnwagen durch Schweden.",
-        "sar": "في عطلة الصيف تتجول العائلة بعربة سكن متنقلة ومريحة عبر السويد."
+        "s": "Im Urlaub schlafen wir im Wohnwagen.",
+        "sar": "في الإجازة ننام في عربة السكن."
       },
       {
         "id": "verkehr.kinderwagen",
@@ -4158,8 +4158,8 @@
         "n": "Kinderwagen",
         "ar": "عربة أطفال",
         "pl": "die Kinderwagen",
-        "s": "Die junge Mutter schiebt ihr schlafendes Baby sanft im gepolsterten Kinderwagen.",
-        "sar": "الأم الشابة تدفع طفلها الرضيع النائم برفق في عربة الأطفال المبطنة."
+        "s": "Das Baby schläft im Kinderwagen.",
+        "sar": "الطفل الرضيع ينام في عربة الأطفال."
       },
       {
         "id": "verkehr.rollstuhl",
@@ -4167,8 +4167,8 @@
         "n": "Rollstuhl",
         "ar": "كرسي متحرك",
         "pl": "die Rollstühle",
-        "s": "Dank der flachen Rampe gelangt der Mann im Rollstuhl barrierefrei ins Gebäude.",
-        "sar": "بفضل المنحدر المنبسط يدخل الرجل ذو الكرسي المتحرك إلى المبنى دون عوائق."
+        "s": "Mein Opa sitzt im Rollstuhl.",
+        "sar": "جدي يجلس على كرسي متحرك."
       },
       {
         "id": "verkehr.skateboard",
@@ -4176,8 +4176,8 @@
         "n": "Skateboard",
         "ar": "لوح تزلج",
         "pl": "die Skateboards",
-        "s": "Auf der Rampe im Skatepark zeigt das Mädchen coole Sprünge mit ihrem Skateboard.",
-        "sar": "على المنحدر في حديقة التزلج تعرض الفتاة قفزات رائعة بلوح التزلج الخاص بها."
+        "s": "Ich fahre gern Skateboard.",
+        "sar": "أحب التزلج على اللوح."
       },
       {
         "id": "verkehr.rakete",
@@ -4185,8 +4185,8 @@
         "n": "Rakete",
         "ar": "صاروخ",
         "pl": "die Raketen",
-        "s": "Die bemannte Rakete startete mit enormem Schub ins weite Weltall.",
-        "sar": "الصاروخ المأهول انطلق بدفع هائل نحو الفضاء الخارجي الشاسع."
+        "s": "Die Rakete fliegt ins All.",
+        "sar": "الصاروخ يطير إلى الفضاء."
       },
       {
         "id": "verkehr.strasse",
@@ -4194,8 +4194,8 @@
         "n": "Straße",
         "ar": "شارع",
         "pl": "die Straßen",
-        "s": "Vorsichtige Kinder schauen nach beiden Seiten, bevor sie die belebte Straße überqueren.",
-        "sar": "الأطفال الحذرون ينظرون في كلا الاتجاهين قبل عبور الشارع المزدحم."
+        "s": "Die Straße ist sehr breit.",
+        "sar": "الشارع عريض جداً."
       },
       {
         "id": "verkehr.autobahn",
@@ -4203,8 +4203,8 @@
         "n": "Autobahn",
         "ar": "طريق السريع",
         "pl": "die Autobahnen",
-        "s": "Auf der dreispurigen Autobahn darf man außerhalb geschlossener Ortschaften zügig fahren.",
-        "sar": "على الطريق السريع ذي المسارات الثلاثة يُسمح بالقيادة بسرعة خارج المناطق السكنية."
+        "s": "Auf der Autobahn fahren viele Autos.",
+        "sar": "على الطريق السريع تسير سيارات كثيرة."
       },
       {
         "id": "verkehr.haltestelle",
@@ -4212,8 +4212,8 @@
         "n": "Haltestelle",
         "ar": "محطة توقف",
         "pl": "die Haltestellen",
-        "s": "Viele Pendler warten am frühen Montagmorgen ungeduldig an der Bushaltestelle.",
-        "sar": "ينتظر العديد من الركاب صباح الاثنين بفارغ الصبر في محطة الحافلات."
+        "s": "Die Haltestelle ist vor dem Bahnhof.",
+        "sar": "محطة التوقف أمام محطة القطار."
       },
       {
         "id": "verkehr.bahnsteig",
@@ -4221,8 +4221,8 @@
         "n": "Bahnsteig",
         "ar": "رصيف المحطة",
         "pl": "die Bahnsteige",
-        "s": "Der ICE nach Hamburg fährt gleich an Bahnsteig vier ein.",
-        "sar": "قطار السريع المتجه إلى هامبورغ يدخل حالاً عند رصيف المحطة رقم أربعة."
+        "s": "Wir warten auf dem Bahnsteig.",
+        "sar": "ننتظر على رصيف المحطة."
       },
       {
         "id": "verkehr.kreuzung",
@@ -4230,8 +4230,8 @@
         "n": "Kreuzung",
         "ar": "تقاطع طرق",
         "pl": "die Kreuzungen",
-        "s": "Biegen Sie an der nächsten unübersichtlichen Kreuzung bitte vorsichtig nach links ab.",
-        "sar": "انعطف من فضلك بحذر إلى اليسار عند التقاطع القادم."
+        "s": "An der Kreuzung müssen wir links abbiegen.",
+        "sar": "عند التقاطع علينا أن ننعطف يساراً."
       },
       {
         "id": "verkehr.fahrplan",
@@ -4239,8 +4239,8 @@
         "n": "Fahrplan",
         "ar": "جدول المواعيد",
         "pl": "die Fahrpläne",
-        "s": "Im digitalen Fahrplan der Bahn kann man alle Abfahrtszeiten sekundengenau einsehen.",
-        "sar": "في جدول مواعيد القطار الرقمي يمكن الاطلاع على مواعيد الانطلاق بدقة متناهية."
+        "s": "Im Fahrplan steht die Abfahrtszeit.",
+        "sar": "في جدول المواعيد يوجد وقت المغادرة."
       },
       {
         "id": "verkehr.fahrkarte",
@@ -4248,8 +4248,8 @@
         "n": "Fahrkarte",
         "ar": "تذكرة السفر",
         "pl": "die Fahrkarten",
-        "s": "Der freundliche Schaffner kontrolliert im Zug die gültige Fahrkarte des Fahrgastes.",
-        "sar": "مفتش التذاكر الودود يفحص في القطار تذكرة السفر الصالحة الخاصة بالمسافر."
+        "s": "Ich kaufe eine Fahrkarte am Automaten.",
+        "sar": "أشتري تذكرة من الماكينة."
       },
       {
         "id": "verkehr.fuehrerschein",
@@ -4257,8 +4257,8 @@
         "n": "Führerschein",
         "ar": "رخصة القيادة",
         "pl": "die Führerscheine",
-        "s": "Nach bestandener praktischer Prüfung hielt die Fahrschülerin glücklich ihren Führerschein in Händen.",
-        "sar": "بعد اجتياز الاختبار العملي حملت المتدربة رخصة قيادتها بسعادة بين يديها."
+        "s": "Mein Bruder macht den Führerschein.",
+        "sar": "أخي يستخرج رخصة القيادة."
       },
       {
         "id": "verkehr.sicherheitsgurt",
@@ -4266,8 +4266,8 @@
         "n": "Sicherheitsgurt",
         "ar": "حزام الأمان",
         "pl": "die Sicherheitsgurte",
-        "s": "Vor dem Losfahren legt jeder verantwortungsvolle Fahrer sofort den Sicherheitsgurt an.",
-        "sar": "قبل الانطلاق يربط كل سائق مسؤول حزام الأمان على الفور."
+        "s": "Im Auto muss man den Sicherheitsgurt anlegen.",
+        "sar": "في السيارة يجب ربط حزام الأمان."
       },
       {
         "id": "verkehr.lenkrad",
@@ -4275,8 +4275,8 @@
         "n": "Lenkrad",
         "ar": "عجلة القيادة",
         "pl": "die Lenkräder",
-        "s": "Der aufmerksame Fahrer hält beide Hände fest und sicher am Lenkrad.",
-        "sar": "السائق المنتبه يمسك كلتا يديه بإحكام وأمان على عجلة القيادة."
+        "s": "Meine Hände sind am Lenkrad.",
+        "sar": "يداي على عجلة القيادة."
       },
       {
         "id": "verkehr.reifen",
@@ -4284,8 +4284,8 @@
         "n": "Reifen",
         "ar": "إطار العجلة",
         "pl": "die Reifen",
-        "s": "Vor dem Winterurlaub sollte man die Profiltiefe aller vier Reifen gründlich prüfen.",
-        "sar": "قبل عطلة الشتاء ينبغي فحص عمق نقشة جميع الإطارات الأربعة بعناية."
+        "s": "Der Reifen ist kaputt.",
+        "sar": "الإطار تالف."
       },
       {
         "id": "verkehr.bremse",
@@ -4293,8 +4293,8 @@
         "n": "Bremse",
         "ar": "فرامل",
         "pl": "die Bremsen",
-        "s": "Bei einer plötzlichen Gefahr trat der Autofahrer sofort kräftig auf die Bremse.",
-        "sar": "عند ظهور خطر مفاجئ ضغط سائق السيارة فوراً وبقوة على الفرامل."
+        "s": "Die Bremse funktioniert nicht.",
+        "sar": "الفرامل لا تعمل."
       },
       {
         "id": "verkehr.motor",
@@ -4302,8 +4302,8 @@
         "n": "Motor",
         "ar": "محرك",
         "pl": "die Motoren",
-        "s": "Der leistungsstarke Motor läuft nach der großen Inspektion wieder vollkommen ruhig.",
-        "sar": "المحرك القوي يعمل بعد الفحص الشامل بسلاسة وهدوء تامين."
+        "s": "Das Auto hat einen starken Motor.",
+        "sar": "السيارة لها محرك قوي."
       },
       {
         "id": "verkehr.benzin",
@@ -4312,8 +4312,8 @@
         "ar": "بنزين",
         "note": "اسم غير معدود عادة؛ الجمع \"Benzine\" يُستخدم للإشارة إلى أنواع مختلفة من البنزين",
         "pl": "die Benzine",
-        "s": "An der Autobahntankstelle füllte er den leeren Tank mit unverbleitem Benzin auf.",
-        "sar": "في محطة وقود الطريق السريع ملأ الخزان الفارغ بالبنزين الخالي من الرصاص."
+        "s": "Das Benzin ist heute teuer.",
+        "sar": "البنزين غالٍ اليوم."
       },
       {
         "id": "verkehr.kofferraum",
@@ -4321,8 +4321,8 @@
         "n": "Kofferraum",
         "ar": "صندوق السيارة الخلفي",
         "pl": "die Kofferräume",
-        "s": "In den geräumigen Kofferraum passen problemlos drei große Reisekoffer hinein.",
-        "sar": "في صندوق السيارة الخلفي الواسع تتسع ثلاث حقائب سفر كبيرة بدون صعوبة."
+        "s": "Der Koffer liegt im Kofferraum.",
+        "sar": "الحقيبة في صندوق السيارة."
       },
       {
         "id": "verkehr.windschutzscheibe",
@@ -4330,8 +4330,8 @@
         "n": "Windschutzscheibe",
         "ar": "زجاج الأمامي",
         "pl": "die Windschutzscheiben",
-        "s": "Nach der frostigen Nacht kratzt er das dicke Eis mühsam von der Windschutzscheibe.",
-        "sar": "بعد ليلة صقيعية يكشط الثلج السميك بصعوبة عن الزجاج الأمامي للسيارة."
+        "s": "Die Windschutzscheibe ist sauber.",
+        "sar": "الزجاج الأمامي نظيف."
       },
       {
         "id": "verkehr.nummernschild",
@@ -4339,8 +4339,8 @@
         "n": "Nummernschild",
         "ar": "لوحة الأرقام",
         "pl": "die Nummernschilder",
-        "s": "Am Heck des Autos ist das amtliche Nummernschild fest verschraubt.",
-        "sar": "في الجزء الخلفي من السيارة لوحة الأرقام الرسمية مثبتة بمسامير بإحكام."
+        "s": "Jedes Auto hat ein Nummernschild.",
+        "sar": "كل سيارة لها لوحة أرقام."
       }
     ]
   },
@@ -4756,8 +4756,8 @@
         "n": "Buch",
         "ar": "كتاب",
         "pl": "die Bücher",
-        "s": "Der Schüler liest aufmerksam ein spannendes Buch.",
-        "sar": "التلميذ يقرأ بانتباه كتاباً مشوقاً."
+        "s": "Das Buch liegt auf dem Tisch.",
+        "sar": "الكتاب على الطاولة."
       },
       {
         "id": "schule.bleistift",
@@ -4765,8 +4765,8 @@
         "n": "Bleistift",
         "ar": "قلم رصاص",
         "pl": "die Bleistifte",
-        "s": "Er spitzt den Bleistift an, bevor er zu zeichnen beginnt.",
-        "sar": "هو يبري قلم الرصاص قبل أن يبدأ بالرسم."
+        "s": "Ich schreibe mit einem Bleistift.",
+        "sar": "أكتب بقلم رصاص."
       },
       {
         "id": "schule.kugelschreiber",
@@ -4774,8 +4774,8 @@
         "n": "Kugelschreiber",
         "ar": "قلم حبر",
         "pl": "die Kugelschreiber",
-        "s": "Mit einem blauen Kugelschreiber unterschreibt er das Dokument.",
-        "sar": "بقلم حبر أزرق يوقع على الوثيقة."
+        "s": "Mein Kugelschreiber ist blau.",
+        "sar": "قلمي الجاف أزرق."
       },
       {
         "id": "schule.heft",
@@ -4783,8 +4783,8 @@
         "n": "Heft",
         "ar": "كراسة",
         "pl": "die Hefte",
-        "s": "Sie notiert die neuen Vokabeln sorgfältig in ihr Heft.",
-        "sar": "هي تدون المفردات الجديدة بعناية في كراستها."
+        "s": "Ich schreibe die Wörter ins Heft.",
+        "sar": "أكتب الكلمات في الكراسة."
       },
       {
         "id": "schule.rucksack",
@@ -4792,8 +4792,8 @@
         "n": "Rucksack",
         "ar": "حقيبة ظهر",
         "pl": "die Rucksäcke",
-        "s": "Er packt Bücher und Hefte in seinen schweren Rucksack.",
-        "sar": "هو يوضب الكتب والكراسات في حقيبة ظهره الثقيلة."
+        "s": "Mein Rucksack ist schwer.",
+        "sar": "حقيبة ظهري ثقيلة."
       },
       {
         "id": "schule.tafel",
@@ -4801,8 +4801,8 @@
         "n": "Tafel",
         "ar": "سبورة",
         "pl": "die Tafeln",
-        "s": "Die Lehrerin schreibt die mathematische Formel an die grüne Tafel.",
-        "sar": "المعلمة تكتب المعادلة الرياضية على السبورة الخضراء."
+        "s": "Der Lehrer schreibt an die Tafel.",
+        "sar": "المعلم يكتب على السبورة."
       },
       {
         "id": "schule.lineal",
@@ -4810,8 +4810,8 @@
         "n": "Lineal",
         "ar": "مسطرة",
         "pl": "die Lineale",
-        "s": "Mit einem langen Lineal zieht der Schüler eine gerade Linie.",
-        "sar": "بمسطرة طويلة يرسم التلميذ خطاً مستقيماً."
+        "s": "Ich zeichne eine Linie mit dem Lineal.",
+        "sar": "أرسم خطاً بالمسطرة."
       },
       {
         "id": "schule.schere",
@@ -4819,8 +4819,8 @@
         "n": "Schere",
         "ar": "مقص",
         "pl": "die Scheren",
-        "s": "Mit der Schere schneidet das Kind bunte Papiersterne aus.",
-        "sar": "بالمقص يقص الطفل نجوماً ورقية ملونة."
+        "s": "Mit der Schere schneide ich Papier.",
+        "sar": "أقص الورق بالمقص."
       },
       {
         "id": "schule.radiergummi",
@@ -4828,8 +4828,8 @@
         "n": "Radiergummi",
         "ar": "ممحاة",
         "pl": "die Radiergummis",
-        "s": "Mit dem Radiergummi entfernt er den falschen Buchstaben sauber.",
-        "sar": "بالممحاة يمسح الحرف الخاطئ بنظافة."
+        "s": "Ich brauche einen Radiergummi.",
+        "sar": "أحتاج إلى ممحاة."
       },
       {
         "id": "schule.kreide",
@@ -4838,8 +4838,8 @@
         "ar": "طباشير",
         "note": "اسم غير معدود بكل معانيها الثلاثة حسب Duden (المادة، القلم الطباشيري، والعصر الجيولوجي)",
         "pl": null,
-        "s": "Der Lehrer nimmt ein Stück weiße Kreide zur Hand.",
-        "sar": "المعلم يأخذ قطعة طباشير بيضاء بيده."
+        "s": "Der Lehrer schreibt mit Kreide.",
+        "sar": "المعلم يكتب بالطباشير."
       },
       {
         "id": "schule.ordner",
@@ -4847,8 +4847,8 @@
         "n": "Ordner",
         "ar": "ملف أرشيف بحلقات",
         "pl": "die Ordner",
-        "s": "In diesem dicken Ordner sammelt sie alle Arbeitsblätter.",
-        "sar": "في هذا الملف السميك تجمع كل أوراق العمل."
+        "s": "Alle Blätter sind im Ordner.",
+        "sar": "كل الأوراق في الملف."
       },
       {
         "id": "schule.stundenplan",
@@ -4856,8 +4856,8 @@
         "n": "Stundenplan",
         "ar": "جدول الدراسي",
         "pl": "die Stundenpläne",
-        "s": "Der neue Stundenplan hängt gut sichtbar an der Wand.",
-        "sar": "الجدول الدراسي الجديد معلق بشكل واضح على الحائط."
+        "s": "Der Stundenplan hängt an der Wand.",
+        "sar": "الجدول الدراسي معلّق على الحائط."
       },
       {
         "id": "schule.klassenzimmer",
@@ -4865,8 +4865,8 @@
         "n": "Klassenzimmer",
         "ar": "فصل الدراسي",
         "pl": "die Klassenzimmer",
-        "s": "Das helle Klassenzimmer bietet Platz für fünfundzwanzig Schüler.",
-        "sar": "الفصل الدراسي المضيء يوفر متسعاً لخمسة وعشرين تلميذاً."
+        "s": "Das Klassenzimmer ist groß und hell.",
+        "sar": "الفصل الدراسي كبير ومضيء."
       },
       {
         "id": "schule.notizbuch",
@@ -4874,8 +4874,8 @@
         "n": "Notizbuch",
         "ar": "دفتر ملاحظات",
         "pl": "die Notizbücher",
-        "s": "Er trägt stets ein kleines Notizbuch für wichtige Gedanken bei sich.",
-        "sar": "هو يحمل دائماً دفتر ملاحظات صغيراً لتسجيل الأفكار المهمة."
+        "s": "Im Notizbuch stehen meine Ideen.",
+        "sar": "في دفتر الملاحظات أفكاري."
       },
       {
         "id": "schule.taschenrechner",
@@ -4883,8 +4883,8 @@
         "n": "Taschenrechner",
         "ar": "آلة حاسبة",
         "pl": "die Taschenrechner",
-        "s": "In der Abiturprüfung ist ein programmierbarer Taschenrechner erlaubt.",
-        "sar": "في امتحان الثانوية يُسمح بآلة حاسبة قابلة للبرمجة."
+        "s": "Der Taschenrechner hilft bei Mathe.",
+        "sar": "الآلة الحاسبة تساعد في الرياضيات."
       },
       {
         "id": "schule.spitzer",
@@ -4892,8 +4892,8 @@
         "n": "Spitzer",
         "ar": "مبراة",
         "pl": "die Spitzer",
-        "s": "Ein guter Spitzer sorgt für stets spitze Stifte im Federmäppchen.",
-        "sar": "المبراة الجيدة تضمن أقلاماً مبرية دائماً في المقلمة."
+        "s": "Der Bleistift braucht einen Spitzer.",
+        "sar": "القلم الرصاص يحتاج إلى مبراة."
       },
       {
         "id": "schule.textmarker",
@@ -4901,8 +4901,8 @@
         "n": "Textmarker",
         "ar": "قلم تحديد فسفوري",
         "pl": "die Textmarker",
-        "s": "Mit einem gelben Textmarker hebt sie wichtige Textstellen hervor.",
-        "sar": "بقلم تحديد أصفر تُبرز المقاطع المهمة في النص."
+        "s": "Mit dem Textmarker markiere ich wichtige Wörter.",
+        "sar": "أضع علامة على الكلمات المهمة بقلم التحديد."
       },
       {
         "id": "schule.filzstift",
@@ -4910,8 +4910,8 @@
         "n": "Filzstift",
         "ar": "قلم فلوماستر",
         "pl": "die Filzstifte",
-        "s": "Mit dem dicken Filzstift malt das Kind ein fröhliches Bild.",
-        "sar": "بقلم الفلوماستر العريض يرسم الطفل صورة مبهجة."
+        "s": "Das Kind malt mit dem Filzstift.",
+        "sar": "الطفل يرسم بقلم الفلوماستر."
       },
       {
         "id": "schule.buntstift",
@@ -4919,8 +4919,8 @@
         "n": "Buntstift",
         "ar": "قلم تلوين",
         "pl": "die Buntstifte",
-        "s": "Der rote Buntstift eignet sich bestens zum Ausmalen.",
-        "sar": "قلم التلوين الأحمر مناسب جداً للتلوين."
+        "s": "Ich habe zwölf Buntstifte.",
+        "sar": "لدي اثنا عشر قلم تلوين."
       },
       {
         "id": "schule.mappe",
@@ -4928,8 +4928,8 @@
         "n": "Mappe",
         "ar": "حافظة أوراق",
         "pl": "die Mappen",
-        "s": "Sie verstaut die Zeugnisse sicher in einer ledernen Mappe.",
-        "sar": "هي تحفظ الشهادات بأمان في ملف جلدي."
+        "s": "Die Mappe schützt die Papiere.",
+        "sar": "الحافظة تحمي الأوراق."
       },
       {
         "id": "schule.bueroklammer",
@@ -4937,8 +4937,8 @@
         "n": "Büroklammer",
         "ar": "مشبك ورق",
         "pl": "die Büroklammern",
-        "s": "Eine kleine Büroklammer hält die losen Dokumente zusammen.",
-        "sar": "مشبك ورق صغير يمسك الأوراق المفروطة معاً."
+        "s": "Die Büroklammer hält die Blätter zusammen.",
+        "sar": "مشبك الورق يجمع الأوراق معاً."
       },
       {
         "id": "schule.zirkel",
@@ -4946,8 +4946,8 @@
         "n": "Zirkel",
         "ar": "فرجار",
         "pl": "die Zirkel",
-        "s": "Im Geometrieunterricht zeichnet er einen exakten Kreis mit dem Zirkel.",
-        "sar": "في حصة الهندسة يرسم دائرة دقيقة بالفرجار."
+        "s": "Mit dem Zirkel zeichnet man einen Kreis.",
+        "sar": "يرسم المرء دائرة بالفرجار."
       },
       {
         "id": "schule.geodreieck",
@@ -4956,8 +4956,8 @@
         "ar": "مسطرة مثلثة بزاوية",
         "note": "مسطرة مثلثة الشكل بها منقلة لقياس الزوايا",
         "pl": "die Geodreiecke",
-        "s": "Mit dem Geodreieck misst man rechte Winkel sehr genau.",
-        "sar": "بالمسطرة المثلثة يقيس المرء الزوايا القائمة بدقة."
+        "s": "Das Geodreieck hat einen rechten Winkel.",
+        "sar": "المسطرة المثلثة فيها زاوية قائمة."
       },
       {
         "id": "schule.federmaeppchen",
@@ -4966,8 +4966,8 @@
         "ar": "مقلمة",
         "note": "المصطلح الأكثر شيوعًا للمقلمة (وليس Federmappe)",
         "pl": "die Federmäppchen",
-        "s": "Im Federmäppchen liegen Stifte, Radiergummi und Lineal parat.",
-        "sar": "في المقلمة ترقد الأقلام والممحاة والمسطرة جاهزة."
+        "s": "Mein Federmäppchen ist voll.",
+        "sar": "مقلمتي ممتلئة."
       },
       {
         "id": "schule.schultasche",
@@ -4975,8 +4975,8 @@
         "n": "Schultasche",
         "ar": "حقيبة مدرسية",
         "pl": "die Schultaschen",
-        "s": "Die Schultasche ist für den Schulanfänger noch etwas groß.",
-        "sar": "الحقيبة المدرسية ما زالت كبيرة بعض الشيء على المستجد بالدراسة."
+        "s": "Die Schultasche ist neu.",
+        "sar": "الحقيبة المدرسية جديدة."
       },
       {
         "id": "schule.pausenbrot",
@@ -4985,8 +4985,8 @@
         "ar": "ساندويتش الفسحة",
         "note": "ساندويتش يأخذه الطالب معه ليأكله وقت الفسحة",
         "pl": "die Pausenbrote",
-        "s": "Zum Pausenbrot gibt es heute Vollkornbrot mit Käse und Apfel.",
-        "sar": "في ساندويتش الفسحة يوجد اليوم خبز حبوب كاملة مع جبن وتفاحة."
+        "s": "Das Pausenbrot ist in meinem Rucksack.",
+        "sar": "ساندويتش الفسحة في حقيبة ظهري."
       },
       {
         "id": "schule.hausaufgabe",
@@ -4994,8 +4994,8 @@
         "n": "Hausaufgabe",
         "ar": "واجب المدرسي",
         "pl": "die Hausaufgaben",
-        "s": "Die tägliche Hausaufgabe festigt den gelernten Schulstoff.",
-        "sar": "الواجب المدرسي اليومي يرسخ المادة التعليمية المكتسبة."
+        "s": "Ich mache meine Hausaufgaben am Nachmittag.",
+        "sar": "أحل واجباتي المدرسية بعد الظهر."
       },
       {
         "id": "schule.pruefung",
@@ -5003,8 +5003,8 @@
         "n": "Prüfung",
         "ar": "امتحان",
         "pl": "die Prüfungen",
-        "s": "Vor der schwierigen Prüfung wiederholt er alle wichtigen Formeln.",
-        "sar": "قبل الامتحان الصعب يراجع كل المعادلات الهامة."
+        "s": "Morgen habe ich eine Prüfung.",
+        "sar": "غداً عندي امتحان."
       },
       {
         "id": "schule.note",
@@ -5013,8 +5013,8 @@
         "ar": "درجة",
         "note": "Note = درجة / نوتة موسيقية",
         "pl": "die Noten",
-        "s": "Für ihren herausragenden Aufsatz erhielt sie die beste Note.",
-        "sar": "نظير موضوعها الإنشائي المتميز حصلت على أعلى درجة."
+        "s": "Ich habe eine gute Note bekommen.",
+        "sar": "حصلت على درجة جيدة."
       },
       {
         "id": "schule.zeugnis",
@@ -5022,8 +5022,8 @@
         "n": "Zeugnis",
         "ar": "شهادة الدرجات",
         "pl": "die Zeugnisse",
-        "s": "Am letzten Schultag bekommen alle Kinder ihr Zeugnis.",
-        "sar": "في اليوم الأخير من المدرسة يتسلم كل الأطفال شهادة درجاتهم."
+        "s": "Am Ende des Jahres bekomme ich ein Zeugnis.",
+        "sar": "في نهاية العام أحصل على شهادة الدرجات."
       },
       {
         "id": "schule.unterricht",
@@ -5032,8 +5032,8 @@
         "ar": "حصة الدراسية",
         "note": "اسم غير معدود، يُستخدم دائمًا في صيغة المفرد",
         "pl": null,
-        "s": "Der Unterricht beginnt an unserer Schule pünktlich um acht Uhr.",
-        "sar": "الحصة الدراسية تبدأ في مدرستنا تمام الثامنة صباحاً."
+        "s": "Der Unterricht beginnt um acht Uhr.",
+        "sar": "تبدأ الحصة الدراسية الساعة الثامنة."
       },
       {
         "id": "schule.pause",
@@ -5041,8 +5041,8 @@
         "n": "Pause",
         "ar": "فسحة",
         "pl": "die Pausen",
-        "s": "In der großen Pause spielen die Schüler draußen auf dem Hof.",
-        "sar": "في الفسحة الكبيرة يلعب التلاميذ بالخارج في باحة المدرسة."
+        "s": "In der Pause spielen wir.",
+        "sar": "في الفسحة نلعب."
       },
       {
         "id": "schule.direktor",
@@ -5051,8 +5051,8 @@
         "ar": "مدير المدرسة",
         "note": "مذكرة: تنتهي بـ -or بنطق مشدد (لاحقة لاتينية) وليست -er الألمانية الأصلية، فجمعها Direktoren وليس بلا تغيير",
         "pl": "die Direktoren",
-        "s": "Der Direktor begrüßt die neuen Erstklässler in der Aula.",
-        "sar": "مدير المدرسة يرحب بالطلاب الجدد في القاعة الكبرى."
+        "s": "Der Direktor ist in seinem Büro.",
+        "sar": "مدير المدرسة في مكتبه."
       },
       {
         "id": "schule.klasse",
@@ -5060,8 +5060,8 @@
         "n": "Klasse",
         "ar": "فصل (كمجموعة طلاب)",
         "pl": "die Klassen",
-        "s": "Die ganze Klasse fährt nächste Woche auf Klassenfahrt.",
-        "sar": "الفصل بأكمله يسافر الأسبوع المقبل في رحلة مدرسية."
+        "s": "Unsere Klasse hat dreißig Schüler.",
+        "sar": "فصلنا فيه ثلاثون طالباً."
       },
       {
         "id": "schule.mitschueler",
@@ -5069,8 +5069,8 @@
         "n": "Mitschüler",
         "ar": "زميل الدراسة",
         "pl": "die Mitschüler",
-        "s": "Ein hilfsbereiter Mitschüler leiht ihm seinen Bleistift.",
-        "sar": "زميل دراسة متعاون يعيره قلم رصاصه."
+        "s": "Mein Mitschüler hilft mir.",
+        "sar": "زميلي في الدراسة يساعدني."
       },
       {
         "id": "schule.fach",
@@ -5078,8 +5078,8 @@
         "n": "Fach",
         "ar": "مادة الدراسية",
         "pl": "die Fächer",
-        "s": "Sein liebstes Fach in der Schule ist Naturwissenschaft.",
-        "sar": "مادته الدراسية المفضلة في المدرسة هي مادة العلوم الطبيعية."
+        "s": "Welches Fach magst du am liebsten?",
+        "sar": "ما المادة الدراسية التي تحبها أكثر؟"
       },
       {
         "id": "schule.mathematik",
@@ -5088,8 +5088,8 @@
         "ar": "رياضيات",
         "note": "اسم غير معدود عادة، مثل باقي أسماء المواد العلمية",
         "pl": null,
-        "s": "Mathematik erfordert logisches Denken und regelmäßiges Üben.",
-        "sar": "الرياضيات تتطلب تفكيراً منطقياً وتدريباً مستمراً."
+        "s": "Mathematik ist mein Lieblingsfach.",
+        "sar": "الرياضيات مادتي المفضلة."
       },
       {
         "id": "schule.geschichte",
@@ -5098,8 +5098,8 @@
         "ar": "مادة التاريخ",
         "note": "بمعنى \"مادة التاريخ\" اسم غير معدود؛ أما بمعنى \"قصة\" فجمعها الشائع \"Geschichten\" — Geschichte = تاريخ / قصة",
         "pl": null,
-        "s": "Im Fach Geschichte lernen wir über das antike Rom.",
-        "sar": "في مادة التاريخ نتعلم عن روما القديمة."
+        "s": "In Geschichte lernen wir über Ägypten.",
+        "sar": "في مادة التاريخ نتعلم عن مصر."
       },
       {
         "id": "schule.biologie",
@@ -5108,8 +5108,8 @@
         "ar": "أحياء",
         "note": "اسم غير معدود عادة",
         "pl": null,
-        "s": "In der Biologie mikroskopieren die Schüler Pflanzenzellen.",
-        "sar": "في مادة الأحياء يفحص التلاميذ الخلايا النباتية بالمجهر."
+        "s": "Biologie handelt von Tieren und Pflanzen.",
+        "sar": "تتناول الأحياء الحيوانات والنباتات."
       },
       {
         "id": "schule.chemie",
@@ -5118,8 +5118,8 @@
         "ar": "كيمياء",
         "note": "اسم غير معدود عادة",
         "pl": null,
-        "s": "Im Fach Chemie führen wir spannende Experimente durch.",
-        "sar": "في مادة الكيمياء نجري تجارب علمية مشوقة."
+        "s": "In Chemie machen wir Experimente.",
+        "sar": "في الكيمياء نجري تجارب."
       },
       {
         "id": "schule.physik",
@@ -5128,8 +5128,8 @@
         "ar": "فيزياء",
         "note": "اسم غير معدود عادة",
         "pl": null,
-        "s": "Physik erklärt die grundlegenden Naturgesetze unserer Welt.",
-        "sar": "الفيزياء تشرح القوانين الطبيعية الأساسية في عالمنا."
+        "s": "Physik erklärt, warum Dinge fallen.",
+        "sar": "الفيزياء تشرح لماذا تسقط الأشياء."
       },
       {
         "id": "schule.kunst",
@@ -5137,8 +5137,8 @@
         "n": "Kunst",
         "ar": "فن",
         "pl": "die Künste",
-        "s": "Im Kunstunterricht malen die Kinder mit Wasserfarben.",
-        "sar": "في حصة التربية الفنية يرسم الأطفال بالألوان المائية."
+        "s": "In Kunst malen wir Bilder.",
+        "sar": "في حصة الفن نرسم لوحات."
       },
       {
         "id": "schule.fremdsprache",
@@ -5146,8 +5146,8 @@
         "n": "Fremdsprache",
         "ar": "لغة الأجنبية",
         "pl": "die Fremdsprachen",
-        "s": "Deutsch ist für mich eine neue und spannende Fremdsprache.",
-        "sar": "الألمانية بالنسبة لي لغة أجنبية جديدة ومشوقة."
+        "s": "Ich lerne Deutsch als Fremdsprache.",
+        "sar": "أتعلم الألمانية كلغة أجنبية."
       },
       {
         "id": "schule.wortschatz",
@@ -5156,8 +5156,8 @@
         "ar": "مفردات",
         "note": "نادر الاستخدام، يشير لمفردات لغات أو مجالات مختلفة",
         "pl": "die Wortschätze",
-        "s": "Jeden Tag erweitert er seinen deutschen Wortschatz um fünf Wörter.",
-        "sar": "يومياً يوسع مفرداته الألمانية بخمس كلمات جديدة."
+        "s": "Mein Wortschatz wird jeden Tag größer.",
+        "sar": "مفرداتي تزداد كل يوم."
       },
       {
         "id": "schule.grammatik",
@@ -5166,8 +5166,8 @@
         "ar": "قواعد",
         "note": "نادر الاستخدام، يشير لكتب أو أنظمة قواعد لغوية مختلفة",
         "pl": "die Grammatiken",
-        "s": "Eine klare Grammatik hilft beim korrekten Formulieren von Sätzen.",
-        "sar": "القواعد الواضحة تساعد على صياغة الجمل بشكل صحيح."
+        "s": "Die Grammatik ist manchmal schwierig.",
+        "sar": "القواعد صعبة أحياناً."
       },
       {
         "id": "schule.test",
@@ -5175,8 +5175,8 @@
         "n": "Test",
         "ar": "اختبار قصير",
         "pl": "die Tests",
-        "s": "Morgen schreiben wir einen kurzen unangekündigten Test.",
-        "sar": "غداً سنخوض اختباراً قصيراً غير معلن عنه."
+        "s": "Morgen schreiben wir einen Test.",
+        "sar": "غداً نكتب اختباراً قصيراً."
       },
       {
         "id": "schule.tinte",
@@ -5185,8 +5185,8 @@
         "ar": "حبر",
         "note": "الجمع يشير لأنواع مختلفة من الحبر",
         "pl": "die Tinten",
-        "s": "Der alte Füllfederhalter wird mit blauer Tinte befüllt.",
-        "sar": "قلم الحبر القديم يُملأ بالحبر الأزرق."
+        "s": "Die Tinte ist schwarz.",
+        "sar": "الحبر أسود."
       }
     ]
   },

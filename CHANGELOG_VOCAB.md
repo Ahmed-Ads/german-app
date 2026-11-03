@@ -112,3 +112,10 @@
 - **Target Item IDs:** obst.*,gemuese.*,tiere.*,kleidung.*
 - **Previous SHA-256:** `677954c564d622bbaa1d188f9f71b674a889187c4f523774435bf9adb2c92f69`
 - **New SHA-256:** `ed269c3e53f2df595e8ab81a656d535debf66b223535ce9490c9ea8e8338c5b7`
+
+## [2026-11-03 23:13:55] Authorized Baseline Update
+- **Reason:** Hand-written example sentences batch 3a: berufe, verkehr, schule (135 words)
+- **Source:** Owner-approved review of tools/vocab_changes_sentences_batch3a.json
+- **Target Item IDs:** berufe.*,verkehr.*,schule.*
+- **Previous SHA-256:** `ed269c3e53f2df595e8ab81a656d535debf66b223535ce9490c9ea8e8338c5b7`
+- **New SHA-256:** `a8a40f4d7273a8f2f05d139661a837249e05408b18bc343c030fdd106edc9c2e`

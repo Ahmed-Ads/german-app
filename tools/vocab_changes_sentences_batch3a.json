@@ -1,0 +1,2437 @@
+{
+ "version": 1,
+ "base_vocab_sha256": "ed269c3e53f2df595e8ab81a656d535debf66b223535ce9490c9ea8e8338c5b7",
+ "remove": [],
+ "edit": [
+  {
+   "id": "berufe.arzt",
+   "german": "Arzt",
+   "field": "s",
+   "expect_current": "Der Arzt untersucht den kranken Patienten gründlich.",
+   "new": "Ich gehe zum Arzt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "berufe.arzt",
+   "german": "Arzt",
+   "field": "sar",
+   "expect_current": "الطبيب يفحص المريض بعناية فائقة.",
+   "new": "أذهب إلى الطبيب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.lehrer",
+   "german": "Lehrer",
+   "field": "s",
+   "expect_current": "Der geduldige Lehrer erklärt der Klasse die Grammatik.",
+   "new": "Der Lehrer erklärt die Aufgabe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "berufe.lehrer",
+   "german": "Lehrer",
+   "field": "sar",
+   "expect_current": "المعلم الصبور يشرح للفصل القواعد.",
+   "new": "المعلم يشرح التمرين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.ingenieur",
+   "german": "Ingenieur",
+   "field": "s",
+   "expect_current": "Der Ingenieur plant eine neue sichere Brücke.",
+   "new": "Der Ingenieur plant eine Brücke.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.ingenieur",
+   "german": "Ingenieur",
+   "field": "sar",
+   "expect_current": "المهندس يخطط لبناء جسر آمن جديد.",
+   "new": "المهندس يخطط لجسر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.polizist",
+   "german": "Polizist",
+   "field": "s",
+   "expect_current": "Der Polizist regelt den dichten Verkehr an der Kreuzung.",
+   "new": "Der Polizist hilft uns.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "berufe.polizist",
+   "german": "Polizist",
+   "field": "sar",
+   "expect_current": "الشرطي ينظم حركة المرور الكثيفة عند التقاطع.",
+   "new": "الشرطي يساعدنا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.koch",
+   "german": "Koch",
+   "field": "s",
+   "expect_current": "Der geschickte Koch zaubert ein delikates Menü.",
+   "new": "Der Koch kocht im Restaurant.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.koch",
+   "german": "Koch",
+   "field": "sar",
+   "expect_current": "الطباخ الماهر يبدع في إعداد قائمة طعام شهية.",
+   "new": "الطباخ يطبخ في المطعم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.bauer",
+   "german": "Bauer",
+   "field": "s",
+   "expect_current": "Der Bauer bestellt im Frühjahr seine Felder.",
+   "new": "Der Bauer arbeitet auf dem Feld.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.bauer",
+   "german": "Bauer",
+   "field": "sar",
+   "expect_current": "الفلاح يحرث حقوله في فصل الربيع.",
+   "new": "الفلاح يعمل في الحقل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.anwalt",
+   "german": "Anwalt",
+   "field": "s",
+   "expect_current": "Der erfahrene Anwalt verteidigt seinen Mandanten vor Gericht.",
+   "new": "Der Anwalt kennt das Gesetz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "berufe.anwalt",
+   "german": "Anwalt",
+   "field": "sar",
+   "expect_current": "المحامي الخبير يدافع عن موكله أمام المحكمة.",
+   "new": "المحامي يعرف القانون.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.friseur",
+   "german": "Friseur",
+   "field": "s",
+   "expect_current": "Der Friseur schneidet dem Kunden modisch die Haare.",
+   "new": "Der Friseur schneidet mir die Haare.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.friseur",
+   "german": "Friseur",
+   "field": "sar",
+   "expect_current": "الحلاق يقص شعر الزبون بقصة عصرية.",
+   "new": "الحلاق يقص لي شعري.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.pilot",
+   "german": "Pilot",
+   "field": "s",
+   "expect_current": "Der erfahrene Pilot steuert das Flugzeug sicher durch den Sturm.",
+   "new": "Der Pilot fliegt das Flugzeug.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.pilot",
+   "german": "Pilot",
+   "field": "sar",
+   "expect_current": "الطيار الخبير يقود الطائرة بأمان وسط العاصفة.",
+   "new": "الطيار يقود الطائرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.krankenschwester",
+   "german": "Krankenschwester",
+   "field": "s",
+   "expect_current": "Die aufmerksame Krankenschwester versorgt die Patienten auf der Station.",
+   "new": "Die Krankenschwester arbeitet im Krankenhaus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.krankenschwester",
+   "german": "Krankenschwester",
+   "field": "sar",
+   "expect_current": "الممرضة اليقظة تعتني بالمرضى في القسم.",
+   "new": "الممرضة تعمل في المستشفى.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.verkaeufer",
+   "german": "Verkäufer",
+   "field": "s",
+   "expect_current": "Der freundliche Verkäufer berät die Kundin im Geschäft.",
+   "new": "Der Verkäufer zeigt mir die Jacke.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.verkaeufer",
+   "german": "Verkäufer",
+   "field": "sar",
+   "expect_current": "البائع الودود يقدم النصح للزبونة في المحل.",
+   "new": "البائع يريني الجاكيت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.student",
+   "german": "Student",
+   "field": "s",
+   "expect_current": "Der fleißige Student lernt täglich in der Universitätsbibliothek.",
+   "new": "Mein Bruder ist Student.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "berufe.student",
+   "german": "Student",
+   "field": "sar",
+   "expect_current": "الطالب المجتهد يدرس يومياً في مكتبة الجامعة.",
+   "new": "أخي طالب جامعي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.feuerwehrmann",
+   "german": "Feuerwehrmann",
+   "field": "s",
+   "expect_current": "Der mutige Feuerwehrmann löscht das brennende Haus.",
+   "new": "Der Feuerwehrmann löscht das Feuer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.feuerwehrmann",
+   "german": "Feuerwehrmann",
+   "field": "sar",
+   "expect_current": "رجل الإطفاء الشجاع يخمد الحريق في المنزل المشتعل.",
+   "new": "رجل الإطفاء يطفئ الحريق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.kellner",
+   "german": "Kellner",
+   "field": "s",
+   "expect_current": "Der aufmerksame Kellner bringt die Speisekarte an den Tisch.",
+   "new": "Der Kellner bringt die Speisekarte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.kellner",
+   "german": "Kellner",
+   "field": "sar",
+   "expect_current": "النادل اليقظ يحضر قائمة الطعام إلى الطاولة.",
+   "new": "النادل يحضر قائمة الطعام.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.baecker",
+   "german": "Bäcker",
+   "field": "s",
+   "expect_current": "Der Bäcker backt schon frühmorgens frische Brötchen.",
+   "new": "Der Bäcker backt frisches Brot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.baecker",
+   "german": "Bäcker",
+   "field": "sar",
+   "expect_current": "الخباز يخبز الخبز الطازج في الصباح الباكر جداً.",
+   "new": "الخباز يخبز خبزاً طازجاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.elektriker",
+   "german": "Elektriker",
+   "field": "s",
+   "expect_current": "Der Elektriker verlegt neue Stromleitungen im Gebäude.",
+   "new": "Der Elektriker repariert die Lampe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.elektriker",
+   "german": "Elektriker",
+   "field": "sar",
+   "expect_current": "الكهربائي يمدد خطوط كهرباء جديدة في المبنى.",
+   "new": "الكهربائي يصلح المصباح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.zahnarzt",
+   "german": "Zahnarzt",
+   "field": "s",
+   "expect_current": "Der Zahnarzt empfiehlt eine regelmäßige Kontrolle der Zähne.",
+   "new": "Der Zahnarzt untersucht meine Zähne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.zahnarzt",
+   "german": "Zahnarzt",
+   "field": "sar",
+   "expect_current": "طبيب الأسنان يوصي بفحص منتظم للأسنان.",
+   "new": "طبيب الأسنان يفحص أسناني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.journalist",
+   "german": "Journalist",
+   "field": "s",
+   "expect_current": "Der Journalist recherchiert für einen brisanten Zeitungsartikel.",
+   "new": "Der Journalist schreibt einen Artikel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.journalist",
+   "german": "Journalist",
+   "field": "sar",
+   "expect_current": "الصحفي يجري بحثاً لمقال صحفي مهم.",
+   "new": "الصحفي يكتب مقالاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.fotograf",
+   "german": "Fotograf",
+   "field": "s",
+   "expect_current": "Der Fotograf macht wunderschöne Porträtaufnahmen im Studio.",
+   "new": "Der Fotograf macht ein Foto.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.fotograf",
+   "german": "Fotograf",
+   "field": "sar",
+   "expect_current": "المصور يلتقط صوراً شخصية جميلة في الأستوديو.",
+   "new": "المصور يلتقط صورة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.architekt",
+   "german": "Architekt",
+   "field": "s",
+   "expect_current": "Der kreative Architekt entwirft moderne energieeffiziente Häuser.",
+   "new": "Der Architekt zeichnet das Haus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.architekt",
+   "german": "Architekt",
+   "field": "sar",
+   "expect_current": "المهندس المعماري المبدع يصمم منازل حديثة موفرة للطاقة.",
+   "new": "المهندس المعماري يرسم البيت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.programmierer",
+   "german": "Programmierer",
+   "field": "s",
+   "expect_current": "Der Programmierer schreibt fehlerfreien Code für die Software.",
+   "new": "Der Programmierer arbeitet am Computer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.programmierer",
+   "german": "Programmierer",
+   "field": "sar",
+   "expect_current": "المبرمج يكتب كوداً برمجياً خالياً من الأخطاء للبرنامج.",
+   "new": "المبرمج يعمل على الحاسوب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.uebersetzer",
+   "german": "Übersetzer",
+   "field": "s",
+   "expect_current": "Der Übersetzer überträgt den Roman ins Deutsche.",
+   "new": "Der Übersetzer übersetzt den Brief.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.uebersetzer",
+   "german": "Übersetzer",
+   "field": "sar",
+   "expect_current": "المترجم ينقل الرواية الأدبية إلى الألمانية.",
+   "new": "المترجم يترجم الرسالة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.soldat",
+   "german": "Soldat",
+   "field": "s",
+   "expect_current": "Der Soldat dient seinem Land mit Disziplin.",
+   "new": "Der Soldat trägt eine Uniform.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.soldat",
+   "german": "Soldat",
+   "field": "sar",
+   "expect_current": "الجندي يخدم وطنه بانضباط.",
+   "new": "الجندي يرتدي زياً عسكرياً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.richter",
+   "german": "Richter",
+   "field": "s",
+   "expect_current": "Der Richter spricht das gerechte Urteil im Namen des Volkes.",
+   "new": "Der Richter entscheidet im Gericht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "berufe.richter",
+   "german": "Richter",
+   "field": "sar",
+   "expect_current": "القاضي ينطق بالحكم العادل باسم الشعب.",
+   "new": "القاضي يحكم في المحكمة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.chirurg",
+   "german": "Chirurg",
+   "field": "s",
+   "expect_current": "Der geschickte Chirurg führt die schwierige Operation durch.",
+   "new": "Der Chirurg operiert den Patienten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "berufe.chirurg",
+   "german": "Chirurg",
+   "field": "sar",
+   "expect_current": "الجراح الماهر يجري العملية الجراحية الصعبة.",
+   "new": "الجراح يجري عملية للمريض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.apotheker",
+   "german": "Apotheker",
+   "field": "s",
+   "expect_current": "Der Apotheker erklärt die richtige Dosierung des Medikaments.",
+   "new": "Der Apotheker gibt mir die Medizin.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.apotheker",
+   "german": "Apotheker",
+   "field": "sar",
+   "expect_current": "الصيدلي يوضح الجرعة الصحيحة للدواء.",
+   "new": "الصيدلي يعطيني الدواء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.tierarzt",
+   "german": "Tierarzt",
+   "field": "s",
+   "expect_current": "Der Tierarzt behandelt den verletzten Hund behutsam.",
+   "new": "Der Tierarzt untersucht den Hund.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.tierarzt",
+   "german": "Tierarzt",
+   "field": "sar",
+   "expect_current": "الطبيب البيطري يعالج الكلب المصاب برفق.",
+   "new": "الطبيب البيطري يفحص الكلب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.psychologe",
+   "german": "Psychologe",
+   "field": "s",
+   "expect_current": "Der Psychologe hilft Menschen in seelischen Krisen.",
+   "new": "Der Psychologe hört seinen Patienten zu.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "berufe.psychologe",
+   "german": "Psychologe",
+   "field": "sar",
+   "expect_current": "الأخصائي النفسي يساعد الناس في الأزمات النفسية.",
+   "new": "الأخصائي النفسي يستمع إلى مرضاه.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.manager",
+   "german": "Manager",
+   "field": "s",
+   "expect_current": "Der Manager leitet die Besprechung mit dem gesamten Team.",
+   "new": "Der Manager leitet ein großes Team.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "berufe.manager",
+   "german": "Manager",
+   "field": "sar",
+   "expect_current": "المدير يقود الاجتماع مع كامل فريق العمل.",
+   "new": "المدير يقود فريقاً كبيراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.sekretaer",
+   "german": "Sekretär",
+   "field": "s",
+   "expect_current": "Der Sekretär beantwortet E-Mails und vereinbart Termine.",
+   "new": "Der Sekretär schreibt die E-Mails.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.sekretaer",
+   "german": "Sekretär",
+   "field": "sar",
+   "expect_current": "السكرتير يجيب على رسائل البريد الإلكتروني ويحدد المواعيد.",
+   "new": "السكرتير يكتب رسائل البريد الإلكتروني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.landwirt",
+   "german": "Landwirt",
+   "field": "s",
+   "expect_current": "Der Landwirt setzt auf ökologischen Anbau von Gemüse.",
+   "new": "Der Landwirt arbeitet mit dem Traktor.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.landwirt",
+   "german": "Landwirt",
+   "field": "sar",
+   "expect_current": "المزارع يعتمد على الزراعة العضوية للخضروات.",
+   "new": "المزارع يعمل بالجرار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.fischer",
+   "german": "Fischer",
+   "field": "s",
+   "expect_current": "Der Fischer kehrt am Abend mit reichem Fang zurück.",
+   "new": "Der Fischer fängt viele Fische.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.fischer",
+   "german": "Fischer",
+   "field": "sar",
+   "expect_current": "صياد السمك يعود في المساء بصيد وفير.",
+   "new": "الصياد يصطاد أسماكاً كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.metzger",
+   "german": "Metzger",
+   "field": "s",
+   "expect_current": "Der Metzger schneidet das Fleisch fachgerecht zu.",
+   "new": "Der Metzger verkauft frisches Fleisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.metzger",
+   "german": "Metzger",
+   "field": "sar",
+   "expect_current": "الجزار يقطع اللحم باحترافية.",
+   "new": "الجزار يبيع لحماً طازجاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.schneider",
+   "german": "Schneider",
+   "field": "s",
+   "expect_current": "Der Schneider näht einen maßgeschneiderten Anzug.",
+   "new": "Der Schneider näht ein Hemd.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.schneider",
+   "german": "Schneider",
+   "field": "sar",
+   "expect_current": "الخياط يحيك بدلة مفصلة حسب المقاس.",
+   "new": "الخياط يخيط قميصاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.maler",
+   "german": "Maler",
+   "field": "s",
+   "expect_current": "Der Maler streicht die Wände im Wohnzimmer weiß.",
+   "new": "Der Maler streicht die Wand.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.maler",
+   "german": "Maler",
+   "field": "sar",
+   "expect_current": "الدهان يطلي جدران غرفة المعيشة باللون الأبيض.",
+   "new": "الدهان يطلي الجدار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.mechaniker",
+   "german": "Mechaniker",
+   "field": "s",
+   "expect_current": "Der Mechaniker wechselt die Bremsen am Auto fachgerecht.",
+   "new": "Der Mechaniker repariert mein Auto.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.mechaniker",
+   "german": "Mechaniker",
+   "field": "sar",
+   "expect_current": "الميكانيكي يغير مكابح السيارة بحرفية.",
+   "new": "الميكانيكي يصلح سيارتي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.fahrer",
+   "german": "Fahrer",
+   "field": "s",
+   "expect_current": "Der Fahrer lenkt den Stadtbus sicher durch den Berufsverkehr.",
+   "new": "Der Fahrer wartet vor dem Haus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.fahrer",
+   "german": "Fahrer",
+   "field": "sar",
+   "expect_current": "السائق يقود حافلة المدينة بأمان وسط زحمة العمل.",
+   "new": "السائق ينتظر أمام البيت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.musiker",
+   "german": "Musiker",
+   "field": "s",
+   "expect_current": "Der begabte Musiker übt stundenlang auf seinem Instrument.",
+   "new": "Der Musiker spielt Gitarre.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.musiker",
+   "german": "Musiker",
+   "field": "sar",
+   "expect_current": "الموسيقي الموهوب يتدرب لساعات على آلته.",
+   "new": "الموسيقي يعزف الجيتار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.schauspieler",
+   "german": "Schauspieler",
+   "field": "s",
+   "expect_current": "Der bekannte Schauspieler spielt die Hauptrolle im neuen Film.",
+   "new": "Der Schauspieler spielt im Theater.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.schauspieler",
+   "german": "Schauspieler",
+   "field": "sar",
+   "expect_current": "الممثل المشهور يؤدي دور البطولة في الفيلم الجديد.",
+   "new": "الممثل يمثل في المسرح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.saenger",
+   "german": "Sänger",
+   "field": "s",
+   "expect_current": "Der talentierte Sänger begeistert das Publikum im Konzertsaal.",
+   "new": "Der Sänger singt ein Lied.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.saenger",
+   "german": "Sänger",
+   "field": "sar",
+   "expect_current": "المغني الموهوب يثير إعجاب الجمهور في قاعة الحفلات.",
+   "new": "المغني يغني أغنية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.taenzer",
+   "german": "Tänzer",
+   "field": "s",
+   "expect_current": "Der grazile Tänzer bewegt sich mühelos zur Musik.",
+   "new": "Der Tänzer übt jeden Tag.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.taenzer",
+   "german": "Tänzer",
+   "field": "sar",
+   "expect_current": "الراقص الرشيق يتحرك بانسيابية تامة مع الموسيقى.",
+   "new": "الراقص يتدرب كل يوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.schriftsteller",
+   "german": "Schriftsteller",
+   "field": "s",
+   "expect_current": "Der Schriftsteller arbeitet intensiv an seinem neuen Roman.",
+   "new": "Der Schriftsteller schreibt ein Buch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.schriftsteller",
+   "german": "Schriftsteller",
+   "field": "sar",
+   "expect_current": "الكاتب يعمل بكثافة على روايته الجديدة.",
+   "new": "الكاتب يكتب كتاباً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.designer",
+   "german": "Designer",
+   "field": "s",
+   "expect_current": "Der kreative Designer gestaltet ein modernes Logo für die Firma.",
+   "new": "Der Designer zeichnet ein Logo.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.designer",
+   "german": "Designer",
+   "field": "sar",
+   "expect_current": "المصمم المبدع يصمم شعاراً حديثاً للشركة.",
+   "new": "المصمم يرسم شعاراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.wissenschaftler",
+   "german": "Wissenschaftler",
+   "field": "s",
+   "expect_current": "Der Wissenschaftler erforscht neue Heilmethoden im Labor.",
+   "new": "Der Wissenschaftler macht ein Experiment.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "berufe.wissenschaftler",
+   "german": "Wissenschaftler",
+   "field": "sar",
+   "expect_current": "العالم يبحث عن طرق علاج جديدة في المختبر.",
+   "new": "العالم يجري تجربة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.dolmetscher",
+   "german": "Dolmetscher",
+   "field": "s",
+   "expect_current": "Der Dolmetscher übersetzt die Rede simultan bei der Konferenz.",
+   "new": "Der Dolmetscher übersetzt, während wir sprechen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "berufe.dolmetscher",
+   "german": "Dolmetscher",
+   "field": "sar",
+   "expect_current": "المترجم الفوري يترجم الخطاب بالتزامن في المؤتمر.",
+   "new": "المترجم الفوري يترجم أثناء حديثنا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "berufe.hausmeister",
+   "german": "Hausmeister",
+   "field": "s",
+   "expect_current": "Der hilfsbereite Hausmeister kümmert sich um die Reparaturen im Haus.",
+   "new": "Der Hausmeister repariert die Heizung.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "berufe.hausmeister",
+   "german": "Hausmeister",
+   "field": "sar",
+   "expect_current": "عامل صيانة المبنى المتعاون يعتني بالإصلاحات في العمارة.",
+   "new": "عامل الصيانة يصلح التدفئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.auto",
+   "german": "Auto",
+   "field": "s",
+   "expect_current": "Er fährt jeden Morgen mit dem Auto zur Arbeit.",
+   "new": "Mein Auto ist neu.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "verkehr.auto",
+   "german": "Auto",
+   "field": "sar",
+   "expect_current": "هو يذهب كل صباح بالسيارة إلى العمل.",
+   "new": "سيارتي جديدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.bus",
+   "german": "Bus",
+   "field": "s",
+   "expect_current": "Der Bus hält direkt vor der Universitätsbibliothek.",
+   "new": "Der Bus kommt gleich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "verkehr.bus",
+   "german": "Bus",
+   "field": "sar",
+   "expect_current": "الحافلة تقف مباشرة أمام مكتبة الجامعة.",
+   "new": "الحافلة تصل بعد قليل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.zug",
+   "german": "Zug",
+   "field": "s",
+   "expect_current": "Der Zug nach München fährt pünktlich von Gleis drei ab.",
+   "new": "Der Zug fährt nach Berlin.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "verkehr.zug",
+   "german": "Zug",
+   "field": "sar",
+   "expect_current": "القطار المتجه إلى ميونيخ ينطلق في موعده من الرصيف ثلاثة.",
+   "new": "القطار يذهب إلى برلين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.fahrrad",
+   "german": "Fahrrad",
+   "field": "s",
+   "expect_current": "In der Stadt fahre ich am liebsten mit dem Fahrrad.",
+   "new": "Ich fahre mit dem Fahrrad.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "verkehr.fahrrad",
+   "german": "Fahrrad",
+   "field": "sar",
+   "expect_current": "في المدينة أفضل التنقل بالدراجة الهوائية.",
+   "new": "أذهب بالدراجة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.flugzeug",
+   "german": "Flugzeug",
+   "field": "s",
+   "expect_current": "Das Flugzeug startet vom Frankfurter Flughafen nach Tokio.",
+   "new": "Das Flugzeug landet um acht Uhr.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.flugzeug",
+   "german": "Flugzeug",
+   "field": "sar",
+   "expect_current": "الطائرة تقلع من مطار فرانكفورت متجهة إلى طوكيو.",
+   "new": "الطائرة تهبط الساعة الثامنة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.schiff",
+   "german": "Schiff",
+   "field": "s",
+   "expect_current": "Das große Schiff gleitet ruhig über den Rhein.",
+   "new": "Das Schiff fährt über das Meer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.schiff",
+   "german": "Schiff",
+   "field": "sar",
+   "expect_current": "السفينة الكبيرة تنساب بهدوء عبر نهر الراين.",
+   "new": "السفينة تبحر عبر البحر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.u-bahn",
+   "german": "U-Bahn",
+   "field": "s",
+   "expect_current": "Die U-Bahn fährt schnell und pünktlich unter den belebten Straßen der Stadt.",
+   "new": "Die U-Bahn ist schnell und pünktlich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.u-bahn",
+   "german": "U-Bahn",
+   "field": "sar",
+   "expect_current": "يسير المترو بسرعة وانتظام تحت شوارع المدينة المزدحمة.",
+   "new": "المترو سريع ودقيق في مواعيده.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.taxi",
+   "german": "Taxi",
+   "field": "s",
+   "expect_current": "Weil die letzte Bahn verpasst wurde, rief er sich nachts ein Taxi.",
+   "new": "Wir nehmen ein Taxi.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "verkehr.taxi",
+   "german": "Taxi",
+   "field": "sar",
+   "expect_current": "لأنه فاته القطار الأخير، طلب لنفسه سيارة أجرة ليلاً.",
+   "new": "نأخذ تاكسي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.lastwagen",
+   "german": "Lastwagen",
+   "field": "s",
+   "expect_current": "Der schwere Lastwagen transportiert frische Lebensmittel von der Fabrik zum Supermarkt.",
+   "new": "Der Lastwagen transportiert viele Kisten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.lastwagen",
+   "german": "Lastwagen",
+   "field": "sar",
+   "expect_current": "الشاحنة الثقيلة تنقل المواد الغذائية الطازجة من المصنع إلى السوبرماركت.",
+   "new": "الشاحنة تنقل صناديق كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.motorrad",
+   "german": "Motorrad",
+   "field": "s",
+   "expect_current": "Er fährt mit seinem schnellen Motorrad gern auf kurvigen Landstraßen.",
+   "new": "Das Motorrad ist sehr laut.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.motorrad",
+   "german": "Motorrad",
+   "field": "sar",
+   "expect_current": "هو يحب القيادة بدراجته النارية السريعة على الطرق الريفية المتعرجة.",
+   "new": "الدراجة النارية صوتها عالٍ جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.strassenbahn",
+   "german": "Straßenbahn",
+   "field": "s",
+   "expect_current": "Die Straßenbahn fährt im Zehn-Minuten-Takt mitten durch die belebte Innenstadt.",
+   "new": "Die Straßenbahn fährt durch die Stadt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.strassenbahn",
+   "german": "Straßenbahn",
+   "field": "sar",
+   "expect_current": "الترام يسير كل عشر دقائق في قلب وسط المدينة الحيوي.",
+   "new": "الترام يسير في المدينة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.boot",
+   "german": "Boot",
+   "field": "s",
+   "expect_current": "Wir mieteten ein kleines hölzernes Boot und ruderten über den ruhigen Waldsee.",
+   "new": "Das Boot schwimmt auf dem Fluss.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.boot",
+   "german": "Boot",
+   "field": "sar",
+   "expect_current": "استأجرنا قارباً خشبياً صغيراً وجدفنا عبر بحيرة الغابة الهادئة.",
+   "new": "القارب يطفو على النهر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.hubschrauber",
+   "german": "Hubschrauber",
+   "field": "s",
+   "expect_current": "Der gelbe Rettungshubschrauber landete zügig direkt auf dem Dach des Krankenhauses.",
+   "new": "Der Hubschrauber fliegt über die Stadt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.hubschrauber",
+   "german": "Hubschrauber",
+   "field": "sar",
+   "expect_current": "هبطت مروحية الإنقاذ الصفراء بسرعة مباشرة على سطح المستشفى.",
+   "new": "الهليكوبتر تحلّق فوق المدينة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.ampel",
+   "german": "Ampel",
+   "field": "s",
+   "expect_current": "An der großen Kreuzung schaltet die Ampel für Fußgänger auf Grün.",
+   "new": "Die Ampel ist rot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "verkehr.ampel",
+   "german": "Ampel",
+   "field": "sar",
+   "expect_current": "عند التقاطع الكبير تتحول إشارة المرور للمشاة إلى اللون الأخضر.",
+   "new": "إشارة المرور حمراء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.roller",
+   "german": "Roller",
+   "field": "s",
+   "expect_current": "Der Schüler fährt mit seinem wendigen Roller morgens schnell zur Schule.",
+   "new": "Mein Sohn fährt Roller.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.roller",
+   "german": "Roller",
+   "field": "sar",
+   "expect_current": "الطالب يذهب بسكوتره الرشيق صباحاً سريعاً إلى المدرسة.",
+   "new": "ابني يركب السكوتر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.faehre",
+   "german": "Fähre",
+   "field": "s",
+   "expect_current": "Die große weiße Fähre bringt Autos und Passagiere sicher zur Ferieninsel.",
+   "new": "Die Fähre bringt uns zur Insel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.faehre",
+   "german": "Fähre",
+   "field": "sar",
+   "expect_current": "العبّارة البيضاء الكبيرة تنقل السيارات والمسافرين بأمان إلى جزيرة العطلات.",
+   "new": "العبّارة تأخذنا إلى الجزيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.traktor",
+   "german": "Traktor",
+   "field": "s",
+   "expect_current": "Der Bauer pflügt mit seinem starken grünen Traktor den weiten Ackerboden um.",
+   "new": "Der Traktor fährt langsam.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.traktor",
+   "german": "Traktor",
+   "field": "sar",
+   "expect_current": "المزارع يحرث بتركتوره الأخضر القوي التربة الزراعية الشاسعة.",
+   "new": "الجرار يسير ببطء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.krankenwagen",
+   "german": "Krankenwagen",
+   "field": "s",
+   "expect_current": "Der Krankenwagen raste mit dröhnendem Martinshorn und hellem Blaulicht zum Unfallort.",
+   "new": "Der Krankenwagen kommt schnell.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.krankenwagen",
+   "german": "Krankenwagen",
+   "field": "sar",
+   "expect_current": "سيارة الإسعاف أسرعت بصافرتها المدوية وضوئها الأزرق إلى موقع الحادث.",
+   "new": "سيارة الإسعاف تصل بسرعة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.polizeiauto",
+   "german": "Polizeiauto",
+   "field": "s",
+   "expect_current": "Das blau-silberne Polizeiauto patrouilliert aufmerksam im Wohngebiet.",
+   "new": "Das Polizeiauto steht an der Ecke.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.polizeiauto",
+   "german": "Polizeiauto",
+   "field": "sar",
+   "expect_current": "سيارة الشرطة الزرقاء والفضية تسير في دورية منتبهة داخل المنطقة السكنية.",
+   "new": "سيارة الشرطة تقف عند الناصية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.feuerwehrwagen",
+   "german": "Feuerwehrwagen",
+   "field": "s",
+   "expect_current": "Aus dem roten Feuerwehrwagen rollten die Feuerwehrleute lange Schläuche aus.",
+   "new": "Der Feuerwehrwagen ist rot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.feuerwehrwagen",
+   "german": "Feuerwehrwagen",
+   "field": "sar",
+   "expect_current": "من سيارة الإطفاء الحمراء مد رجال الإطفاء خراطيم مياه طويلة.",
+   "new": "سيارة الإطفاء حمراء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.wohnwagen",
+   "german": "Wohnwagen",
+   "field": "s",
+   "expect_current": "Im Sommerurlaub zieht die Familie mit einem gemütlichen Wohnwagen durch Schweden.",
+   "new": "Im Urlaub schlafen wir im Wohnwagen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "verkehr.wohnwagen",
+   "german": "Wohnwagen",
+   "field": "sar",
+   "expect_current": "في عطلة الصيف تتجول العائلة بعربة سكن متنقلة ومريحة عبر السويد.",
+   "new": "في الإجازة ننام في عربة السكن.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.kinderwagen",
+   "german": "Kinderwagen",
+   "field": "s",
+   "expect_current": "Die junge Mutter schiebt ihr schlafendes Baby sanft im gepolsterten Kinderwagen.",
+   "new": "Das Baby schläft im Kinderwagen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.kinderwagen",
+   "german": "Kinderwagen",
+   "field": "sar",
+   "expect_current": "الأم الشابة تدفع طفلها الرضيع النائم برفق في عربة الأطفال المبطنة.",
+   "new": "الطفل الرضيع ينام في عربة الأطفال.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.rollstuhl",
+   "german": "Rollstuhl",
+   "field": "s",
+   "expect_current": "Dank der flachen Rampe gelangt der Mann im Rollstuhl barrierefrei ins Gebäude.",
+   "new": "Mein Opa sitzt im Rollstuhl.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.rollstuhl",
+   "german": "Rollstuhl",
+   "field": "sar",
+   "expect_current": "بفضل المنحدر المنبسط يدخل الرجل ذو الكرسي المتحرك إلى المبنى دون عوائق.",
+   "new": "جدي يجلس على كرسي متحرك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.skateboard",
+   "german": "Skateboard",
+   "field": "s",
+   "expect_current": "Auf der Rampe im Skatepark zeigt das Mädchen coole Sprünge mit ihrem Skateboard.",
+   "new": "Ich fahre gern Skateboard.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.skateboard",
+   "german": "Skateboard",
+   "field": "sar",
+   "expect_current": "على المنحدر في حديقة التزلج تعرض الفتاة قفزات رائعة بلوح التزلج الخاص بها.",
+   "new": "أحب التزلج على اللوح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.rakete",
+   "german": "Rakete",
+   "field": "s",
+   "expect_current": "Die bemannte Rakete startete mit enormem Schub ins weite Weltall.",
+   "new": "Die Rakete fliegt ins All.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "verkehr.rakete",
+   "german": "Rakete",
+   "field": "sar",
+   "expect_current": "الصاروخ المأهول انطلق بدفع هائل نحو الفضاء الخارجي الشاسع.",
+   "new": "الصاروخ يطير إلى الفضاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.strasse",
+   "german": "Straße",
+   "field": "s",
+   "expect_current": "Vorsichtige Kinder schauen nach beiden Seiten, bevor sie die belebte Straße überqueren.",
+   "new": "Die Straße ist sehr breit.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.strasse",
+   "german": "Straße",
+   "field": "sar",
+   "expect_current": "الأطفال الحذرون ينظرون في كلا الاتجاهين قبل عبور الشارع المزدحم.",
+   "new": "الشارع عريض جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.autobahn",
+   "german": "Autobahn",
+   "field": "s",
+   "expect_current": "Auf der dreispurigen Autobahn darf man außerhalb geschlossener Ortschaften zügig fahren.",
+   "new": "Auf der Autobahn fahren viele Autos.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.autobahn",
+   "german": "Autobahn",
+   "field": "sar",
+   "expect_current": "على الطريق السريع ذي المسارات الثلاثة يُسمح بالقيادة بسرعة خارج المناطق السكنية.",
+   "new": "على الطريق السريع تسير سيارات كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.haltestelle",
+   "german": "Haltestelle",
+   "field": "s",
+   "expect_current": "Viele Pendler warten am frühen Montagmorgen ungeduldig an der Bushaltestelle.",
+   "new": "Die Haltestelle ist vor dem Bahnhof.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.haltestelle",
+   "german": "Haltestelle",
+   "field": "sar",
+   "expect_current": "ينتظر العديد من الركاب صباح الاثنين بفارغ الصبر في محطة الحافلات.",
+   "new": "محطة التوقف أمام محطة القطار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.bahnsteig",
+   "german": "Bahnsteig",
+   "field": "s",
+   "expect_current": "Der ICE nach Hamburg fährt gleich an Bahnsteig vier ein.",
+   "new": "Wir warten auf dem Bahnsteig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.bahnsteig",
+   "german": "Bahnsteig",
+   "field": "sar",
+   "expect_current": "قطار السريع المتجه إلى هامبورغ يدخل حالاً عند رصيف المحطة رقم أربعة.",
+   "new": "ننتظر على رصيف المحطة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.kreuzung",
+   "german": "Kreuzung",
+   "field": "s",
+   "expect_current": "Biegen Sie an der nächsten unübersichtlichen Kreuzung bitte vorsichtig nach links ab.",
+   "new": "An der Kreuzung müssen wir links abbiegen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "verkehr.kreuzung",
+   "german": "Kreuzung",
+   "field": "sar",
+   "expect_current": "انعطف من فضلك بحذر إلى اليسار عند التقاطع القادم.",
+   "new": "عند التقاطع علينا أن ننعطف يساراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.fahrplan",
+   "german": "Fahrplan",
+   "field": "s",
+   "expect_current": "Im digitalen Fahrplan der Bahn kann man alle Abfahrtszeiten sekundengenau einsehen.",
+   "new": "Im Fahrplan steht die Abfahrtszeit.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "verkehr.fahrplan",
+   "german": "Fahrplan",
+   "field": "sar",
+   "expect_current": "في جدول مواعيد القطار الرقمي يمكن الاطلاع على مواعيد الانطلاق بدقة متناهية.",
+   "new": "في جدول المواعيد يوجد وقت المغادرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.fahrkarte",
+   "german": "Fahrkarte",
+   "field": "s",
+   "expect_current": "Der freundliche Schaffner kontrolliert im Zug die gültige Fahrkarte des Fahrgastes.",
+   "new": "Ich kaufe eine Fahrkarte am Automaten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.fahrkarte",
+   "german": "Fahrkarte",
+   "field": "sar",
+   "expect_current": "مفتش التذاكر الودود يفحص في القطار تذكرة السفر الصالحة الخاصة بالمسافر.",
+   "new": "أشتري تذكرة من الماكينة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.fuehrerschein",
+   "german": "Führerschein",
+   "field": "s",
+   "expect_current": "Nach bestandener praktischer Prüfung hielt die Fahrschülerin glücklich ihren Führerschein in Händen.",
+   "new": "Mein Bruder macht den Führerschein.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.fuehrerschein",
+   "german": "Führerschein",
+   "field": "sar",
+   "expect_current": "بعد اجتياز الاختبار العملي حملت المتدربة رخصة قيادتها بسعادة بين يديها.",
+   "new": "أخي يستخرج رخصة القيادة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.sicherheitsgurt",
+   "german": "Sicherheitsgurt",
+   "field": "s",
+   "expect_current": "Vor dem Losfahren legt jeder verantwortungsvolle Fahrer sofort den Sicherheitsgurt an.",
+   "new": "Im Auto muss man den Sicherheitsgurt anlegen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "verkehr.sicherheitsgurt",
+   "german": "Sicherheitsgurt",
+   "field": "sar",
+   "expect_current": "قبل الانطلاق يربط كل سائق مسؤول حزام الأمان على الفور.",
+   "new": "في السيارة يجب ربط حزام الأمان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.lenkrad",
+   "german": "Lenkrad",
+   "field": "s",
+   "expect_current": "Der aufmerksame Fahrer hält beide Hände fest und sicher am Lenkrad.",
+   "new": "Meine Hände sind am Lenkrad.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.lenkrad",
+   "german": "Lenkrad",
+   "field": "sar",
+   "expect_current": "السائق المنتبه يمسك كلتا يديه بإحكام وأمان على عجلة القيادة.",
+   "new": "يداي على عجلة القيادة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.reifen",
+   "german": "Reifen",
+   "field": "s",
+   "expect_current": "Vor dem Winterurlaub sollte man die Profiltiefe aller vier Reifen gründlich prüfen.",
+   "new": "Der Reifen ist kaputt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.reifen",
+   "german": "Reifen",
+   "field": "sar",
+   "expect_current": "قبل عطلة الشتاء ينبغي فحص عمق نقشة جميع الإطارات الأربعة بعناية.",
+   "new": "الإطار تالف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.bremse",
+   "german": "Bremse",
+   "field": "s",
+   "expect_current": "Bei einer plötzlichen Gefahr trat der Autofahrer sofort kräftig auf die Bremse.",
+   "new": "Die Bremse funktioniert nicht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.bremse",
+   "german": "Bremse",
+   "field": "sar",
+   "expect_current": "عند ظهور خطر مفاجئ ضغط سائق السيارة فوراً وبقوة على الفرامل.",
+   "new": "الفرامل لا تعمل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.motor",
+   "german": "Motor",
+   "field": "s",
+   "expect_current": "Der leistungsstarke Motor läuft nach der großen Inspektion wieder vollkommen ruhig.",
+   "new": "Das Auto hat einen starken Motor.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.motor",
+   "german": "Motor",
+   "field": "sar",
+   "expect_current": "المحرك القوي يعمل بعد الفحص الشامل بسلاسة وهدوء تامين.",
+   "new": "السيارة لها محرك قوي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.benzin",
+   "german": "Benzin",
+   "field": "s",
+   "expect_current": "An der Autobahntankstelle füllte er den leeren Tank mit unverbleitem Benzin auf.",
+   "new": "Das Benzin ist heute teuer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.benzin",
+   "german": "Benzin",
+   "field": "sar",
+   "expect_current": "في محطة وقود الطريق السريع ملأ الخزان الفارغ بالبنزين الخالي من الرصاص.",
+   "new": "البنزين غالٍ اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.kofferraum",
+   "german": "Kofferraum",
+   "field": "s",
+   "expect_current": "In den geräumigen Kofferraum passen problemlos drei große Reisekoffer hinein.",
+   "new": "Der Koffer liegt im Kofferraum.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.kofferraum",
+   "german": "Kofferraum",
+   "field": "sar",
+   "expect_current": "في صندوق السيارة الخلفي الواسع تتسع ثلاث حقائب سفر كبيرة بدون صعوبة.",
+   "new": "الحقيبة في صندوق السيارة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.windschutzscheibe",
+   "german": "Windschutzscheibe",
+   "field": "s",
+   "expect_current": "Nach der frostigen Nacht kratzt er das dicke Eis mühsam von der Windschutzscheibe.",
+   "new": "Die Windschutzscheibe ist sauber.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.windschutzscheibe",
+   "german": "Windschutzscheibe",
+   "field": "sar",
+   "expect_current": "بعد ليلة صقيعية يكشط الثلج السميك بصعوبة عن الزجاج الأمامي للسيارة.",
+   "new": "الزجاج الأمامي نظيف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "verkehr.nummernschild",
+   "german": "Nummernschild",
+   "field": "s",
+   "expect_current": "Am Heck des Autos ist das amtliche Nummernschild fest verschraubt.",
+   "new": "Jedes Auto hat ein Nummernschild.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "verkehr.nummernschild",
+   "german": "Nummernschild",
+   "field": "sar",
+   "expect_current": "في الجزء الخلفي من السيارة لوحة الأرقام الرسمية مثبتة بمسامير بإحكام.",
+   "new": "كل سيارة لها لوحة أرقام.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.buch",
+   "german": "Buch",
+   "field": "s",
+   "expect_current": "Der Schüler liest aufmerksam ein spannendes Buch.",
+   "new": "Das Buch liegt auf dem Tisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "schule.buch",
+   "german": "Buch",
+   "field": "sar",
+   "expect_current": "التلميذ يقرأ بانتباه كتاباً مشوقاً.",
+   "new": "الكتاب على الطاولة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.bleistift",
+   "german": "Bleistift",
+   "field": "s",
+   "expect_current": "Er spitzt den Bleistift an, bevor er zu zeichnen beginnt.",
+   "new": "Ich schreibe mit einem Bleistift.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "schule.bleistift",
+   "german": "Bleistift",
+   "field": "sar",
+   "expect_current": "هو يبري قلم الرصاص قبل أن يبدأ بالرسم.",
+   "new": "أكتب بقلم رصاص.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.kugelschreiber",
+   "german": "Kugelschreiber",
+   "field": "s",
+   "expect_current": "Mit einem blauen Kugelschreiber unterschreibt er das Dokument.",
+   "new": "Mein Kugelschreiber ist blau.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "schule.kugelschreiber",
+   "german": "Kugelschreiber",
+   "field": "sar",
+   "expect_current": "بقلم حبر أزرق يوقع على الوثيقة.",
+   "new": "قلمي الجاف أزرق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.heft",
+   "german": "Heft",
+   "field": "s",
+   "expect_current": "Sie notiert die neuen Vokabeln sorgfältig in ihr Heft.",
+   "new": "Ich schreibe die Wörter ins Heft.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.heft",
+   "german": "Heft",
+   "field": "sar",
+   "expect_current": "هي تدون المفردات الجديدة بعناية في كراستها.",
+   "new": "أكتب الكلمات في الكراسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.rucksack",
+   "german": "Rucksack",
+   "field": "s",
+   "expect_current": "Er packt Bücher und Hefte in seinen schweren Rucksack.",
+   "new": "Mein Rucksack ist schwer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "schule.rucksack",
+   "german": "Rucksack",
+   "field": "sar",
+   "expect_current": "هو يوضب الكتب والكراسات في حقيبة ظهره الثقيلة.",
+   "new": "حقيبة ظهري ثقيلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.tafel",
+   "german": "Tafel",
+   "field": "s",
+   "expect_current": "Die Lehrerin schreibt die mathematische Formel an die grüne Tafel.",
+   "new": "Der Lehrer schreibt an die Tafel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.tafel",
+   "german": "Tafel",
+   "field": "sar",
+   "expect_current": "المعلمة تكتب المعادلة الرياضية على السبورة الخضراء.",
+   "new": "المعلم يكتب على السبورة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.lineal",
+   "german": "Lineal",
+   "field": "s",
+   "expect_current": "Mit einem langen Lineal zieht der Schüler eine gerade Linie.",
+   "new": "Ich zeichne eine Linie mit dem Lineal.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.lineal",
+   "german": "Lineal",
+   "field": "sar",
+   "expect_current": "بمسطرة طويلة يرسم التلميذ خطاً مستقيماً.",
+   "new": "أرسم خطاً بالمسطرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.schere",
+   "german": "Schere",
+   "field": "s",
+   "expect_current": "Mit der Schere schneidet das Kind bunte Papiersterne aus.",
+   "new": "Mit der Schere schneide ich Papier.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.schere",
+   "german": "Schere",
+   "field": "sar",
+   "expect_current": "بالمقص يقص الطفل نجوماً ورقية ملونة.",
+   "new": "أقص الورق بالمقص.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.radiergummi",
+   "german": "Radiergummi",
+   "field": "s",
+   "expect_current": "Mit dem Radiergummi entfernt er den falschen Buchstaben sauber.",
+   "new": "Ich brauche einen Radiergummi.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "schule.radiergummi",
+   "german": "Radiergummi",
+   "field": "sar",
+   "expect_current": "بالممحاة يمسح الحرف الخاطئ بنظافة.",
+   "new": "أحتاج إلى ممحاة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.kreide",
+   "german": "Kreide",
+   "field": "s",
+   "expect_current": "Der Lehrer nimmt ein Stück weiße Kreide zur Hand.",
+   "new": "Der Lehrer schreibt mit Kreide.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.kreide",
+   "german": "Kreide",
+   "field": "sar",
+   "expect_current": "المعلم يأخذ قطعة طباشير بيضاء بيده.",
+   "new": "المعلم يكتب بالطباشير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.ordner",
+   "german": "Ordner",
+   "field": "s",
+   "expect_current": "In diesem dicken Ordner sammelt sie alle Arbeitsblätter.",
+   "new": "Alle Blätter sind im Ordner.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.ordner",
+   "german": "Ordner",
+   "field": "sar",
+   "expect_current": "في هذا الملف السميك تجمع كل أوراق العمل.",
+   "new": "كل الأوراق في الملف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.stundenplan",
+   "german": "Stundenplan",
+   "field": "s",
+   "expect_current": "Der neue Stundenplan hängt gut sichtbar an der Wand.",
+   "new": "Der Stundenplan hängt an der Wand.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.stundenplan",
+   "german": "Stundenplan",
+   "field": "sar",
+   "expect_current": "الجدول الدراسي الجديد معلق بشكل واضح على الحائط.",
+   "new": "الجدول الدراسي معلّق على الحائط.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.klassenzimmer",
+   "german": "Klassenzimmer",
+   "field": "s",
+   "expect_current": "Das helle Klassenzimmer bietet Platz für fünfundzwanzig Schüler.",
+   "new": "Das Klassenzimmer ist groß und hell.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.klassenzimmer",
+   "german": "Klassenzimmer",
+   "field": "sar",
+   "expect_current": "الفصل الدراسي المضيء يوفر متسعاً لخمسة وعشرين تلميذاً.",
+   "new": "الفصل الدراسي كبير ومضيء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.notizbuch",
+   "german": "Notizbuch",
+   "field": "s",
+   "expect_current": "Er trägt stets ein kleines Notizbuch für wichtige Gedanken bei sich.",
+   "new": "Im Notizbuch stehen meine Ideen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.notizbuch",
+   "german": "Notizbuch",
+   "field": "sar",
+   "expect_current": "هو يحمل دائماً دفتر ملاحظات صغيراً لتسجيل الأفكار المهمة.",
+   "new": "في دفتر الملاحظات أفكاري.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.taschenrechner",
+   "german": "Taschenrechner",
+   "field": "s",
+   "expect_current": "In der Abiturprüfung ist ein programmierbarer Taschenrechner erlaubt.",
+   "new": "Der Taschenrechner hilft bei Mathe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.taschenrechner",
+   "german": "Taschenrechner",
+   "field": "sar",
+   "expect_current": "في امتحان الثانوية يُسمح بآلة حاسبة قابلة للبرمجة.",
+   "new": "الآلة الحاسبة تساعد في الرياضيات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.spitzer",
+   "german": "Spitzer",
+   "field": "s",
+   "expect_current": "Ein guter Spitzer sorgt für stets spitze Stifte im Federmäppchen.",
+   "new": "Der Bleistift braucht einen Spitzer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.spitzer",
+   "german": "Spitzer",
+   "field": "sar",
+   "expect_current": "المبراة الجيدة تضمن أقلاماً مبرية دائماً في المقلمة.",
+   "new": "القلم الرصاص يحتاج إلى مبراة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.textmarker",
+   "german": "Textmarker",
+   "field": "s",
+   "expect_current": "Mit einem gelben Textmarker hebt sie wichtige Textstellen hervor.",
+   "new": "Mit dem Textmarker markiere ich wichtige Wörter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "schule.textmarker",
+   "german": "Textmarker",
+   "field": "sar",
+   "expect_current": "بقلم تحديد أصفر تُبرز المقاطع المهمة في النص.",
+   "new": "أضع علامة على الكلمات المهمة بقلم التحديد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.filzstift",
+   "german": "Filzstift",
+   "field": "s",
+   "expect_current": "Mit dem dicken Filzstift malt das Kind ein fröhliches Bild.",
+   "new": "Das Kind malt mit dem Filzstift.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.filzstift",
+   "german": "Filzstift",
+   "field": "sar",
+   "expect_current": "بقلم الفلوماستر العريض يرسم الطفل صورة مبهجة.",
+   "new": "الطفل يرسم بقلم الفلوماستر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.buntstift",
+   "german": "Buntstift",
+   "field": "s",
+   "expect_current": "Der rote Buntstift eignet sich bestens zum Ausmalen.",
+   "new": "Ich habe zwölf Buntstifte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.buntstift",
+   "german": "Buntstift",
+   "field": "sar",
+   "expect_current": "قلم التلوين الأحمر مناسب جداً للتلوين.",
+   "new": "لدي اثنا عشر قلم تلوين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.mappe",
+   "german": "Mappe",
+   "field": "s",
+   "expect_current": "Sie verstaut die Zeugnisse sicher in einer ledernen Mappe.",
+   "new": "Die Mappe schützt die Papiere.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.mappe",
+   "german": "Mappe",
+   "field": "sar",
+   "expect_current": "هي تحفظ الشهادات بأمان في ملف جلدي.",
+   "new": "الحافظة تحمي الأوراق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.bueroklammer",
+   "german": "Büroklammer",
+   "field": "s",
+   "expect_current": "Eine kleine Büroklammer hält die losen Dokumente zusammen.",
+   "new": "Die Büroklammer hält die Blätter zusammen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "schule.bueroklammer",
+   "german": "Büroklammer",
+   "field": "sar",
+   "expect_current": "مشبك ورق صغير يمسك الأوراق المفروطة معاً.",
+   "new": "مشبك الورق يجمع الأوراق معاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.zirkel",
+   "german": "Zirkel",
+   "field": "s",
+   "expect_current": "Im Geometrieunterricht zeichnet er einen exakten Kreis mit dem Zirkel.",
+   "new": "Mit dem Zirkel zeichnet man einen Kreis.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "schule.zirkel",
+   "german": "Zirkel",
+   "field": "sar",
+   "expect_current": "في حصة الهندسة يرسم دائرة دقيقة بالفرجار.",
+   "new": "يرسم المرء دائرة بالفرجار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.geodreieck",
+   "german": "Geodreieck",
+   "field": "s",
+   "expect_current": "Mit dem Geodreieck misst man rechte Winkel sehr genau.",
+   "new": "Das Geodreieck hat einen rechten Winkel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "schule.geodreieck",
+   "german": "Geodreieck",
+   "field": "sar",
+   "expect_current": "بالمسطرة المثلثة يقيس المرء الزوايا القائمة بدقة.",
+   "new": "المسطرة المثلثة فيها زاوية قائمة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.federmaeppchen",
+   "german": "Federmäppchen",
+   "field": "s",
+   "expect_current": "Im Federmäppchen liegen Stifte, Radiergummi und Lineal parat.",
+   "new": "Mein Federmäppchen ist voll.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.federmaeppchen",
+   "german": "Federmäppchen",
+   "field": "sar",
+   "expect_current": "في المقلمة ترقد الأقلام والممحاة والمسطرة جاهزة.",
+   "new": "مقلمتي ممتلئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.schultasche",
+   "german": "Schultasche",
+   "field": "s",
+   "expect_current": "Die Schultasche ist für den Schulanfänger noch etwas groß.",
+   "new": "Die Schultasche ist neu.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "schule.schultasche",
+   "german": "Schultasche",
+   "field": "sar",
+   "expect_current": "الحقيبة المدرسية ما زالت كبيرة بعض الشيء على المستجد بالدراسة.",
+   "new": "الحقيبة المدرسية جديدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.pausenbrot",
+   "german": "Pausenbrot",
+   "field": "s",
+   "expect_current": "Zum Pausenbrot gibt es heute Vollkornbrot mit Käse und Apfel.",
+   "new": "Das Pausenbrot ist in meinem Rucksack.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.pausenbrot",
+   "german": "Pausenbrot",
+   "field": "sar",
+   "expect_current": "في ساندويتش الفسحة يوجد اليوم خبز حبوب كاملة مع جبن وتفاحة.",
+   "new": "ساندويتش الفسحة في حقيبة ظهري.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.hausaufgabe",
+   "german": "Hausaufgabe",
+   "field": "s",
+   "expect_current": "Die tägliche Hausaufgabe festigt den gelernten Schulstoff.",
+   "new": "Ich mache meine Hausaufgaben am Nachmittag.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.hausaufgabe",
+   "german": "Hausaufgabe",
+   "field": "sar",
+   "expect_current": "الواجب المدرسي اليومي يرسخ المادة التعليمية المكتسبة.",
+   "new": "أحل واجباتي المدرسية بعد الظهر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.pruefung",
+   "german": "Prüfung",
+   "field": "s",
+   "expect_current": "Vor der schwierigen Prüfung wiederholt er alle wichtigen Formeln.",
+   "new": "Morgen habe ich eine Prüfung.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.pruefung",
+   "german": "Prüfung",
+   "field": "sar",
+   "expect_current": "قبل الامتحان الصعب يراجع كل المعادلات الهامة.",
+   "new": "غداً عندي امتحان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.note",
+   "german": "Note",
+   "field": "s",
+   "expect_current": "Für ihren herausragenden Aufsatz erhielt sie die beste Note.",
+   "new": "Ich habe eine gute Note bekommen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "schule.note",
+   "german": "Note",
+   "field": "sar",
+   "expect_current": "نظير موضوعها الإنشائي المتميز حصلت على أعلى درجة.",
+   "new": "حصلت على درجة جيدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.zeugnis",
+   "german": "Zeugnis",
+   "field": "s",
+   "expect_current": "Am letzten Schultag bekommen alle Kinder ihr Zeugnis.",
+   "new": "Am Ende des Jahres bekomme ich ein Zeugnis.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "schule.zeugnis",
+   "german": "Zeugnis",
+   "field": "sar",
+   "expect_current": "في اليوم الأخير من المدرسة يتسلم كل الأطفال شهادة درجاتهم.",
+   "new": "في نهاية العام أحصل على شهادة الدرجات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.unterricht",
+   "german": "Unterricht",
+   "field": "s",
+   "expect_current": "Der Unterricht beginnt an unserer Schule pünktlich um acht Uhr.",
+   "new": "Der Unterricht beginnt um acht Uhr.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.unterricht",
+   "german": "Unterricht",
+   "field": "sar",
+   "expect_current": "الحصة الدراسية تبدأ في مدرستنا تمام الثامنة صباحاً.",
+   "new": "تبدأ الحصة الدراسية الساعة الثامنة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.pause",
+   "german": "Pause",
+   "field": "s",
+   "expect_current": "In der großen Pause spielen die Schüler draußen auf dem Hof.",
+   "new": "In der Pause spielen wir.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "schule.pause",
+   "german": "Pause",
+   "field": "sar",
+   "expect_current": "في الفسحة الكبيرة يلعب التلاميذ بالخارج في باحة المدرسة.",
+   "new": "في الفسحة نلعب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.direktor",
+   "german": "Direktor",
+   "field": "s",
+   "expect_current": "Der Direktor begrüßt die neuen Erstklässler in der Aula.",
+   "new": "Der Direktor ist in seinem Büro.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.direktor",
+   "german": "Direktor",
+   "field": "sar",
+   "expect_current": "مدير المدرسة يرحب بالطلاب الجدد في القاعة الكبرى.",
+   "new": "مدير المدرسة في مكتبه.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.klasse",
+   "german": "Klasse",
+   "field": "s",
+   "expect_current": "Die ganze Klasse fährt nächste Woche auf Klassenfahrt.",
+   "new": "Unsere Klasse hat dreißig Schüler.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.klasse",
+   "german": "Klasse",
+   "field": "sar",
+   "expect_current": "الفصل بأكمله يسافر الأسبوع المقبل في رحلة مدرسية.",
+   "new": "فصلنا فيه ثلاثون طالباً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.mitschueler",
+   "german": "Mitschüler",
+   "field": "s",
+   "expect_current": "Ein hilfsbereiter Mitschüler leiht ihm seinen Bleistift.",
+   "new": "Mein Mitschüler hilft mir.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.mitschueler",
+   "german": "Mitschüler",
+   "field": "sar",
+   "expect_current": "زميل دراسة متعاون يعيره قلم رصاصه.",
+   "new": "زميلي في الدراسة يساعدني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.fach",
+   "german": "Fach",
+   "field": "s",
+   "expect_current": "Sein liebstes Fach in der Schule ist Naturwissenschaft.",
+   "new": "Welches Fach magst du am liebsten?",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.fach",
+   "german": "Fach",
+   "field": "sar",
+   "expect_current": "مادته الدراسية المفضلة في المدرسة هي مادة العلوم الطبيعية.",
+   "new": "ما المادة الدراسية التي تحبها أكثر؟",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.mathematik",
+   "german": "Mathematik",
+   "field": "s",
+   "expect_current": "Mathematik erfordert logisches Denken und regelmäßiges Üben.",
+   "new": "Mathematik ist mein Lieblingsfach.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.mathematik",
+   "german": "Mathematik",
+   "field": "sar",
+   "expect_current": "الرياضيات تتطلب تفكيراً منطقياً وتدريباً مستمراً.",
+   "new": "الرياضيات مادتي المفضلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.geschichte",
+   "german": "Geschichte",
+   "field": "s",
+   "expect_current": "Im Fach Geschichte lernen wir über das antike Rom.",
+   "new": "In Geschichte lernen wir über Ägypten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.geschichte",
+   "german": "Geschichte",
+   "field": "sar",
+   "expect_current": "في مادة التاريخ نتعلم عن روما القديمة.",
+   "new": "في مادة التاريخ نتعلم عن مصر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.biologie",
+   "german": "Biologie",
+   "field": "s",
+   "expect_current": "In der Biologie mikroskopieren die Schüler Pflanzenzellen.",
+   "new": "Biologie handelt von Tieren und Pflanzen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "schule.biologie",
+   "german": "Biologie",
+   "field": "sar",
+   "expect_current": "في مادة الأحياء يفحص التلاميذ الخلايا النباتية بالمجهر.",
+   "new": "تتناول الأحياء الحيوانات والنباتات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.chemie",
+   "german": "Chemie",
+   "field": "s",
+   "expect_current": "Im Fach Chemie führen wir spannende Experimente durch.",
+   "new": "In Chemie machen wir Experimente.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.chemie",
+   "german": "Chemie",
+   "field": "sar",
+   "expect_current": "في مادة الكيمياء نجري تجارب علمية مشوقة.",
+   "new": "في الكيمياء نجري تجارب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.physik",
+   "german": "Physik",
+   "field": "s",
+   "expect_current": "Physik erklärt die grundlegenden Naturgesetze unserer Welt.",
+   "new": "Physik erklärt, warum Dinge fallen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "schule.physik",
+   "german": "Physik",
+   "field": "sar",
+   "expect_current": "الفيزياء تشرح القوانين الطبيعية الأساسية في عالمنا.",
+   "new": "الفيزياء تشرح لماذا تسقط الأشياء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.kunst",
+   "german": "Kunst",
+   "field": "s",
+   "expect_current": "Im Kunstunterricht malen die Kinder mit Wasserfarben.",
+   "new": "In Kunst malen wir Bilder.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.kunst",
+   "german": "Kunst",
+   "field": "sar",
+   "expect_current": "في حصة التربية الفنية يرسم الأطفال بالألوان المائية.",
+   "new": "في حصة الفن نرسم لوحات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.fremdsprache",
+   "german": "Fremdsprache",
+   "field": "s",
+   "expect_current": "Deutsch ist für mich eine neue und spannende Fremdsprache.",
+   "new": "Ich lerne Deutsch als Fremdsprache.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.fremdsprache",
+   "german": "Fremdsprache",
+   "field": "sar",
+   "expect_current": "الألمانية بالنسبة لي لغة أجنبية جديدة ومشوقة.",
+   "new": "أتعلم الألمانية كلغة أجنبية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.wortschatz",
+   "german": "Wortschatz",
+   "field": "s",
+   "expect_current": "Jeden Tag erweitert er seinen deutschen Wortschatz um fünf Wörter.",
+   "new": "Mein Wortschatz wird jeden Tag größer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "schule.wortschatz",
+   "german": "Wortschatz",
+   "field": "sar",
+   "expect_current": "يومياً يوسع مفرداته الألمانية بخمس كلمات جديدة.",
+   "new": "مفرداتي تزداد كل يوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.grammatik",
+   "german": "Grammatik",
+   "field": "s",
+   "expect_current": "Eine klare Grammatik hilft beim korrekten Formulieren von Sätzen.",
+   "new": "Die Grammatik ist manchmal schwierig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.grammatik",
+   "german": "Grammatik",
+   "field": "sar",
+   "expect_current": "القواعد الواضحة تساعد على صياغة الجمل بشكل صحيح.",
+   "new": "القواعد صعبة أحياناً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.test",
+   "german": "Test",
+   "field": "s",
+   "expect_current": "Morgen schreiben wir einen kurzen unangekündigten Test.",
+   "new": "Morgen schreiben wir einen Test.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "schule.test",
+   "german": "Test",
+   "field": "sar",
+   "expect_current": "غداً سنخوض اختباراً قصيراً غير معلن عنه.",
+   "new": "غداً نكتب اختباراً قصيراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "schule.tinte",
+   "german": "Tinte",
+   "field": "s",
+   "expect_current": "Der alte Füllfederhalter wird mit blauer Tinte befüllt.",
+   "new": "Die Tinte ist schwarz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "schule.tinte",
+   "german": "Tinte",
+   "field": "sar",
+   "expect_current": "قلم الحبر القديم يُملأ بالحبر الأزرق.",
+   "new": "الحبر أسود.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  }
+ ]
+}

@@ -15,6 +15,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
   const sentencesBatch1Path = path.join(rootDir, 'tools', 'vocab_changes_sentences_batch1.json');
   const sentencesBatch2Path = path.join(rootDir, 'tools', 'vocab_changes_sentences_batch2.json');
   const sentencesPilot4Path = path.join(rootDir, 'tools', 'vocab_changes_sentences_pilot4.json');
+  const sentencesBatch3aPath = path.join(rootDir, 'tools', 'vocab_changes_sentences_batch3a.json');
 
   function revertEdits(html, changesJsonPath) {
     const changes = JSON.parse(fs.readFileSync(changesJsonPath, 'utf8'));
@@ -69,14 +70,25 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     expect(res.message).toContain('already applied');
   });
 
+  it('reports tools/vocab_changes_sentences_batch3a.json as already applied on current index.html', () => {
+    const res = applyVocabChanges({
+      htmlPath: indexHtmlPath,
+      changesPath: sentencesBatch3aPath,
+      dryRun: true
+    });
+    expect(res.alreadyApplied).toBe(true);
+    expect(res.message).toContain('already applied');
+  });
+
   it('applies sentences batch 2 on a base copy, proves exact 344 changes, second run is no-op', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-b2-test-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
       const changesData = JSON.parse(fs.readFileSync(sentencesBatch2Path, 'utf8'));
 
-      // Reconstruct batch 2 base HTML by reverting pilot 4 and batch 2 edits
+      // Reconstruct batch 2 base HTML by reverting batch 3a, pilot 4, and batch 2 edits
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      baseHtml = revertEdits(baseHtml, sentencesBatch3aPath);
       baseHtml = revertEdits(baseHtml, sentencesPilot4Path);
       baseHtml = revertEdits(baseHtml, sentencesBatch2Path);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -160,8 +172,9 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tempHtml = path.join(tmpDir, 'index.html');
       const changesData = JSON.parse(fs.readFileSync(sentencesPilot4Path, 'utf8'));
 
-      // Construct base HTML by reverting the 322 pilot 4 values
+      // Construct base HTML by reverting batch 3a and pilot 4 values
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      baseHtml = revertEdits(baseHtml, sentencesBatch3aPath);
       baseHtml = revertEdits(baseHtml, sentencesPilot4Path);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
@@ -238,15 +251,99 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     }
   });
 
+  it('applies sentences batch 3a on a base copy, proves exact 270 changes, second run is no-op', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-b3a-test-'));
+    try {
+      const tempHtml = path.join(tmpDir, 'index.html');
+      const changesData = JSON.parse(fs.readFileSync(sentencesBatch3aPath, 'utf8'));
+
+      // Construct base HTML by reverting batch 3a values
+      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      baseHtml = revertEdits(baseHtml, sentencesBatch3aPath);
+      fs.writeFileSync(tempHtml, baseHtml, 'utf8');
+
+      // Verify base copy has base_vocab_sha256
+      const baseCategories = extractCategoriesFromHtml(fs.readFileSync(tempHtml, 'utf8'));
+      const baseHash = computeCanonicalHash(baseCategories);
+      expect(baseHash).toBe(changesData.base_vocab_sha256);
+      expect(baseHash).toBe('ed269c3e53f2df595e8ab81a656d535debf66b223535ce9490c9ea8e8338c5b7');
+
+      // First run: apply changes
+      const res1 = applyVocabChanges({
+        htmlPath: tempHtml,
+        changesPath: sentencesBatch3aPath,
+        dryRun: false
+      });
+
+      expect(res1.alreadyApplied).toBe(false);
+      expect(res1.appliedEditsCount).toBe(270);
+      expect(res1.appliedRemovalsCount).toBe(0);
+
+      // Verify file modified and resulting hash is new canonical hash
+      const updatedCategories = extractCategoriesFromHtml(fs.readFileSync(tempHtml, 'utf8'));
+      expect(updatedCategories.length).toBe(31);
+      const newHash = computeCanonicalHash(updatedCategories);
+      expect(newHash).toBe('a8a40f4d7273a8f2f05d139661a837249e05408b18bc343c030fdd106edc9c2e');
+
+      // Compare field-by-field against baseCategories
+      const expectedEditsMap = new Map();
+      for (const e of changesData.edit) {
+        expectedEditsMap.set(`${e.id}::${e.field}`, e);
+      }
+      expect(expectedEditsMap.size).toBe(270);
+
+      let totalDiffCount = 0;
+      for (let c = 0; c < baseCategories.length; c++) {
+        const bc = baseCategories[c];
+        const uc = updatedCategories[c];
+        expect(uc.id).toBe(bc.id);
+        expect(uc.words.length).toBe(bc.words.length);
+
+        for (let w = 0; w < bc.words.length; w++) {
+          const bw = bc.words[w];
+          const uw = uc.words[w];
+          expect(uw.id).toBe(bw.id);
+
+          const allKeys = new Set([...Object.keys(bw), ...Object.keys(uw)]);
+          for (const k of allKeys) {
+            if (bw[k] !== uw[k]) {
+              totalDiffCount++;
+              const key = `${bw.id}::${k}`;
+              expect(expectedEditsMap.has(key)).toBe(true);
+              const exp = expectedEditsMap.get(key);
+              expect(bw[k]).toBe(exp.expect_current);
+              expect(uw[k]).toBe(exp.new);
+            }
+          }
+        }
+      }
+      expect(totalDiffCount).toBe(270);
+
+      // Second run: idempotent no-op
+      const htmlBeforeSecond = fs.readFileSync(tempHtml, 'utf8');
+      const res2 = applyVocabChanges({
+        htmlPath: tempHtml,
+        changesPath: sentencesBatch3aPath,
+        dryRun: false
+      });
+      const htmlAfterSecond = fs.readFileSync(tempHtml, 'utf8');
+
+      expect(res2.alreadyApplied).toBe(true);
+      expect(htmlAfterSecond).toBe(htmlBeforeSecond);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
   it('aborts without writing when expect_current does not match', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-err-test-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
-      const changesData = JSON.parse(fs.readFileSync(sentencesPilot4Path, 'utf8'));
+      const changesData = JSON.parse(fs.readFileSync(sentencesBatch3aPath, 'utf8'));
 
       // Construct base HTML
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
-      baseHtml = revertEdits(baseHtml, sentencesPilot4Path);
+      baseHtml = revertEdits(baseHtml, sentencesBatch3aPath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
       const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -275,11 +372,11 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-hash-test-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
-      const changesData = JSON.parse(fs.readFileSync(sentencesPilot4Path, 'utf8'));
+      const changesData = JSON.parse(fs.readFileSync(sentencesBatch3aPath, 'utf8'));
 
       // Construct base HTML
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
-      baseHtml = revertEdits(baseHtml, sentencesPilot4Path);
+      baseHtml = revertEdits(baseHtml, sentencesBatch3aPath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
       const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -305,11 +402,11 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-id-test-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
-      const changesData = JSON.parse(fs.readFileSync(sentencesPilot4Path, 'utf8'));
+      const changesData = JSON.parse(fs.readFileSync(sentencesBatch3aPath, 'utf8'));
 
       // Construct base HTML
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
-      baseHtml = revertEdits(baseHtml, sentencesPilot4Path);
+      baseHtml = revertEdits(baseHtml, sentencesBatch3aPath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
       const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -339,7 +436,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const origContent = fs.readFileSync(tempHtml, 'utf8');
 
       const corruptedChangesPath = path.join(tmpDir, 'forbidden.json');
-      const changesData = JSON.parse(fs.readFileSync(sentencesPilot4Path, 'utf8'));
+      const changesData = JSON.parse(fs.readFileSync(sentencesBatch3aPath, 'utf8'));
       changesData.edit[0].id = 'section-names.verben';
       fs.writeFileSync(corruptedChangesPath, JSON.stringify(changesData, null, 2), 'utf8');
 
