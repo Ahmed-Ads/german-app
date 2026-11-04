@@ -1,0 +1,2257 @@
+{
+ "version": 1,
+ "base_vocab_sha256": "a8a40f4d7273a8f2f05d139661a837249e05408b18bc343c030fdd106edc9c2e",
+ "remove": [],
+ "edit": [
+  {
+   "id": "werkzeuge.hammer",
+   "german": "Hammer",
+   "field": "s",
+   "expect_current": "Mit dem schweren Hammer schlägt er den Nagel fest ins Holz.",
+   "new": "Der Hammer ist schwer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "werkzeuge.hammer",
+   "german": "Hammer",
+   "field": "sar",
+   "expect_current": "بالمطرقة الثقيلة يدق المسمار بإحكام في الخشب.",
+   "new": "المطرقة ثقيلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.zange",
+   "german": "Zange",
+   "field": "s",
+   "expect_current": "Mit der Zange zieht der Handwerker den alten Nagel heraus.",
+   "new": "Mit der Zange ziehe ich den Nagel heraus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "werkzeuge.zange",
+   "german": "Zange",
+   "field": "sar",
+   "expect_current": "بالكماشة يسحب الحرفي المسمار القديم للخارج.",
+   "new": "أسحب المسمار بالزرادية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.schraubenzieher",
+   "german": "Schraubenzieher",
+   "field": "s",
+   "expect_current": "Er dreht die Schraube mit dem Schraubenzieher fest.",
+   "new": "Ich brauche einen Schraubenzieher.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "werkzeuge.schraubenzieher",
+   "german": "Schraubenzieher",
+   "field": "sar",
+   "expect_current": "هو يشد البرغي بالمفك بإحكام.",
+   "new": "أحتاج إلى مفك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.saege",
+   "german": "Säge",
+   "field": "s",
+   "expect_current": "Mit der scharfen Säge schneidet er das dicke Brett durch.",
+   "new": "Die Säge schneidet das Holz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.saege",
+   "german": "Säge",
+   "field": "sar",
+   "expect_current": "بالمنشار الحاد يقطع اللوح السميك إلى نصفين.",
+   "new": "المنشار يقطع الخشب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.nagel",
+   "german": "Nagel",
+   "field": "s",
+   "expect_current": "Er schlägt einen kleinen Nagel in die Wand, um das Bild aufzuhängen.",
+   "new": "Der Nagel ist zu lang.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.nagel",
+   "german": "Nagel",
+   "field": "sar",
+   "expect_current": "هو يدق مسماراً صغيراً في الحائط ليعلق اللوحة.",
+   "new": "المسمار أطول من اللازم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.schraube",
+   "german": "Schraube",
+   "field": "s",
+   "expect_current": "Die metallene Schraube hält die beiden Hölzer fest zusammen.",
+   "new": "Die Schraube ist locker.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.schraube",
+   "german": "Schraube",
+   "field": "sar",
+   "expect_current": "البرغي المعدني يثبت قطعتي الخشب معاً بقوة.",
+   "new": "البرغي مرتخٍ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.leiter",
+   "german": "Leiter",
+   "field": "s",
+   "expect_current": "Er klettert vorsichtig auf die hohe Leiter, um die Decke zu streichen.",
+   "new": "Ich steige auf die Leiter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.leiter",
+   "german": "Leiter",
+   "field": "sar",
+   "expect_current": "هو يتسلق السلم العالي بحذر ليطلي السقف.",
+   "new": "أصعد على السلم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.bohrer",
+   "german": "Bohrer",
+   "field": "s",
+   "expect_current": "Mit dem elektrischen Bohrer bohrt er ein präzises Loch in die Wand.",
+   "new": "Der Bohrer macht ein Loch in die Wand.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.bohrer",
+   "german": "Bohrer",
+   "field": "sar",
+   "expect_current": "بالمثقاب الكهربائي يحفر ثقباً دقيقاً في الجدار.",
+   "new": "المثقاب يصنع ثقباً في الجدار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.pinsel",
+   "german": "Pinsel",
+   "field": "s",
+   "expect_current": "Mit dem weichen Pinsel trägt sie die Farbe gleichmäßig auf.",
+   "new": "Ich streiche die Tür mit einem Pinsel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.pinsel",
+   "german": "Pinsel",
+   "field": "sar",
+   "expect_current": "بالفرشاة الناعمة توزع الدهان بانتظام.",
+   "new": "أطلي الباب بفرشاة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.klebeband",
+   "german": "Klebeband",
+   "field": "s",
+   "expect_current": "Mit starkem Klebeband repariert er den rissigen Karton.",
+   "new": "Das Klebeband klebt nicht mehr.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.klebeband",
+   "german": "Klebeband",
+   "field": "sar",
+   "expect_current": "بشريط لاصق قوي يصلح الصندوق الممزق.",
+   "new": "الشريط اللاصق لم يعد يلتصق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.schraubenschluessel",
+   "german": "Schraubenschlüssel",
+   "field": "s",
+   "expect_current": "Mit dem Schraubenschlüssel zieht der Mechaniker die Mutter fest an.",
+   "new": "Mit dem Schraubenschlüssel drehe ich die Schraube fest.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "werkzeuge.schraubenschluessel",
+   "german": "Schraubenschlüssel",
+   "field": "sar",
+   "expect_current": "بمفتاح الربط يشد الميكانيكي الصامولة بقوة.",
+   "new": "أشدّ البرغي بمفتاح الربط.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.bohrmaschine",
+   "german": "Bohrmaschine",
+   "field": "s",
+   "expect_current": "Mit der elektrischen Bohrmaschine bohrt der Handwerker präzise Löcher in die Wand.",
+   "new": "Die Bohrmaschine ist sehr laut.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.bohrmaschine",
+   "german": "Bohrmaschine",
+   "field": "sar",
+   "expect_current": "بالمثقاب الكهربائي يحفر الحرفي ثقوباً دقيقة في الجدار.",
+   "new": "المثقاب الكهربائي صوته عالٍ جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.rohrzange",
+   "german": "Rohrzange",
+   "field": "s",
+   "expect_current": "Der Klempner greift zur großen Rohrzange, um das Abflussrohr zu lösen.",
+   "new": "Mit der Rohrzange öffne ich das Rohr.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "werkzeuge.rohrzange",
+   "german": "Rohrzange",
+   "field": "sar",
+   "expect_current": "السباك يمسك بكماشة الأنابيب الكبيرة لفك ماسورة الصرف.",
+   "new": "أفتح الأنبوب بكماشة الأنابيب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.werkzeugkasten",
+   "german": "Werkzeugkasten",
+   "field": "s",
+   "expect_current": "Im ordentlichen Werkzeugkasten findet man jedes Werkzeug sofort.",
+   "new": "Der Hammer liegt im Werkzeugkasten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.werkzeugkasten",
+   "german": "Werkzeugkasten",
+   "field": "sar",
+   "expect_current": "في صندوق العدة المرتب يجد المرء كل أداة على الفور.",
+   "new": "المطرقة في صندوق العدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.schutzbrille",
+   "german": "Schutzbrille",
+   "field": "s",
+   "expect_current": "Beim Bohren trägt der Handwerker immer eine Schutzbrille.",
+   "new": "Bei der Arbeit trage ich eine Schutzbrille.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.schutzbrille",
+   "german": "Schutzbrille",
+   "field": "sar",
+   "expect_current": "أثناء الحفر يرتدي الحرفي دائماً نظارة واقية.",
+   "new": "أرتدي نظارة واقية أثناء العمل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.helm",
+   "german": "Helm",
+   "field": "s",
+   "expect_current": "Auf der Baustelle ist das Tragen eines Helms gesetzliche Pflicht.",
+   "new": "Auf der Baustelle trägt man einen Helm.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.helm",
+   "german": "Helm",
+   "field": "sar",
+   "expect_current": "في موقع البناء يعتبر ارتداء الخوذة واجباً قانونياً.",
+   "new": "في موقع البناء يرتدي المرء خوذة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.buerste",
+   "german": "Bürste",
+   "field": "s",
+   "expect_current": "Mit einer harten Bürste schrubbt er den verschmutzten Gehweg sauber.",
+   "new": "Mit der Bürste putze ich den Schuh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.buerste",
+   "german": "Bürste",
+   "field": "sar",
+   "expect_current": "بفرشاة خشنة يفرك الرصيف المتسخ لينظفه.",
+   "new": "أنظف الحذاء بالفرشاة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.besen",
+   "german": "Besen",
+   "field": "s",
+   "expect_current": "Er nimmt den Besen, um die herabgefallenen Blätter zusammenzukehren.",
+   "new": "Ich fege den Boden mit dem Besen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.besen",
+   "german": "Besen",
+   "field": "sar",
+   "expect_current": "هو يأخذ المكنسة ليكنس أوراق الشجر المتساقطة.",
+   "new": "أكنس الأرض بالمكنسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.eimer",
+   "german": "Eimer",
+   "field": "s",
+   "expect_current": "Er füllt warmes Wasser mit Reinigungsmittel in den großen Eimer.",
+   "new": "Der Eimer ist voll Wasser.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.eimer",
+   "german": "Eimer",
+   "field": "sar",
+   "expect_current": "هو يملأ ماءً دافئاً مع سائل تنظيف في الدلو الكبير.",
+   "new": "الدلو مليء بالماء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.schlauch",
+   "german": "Schlauch",
+   "field": "s",
+   "expect_current": "Mit dem langen Schlauch gießt sie den ganzen Garten.",
+   "new": "Der Schlauch ist zu kurz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.schlauch",
+   "german": "Schlauch",
+   "field": "sar",
+   "expect_current": "بالخرطوم الطويل تسقي الحديقة بأكملها.",
+   "new": "الخرطوم أقصر من اللازم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.giesskanne",
+   "german": "Gießkanne",
+   "field": "s",
+   "expect_current": "Mit der bunten Gießkanne wässert er die Blumen auf dem Balkon.",
+   "new": "Mit der Gießkanne gieße ich die Blumen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.giesskanne",
+   "german": "Gießkanne",
+   "field": "sar",
+   "expect_current": "بإبريق الري الملون يسقي الزهور على الشرفة.",
+   "new": "أسقي الزهور بإبريق الري.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.rasenmaeher",
+   "german": "Rasenmäher",
+   "field": "s",
+   "expect_current": "Am Samstag mäht der Nachbar den Rasen mit dem Rasenmäher.",
+   "new": "Der Rasenmäher macht viel Lärm.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.rasenmaeher",
+   "german": "Rasenmäher",
+   "field": "sar",
+   "expect_current": "يوم السبت يقص الجار العشب بجزازة العشب.",
+   "new": "جزازة العشب تحدث ضجيجاً كبيراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.spaten",
+   "german": "Spaten",
+   "field": "s",
+   "expect_current": "Mit dem scharfen Spaten gräbt er ein tiefes Pflanzloch für den Baum.",
+   "new": "Mit dem Spaten grabe ich eine Grube.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.spaten",
+   "german": "Spaten",
+   "field": "sar",
+   "expect_current": "بمجرفة الحفر الحادة يحفر حفرة غرس عميقة للشجرة.",
+   "new": "أحفر حفرة بالمجرفة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.massband",
+   "german": "Maßband",
+   "field": "s",
+   "expect_current": "Mit dem ausziehbaren Maßband misst er die Länge des Zimmers ab.",
+   "new": "Mit dem Maßband messe ich den Tisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.massband",
+   "german": "Maßband",
+   "field": "sar",
+   "expect_current": "بشريط القياس القابل للسحب يقيس طول الغرفة.",
+   "new": "أقيس الطاولة بشريط القياس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.taschenlampe",
+   "german": "Taschenlampe",
+   "field": "s",
+   "expect_current": "Bei Stromausfall spendet die helle Taschenlampe sofort Licht.",
+   "new": "Im Dunkeln brauche ich eine Taschenlampe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.taschenlampe",
+   "german": "Taschenlampe",
+   "field": "sar",
+   "expect_current": "عند انقطاع الكهرباء يوفر الكشاف اليدوي المضيء النور فوراً.",
+   "new": "أحتاج إلى كشاف يدوي في الظلام.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.draht",
+   "german": "Draht",
+   "field": "s",
+   "expect_current": "Er bindet den wackelnden Ast mit einem dünnen Draht fest.",
+   "new": "Der Draht ist dünn und stark.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "werkzeuge.draht",
+   "german": "Draht",
+   "field": "sar",
+   "expect_current": "هو يربط الغصن المتأرجح بسلك معدني رفيع بإحكام.",
+   "new": "السلك رفيع وقوي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "werkzeuge.mutter",
+   "german": "Mutter",
+   "field": "s",
+   "expect_current": "Die Mutter wird fest auf das Gewinde der Schraube geschraubt.",
+   "new": "Die Mutter passt auf die Schraube.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "werkzeuge.mutter",
+   "german": "Mutter",
+   "field": "sar",
+   "expect_current": "الصامولة تُربط بإحكام على سن لولب البرغي.",
+   "new": "الصامولة تناسب البرغي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.fussball",
+   "german": "Fußball",
+   "field": "s",
+   "expect_current": "In Deutschland ist Fußball die mit Abstand beliebteste Sportart.",
+   "new": "Wir spielen jeden Samstag Fußball.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "sport.fussball",
+   "german": "Fußball",
+   "field": "sar",
+   "expect_current": "في ألمانيا كرة القدم هي الرياضة الأكثر شعبية بفارق كبير.",
+   "new": "نلعب كرة القدم كل سبت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.schwimmen",
+   "german": "Schwimmen",
+   "field": "s",
+   "expect_current": "Regelmäßiges Schwimmen schont die Gelenke und stärkt die Ausdauer.",
+   "new": "Ich gehe gern schwimmen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "sport.schwimmen",
+   "german": "Schwimmen",
+   "field": "sar",
+   "expect_current": "السباحة المنتظمة تحافظ على المفاصل وتقوي التحمل.",
+   "new": "أحب الذهاب للسباحة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.tennis",
+   "german": "Tennis",
+   "field": "s",
+   "expect_current": "Am Wochenende spielen die beiden Freunde ein Match Tennis.",
+   "new": "Mein Vater spielt gern Tennis.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.tennis",
+   "german": "Tennis",
+   "field": "sar",
+   "expect_current": "في نهاية الأسبوع يلعب الصديقان مباراة تنس.",
+   "new": "أبي يحب لعب التنس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.basketball",
+   "german": "Basketball",
+   "field": "s",
+   "expect_current": "Beim Basketball kommt es auf Treffsicherheit und Schnelligkeit an.",
+   "new": "Ich spiele Basketball in der Schule.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "sport.basketball",
+   "german": "Basketball",
+   "field": "sar",
+   "expect_current": "في كرة السلة يعتمد الأمر على دقة التصويب والسرعة.",
+   "new": "ألعب كرة السلة في المدرسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.volleyball",
+   "german": "Volleyball",
+   "field": "s",
+   "expect_current": "Am Strand spielen wir gerne Volleyball über das gespannte Netz.",
+   "new": "Volleyball spielt man mit einem Netz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.volleyball",
+   "german": "Volleyball",
+   "field": "sar",
+   "expect_current": "على الشاطئ نحب لعب الكرة الطائرة فوق الشبكة المشدودة.",
+   "new": "تُلعب الكرة الطائرة بشبكة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.boxen",
+   "german": "Boxen",
+   "field": "s",
+   "expect_current": "Beim Boxen benötigt man eiserne Disziplin und schnelle Reaktionen.",
+   "new": "Boxen ist ein harter Sport.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.boxen",
+   "german": "Boxen",
+   "field": "sar",
+   "expect_current": "في الملاكمة يحتاج المرء إلى انضباط حديدي وردود فعل سريعة.",
+   "new": "الملاكمة رياضة قوية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.sport",
+   "german": "Sport",
+   "field": "s",
+   "expect_current": "Regelmäßiger Sport hält den Körper fit und den Geist gesund.",
+   "new": "Ich mache jeden Tag Sport.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "sport.sport",
+   "german": "Sport",
+   "field": "sar",
+   "expect_current": "الرياضة المنتظمة تحافظ على لياقة الجسم وصحة العقل.",
+   "new": "أمارس الرياضة كل يوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.radfahren",
+   "german": "Radfahren",
+   "field": "s",
+   "expect_current": "Das Radfahren entlang des Flusses ist herrlich entspannend.",
+   "new": "Am Sonntag gehen wir radfahren.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.radfahren",
+   "german": "Radfahren",
+   "field": "sar",
+   "expect_current": "ركوب الدراجة على طول النهر مريح للأعصاب بروعة.",
+   "new": "يوم الأحد نذهب لركوب الدراجات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.leichtathletik",
+   "german": "Leichtathletik",
+   "field": "s",
+   "expect_current": "Laufen, Springen und Werfen gehören zu den Grundlagen der Leichtathletik.",
+   "new": "Laufen und Springen gehören zur Leichtathletik.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.leichtathletik",
+   "german": "Leichtathletik",
+   "field": "sar",
+   "expect_current": "الجري والقفز والرمي تنتمي لأساسيات ألعاب القوى.",
+   "new": "الجري والقفز من ألعاب القوى.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.yoga",
+   "german": "Yoga",
+   "field": "s",
+   "expect_current": "Yoga hilft dabei, den Geist zu beruhigen und die Muskeln zu dehnen.",
+   "new": "Yoga hilft mir beim Entspannen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.yoga",
+   "german": "Yoga",
+   "field": "sar",
+   "expect_current": "اليوغا تساعد على تهدئة الذهن وإطالة العضلات.",
+   "new": "اليوغا تساعدني على الاسترخاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.handball",
+   "german": "Handball",
+   "field": "s",
+   "expect_current": "Handball ist ein dynamischer und sehr schneller Mannschaftssport.",
+   "new": "Meine Schwester spielt Handball.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.handball",
+   "german": "Handball",
+   "field": "sar",
+   "expect_current": "كرة اليد رياضة جماعية ديناميكية وسريعة جداً.",
+   "new": "أختي تلعب كرة اليد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.laufen",
+   "german": "Laufen",
+   "field": "s",
+   "expect_current": "Morgendliches Laufen im Park bringt den Kreislauf in Schwung.",
+   "new": "Ich gehe am Morgen laufen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.laufen",
+   "german": "Laufen",
+   "field": "sar",
+   "expect_current": "الجري الصباحي في الحديقة ينشط الدورة الدموية.",
+   "new": "أذهب للجري في الصباح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.klettern",
+   "german": "Klettern",
+   "field": "s",
+   "expect_current": "In den Alpen gehen im Sommer viele Menschen an steilen Wänden klettern.",
+   "new": "Klettern macht mir viel Spaß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.klettern",
+   "german": "Klettern",
+   "field": "sar",
+   "expect_current": "في جبال الألب يذهب كثير من الناس في الصيف لتسلق الجدران الحادة.",
+   "new": "التسلق يمتعني كثيراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.tischtennis",
+   "german": "Tischtennis",
+   "field": "s",
+   "expect_current": "Im Keller spielen die Kinder oft stundenlang Tischtennis.",
+   "new": "Im Keller spielen wir Tischtennis.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.tischtennis",
+   "german": "Tischtennis",
+   "field": "sar",
+   "expect_current": "في القبو يلعب الأطفال غالباً تنس الطاولة لساعات.",
+   "new": "في القبو نلعب تنس الطاولة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.golf",
+   "german": "Golf",
+   "field": "s",
+   "expect_current": "Auf dem gepflegten Rasenplatz spielen die Herren eine Runde Golf.",
+   "new": "Golf spielt man auf einer großen Wiese.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.golf",
+   "german": "Golf",
+   "field": "sar",
+   "expect_current": "على الملعب العشبي الأنيق يلعب السادة جولة جولف.",
+   "new": "يُلعب الجولف على مرج كبير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.skifahren",
+   "german": "Skifahren",
+   "field": "s",
+   "expect_current": "Im Winterurlaub in Österreich freuen sich alle aufs Skifahren.",
+   "new": "Im Winter gehen wir skifahren.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.skifahren",
+   "german": "Skifahren",
+   "field": "sar",
+   "expect_current": "في إجازة الشتاء بالنمسا يفرح الجميع بالتزلج على الجليد.",
+   "new": "في الشتاء نذهب للتزلج على الجليد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.snowboarden",
+   "german": "Snowboarden",
+   "field": "s",
+   "expect_current": "Auf der Piste zeigt er tolle Sprünge mit dem Snowboard.",
+   "new": "Mein Bruder liebt Snowboarden.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.snowboarden",
+   "german": "Snowboarden",
+   "field": "sar",
+   "expect_current": "على منحدر التزلج يُظهر قفزات رائعة بلوح الثلج.",
+   "new": "أخي يعشق التزلج بلوح الثلج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.segeln",
+   "german": "Segeln",
+   "field": "s",
+   "expect_current": "Das Segeln auf dem weiten Bodensee macht bei gutem Wind Spaß.",
+   "new": "Segeln ist nur mit Wind möglich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.segeln",
+   "german": "Segeln",
+   "field": "sar",
+   "expect_current": "الإبحار الشراعي في بحيرة كونستانس ممتع مع الرياح الجيدة.",
+   "new": "الإبحار الشراعي لا يكون إلا بالرياح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.rudern",
+   "german": "Rudern",
+   "field": "s",
+   "expect_current": "Der Achter trainiert das synchrone Rudern auf dem breiten Fluss.",
+   "new": "Beim Rudern trainiert man den Rücken.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.rudern",
+   "german": "Rudern",
+   "field": "sar",
+   "expect_current": "الفريق الثماني يتدرب على التجديف المتزامن في النهر العريض.",
+   "new": "التجديف يدرّب الظهر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.reiten",
+   "german": "Reiten",
+   "field": "s",
+   "expect_current": "Das Reiten auf edlen Pferden erfordert viel Einfühlungsvermögen.",
+   "new": "Ich möchte reiten lernen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.reiten",
+   "german": "Reiten",
+   "field": "sar",
+   "expect_current": "ركوب الخيل الأصيلة يتطلب الكثير من الإحساس والتفاهم.",
+   "new": "أريد أن أتعلم ركوب الخيل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.turnen",
+   "german": "Turnen",
+   "field": "s",
+   "expect_current": "Beim Turnen am Reck demonstriert sie beachtliche Körperbeherrschung.",
+   "new": "Das Turnen findet in der Halle statt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.turnen",
+   "german": "Turnen",
+   "field": "sar",
+   "expect_current": "أثناء الجمباز على العقلة تُظهر تحكماً جسدياً لافتاً.",
+   "new": "يُقام الجمباز في الصالة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.judo",
+   "german": "Judo",
+   "field": "s",
+   "expect_current": "Judo ist eine traditionelle japanische Kampfkunst der Selbstverteidigung.",
+   "new": "Beim Judo trägt man einen weißen Anzug.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.judo",
+   "german": "Judo",
+   "field": "sar",
+   "expect_current": "الجودو فن قتالي ياباني تقليدي للدفاع عن النفس.",
+   "new": "في الجودو يرتدي المرء بدلة بيضاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.karate",
+   "german": "Karate",
+   "field": "s",
+   "expect_current": "Mit schnellen Tritten und Schlägen übt der Schüler Karate.",
+   "new": "Karate kommt aus Japan.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.karate",
+   "german": "Karate",
+   "field": "sar",
+   "expect_current": "بركلات وضربات سريعة يتدرب التلميذ على الكاراتيه.",
+   "new": "الكاراتيه أصله من اليابان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.bowling",
+   "german": "Bowling",
+   "field": "s",
+   "expect_current": "Mit Freunden verbringen wir den Freitagabend gerne beim Bowling.",
+   "new": "Am Wochenende spielen wir Bowling.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.bowling",
+   "german": "Bowling",
+   "field": "sar",
+   "expect_current": "مع الأصدقاء نحب قضاء مساء الجمعة في لعب البولينج.",
+   "new": "في عطلة نهاية الأسبوع نلعب البولينج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.billard",
+   "german": "Billard",
+   "field": "s",
+   "expect_current": "Beim Billard stößt er die weiße Kugel präzise mit dem Queue an.",
+   "new": "Billard spielt man mit einem Stock.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.billard",
+   "german": "Billard",
+   "field": "sar",
+   "expect_current": "في البلياردو يضرب الكرة البيضاء بعصا البلياردو بدقة.",
+   "new": "يُلعب البلياردو بعصا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.eishockey",
+   "german": "Eishockey",
+   "field": "s",
+   "expect_current": "Eishockey ist das schnellste und härteste Mannschaftsspiel auf dem Eis.",
+   "new": "Eishockey spielt man mit Schlittschuhen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.eishockey",
+   "german": "Eishockey",
+   "field": "sar",
+   "expect_current": "هوكي الجليد هو أسرع وأقوى لعبة جماعية على الجليد.",
+   "new": "يُلعب هوكي الجليد بالزلاجات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.rugby",
+   "german": "Rugby",
+   "field": "s",
+   "expect_current": "Beim Rugby kämpfen die Teams mit vollem Körpereinsatz um den Ball.",
+   "new": "Rugby ist ein harter Mannschaftssport.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.rugby",
+   "german": "Rugby",
+   "field": "sar",
+   "expect_current": "في الرغبي يقاتل الفريقان بكامل طاقتهما الجسدية على الكرة.",
+   "new": "الرغبي رياضة جماعية قوية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.bergsteigen",
+   "german": "Bergsteigen",
+   "field": "s",
+   "expect_current": "Das Bergsteigen im Himalaya erfordert Monate akribischer Vorbereitung.",
+   "new": "Beim Bergsteigen braucht man gute Schuhe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.bergsteigen",
+   "german": "Bergsteigen",
+   "field": "sar",
+   "expect_current": "تسلق الجبال في الهيمالايا يتطلب أشهراً من الإعداد الدقيق.",
+   "new": "عند تسلق الجبال يحتاج المرء إلى حذاء جيد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.surfen",
+   "german": "Surfen",
+   "field": "s",
+   "expect_current": "Er liebt das Surfen auf den riesigen Wellen des Atlantiks.",
+   "new": "Im Urlaub möchte ich surfen lernen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.surfen",
+   "german": "Surfen",
+   "field": "sar",
+   "expect_current": "هو يعشق ركوب الأمواج الهائلة في المحيط الأطلسي.",
+   "new": "في الإجازة أريد أن أتعلم ركوب الأمواج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.tauchen",
+   "german": "Tauchen",
+   "field": "s",
+   "expect_current": "Das Tauchen im bunten Korallenriff offenbart eine faszinierende Welt.",
+   "new": "Beim Tauchen sieht man viele Fische.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.tauchen",
+   "german": "Tauchen",
+   "field": "sar",
+   "expect_current": "الغوص في الشعاب المرجانية الملونة يكشف عن عالم ساحر.",
+   "new": "أثناء الغوص يرى المرء أسماكاً كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.angeln",
+   "german": "Angeln",
+   "field": "s",
+   "expect_current": "Das ruhige Angeln am Seeufer bringt ihm vollkommene Entspannung.",
+   "new": "Mein Opa geht gern angeln.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.angeln",
+   "german": "Angeln",
+   "field": "sar",
+   "expect_current": "الصيد الهادئ بالصنارة على ضفة البحيرة يمنحه استرخاءً تاماً.",
+   "new": "جدي يحب الذهاب للصيد بالصنارة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.marathon",
+   "german": "Marathon",
+   "field": "s",
+   "expect_current": "Der berühmte Marathon führt die Läufer über zweiundvierzig Kilometer.",
+   "new": "Ein Marathon ist über vierzig Kilometer lang.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.marathon",
+   "german": "Marathon",
+   "field": "sar",
+   "expect_current": "الماراثون الشهير يقود العدائين لمسافة اثنين وأربعين كيلومتراً.",
+   "new": "الماراثون يزيد طوله عن أربعين كيلومتراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.bodybuilding",
+   "german": "Bodybuilding",
+   "field": "s",
+   "expect_current": "Bodybuilding erfordert diszipliniertes Krafttraining und strenge Diät.",
+   "new": "Bodybuilding braucht viel Zeit und Disziplin.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "sport.bodybuilding",
+   "german": "Bodybuilding",
+   "field": "sar",
+   "expect_current": "كمال الأجسام يتطلب تدريب قوة منضبطاً ونظاماً غذائياً صارماً.",
+   "new": "كمال الأجسام يحتاج إلى وقت وانضباط كبيرين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.krafttraining",
+   "german": "Krafttraining",
+   "field": "s",
+   "expect_current": "Regelmäßiges Krafttraining baut Muskeln auf und schützt die Knochen.",
+   "new": "Krafttraining macht die Muskeln stark.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.krafttraining",
+   "german": "Krafttraining",
+   "field": "sar",
+   "expect_current": "تدريب القوة المنتظم يبني العضلات ويحمي العظام.",
+   "new": "تدريب القوة يجعل العضلات قوية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "sport.badminton",
+   "german": "Badminton",
+   "field": "s",
+   "expect_current": "Mit leichten Schlägern spielen sie Badminton im Garten.",
+   "new": "Im Park spielen wir Badminton.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "sport.badminton",
+   "german": "Badminton",
+   "field": "sar",
+   "expect_current": "بمضارب خفيفة يلعبون الريشة الطائرة في الحديقة.",
+   "new": "نلعب الريشة الطائرة في الحديقة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.gitarre",
+   "german": "Gitarre",
+   "field": "s",
+   "expect_current": "Er spielt am Lagerfeuer leise Lieder auf der akustischen Gitarre.",
+   "new": "Ich spiele Gitarre.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "musik.gitarre",
+   "german": "Gitarre",
+   "field": "sar",
+   "expect_current": "هو يعزف أغاني هادئة على الجيتار الصوتي عند نار المخيم.",
+   "new": "أعزف الجيتار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.klavier",
+   "german": "Klavier",
+   "field": "s",
+   "expect_current": "Sie übt täglich zwei Stunden Beethoven auf dem großen Klavier.",
+   "new": "Das Klavier steht im Wohnzimmer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.klavier",
+   "german": "Klavier",
+   "field": "sar",
+   "expect_current": "هي تتدرب يومياً ساعتين على معزوفات بيتهوفن على البيانو الكبير.",
+   "new": "البيانو في غرفة المعيشة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.trommel",
+   "german": "Trommel",
+   "field": "s",
+   "expect_current": "Der kräftige Rhythmus der Trommel treibt die Tänzer voran.",
+   "new": "Das Kind schlägt auf die Trommel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.trommel",
+   "german": "Trommel",
+   "field": "sar",
+   "expect_current": "الإيقاع القوي للطبلة يدفع الراقصين للأمام.",
+   "new": "الطفل يضرب على الطبلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.geige",
+   "german": "Geige",
+   "field": "s",
+   "expect_current": "Mit dem Bogen entlockt sie der alten Geige wunderschöne Melodien.",
+   "new": "Meine Tochter lernt Geige.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.geige",
+   "german": "Geige",
+   "field": "sar",
+   "expect_current": "بالقوس تستخرج من الكمان القديم ألحاناً بديعة الجمال.",
+   "new": "ابنتي تتعلم الكمان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.floete",
+   "german": "Flöte",
+   "field": "s",
+   "expect_current": "Die zarte Flöte spielt eine helle, liebliche Melodie im Orchester.",
+   "new": "Die Flöte klingt hell und leise.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.floete",
+   "german": "Flöte",
+   "field": "sar",
+   "expect_current": "الفلوت الرقيق يعزف لحناً شجياً ومشرقاً في الأوركسترا.",
+   "new": "الفلوت صوته صافٍ وهادئ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.schlagzeug",
+   "german": "Schlagzeug",
+   "field": "s",
+   "expect_current": "Der Schlagzeuger hält mit dem Schlagzeug den treibenden Takt der Rockband.",
+   "new": "Der Junge spielt Schlagzeug in einer Band.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.schlagzeug",
+   "german": "Schlagzeug",
+   "field": "sar",
+   "expect_current": "عازف الطبول يحافظ بطقم الطبول على إيقاع فرقة الروك.",
+   "new": "الولد يعزف على طقم الطبول في فرقة موسيقية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.trompete",
+   "german": "Trompete",
+   "field": "s",
+   "expect_current": "Mit glänzendem Messing schmettert die Trompete festliche Fanfaren.",
+   "new": "Die Trompete hat einen lauten Klang.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "musik.trompete",
+   "german": "Trompete",
+   "field": "sar",
+   "expect_current": "بنحاسها اللامع تصدح البوق بألحان احتفالية بهيجة.",
+   "new": "البوق له صوت عالٍ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.saxofon",
+   "german": "Saxofon",
+   "field": "s",
+   "expect_current": "Im Jazzclub improvisiert der Musiker virtuos auf dem Saxofon.",
+   "new": "Er spielt Saxofon im Orchester.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.saxofon",
+   "german": "Saxofon",
+   "field": "sar",
+   "expect_current": "في نادي الجاز يرتجل الموسيقي ببراعة على الساكسفون.",
+   "new": "هو يعزف الساكسفون في الأوركسترا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.harfe",
+   "german": "Harfe",
+   "field": "s",
+   "expect_current": "Die Harfe verzaubert die Zuhörer mit himmlisch zarten Klängen.",
+   "new": "Die Harfe hat viele Saiten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "musik.harfe",
+   "german": "Harfe",
+   "field": "sar",
+   "expect_current": "الهارب يسحر المستمعين بأنغام سماوية رقيقة.",
+   "new": "الهارب لها أوتار كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.akkordeon",
+   "german": "Akkordeon",
+   "field": "s",
+   "expect_current": "In den Bergen spielt der Musikant volkstümliche Weisen auf dem Akkordeon.",
+   "new": "Auf dem Fest spielt jemand Akkordeon.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "musik.akkordeon",
+   "german": "Akkordeon",
+   "field": "sar",
+   "expect_current": "في الجبال يعزف الموسيقي ألحاناً شعبية على الأكورديون.",
+   "new": "في الحفل يعزف شخص ما الأكورديون.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.cello",
+   "german": "Cello",
+   "field": "s",
+   "expect_current": "Das Cello erzeugt einen tiefen, warmen und melancholischen Klang.",
+   "new": "Das Cello ist größer als die Geige.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "musik.cello",
+   "german": "Cello",
+   "field": "sar",
+   "expect_current": "التشيلو يصدر صوتاً عميقاً ودافئاً ومفعماً بالشجن.",
+   "new": "التشيلو أكبر من الكمان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.klarinette",
+   "german": "Klarinette",
+   "field": "s",
+   "expect_current": "Die Klarinette hat einen weichen, ausdrucksstarken Holzbläserton.",
+   "new": "Die Klarinette ist aus Holz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.klarinette",
+   "german": "Klarinette",
+   "field": "sar",
+   "expect_current": "الكلارينيت لها نغمة نفخ خشبية ناعمة ومعبرة.",
+   "new": "الكلارينيت من الخشب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.horn",
+   "german": "Horn",
+   "field": "s",
+   "expect_current": "Das klangvolle Horn schallt weithin durch den dichten Wald.",
+   "new": "Das Horn gehört zum Orchester.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "musik.horn",
+   "german": "Horn",
+   "field": "sar",
+   "expect_current": "القرن الرنان يتردد صداه بعيداً عبر الغابة الكثيفة.",
+   "new": "القرن الفرنسي جزء من الأوركسترا.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.posaune",
+   "german": "Posaune",
+   "field": "s",
+   "expect_current": "Mit dem Zug der Posaune lassen sich stufenlose Tonhöhen erzeugen.",
+   "new": "Die Posaune klingt tief und kräftig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "musik.posaune",
+   "german": "Posaune",
+   "field": "sar",
+   "expect_current": "بسحب ذراع الترومبون يمكن إصدار نغمات متدرجة بسلاسة.",
+   "new": "الترومبون صوته عميق وقوي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.keyboard",
+   "german": "Keyboard",
+   "field": "s",
+   "expect_current": "Auf dem elektronischen Keyboard wählt er moderne Synthesizer-Sounds.",
+   "new": "Ich übe auf dem Keyboard.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.keyboard",
+   "german": "Keyboard",
+   "field": "sar",
+   "expect_current": "على الكيبورد الإلكتروني يختار أصوات سنثسيزر حديثة.",
+   "new": "أتدرب على الكيبورد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.orgel",
+   "german": "Orgel",
+   "field": "s",
+   "expect_current": "Die mächtige Orgel füllt die ganze Kathedrale mit majestätischem Klang.",
+   "new": "In der Kirche steht eine große Orgel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.orgel",
+   "german": "Orgel",
+   "field": "sar",
+   "expect_current": "الأرغن الضخم يملأ الكاتدرائية بأكملها بصوت مهيب.",
+   "new": "في الكنيسة أرغن كبير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.blockfloete",
+   "german": "Blockflöte",
+   "field": "s",
+   "expect_current": "In der Grundschule lernen viele Kinder als Erstes die Blockflöte.",
+   "new": "In der Schule lernen Kinder Blockflöte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.blockfloete",
+   "german": "Blockflöte",
+   "field": "sar",
+   "expect_current": "في المدرسة الابتدائية يتعلم كثير من الأطفال الفلوت أولاً.",
+   "new": "في المدرسة يتعلم الأطفال الفلوت المدرسي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.querfloete",
+   "german": "Querflöte",
+   "field": "s",
+   "expect_current": "Die Querflöte aus Silber verzaubert das Publikum im Saal.",
+   "new": "Die Querflöte hält man zur Seite.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "musik.querfloete",
+   "german": "Querflöte",
+   "field": "sar",
+   "expect_current": "الفلوت الأفقي الفضي يسحر الجمهور في الصالة.",
+   "new": "يُمسك الفلوت الأفقي إلى الجانب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "musik.e-gitarre",
+   "german": "E-Gitarre",
+   "field": "s",
+   "expect_current": "Der Rockgitarrist spielt ein explosives Solo auf der E-Gitarre.",
+   "new": "Die E-Gitarre braucht Strom.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "musik.e-gitarre",
+   "german": "E-Gitarre",
+   "field": "sar",
+   "expect_current": "عازف الروك يعزف صولو حماسياً على الجيتار الكهربائي.",
+   "new": "الجيتار الكهربائي يحتاج إلى كهرباء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.handy",
+   "german": "Handy",
+   "field": "s",
+   "expect_current": "Mit dem modernen Handy kann man von überall aus telefonieren und chatten.",
+   "new": "Mein Handy ist kaputt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "technik.handy",
+   "german": "Handy",
+   "field": "sar",
+   "expect_current": "بالموبايل الحديث يمكن للمرء إجراء المكالمات والمحادثات من أي مكان.",
+   "new": "موبايلي معطل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.computer",
+   "german": "Computer",
+   "field": "s",
+   "expect_current": "Er arbeitet den ganzen Tag konzentriert an seinem schnellen Computer.",
+   "new": "Ich arbeite am Computer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "technik.computer",
+   "german": "Computer",
+   "field": "sar",
+   "expect_current": "هو يعمل طوال اليوم بتركيز على كمبيوتره السريع.",
+   "new": "أعمل على الكمبيوتر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.fernseher",
+   "german": "Fernseher",
+   "field": "s",
+   "expect_current": "Abends schalten wir den großen Fernseher ein, um die Nachrichten zu sehen.",
+   "new": "Der Fernseher läuft den ganzen Tag.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.fernseher",
+   "german": "Fernseher",
+   "field": "sar",
+   "expect_current": "في المساء نشغل التلفاز الكبير لمشاهدة الأخبار.",
+   "new": "التلفاز يعمل طوال اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.radio",
+   "german": "Radio",
+   "field": "s",
+   "expect_current": "Beim Frühstück läuft im Hintergrund leise Musik aus dem Radio.",
+   "new": "Ich höre gern Radio.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "technik.radio",
+   "german": "Radio",
+   "field": "sar",
+   "expect_current": "أثناء الإفطار تعمل في الخلفية موسيقى هادئة من الراديو.",
+   "new": "أحب الاستماع إلى الراديو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.kamera",
+   "german": "Kamera",
+   "field": "s",
+   "expect_current": "Mit der hochauflösenden Kamera hält sie die schönsten Reisemomente fest.",
+   "new": "Die Kamera macht gute Fotos.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.kamera",
+   "german": "Kamera",
+   "field": "sar",
+   "expect_current": "بالكاميرا عالية الدقة توثق أجمل لحظات السفر.",
+   "new": "الكاميرا تلتقط صوراً جيدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.drucker",
+   "german": "Drucker",
+   "field": "s",
+   "expect_current": "Der neue Drucker druckt zwanzig Seiten pro Minute in bester Qualität.",
+   "new": "Der Drucker hat kein Papier.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.drucker",
+   "german": "Drucker",
+   "field": "sar",
+   "expect_current": "الطابعة الجديدة تطبع عشرين صفحة في الدقيقة بأعلى جودة.",
+   "new": "الطابعة ليس فيها ورق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.internet",
+   "german": "Internet",
+   "field": "s",
+   "expect_current": "Über das schnelle Internet sind Menschen auf der ganzen Welt vernetzt.",
+   "new": "Zu Hause habe ich schnelles Internet.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.internet",
+   "german": "Internet",
+   "field": "sar",
+   "expect_current": "عبر الإنترنت السريع يتواصل الناس في جميع أنحاء العالم.",
+   "new": "في البيت عندي إنترنت سريع.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.kopfhoerer",
+   "german": "Kopfhörer",
+   "field": "s",
+   "expect_current": "Mit geräuschunterdrückenden Kopfhörern genießt er ungestört seine Musik.",
+   "new": "Ich höre Musik mit Kopfhörern.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.kopfhoerer",
+   "german": "Kopfhörer",
+   "field": "sar",
+   "expect_current": "بسماعات الرأس العازلة للضوضاء يستمتع بموسيقاه دون إزعاج.",
+   "new": "أستمع إلى الموسيقى بسماعة الرأس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.ladekabel",
+   "german": "Ladekabel",
+   "field": "s",
+   "expect_current": "Vergiss nicht, das Ladekabel für dein Telefon einzupacken.",
+   "new": "Wo ist mein Ladekabel?",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.ladekabel",
+   "german": "Ladekabel",
+   "field": "sar",
+   "expect_current": "لا تنسَ توضيب كابل الشحن الخاص بهاتفك.",
+   "new": "أين كابل الشحن الخاص بي؟",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.tastatur",
+   "german": "Tastatur",
+   "field": "s",
+   "expect_current": "Auf der ergonomischen Tastatur tippt man schnell und fehlerfrei.",
+   "new": "Die Tastatur hat viele Tasten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.tastatur",
+   "german": "Tastatur",
+   "field": "sar",
+   "expect_current": "على لوحة المفاتيح المريحة يكتب المرء بسرعة ودون أخطاء.",
+   "new": "لوحة المفاتيح فيها أزرار كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.tablet",
+   "german": "Tablet",
+   "field": "s",
+   "expect_current": "Auf dem praktischen Tablet liest sie abends im Bett digitale Bücher.",
+   "new": "Mein Tablet liegt auf dem Sofa.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.tablet",
+   "german": "Tablet",
+   "field": "sar",
+   "expect_current": "على التابلت العملي تقرأ في المساء في السرير كتباً إلكترونية.",
+   "new": "التابلت على الأريكة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.lautsprecher",
+   "german": "Lautsprecher",
+   "field": "s",
+   "expect_current": "Der kabellose Lautsprecher liefert einen erstaunlich satten Klang.",
+   "new": "Der Lautsprecher spielt laute Musik.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.lautsprecher",
+   "german": "Lautsprecher",
+   "field": "sar",
+   "expect_current": "مكبر الصوت اللاسلكي يوفر صوتاً غنياً وقوياً بصورة مدهشة.",
+   "new": "السماعة تشغّل موسيقى عالية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.router",
+   "german": "Router",
+   "field": "s",
+   "expect_current": "Der Router verbindet alle Geräte im Haus mit dem weltweiten Netz.",
+   "new": "Der Router steht im Flur.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.router",
+   "german": "Router",
+   "field": "sar",
+   "expect_current": "الراوتر يربط جميع الأجهزة في المنزل بالشبكة العالمية.",
+   "new": "الراوتر في الممر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.bildschirm",
+   "german": "Bildschirm",
+   "field": "s",
+   "expect_current": "Der hochauflösende Bildschirm schont die Augen bei langer Bildschirmarbeit.",
+   "new": "Der Bildschirm ist zu hell.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.bildschirm",
+   "german": "Bildschirm",
+   "field": "sar",
+   "expect_current": "الشاشة عالية الدقة تريح العينين أثناء العمل الطويل أمام الشاشة.",
+   "new": "الشاشة ساطعة أكثر من اللازم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.computermaus",
+   "german": "Computermaus",
+   "field": "s",
+   "expect_current": "Mit einem Klick der Computermaus öffnet sich das gewünschte Programm.",
+   "new": "Die Computermaus liegt neben der Tastatur.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.computermaus",
+   "german": "Computermaus",
+   "field": "sar",
+   "expect_current": "بنقرة واحدة بفأرة الكمبيوتر يفتح البرنامج المطلوب.",
+   "new": "فأرة الكمبيوتر بجانب لوحة المفاتيح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.akku",
+   "german": "Akku",
+   "field": "s",
+   "expect_current": "Der Akku des Smartphones hält bei normaler Nutzung fast zwei Tage.",
+   "new": "Der Akku ist fast leer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.akku",
+   "german": "Akku",
+   "field": "sar",
+   "expect_current": "بطارية الهاتف الذكي تدوم مع الاستخدام العادي قرابة يومين.",
+   "new": "البطارية شبه فارغة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.batterie",
+   "german": "Batterie",
+   "field": "s",
+   "expect_current": "Die Fernbedienung benötigt eine neue Batterie zum Funktionieren.",
+   "new": "Die Fernbedienung braucht neue Batterien.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.batterie",
+   "german": "Batterie",
+   "field": "sar",
+   "expect_current": "جهاز التحكم عن بعد يحتاج إلى بطارية جديدة ليعمل.",
+   "new": "جهاز التحكم يحتاج إلى بطاريات جديدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.ladegeraet",
+   "german": "Ladegerät",
+   "field": "s",
+   "expect_current": "Das Ladegerät lädt das Mobiltelefon in nur dreißig Minuten voll auf.",
+   "new": "Ich habe mein Ladegerät vergessen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.ladegeraet",
+   "german": "Ladegerät",
+   "field": "sar",
+   "expect_current": "الشاحن يشحن الهاتف بالكامل في ثلاثين دقيقة فقط.",
+   "new": "نسيت الشاحن.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.usb-stick",
+   "german": "USB-Stick",
+   "field": "s",
+   "expect_current": "Auf diesem kleinen USB-Stick speichert er alle wichtigen Dokumente ab.",
+   "new": "Ich speichere die Datei auf dem USB-Stick.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.usb-stick",
+   "german": "USB-Stick",
+   "field": "sar",
+   "expect_current": "على هذه الفلاشة الصغيرة يحفظ جميع المستندات الهامة.",
+   "new": "أحفظ الملف على الفلاش ميموري.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.festplatte",
+   "german": "Festplatte",
+   "field": "s",
+   "expect_current": "Die externe Festplatte bietet zwei Terabyte sicheren Speicherplatz.",
+   "new": "Auf der Festplatte sind alle meine Fotos.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.festplatte",
+   "german": "Festplatte",
+   "field": "sar",
+   "expect_current": "القرص الصلب الخارجي يوفر مساحة تخزين آمنة بسعة تيرابايت اثنين.",
+   "new": "على القرص الصلب كل صوري.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.prozessor",
+   "german": "Prozessor",
+   "field": "s",
+   "expect_current": "Der moderne Prozessor führt Milliarden Rechenschritte pro Sekunde aus.",
+   "new": "Der Prozessor ist das Herz des Computers.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.prozessor",
+   "german": "Prozessor",
+   "field": "sar",
+   "expect_current": "المعالج الحديث ينفذ مليارات العمليات الحسابية في الثانية.",
+   "new": "المعالج هو قلب الكمبيوتر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.stecker",
+   "german": "Stecker",
+   "field": "s",
+   "expect_current": "Er steckt den Stecker fest in die Steckdose an der Wand.",
+   "new": "Der Stecker passt nicht in die Steckdose.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.stecker",
+   "german": "Stecker",
+   "field": "sar",
+   "expect_current": "هو يدخل القابس بإحكام في مقبس الكهرباء على الحائط.",
+   "new": "القابس لا يناسب المقبس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.kabel",
+   "german": "Kabel",
+   "field": "s",
+   "expect_current": "Ein langes Kabel verbindet den Computer mit dem Monitor auf dem Schreibtisch.",
+   "new": "Ein Kabel verbindet den Computer mit dem Bildschirm.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.kabel",
+   "german": "Kabel",
+   "field": "sar",
+   "expect_current": "كابل طويل يربط الكمبيوتر بالشاشة على المكتب.",
+   "new": "يربط كابل الكمبيوتر بالشاشة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.chip",
+   "german": "Chip",
+   "field": "s",
+   "expect_current": "Der winzige Chip im Reisepass speichert biometrische Daten sicher ab.",
+   "new": "Der Chip ist sehr klein.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.chip",
+   "german": "Chip",
+   "field": "sar",
+   "expect_current": "الشريحة الصغيرة في جواز السفر تخزن البيانات الحيوية بأمان.",
+   "new": "الشريحة صغيرة جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.fernbedienung",
+   "german": "Fernbedienung",
+   "field": "s",
+   "expect_current": "Er sucht nach der Fernbedienung, um den Kanal zu wechseln.",
+   "new": "Wo ist die Fernbedienung?",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.fernbedienung",
+   "german": "Fernbedienung",
+   "field": "sar",
+   "expect_current": "هو يبحث عن جهاز التحكم عن بعد لتغيير القناة.",
+   "new": "أين جهاز التحكم عن بعد؟",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.beamer",
+   "german": "Beamer",
+   "field": "s",
+   "expect_current": "Der Beamer wirft die Präsentation gestochen scharf an die weiße Leinwand.",
+   "new": "Im Unterricht benutzen wir einen Beamer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.beamer",
+   "german": "Beamer",
+   "field": "sar",
+   "expect_current": "جهاز العرض يسلط العرض التقديمي بدقة عالية على الشاشة البيضاء.",
+   "new": "في الحصة نستخدم جهاز عرض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.mikrofon",
+   "german": "Mikrofon",
+   "field": "s",
+   "expect_current": "Er spricht während des Online-Meetings direkt in das externe Mikrofon.",
+   "new": "Die Sängerin singt ins Mikrofon.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.mikrofon",
+   "german": "Mikrofon",
+   "field": "sar",
+   "expect_current": "هو يتحدث أثناء الاجتماع عبر الإنترنت في الميكروفون الخارجي مباشرة.",
+   "new": "المغنية تغني في الميكروفون.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.scanner",
+   "german": "Scanner",
+   "field": "s",
+   "expect_current": "Mit dem schnellen Scanner digitalisiert sie alte Familienfotos.",
+   "new": "Mit dem Scanner scanne ich das Dokument.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.scanner",
+   "german": "Scanner",
+   "field": "sar",
+   "expect_current": "بالماسح الضوئي السريع تحول الصور العائلية القديمة إلى صور رقمية.",
+   "new": "أمسح المستند بالماسح الضوئي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.webcam",
+   "german": "Webcam",
+   "field": "s",
+   "expect_current": "Für Videokonferenzen schaltet er die Webcam am Computer ein.",
+   "new": "Die Webcam ist ausgeschaltet.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.webcam",
+   "german": "Webcam",
+   "field": "sar",
+   "expect_current": "لمؤتمرات الفيديو يشغل كاميرا الويب على الكمبيوتر.",
+   "new": "كاميرا الويب مطفأة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.smartphone",
+   "german": "Smartphone",
+   "field": "s",
+   "expect_current": "Sein neues Smartphone hat ein brillantes Display ohne Ränder.",
+   "new": "Jeder hat heute ein Smartphone.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.smartphone",
+   "german": "Smartphone",
+   "field": "sar",
+   "expect_current": "هاتفه الذكي الجديد يتميز بشاشة باهرة وبلا حواف.",
+   "new": "كل شخص اليوم لديه هاتف ذكي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.app",
+   "german": "App",
+   "field": "s",
+   "expect_current": "Mit dieser praktischen App kann man täglich neue Vokabeln lernen.",
+   "new": "Ich lade eine neue App herunter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.app",
+   "german": "App",
+   "field": "sar",
+   "expect_current": "بهذا التطبيق العملي يمكن للمرء تعلم مفردات جديدة يومياً.",
+   "new": "أنزّل تطبيقاً جديداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.wlan",
+   "german": "WLAN",
+   "field": "s",
+   "expect_current": "Das schnelle WLAN im Hotel ermöglicht unkompliziertes Surfen.",
+   "new": "Das WLAN im Hotel ist gratis.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.wlan",
+   "german": "WLAN",
+   "field": "sar",
+   "expect_current": "الواي فاي السريع في الفندق يتيح تصفحاً مريحاً للإنترنت.",
+   "new": "الواي فاي في الفندق مجاني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.sim-karte",
+   "german": "SIM-Karte",
+   "field": "s",
+   "expect_current": "Vor der Auslandsreise setzt er eine lokale SIM-Karte ins Telefon ein.",
+   "new": "Die SIM-Karte steckt im Handy.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.sim-karte",
+   "german": "SIM-Karte",
+   "field": "sar",
+   "expect_current": "قبل السفر للخارج يضع شريحة اتصال محلية في الهاتف.",
+   "new": "شريحة الاتصال في الموبايل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.adapter",
+   "german": "Adapter",
+   "field": "s",
+   "expect_current": "Auf Reisen in England braucht man einen Adapter für die Steckdosen.",
+   "new": "Im Ausland brauche ich einen Adapter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.adapter",
+   "german": "Adapter",
+   "field": "sar",
+   "expect_current": "أثناء السفر إلى إنجلترا يحتاج المرء إلى محول للمقابس الكهربائية.",
+   "new": "أحتاج إلى محول كهربائي في الخارج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.spielkonsole",
+   "german": "Spielkonsole",
+   "field": "s",
+   "expect_current": "Die Kinder spielen am Wochenende zusammen an der Spielkonsole.",
+   "new": "Die Spielkonsole steht neben dem Fernseher.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.spielkonsole",
+   "german": "Spielkonsole",
+   "field": "sar",
+   "expect_current": "الأطفال يلعبون معاً في نهاية الأسبوع على منصة ألعاب الفيديو.",
+   "new": "جهاز الألعاب بجانب التلفاز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.wecker",
+   "german": "Wecker",
+   "field": "s",
+   "expect_current": "Morgens um sechs Uhr klingelt der Wecker unbarmherzig laut.",
+   "new": "Der Wecker klingelt um sechs Uhr.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.wecker",
+   "german": "Wecker",
+   "field": "sar",
+   "expect_current": "في الصباح تمام السادسة يرن المنبه بصوت عالٍ.",
+   "new": "المنبه يرن الساعة السادسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.staubsauger",
+   "german": "Staubsauger",
+   "field": "s",
+   "expect_current": "Der leise Staubsauger reinigt Teppiche gründlich von Staub.",
+   "new": "Ich putze mit dem Staubsauger.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.staubsauger",
+   "german": "Staubsauger",
+   "field": "sar",
+   "expect_current": "المكنسة الكهربائية الهادئة تنظف السجاد تماماً من الغبار.",
+   "new": "أنظف بالمكنسة الكهربائية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.spuelmaschine",
+   "german": "Spülmaschine",
+   "field": "s",
+   "expect_current": "Nach dem Essen räumt sie das schmutzige Geschirr in die Spülmaschine.",
+   "new": "Die Spülmaschine ist voll.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.spuelmaschine",
+   "german": "Spülmaschine",
+   "field": "sar",
+   "expect_current": "بعد الأكل تضع الأطباق غير النظيفة في غسالة الأطباق.",
+   "new": "غسالة الأطباق ممتلئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.trockner",
+   "german": "Trockner",
+   "field": "s",
+   "expect_current": "Im feuchten Winter trocknet die nasse Wäsche schnell im Trockner.",
+   "new": "Der Trockner trocknet die nasse Wäsche.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.trockner",
+   "german": "Trockner",
+   "field": "sar",
+   "expect_current": "في الشتاء الرطب تجف الملابس المبتلة بسرعة في مجفف الملابس.",
+   "new": "المجفف يجفف الغسيل المبلل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.buegeleisen",
+   "german": "Bügeleisen",
+   "field": "s",
+   "expect_current": "Mit dem heißen Bügeleisen glättet er das zerknitterte Hemd.",
+   "new": "Das Bügeleisen ist sehr heiß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.buegeleisen",
+   "german": "Bügeleisen",
+   "field": "sar",
+   "expect_current": "بالمكواة الساخنة يفرد القميص المجعد.",
+   "new": "المكواة ساخنة جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.ventilator",
+   "german": "Ventilator",
+   "field": "s",
+   "expect_current": "An heißen Sommertagen sorgt der Ventilator für eine angenehme Brise.",
+   "new": "Im Sommer läuft der Ventilator.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.ventilator",
+   "german": "Ventilator",
+   "field": "sar",
+   "expect_current": "في أيام الصيف الحارة توفر المروحة نسيماً عليلاً لطيفاً.",
+   "new": "في الصيف تعمل المروحة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.drohne",
+   "german": "Drohne",
+   "field": "s",
+   "expect_current": "Die kleine Drohne filmt faszinierende Luftaufnahmen der Landschaft.",
+   "new": "Die Drohne fliegt über dem Haus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "technik.drohne",
+   "german": "Drohne",
+   "field": "sar",
+   "expect_current": "الطائرة بدون طيار الصغيرة تصور لقطات جوية ساحرة للمناظر الطبيعية.",
+   "new": "الطائرة بدون طيار تحلق فوق البيت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.3d-drucker",
+   "german": "3D-Drucker",
+   "field": "s",
+   "expect_current": "Der innovative 3D-Drucker druckt dreidimensionale Modelle Schicht für Schicht.",
+   "new": "Ein 3D-Drucker druckt Dinge aus Plastik.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.3d-drucker",
+   "german": "3D-Drucker",
+   "field": "sar",
+   "expect_current": "الطابعة ثلاثية الأبعاد المبتكرة تطبع نماذج مجسمة طبقة فوق طبقة.",
+   "new": "الطابعة ثلاثية الأبعاد تطبع أشياء من البلاستيك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "technik.powerbank",
+   "german": "Powerbank",
+   "field": "s",
+   "expect_current": "Unterwegs lädt er sein Smartphone schnell mit der Powerbank auf.",
+   "new": "Meine Powerbank lädt das Handy auf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "technik.powerbank",
+   "german": "Powerbank",
+   "field": "sar",
+   "expect_current": "أثناء التنقل يشحن هاتفه الذكي بسرعة بواسطة البطارية المحمولة.",
+   "new": "البطارية المحمولة تشحن الموبايل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  }
+ ]
+}

@@ -7356,8 +7356,8 @@
         "n": "Hammer",
         "ar": "مطرقة (شاكوش)",
         "pl": "die Hämmer",
-        "s": "Mit dem schweren Hammer schlägt er den Nagel fest ins Holz.",
-        "sar": "بالمطرقة الثقيلة يدق المسمار بإحكام في الخشب."
+        "s": "Der Hammer ist schwer.",
+        "sar": "المطرقة ثقيلة."
       },
       {
         "id": "werkzeuge.zange",
@@ -7365,8 +7365,8 @@
         "n": "Zange",
         "ar": "زرادية (زردية)",
         "pl": "die Zangen",
-        "s": "Mit der Zange zieht der Handwerker den alten Nagel heraus.",
-        "sar": "بالكماشة يسحب الحرفي المسمار القديم للخارج."
+        "s": "Mit der Zange ziehe ich den Nagel heraus.",
+        "sar": "أسحب المسمار بالزرادية."
       },
       {
         "id": "werkzeuge.schraubenzieher",
@@ -7374,8 +7374,8 @@
         "n": "Schraubenzieher",
         "ar": "مفك",
         "pl": "die Schraubenzieher",
-        "s": "Er dreht die Schraube mit dem Schraubenzieher fest.",
-        "sar": "هو يشد البرغي بالمفك بإحكام."
+        "s": "Ich brauche einen Schraubenzieher.",
+        "sar": "أحتاج إلى مفك."
       },
       {
         "id": "werkzeuge.saege",
@@ -7383,8 +7383,8 @@
         "n": "Säge",
         "ar": "منشار",
         "pl": "die Sägen",
-        "s": "Mit der scharfen Säge schneidet er das dicke Brett durch.",
-        "sar": "بالمنشار الحاد يقطع اللوح السميك إلى نصفين."
+        "s": "Die Säge schneidet das Holz.",
+        "sar": "المنشار يقطع الخشب."
       },
       {
         "id": "werkzeuge.nagel",
@@ -7392,8 +7392,8 @@
         "n": "Nagel",
         "ar": "مسمار",
         "pl": "die Nägel",
-        "s": "Er schlägt einen kleinen Nagel in die Wand, um das Bild aufzuhängen.",
-        "sar": "هو يدق مسماراً صغيراً في الحائط ليعلق اللوحة."
+        "s": "Der Nagel ist zu lang.",
+        "sar": "المسمار أطول من اللازم."
       },
       {
         "id": "werkzeuge.schraube",
@@ -7401,8 +7401,8 @@
         "n": "Schraube",
         "ar": "برغي",
         "pl": "die Schrauben",
-        "s": "Die metallene Schraube hält die beiden Hölzer fest zusammen.",
-        "sar": "البرغي المعدني يثبت قطعتي الخشب معاً بقوة."
+        "s": "Die Schraube ist locker.",
+        "sar": "البرغي مرتخٍ."
       },
       {
         "id": "werkzeuge.leiter",
@@ -7411,8 +7411,8 @@
         "ar": "سلّم متحرك",
         "note": "مؤنثة هنا بمعنى \"سلم\"، وجمعها Leitern؛ أما der Leiter (مذكر بمعنى \"مدير/قائد\") فجمعه بلا تغيير Leiter — Leiter = سلّم / قائد",
         "pl": "die Leitern",
-        "s": "Er klettert vorsichtig auf die hohe Leiter, um die Decke zu streichen.",
-        "sar": "هو يتسلق السلم العالي بحذر ليطلي السقف."
+        "s": "Ich steige auf die Leiter.",
+        "sar": "أصعد على السلم."
       },
       {
         "id": "werkzeuge.bohrer",
@@ -7420,8 +7420,8 @@
         "n": "Bohrer",
         "ar": "مثقاب",
         "pl": "die Bohrer",
-        "s": "Mit dem elektrischen Bohrer bohrt er ein präzises Loch in die Wand.",
-        "sar": "بالمثقاب الكهربائي يحفر ثقباً دقيقاً في الجدار."
+        "s": "Der Bohrer macht ein Loch in die Wand.",
+        "sar": "المثقاب يصنع ثقباً في الجدار."
       },
       {
         "id": "werkzeuge.pinsel",
@@ -7429,8 +7429,8 @@
         "n": "Pinsel",
         "ar": "فرشاة",
         "pl": "die Pinsel",
-        "s": "Mit dem weichen Pinsel trägt sie die Farbe gleichmäßig auf.",
-        "sar": "بالفرشاة الناعمة توزع الدهان بانتظام."
+        "s": "Ich streiche die Tür mit einem Pinsel.",
+        "sar": "أطلي الباب بفرشاة."
       },
       {
         "id": "werkzeuge.klebeband",
@@ -7438,8 +7438,8 @@
         "n": "Klebeband",
         "ar": "شريط لاصق",
         "pl": "die Klebebänder",
-        "s": "Mit starkem Klebeband repariert er den rissigen Karton.",
-        "sar": "بشريط لاصق قوي يصلح الصندوق الممزق."
+        "s": "Das Klebeband klebt nicht mehr.",
+        "sar": "الشريط اللاصق لم يعد يلتصق."
       },
       {
         "id": "werkzeuge.schraubenschluessel",
@@ -7447,8 +7447,8 @@
         "n": "Schraubenschlüssel",
         "ar": "مفتاح ربط",
         "pl": "die Schraubenschlüssel",
-        "s": "Mit dem Schraubenschlüssel zieht der Mechaniker die Mutter fest an.",
-        "sar": "بمفتاح الربط يشد الميكانيكي الصامولة بقوة."
+        "s": "Mit dem Schraubenschlüssel drehe ich die Schraube fest.",
+        "sar": "أشدّ البرغي بمفتاح الربط."
       },
       {
         "id": "werkzeuge.bohrmaschine",
@@ -7456,8 +7456,8 @@
         "n": "Bohrmaschine",
         "ar": "مثقاب كهربائي",
         "pl": "die Bohrmaschinen",
-        "s": "Mit der elektrischen Bohrmaschine bohrt der Handwerker präzise Löcher in die Wand.",
-        "sar": "بالمثقاب الكهربائي يحفر الحرفي ثقوباً دقيقة في الجدار."
+        "s": "Die Bohrmaschine ist sehr laut.",
+        "sar": "المثقاب الكهربائي صوته عالٍ جداً."
       },
       {
         "id": "werkzeuge.rohrzange",
@@ -7465,8 +7465,8 @@
         "n": "Rohrzange",
         "ar": "كماشة أنابيب",
         "pl": "die Rohrzangen",
-        "s": "Der Klempner greift zur großen Rohrzange, um das Abflussrohr zu lösen.",
-        "sar": "السباك يمسك بكماشة الأنابيب الكبيرة لفك ماسورة الصرف."
+        "s": "Mit der Rohrzange öffne ich das Rohr.",
+        "sar": "أفتح الأنبوب بكماشة الأنابيب."
       },
       {
         "id": "werkzeuge.werkzeugkasten",
@@ -7474,8 +7474,8 @@
         "n": "Werkzeugkasten",
         "ar": "صندوق عدة",
         "pl": "die Werkzeugkästen",
-        "s": "Im ordentlichen Werkzeugkasten findet man jedes Werkzeug sofort.",
-        "sar": "في صندوق العدة المرتب يجد المرء كل أداة على الفور."
+        "s": "Der Hammer liegt im Werkzeugkasten.",
+        "sar": "المطرقة في صندوق العدة."
       },
       {
         "id": "werkzeuge.schutzbrille",
@@ -7483,8 +7483,8 @@
         "n": "Schutzbrille",
         "ar": "نظارة واقية",
         "pl": "die Schutzbrillen",
-        "s": "Beim Bohren trägt der Handwerker immer eine Schutzbrille.",
-        "sar": "أثناء الحفر يرتدي الحرفي دائماً نظارة واقية."
+        "s": "Bei der Arbeit trage ich eine Schutzbrille.",
+        "sar": "أرتدي نظارة واقية أثناء العمل."
       },
       {
         "id": "werkzeuge.helm",
@@ -7492,8 +7492,8 @@
         "n": "Helm",
         "ar": "خوذة",
         "pl": "die Helme",
-        "s": "Auf der Baustelle ist das Tragen eines Helms gesetzliche Pflicht.",
-        "sar": "في موقع البناء يعتبر ارتداء الخوذة واجباً قانونياً."
+        "s": "Auf der Baustelle trägt man einen Helm.",
+        "sar": "في موقع البناء يرتدي المرء خوذة."
       },
       {
         "id": "werkzeuge.buerste",
@@ -7501,8 +7501,8 @@
         "n": "Bürste",
         "ar": "فرشاة تنظيف",
         "pl": "die Bürsten",
-        "s": "Mit einer harten Bürste schrubbt er den verschmutzten Gehweg sauber.",
-        "sar": "بفرشاة خشنة يفرك الرصيف المتسخ لينظفه."
+        "s": "Mit der Bürste putze ich den Schuh.",
+        "sar": "أنظف الحذاء بالفرشاة."
       },
       {
         "id": "werkzeuge.besen",
@@ -7510,8 +7510,8 @@
         "n": "Besen",
         "ar": "مكنسة",
         "pl": "die Besen",
-        "s": "Er nimmt den Besen, um die herabgefallenen Blätter zusammenzukehren.",
-        "sar": "هو يأخذ المكنسة ليكنس أوراق الشجر المتساقطة."
+        "s": "Ich fege den Boden mit dem Besen.",
+        "sar": "أكنس الأرض بالمكنسة."
       },
       {
         "id": "werkzeuge.eimer",
@@ -7519,8 +7519,8 @@
         "n": "Eimer",
         "ar": "دلو",
         "pl": "die Eimer",
-        "s": "Er füllt warmes Wasser mit Reinigungsmittel in den großen Eimer.",
-        "sar": "هو يملأ ماءً دافئاً مع سائل تنظيف في الدلو الكبير."
+        "s": "Der Eimer ist voll Wasser.",
+        "sar": "الدلو مليء بالماء."
       },
       {
         "id": "werkzeuge.schlauch",
@@ -7528,8 +7528,8 @@
         "n": "Schlauch",
         "ar": "خرطوم",
         "pl": "die Schläuche",
-        "s": "Mit dem langen Schlauch gießt sie den ganzen Garten.",
-        "sar": "بالخرطوم الطويل تسقي الحديقة بأكملها."
+        "s": "Der Schlauch ist zu kurz.",
+        "sar": "الخرطوم أقصر من اللازم."
       },
       {
         "id": "werkzeuge.giesskanne",
@@ -7537,8 +7537,8 @@
         "n": "Gießkanne",
         "ar": "إبريق ري",
         "pl": "die Gießkannen",
-        "s": "Mit der bunten Gießkanne wässert er die Blumen auf dem Balkon.",
-        "sar": "بإبريق الري الملون يسقي الزهور على الشرفة."
+        "s": "Mit der Gießkanne gieße ich die Blumen.",
+        "sar": "أسقي الزهور بإبريق الري."
       },
       {
         "id": "werkzeuge.rasenmaeher",
@@ -7546,8 +7546,8 @@
         "n": "Rasenmäher",
         "ar": "جزازة عشب",
         "pl": "die Rasenmäher",
-        "s": "Am Samstag mäht der Nachbar den Rasen mit dem Rasenmäher.",
-        "sar": "يوم السبت يقص الجار العشب بجزازة العشب."
+        "s": "Der Rasenmäher macht viel Lärm.",
+        "sar": "جزازة العشب تحدث ضجيجاً كبيراً."
       },
       {
         "id": "werkzeuge.spaten",
@@ -7555,8 +7555,8 @@
         "n": "Spaten",
         "ar": "مجرفة حفر",
         "pl": "die Spaten",
-        "s": "Mit dem scharfen Spaten gräbt er ein tiefes Pflanzloch für den Baum.",
-        "sar": "بمجرفة الحفر الحادة يحفر حفرة غرس عميقة للشجرة."
+        "s": "Mit dem Spaten grabe ich eine Grube.",
+        "sar": "أحفر حفرة بالمجرفة."
       },
       {
         "id": "werkzeuge.massband",
@@ -7564,8 +7564,8 @@
         "n": "Maßband",
         "ar": "شريط قياس",
         "pl": "die Maßbänder",
-        "s": "Mit dem ausziehbaren Maßband misst er die Länge des Zimmers ab.",
-        "sar": "بشريط القياس القابل للسحب يقيس طول الغرفة."
+        "s": "Mit dem Maßband messe ich den Tisch.",
+        "sar": "أقيس الطاولة بشريط القياس."
       },
       {
         "id": "werkzeuge.taschenlampe",
@@ -7573,8 +7573,8 @@
         "n": "Taschenlampe",
         "ar": "كشاف يدوي",
         "pl": "die Taschenlampen",
-        "s": "Bei Stromausfall spendet die helle Taschenlampe sofort Licht.",
-        "sar": "عند انقطاع الكهرباء يوفر الكشاف اليدوي المضيء النور فوراً."
+        "s": "Im Dunkeln brauche ich eine Taschenlampe.",
+        "sar": "أحتاج إلى كشاف يدوي في الظلام."
       },
       {
         "id": "werkzeuge.draht",
@@ -7582,8 +7582,8 @@
         "n": "Draht",
         "ar": "سلك معدني",
         "pl": "die Drähte",
-        "s": "Er bindet den wackelnden Ast mit einem dünnen Draht fest.",
-        "sar": "هو يربط الغصن المتأرجح بسلك معدني رفيع بإحكام."
+        "s": "Der Draht ist dünn und stark.",
+        "sar": "السلك رفيع وقوي."
       },
       {
         "id": "werkzeuge.mutter",
@@ -7592,8 +7592,8 @@
         "ar": "صامولة",
         "note": "نفس الكلمة تعني أيضًا \"أم\"؛ هنا تعني قطعة معدنية للربط مع البرغي — Mutter هنا = صامولة (وفي قسم العائلة = أم)",
         "pl": "die Muttern",
-        "s": "Die Mutter wird fest auf das Gewinde der Schraube geschraubt.",
-        "sar": "الصامولة تُربط بإحكام على سن لولب البرغي."
+        "s": "Die Mutter passt auf die Schraube.",
+        "sar": "الصامولة تناسب البرغي."
       }
     ]
   },
@@ -7610,8 +7610,8 @@
         "ar": "كرة القدم",
         "note": "اسم غير معدود بمعنى الرياضة نفسها؛ بمعنى \"الكرة\" (الأداة) جمعها Fußbälle",
         "pl": null,
-        "s": "In Deutschland ist Fußball die mit Abstand beliebteste Sportart.",
-        "sar": "في ألمانيا كرة القدم هي الرياضة الأكثر شعبية بفارق كبير."
+        "s": "Wir spielen jeden Samstag Fußball.",
+        "sar": "نلعب كرة القدم كل سبت."
       },
       {
         "id": "sport.schwimmen",
@@ -7620,8 +7620,8 @@
         "ar": "سباحة",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Regelmäßiges Schwimmen schont die Gelenke und stärkt die Ausdauer.",
-        "sar": "السباحة المنتظمة تحافظ على المفاصل وتقوي التحمل."
+        "s": "Ich gehe gern schwimmen.",
+        "sar": "أحب الذهاب للسباحة."
       },
       {
         "id": "sport.tennis",
@@ -7629,8 +7629,8 @@
         "n": "Tennis",
         "ar": "تنس",
         "pl": null,
-        "s": "Am Wochenende spielen die beiden Freunde ein Match Tennis.",
-        "sar": "في نهاية الأسبوع يلعب الصديقان مباراة تنس."
+        "s": "Mein Vater spielt gern Tennis.",
+        "sar": "أبي يحب لعب التنس."
       },
       {
         "id": "sport.basketball",
@@ -7638,8 +7638,8 @@
         "n": "Basketball",
         "ar": "كرة السلة",
         "pl": null,
-        "s": "Beim Basketball kommt es auf Treffsicherheit und Schnelligkeit an.",
-        "sar": "في كرة السلة يعتمد الأمر على دقة التصويب والسرعة."
+        "s": "Ich spiele Basketball in der Schule.",
+        "sar": "ألعب كرة السلة في المدرسة."
       },
       {
         "id": "sport.volleyball",
@@ -7647,8 +7647,8 @@
         "n": "Volleyball",
         "ar": "كرة الطائرة",
         "pl": null,
-        "s": "Am Strand spielen wir gerne Volleyball über das gespannte Netz.",
-        "sar": "على الشاطئ نحب لعب الكرة الطائرة فوق الشبكة المشدودة."
+        "s": "Volleyball spielt man mit einem Netz.",
+        "sar": "تُلعب الكرة الطائرة بشبكة."
       },
       {
         "id": "sport.boxen",
@@ -7657,8 +7657,8 @@
         "ar": "ملاكمة",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Beim Boxen benötigt man eiserne Disziplin und schnelle Reaktionen.",
-        "sar": "في الملاكمة يحتاج المرء إلى انضباط حديدي وردود فعل سريعة."
+        "s": "Boxen ist ein harter Sport.",
+        "sar": "الملاكمة رياضة قوية."
       },
       {
         "id": "sport.sport",
@@ -7667,8 +7667,8 @@
         "ar": "رياضة",
         "note": "اسم غير معدود، يُستخدم دائمًا في صيغة المفرد",
         "pl": null,
-        "s": "Regelmäßiger Sport hält den Körper fit und den Geist gesund.",
-        "sar": "الرياضة المنتظمة تحافظ على لياقة الجسم وصحة العقل."
+        "s": "Ich mache jeden Tag Sport.",
+        "sar": "أمارس الرياضة كل يوم."
       },
       {
         "id": "sport.radfahren",
@@ -7677,8 +7677,8 @@
         "ar": "ركوب الدراجات",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Das Radfahren entlang des Flusses ist herrlich entspannend.",
-        "sar": "ركوب الدراجة على طول النهر مريح للأعصاب بروعة."
+        "s": "Am Sonntag gehen wir radfahren.",
+        "sar": "يوم الأحد نذهب لركوب الدراجات."
       },
       {
         "id": "sport.leichtathletik",
@@ -7687,8 +7687,8 @@
         "ar": "ألعاب القوى",
         "note": "اسم غير معدود، مصطلح جامع لألعاب القوى",
         "pl": null,
-        "s": "Laufen, Springen und Werfen gehören zu den Grundlagen der Leichtathletik.",
-        "sar": "الجري والقفز والرمي تنتمي لأساسيات ألعاب القوى."
+        "s": "Laufen und Springen gehören zur Leichtathletik.",
+        "sar": "الجري والقفز من ألعاب القوى."
       },
       {
         "id": "sport.yoga",
@@ -7696,8 +7696,8 @@
         "n": "Yoga",
         "ar": "يوغا",
         "pl": null,
-        "s": "Yoga hilft dabei, den Geist zu beruhigen und die Muskeln zu dehnen.",
-        "sar": "اليوغا تساعد على تهدئة الذهن وإطالة العضلات."
+        "s": "Yoga hilft mir beim Entspannen.",
+        "sar": "اليوغا تساعدني على الاسترخاء."
       },
       {
         "id": "sport.handball",
@@ -7705,8 +7705,8 @@
         "n": "Handball",
         "ar": "كرة اليد",
         "pl": null,
-        "s": "Handball ist ein dynamischer und sehr schneller Mannschaftssport.",
-        "sar": "كرة اليد رياضة جماعية ديناميكية وسريعة جداً."
+        "s": "Meine Schwester spielt Handball.",
+        "sar": "أختي تلعب كرة اليد."
       },
       {
         "id": "sport.laufen",
@@ -7715,8 +7715,8 @@
         "ar": "جري",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Morgendliches Laufen im Park bringt den Kreislauf in Schwung.",
-        "sar": "الجري الصباحي في الحديقة ينشط الدورة الدموية."
+        "s": "Ich gehe am Morgen laufen.",
+        "sar": "أذهب للجري في الصباح."
       },
       {
         "id": "sport.klettern",
@@ -7725,8 +7725,8 @@
         "ar": "تسلق",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "In den Alpen gehen im Sommer viele Menschen an steilen Wänden klettern.",
-        "sar": "في جبال الألب يذهب كثير من الناس في الصيف لتسلق الجدران الحادة."
+        "s": "Klettern macht mir viel Spaß.",
+        "sar": "التسلق يمتعني كثيراً."
       },
       {
         "id": "sport.tischtennis",
@@ -7734,8 +7734,8 @@
         "n": "Tischtennis",
         "ar": "تنس الطاولة",
         "pl": null,
-        "s": "Im Keller spielen die Kinder oft stundenlang Tischtennis.",
-        "sar": "في القبو يلعب الأطفال غالباً تنس الطاولة لساعات."
+        "s": "Im Keller spielen wir Tischtennis.",
+        "sar": "في القبو نلعب تنس الطاولة."
       },
       {
         "id": "sport.golf",
@@ -7743,8 +7743,8 @@
         "n": "Golf",
         "ar": "جولف",
         "pl": null,
-        "s": "Auf dem gepflegten Rasenplatz spielen die Herren eine Runde Golf.",
-        "sar": "على الملعب العشبي الأنيق يلعب السادة جولة جولف."
+        "s": "Golf spielt man auf einer großen Wiese.",
+        "sar": "يُلعب الجولف على مرج كبير."
       },
       {
         "id": "sport.skifahren",
@@ -7753,8 +7753,8 @@
         "ar": "تزلج على الجليد",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Im Winterurlaub in Österreich freuen sich alle aufs Skifahren.",
-        "sar": "في إجازة الشتاء بالنمسا يفرح الجميع بالتزلج على الجليد."
+        "s": "Im Winter gehen wir skifahren.",
+        "sar": "في الشتاء نذهب للتزلج على الجليد."
       },
       {
         "id": "sport.snowboarden",
@@ -7763,8 +7763,8 @@
         "ar": "تزلج بلوح الثلج",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Auf der Piste zeigt er tolle Sprünge mit dem Snowboard.",
-        "sar": "على منحدر التزلج يُظهر قفزات رائعة بلوح الثلج."
+        "s": "Mein Bruder liebt Snowboarden.",
+        "sar": "أخي يعشق التزلج بلوح الثلج."
       },
       {
         "id": "sport.segeln",
@@ -7773,8 +7773,8 @@
         "ar": "إبحار الشراعي",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Das Segeln auf dem weiten Bodensee macht bei gutem Wind Spaß.",
-        "sar": "الإبحار الشراعي في بحيرة كونستانس ممتع مع الرياح الجيدة."
+        "s": "Segeln ist nur mit Wind möglich.",
+        "sar": "الإبحار الشراعي لا يكون إلا بالرياح."
       },
       {
         "id": "sport.rudern",
@@ -7783,8 +7783,8 @@
         "ar": "تجديف",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Der Achter trainiert das synchrone Rudern auf dem breiten Fluss.",
-        "sar": "الفريق الثماني يتدرب على التجديف المتزامن في النهر العريض."
+        "s": "Beim Rudern trainiert man den Rücken.",
+        "sar": "التجديف يدرّب الظهر."
       },
       {
         "id": "sport.reiten",
@@ -7793,8 +7793,8 @@
         "ar": "ركوب الخيل",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Das Reiten auf edlen Pferden erfordert viel Einfühlungsvermögen.",
-        "sar": "ركوب الخيل الأصيلة يتطلب الكثير من الإحساس والتفاهم."
+        "s": "Ich möchte reiten lernen.",
+        "sar": "أريد أن أتعلم ركوب الخيل."
       },
       {
         "id": "sport.turnen",
@@ -7803,8 +7803,8 @@
         "ar": "جمباز",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Beim Turnen am Reck demonstriert sie beachtliche Körperbeherrschung.",
-        "sar": "أثناء الجمباز على العقلة تُظهر تحكماً جسدياً لافتاً."
+        "s": "Das Turnen findet in der Halle statt.",
+        "sar": "يُقام الجمباز في الصالة."
       },
       {
         "id": "sport.judo",
@@ -7812,8 +7812,8 @@
         "n": "Judo",
         "ar": "جودو",
         "pl": null,
-        "s": "Judo ist eine traditionelle japanische Kampfkunst der Selbstverteidigung.",
-        "sar": "الجودو فن قتالي ياباني تقليدي للدفاع عن النفس."
+        "s": "Beim Judo trägt man einen weißen Anzug.",
+        "sar": "في الجودو يرتدي المرء بدلة بيضاء."
       },
       {
         "id": "sport.karate",
@@ -7821,8 +7821,8 @@
         "n": "Karate",
         "ar": "كاراتيه",
         "pl": null,
-        "s": "Mit schnellen Tritten und Schlägen übt der Schüler Karate.",
-        "sar": "بركلات وضربات سريعة يتدرب التلميذ على الكاراتيه."
+        "s": "Karate kommt aus Japan.",
+        "sar": "الكاراتيه أصله من اليابان."
       },
       {
         "id": "sport.bowling",
@@ -7830,8 +7830,8 @@
         "n": "Bowling",
         "ar": "بولينج",
         "pl": null,
-        "s": "Mit Freunden verbringen wir den Freitagabend gerne beim Bowling.",
-        "sar": "مع الأصدقاء نحب قضاء مساء الجمعة في لعب البولينج."
+        "s": "Am Wochenende spielen wir Bowling.",
+        "sar": "في عطلة نهاية الأسبوع نلعب البولينج."
       },
       {
         "id": "sport.billard",
@@ -7839,8 +7839,8 @@
         "n": "Billard",
         "ar": "بلياردو",
         "pl": null,
-        "s": "Beim Billard stößt er die weiße Kugel präzise mit dem Queue an.",
-        "sar": "في البلياردو يضرب الكرة البيضاء بعصا البلياردو بدقة."
+        "s": "Billard spielt man mit einem Stock.",
+        "sar": "يُلعب البلياردو بعصا."
       },
       {
         "id": "sport.eishockey",
@@ -7848,8 +7848,8 @@
         "n": "Eishockey",
         "ar": "هوكي الجليد",
         "pl": null,
-        "s": "Eishockey ist das schnellste und härteste Mannschaftsspiel auf dem Eis.",
-        "sar": "هوكي الجليد هو أسرع وأقوى لعبة جماعية على الجليد."
+        "s": "Eishockey spielt man mit Schlittschuhen.",
+        "sar": "يُلعب هوكي الجليد بالزلاجات."
       },
       {
         "id": "sport.rugby",
@@ -7857,8 +7857,8 @@
         "n": "Rugby",
         "ar": "رغبي",
         "pl": null,
-        "s": "Beim Rugby kämpfen die Teams mit vollem Körpereinsatz um den Ball.",
-        "sar": "في الرغبي يقاتل الفريقان بكامل طاقتهما الجسدية على الكرة."
+        "s": "Rugby ist ein harter Mannschaftssport.",
+        "sar": "الرغبي رياضة جماعية قوية."
       },
       {
         "id": "sport.bergsteigen",
@@ -7867,8 +7867,8 @@
         "ar": "تسلق الجبال",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Das Bergsteigen im Himalaya erfordert Monate akribischer Vorbereitung.",
-        "sar": "تسلق الجبال في الهيمالايا يتطلب أشهراً من الإعداد الدقيق."
+        "s": "Beim Bergsteigen braucht man gute Schuhe.",
+        "sar": "عند تسلق الجبال يحتاج المرء إلى حذاء جيد."
       },
       {
         "id": "sport.surfen",
@@ -7877,8 +7877,8 @@
         "ar": "ركوب الأمواج",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Er liebt das Surfen auf den riesigen Wellen des Atlantiks.",
-        "sar": "هو يعشق ركوب الأمواج الهائلة في المحيط الأطلسي."
+        "s": "Im Urlaub möchte ich surfen lernen.",
+        "sar": "في الإجازة أريد أن أتعلم ركوب الأمواج."
       },
       {
         "id": "sport.tauchen",
@@ -7887,8 +7887,8 @@
         "ar": "غوص",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Das Tauchen im bunten Korallenriff offenbart eine faszinierende Welt.",
-        "sar": "الغوص في الشعاب المرجانية الملونة يكشف عن عالم ساحر."
+        "s": "Beim Tauchen sieht man viele Fische.",
+        "sar": "أثناء الغوص يرى المرء أسماكاً كثيرة."
       },
       {
         "id": "sport.angeln",
@@ -7897,8 +7897,8 @@
         "ar": "صيد بالصنارة",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Das ruhige Angeln am Seeufer bringt ihm vollkommene Entspannung.",
-        "sar": "الصيد الهادئ بالصنارة على ضفة البحيرة يمنحه استرخاءً تاماً."
+        "s": "Mein Opa geht gern angeln.",
+        "sar": "جدي يحب الذهاب للصيد بالصنارة."
       },
       {
         "id": "sport.marathon",
@@ -7906,8 +7906,8 @@
         "n": "Marathon",
         "ar": "ماراثون",
         "pl": "die Marathons",
-        "s": "Der berühmte Marathon führt die Läufer über zweiundvierzig Kilometer.",
-        "sar": "الماراثون الشهير يقود العدائين لمسافة اثنين وأربعين كيلومتراً."
+        "s": "Ein Marathon ist über vierzig Kilometer lang.",
+        "sar": "الماراثون يزيد طوله عن أربعين كيلومتراً."
       },
       {
         "id": "sport.bodybuilding",
@@ -7915,8 +7915,8 @@
         "n": "Bodybuilding",
         "ar": "كمال الأجسام",
         "pl": null,
-        "s": "Bodybuilding erfordert diszipliniertes Krafttraining und strenge Diät.",
-        "sar": "كمال الأجسام يتطلب تدريب قوة منضبطاً ونظاماً غذائياً صارماً."
+        "s": "Bodybuilding braucht viel Zeit und Disziplin.",
+        "sar": "كمال الأجسام يحتاج إلى وقت وانضباط كبيرين."
       },
       {
         "id": "sport.krafttraining",
@@ -7925,8 +7925,8 @@
         "ar": "تدريب القوة",
         "note": "مصدر مُحوَّل إلى اسم (Substantivierter Infinitiv)؛ هذه الأسماء دائمًا محايدة وبلا جمع في الألمانية، بلا استثناء",
         "pl": null,
-        "s": "Regelmäßiges Krafttraining baut Muskeln auf und schützt die Knochen.",
-        "sar": "تدريب القوة المنتظم يبني العضلات ويحمي العظام."
+        "s": "Krafttraining macht die Muskeln stark.",
+        "sar": "تدريب القوة يجعل العضلات قوية."
       },
       {
         "id": "sport.badminton",
@@ -7934,8 +7934,8 @@
         "n": "Badminton",
         "ar": "ريشة الطائرة",
         "pl": null,
-        "s": "Mit leichten Schlägern spielen sie Badminton im Garten.",
-        "sar": "بمضارب خفيفة يلعبون الريشة الطائرة في الحديقة."
+        "s": "Im Park spielen wir Badminton.",
+        "sar": "نلعب الريشة الطائرة في الحديقة."
       }
     ]
   },
@@ -7951,8 +7951,8 @@
         "n": "Gitarre",
         "ar": "جيتار",
         "pl": "die Gitarren",
-        "s": "Er spielt am Lagerfeuer leise Lieder auf der akustischen Gitarre.",
-        "sar": "هو يعزف أغاني هادئة على الجيتار الصوتي عند نار المخيم."
+        "s": "Ich spiele Gitarre.",
+        "sar": "أعزف الجيتار."
       },
       {
         "id": "musik.klavier",
@@ -7960,8 +7960,8 @@
         "n": "Klavier",
         "ar": "بيانو",
         "pl": "die Klaviere",
-        "s": "Sie übt täglich zwei Stunden Beethoven auf dem großen Klavier.",
-        "sar": "هي تتدرب يومياً ساعتين على معزوفات بيتهوفن على البيانو الكبير."
+        "s": "Das Klavier steht im Wohnzimmer.",
+        "sar": "البيانو في غرفة المعيشة."
       },
       {
         "id": "musik.trommel",
@@ -7969,8 +7969,8 @@
         "n": "Trommel",
         "ar": "طبلة",
         "pl": "die Trommeln",
-        "s": "Der kräftige Rhythmus der Trommel treibt die Tänzer voran.",
-        "sar": "الإيقاع القوي للطبلة يدفع الراقصين للأمام."
+        "s": "Das Kind schlägt auf die Trommel.",
+        "sar": "الطفل يضرب على الطبلة."
       },
       {
         "id": "musik.geige",
@@ -7978,8 +7978,8 @@
         "n": "Geige",
         "ar": "كمان",
         "pl": "die Geigen",
-        "s": "Mit dem Bogen entlockt sie der alten Geige wunderschöne Melodien.",
-        "sar": "بالقوس تستخرج من الكمان القديم ألحاناً بديعة الجمال."
+        "s": "Meine Tochter lernt Geige.",
+        "sar": "ابنتي تتعلم الكمان."
       },
       {
         "id": "musik.floete",
@@ -7987,8 +7987,8 @@
         "n": "Flöte",
         "ar": "فلوت",
         "pl": "die Flöten",
-        "s": "Die zarte Flöte spielt eine helle, liebliche Melodie im Orchester.",
-        "sar": "الفلوت الرقيق يعزف لحناً شجياً ومشرقاً في الأوركسترا."
+        "s": "Die Flöte klingt hell und leise.",
+        "sar": "الفلوت صوته صافٍ وهادئ."
       },
       {
         "id": "musik.schlagzeug",
@@ -7996,8 +7996,8 @@
         "n": "Schlagzeug",
         "ar": "طقم طبول",
         "pl": "die Schlagzeuge",
-        "s": "Der Schlagzeuger hält mit dem Schlagzeug den treibenden Takt der Rockband.",
-        "sar": "عازف الطبول يحافظ بطقم الطبول على إيقاع فرقة الروك."
+        "s": "Der Junge spielt Schlagzeug in einer Band.",
+        "sar": "الولد يعزف على طقم الطبول في فرقة موسيقية."
       },
       {
         "id": "musik.trompete",
@@ -8005,8 +8005,8 @@
         "n": "Trompete",
         "ar": "بوق",
         "pl": "die Trompeten",
-        "s": "Mit glänzendem Messing schmettert die Trompete festliche Fanfaren.",
-        "sar": "بنحاسها اللامع تصدح البوق بألحان احتفالية بهيجة."
+        "s": "Die Trompete hat einen lauten Klang.",
+        "sar": "البوق له صوت عالٍ."
       },
       {
         "id": "musik.saxofon",
@@ -8014,8 +8014,8 @@
         "n": "Saxofon",
         "ar": "ساكسفون",
         "pl": "die Saxofone",
-        "s": "Im Jazzclub improvisiert der Musiker virtuos auf dem Saxofon.",
-        "sar": "في نادي الجاز يرتجل الموسيقي ببراعة على الساكسفون."
+        "s": "Er spielt Saxofon im Orchester.",
+        "sar": "هو يعزف الساكسفون في الأوركسترا."
       },
       {
         "id": "musik.harfe",
@@ -8023,8 +8023,8 @@
         "n": "Harfe",
         "ar": "هارب",
         "pl": "die Harfen",
-        "s": "Die Harfe verzaubert die Zuhörer mit himmlisch zarten Klängen.",
-        "sar": "الهارب يسحر المستمعين بأنغام سماوية رقيقة."
+        "s": "Die Harfe hat viele Saiten.",
+        "sar": "الهارب لها أوتار كثيرة."
       },
       {
         "id": "musik.akkordeon",
@@ -8032,8 +8032,8 @@
         "n": "Akkordeon",
         "ar": "أكورديون",
         "pl": "die Akkordeons",
-        "s": "In den Bergen spielt der Musikant volkstümliche Weisen auf dem Akkordeon.",
-        "sar": "في الجبال يعزف الموسيقي ألحاناً شعبية على الأكورديون."
+        "s": "Auf dem Fest spielt jemand Akkordeon.",
+        "sar": "في الحفل يعزف شخص ما الأكورديون."
       },
       {
         "id": "musik.cello",
@@ -8042,8 +8042,8 @@
         "ar": "تشيلو",
         "note": "يقبل أيضًا الجمع الإيطالي \"Celli\"",
         "pl": "die Cellos",
-        "s": "Das Cello erzeugt einen tiefen, warmen und melancholischen Klang.",
-        "sar": "التشيلو يصدر صوتاً عميقاً ودافئاً ومفعماً بالشجن."
+        "s": "Das Cello ist größer als die Geige.",
+        "sar": "التشيلو أكبر من الكمان."
       },
       {
         "id": "musik.klarinette",
@@ -8051,8 +8051,8 @@
         "n": "Klarinette",
         "ar": "كلارينيت",
         "pl": "die Klarinetten",
-        "s": "Die Klarinette hat einen weichen, ausdrucksstarken Holzbläserton.",
-        "sar": "الكلارينيت لها نغمة نفخ خشبية ناعمة ومعبرة."
+        "s": "Die Klarinette ist aus Holz.",
+        "sar": "الكلارينيت من الخشب."
       },
       {
         "id": "musik.horn",
@@ -8060,8 +8060,8 @@
         "n": "Horn",
         "ar": "قرن فرنسي",
         "pl": "die Hörner",
-        "s": "Das klangvolle Horn schallt weithin durch den dichten Wald.",
-        "sar": "القرن الرنان يتردد صداه بعيداً عبر الغابة الكثيفة."
+        "s": "Das Horn gehört zum Orchester.",
+        "sar": "القرن الفرنسي جزء من الأوركسترا."
       },
       {
         "id": "musik.posaune",
@@ -8069,8 +8069,8 @@
         "n": "Posaune",
         "ar": "ترومبون",
         "pl": "die Posaunen",
-        "s": "Mit dem Zug der Posaune lassen sich stufenlose Tonhöhen erzeugen.",
-        "sar": "بسحب ذراع الترومبون يمكن إصدار نغمات متدرجة بسلاسة."
+        "s": "Die Posaune klingt tief und kräftig.",
+        "sar": "الترومبون صوته عميق وقوي."
       },
       {
         "id": "musik.keyboard",
@@ -8078,8 +8078,8 @@
         "n": "Keyboard",
         "ar": "كيبورد",
         "pl": "die Keyboards",
-        "s": "Auf dem elektronischen Keyboard wählt er moderne Synthesizer-Sounds.",
-        "sar": "على الكيبورد الإلكتروني يختار أصوات سنثسيزر حديثة."
+        "s": "Ich übe auf dem Keyboard.",
+        "sar": "أتدرب على الكيبورد."
       },
       {
         "id": "musik.orgel",
@@ -8087,8 +8087,8 @@
         "n": "Orgel",
         "ar": "أرغن",
         "pl": "die Orgeln",
-        "s": "Die mächtige Orgel füllt die ganze Kathedrale mit majestätischem Klang.",
-        "sar": "الأرغن الضخم يملأ الكاتدرائية بأكملها بصوت مهيب."
+        "s": "In der Kirche steht eine große Orgel.",
+        "sar": "في الكنيسة أرغن كبير."
       },
       {
         "id": "musik.blockfloete",
@@ -8096,8 +8096,8 @@
         "n": "Blockflöte",
         "ar": "فلوت مدرسي",
         "pl": "die Blockflöten",
-        "s": "In der Grundschule lernen viele Kinder als Erstes die Blockflöte.",
-        "sar": "في المدرسة الابتدائية يتعلم كثير من الأطفال الفلوت أولاً."
+        "s": "In der Schule lernen Kinder Blockflöte.",
+        "sar": "في المدرسة يتعلم الأطفال الفلوت المدرسي."
       },
       {
         "id": "musik.querfloete",
@@ -8105,8 +8105,8 @@
         "n": "Querflöte",
         "ar": "فلوت أفقي",
         "pl": "die Querflöten",
-        "s": "Die Querflöte aus Silber verzaubert das Publikum im Saal.",
-        "sar": "الفلوت الأفقي الفضي يسحر الجمهور في الصالة."
+        "s": "Die Querflöte hält man zur Seite.",
+        "sar": "يُمسك الفلوت الأفقي إلى الجانب."
       },
       {
         "id": "musik.e-gitarre",
@@ -8114,8 +8114,8 @@
         "n": "E-Gitarre",
         "ar": "جيتار كهربائي",
         "pl": "die E-Gitarren",
-        "s": "Der Rockgitarrist spielt ein explosives Solo auf der E-Gitarre.",
-        "sar": "عازف الروك يعزف صولو حماسياً على الجيتار الكهربائي."
+        "s": "Die E-Gitarre braucht Strom.",
+        "sar": "الجيتار الكهربائي يحتاج إلى كهرباء."
       }
     ]
   },
@@ -8131,8 +8131,8 @@
         "n": "Handy",
         "ar": "هاتف محمول (موبايل)",
         "pl": "die Handys",
-        "s": "Mit dem modernen Handy kann man von überall aus telefonieren und chatten.",
-        "sar": "بالموبايل الحديث يمكن للمرء إجراء المكالمات والمحادثات من أي مكان."
+        "s": "Mein Handy ist kaputt.",
+        "sar": "موبايلي معطل."
       },
       {
         "id": "technik.computer",
@@ -8140,8 +8140,8 @@
         "n": "Computer",
         "ar": "كمبيوتر",
         "pl": "die Computer",
-        "s": "Er arbeitet den ganzen Tag konzentriert an seinem schnellen Computer.",
-        "sar": "هو يعمل طوال اليوم بتركيز على كمبيوتره السريع."
+        "s": "Ich arbeite am Computer.",
+        "sar": "أعمل على الكمبيوتر."
       },
       {
         "id": "technik.fernseher",
@@ -8149,8 +8149,8 @@
         "n": "Fernseher",
         "ar": "تلفاز",
         "pl": "die Fernseher",
-        "s": "Abends schalten wir den großen Fernseher ein, um die Nachrichten zu sehen.",
-        "sar": "في المساء نشغل التلفاز الكبير لمشاهدة الأخبار."
+        "s": "Der Fernseher läuft den ganzen Tag.",
+        "sar": "التلفاز يعمل طوال اليوم."
       },
       {
         "id": "technik.radio",
@@ -8158,8 +8158,8 @@
         "n": "Radio",
         "ar": "راديو",
         "pl": "die Radios",
-        "s": "Beim Frühstück läuft im Hintergrund leise Musik aus dem Radio.",
-        "sar": "أثناء الإفطار تعمل في الخلفية موسيقى هادئة من الراديو."
+        "s": "Ich höre gern Radio.",
+        "sar": "أحب الاستماع إلى الراديو."
       },
       {
         "id": "technik.kamera",
@@ -8167,8 +8167,8 @@
         "n": "Kamera",
         "ar": "كاميرا",
         "pl": "die Kameras",
-        "s": "Mit der hochauflösenden Kamera hält sie die schönsten Reisemomente fest.",
-        "sar": "بالكاميرا عالية الدقة توثق أجمل لحظات السفر."
+        "s": "Die Kamera macht gute Fotos.",
+        "sar": "الكاميرا تلتقط صوراً جيدة."
       },
       {
         "id": "technik.drucker",
@@ -8176,8 +8176,8 @@
         "n": "Drucker",
         "ar": "طابعة",
         "pl": "die Drucker",
-        "s": "Der neue Drucker druckt zwanzig Seiten pro Minute in bester Qualität.",
-        "sar": "الطابعة الجديدة تطبع عشرين صفحة في الدقيقة بأعلى جودة."
+        "s": "Der Drucker hat kein Papier.",
+        "sar": "الطابعة ليس فيها ورق."
       },
       {
         "id": "technik.internet",
@@ -8186,8 +8186,8 @@
         "ar": "إنترنت",
         "note": "اسم غير معدود، يُستخدم دائمًا في صيغة المفرد",
         "pl": null,
-        "s": "Über das schnelle Internet sind Menschen auf der ganzen Welt vernetzt.",
-        "sar": "عبر الإنترنت السريع يتواصل الناس في جميع أنحاء العالم."
+        "s": "Zu Hause habe ich schnelles Internet.",
+        "sar": "في البيت عندي إنترنت سريع."
       },
       {
         "id": "technik.kopfhoerer",
@@ -8195,8 +8195,8 @@
         "n": "Kopfhörer",
         "ar": "سماعة رأس",
         "pl": "die Kopfhörer",
-        "s": "Mit geräuschunterdrückenden Kopfhörern genießt er ungestört seine Musik.",
-        "sar": "بسماعات الرأس العازلة للضوضاء يستمتع بموسيقاه دون إزعاج."
+        "s": "Ich höre Musik mit Kopfhörern.",
+        "sar": "أستمع إلى الموسيقى بسماعة الرأس."
       },
       {
         "id": "technik.ladekabel",
@@ -8204,8 +8204,8 @@
         "n": "Ladekabel",
         "ar": "كابل شحن",
         "pl": "die Ladekabel",
-        "s": "Vergiss nicht, das Ladekabel für dein Telefon einzupacken.",
-        "sar": "لا تنسَ توضيب كابل الشحن الخاص بهاتفك."
+        "s": "Wo ist mein Ladekabel?",
+        "sar": "أين كابل الشحن الخاص بي؟"
       },
       {
         "id": "technik.tastatur",
@@ -8213,8 +8213,8 @@
         "n": "Tastatur",
         "ar": "لوحة مفاتيح",
         "pl": "die Tastaturen",
-        "s": "Auf der ergonomischen Tastatur tippt man schnell und fehlerfrei.",
-        "sar": "على لوحة المفاتيح المريحة يكتب المرء بسرعة ودون أخطاء."
+        "s": "Die Tastatur hat viele Tasten.",
+        "sar": "لوحة المفاتيح فيها أزرار كثيرة."
       },
       {
         "id": "technik.tablet",
@@ -8222,8 +8222,8 @@
         "n": "Tablet",
         "ar": "تابلت",
         "pl": "die Tablets",
-        "s": "Auf dem praktischen Tablet liest sie abends im Bett digitale Bücher.",
-        "sar": "على التابلت العملي تقرأ في المساء في السرير كتباً إلكترونية."
+        "s": "Mein Tablet liegt auf dem Sofa.",
+        "sar": "التابلت على الأريكة."
       },
       {
         "id": "technik.lautsprecher",
@@ -8231,8 +8231,8 @@
         "n": "Lautsprecher",
         "ar": "سماعة صوت",
         "pl": "die Lautsprecher",
-        "s": "Der kabellose Lautsprecher liefert einen erstaunlich satten Klang.",
-        "sar": "مكبر الصوت اللاسلكي يوفر صوتاً غنياً وقوياً بصورة مدهشة."
+        "s": "Der Lautsprecher spielt laute Musik.",
+        "sar": "السماعة تشغّل موسيقى عالية."
       },
       {
         "id": "technik.router",
@@ -8240,8 +8240,8 @@
         "n": "Router",
         "ar": "راوتر",
         "pl": "die Router",
-        "s": "Der Router verbindet alle Geräte im Haus mit dem weltweiten Netz.",
-        "sar": "الراوتر يربط جميع الأجهزة في المنزل بالشبكة العالمية."
+        "s": "Der Router steht im Flur.",
+        "sar": "الراوتر في الممر."
       },
       {
         "id": "technik.bildschirm",
@@ -8249,8 +8249,8 @@
         "n": "Bildschirm",
         "ar": "شاشة",
         "pl": "die Bildschirme",
-        "s": "Der hochauflösende Bildschirm schont die Augen bei langer Bildschirmarbeit.",
-        "sar": "الشاشة عالية الدقة تريح العينين أثناء العمل الطويل أمام الشاشة."
+        "s": "Der Bildschirm ist zu hell.",
+        "sar": "الشاشة ساطعة أكثر من اللازم."
       },
       {
         "id": "technik.computermaus",
@@ -8258,8 +8258,8 @@
         "n": "Computermaus",
         "ar": "فأرة الكمبيوتر",
         "pl": "die Computermäuse",
-        "s": "Mit einem Klick der Computermaus öffnet sich das gewünschte Programm.",
-        "sar": "بنقرة واحدة بفأرة الكمبيوتر يفتح البرنامج المطلوب."
+        "s": "Die Computermaus liegt neben der Tastatur.",
+        "sar": "فأرة الكمبيوتر بجانب لوحة المفاتيح."
       },
       {
         "id": "technik.akku",
@@ -8267,8 +8267,8 @@
         "n": "Akku",
         "ar": "بطارية قابلة للشحن",
         "pl": "die Akkus",
-        "s": "Der Akku des Smartphones hält bei normaler Nutzung fast zwei Tage.",
-        "sar": "بطارية الهاتف الذكي تدوم مع الاستخدام العادي قرابة يومين."
+        "s": "Der Akku ist fast leer.",
+        "sar": "البطارية شبه فارغة."
       },
       {
         "id": "technik.batterie",
@@ -8276,8 +8276,8 @@
         "n": "Batterie",
         "ar": "بطارية عادية",
         "pl": "die Batterien",
-        "s": "Die Fernbedienung benötigt eine neue Batterie zum Funktionieren.",
-        "sar": "جهاز التحكم عن بعد يحتاج إلى بطارية جديدة ليعمل."
+        "s": "Die Fernbedienung braucht neue Batterien.",
+        "sar": "جهاز التحكم يحتاج إلى بطاريات جديدة."
       },
       {
         "id": "technik.ladegeraet",
@@ -8285,8 +8285,8 @@
         "n": "Ladegerät",
         "ar": "شاحن",
         "pl": "die Ladegeräte",
-        "s": "Das Ladegerät lädt das Mobiltelefon in nur dreißig Minuten voll auf.",
-        "sar": "الشاحن يشحن الهاتف بالكامل في ثلاثين دقيقة فقط."
+        "s": "Ich habe mein Ladegerät vergessen.",
+        "sar": "نسيت الشاحن."
       },
       {
         "id": "technik.usb-stick",
@@ -8294,8 +8294,8 @@
         "n": "USB-Stick",
         "ar": "فلاش ميموري",
         "pl": "die USB-Sticks",
-        "s": "Auf diesem kleinen USB-Stick speichert er alle wichtigen Dokumente ab.",
-        "sar": "على هذه الفلاشة الصغيرة يحفظ جميع المستندات الهامة."
+        "s": "Ich speichere die Datei auf dem USB-Stick.",
+        "sar": "أحفظ الملف على الفلاش ميموري."
       },
       {
         "id": "technik.festplatte",
@@ -8303,8 +8303,8 @@
         "n": "Festplatte",
         "ar": "قرص صلب",
         "pl": "die Festplatten",
-        "s": "Die externe Festplatte bietet zwei Terabyte sicheren Speicherplatz.",
-        "sar": "القرص الصلب الخارجي يوفر مساحة تخزين آمنة بسعة تيرابايت اثنين."
+        "s": "Auf der Festplatte sind alle meine Fotos.",
+        "sar": "على القرص الصلب كل صوري."
       },
       {
         "id": "technik.prozessor",
@@ -8313,8 +8313,8 @@
         "ar": "معالج",
         "note": "تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Prozessoren وليس بلا تغيير",
         "pl": "die Prozessoren",
-        "s": "Der moderne Prozessor führt Milliarden Rechenschritte pro Sekunde aus.",
-        "sar": "المعالج الحديث ينفذ مليارات العمليات الحسابية في الثانية."
+        "s": "Der Prozessor ist das Herz des Computers.",
+        "sar": "المعالج هو قلب الكمبيوتر."
       },
       {
         "id": "technik.stecker",
@@ -8322,8 +8322,8 @@
         "n": "Stecker",
         "ar": "قابس كهربائي",
         "pl": "die Stecker",
-        "s": "Er steckt den Stecker fest in die Steckdose an der Wand.",
-        "sar": "هو يدخل القابس بإحكام في مقبس الكهرباء على الحائط."
+        "s": "Der Stecker passt nicht in die Steckdose.",
+        "sar": "القابس لا يناسب المقبس."
       },
       {
         "id": "technik.kabel",
@@ -8331,8 +8331,8 @@
         "n": "Kabel",
         "ar": "كابل",
         "pl": "die Kabel",
-        "s": "Ein langes Kabel verbindet den Computer mit dem Monitor auf dem Schreibtisch.",
-        "sar": "كابل طويل يربط الكمبيوتر بالشاشة على المكتب."
+        "s": "Ein Kabel verbindet den Computer mit dem Bildschirm.",
+        "sar": "يربط كابل الكمبيوتر بالشاشة."
       },
       {
         "id": "technik.chip",
@@ -8340,8 +8340,8 @@
         "n": "Chip",
         "ar": "شريحة إلكترونية",
         "pl": "die Chips",
-        "s": "Der winzige Chip im Reisepass speichert biometrische Daten sicher ab.",
-        "sar": "الشريحة الصغيرة في جواز السفر تخزن البيانات الحيوية بأمان."
+        "s": "Der Chip ist sehr klein.",
+        "sar": "الشريحة صغيرة جداً."
       },
       {
         "id": "technik.fernbedienung",
@@ -8349,8 +8349,8 @@
         "n": "Fernbedienung",
         "ar": "جهاز تحكم عن بعد",
         "pl": "die Fernbedienungen",
-        "s": "Er sucht nach der Fernbedienung, um den Kanal zu wechseln.",
-        "sar": "هو يبحث عن جهاز التحكم عن بعد لتغيير القناة."
+        "s": "Wo ist die Fernbedienung?",
+        "sar": "أين جهاز التحكم عن بعد؟"
       },
       {
         "id": "technik.beamer",
@@ -8359,8 +8359,8 @@
         "ar": "جهاز عرض",
         "note": "الاسم الألماني الشائع لجهاز البروجكتور",
         "pl": "die Beamer",
-        "s": "Der Beamer wirft die Präsentation gestochen scharf an die weiße Leinwand.",
-        "sar": "جهاز العرض يسلط العرض التقديمي بدقة عالية على الشاشة البيضاء."
+        "s": "Im Unterricht benutzen wir einen Beamer.",
+        "sar": "في الحصة نستخدم جهاز عرض."
       },
       {
         "id": "technik.mikrofon",
@@ -8368,8 +8368,8 @@
         "n": "Mikrofon",
         "ar": "ميكروفون",
         "pl": "die Mikrofone",
-        "s": "Er spricht während des Online-Meetings direkt in das externe Mikrofon.",
-        "sar": "هو يتحدث أثناء الاجتماع عبر الإنترنت في الميكروفون الخارجي مباشرة."
+        "s": "Die Sängerin singt ins Mikrofon.",
+        "sar": "المغنية تغني في الميكروفون."
       },
       {
         "id": "technik.scanner",
@@ -8377,8 +8377,8 @@
         "n": "Scanner",
         "ar": "ماسح ضوئي",
         "pl": "die Scanner",
-        "s": "Mit dem schnellen Scanner digitalisiert sie alte Familienfotos.",
-        "sar": "بالماسح الضوئي السريع تحول الصور العائلية القديمة إلى صور رقمية."
+        "s": "Mit dem Scanner scanne ich das Dokument.",
+        "sar": "أمسح المستند بالماسح الضوئي."
       },
       {
         "id": "technik.webcam",
@@ -8386,8 +8386,8 @@
         "n": "Webcam",
         "ar": "كاميرا ويب",
         "pl": "die Webcams",
-        "s": "Für Videokonferenzen schaltet er die Webcam am Computer ein.",
-        "sar": "لمؤتمرات الفيديو يشغل كاميرا الويب على الكمبيوتر."
+        "s": "Die Webcam ist ausgeschaltet.",
+        "sar": "كاميرا الويب مطفأة."
       },
       {
         "id": "technik.smartphone",
@@ -8395,8 +8395,8 @@
         "n": "Smartphone",
         "ar": "هاتف ذكي",
         "pl": "die Smartphones",
-        "s": "Sein neues Smartphone hat ein brillantes Display ohne Ränder.",
-        "sar": "هاتفه الذكي الجديد يتميز بشاشة باهرة وبلا حواف."
+        "s": "Jeder hat heute ein Smartphone.",
+        "sar": "كل شخص اليوم لديه هاتف ذكي."
       },
       {
         "id": "technik.app",
@@ -8404,8 +8404,8 @@
         "n": "App",
         "ar": "تطبيق",
         "pl": "die Apps",
-        "s": "Mit dieser praktischen App kann man täglich neue Vokabeln lernen.",
-        "sar": "بهذا التطبيق العملي يمكن للمرء تعلم مفردات جديدة يومياً."
+        "s": "Ich lade eine neue App herunter.",
+        "sar": "أنزّل تطبيقاً جديداً."
       },
       {
         "id": "technik.wlan",
@@ -8414,8 +8414,8 @@
         "ar": "واي فاي",
         "note": "اختصار لـ Wireless LAN؛ الجمع يُستخدم للإشارة لعدة شبكات لاسلكية",
         "pl": "die WLANs",
-        "s": "Das schnelle WLAN im Hotel ermöglicht unkompliziertes Surfen.",
-        "sar": "الواي فاي السريع في الفندق يتيح تصفحاً مريحاً للإنترنت."
+        "s": "Das WLAN im Hotel ist gratis.",
+        "sar": "الواي فاي في الفندق مجاني."
       },
       {
         "id": "technik.sim-karte",
@@ -8423,8 +8423,8 @@
         "n": "SIM-Karte",
         "ar": "شريحة الاتصال",
         "pl": "die SIM-Karten",
-        "s": "Vor der Auslandsreise setzt er eine lokale SIM-Karte ins Telefon ein.",
-        "sar": "قبل السفر للخارج يضع شريحة اتصال محلية في الهاتف."
+        "s": "Die SIM-Karte steckt im Handy.",
+        "sar": "شريحة الاتصال في الموبايل."
       },
       {
         "id": "technik.adapter",
@@ -8432,8 +8432,8 @@
         "n": "Adapter",
         "ar": "محول كهربائي",
         "pl": "die Adapter",
-        "s": "Auf Reisen in England braucht man einen Adapter für die Steckdosen.",
-        "sar": "أثناء السفر إلى إنجلترا يحتاج المرء إلى محول للمقابس الكهربائية."
+        "s": "Im Ausland brauche ich einen Adapter.",
+        "sar": "أحتاج إلى محول كهربائي في الخارج."
       },
       {
         "id": "technik.spielkonsole",
@@ -8441,8 +8441,8 @@
         "n": "Spielkonsole",
         "ar": "جهاز ألعاب فيديو",
         "pl": "die Spielkonsolen",
-        "s": "Die Kinder spielen am Wochenende zusammen an der Spielkonsole.",
-        "sar": "الأطفال يلعبون معاً في نهاية الأسبوع على منصة ألعاب الفيديو."
+        "s": "Die Spielkonsole steht neben dem Fernseher.",
+        "sar": "جهاز الألعاب بجانب التلفاز."
       },
       {
         "id": "technik.wecker",
@@ -8450,8 +8450,8 @@
         "n": "Wecker",
         "ar": "منبه",
         "pl": "die Wecker",
-        "s": "Morgens um sechs Uhr klingelt der Wecker unbarmherzig laut.",
-        "sar": "في الصباح تمام السادسة يرن المنبه بصوت عالٍ."
+        "s": "Der Wecker klingelt um sechs Uhr.",
+        "sar": "المنبه يرن الساعة السادسة."
       },
       {
         "id": "technik.staubsauger",
@@ -8459,8 +8459,8 @@
         "n": "Staubsauger",
         "ar": "مكنسة كهربائية",
         "pl": "die Staubsauger",
-        "s": "Der leise Staubsauger reinigt Teppiche gründlich von Staub.",
-        "sar": "المكنسة الكهربائية الهادئة تنظف السجاد تماماً من الغبار."
+        "s": "Ich putze mit dem Staubsauger.",
+        "sar": "أنظف بالمكنسة الكهربائية."
       },
       {
         "id": "technik.spuelmaschine",
@@ -8468,8 +8468,8 @@
         "n": "Spülmaschine",
         "ar": "غسالة أطباق",
         "pl": "die Spülmaschinen",
-        "s": "Nach dem Essen räumt sie das schmutzige Geschirr in die Spülmaschine.",
-        "sar": "بعد الأكل تضع الأطباق غير النظيفة في غسالة الأطباق."
+        "s": "Die Spülmaschine ist voll.",
+        "sar": "غسالة الأطباق ممتلئة."
       },
       {
         "id": "technik.trockner",
@@ -8477,8 +8477,8 @@
         "n": "Trockner",
         "ar": "مجفف ملابس",
         "pl": "die Trockner",
-        "s": "Im feuchten Winter trocknet die nasse Wäsche schnell im Trockner.",
-        "sar": "في الشتاء الرطب تجف الملابس المبتلة بسرعة في مجفف الملابس."
+        "s": "Der Trockner trocknet die nasse Wäsche.",
+        "sar": "المجفف يجفف الغسيل المبلل."
       },
       {
         "id": "technik.buegeleisen",
@@ -8486,8 +8486,8 @@
         "n": "Bügeleisen",
         "ar": "مكواة",
         "pl": "die Bügeleisen",
-        "s": "Mit dem heißen Bügeleisen glättet er das zerknitterte Hemd.",
-        "sar": "بالمكواة الساخنة يفرد القميص المجعد."
+        "s": "Das Bügeleisen ist sehr heiß.",
+        "sar": "المكواة ساخنة جداً."
       },
       {
         "id": "technik.ventilator",
@@ -8496,8 +8496,8 @@
         "ar": "مروحة",
         "note": "تنتهي بلاحقة لاتينية مشددة (-or)، فجمعها Ventilatoren وليس بلا تغيير",
         "pl": "die Ventilatoren",
-        "s": "An heißen Sommertagen sorgt der Ventilator für eine angenehme Brise.",
-        "sar": "في أيام الصيف الحارة توفر المروحة نسيماً عليلاً لطيفاً."
+        "s": "Im Sommer läuft der Ventilator.",
+        "sar": "في الصيف تعمل المروحة."
       },
       {
         "id": "technik.drohne",
@@ -8505,8 +8505,8 @@
         "n": "Drohne",
         "ar": "طائرة بدون طيار",
         "pl": "die Drohnen",
-        "s": "Die kleine Drohne filmt faszinierende Luftaufnahmen der Landschaft.",
-        "sar": "الطائرة بدون طيار الصغيرة تصور لقطات جوية ساحرة للمناظر الطبيعية."
+        "s": "Die Drohne fliegt über dem Haus.",
+        "sar": "الطائرة بدون طيار تحلق فوق البيت."
       },
       {
         "id": "technik.3d-drucker",
@@ -8514,8 +8514,8 @@
         "n": "3D-Drucker",
         "ar": "طابعة ثلاثية الأبعاد",
         "pl": "die 3D-Drucker",
-        "s": "Der innovative 3D-Drucker druckt dreidimensionale Modelle Schicht für Schicht.",
-        "sar": "الطابعة ثلاثية الأبعاد المبتكرة تطبع نماذج مجسمة طبقة فوق طبقة."
+        "s": "Ein 3D-Drucker druckt Dinge aus Plastik.",
+        "sar": "الطابعة ثلاثية الأبعاد تطبع أشياء من البلاستيك."
       },
       {
         "id": "technik.powerbank",
@@ -8523,8 +8523,8 @@
         "n": "Powerbank",
         "ar": "بطارية محمولة",
         "pl": "die Powerbanks",
-        "s": "Unterwegs lädt er sein Smartphone schnell mit der Powerbank auf.",
-        "sar": "أثناء التنقل يشحن هاتفه الذكي بسرعة بواسطة البطارية المحمولة."
+        "s": "Meine Powerbank lädt das Handy auf.",
+        "sar": "البطارية المحمولة تشحن الموبايل."
       }
     ]
   },

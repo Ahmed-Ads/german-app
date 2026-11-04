@@ -119,3 +119,10 @@
 - **Target Item IDs:** berufe.*,verkehr.*,schule.*
 - **Previous SHA-256:** `ed269c3e53f2df595e8ab81a656d535debf66b223535ce9490c9ea8e8338c5b7`
 - **New SHA-256:** `a8a40f4d7273a8f2f05d139661a837249e05408b18bc343c030fdd106edc9c2e`
+
+## [2026-11-03 23:47:05] Authorized Baseline Update
+- **Reason:** Hand-written example sentences batch 3b: werkzeuge, sport, musik, technik (125 words)
+- **Source:** Owner-approved review of tools/vocab_changes_sentences_batch3b.json
+- **Target Item IDs:** werkzeuge.*,sport.*,musik.*,technik.*
+- **Previous SHA-256:** `a8a40f4d7273a8f2f05d139661a837249e05408b18bc343c030fdd106edc9c2e`
+- **New SHA-256:** `8ad910bb3de85974da5466ab9fff45b3556b69b1612e5c0b82a39628af87eab7`
