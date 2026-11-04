@@ -126,3 +126,10 @@
 - **Target Item IDs:** werkzeuge.*,sport.*,musik.*,technik.*
 - **Previous SHA-256:** `a8a40f4d7273a8f2f05d139661a837249e05408b18bc343c030fdd106edc9c2e`
 - **New SHA-256:** `8ad910bb3de85974da5466ab9fff45b3556b69b1612e5c0b82a39628af87eab7`
+
+## [2026-11-04 03:56:09] Authorized Baseline Update
+- **Reason:** Hand-written example sentences batch 4: wetter, gefuehle, farben, zahlen, monate, wochentage, jahreszeiten (137 words)
+- **Source:** Owner-approved review of tools/vocab_changes_sentences_batch4.json
+- **Target Item IDs:** wetter.*,gefuehle.*,farben.*,zahlen.*,monate.*,wochentage.*,jahreszeiten.*
+- **Previous SHA-256:** `8ad910bb3de85974da5466ab9fff45b3556b69b1612e5c0b82a39628af87eab7`
+- **New SHA-256:** `709fe2cac14d73a089fc1d91c74d532beeb44a8654c2cea872721cc75e329a0e`

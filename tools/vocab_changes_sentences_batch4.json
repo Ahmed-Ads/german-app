@@ -1,0 +1,2473 @@
+{
+ "version": 1,
+ "base_vocab_sha256": "8ad910bb3de85974da5466ab9fff45b3556b69b1612e5c0b82a39628af87eab7",
+ "remove": [],
+ "edit": [
+  {
+   "id": "wetter.sonne",
+   "german": "Sonne",
+   "field": "s",
+   "expect_current": "Die goldene Sonne scheint heute den ganzen Tag wärmend.",
+   "new": "Die Sonne scheint heute.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "wetter.sonne",
+   "german": "Sonne",
+   "field": "sar",
+   "expect_current": "الشمس الذهبية تسطع اليوم بدفء طوال اليوم.",
+   "new": "الشمس مشرقة اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.regen",
+   "german": "Regen",
+   "field": "s",
+   "expect_current": "Der kalte Regen prasselt unablässig an die Fensterscheibe.",
+   "new": "Ich mag den Regen nicht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "wetter.regen",
+   "german": "Regen",
+   "field": "sar",
+   "expect_current": "المطر البارد ينهمر بلا انقطاع على زجاج النافذة.",
+   "new": "لا أحب المطر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.schnee",
+   "german": "Schnee",
+   "field": "s",
+   "expect_current": "Im Winter deckt weißer Schnee die Dächer der Stadt zu.",
+   "new": "Im Winter liegt viel Schnee.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.schnee",
+   "german": "Schnee",
+   "field": "sar",
+   "expect_current": "في الشتاء يغطي الثلج الأبيض أسطح منازل المدينة.",
+   "new": "في الشتاء يتراكم الكثير من الثلج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.wind",
+   "german": "Wind",
+   "field": "s",
+   "expect_current": "Ein kräftiger Wind weht die bunten Herbstblätter von den Bäumen.",
+   "new": "Heute weht ein starker Wind.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.wind",
+   "german": "Wind",
+   "field": "sar",
+   "expect_current": "رياح قوية تهب فتنثر أوراق الخريف الملونة من الأشجار.",
+   "new": "اليوم تهب رياح قوية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.wolke",
+   "german": "Wolke",
+   "field": "s",
+   "expect_current": "Eine dunkle Wolke schiebt sich bedrohlich vor die Sonne.",
+   "new": "Am Himmel ist eine Wolke.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "wetter.wolke",
+   "german": "Wolke",
+   "field": "sar",
+   "expect_current": "سحابة داكنة تحجب الشمس بشكل منذِر بالعواصف.",
+   "new": "في السماء سحابة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.sturm",
+   "german": "Sturm",
+   "field": "s",
+   "expect_current": "In der Nacht fegte ein heftiger Sturm über das flache Land.",
+   "new": "Wegen des Sturms bleiben wir zu Hause.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.sturm",
+   "german": "Sturm",
+   "field": "sar",
+   "expect_current": "في الليل اجتاحت عاصفة عنيفة الأراضي المنبسطة.",
+   "new": "بسبب العاصفة نبقى في البيت.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.nebel",
+   "german": "Nebel",
+   "field": "s",
+   "expect_current": "Am frühen Morgen lag dichter Nebel über den weiten Feldern.",
+   "new": "Im Nebel sieht man fast nichts.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.nebel",
+   "german": "Nebel",
+   "field": "sar",
+   "expect_current": "في الصباح الباكر خيم ضباب كثيف فوق الحقول الواسعة.",
+   "new": "في الضباب لا يرى المرء شيئاً تقريباً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.gewitter",
+   "german": "Gewitter",
+   "field": "s",
+   "expect_current": "Nach dem Gewitter bildete sich glitzernder Tau auf den Grashalmen.",
+   "new": "Nach dem Gewitter wird die Luft frisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.gewitter",
+   "german": "Gewitter",
+   "field": "sar",
+   "expect_current": "بعد العاصفة الرعدية تشكل ندى لامع على أعواد العشب.",
+   "new": "بعد العاصفة الرعدية يصبح الهواء منعشاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.hitze",
+   "german": "Hitze",
+   "field": "s",
+   "expect_current": "Im Hochsommer kann die flirrende Hitze für den Kreislauf anstrengend sein.",
+   "new": "Bei dieser Hitze trinke ich viel Wasser.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.hitze",
+   "german": "Hitze",
+   "field": "sar",
+   "expect_current": "في منتصف الصيف يمكن للحر الشديد أن يكون مجهداً للدورة الدموية.",
+   "new": "في هذا الحر أشرب الكثير من الماء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.kaelte",
+   "german": "Kälte",
+   "field": "s",
+   "expect_current": "Im tiefen Winter schützt eine gefütterte Jacke vor der eisigen Kälte.",
+   "new": "Die Kälte tut meinen Händen weh.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.kaelte",
+   "german": "Kälte",
+   "field": "sar",
+   "expect_current": "في أعماق الشتاء تحمي السترة المبطنة من البرد القارس.",
+   "new": "البرد الشديد يؤلم يديّ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.blitz",
+   "german": "Blitz",
+   "field": "s",
+   "expect_current": "Ein greller Blitz erhellte für eine Sekunde den Nachthimmel.",
+   "new": "Ein Blitz kommt vor dem Donner.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.blitz",
+   "german": "Blitz",
+   "field": "sar",
+   "expect_current": "برق ساطع أضاء سماء الليل لثانية واحدة.",
+   "new": "يأتي البرق قبل الرعد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.donner",
+   "german": "Donner",
+   "field": "s",
+   "expect_current": "Kurz nach dem grellen Licht folgte ein dumpfer Donner.",
+   "new": "Das Kind hat Angst vor dem Donner.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.donner",
+   "german": "Donner",
+   "field": "sar",
+   "expect_current": "بعد الضوء الساطع مباشرة تلا ذلك رعد قوي.",
+   "new": "الطفل يخاف من الرعد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.regenbogen",
+   "german": "Regenbogen",
+   "field": "s",
+   "expect_current": "Nach dem Regen erschien ein farbenprächtiger Regenbogen am Horizont.",
+   "new": "Nach dem Regen sieht man einen Regenbogen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.regenbogen",
+   "german": "Regenbogen",
+   "field": "sar",
+   "expect_current": "بعد المطر ظهر قوس قزح بديع الألوان في الأفق.",
+   "new": "بعد المطر يرى المرء قوس قزح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.regenschirm",
+   "german": "Regenschirm",
+   "field": "s",
+   "expect_current": "Nimm bitte deinen Regenschirm mit, es fängt gleich an zu regnen.",
+   "new": "Nimm einen Regenschirm mit!",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.regenschirm",
+   "german": "Regenschirm",
+   "field": "sar",
+   "expect_current": "خذ مظلتك معك من فضلك، فالطقس سيبدأ بالمطر فوراً.",
+   "new": "خذ معك مظلة!",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.hagel",
+   "german": "Hagel",
+   "field": "s",
+   "expect_current": "Großer Hagel prasselte lautstark auf die geparkten Autos nieder.",
+   "new": "Hagel besteht aus kleinen Eisstücken.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.hagel",
+   "german": "Hagel",
+   "field": "sar",
+   "expect_current": "حبات برد كبيرة انهمرت بصوت عالٍ على السيارات المتوقفة.",
+   "new": "يتكون البرد من قطع جليد صغيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.klima",
+   "german": "Klima",
+   "field": "s",
+   "expect_current": "Das mediterrane Klima sorgt für milde Winter und heiße Sommer.",
+   "new": "In Ägypten ist das Klima heiß und trocken.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.klima",
+   "german": "Klima",
+   "field": "sar",
+   "expect_current": "المناخ المتوسطي يوفر فصول شتاء معتدلة وصيفاً حاراً.",
+   "new": "في مصر المناخ حار وجاف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.temperatur",
+   "german": "Temperatur",
+   "field": "s",
+   "expect_current": "Heute steigt die Temperatur auf angenehme fünfundzwanzig Grad.",
+   "new": "Die Temperatur sinkt in der Nacht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.temperatur",
+   "german": "Temperatur",
+   "field": "sar",
+   "expect_current": "ترتفع درجة الحرارة اليوم إلى خمس وعشرين درجة مئوية مريحة.",
+   "new": "تنخفض درجة الحرارة في الليل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.grad",
+   "german": "Grad",
+   "field": "s",
+   "expect_current": "Das Thermometer zeigt heute genau zwanzig Grad im Schatten an.",
+   "new": "Heute sind es zwanzig Grad.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.grad",
+   "german": "Grad",
+   "field": "sar",
+   "expect_current": "ميزان الحرارة يُظهر اليوم عشرين درجة بالضبط في الظل.",
+   "new": "اليوم عشرون درجة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.thermometer",
+   "german": "Thermometer",
+   "field": "s",
+   "expect_current": "Das Thermometer an der Außenwand zeigt minus fünf Grad an.",
+   "new": "Das Thermometer zeigt dreißig Grad.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.thermometer",
+   "german": "Thermometer",
+   "field": "sar",
+   "expect_current": "ميزان الحرارة على الحائط الخارجي يُظهر خمس درجات تحت الصفر.",
+   "new": "ميزان الحرارة يشير إلى ثلاثين درجة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.himmel",
+   "german": "Himmel",
+   "field": "s",
+   "expect_current": "Der blaue Himmel spannt sich weit über das ganze Land.",
+   "new": "Der Himmel ist voller Sterne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.himmel",
+   "german": "Himmel",
+   "field": "sar",
+   "expect_current": "السماء الزرقاء تمتد واسعة فوق كل أرجاء البلاد.",
+   "new": "السماء مليئة بالنجوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.mond",
+   "german": "Mond",
+   "field": "s",
+   "expect_current": "Der helle Mond leuchtet voll am dunklen Nachthimmel.",
+   "new": "Der Mond scheint hell.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "wetter.mond",
+   "german": "Mond",
+   "field": "sar",
+   "expect_current": "القمر المضيء يسطع بدراً في سماء الليل المظلمة.",
+   "new": "القمر يضيء بشدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.stern",
+   "german": "Stern",
+   "field": "s",
+   "expect_current": "In einer klaren Nacht sieht man fast jeden einzelnen Stern.",
+   "new": "Nachts sehe ich viele Sterne.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.stern",
+   "german": "Stern",
+   "field": "sar",
+   "expect_current": "في ليلة صافية يرى المرء كل نجمة تقريباً.",
+   "new": "في الليل أرى نجوماً كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.sonnenaufgang",
+   "german": "Sonnenaufgang",
+   "field": "s",
+   "expect_current": "Der Sonnenaufgang tauchte die Berge in goldenes Licht.",
+   "new": "Wir stehen früh zum Sonnenaufgang auf.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.sonnenaufgang",
+   "german": "Sonnenaufgang",
+   "field": "sar",
+   "expect_current": "شروق الشمس غمر الجبال بضوء ذهبي.",
+   "new": "نستيقظ مبكراً عند شروق الشمس.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.sonnenuntergang",
+   "german": "Sonnenuntergang",
+   "field": "s",
+   "expect_current": "Vom Strand aus beobachteten sie den herrlichen Sonnenuntergang.",
+   "new": "Der Sonnenuntergang am Meer ist wunderschön.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.sonnenuntergang",
+   "german": "Sonnenuntergang",
+   "field": "sar",
+   "expect_current": "من الشاطئ شاهدوا غروب الشمس الرائع.",
+   "new": "غروب الشمس على البحر رائع.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.sonnenschein",
+   "german": "Sonnenschein",
+   "field": "s",
+   "expect_current": "Warmer Sonnenschein lockt viele Spaziergänger in den Stadtpark.",
+   "new": "Bei Sonnenschein gehen wir spazieren.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.sonnenschein",
+   "german": "Sonnenschein",
+   "field": "sar",
+   "expect_current": "ضوء الشمس الدافئ يجذب الكثير من المتنزهين إلى حديقة المدينة.",
+   "new": "عندما تكون الشمس مشرقة نذهب للتنزه.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.schatten",
+   "german": "Schatten",
+   "field": "s",
+   "expect_current": "An heißen Tagen sucht man am liebsten den kühlen Schatten.",
+   "new": "Im Sommer sitze ich gern im Schatten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.schatten",
+   "german": "Schatten",
+   "field": "sar",
+   "expect_current": "في الأيام الحارة يبحث المرء عن الظل البارد.",
+   "new": "في الصيف أحب الجلوس في الظل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.daemmerung",
+   "german": "Dämmerung",
+   "field": "s",
+   "expect_current": "In der Dämmerung leuchten die ersten Straßenlaternen auf.",
+   "new": "In der Dämmerung wird es langsam dunkel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.daemmerung",
+   "german": "Dämmerung",
+   "field": "sar",
+   "expect_current": "في الشفق تضاء أوائل مصابيح الشوارع.",
+   "new": "عند الشفق يحل الظلام ببطء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.regentropfen",
+   "german": "Regentropfen",
+   "field": "s",
+   "expect_current": "Ein einzelner Regentropfen traf sie mitten auf die Wange.",
+   "new": "Ein Regentropfen fällt auf mein Gesicht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.regentropfen",
+   "german": "Regentropfen",
+   "field": "sar",
+   "expect_current": "قطرة مطر واحدة أصابتها في وسط خدها.",
+   "new": "قطرة مطر تسقط على وجهي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.schneeflocke",
+   "german": "Schneeflocke",
+   "field": "s",
+   "expect_current": "Jede winzige Schneeflocke hat eine einzigartige kristalline Form.",
+   "new": "Jede Schneeflocke sieht anders aus.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.schneeflocke",
+   "german": "Schneeflocke",
+   "field": "sar",
+   "expect_current": "كل ندفة ثلج صغيرة لها شكل بلوري فريد.",
+   "new": "كل ندفة ثلج تبدو مختلفة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.ueberschwemmung",
+   "german": "Überschwemmung",
+   "field": "s",
+   "expect_current": "Nach dem Dauerregen droht eine schwere Überschwemmung im Tal.",
+   "new": "Nach dem Regen gab es eine Überschwemmung.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.ueberschwemmung",
+   "german": "Überschwemmung",
+   "field": "sar",
+   "expect_current": "بعد المطر المتواصل ينذر فيضان شديد في الوادي.",
+   "new": "بعد المطر حدث فيضان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.tornado",
+   "german": "Tornado",
+   "field": "s",
+   "expect_current": "Ein gefährlicher Tornado wirbelte Trümmerteile hoch in die Luft.",
+   "new": "Der Tornado zerstört viele Häuser.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.tornado",
+   "german": "Tornado",
+   "field": "sar",
+   "expect_current": "إعصار قمعي خطير رفع الحطام عالياً في الهواء.",
+   "new": "الإعصار القمعي يدمّر بيوتاً كثيرة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.schauer",
+   "german": "Schauer",
+   "field": "s",
+   "expect_current": "Ein kurzer Schauer überraschte die Leute auf dem Marktplatz.",
+   "new": "Am Nachmittag gibt es einen Schauer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.schauer",
+   "german": "Schauer",
+   "field": "sar",
+   "expect_current": "زخة مطر قصيرة فاجأت الناس في ساحة السوق.",
+   "new": "بعد الظهر هناك زخة مطر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.niederschlag",
+   "german": "Niederschlag",
+   "field": "s",
+   "expect_current": "Der monatliche Niederschlag lag weit über dem üblichen Durchschnitt.",
+   "new": "Morgen gibt es viel Niederschlag.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.niederschlag",
+   "german": "Niederschlag",
+   "field": "sar",
+   "expect_current": "هطول الأمطار الشهري كان أعلى بكثير من المعدل المعتاد.",
+   "new": "غداً سيهطل كثير من الأمطار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.schneesturm",
+   "german": "Schneesturm",
+   "field": "s",
+   "expect_current": "Wegen des dichten Schneesturms musste der Flughafen geschlossen werden.",
+   "new": "Der Schneesturm ist sehr gefährlich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.schneesturm",
+   "german": "Schneesturm",
+   "field": "sar",
+   "expect_current": "بسبب العاصفة الثلجية الكثيفة اضطر المطار للإغلاق.",
+   "new": "العاصفة الثلجية خطيرة جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.sandsturm",
+   "german": "Sandsturm",
+   "field": "s",
+   "expect_current": "Der heftige Sandsturm verdunkelte die Wüstensonne komplett.",
+   "new": "In der Wüste gibt es oft Sandstürme.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.sandsturm",
+   "german": "Sandsturm",
+   "field": "sar",
+   "expect_current": "العاصفة الرملية الشديدة حجبت شمس الصحراء تماماً.",
+   "new": "في الصحراء تحدث عواصف رملية كثيراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.wettervorhersage",
+   "german": "Wettervorhersage",
+   "field": "s",
+   "expect_current": "Laut der Wettervorhersage soll es morgen freundlich und warm werden.",
+   "new": "Die Wettervorhersage sagt morgen Regen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.wettervorhersage",
+   "german": "Wettervorhersage",
+   "field": "sar",
+   "expect_current": "بحسب توقعات الطقس سيكون الجو غداً لطيفاً ودافئاً.",
+   "new": "توقعات الطقس تقول إن المطر سيهطل غداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.luft",
+   "german": "Luft",
+   "field": "s",
+   "expect_current": "Tiefes Einatmen der reinen Bergluft erfrischt den ganzen Körper.",
+   "new": "Die Luft ist heute sehr frisch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.luft",
+   "german": "Luft",
+   "field": "sar",
+   "expect_current": "الاستنشاق العميق لهواء الجبال النقي ينعش الجسم كله.",
+   "new": "الهواء منعش جداً اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.regenzeit",
+   "german": "Regenzeit",
+   "field": "s",
+   "expect_current": "In den Tropen beginnt die Regenzeit meist im frühen Sommer.",
+   "new": "In der Regenzeit regnet es jeden Tag.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.regenzeit",
+   "german": "Regenzeit",
+   "field": "sar",
+   "expect_current": "في المناطق الاستوائية يبدأ موسم الأمطار غالباً في أوائل الصيف.",
+   "new": "في موسم الأمطار تمطر كل يوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.trockenzeit",
+   "german": "Trockenzeit",
+   "field": "s",
+   "expect_current": "Während der langen Trockenzeit warten Mensch und Tier auf Regen.",
+   "new": "In der Trockenzeit regnet es kaum.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.trockenzeit",
+   "german": "Trockenzeit",
+   "field": "sar",
+   "expect_current": "خلال موسم الجفاف الطويل ينتظر البشر والحيوانات المطر.",
+   "new": "في موسم الجفاف نادراً ما تمطر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.nieselregen",
+   "german": "Nieselregen",
+   "field": "s",
+   "expect_current": "Aus den grauen Wolken fiel stundenlang nur leichter Nieselregen.",
+   "new": "Es gibt leichten Nieselregen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.nieselregen",
+   "german": "Nieselregen",
+   "field": "sar",
+   "expect_current": "من الغيوم الرمادية سقط لساعات رذاذ مطر خفيف فقط.",
+   "new": "هناك رذاذ مطر خفيف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.waerme",
+   "german": "Wärme",
+   "field": "s",
+   "expect_current": "Die angenehme Wärme des Ofens erfüllte das ganze Zimmer.",
+   "new": "Ich mag die Wärme im Sommer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wetter.waerme",
+   "german": "Wärme",
+   "field": "sar",
+   "expect_current": "الدفء المريح الصادر من المدفأة ملأ الغرفة بأكملها.",
+   "new": "أحب الدفء في الصيف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wetter.kuehle",
+   "german": "Kühle",
+   "field": "s",
+   "expect_current": "Im schattigen Wald genossen sie die wohltuende Kühle.",
+   "new": "Am Abend kommt eine angenehme Kühle.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "wetter.kuehle",
+   "german": "Kühle",
+   "field": "sar",
+   "expect_current": "في الغابة المظللة استمتعوا بالبرودة اللطيفة المنعشة.",
+   "new": "في المساء يأتي برد لطيف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.gluecklich",
+   "german": "glücklich",
+   "field": "s",
+   "expect_current": "Heute bin ich sehr glücklich über die gute Nachricht.",
+   "new": "Ich bin heute sehr glücklich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gefuehle.gluecklich",
+   "german": "glücklich",
+   "field": "sar",
+   "expect_current": "اليوم أنا سعيد جداً بالخبر السار.",
+   "new": "أنا سعيد جداً اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.traurig",
+   "german": "traurig",
+   "field": "s",
+   "expect_current": "Das traurige Lied rührte sie zu Tränen.",
+   "new": "Das Kind ist traurig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gefuehle.traurig",
+   "german": "traurig",
+   "field": "sar",
+   "expect_current": "الأغنية الحزينة جعلت دموعها تسيل تأثراً.",
+   "new": "الطفل حزين.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.muede",
+   "german": "müde",
+   "field": "s",
+   "expect_current": "Nach dem langen Spaziergang fühlt er sich müde.",
+   "new": "Nach der Arbeit bin ich müde.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "gefuehle.muede",
+   "german": "müde",
+   "field": "sar",
+   "expect_current": "بعد المشي الطويل يشعر بالتعب والإرهاق.",
+   "new": "أنا متعب بعد العمل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.wuetend",
+   "german": "wütend",
+   "field": "s",
+   "expect_current": "Er wurde furchtbar wütend über die Ungerechtigkeit.",
+   "new": "Er ist wütend, weil der Bus nicht kommt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.wuetend",
+   "german": "wütend",
+   "field": "sar",
+   "expect_current": "هو غضب بشدة من الظلم.",
+   "new": "هو غاضب لأن الحافلة لم تأتِ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.aengstlich",
+   "german": "ängstlich",
+   "field": "s",
+   "expect_current": "Das kleine Kind blickte ängstlich in die Dunkelheit.",
+   "new": "Mein Hund ist bei Gewitter ängstlich.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.aengstlich",
+   "german": "ängstlich",
+   "field": "sar",
+   "expect_current": "الطفل الصغير نظر بخوف إلى الظلام.",
+   "new": "كلبي خائف عند العواصف الرعدية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.aufgeregt",
+   "german": "aufgeregt",
+   "field": "s",
+   "expect_current": "Vor der Reise sind die Kinder sehr aufgeregt.",
+   "new": "Vor der Prüfung bin ich aufgeregt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.aufgeregt",
+   "german": "aufgeregt",
+   "field": "sar",
+   "expect_current": "قبل السفر يكون الأطفال متحمسين جداً.",
+   "new": "أكون متحمساً قبل الامتحان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.gelangweilt",
+   "german": "gelangweilt",
+   "field": "s",
+   "expect_current": "Im langen Vortrag fühlte er sich zusehends gelangweilt.",
+   "new": "Im Unterricht ist er oft gelangweilt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.gelangweilt",
+   "german": "gelangweilt",
+   "field": "sar",
+   "expect_current": "أثناء المحاضرة الطويلة شعر بضجر متزايد.",
+   "new": "هو ضجر غالباً في الحصة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.nervoes",
+   "german": "nervös",
+   "field": "s",
+   "expect_current": "Vor der mündlichen Prüfung ist jeder Student etwas nervös.",
+   "new": "Vor dem Test bin ich nervös.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.nervoes",
+   "german": "nervös",
+   "field": "sar",
+   "expect_current": "قبل الامتحان الشفوي يكون كل طالب متوتراً بعض الشيء.",
+   "new": "أشعر بالتوتر قبل الاختبار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.zufrieden",
+   "german": "zufrieden",
+   "field": "s",
+   "expect_current": "Mit dem erreichten Ergebnis ist der Chef vollkommen zufrieden.",
+   "new": "Der Lehrer ist mit mir zufrieden.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.zufrieden",
+   "german": "zufrieden",
+   "field": "sar",
+   "expect_current": "بالنتيجة المحققة يبدو المدير راضياً تمام الرضا.",
+   "new": "المعلم راضٍ عني.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.ueberrascht",
+   "german": "überrascht",
+   "field": "s",
+   "expect_current": "Über das unerwartete Geburtstagsgeschenk war sie freudig überrascht.",
+   "new": "Ich bin von dem Geschenk überrascht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.ueberrascht",
+   "german": "überrascht",
+   "field": "sar",
+   "expect_current": "بهدية عيد الميلاد غير المتوقعة كانت متفاجئة بسرور.",
+   "new": "أنا متفاجئ بالهدية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.verliebt",
+   "german": "verliebt",
+   "field": "s",
+   "expect_current": "Die beiden frisch Verliebten gehen Hand in Hand durch den Park.",
+   "new": "Mein Freund ist in sie verliebt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.verliebt",
+   "german": "verliebt",
+   "field": "sar",
+   "expect_current": "العاشقان الجديدان يمشيان يداً بيد في الحديقة.",
+   "new": "صديقي واقع في حبها.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.enttaeuscht",
+   "german": "enttäuscht",
+   "field": "s",
+   "expect_current": "Nach der Absage war der Bewerber tief enttäuscht.",
+   "new": "Ich bin vom Spiel enttäuscht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.enttaeuscht",
+   "german": "enttäuscht",
+   "field": "sar",
+   "expect_current": "بعد الرفض شعر المتقدم للوظيفة بإحباط عميق.",
+   "new": "أنا خائب الأمل من المباراة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.dankbar",
+   "german": "dankbar",
+   "field": "s",
+   "expect_current": "Ich bin meinen Eltern von Herzen dankbar für alles.",
+   "new": "Ich bin dir sehr dankbar.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.dankbar",
+   "german": "dankbar",
+   "field": "sar",
+   "expect_current": "أنا ممتن لوالدي من صميم قلبي على كل شيء.",
+   "new": "أنا ممتن لك جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.hoffnungsvoll",
+   "german": "hoffnungsvoll",
+   "field": "s",
+   "expect_current": "Sie blickt voller Zuversicht hoffnungsvoll in die Zukunft.",
+   "new": "Wir sind hoffnungsvoll und warten auf gute Nachrichten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.hoffnungsvoll",
+   "german": "hoffnungsvoll",
+   "field": "sar",
+   "expect_current": "هي تنظر بأمل وتفاؤل كبير إلى المستقبل.",
+   "new": "نحن مليئون بالأمل وننتظر أخباراً جيدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.verzweifelt",
+   "german": "verzweifelt",
+   "field": "s",
+   "expect_current": "In seiner Not suchte der verzweifelte Mann nach Hilfe.",
+   "new": "Er ist verzweifelt und braucht Hilfe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.verzweifelt",
+   "german": "verzweifelt",
+   "field": "sar",
+   "expect_current": "في ضائقته بحث الرجل اليائس عن المساعدة.",
+   "new": "هو يائس ويحتاج إلى مساعدة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.neidisch",
+   "german": "neidisch",
+   "field": "s",
+   "expect_current": "Er war neidisch auf den großen Erfolg seines Kollegen.",
+   "new": "Er ist neidisch auf mein neues Handy.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.neidisch",
+   "german": "neidisch",
+   "field": "sar",
+   "expect_current": "كان حسوداً على النجاح الكبير لزميله.",
+   "new": "هو يغار من موبايلي الجديد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.schuldig",
+   "german": "schuldig",
+   "field": "s",
+   "expect_current": "Nach dem Fehler fühlte er sich schuldig.",
+   "new": "Ich fühle mich schuldig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.schuldig",
+   "german": "schuldig",
+   "field": "sar",
+   "expect_current": "بعد الخطأ شعر بأنه مذنب.",
+   "new": "أشعر بالذنب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.mutig",
+   "german": "mutig",
+   "field": "s",
+   "expect_current": "Der mutige Retter sprang ohne zu zögern ins kalte Wasser.",
+   "new": "Der kleine Junge ist sehr mutig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.mutig",
+   "german": "mutig",
+   "field": "sar",
+   "expect_current": "المنقذ الشجاع قفز في الماء البارد دون تردد.",
+   "new": "الولد الصغير شجاع جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.besorgt",
+   "german": "besorgt",
+   "field": "s",
+   "expect_current": "Die Mutter ist besorgt um die Gesundheit ihres kranken Kindes.",
+   "new": "Meine Mutter ist um mich besorgt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.besorgt",
+   "german": "besorgt",
+   "field": "sar",
+   "expect_current": "الأم قلقة على صحة طفلها المريض.",
+   "new": "أمي قلقة عليّ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.erleichtert",
+   "german": "erleichtert",
+   "field": "s",
+   "expect_current": "Nach dem bestandenen Examen atmete sie sichtlich erleichtert auf.",
+   "new": "Ich bin erleichtert, dass alles gut ist.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.erleichtert",
+   "german": "erleichtert",
+   "field": "sar",
+   "expect_current": "بعد اجتياز الامتحان تنفست الصعداء بارتياح واضح.",
+   "new": "أشعر بالارتياح لأن كل شيء بخير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.neugierig",
+   "german": "neugierig",
+   "field": "s",
+   "expect_current": "Das neugierige Kind stellt den Erwachsenen unzählige Fragen.",
+   "new": "Kinder sind oft sehr neugierig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.neugierig",
+   "german": "neugierig",
+   "field": "sar",
+   "expect_current": "الطفل الفضولي يطرح على الكبار أسئلة لا حصر لها.",
+   "new": "الأطفال غالباً فضوليون جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.gleichgueltig",
+   "german": "gleichgültig",
+   "field": "s",
+   "expect_current": "Er zuckte nur gleichgültig mit den Schultern.",
+   "new": "Der Junge wirkt gleichgültig.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.gleichgueltig",
+   "german": "gleichgültig",
+   "field": "sar",
+   "expect_current": "هو هز كتفيه بلا مبالاة تامة.",
+   "new": "الولد يبدو غير مبالٍ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.genervt",
+   "german": "genervt",
+   "field": "s",
+   "expect_current": "Von dem ständigen Baulärm war sie furchtbar genervt.",
+   "new": "Ich bin vom Lärm genervt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.genervt",
+   "german": "genervt",
+   "field": "sar",
+   "expect_current": "من ضجيج البناء المستمر كانت منزعجة للغاية.",
+   "new": "أنا منزعج من الضجيج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.frustriert",
+   "german": "frustriert",
+   "field": "s",
+   "expect_current": "Nach mehreren Fehlversuchen fühlte er sich verständlicherweise frustriert.",
+   "new": "Ich bin frustriert, weil ich es nicht verstehe.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.frustriert",
+   "german": "frustriert",
+   "field": "sar",
+   "expect_current": "بعد عدة محاولات فاشلة شعر بالإحباط بشكل مفهوم.",
+   "new": "أنا محبط لأنني لا أفهم ذلك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.begeistert",
+   "german": "begeistert",
+   "field": "s",
+   "expect_current": "Das Publikum applaudierte begeistert nach dem Konzert.",
+   "new": "Wir sind von dem Konzert begeistert.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.begeistert",
+   "german": "begeistert",
+   "field": "sar",
+   "expect_current": "الجمهور صفق بحماس وشغف بعد الحفلة الموسيقية.",
+   "new": "نحن متحمسون بشغف للحفلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.veraergert",
+   "german": "verärgert",
+   "field": "s",
+   "expect_current": "Über die Verspätung der Bahn war er ziemlich verärgert.",
+   "new": "Sie ist über den Fehler verärgert.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.veraergert",
+   "german": "verärgert",
+   "field": "sar",
+   "expect_current": "من تأخر القطار كان غاضباً ومستاءً بعض الشيء.",
+   "new": "هي غاضبة قليلاً بسبب الخطأ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.ruhig",
+   "german": "ruhig",
+   "field": "s",
+   "expect_current": "Bleiben Sie bitte ganz ruhig und atmen Sie tief durch.",
+   "new": "Bleib bitte ruhig!",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.ruhig",
+   "german": "ruhig",
+   "field": "sar",
+   "expect_current": "ابقَ هادئاً تماماً من فضلك وتنفس بعمق.",
+   "new": "ابق هادئاً من فضلك!",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.froehlich",
+   "german": "fröhlich",
+   "field": "s",
+   "expect_current": "Ein fröhliches Lachen erhellte das ganze Zimmer.",
+   "new": "Die Kinder sind fröhlich und spielen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.froehlich",
+   "german": "fröhlich",
+   "field": "sar",
+   "expect_current": "ضحكة مرحة أضاءت الغرفة بأكملها.",
+   "new": "الأطفال مرحون ويلعبون.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.optimistisch",
+   "german": "optimistisch",
+   "field": "s",
+   "expect_current": "Er geht stets optimistisch an neue Herausforderungen heran.",
+   "new": "Ich bin optimistisch für die Zukunft.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.optimistisch",
+   "german": "optimistisch",
+   "field": "sar",
+   "expect_current": "هو يقبل دائماً بتفاؤل على التحديات الجديدة.",
+   "new": "أنا متفائل بالمستقبل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.selbstbewusst",
+   "german": "selbstbewusst",
+   "field": "s",
+   "expect_current": "Sie trat selbstbewusst vor die versammelte Mannschaft.",
+   "new": "Sie spricht selbstbewusst vor der Klasse.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.selbstbewusst",
+   "german": "selbstbewusst",
+   "field": "sar",
+   "expect_current": "هي وقفت بثقة بالنفس أمام الفريق المجتمع.",
+   "new": "هي تتحدث بثقة أمام الفصل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.unsicher",
+   "german": "unsicher",
+   "field": "s",
+   "expect_current": "In der fremden Umgebung fühlte er sich anfangs noch unsicher.",
+   "new": "Ich bin unsicher, ob das richtig ist.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.unsicher",
+   "german": "unsicher",
+   "field": "sar",
+   "expect_current": "في البيئة الغريبة شعر في البداية بعدم الثقة والتردد.",
+   "new": "لست واثقاً من أن هذا صحيح.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.verlegen",
+   "german": "verlegen",
+   "field": "s",
+   "expect_current": "Nach dem Kompliment lächelte das Mädchen verlegen.",
+   "new": "Er wird verlegen, wenn man ihn lobt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.verlegen",
+   "german": "verlegen",
+   "field": "sar",
+   "expect_current": "بعد الإطراء ابتسمت الفتاة بحرج وخجل.",
+   "new": "يشعر بالحرج عندما يمدحه أحد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.ueberfordert",
+   "german": "überfordert",
+   "field": "s",
+   "expect_current": "Mit zu vielen Aufgaben auf einmal fühlte sie sich überfordert.",
+   "new": "Die Aufgabe ist zu schwer, ich bin überfordert.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.ueberfordert",
+   "german": "überfordert",
+   "field": "sar",
+   "expect_current": "مع كثرة المهام دفعة واحدة شعرت بالإرهاق الشديد.",
+   "new": "التمرين صعب جداً وأنا مرهق نفسياً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.gespannt",
+   "german": "gespannt",
+   "field": "s",
+   "expect_current": "Wir sind alle sehr gespannt auf das Ende des Films.",
+   "new": "Ich bin gespannt auf das Ergebnis.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.gespannt",
+   "german": "gespannt",
+   "field": "sar",
+   "expect_current": "نحن جميعاً متشوقون جداً لمعرفة نهاية الفيلم.",
+   "new": "أنا متشوق لمعرفة النتيجة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.locker",
+   "german": "locker",
+   "field": "s",
+   "expect_current": "Auf der Feier herrschte eine angenehm lockere Stimmung.",
+   "new": "Ich bin heute ganz locker.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "gefuehle.locker",
+   "german": "locker",
+   "field": "sar",
+   "expect_current": "في الحفل ساد جو مرح ومريح ومتحرر.",
+   "new": "أنا مرتاح تماماً اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.angespannt",
+   "german": "angespannt",
+   "field": "s",
+   "expect_current": "Vor dem Start des Rennens wirkte der Läufer sehr angespannt.",
+   "new": "Mein Nacken ist heute angespannt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.angespannt",
+   "german": "angespannt",
+   "field": "sar",
+   "expect_current": "قبل بدء السباق بدا العداء متوتراً ومشدود الأعصاب.",
+   "new": "رقبتي متوترة اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "gefuehle.hilflos",
+   "german": "hilflos",
+   "field": "s",
+   "expect_current": "Ohne Werkzeug stand er hilflos vor dem kaputten Motor.",
+   "new": "Ohne Hilfe fühlt er sich hilflos.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "gefuehle.hilflos",
+   "german": "hilflos",
+   "field": "sar",
+   "expect_current": "بدون أدوات وقف عاجزاً أمام المحرك المعطل.",
+   "new": "بدون مساعدة يشعر بالعجز.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.rot",
+   "german": "rot",
+   "field": "s",
+   "expect_current": "Die frische Tomate ist leuchtend rot.",
+   "new": "Die Rose ist rot.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.rot",
+   "german": "rot",
+   "field": "sar",
+   "expect_current": "الطماطم الطازجة لونها أحمر ساطع.",
+   "new": "الوردة حمراء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.blau",
+   "german": "blau",
+   "field": "s",
+   "expect_current": "Der wolkenlose Sommerhimmel ist strahlend blau.",
+   "new": "Der Himmel ist blau.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.blau",
+   "german": "blau",
+   "field": "sar",
+   "expect_current": "سماء الصيف الصافية زرقاء مشعة.",
+   "new": "السماء زرقاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.gelb",
+   "german": "gelb",
+   "field": "s",
+   "expect_current": "Die reife Zitrone ist kräftig gelb.",
+   "new": "Die Sonne ist gelb.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.gelb",
+   "german": "gelb",
+   "field": "sar",
+   "expect_current": "الليمونة الناضجة لونها أصفر فاقع.",
+   "new": "الشمس صفراء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.gruen",
+   "german": "grün",
+   "field": "s",
+   "expect_current": "Das frische Gras im Park ist saftig grün.",
+   "new": "Das Gras ist grün.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.gruen",
+   "german": "grün",
+   "field": "sar",
+   "expect_current": "العشب الطازج في الحديقة لونه أخضر نضر.",
+   "new": "العشب أخضر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.schwarz",
+   "german": "schwarz",
+   "field": "s",
+   "expect_current": "Die Nacht ist dunkel und tief schwarz.",
+   "new": "Meine Katze ist schwarz.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.schwarz",
+   "german": "schwarz",
+   "field": "sar",
+   "expect_current": "الليل مظلم وأسود حالك.",
+   "new": "قطتي سوداء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.weiss",
+   "german": "weiß",
+   "field": "s",
+   "expect_current": "Der frisch gefallene Schnee ist rein weiß.",
+   "new": "Der Schnee ist weiß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.weiss",
+   "german": "weiß",
+   "field": "sar",
+   "expect_current": "الثلج المتساقط حديثاً أبيض ناصع.",
+   "new": "الثلج أبيض.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.orange",
+   "german": "orange",
+   "field": "s",
+   "expect_current": "Die reife Möhre ist leuchtend orange.",
+   "new": "Meine Jacke ist orange.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.orange",
+   "german": "orange",
+   "field": "sar",
+   "expect_current": "الجزرة الناضجة لونها برتقالي زاهٍ.",
+   "new": "جاكيتي برتقالية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.lila",
+   "german": "lila",
+   "field": "s",
+   "expect_current": "Die duftende Lilie blüht in einem schönen lila Ton.",
+   "new": "Die Blumen sind lila.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.lila",
+   "german": "lila",
+   "field": "sar",
+   "expect_current": "زهرة الزنبق العطرة تزهر بلون بنفسجي جميل.",
+   "new": "الزهور بنفسجية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.rosa",
+   "german": "rosa",
+   "field": "s",
+   "expect_current": "Das kleine Mädchen liebt ihr rosa Kleid.",
+   "new": "Das Mädchen trägt ein rosa Kleid.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "farben.rosa",
+   "german": "rosa",
+   "field": "sar",
+   "expect_current": "الفتاة الصغيرة تحب فستانها الوردي.",
+   "new": "البنت ترتدي فستاناً وردياً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.braun",
+   "german": "braun",
+   "field": "s",
+   "expect_current": "Der Stamm des alten Baumes ist dunkel braun.",
+   "new": "Meine Augen sind braun.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.braun",
+   "german": "braun",
+   "field": "sar",
+   "expect_current": "جذع الشجرة القديمة لونه بني داكن.",
+   "new": "عيناي بنيتان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.grau",
+   "german": "grau",
+   "field": "s",
+   "expect_current": "Die dichten Regenwolken am Himmel sind grau.",
+   "new": "Der Elefant ist grau.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "farben.grau",
+   "german": "grau",
+   "field": "sar",
+   "expect_current": "غيوم المطر الكثيفة في السماء رمادية.",
+   "new": "الفيل رمادي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.tuerkis",
+   "german": "türkis",
+   "field": "s",
+   "expect_current": "Das klare Meerwasser schimmert herrlich türkis.",
+   "new": "Das Meer ist hier türkis.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "farben.tuerkis",
+   "german": "türkis",
+   "field": "sar",
+   "expect_current": "مياه البحر الصافية تلمع بلون تركوازي رائع.",
+   "new": "البحر هنا تركوازي.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.beige",
+   "german": "beige",
+   "field": "s",
+   "expect_current": "Sie trägt einen schicken Mantel in hellem Beige.",
+   "new": "Ich mag beige Hosen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "farben.beige",
+   "german": "beige",
+   "field": "sar",
+   "expect_current": "هي ترتدي معطفاً أنيقاً بلون بيج فاتح.",
+   "new": "أحب البناطيل البيج.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.gold",
+   "german": "gold",
+   "field": "s",
+   "expect_current": "Der wertvolle Ring an ihrer Hand glänzt wie pures Gold.",
+   "new": "Die Krone ist aus Gold.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "farben.gold",
+   "german": "gold",
+   "field": "sar",
+   "expect_current": "الخاتم الثمين في يدها يلمع كالذهب الخالص.",
+   "new": "التاج مصنوع من الذهب.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "farben.silber",
+   "german": "silber",
+   "field": "s",
+   "expect_current": "Die schimmernde Münze besteht aus feinstem Silber.",
+   "new": "Die Gabel ist aus Silber.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "farben.silber",
+   "german": "silber",
+   "field": "sar",
+   "expect_current": "القطعة النقدية اللامعة مصنوعة من أنقى درجات الفضة.",
+   "new": "الشوكة من الفضة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.eins",
+   "german": "eins",
+   "field": "s",
+   "expect_current": "Ich habe nur eins davon übrig.",
+   "new": "Drei minus zwei ist eins.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zahlen.eins",
+   "german": "eins",
+   "field": "sar",
+   "expect_current": "لدي واحد فقط متبقٍ منها.",
+   "new": "ثلاثة ناقص اثنين يساوي واحد.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.zwei",
+   "german": "zwei",
+   "field": "s",
+   "expect_current": "Zwei Freunde gehen gemeinsam ins Kino.",
+   "new": "Ich habe zwei Brüder.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zahlen.zwei",
+   "german": "zwei",
+   "field": "sar",
+   "expect_current": "صديقان يذهبان معاً إلى السينما.",
+   "new": "عندي أخوان اثنان.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.drei",
+   "german": "drei",
+   "field": "s",
+   "expect_current": "Ein Dreieck hat genau drei Ecken.",
+   "new": "Wir sind drei Personen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zahlen.drei",
+   "german": "drei",
+   "field": "sar",
+   "expect_current": "المثلث له ثلاث زوايا بالضبط.",
+   "new": "نحن ثلاثة أشخاص.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.vier",
+   "german": "vier",
+   "field": "s",
+   "expect_current": "Das Jahr hat vier verschiedene Jahreszeiten.",
+   "new": "Das Auto hat vier Räder.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zahlen.vier",
+   "german": "vier",
+   "field": "sar",
+   "expect_current": "السنة فيها أربعة فصول مختلفة.",
+   "new": "السيارة لها أربع عجلات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.fuenf",
+   "german": "fünf",
+   "field": "s",
+   "expect_current": "Eine Hand hat fünf einzelne Finger.",
+   "new": "Ich brauche fünf Minuten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zahlen.fuenf",
+   "german": "fünf",
+   "field": "sar",
+   "expect_current": "اليد الواحدة بها خمسة أصابع.",
+   "new": "أحتاج إلى خمس دقائق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.sechs",
+   "german": "sechs",
+   "field": "s",
+   "expect_current": "Ein Würfel hat sechs verschiedene Seiten.",
+   "new": "Es ist sechs Uhr.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zahlen.sechs",
+   "german": "sechs",
+   "field": "sar",
+   "expect_current": "نرد اللعب له ستة أوجه مختلفة.",
+   "new": "الساعة السادسة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.sieben",
+   "german": "sieben",
+   "field": "s",
+   "expect_current": "Die Woche besteht aus sieben Tagen.",
+   "new": "Die Woche hat sieben Tage.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zahlen.sieben",
+   "german": "sieben",
+   "field": "sar",
+   "expect_current": "الأسبوع يتكون من سبعة أيام.",
+   "new": "الأسبوع له سبعة أيام.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.acht",
+   "german": "acht",
+   "field": "s",
+   "expect_current": "Die Spinne bewegt sich auf acht Beinen.",
+   "new": "Eine Spinne hat acht Beine.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.acht",
+   "german": "acht",
+   "field": "sar",
+   "expect_current": "العنكبوت يتحرك على ثمانية أرجل.",
+   "new": "للعنكبوت ثماني أرجل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.neun",
+   "german": "neun",
+   "field": "s",
+   "expect_current": "Die Katze hat sprichwörtlich neun Leben.",
+   "new": "Mein Sohn ist neun Jahre alt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zahlen.neun",
+   "german": "neun",
+   "field": "sar",
+   "expect_current": "للقطة في المثل الشعبي تسعة أرواح.",
+   "new": "ابني عمره تسع سنوات.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.zehn",
+   "german": "zehn",
+   "field": "s",
+   "expect_current": "Zehn Schüler nahmen am Wettbewerb teil.",
+   "new": "Zehn Euro, bitte.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "zahlen.zehn",
+   "german": "zehn",
+   "field": "sar",
+   "expect_current": "عشرة طلاب شاركوا في المسابقة.",
+   "new": "عشرة يورو من فضلك.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.elf",
+   "german": "elf",
+   "field": "s",
+   "expect_current": "Beim Fußball stehen elf Spieler auf dem Platz.",
+   "new": "Eine Fußballmannschaft hat elf Spieler.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.elf",
+   "german": "elf",
+   "field": "sar",
+   "expect_current": "في كرة القدم يقف أحد عشر لاعباً في الملعب.",
+   "new": "فريق كرة القدم فيه أحد عشر لاعباً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.zwoelf",
+   "german": "zwölf",
+   "field": "s",
+   "expect_current": "Das Jahr hat genau zwölf Monate.",
+   "new": "Ein Jahr hat zwölf Monate.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.zwoelf",
+   "german": "zwölf",
+   "field": "sar",
+   "expect_current": "السنة تحتوي على اثني عشر شهراً بالضبط.",
+   "new": "السنة فيها اثنا عشر شهراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.dreizehn",
+   "german": "dreizehn",
+   "field": "s",
+   "expect_current": "Viele Menschen halten die Zahl dreizehn für eine Unglückszahl.",
+   "new": "Meine Schwester ist dreizehn Jahre alt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.dreizehn",
+   "german": "dreizehn",
+   "field": "sar",
+   "expect_current": "كثير من الناس يعتبرون الرقم ثلاثة عشر رقم نحس.",
+   "new": "أختي عمرها ثلاث عشرة سنة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.vierzehn",
+   "german": "vierzehn",
+   "field": "s",
+   "expect_current": "Mit vierzehn Jahren ist man im deutschen Recht religionsmündig.",
+   "new": "In vierzehn Tagen fahren wir in den Urlaub.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.vierzehn",
+   "german": "vierzehn",
+   "field": "sar",
+   "expect_current": "في سن الرابعة عشرة يبلغ الفرد سن الرشد الديني قانوناً في ألمانيا.",
+   "new": "بعد أربعة عشر يوماً نسافر في إجازة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.fuenfzehn",
+   "german": "fünfzehn",
+   "field": "s",
+   "expect_current": "Die Pause dauert fünfzehn Minuten.",
+   "new": "Der Bus kommt in fünfzehn Minuten.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.fuenfzehn",
+   "german": "fünfzehn",
+   "field": "sar",
+   "expect_current": "الاستراحة تستغرق خمسة عشر دقيقة.",
+   "new": "الحافلة تصل بعد خمس عشرة دقيقة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.sechzehn",
+   "german": "sechzehn",
+   "field": "s",
+   "expect_current": "In vielen Bundesländern darf man mit sechzehn Jahren wählen.",
+   "new": "Sechzehn Schüler sind heute da.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.sechzehn",
+   "german": "sechzehn",
+   "field": "sar",
+   "expect_current": "في العديد من الولايات الألمانية يجوز الانتخاب في سن السادسة عشرة.",
+   "new": "ستة عشر طالباً حاضرون اليوم.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.siebzehn",
+   "german": "siebzehn",
+   "field": "s",
+   "expect_current": "Mit siebzehn Jahren machen viele den Führerschein mit Begleitung.",
+   "new": "Mein Bruder ist siebzehn.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.siebzehn",
+   "german": "siebzehn",
+   "field": "sar",
+   "expect_current": "في سن السابعة عشرة يبدأ الكثيرون قيادة السيارة بمرافق.",
+   "new": "أخي عمره سبع عشرة سنة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.achtzehn",
+   "german": "achtzehn",
+   "field": "s",
+   "expect_current": "Mit achtzehn Jahren gilt man in Deutschland als volljährig.",
+   "new": "Mit achtzehn darf man Auto fahren.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "zahlen.achtzehn",
+   "german": "achtzehn",
+   "field": "sar",
+   "expect_current": "في سن الثامنة عشرة يُعتبر المرء بالغاً قانوناً في ألمانيا.",
+   "new": "في سن الثامنة عشرة يُسمح بقيادة السيارة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.neunzehn",
+   "german": "neunzehn",
+   "field": "s",
+   "expect_current": "Im neunzehnten Jahrhundert begann die Industrialisierung.",
+   "new": "Das Buch kostet neunzehn Euro.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.neunzehn",
+   "german": "neunzehn",
+   "field": "sar",
+   "expect_current": "في القرن التاسع عشر بدأت الثورة الصناعية.",
+   "new": "الكتاب يكلف تسعة عشر يورو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "zahlen.zwanzig",
+   "german": "zwanzig",
+   "field": "s",
+   "expect_current": "Zwanzig Gäste feierten ausgelassen den Geburtstag.",
+   "new": "Zwanzig Personen kommen zur Party.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "zahlen.zwanzig",
+   "german": "zwanzig",
+   "field": "sar",
+   "expect_current": "عشرون ضيفاً احتفلوا بعيد الميلاد بحماس كبير.",
+   "new": "عشرون شخصاً يأتون إلى الحفلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.januar",
+   "german": "Januar",
+   "field": "s",
+   "expect_current": "Der Januar ist der kälteste Monat des ganzen Jahres.",
+   "new": "Im Januar ist es kalt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "monate.januar",
+   "german": "Januar",
+   "field": "sar",
+   "expect_current": "شهر يناير هو أبرد شهر في العام بأكمله.",
+   "new": "في يناير يكون الجو بارداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.februar",
+   "german": "Februar",
+   "field": "s",
+   "expect_current": "Der Februar hat als einziger Monat nur achtundzwanzig oder neunundzwanzig Tage.",
+   "new": "Der Februar ist ein kurzer Monat.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "monate.februar",
+   "german": "Februar",
+   "field": "sar",
+   "expect_current": "شهر فبراير هو الشهر الوحيد الذي يضم ثمانية وعشرين أو تسعة وعشرين يوماً فقط.",
+   "new": "فبراير شهر قصير.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.maerz",
+   "german": "März",
+   "field": "s",
+   "expect_current": "Im März erwacht die Natur allmählich aus dem Winterschlaf.",
+   "new": "Im März beginnt der Frühling.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "monate.maerz",
+   "german": "März",
+   "field": "sar",
+   "expect_current": "في شهر مارس تستيقظ الطبيعة تدريجياً من سباتها الشتوي.",
+   "new": "في مارس يبدأ الربيع.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.april",
+   "german": "April",
+   "field": "s",
+   "expect_current": "Der launische April macht wettertechnisch sprichwörtlich, was er will.",
+   "new": "Im April regnet es oft.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "monate.april",
+   "german": "April",
+   "field": "sar",
+   "expect_current": "شهر أبريل المتقلب يفعل في الطقس ما يشاء كما في المثل.",
+   "new": "في أبريل تمطر غالباً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.mai",
+   "german": "Mai",
+   "field": "s",
+   "expect_current": "Im sonnigen Mai blühen die Apfelbäume in voller Pracht.",
+   "new": "Mein Geburtstag ist im Mai.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "monate.mai",
+   "german": "Mai",
+   "field": "sar",
+   "expect_current": "في شهر مايو المشمس تزهر أشجار التفاح في أبهى حلة.",
+   "new": "عيد ميلادي في مايو.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.juni",
+   "german": "Juni",
+   "field": "s",
+   "expect_current": "Der Juni bringt lange helle Tage und warme Sommerabende.",
+   "new": "Im Juni beginnt der Sommer.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "monate.juni",
+   "german": "Juni",
+   "field": "sar",
+   "expect_current": "شهر يونيو يجلب أياماً طويلة مضيئة وأمسيات صيفية دافئة.",
+   "new": "في يونيو يبدأ الصيف.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.juli",
+   "german": "Juli",
+   "field": "s",
+   "expect_current": "Im heißen Juli beginnen in vielen Ländern die Sommerferien.",
+   "new": "Im Juli ist es sehr heiß.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "monate.juli",
+   "german": "Juli",
+   "field": "sar",
+   "expect_current": "في شهر يوليو الحار تبدأ العطلة الصيفية في بلدان كثيرة.",
+   "new": "في يوليو يكون الجو حاراً جداً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.august",
+   "german": "August",
+   "field": "s",
+   "expect_current": "Im sonnigen August reisen viele Familien ans blaue Meer.",
+   "new": "Im August haben wir Ferien.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "monate.august",
+   "german": "August",
+   "field": "sar",
+   "expect_current": "في شهر أغسطس المشمس تسافر عائلات كثيرة إلى البحر الأزرق.",
+   "new": "في أغسطس عندنا عطلة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.september",
+   "german": "September",
+   "field": "s",
+   "expect_current": "Im September beginnt für viele Kinder das neue Schuljahr.",
+   "new": "Nach dem August kommt der September.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "monate.september",
+   "german": "September",
+   "field": "sar",
+   "expect_current": "في شهر سبتمبر يبدأ للعديد من الأطفال العام الدراسي الجديد.",
+   "new": "بعد أغسطس يأتي سبتمبر.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.oktober",
+   "german": "Oktober",
+   "field": "s",
+   "expect_current": "Im Oktober färben sich die Blätter der Bäume bunt und fallen ab.",
+   "new": "Im Oktober fallen die Blätter.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "monate.oktober",
+   "german": "Oktober",
+   "field": "sar",
+   "expect_current": "في شهر أكتوبر تتلون أوراق الأشجار وتتساقط.",
+   "new": "في أكتوبر تتساقط الأوراق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.november",
+   "german": "November",
+   "field": "s",
+   "expect_current": "Der graue November ist oft neblig, feucht und kühl.",
+   "new": "Im November wird es früh dunkel.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى B1"
+  },
+  {
+   "id": "monate.november",
+   "german": "November",
+   "field": "sar",
+   "expect_current": "شهر نوفمبر الرمادي غالباً ما يكون ضبابياً ورطباً وبارداً.",
+   "new": "في نوفمبر يحل الظلام مبكراً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "monate.dezember",
+   "german": "Dezember",
+   "field": "s",
+   "expect_current": "Im festlichen Dezember feiern die Menschen das neue Jahr.",
+   "new": "Im Dezember schneit es oft.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "monate.dezember",
+   "german": "Dezember",
+   "field": "sar",
+   "expect_current": "في شهر ديسمبر الاحتفالي يحتفل الناس برأس السنة الجديدة.",
+   "new": "في ديسمبر يتساقط الثلج غالباً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wochentage.montag",
+   "german": "Montag",
+   "field": "s",
+   "expect_current": "Am Montag beginnt für die meisten Menschen die neue Arbeitswoche.",
+   "new": "Am Montag beginnt die Arbeit.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "wochentage.montag",
+   "german": "Montag",
+   "field": "sar",
+   "expect_current": "يوم الإثنين يبدأ لمعظم الناس أسبوع العمل الجديد.",
+   "new": "يوم الإثنين يبدأ العمل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wochentage.dienstag",
+   "german": "Dienstag",
+   "field": "s",
+   "expect_current": "Am Dienstag habe ich am Nachmittag meinen Deutschkurs.",
+   "new": "Am Dienstag habe ich Unterricht.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "wochentage.dienstag",
+   "german": "Dienstag",
+   "field": "sar",
+   "expect_current": "يوم الثلاثاء لدي في فترة بعد الظهر دورة اللغة الألمانية.",
+   "new": "يوم الثلاثاء عندي حصة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wochentage.mittwoch",
+   "german": "Mittwoch",
+   "field": "s",
+   "expect_current": "Der Mittwoch teilt als Mitte die Arbeitswoche genau in zwei Hälften.",
+   "new": "Heute ist Mittwoch.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "wochentage.mittwoch",
+   "german": "Mittwoch",
+   "field": "sar",
+   "expect_current": "يوم الأربعاء ينصف أسبوع العمل إلى نصفين بالضبط.",
+   "new": "اليوم هو الأربعاء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wochentage.donnerstag",
+   "german": "Donnerstag",
+   "field": "s",
+   "expect_current": "Am Donnerstag erledigen wir abends den wöchentlichen Großeinkauf.",
+   "new": "Am Donnerstag gehen wir einkaufen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wochentage.donnerstag",
+   "german": "Donnerstag",
+   "field": "sar",
+   "expect_current": "يوم الخميس ننجز في المساء التسوق الأسبوعي الكبير.",
+   "new": "يوم الخميس نذهب للتسوق.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wochentage.freitag",
+   "german": "Freitag",
+   "field": "s",
+   "expect_current": "Am Freitag freuen sich alle Kollegen auf das nahe Wochenende.",
+   "new": "Am Freitag besuche ich meine Eltern.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "wochentage.freitag",
+   "german": "Freitag",
+   "field": "sar",
+   "expect_current": "يوم الجمعة يفرح كل الزملاء باقتراب عطلة نهاية الأسبوع.",
+   "new": "يوم الجمعة أزور والديّ.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wochentage.samstag",
+   "german": "Samstag",
+   "field": "s",
+   "expect_current": "Am Samstag schlafe ich gerne etwas länger aus.",
+   "new": "Am Samstag schlafe ich lange.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "wochentage.samstag",
+   "german": "Samstag",
+   "field": "sar",
+   "expect_current": "يوم السبت أحب النوم لفترة أطول قليلاً.",
+   "new": "يوم السبت أنام طويلاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "wochentage.sonntag",
+   "german": "Sonntag",
+   "field": "s",
+   "expect_current": "Der Sonntag ist in Deutschland traditionell ein ruhiger Ruhetag.",
+   "new": "Am Sonntag essen wir zusammen.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "wochentage.sonntag",
+   "german": "Sonntag",
+   "field": "sar",
+   "expect_current": "يوم الأحد في ألمانيا تقليدياً يوم راحة وهدوء.",
+   "new": "يوم الأحد نأكل معاً.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "jahreszeiten.fruehling",
+   "german": "Frühling",
+   "field": "s",
+   "expect_current": "Im bunten Frühling blühen die ersten Blumen auf den Wiesen.",
+   "new": "Im Frühling blühen die Bäume.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "jahreszeiten.fruehling",
+   "german": "Frühling",
+   "field": "sar",
+   "expect_current": "في الربيع الملون تزهر أوائل الزهور في المروج.",
+   "new": "في الربيع تزهر الأشجار.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "jahreszeiten.sommer",
+   "german": "Sommer",
+   "field": "s",
+   "expect_current": "Im warmen Sommer verbringen wir viel Freizeit draußen im Freien.",
+   "new": "Der Sommer ist meine Lieblingsjahreszeit.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "jahreszeiten.sommer",
+   "german": "Sommer",
+   "field": "sar",
+   "expect_current": "في الصيف الدافئ نقضي الكثير من أوقات الفراغ في الهواء الطلق بالخارج.",
+   "new": "الصيف فصلي المفضل.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "jahreszeiten.herbst",
+   "german": "Herbst",
+   "field": "s",
+   "expect_current": "Im goldenen Herbst färben sich die Blätter der Bäume rot und gelb.",
+   "new": "Im Herbst werden die Blätter bunt.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A2"
+  },
+  {
+   "id": "jahreszeiten.herbst",
+   "german": "Herbst",
+   "field": "sar",
+   "expect_current": "في الخريف الذهبي تتلون أوراق الأشجار بالأحمر والأصفر.",
+   "new": "في الخريف تصبح الأوراق ملونة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  },
+  {
+   "id": "jahreszeiten.winter",
+   "german": "Winter",
+   "field": "s",
+   "expect_current": "Im eisigen Winter fällt oft weißer Schnee auf die Dächer.",
+   "new": "Im Winter trage ich warme Kleidung.",
+   "kind": "SENTENCE",
+   "reason": "جملة مثال بمستوى A1"
+  },
+  {
+   "id": "jahreszeiten.winter",
+   "german": "Winter",
+   "field": "sar",
+   "expect_current": "في الشتاء الجليدي يتساقط الثلج الأبيض غالباً على أسطح المنازل.",
+   "new": "في الشتاء أرتدي ملابس دافئة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال"
+  }
+ ]
+}

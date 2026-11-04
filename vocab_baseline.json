@@ -1669,106 +1669,106 @@
         "id": "farben.rot",
         "n": "rot",
         "ar": "أحمر",
-        "s": "Die frische Tomate ist leuchtend rot.",
-        "sar": "الطماطم الطازجة لونها أحمر ساطع."
+        "s": "Die Rose ist rot.",
+        "sar": "الوردة حمراء."
       },
       {
         "id": "farben.blau",
         "n": "blau",
         "ar": "أزرق",
-        "s": "Der wolkenlose Sommerhimmel ist strahlend blau.",
-        "sar": "سماء الصيف الصافية زرقاء مشعة."
+        "s": "Der Himmel ist blau.",
+        "sar": "السماء زرقاء."
       },
       {
         "id": "farben.gelb",
         "n": "gelb",
         "ar": "أصفر",
-        "s": "Die reife Zitrone ist kräftig gelb.",
-        "sar": "الليمونة الناضجة لونها أصفر فاقع."
+        "s": "Die Sonne ist gelb.",
+        "sar": "الشمس صفراء."
       },
       {
         "id": "farben.gruen",
         "n": "grün",
         "ar": "أخضر",
-        "s": "Das frische Gras im Park ist saftig grün.",
-        "sar": "العشب الطازج في الحديقة لونه أخضر نضر."
+        "s": "Das Gras ist grün.",
+        "sar": "العشب أخضر."
       },
       {
         "id": "farben.schwarz",
         "n": "schwarz",
         "ar": "أسود",
-        "s": "Die Nacht ist dunkel und tief schwarz.",
-        "sar": "الليل مظلم وأسود حالك."
+        "s": "Meine Katze ist schwarz.",
+        "sar": "قطتي سوداء."
       },
       {
         "id": "farben.weiss",
         "n": "weiß",
         "ar": "أبيض",
-        "s": "Der frisch gefallene Schnee ist rein weiß.",
-        "sar": "الثلج المتساقط حديثاً أبيض ناصع."
+        "s": "Der Schnee ist weiß.",
+        "sar": "الثلج أبيض."
       },
       {
         "id": "farben.orange",
         "n": "orange",
         "ar": "برتقالي",
-        "s": "Die reife Möhre ist leuchtend orange.",
-        "sar": "الجزرة الناضجة لونها برتقالي زاهٍ."
+        "s": "Meine Jacke ist orange.",
+        "sar": "جاكيتي برتقالية."
       },
       {
         "id": "farben.lila",
         "n": "lila",
         "ar": "بنفسجي",
-        "s": "Die duftende Lilie blüht in einem schönen lila Ton.",
-        "sar": "زهرة الزنبق العطرة تزهر بلون بنفسجي جميل."
+        "s": "Die Blumen sind lila.",
+        "sar": "الزهور بنفسجية."
       },
       {
         "id": "farben.rosa",
         "n": "rosa",
         "ar": "وردي",
-        "s": "Das kleine Mädchen liebt ihr rosa Kleid.",
-        "sar": "الفتاة الصغيرة تحب فستانها الوردي."
+        "s": "Das Mädchen trägt ein rosa Kleid.",
+        "sar": "البنت ترتدي فستاناً وردياً."
       },
       {
         "id": "farben.braun",
         "n": "braun",
         "ar": "بني",
-        "s": "Der Stamm des alten Baumes ist dunkel braun.",
-        "sar": "جذع الشجرة القديمة لونه بني داكن."
+        "s": "Meine Augen sind braun.",
+        "sar": "عيناي بنيتان."
       },
       {
         "id": "farben.grau",
         "n": "grau",
         "ar": "رمادي",
-        "s": "Die dichten Regenwolken am Himmel sind grau.",
-        "sar": "غيوم المطر الكثيفة في السماء رمادية."
+        "s": "Der Elefant ist grau.",
+        "sar": "الفيل رمادي."
       },
       {
         "id": "farben.tuerkis",
         "n": "türkis",
         "ar": "تركواز",
-        "s": "Das klare Meerwasser schimmert herrlich türkis.",
-        "sar": "مياه البحر الصافية تلمع بلون تركوازي رائع."
+        "s": "Das Meer ist hier türkis.",
+        "sar": "البحر هنا تركوازي."
       },
       {
         "id": "farben.beige",
         "n": "beige",
         "ar": "بيج",
-        "s": "Sie trägt einen schicken Mantel in hellem Beige.",
-        "sar": "هي ترتدي معطفاً أنيقاً بلون بيج فاتح."
+        "s": "Ich mag beige Hosen.",
+        "sar": "أحب البناطيل البيج."
       },
       {
         "id": "farben.gold",
         "n": "gold",
         "ar": "ذهبي",
-        "s": "Der wertvolle Ring an ihrer Hand glänzt wie pures Gold.",
-        "sar": "الخاتم الثمين في يدها يلمع كالذهب الخالص."
+        "s": "Die Krone ist aus Gold.",
+        "sar": "التاج مصنوع من الذهب."
       },
       {
         "id": "farben.silber",
         "n": "silber",
         "ar": "فضي",
-        "s": "Die schimmernde Münze besteht aus feinstem Silber.",
-        "sar": "القطعة النقدية اللامعة مصنوعة من أنقى درجات الفضة."
+        "s": "Die Gabel ist aus Silber.",
+        "sar": "الشوكة من الفضة."
       }
     ],
     "hasArticles": false
@@ -3389,141 +3389,141 @@
         "id": "zahlen.eins",
         "n": "eins",
         "ar": "واحد",
-        "s": "Ich habe nur eins davon übrig.",
-        "sar": "لدي واحد فقط متبقٍ منها."
+        "s": "Drei minus zwei ist eins.",
+        "sar": "ثلاثة ناقص اثنين يساوي واحد."
       },
       {
         "id": "zahlen.zwei",
         "n": "zwei",
         "ar": "اثنان",
-        "s": "Zwei Freunde gehen gemeinsam ins Kino.",
-        "sar": "صديقان يذهبان معاً إلى السينما."
+        "s": "Ich habe zwei Brüder.",
+        "sar": "عندي أخوان اثنان."
       },
       {
         "id": "zahlen.drei",
         "n": "drei",
         "ar": "ثلاثة",
-        "s": "Ein Dreieck hat genau drei Ecken.",
-        "sar": "المثلث له ثلاث زوايا بالضبط."
+        "s": "Wir sind drei Personen.",
+        "sar": "نحن ثلاثة أشخاص."
       },
       {
         "id": "zahlen.vier",
         "n": "vier",
         "ar": "أربعة",
-        "s": "Das Jahr hat vier verschiedene Jahreszeiten.",
-        "sar": "السنة فيها أربعة فصول مختلفة."
+        "s": "Das Auto hat vier Räder.",
+        "sar": "السيارة لها أربع عجلات."
       },
       {
         "id": "zahlen.fuenf",
         "n": "fünf",
         "ar": "خمسة",
-        "s": "Eine Hand hat fünf einzelne Finger.",
-        "sar": "اليد الواحدة بها خمسة أصابع."
+        "s": "Ich brauche fünf Minuten.",
+        "sar": "أحتاج إلى خمس دقائق."
       },
       {
         "id": "zahlen.sechs",
         "n": "sechs",
         "ar": "ستة",
-        "s": "Ein Würfel hat sechs verschiedene Seiten.",
-        "sar": "نرد اللعب له ستة أوجه مختلفة."
+        "s": "Es ist sechs Uhr.",
+        "sar": "الساعة السادسة."
       },
       {
         "id": "zahlen.sieben",
         "n": "sieben",
         "ar": "سبعة",
-        "s": "Die Woche besteht aus sieben Tagen.",
-        "sar": "الأسبوع يتكون من سبعة أيام."
+        "s": "Die Woche hat sieben Tage.",
+        "sar": "الأسبوع له سبعة أيام."
       },
       {
         "id": "zahlen.acht",
         "n": "acht",
         "ar": "ثمانية",
-        "s": "Die Spinne bewegt sich auf acht Beinen.",
-        "sar": "العنكبوت يتحرك على ثمانية أرجل."
+        "s": "Eine Spinne hat acht Beine.",
+        "sar": "للعنكبوت ثماني أرجل."
       },
       {
         "id": "zahlen.neun",
         "n": "neun",
         "ar": "تسعة",
-        "s": "Die Katze hat sprichwörtlich neun Leben.",
-        "sar": "للقطة في المثل الشعبي تسعة أرواح."
+        "s": "Mein Sohn ist neun Jahre alt.",
+        "sar": "ابني عمره تسع سنوات."
       },
       {
         "id": "zahlen.zehn",
         "n": "zehn",
         "ar": "عشرة",
-        "s": "Zehn Schüler nahmen am Wettbewerb teil.",
-        "sar": "عشرة طلاب شاركوا في المسابقة."
+        "s": "Zehn Euro, bitte.",
+        "sar": "عشرة يورو من فضلك."
       },
       {
         "id": "zahlen.elf",
         "n": "elf",
         "ar": "أحد عشر",
-        "s": "Beim Fußball stehen elf Spieler auf dem Platz.",
-        "sar": "في كرة القدم يقف أحد عشر لاعباً في الملعب."
+        "s": "Eine Fußballmannschaft hat elf Spieler.",
+        "sar": "فريق كرة القدم فيه أحد عشر لاعباً."
       },
       {
         "id": "zahlen.zwoelf",
         "n": "zwölf",
         "ar": "اثنا عشر",
-        "s": "Das Jahr hat genau zwölf Monate.",
-        "sar": "السنة تحتوي على اثني عشر شهراً بالضبط."
+        "s": "Ein Jahr hat zwölf Monate.",
+        "sar": "السنة فيها اثنا عشر شهراً."
       },
       {
         "id": "zahlen.dreizehn",
         "n": "dreizehn",
         "ar": "ثلاثة عشر",
-        "s": "Viele Menschen halten die Zahl dreizehn für eine Unglückszahl.",
-        "sar": "كثير من الناس يعتبرون الرقم ثلاثة عشر رقم نحس."
+        "s": "Meine Schwester ist dreizehn Jahre alt.",
+        "sar": "أختي عمرها ثلاث عشرة سنة."
       },
       {
         "id": "zahlen.vierzehn",
         "n": "vierzehn",
         "ar": "أربعة عشر",
-        "s": "Mit vierzehn Jahren ist man im deutschen Recht religionsmündig.",
-        "sar": "في سن الرابعة عشرة يبلغ الفرد سن الرشد الديني قانوناً في ألمانيا."
+        "s": "In vierzehn Tagen fahren wir in den Urlaub.",
+        "sar": "بعد أربعة عشر يوماً نسافر في إجازة."
       },
       {
         "id": "zahlen.fuenfzehn",
         "n": "fünfzehn",
         "ar": "خمسة عشر",
-        "s": "Die Pause dauert fünfzehn Minuten.",
-        "sar": "الاستراحة تستغرق خمسة عشر دقيقة."
+        "s": "Der Bus kommt in fünfzehn Minuten.",
+        "sar": "الحافلة تصل بعد خمس عشرة دقيقة."
       },
       {
         "id": "zahlen.sechzehn",
         "n": "sechzehn",
         "ar": "ستة عشر",
-        "s": "In vielen Bundesländern darf man mit sechzehn Jahren wählen.",
-        "sar": "في العديد من الولايات الألمانية يجوز الانتخاب في سن السادسة عشرة."
+        "s": "Sechzehn Schüler sind heute da.",
+        "sar": "ستة عشر طالباً حاضرون اليوم."
       },
       {
         "id": "zahlen.siebzehn",
         "n": "siebzehn",
         "ar": "سبعة عشر",
-        "s": "Mit siebzehn Jahren machen viele den Führerschein mit Begleitung.",
-        "sar": "في سن السابعة عشرة يبدأ الكثيرون قيادة السيارة بمرافق."
+        "s": "Mein Bruder ist siebzehn.",
+        "sar": "أخي عمره سبع عشرة سنة."
       },
       {
         "id": "zahlen.achtzehn",
         "n": "achtzehn",
         "ar": "ثمانية عشر",
-        "s": "Mit achtzehn Jahren gilt man in Deutschland als volljährig.",
-        "sar": "في سن الثامنة عشرة يُعتبر المرء بالغاً قانوناً في ألمانيا."
+        "s": "Mit achtzehn darf man Auto fahren.",
+        "sar": "في سن الثامنة عشرة يُسمح بقيادة السيارة."
       },
       {
         "id": "zahlen.neunzehn",
         "n": "neunzehn",
         "ar": "تسعة عشر",
-        "s": "Im neunzehnten Jahrhundert begann die Industrialisierung.",
-        "sar": "في القرن التاسع عشر بدأت الثورة الصناعية."
+        "s": "Das Buch kostet neunzehn Euro.",
+        "sar": "الكتاب يكلف تسعة عشر يورو."
       },
       {
         "id": "zahlen.zwanzig",
         "n": "zwanzig",
         "ar": "عشرون",
-        "s": "Zwanzig Gäste feierten ausgelassen den Geburtstag.",
-        "sar": "عشرون ضيفاً احتفلوا بعيد الميلاد بحماس كبير."
+        "s": "Zwanzig Personen kommen zur Party.",
+        "sar": "عشرون شخصاً يأتون إلى الحفلة."
       }
     ],
     "hasArticles": false
@@ -4357,8 +4357,8 @@
         "ar": "شمس",
         "note": "الجمع \"Sonnen\" يُستخدم في السياق الفلكي (نجوم/شموس أخرى)؛ كظاهرة جوية تبقى الشمس في صيغة المفرد دائمًا",
         "pl": "die Sonnen",
-        "s": "Die goldene Sonne scheint heute den ganzen Tag wärmend.",
-        "sar": "الشمس الذهبية تسطع اليوم بدفء طوال اليوم."
+        "s": "Die Sonne scheint heute.",
+        "sar": "الشمس مشرقة اليوم."
       },
       {
         "id": "wetter.regen",
@@ -4367,8 +4367,8 @@
         "ar": "مطر",
         "note": "جمع نادر الاستخدام حسب Duden",
         "pl": "die Regen",
-        "s": "Der kalte Regen prasselt unablässig an die Fensterscheibe.",
-        "sar": "المطر البارد ينهمر بلا انقطاع على زجاج النافذة."
+        "s": "Ich mag den Regen nicht.",
+        "sar": "لا أحب المطر."
       },
       {
         "id": "wetter.schnee",
@@ -4377,8 +4377,8 @@
         "ar": "ثلج",
         "note": "اسم غير معدود، لا يوجد جمع له حسب Duden",
         "pl": null,
-        "s": "Im Winter deckt weißer Schnee die Dächer der Stadt zu.",
-        "sar": "في الشتاء يغطي الثلج الأبيض أسطح منازل المدينة."
+        "s": "Im Winter liegt viel Schnee.",
+        "sar": "في الشتاء يتراكم الكثير من الثلج."
       },
       {
         "id": "wetter.wind",
@@ -4386,8 +4386,8 @@
         "n": "Wind",
         "ar": "رياح",
         "pl": "die Winde",
-        "s": "Ein kräftiger Wind weht die bunten Herbstblätter von den Bäumen.",
-        "sar": "رياح قوية تهب فتنثر أوراق الخريف الملونة من الأشجار."
+        "s": "Heute weht ein starker Wind.",
+        "sar": "اليوم تهب رياح قوية."
       },
       {
         "id": "wetter.wolke",
@@ -4395,8 +4395,8 @@
         "n": "Wolke",
         "ar": "سحابة",
         "pl": "die Wolken",
-        "s": "Eine dunkle Wolke schiebt sich bedrohlich vor die Sonne.",
-        "sar": "سحابة داكنة تحجب الشمس بشكل منذِر بالعواصف."
+        "s": "Am Himmel ist eine Wolke.",
+        "sar": "في السماء سحابة."
       },
       {
         "id": "wetter.sturm",
@@ -4404,8 +4404,8 @@
         "n": "Sturm",
         "ar": "عاصفة",
         "pl": "die Stürme",
-        "s": "In der Nacht fegte ein heftiger Sturm über das flache Land.",
-        "sar": "في الليل اجتاحت عاصفة عنيفة الأراضي المنبسطة."
+        "s": "Wegen des Sturms bleiben wir zu Hause.",
+        "sar": "بسبب العاصفة نبقى في البيت."
       },
       {
         "id": "wetter.nebel",
@@ -4413,8 +4413,8 @@
         "n": "Nebel",
         "ar": "ضباب",
         "pl": "die Nebel",
-        "s": "Am frühen Morgen lag dichter Nebel über den weiten Feldern.",
-        "sar": "في الصباح الباكر خيم ضباب كثيف فوق الحقول الواسعة."
+        "s": "Im Nebel sieht man fast nichts.",
+        "sar": "في الضباب لا يرى المرء شيئاً تقريباً."
       },
       {
         "id": "wetter.gewitter",
@@ -4422,8 +4422,8 @@
         "n": "Gewitter",
         "ar": "عاصفة رعدية",
         "pl": "die Gewitter",
-        "s": "Nach dem Gewitter bildete sich glitzernder Tau auf den Grashalmen.",
-        "sar": "بعد العاصفة الرعدية تشكل ندى لامع على أعواد العشب."
+        "s": "Nach dem Gewitter wird die Luft frisch.",
+        "sar": "بعد العاصفة الرعدية يصبح الهواء منعشاً."
       },
       {
         "id": "wetter.hitze",
@@ -4432,8 +4432,8 @@
         "ar": "حر",
         "note": "اسم غير معدود عادة؛ الجمع \"Hitzen\" يُستخدم فقط في اللغة التخصصية حسب Duden",
         "pl": null,
-        "s": "Im Hochsommer kann die flirrende Hitze für den Kreislauf anstrengend sein.",
-        "sar": "في منتصف الصيف يمكن للحر الشديد أن يكون مجهداً للدورة الدموية."
+        "s": "Bei dieser Hitze trinke ich viel Wasser.",
+        "sar": "في هذا الحر أشرب الكثير من الماء."
       },
       {
         "id": "wetter.kaelte",
@@ -4442,8 +4442,8 @@
         "ar": "برودة شديدة",
         "note": "اسم غير معدود، لا يوجد له جمع حسب Duden",
         "pl": null,
-        "s": "Im tiefen Winter schützt eine gefütterte Jacke vor der eisigen Kälte.",
-        "sar": "في أعماق الشتاء تحمي السترة المبطنة من البرد القارس."
+        "s": "Die Kälte tut meinen Händen weh.",
+        "sar": "البرد الشديد يؤلم يديّ."
       },
       {
         "id": "wetter.blitz",
@@ -4451,8 +4451,8 @@
         "n": "Blitz",
         "ar": "برق",
         "pl": "die Blitze",
-        "s": "Ein greller Blitz erhellte für eine Sekunde den Nachthimmel.",
-        "sar": "برق ساطع أضاء سماء الليل لثانية واحدة."
+        "s": "Ein Blitz kommt vor dem Donner.",
+        "sar": "يأتي البرق قبل الرعد."
       },
       {
         "id": "wetter.donner",
@@ -4461,8 +4461,8 @@
         "ar": "رعد",
         "note": "جمع نادر الاستخدام حسب Duden",
         "pl": "die Donner",
-        "s": "Kurz nach dem grellen Licht folgte ein dumpfer Donner.",
-        "sar": "بعد الضوء الساطع مباشرة تلا ذلك رعد قوي."
+        "s": "Das Kind hat Angst vor dem Donner.",
+        "sar": "الطفل يخاف من الرعد."
       },
       {
         "id": "wetter.regenbogen",
@@ -4470,8 +4470,8 @@
         "n": "Regenbogen",
         "ar": "قوس قزح",
         "pl": "die Regenbögen",
-        "s": "Nach dem Regen erschien ein farbenprächtiger Regenbogen am Horizont.",
-        "sar": "بعد المطر ظهر قوس قزح بديع الألوان في الأفق."
+        "s": "Nach dem Regen sieht man einen Regenbogen.",
+        "sar": "بعد المطر يرى المرء قوس قزح."
       },
       {
         "id": "wetter.regenschirm",
@@ -4479,8 +4479,8 @@
         "n": "Regenschirm",
         "ar": "مظلة",
         "pl": "die Regenschirme",
-        "s": "Nimm bitte deinen Regenschirm mit, es fängt gleich an zu regnen.",
-        "sar": "خذ مظلتك معك من فضلك، فالطقس سيبدأ بالمطر فوراً."
+        "s": "Nimm einen Regenschirm mit!",
+        "sar": "خذ معك مظلة!"
       },
       {
         "id": "wetter.hagel",
@@ -4488,8 +4488,8 @@
         "n": "Hagel",
         "ar": "بَرَد (حبّات جليد تتساقط)",
         "pl": "die Hagel",
-        "s": "Großer Hagel prasselte lautstark auf die geparkten Autos nieder.",
-        "sar": "حبات برد كبيرة انهمرت بصوت عالٍ على السيارات المتوقفة."
+        "s": "Hagel besteht aus kleinen Eisstücken.",
+        "sar": "يتكون البرد من قطع جليد صغيرة."
       },
       {
         "id": "wetter.klima",
@@ -4498,8 +4498,8 @@
         "ar": "مناخ",
         "note": "الأشكال البديلة الأقل شيوعًا: Klimas وKlimate حسب Duden",
         "pl": "die Klimata",
-        "s": "Das mediterrane Klima sorgt für milde Winter und heiße Sommer.",
-        "sar": "المناخ المتوسطي يوفر فصول شتاء معتدلة وصيفاً حاراً."
+        "s": "In Ägypten ist das Klima heiß und trocken.",
+        "sar": "في مصر المناخ حار وجاف."
       },
       {
         "id": "wetter.temperatur",
@@ -4507,8 +4507,8 @@
         "n": "Temperatur",
         "ar": "درجة الحرارة",
         "pl": "die Temperaturen",
-        "s": "Heute steigt die Temperatur auf angenehme fünfundzwanzig Grad.",
-        "sar": "ترتفع درجة الحرارة اليوم إلى خمس وعشرين درجة مئوية مريحة."
+        "s": "Die Temperatur sinkt in der Nacht.",
+        "sar": "تنخفض درجة الحرارة في الليل."
       },
       {
         "id": "wetter.grad",
@@ -4517,8 +4517,8 @@
         "ar": "درجة",
         "note": "بعد الأرقام تبقى بلا تغيير (مثل 30 Grad)؛ الجمع \"Grade\" يُستخدم في معانٍ أخرى غير القياس (مثل درجات القرابة)",
         "pl": "die Grad",
-        "s": "Das Thermometer zeigt heute genau zwanzig Grad im Schatten an.",
-        "sar": "ميزان الحرارة يُظهر اليوم عشرين درجة بالضبط في الظل."
+        "s": "Heute sind es zwanzig Grad.",
+        "sar": "اليوم عشرون درجة."
       },
       {
         "id": "wetter.thermometer",
@@ -4526,8 +4526,8 @@
         "n": "Thermometer",
         "ar": "ميزان الحرارة",
         "pl": "die Thermometer",
-        "s": "Das Thermometer an der Außenwand zeigt minus fünf Grad an.",
-        "sar": "ميزان الحرارة على الحائط الخارجي يُظهر خمس درجات تحت الصفر."
+        "s": "Das Thermometer zeigt dreißig Grad.",
+        "sar": "ميزان الحرارة يشير إلى ثلاثين درجة."
       },
       {
         "id": "wetter.himmel",
@@ -4535,8 +4535,8 @@
         "n": "Himmel",
         "ar": "سماء",
         "pl": "die Himmel",
-        "s": "Der blaue Himmel spannt sich weit über das ganze Land.",
-        "sar": "السماء الزرقاء تمتد واسعة فوق كل أرجاء البلاد."
+        "s": "Der Himmel ist voller Sterne.",
+        "sar": "السماء مليئة بالنجوم."
       },
       {
         "id": "wetter.mond",
@@ -4544,8 +4544,8 @@
         "n": "Mond",
         "ar": "قمر",
         "pl": "die Monde",
-        "s": "Der helle Mond leuchtet voll am dunklen Nachthimmel.",
-        "sar": "القمر المضيء يسطع بدراً في سماء الليل المظلمة."
+        "s": "Der Mond scheint hell.",
+        "sar": "القمر يضيء بشدة."
       },
       {
         "id": "wetter.stern",
@@ -4553,8 +4553,8 @@
         "n": "Stern",
         "ar": "نجمة",
         "pl": "die Sterne",
-        "s": "In einer klaren Nacht sieht man fast jeden einzelnen Stern.",
-        "sar": "في ليلة صافية يرى المرء كل نجمة تقريباً."
+        "s": "Nachts sehe ich viele Sterne.",
+        "sar": "في الليل أرى نجوماً كثيرة."
       },
       {
         "id": "wetter.sonnenaufgang",
@@ -4562,8 +4562,8 @@
         "n": "Sonnenaufgang",
         "ar": "شروق الشمس",
         "pl": "die Sonnenaufgänge",
-        "s": "Der Sonnenaufgang tauchte die Berge in goldenes Licht.",
-        "sar": "شروق الشمس غمر الجبال بضوء ذهبي."
+        "s": "Wir stehen früh zum Sonnenaufgang auf.",
+        "sar": "نستيقظ مبكراً عند شروق الشمس."
       },
       {
         "id": "wetter.sonnenuntergang",
@@ -4571,8 +4571,8 @@
         "n": "Sonnenuntergang",
         "ar": "غروب الشمس",
         "pl": "die Sonnenuntergänge",
-        "s": "Vom Strand aus beobachteten sie den herrlichen Sonnenuntergang.",
-        "sar": "من الشاطئ شاهدوا غروب الشمس الرائع."
+        "s": "Der Sonnenuntergang am Meer ist wunderschön.",
+        "sar": "غروب الشمس على البحر رائع."
       },
       {
         "id": "wetter.sonnenschein",
@@ -4581,8 +4581,8 @@
         "ar": "ضوء الشمس",
         "note": "اسم غير معدود، بلا جمع شائع",
         "pl": null,
-        "s": "Warmer Sonnenschein lockt viele Spaziergänger in den Stadtpark.",
-        "sar": "ضوء الشمس الدافئ يجذب الكثير من المتنزهين إلى حديقة المدينة."
+        "s": "Bei Sonnenschein gehen wir spazieren.",
+        "sar": "عندما تكون الشمس مشرقة نذهب للتنزه."
       },
       {
         "id": "wetter.schatten",
@@ -4590,8 +4590,8 @@
         "n": "Schatten",
         "ar": "ظل",
         "pl": "die Schatten",
-        "s": "An heißen Tagen sucht man am liebsten den kühlen Schatten.",
-        "sar": "في الأيام الحارة يبحث المرء عن الظل البارد."
+        "s": "Im Sommer sitze ich gern im Schatten.",
+        "sar": "في الصيف أحب الجلوس في الظل."
       },
       {
         "id": "wetter.daemmerung",
@@ -4600,8 +4600,8 @@
         "ar": "شفق",
         "note": "نادرة الجمع",
         "pl": "die Dämmerungen",
-        "s": "In der Dämmerung leuchten die ersten Straßenlaternen auf.",
-        "sar": "في الشفق تضاء أوائل مصابيح الشوارع."
+        "s": "In der Dämmerung wird es langsam dunkel.",
+        "sar": "عند الشفق يحل الظلام ببطء."
       },
       {
         "id": "wetter.regentropfen",
@@ -4609,8 +4609,8 @@
         "n": "Regentropfen",
         "ar": "قطرة مطر",
         "pl": "die Regentropfen",
-        "s": "Ein einzelner Regentropfen traf sie mitten auf die Wange.",
-        "sar": "قطرة مطر واحدة أصابتها في وسط خدها."
+        "s": "Ein Regentropfen fällt auf mein Gesicht.",
+        "sar": "قطرة مطر تسقط على وجهي."
       },
       {
         "id": "wetter.schneeflocke",
@@ -4618,8 +4618,8 @@
         "n": "Schneeflocke",
         "ar": "ندفة ثلج",
         "pl": "die Schneeflocken",
-        "s": "Jede winzige Schneeflocke hat eine einzigartige kristalline Form.",
-        "sar": "كل ندفة ثلج صغيرة لها شكل بلوري فريد."
+        "s": "Jede Schneeflocke sieht anders aus.",
+        "sar": "كل ندفة ثلج تبدو مختلفة."
       },
       {
         "id": "wetter.ueberschwemmung",
@@ -4627,8 +4627,8 @@
         "n": "Überschwemmung",
         "ar": "فيضان",
         "pl": "die Überschwemmungen",
-        "s": "Nach dem Dauerregen droht eine schwere Überschwemmung im Tal.",
-        "sar": "بعد المطر المتواصل ينذر فيضان شديد في الوادي."
+        "s": "Nach dem Regen gab es eine Überschwemmung.",
+        "sar": "بعد المطر حدث فيضان."
       },
       {
         "id": "wetter.tornado",
@@ -4636,8 +4636,8 @@
         "n": "Tornado",
         "ar": "إعصار قمعي",
         "pl": "die Tornados",
-        "s": "Ein gefährlicher Tornado wirbelte Trümmerteile hoch in die Luft.",
-        "sar": "إعصار قمعي خطير رفع الحطام عالياً في الهواء."
+        "s": "Der Tornado zerstört viele Häuser.",
+        "sar": "الإعصار القمعي يدمّر بيوتاً كثيرة."
       },
       {
         "id": "wetter.schauer",
@@ -4645,8 +4645,8 @@
         "n": "Schauer",
         "ar": "زخة مطر",
         "pl": "die Schauer",
-        "s": "Ein kurzer Schauer überraschte die Leute auf dem Marktplatz.",
-        "sar": "زخة مطر قصيرة فاجأت الناس في ساحة السوق."
+        "s": "Am Nachmittag gibt es einen Schauer.",
+        "sar": "بعد الظهر هناك زخة مطر."
       },
       {
         "id": "wetter.niederschlag",
@@ -4654,8 +4654,8 @@
         "n": "Niederschlag",
         "ar": "هطول الأمطار",
         "pl": "die Niederschläge",
-        "s": "Der monatliche Niederschlag lag weit über dem üblichen Durchschnitt.",
-        "sar": "هطول الأمطار الشهري كان أعلى بكثير من المعدل المعتاد."
+        "s": "Morgen gibt es viel Niederschlag.",
+        "sar": "غداً سيهطل كثير من الأمطار."
       },
       {
         "id": "wetter.schneesturm",
@@ -4663,8 +4663,8 @@
         "n": "Schneesturm",
         "ar": "عاصفة ثلجية",
         "pl": "die Schneestürme",
-        "s": "Wegen des dichten Schneesturms musste der Flughafen geschlossen werden.",
-        "sar": "بسبب العاصفة الثلجية الكثيفة اضطر المطار للإغلاق."
+        "s": "Der Schneesturm ist sehr gefährlich.",
+        "sar": "العاصفة الثلجية خطيرة جداً."
       },
       {
         "id": "wetter.sandsturm",
@@ -4672,8 +4672,8 @@
         "n": "Sandsturm",
         "ar": "عاصفة رملية",
         "pl": "die Sandstürme",
-        "s": "Der heftige Sandsturm verdunkelte die Wüstensonne komplett.",
-        "sar": "العاصفة الرملية الشديدة حجبت شمس الصحراء تماماً."
+        "s": "In der Wüste gibt es oft Sandstürme.",
+        "sar": "في الصحراء تحدث عواصف رملية كثيراً."
       },
       {
         "id": "wetter.wettervorhersage",
@@ -4681,8 +4681,8 @@
         "n": "Wettervorhersage",
         "ar": "توقعات الطقس",
         "pl": "die Wettervorhersagen",
-        "s": "Laut der Wettervorhersage soll es morgen freundlich und warm werden.",
-        "sar": "بحسب توقعات الطقس سيكون الجو غداً لطيفاً ودافئاً."
+        "s": "Die Wettervorhersage sagt morgen Regen.",
+        "sar": "توقعات الطقس تقول إن المطر سيهطل غداً."
       },
       {
         "id": "wetter.luft",
@@ -4691,8 +4691,8 @@
         "ar": "هواء",
         "note": "اسم غير معدود عادة؛ الجمع \"Lüfte\" أدبي/شاعري ونادر الاستخدام",
         "pl": null,
-        "s": "Tiefes Einatmen der reinen Bergluft erfrischt den ganzen Körper.",
-        "sar": "الاستنشاق العميق لهواء الجبال النقي ينعش الجسم كله."
+        "s": "Die Luft ist heute sehr frisch.",
+        "sar": "الهواء منعش جداً اليوم."
       },
       {
         "id": "wetter.regenzeit",
@@ -4700,8 +4700,8 @@
         "n": "Regenzeit",
         "ar": "موسم الأمطار",
         "pl": "die Regenzeiten",
-        "s": "In den Tropen beginnt die Regenzeit meist im frühen Sommer.",
-        "sar": "في المناطق الاستوائية يبدأ موسم الأمطار غالباً في أوائل الصيف."
+        "s": "In der Regenzeit regnet es jeden Tag.",
+        "sar": "في موسم الأمطار تمطر كل يوم."
       },
       {
         "id": "wetter.trockenzeit",
@@ -4709,8 +4709,8 @@
         "n": "Trockenzeit",
         "ar": "موسم الجفاف",
         "pl": "die Trockenzeiten",
-        "s": "Während der langen Trockenzeit warten Mensch und Tier auf Regen.",
-        "sar": "خلال موسم الجفاف الطويل ينتظر البشر والحيوانات المطر."
+        "s": "In der Trockenzeit regnet es kaum.",
+        "sar": "في موسم الجفاف نادراً ما تمطر."
       },
       {
         "id": "wetter.nieselregen",
@@ -4719,8 +4719,8 @@
         "ar": "رذاذ المطر",
         "note": "اسم غير معدود مثل Regen",
         "pl": null,
-        "s": "Aus den grauen Wolken fiel stundenlang nur leichter Nieselregen.",
-        "sar": "من الغيوم الرمادية سقط لساعات رذاذ مطر خفيف فقط."
+        "s": "Es gibt leichten Nieselregen.",
+        "sar": "هناك رذاذ مطر خفيف."
       },
       {
         "id": "wetter.waerme",
@@ -4729,8 +4729,8 @@
         "ar": "دفء",
         "note": "اسم غير معدود عادة",
         "pl": null,
-        "s": "Die angenehme Wärme des Ofens erfüllte das ganze Zimmer.",
-        "sar": "الدفء المريح الصادر من المدفأة ملأ الغرفة بأكملها."
+        "s": "Ich mag die Wärme im Sommer.",
+        "sar": "أحب الدفء في الصيف."
       },
       {
         "id": "wetter.kuehle",
@@ -4739,8 +4739,8 @@
         "ar": "برودة اللطيفة",
         "note": "اسم غير معدود",
         "pl": null,
-        "s": "Im schattigen Wald genossen sie die wohltuende Kühle.",
-        "sar": "في الغابة المظللة استمتعوا بالبرودة اللطيفة المنعشة."
+        "s": "Am Abend kommt eine angenehme Kühle.",
+        "sar": "في المساء يأتي برد لطيف."
       }
     ]
   },
@@ -5661,260 +5661,260 @@
         "id": "gefuehle.gluecklich",
         "n": "glücklich",
         "ar": "سعيد",
-        "s": "Heute bin ich sehr glücklich über die gute Nachricht.",
-        "sar": "اليوم أنا سعيد جداً بالخبر السار."
+        "s": "Ich bin heute sehr glücklich.",
+        "sar": "أنا سعيد جداً اليوم."
       },
       {
         "id": "gefuehle.traurig",
         "n": "traurig",
         "ar": "حزين",
-        "s": "Das traurige Lied rührte sie zu Tränen.",
-        "sar": "الأغنية الحزينة جعلت دموعها تسيل تأثراً."
+        "s": "Das Kind ist traurig.",
+        "sar": "الطفل حزين."
       },
       {
         "id": "gefuehle.muede",
         "n": "müde",
         "ar": "متعب",
-        "s": "Nach dem langen Spaziergang fühlt er sich müde.",
-        "sar": "بعد المشي الطويل يشعر بالتعب والإرهاق."
+        "s": "Nach der Arbeit bin ich müde.",
+        "sar": "أنا متعب بعد العمل."
       },
       {
         "id": "gefuehle.wuetend",
         "n": "wütend",
         "ar": "غاضب",
-        "s": "Er wurde furchtbar wütend über die Ungerechtigkeit.",
-        "sar": "هو غضب بشدة من الظلم."
+        "s": "Er ist wütend, weil der Bus nicht kommt.",
+        "sar": "هو غاضب لأن الحافلة لم تأتِ."
       },
       {
         "id": "gefuehle.aengstlich",
         "n": "ängstlich",
         "ar": "خائف",
-        "s": "Das kleine Kind blickte ängstlich in die Dunkelheit.",
-        "sar": "الطفل الصغير نظر بخوف إلى الظلام."
+        "s": "Mein Hund ist bei Gewitter ängstlich.",
+        "sar": "كلبي خائف عند العواصف الرعدية."
       },
       {
         "id": "gefuehle.aufgeregt",
         "n": "aufgeregt",
         "ar": "متحمس",
-        "s": "Vor der Reise sind die Kinder sehr aufgeregt.",
-        "sar": "قبل السفر يكون الأطفال متحمسين جداً."
+        "s": "Vor der Prüfung bin ich aufgeregt.",
+        "sar": "أكون متحمساً قبل الامتحان."
       },
       {
         "id": "gefuehle.gelangweilt",
         "n": "gelangweilt",
         "ar": "ضجر",
-        "s": "Im langen Vortrag fühlte er sich zusehends gelangweilt.",
-        "sar": "أثناء المحاضرة الطويلة شعر بضجر متزايد."
+        "s": "Im Unterricht ist er oft gelangweilt.",
+        "sar": "هو ضجر غالباً في الحصة."
       },
       {
         "id": "gefuehle.nervoes",
         "n": "nervös",
         "ar": "متوتر",
-        "s": "Vor der mündlichen Prüfung ist jeder Student etwas nervös.",
-        "sar": "قبل الامتحان الشفوي يكون كل طالب متوتراً بعض الشيء."
+        "s": "Vor dem Test bin ich nervös.",
+        "sar": "أشعر بالتوتر قبل الاختبار."
       },
       {
         "id": "gefuehle.zufrieden",
         "n": "zufrieden",
         "ar": "راضٍ",
-        "s": "Mit dem erreichten Ergebnis ist der Chef vollkommen zufrieden.",
-        "sar": "بالنتيجة المحققة يبدو المدير راضياً تمام الرضا."
+        "s": "Der Lehrer ist mit mir zufrieden.",
+        "sar": "المعلم راضٍ عني."
       },
       {
         "id": "gefuehle.ueberrascht",
         "n": "überrascht",
         "ar": "متفاجئ",
-        "s": "Über das unerwartete Geburtstagsgeschenk war sie freudig überrascht.",
-        "sar": "بهدية عيد الميلاد غير المتوقعة كانت متفاجئة بسرور."
+        "s": "Ich bin von dem Geschenk überrascht.",
+        "sar": "أنا متفاجئ بالهدية."
       },
       {
         "id": "gefuehle.verliebt",
         "n": "verliebt",
         "ar": "واقع في الحب",
-        "s": "Die beiden frisch Verliebten gehen Hand in Hand durch den Park.",
-        "sar": "العاشقان الجديدان يمشيان يداً بيد في الحديقة."
+        "s": "Mein Freund ist in sie verliebt.",
+        "sar": "صديقي واقع في حبها."
       },
       {
         "id": "gefuehle.enttaeuscht",
         "n": "enttäuscht",
         "ar": "خائب الأمل",
-        "s": "Nach der Absage war der Bewerber tief enttäuscht.",
-        "sar": "بعد الرفض شعر المتقدم للوظيفة بإحباط عميق."
+        "s": "Ich bin vom Spiel enttäuscht.",
+        "sar": "أنا خائب الأمل من المباراة."
       },
       {
         "id": "gefuehle.dankbar",
         "n": "dankbar",
         "ar": "ممتن",
-        "s": "Ich bin meinen Eltern von Herzen dankbar für alles.",
-        "sar": "أنا ممتن لوالدي من صميم قلبي على كل شيء."
+        "s": "Ich bin dir sehr dankbar.",
+        "sar": "أنا ممتن لك جداً."
       },
       {
         "id": "gefuehle.hoffnungsvoll",
         "n": "hoffnungsvoll",
         "ar": "مليء بالأمل",
-        "s": "Sie blickt voller Zuversicht hoffnungsvoll in die Zukunft.",
-        "sar": "هي تنظر بأمل وتفاؤل كبير إلى المستقبل."
+        "s": "Wir sind hoffnungsvoll und warten auf gute Nachrichten.",
+        "sar": "نحن مليئون بالأمل وننتظر أخباراً جيدة."
       },
       {
         "id": "gefuehle.verzweifelt",
         "n": "verzweifelt",
         "ar": "يائس",
-        "s": "In seiner Not suchte der verzweifelte Mann nach Hilfe.",
-        "sar": "في ضائقته بحث الرجل اليائس عن المساعدة."
+        "s": "Er ist verzweifelt und braucht Hilfe.",
+        "sar": "هو يائس ويحتاج إلى مساعدة."
       },
       {
         "id": "gefuehle.neidisch",
         "n": "neidisch",
         "ar": "حسود",
-        "s": "Er war neidisch auf den großen Erfolg seines Kollegen.",
-        "sar": "كان حسوداً على النجاح الكبير لزميله."
+        "s": "Er ist neidisch auf mein neues Handy.",
+        "sar": "هو يغار من موبايلي الجديد."
       },
       {
         "id": "gefuehle.schuldig",
         "n": "schuldig",
         "ar": "مذنب",
-        "s": "Nach dem Fehler fühlte er sich schuldig.",
-        "sar": "بعد الخطأ شعر بأنه مذنب."
+        "s": "Ich fühle mich schuldig.",
+        "sar": "أشعر بالذنب."
       },
       {
         "id": "gefuehle.mutig",
         "n": "mutig",
         "ar": "شجاع",
-        "s": "Der mutige Retter sprang ohne zu zögern ins kalte Wasser.",
-        "sar": "المنقذ الشجاع قفز في الماء البارد دون تردد."
+        "s": "Der kleine Junge ist sehr mutig.",
+        "sar": "الولد الصغير شجاع جداً."
       },
       {
         "id": "gefuehle.besorgt",
         "n": "besorgt",
         "ar": "قلق",
-        "s": "Die Mutter ist besorgt um die Gesundheit ihres kranken Kindes.",
-        "sar": "الأم قلقة على صحة طفلها المريض."
+        "s": "Meine Mutter ist um mich besorgt.",
+        "sar": "أمي قلقة عليّ."
       },
       {
         "id": "gefuehle.erleichtert",
         "n": "erleichtert",
         "ar": "مرتاح البال",
-        "s": "Nach dem bestandenen Examen atmete sie sichtlich erleichtert auf.",
-        "sar": "بعد اجتياز الامتحان تنفست الصعداء بارتياح واضح."
+        "s": "Ich bin erleichtert, dass alles gut ist.",
+        "sar": "أشعر بالارتياح لأن كل شيء بخير."
       },
       {
         "id": "gefuehle.neugierig",
         "n": "neugierig",
         "ar": "فضولي",
-        "s": "Das neugierige Kind stellt den Erwachsenen unzählige Fragen.",
-        "sar": "الطفل الفضولي يطرح على الكبار أسئلة لا حصر لها."
+        "s": "Kinder sind oft sehr neugierig.",
+        "sar": "الأطفال غالباً فضوليون جداً."
       },
       {
         "id": "gefuehle.gleichgueltig",
         "n": "gleichgültig",
         "ar": "غير مبالٍ",
-        "s": "Er zuckte nur gleichgültig mit den Schultern.",
-        "sar": "هو هز كتفيه بلا مبالاة تامة."
+        "s": "Der Junge wirkt gleichgültig.",
+        "sar": "الولد يبدو غير مبالٍ."
       },
       {
         "id": "gefuehle.genervt",
         "n": "genervt",
         "ar": "منزعج",
-        "s": "Von dem ständigen Baulärm war sie furchtbar genervt.",
-        "sar": "من ضجيج البناء المستمر كانت منزعجة للغاية."
+        "s": "Ich bin vom Lärm genervt.",
+        "sar": "أنا منزعج من الضجيج."
       },
       {
         "id": "gefuehle.frustriert",
         "n": "frustriert",
         "ar": "محبط",
-        "s": "Nach mehreren Fehlversuchen fühlte er sich verständlicherweise frustriert.",
-        "sar": "بعد عدة محاولات فاشلة شعر بالإحباط بشكل مفهوم."
+        "s": "Ich bin frustriert, weil ich es nicht verstehe.",
+        "sar": "أنا محبط لأنني لا أفهم ذلك."
       },
       {
         "id": "gefuehle.begeistert",
         "n": "begeistert",
         "ar": "متحمس بشغف",
-        "s": "Das Publikum applaudierte begeistert nach dem Konzert.",
-        "sar": "الجمهور صفق بحماس وشغف بعد الحفلة الموسيقية."
+        "s": "Wir sind von dem Konzert begeistert.",
+        "sar": "نحن متحمسون بشغف للحفلة."
       },
       {
         "id": "gefuehle.veraergert",
         "n": "verärgert",
         "ar": "غاضب قليلاً",
-        "s": "Über die Verspätung der Bahn war er ziemlich verärgert.",
-        "sar": "من تأخر القطار كان غاضباً ومستاءً بعض الشيء."
+        "s": "Sie ist über den Fehler verärgert.",
+        "sar": "هي غاضبة قليلاً بسبب الخطأ."
       },
       {
         "id": "gefuehle.ruhig",
         "n": "ruhig",
         "ar": "هادئ",
-        "s": "Bleiben Sie bitte ganz ruhig und atmen Sie tief durch.",
-        "sar": "ابقَ هادئاً تماماً من فضلك وتنفس بعمق."
+        "s": "Bleib bitte ruhig!",
+        "sar": "ابق هادئاً من فضلك!"
       },
       {
         "id": "gefuehle.froehlich",
         "n": "fröhlich",
         "ar": "مرح",
-        "s": "Ein fröhliches Lachen erhellte das ganze Zimmer.",
-        "sar": "ضحكة مرحة أضاءت الغرفة بأكملها."
+        "s": "Die Kinder sind fröhlich und spielen.",
+        "sar": "الأطفال مرحون ويلعبون."
       },
       {
         "id": "gefuehle.optimistisch",
         "n": "optimistisch",
         "ar": "متفائل",
-        "s": "Er geht stets optimistisch an neue Herausforderungen heran.",
-        "sar": "هو يقبل دائماً بتفاؤل على التحديات الجديدة."
+        "s": "Ich bin optimistisch für die Zukunft.",
+        "sar": "أنا متفائل بالمستقبل."
       },
       {
         "id": "gefuehle.selbstbewusst",
         "n": "selbstbewusst",
         "ar": "واثق من نفسه",
-        "s": "Sie trat selbstbewusst vor die versammelte Mannschaft.",
-        "sar": "هي وقفت بثقة بالنفس أمام الفريق المجتمع."
+        "s": "Sie spricht selbstbewusst vor der Klasse.",
+        "sar": "هي تتحدث بثقة أمام الفصل."
       },
       {
         "id": "gefuehle.unsicher",
         "n": "unsicher",
         "ar": "غير واثق",
-        "s": "In der fremden Umgebung fühlte er sich anfangs noch unsicher.",
-        "sar": "في البيئة الغريبة شعر في البداية بعدم الثقة والتردد."
+        "s": "Ich bin unsicher, ob das richtig ist.",
+        "sar": "لست واثقاً من أن هذا صحيح."
       },
       {
         "id": "gefuehle.verlegen",
         "n": "verlegen",
         "ar": "محرج",
-        "s": "Nach dem Kompliment lächelte das Mädchen verlegen.",
-        "sar": "بعد الإطراء ابتسمت الفتاة بحرج وخجل."
+        "s": "Er wird verlegen, wenn man ihn lobt.",
+        "sar": "يشعر بالحرج عندما يمدحه أحد."
       },
       {
         "id": "gefuehle.ueberfordert",
         "n": "überfordert",
         "ar": "مرهق نفسيًا",
-        "s": "Mit zu vielen Aufgaben auf einmal fühlte sie sich überfordert.",
-        "sar": "مع كثرة المهام دفعة واحدة شعرت بالإرهاق الشديد."
+        "s": "Die Aufgabe ist zu schwer, ich bin überfordert.",
+        "sar": "التمرين صعب جداً وأنا مرهق نفسياً."
       },
       {
         "id": "gefuehle.gespannt",
         "n": "gespannt",
         "ar": "متشوق",
-        "s": "Wir sind alle sehr gespannt auf das Ende des Films.",
-        "sar": "نحن جميعاً متشوقون جداً لمعرفة نهاية الفيلم."
+        "s": "Ich bin gespannt auf das Ergebnis.",
+        "sar": "أنا متشوق لمعرفة النتيجة."
       },
       {
         "id": "gefuehle.locker",
         "n": "locker",
         "ar": "مرتاح/متحرر",
-        "s": "Auf der Feier herrschte eine angenehm lockere Stimmung.",
-        "sar": "في الحفل ساد جو مرح ومريح ومتحرر."
+        "s": "Ich bin heute ganz locker.",
+        "sar": "أنا مرتاح تماماً اليوم."
       },
       {
         "id": "gefuehle.angespannt",
         "n": "angespannt",
         "ar": "متوتر (جسديًا)",
-        "s": "Vor dem Start des Rennens wirkte der Läufer sehr angespannt.",
-        "sar": "قبل بدء السباق بدا العداء متوتراً ومشدود الأعصاب."
+        "s": "Mein Nacken ist heute angespannt.",
+        "sar": "رقبتي متوترة اليوم."
       },
       {
         "id": "gefuehle.hilflos",
         "n": "hilflos",
         "ar": "عاجز",
-        "s": "Ohne Werkzeug stand er hilflos vor dem kaputten Motor.",
-        "sar": "بدون أدوات وقف عاجزاً أمام المحرك المعطل."
+        "s": "Ohne Hilfe fühlt er sich hilflos.",
+        "sar": "بدون مساعدة يشعر بالعجز."
       }
     ],
     "hasArticles": false
@@ -6477,50 +6477,50 @@
         "id": "wochentage.montag",
         "n": "Montag",
         "ar": "الإثنين",
-        "s": "Am Montag beginnt für die meisten Menschen die neue Arbeitswoche.",
-        "sar": "يوم الإثنين يبدأ لمعظم الناس أسبوع العمل الجديد."
+        "s": "Am Montag beginnt die Arbeit.",
+        "sar": "يوم الإثنين يبدأ العمل."
       },
       {
         "id": "wochentage.dienstag",
         "n": "Dienstag",
         "ar": "الثلاثاء",
-        "s": "Am Dienstag habe ich am Nachmittag meinen Deutschkurs.",
-        "sar": "يوم الثلاثاء لدي في فترة بعد الظهر دورة اللغة الألمانية."
+        "s": "Am Dienstag habe ich Unterricht.",
+        "sar": "يوم الثلاثاء عندي حصة."
       },
       {
         "id": "wochentage.mittwoch",
         "n": "Mittwoch",
         "ar": "الأربعاء",
-        "s": "Der Mittwoch teilt als Mitte die Arbeitswoche genau in zwei Hälften.",
-        "sar": "يوم الأربعاء ينصف أسبوع العمل إلى نصفين بالضبط."
+        "s": "Heute ist Mittwoch.",
+        "sar": "اليوم هو الأربعاء."
       },
       {
         "id": "wochentage.donnerstag",
         "n": "Donnerstag",
         "ar": "الخميس",
-        "s": "Am Donnerstag erledigen wir abends den wöchentlichen Großeinkauf.",
-        "sar": "يوم الخميس ننجز في المساء التسوق الأسبوعي الكبير."
+        "s": "Am Donnerstag gehen wir einkaufen.",
+        "sar": "يوم الخميس نذهب للتسوق."
       },
       {
         "id": "wochentage.freitag",
         "n": "Freitag",
         "ar": "الجمعة",
-        "s": "Am Freitag freuen sich alle Kollegen auf das nahe Wochenende.",
-        "sar": "يوم الجمعة يفرح كل الزملاء باقتراب عطلة نهاية الأسبوع."
+        "s": "Am Freitag besuche ich meine Eltern.",
+        "sar": "يوم الجمعة أزور والديّ."
       },
       {
         "id": "wochentage.samstag",
         "n": "Samstag",
         "ar": "السبت",
-        "s": "Am Samstag schlafe ich gerne etwas länger aus.",
-        "sar": "يوم السبت أحب النوم لفترة أطول قليلاً."
+        "s": "Am Samstag schlafe ich lange.",
+        "sar": "يوم السبت أنام طويلاً."
       },
       {
         "id": "wochentage.sonntag",
         "n": "Sonntag",
         "ar": "الأحد",
-        "s": "Der Sonntag ist in Deutschland traditionell ein ruhiger Ruhetag.",
-        "sar": "يوم الأحد في ألمانيا تقليدياً يوم راحة وهدوء."
+        "s": "Am Sonntag essen wir zusammen.",
+        "sar": "يوم الأحد نأكل معاً."
       }
     ],
     "hasArticles": false
@@ -6534,85 +6534,85 @@
         "id": "monate.januar",
         "n": "Januar",
         "ar": "يناير",
-        "s": "Der Januar ist der kälteste Monat des ganzen Jahres.",
-        "sar": "شهر يناير هو أبرد شهر في العام بأكمله."
+        "s": "Im Januar ist es kalt.",
+        "sar": "في يناير يكون الجو بارداً."
       },
       {
         "id": "monate.februar",
         "n": "Februar",
         "ar": "فبراير",
-        "s": "Der Februar hat als einziger Monat nur achtundzwanzig oder neunundzwanzig Tage.",
-        "sar": "شهر فبراير هو الشهر الوحيد الذي يضم ثمانية وعشرين أو تسعة وعشرين يوماً فقط."
+        "s": "Der Februar ist ein kurzer Monat.",
+        "sar": "فبراير شهر قصير."
       },
       {
         "id": "monate.maerz",
         "n": "März",
         "ar": "مارس",
-        "s": "Im März erwacht die Natur allmählich aus dem Winterschlaf.",
-        "sar": "في شهر مارس تستيقظ الطبيعة تدريجياً من سباتها الشتوي."
+        "s": "Im März beginnt der Frühling.",
+        "sar": "في مارس يبدأ الربيع."
       },
       {
         "id": "monate.april",
         "n": "April",
         "ar": "أبريل",
-        "s": "Der launische April macht wettertechnisch sprichwörtlich, was er will.",
-        "sar": "شهر أبريل المتقلب يفعل في الطقس ما يشاء كما في المثل."
+        "s": "Im April regnet es oft.",
+        "sar": "في أبريل تمطر غالباً."
       },
       {
         "id": "monate.mai",
         "n": "Mai",
         "ar": "مايو",
-        "s": "Im sonnigen Mai blühen die Apfelbäume in voller Pracht.",
-        "sar": "في شهر مايو المشمس تزهر أشجار التفاح في أبهى حلة."
+        "s": "Mein Geburtstag ist im Mai.",
+        "sar": "عيد ميلادي في مايو."
       },
       {
         "id": "monate.juni",
         "n": "Juni",
         "ar": "يونيو",
-        "s": "Der Juni bringt lange helle Tage und warme Sommerabende.",
-        "sar": "شهر يونيو يجلب أياماً طويلة مضيئة وأمسيات صيفية دافئة."
+        "s": "Im Juni beginnt der Sommer.",
+        "sar": "في يونيو يبدأ الصيف."
       },
       {
         "id": "monate.juli",
         "n": "Juli",
         "ar": "يوليو",
-        "s": "Im heißen Juli beginnen in vielen Ländern die Sommerferien.",
-        "sar": "في شهر يوليو الحار تبدأ العطلة الصيفية في بلدان كثيرة."
+        "s": "Im Juli ist es sehr heiß.",
+        "sar": "في يوليو يكون الجو حاراً جداً."
       },
       {
         "id": "monate.august",
         "n": "August",
         "ar": "أغسطس",
-        "s": "Im sonnigen August reisen viele Familien ans blaue Meer.",
-        "sar": "في شهر أغسطس المشمس تسافر عائلات كثيرة إلى البحر الأزرق."
+        "s": "Im August haben wir Ferien.",
+        "sar": "في أغسطس عندنا عطلة."
       },
       {
         "id": "monate.september",
         "n": "September",
         "ar": "سبتمبر",
-        "s": "Im September beginnt für viele Kinder das neue Schuljahr.",
-        "sar": "في شهر سبتمبر يبدأ للعديد من الأطفال العام الدراسي الجديد."
+        "s": "Nach dem August kommt der September.",
+        "sar": "بعد أغسطس يأتي سبتمبر."
       },
       {
         "id": "monate.oktober",
         "n": "Oktober",
         "ar": "أكتوبر",
-        "s": "Im Oktober färben sich die Blätter der Bäume bunt und fallen ab.",
-        "sar": "في شهر أكتوبر تتلون أوراق الأشجار وتتساقط."
+        "s": "Im Oktober fallen die Blätter.",
+        "sar": "في أكتوبر تتساقط الأوراق."
       },
       {
         "id": "monate.november",
         "n": "November",
         "ar": "نوفمبر",
-        "s": "Der graue November ist oft neblig, feucht und kühl.",
-        "sar": "شهر نوفمبر الرمادي غالباً ما يكون ضبابياً ورطباً وبارداً."
+        "s": "Im November wird es früh dunkel.",
+        "sar": "في نوفمبر يحل الظلام مبكراً."
       },
       {
         "id": "monate.dezember",
         "n": "Dezember",
         "ar": "ديسمبر",
-        "s": "Im festlichen Dezember feiern die Menschen das neue Jahr.",
-        "sar": "في شهر ديسمبر الاحتفالي يحتفل الناس برأس السنة الجديدة."
+        "s": "Im Dezember schneit es oft.",
+        "sar": "في ديسمبر يتساقط الثلج غالباً."
       }
     ],
     "hasArticles": false
@@ -6626,29 +6626,29 @@
         "id": "jahreszeiten.fruehling",
         "n": "Frühling",
         "ar": "الربيع",
-        "s": "Im bunten Frühling blühen die ersten Blumen auf den Wiesen.",
-        "sar": "في الربيع الملون تزهر أوائل الزهور في المروج."
+        "s": "Im Frühling blühen die Bäume.",
+        "sar": "في الربيع تزهر الأشجار."
       },
       {
         "id": "jahreszeiten.sommer",
         "n": "Sommer",
         "ar": "الصيف",
-        "s": "Im warmen Sommer verbringen wir viel Freizeit draußen im Freien.",
-        "sar": "في الصيف الدافئ نقضي الكثير من أوقات الفراغ في الهواء الطلق بالخارج."
+        "s": "Der Sommer ist meine Lieblingsjahreszeit.",
+        "sar": "الصيف فصلي المفضل."
       },
       {
         "id": "jahreszeiten.herbst",
         "n": "Herbst",
         "ar": "الخريف",
-        "s": "Im goldenen Herbst färben sich die Blätter der Bäume rot und gelb.",
-        "sar": "في الخريف الذهبي تتلون أوراق الأشجار بالأحمر والأصفر."
+        "s": "Im Herbst werden die Blätter bunt.",
+        "sar": "في الخريف تصبح الأوراق ملونة."
       },
       {
         "id": "jahreszeiten.winter",
         "n": "Winter",
         "ar": "الشتاء",
-        "s": "Im eisigen Winter fällt oft weißer Schnee auf die Dächer.",
-        "sar": "في الشتاء الجليدي يتساقط الثلج الأبيض غالباً على أسطح المنازل."
+        "s": "Im Winter trage ich warme Kleidung.",
+        "sar": "في الشتاء أرتدي ملابس دافئة."
       }
     ],
     "hasArticles": false
