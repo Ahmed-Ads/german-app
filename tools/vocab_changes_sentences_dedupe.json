@@ -1,0 +1,52 @@
+{
+ "version": 1,
+ "base_vocab_sha256": "709fe2cac14d73a089fc1d91c74d532beeb44a8654c2cea872721cc75e329a0e",
+ "remove": [],
+ "edit": [
+  {
+   "id": "tiere.giraffe",
+   "german": "Giraffe",
+   "field": "s",
+   "expect_current": "Die Giraffe hat einen langen Hals.",
+   "new": "Die Giraffe frisst Blätter von hohen Bäumen.",
+   "kind": "SENTENCE",
+   "reason": "إزالة تكرار الجملة مع كلمة أخرى"
+  },
+  {
+   "id": "tiere.giraffe",
+   "german": "Giraffe",
+   "field": "sar",
+   "expect_current": "الزرافة لها رقبة طويلة.",
+   "new": "الزرافة تأكل أوراق الأشجار العالية.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال بعد إزالة التكرار"
+  },
+  {
+   "id": "schule.buch",
+   "german": "Buch",
+   "field": "s",
+   "expect_current": "Das Buch liegt auf dem Tisch.",
+   "new": "Ich lese jeden Abend ein Buch.",
+   "kind": "SENTENCE",
+   "reason": "إزالة تكرار الجملة مع كلمة أخرى"
+  },
+  {
+   "id": "schule.buch",
+   "german": "Buch",
+   "field": "sar",
+   "expect_current": "الكتاب على الطاولة.",
+   "new": "أقرأ كتاباً كل مساء.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال بعد إزالة التكرار"
+  },
+  {
+   "id": "verben.spielen",
+   "german": "spielen",
+   "field": "sar",
+   "expect_current": "الأطفال يلعبون في الحديقة.",
+   "new": "الأطفال يلعبون في الحديقة العامة.",
+   "kind": "SENTENCE",
+   "reason": "ترجمة جملة المثال بعد إزالة التكرار"
+  }
+ ]
+}

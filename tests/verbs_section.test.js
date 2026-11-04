@@ -108,6 +108,12 @@ describe('Task A: Verben Category & Word Data Schema Integrity', () => {
     expect(verbenCat).toBeDefined();
     expect(verbenCat.words.length).toBe(77);
 
+    const dedupePath = path.join(rootDir, 'tools', 'vocab_changes_sentences_dedupe.json');
+    const dedupeEdits = fs.existsSync(dedupePath)
+      ? JSON.parse(fs.readFileSync(dedupePath, 'utf8')).edit
+      : [];
+    const dedupeMap = new Map(dedupeEdits.map(e => [`${e.id}::${e.field}`, e.new]));
+
     for (let i = 0; i < 77; i++) {
       const actualWord = verbenCat.words[i];
       const expectedJson = expectedVerbsJson[i];
@@ -116,8 +122,8 @@ describe('Task A: Verben Category & Word Data Schema Integrity', () => {
       expect(actualWord.id.startsWith('verben.')).toBe(true);
       expect(actualWord.n).toBe(expectedJson.n);
       expect(actualWord.ar).toBe(expectedJson.ar);
-      expect(actualWord.s).toBe(expectedJson.s);
-      expect(actualWord.sar).toBe(expectedJson.sar);
+      expect(actualWord.s).toBe(dedupeMap.get(`${actualWord.id}::s`) || expectedJson.s);
+      expect(actualWord.sar).toBe(dedupeMap.get(`${actualWord.id}::sar`) || expectedJson.sar);
 
       if (expectedJson.note && expectedJson.note.trim()) {
         expect(actualWord.note).toBe(expectedJson.note.trim());

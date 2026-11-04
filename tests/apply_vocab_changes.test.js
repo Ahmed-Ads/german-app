@@ -18,15 +18,17 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
   const sentencesBatch3aPath = path.join(rootDir, 'tools', 'vocab_changes_sentences_batch3a.json');
   const sentencesBatch3bPath = path.join(rootDir, 'tools', 'vocab_changes_sentences_batch3b.json');
   const sentencesBatch4Path = path.join(rootDir, 'tools', 'vocab_changes_sentences_batch4.json');
+  const sentencesDedupePath = path.join(rootDir, 'tools', 'vocab_changes_sentences_dedupe.json');
 
   function revertEdits(html, changesJsonPath) {
     const changes = JSON.parse(fs.readFileSync(changesJsonPath, 'utf8'));
     let res = html;
     for (const e of changes.edit) {
+      const q = e.id.startsWith('verben.') ? '"' : "'";
       if (e.field === 's') {
-        res = res.replace(`s:'${e.new}'`, `s:'${e.expect_current}'`);
+        res = res.replace(`s:${q}${e.new}${q}`, `s:${q}${e.expect_current}${q}`);
       } else if (e.field === 'sar') {
-        res = res.replace(`sar:'${e.new}'`, `sar:'${e.expect_current}'`);
+        res = res.replace(`sar:${q}${e.new}${q}`, `sar:${q}${e.expect_current}${q}`);
       }
     }
     return res;
@@ -62,24 +64,42 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     expect(res.message).toContain('already applied');
   });
 
-  it('reports tools/vocab_changes_sentences_pilot4.json as already applied on current index.html', () => {
-    const res = applyVocabChanges({
-      htmlPath: indexHtmlPath,
-      changesPath: sentencesPilot4Path,
-      dryRun: true
-    });
-    expect(res.alreadyApplied).toBe(true);
-    expect(res.message).toContain('already applied');
+  it('reports tools/vocab_changes_sentences_pilot4.json as already applied on base copy before dedupe', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-p4-check-'));
+    try {
+      const tempHtml = path.join(tmpDir, 'index.html');
+      const baseHtml = revertEdits(fs.readFileSync(indexHtmlPath, 'utf8'), sentencesDedupePath);
+      fs.writeFileSync(tempHtml, baseHtml, 'utf8');
+
+      const res = applyVocabChanges({
+        htmlPath: tempHtml,
+        changesPath: sentencesPilot4Path,
+        dryRun: true
+      });
+      expect(res.alreadyApplied).toBe(true);
+      expect(res.message).toContain('already applied');
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
   });
 
-  it('reports tools/vocab_changes_sentences_batch3a.json as already applied on current index.html', () => {
-    const res = applyVocabChanges({
-      htmlPath: indexHtmlPath,
-      changesPath: sentencesBatch3aPath,
-      dryRun: true
-    });
-    expect(res.alreadyApplied).toBe(true);
-    expect(res.message).toContain('already applied');
+  it('reports tools/vocab_changes_sentences_batch3a.json as already applied on base copy before dedupe', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-b3a-check-'));
+    try {
+      const tempHtml = path.join(tmpDir, 'index.html');
+      const baseHtml = revertEdits(fs.readFileSync(indexHtmlPath, 'utf8'), sentencesDedupePath);
+      fs.writeFileSync(tempHtml, baseHtml, 'utf8');
+
+      const res = applyVocabChanges({
+        htmlPath: tempHtml,
+        changesPath: sentencesBatch3aPath,
+        dryRun: true
+      });
+      expect(res.alreadyApplied).toBe(true);
+      expect(res.message).toContain('already applied');
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
   });
 
   it('reports tools/vocab_changes_sentences_batch3b.json as already applied on current index.html', () => {
@@ -102,14 +122,25 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     expect(res.message).toContain('already applied');
   });
 
+  it('reports tools/vocab_changes_sentences_dedupe.json as already applied on current index.html', () => {
+    const res = applyVocabChanges({
+      htmlPath: indexHtmlPath,
+      changesPath: sentencesDedupePath,
+      dryRun: true
+    });
+    expect(res.alreadyApplied).toBe(true);
+    expect(res.message).toContain('already applied');
+  });
+
   it('applies sentences batch 2 on a base copy, proves exact 344 changes, second run is no-op', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-b2-test-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
       const changesData = JSON.parse(fs.readFileSync(sentencesBatch2Path, 'utf8'));
 
-      // Reconstruct batch 2 base HTML by reverting 4, 3b, 3a, pilot 4, and batch 2 edits
+      // Reconstruct batch 2 base HTML by reverting dedupe, 4, 3b, 3a, pilot 4, and batch 2 edits
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       baseHtml = revertEdits(baseHtml, sentencesBatch3bPath);
       baseHtml = revertEdits(baseHtml, sentencesBatch3aPath);
@@ -196,8 +227,9 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tempHtml = path.join(tmpDir, 'index.html');
       const changesData = JSON.parse(fs.readFileSync(sentencesPilot4Path, 'utf8'));
 
-      // Construct base HTML by reverting 4, 3b, 3a, and pilot 4 values
+      // Construct base HTML by reverting dedupe, 4, 3b, 3a, and pilot 4 values
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       baseHtml = revertEdits(baseHtml, sentencesBatch3bPath);
       baseHtml = revertEdits(baseHtml, sentencesBatch3aPath);
@@ -283,8 +315,9 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tempHtml = path.join(tmpDir, 'index.html');
       const changesData = JSON.parse(fs.readFileSync(sentencesBatch3aPath, 'utf8'));
 
-      // Construct base HTML by reverting 4, 3b and 3a values
+      // Construct base HTML by reverting dedupe, 4, 3b and 3a values
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       baseHtml = revertEdits(baseHtml, sentencesBatch3bPath);
       baseHtml = revertEdits(baseHtml, sentencesBatch3aPath);
@@ -369,8 +402,9 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tempHtml = path.join(tmpDir, 'index.html');
       const changesData = JSON.parse(fs.readFileSync(sentencesBatch3bPath, 'utf8'));
 
-      // Construct base HTML by reverting 4 and 3b values
+      // Construct base HTML by reverting dedupe, 4 and 3b values
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       baseHtml = revertEdits(baseHtml, sentencesBatch3bPath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -454,8 +488,9 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tempHtml = path.join(tmpDir, 'index.html');
       const changesData = JSON.parse(fs.readFileSync(sentencesBatch4Path, 'utf8'));
 
-      // Construct base HTML by reverting batch 4 values
+      // Construct base HTML by reverting dedupe and batch 4 values
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
@@ -532,15 +567,99 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     }
   });
 
+  it('applies sentences dedupe on a base copy, proves exact 5 changes, second run is no-op', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-dedupe-test-'));
+    try {
+      const tempHtml = path.join(tmpDir, 'index.html');
+      const changesData = JSON.parse(fs.readFileSync(sentencesDedupePath, 'utf8'));
+
+      // Construct base HTML by reverting dedupe values
+      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      baseHtml = revertEdits(baseHtml, sentencesDedupePath);
+      fs.writeFileSync(tempHtml, baseHtml, 'utf8');
+
+      // Verify base copy has base_vocab_sha256
+      const baseCategories = extractCategoriesFromHtml(fs.readFileSync(tempHtml, 'utf8'));
+      const baseHash = computeCanonicalHash(baseCategories);
+      expect(baseHash).toBe(changesData.base_vocab_sha256);
+      expect(baseHash).toBe('709fe2cac14d73a089fc1d91c74d532beeb44a8654c2cea872721cc75e329a0e');
+
+      // First run: apply changes
+      const res1 = applyVocabChanges({
+        htmlPath: tempHtml,
+        changesPath: sentencesDedupePath,
+        dryRun: false
+      });
+
+      expect(res1.alreadyApplied).toBe(false);
+      expect(res1.appliedEditsCount).toBe(5);
+      expect(res1.appliedRemovalsCount).toBe(0);
+
+      // Verify file modified and resulting hash is new canonical hash
+      const updatedCategories = extractCategoriesFromHtml(fs.readFileSync(tempHtml, 'utf8'));
+      expect(updatedCategories.length).toBe(31);
+      const newHash = computeCanonicalHash(updatedCategories);
+      expect(newHash).toBe('dd1a2e139128ff3812faa89082605c087832c2393e5343a6245767c349d46a29');
+
+      // Compare field-by-field against baseCategories
+      const expectedEditsMap = new Map();
+      for (const e of changesData.edit) {
+        expectedEditsMap.set(`${e.id}::${e.field}`, e);
+      }
+      expect(expectedEditsMap.size).toBe(5);
+
+      let totalDiffCount = 0;
+      for (let c = 0; c < baseCategories.length; c++) {
+        const bc = baseCategories[c];
+        const uc = updatedCategories[c];
+        expect(uc.id).toBe(bc.id);
+        expect(uc.words.length).toBe(bc.words.length);
+
+        for (let w = 0; w < bc.words.length; w++) {
+          const bw = bc.words[w];
+          const uw = uc.words[w];
+          expect(uw.id).toBe(bw.id);
+
+          const allKeys = new Set([...Object.keys(bw), ...Object.keys(uw)]);
+          for (const k of allKeys) {
+            if (bw[k] !== uw[k]) {
+              totalDiffCount++;
+              const key = `${bw.id}::${k}`;
+              expect(expectedEditsMap.has(key)).toBe(true);
+              const exp = expectedEditsMap.get(key);
+              expect(bw[k]).toBe(exp.expect_current);
+              expect(uw[k]).toBe(exp.new);
+            }
+          }
+        }
+      }
+      expect(totalDiffCount).toBe(5);
+
+      // Second run: idempotent no-op
+      const htmlBeforeSecond = fs.readFileSync(tempHtml, 'utf8');
+      const res2 = applyVocabChanges({
+        htmlPath: tempHtml,
+        changesPath: sentencesDedupePath,
+        dryRun: false
+      });
+      const htmlAfterSecond = fs.readFileSync(tempHtml, 'utf8');
+
+      expect(res2.alreadyApplied).toBe(true);
+      expect(htmlAfterSecond).toBe(htmlBeforeSecond);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
   it('aborts without writing when expect_current does not match', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-err-test-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
-      const changesData = JSON.parse(fs.readFileSync(sentencesBatch4Path, 'utf8'));
+      const changesData = JSON.parse(fs.readFileSync(sentencesDedupePath, 'utf8'));
 
       // Construct base HTML
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
-      baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
+      baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
       const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -569,11 +688,11 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-hash-test-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
-      const changesData = JSON.parse(fs.readFileSync(sentencesBatch4Path, 'utf8'));
+      const changesData = JSON.parse(fs.readFileSync(sentencesDedupePath, 'utf8'));
 
       // Construct base HTML
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
-      baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
+      baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
       const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -599,11 +718,11 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-id-test-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
-      const changesData = JSON.parse(fs.readFileSync(sentencesBatch4Path, 'utf8'));
+      const changesData = JSON.parse(fs.readFileSync(sentencesDedupePath, 'utf8'));
 
       // Construct base HTML
       let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
-      baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
+      baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
       const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -633,7 +752,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const origContent = fs.readFileSync(tempHtml, 'utf8');
 
       const corruptedChangesPath = path.join(tmpDir, 'forbidden.json');
-      const changesData = JSON.parse(fs.readFileSync(sentencesBatch4Path, 'utf8'));
+      const changesData = JSON.parse(fs.readFileSync(sentencesDedupePath, 'utf8'));
       changesData.edit[0].id = 'section-names.verben';
       fs.writeFileSync(corruptedChangesPath, JSON.stringify(changesData, null, 2), 'utf8');
 

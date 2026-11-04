@@ -120,8 +120,14 @@ describe('Release v1.21 Sentences Pilot 4 Quality & Structure Checks', () => {
     expect(arabicSentences.size).toBe(161);
   });
 
-  it('verifies all 161 words in index.html match the new sentence values (s and sar)', () => {
+  const dedupePath = path.join(rootDir, 'tools', 'vocab_changes_sentences_dedupe.json');
+  const supersededIds = fs.existsSync(dedupePath)
+    ? new Set(JSON.parse(fs.readFileSync(dedupePath, 'utf8')).edit.map(e => e.id))
+    : new Set();
+
+  it('verifies all 161 words in index.html match the new sentence values (s and sar) unless superseded', () => {
     for (const e of changes.edit) {
+      if (supersededIds.has(e.id)) continue;
       const w = wordMap.get(e.id);
       expect(w).toBeDefined();
       expect(w[e.field]).toBe(e.new);

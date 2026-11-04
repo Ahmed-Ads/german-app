@@ -133,3 +133,10 @@
 - **Target Item IDs:** wetter.*,gefuehle.*,farben.*,zahlen.*,monate.*,wochentage.*,jahreszeiten.*
 - **Previous SHA-256:** `8ad910bb3de85974da5466ab9fff45b3556b69b1612e5c0b82a39628af87eab7`
 - **New SHA-256:** `709fe2cac14d73a089fc1d91c74d532beeb44a8654c2cea872721cc75e329a0e`
+
+## [2026-11-04 04:31:18] Authorized Baseline Update
+- **Reason:** De-duplicate example sentences: tiere.giraffe, schule.buch, verben.spielen (3 words, 5 edits)
+- **Source:** Owner-approved review of tools/vocab_changes_sentences_dedupe.json
+- **Target Item IDs:** tiere.giraffe,schule.buch,verben.spielen
+- **Previous SHA-256:** `709fe2cac14d73a089fc1d91c74d532beeb44a8654c2cea872721cc75e329a0e`
+- **New SHA-256:** `dd1a2e139128ff3812faa89082605c087832c2393e5343a6245767c349d46a29`

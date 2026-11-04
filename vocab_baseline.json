@@ -1018,8 +1018,8 @@
         "n": "Giraffe",
         "ar": "زرافة",
         "pl": "die Giraffen",
-        "s": "Die Giraffe hat einen langen Hals.",
-        "sar": "الزرافة لها رقبة طويلة."
+        "s": "Die Giraffe frisst Blätter von hohen Bäumen.",
+        "sar": "الزرافة تأكل أوراق الأشجار العالية."
       },
       {
         "id": "tiere.kamel",
@@ -4756,8 +4756,8 @@
         "n": "Buch",
         "ar": "كتاب",
         "pl": "die Bücher",
-        "s": "Das Buch liegt auf dem Tisch.",
-        "sar": "الكتاب على الطاولة."
+        "s": "Ich lese jeden Abend ein Buch.",
+        "sar": "أقرأ كتاباً كل مساء."
       },
       {
         "id": "schule.bleistift",
@@ -9052,7 +9052,7 @@
         "n": "spielen",
         "ar": "يلعب",
         "s": "Die Kinder spielen im Park.",
-        "sar": "الأطفال يلعبون في الحديقة."
+        "sar": "الأطفال يلعبون في الحديقة العامة."
       },
       {
         "id": "verben.kochen",
