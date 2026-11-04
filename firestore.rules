@@ -58,10 +58,10 @@ service cloud.firestore {
         && request.resource.data.stats.size() <= 10
 
         && request.resource.data.starred is list
-        && request.resource.data.starred.size() <= 1200
+        && request.resource.data.starred.size() <= 2500
 
         && request.resource.data.srs is map
-        && request.resource.data.srs.size() <= 1200
+        && request.resource.data.srs.size() <= 2500
 
         // dailyGoal bounds: target must be integer within [5, 200]
         && request.resource.data.dailyGoal is map

@@ -50,6 +50,11 @@ describe('Firestore Security Rules: static guards', () => {
     expect(rulesContent).toContain('function isOwner(userId)');
     expect(rulesContent).toContain("request.auth.uid == 'ALLOWED_UID_PLACEHOLDER'");
     expect(rulesContent).toContain('request.auth.uid == userId');
+    expect(rulesContent).not.toMatch(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+    const isOwnerMatch = rulesContent.match(/function\s+isOwner\s*\([^)]*\)\s*\{[\s\S]*?\}/);
+    expect(isOwnerMatch).not.toBeNull();
+    const uidLike = isOwnerMatch[0].match(/\b[A-Za-z0-9_-]{28}\b/g) || [];
+    expect(uidLike).toEqual([]);
   });
 
   it('enforces both hasAll and hasOnly on all 8 required top-level keys', () => {
@@ -71,8 +76,10 @@ describe('Firestore Security Rules: static guards', () => {
   it('enforces structural bounds on progress, stats, starred, srs, and dailyGoal', () => {
     expect(rulesContent).toContain('request.resource.data.progress.size() <= 35');
     expect(rulesContent).toContain('request.resource.data.stats.size() <= 10');
-    expect(rulesContent).toContain('request.resource.data.starred.size() <= 1200');
-    expect(rulesContent).toContain('request.resource.data.srs.size() <= 1200');
+    expect(rulesContent).toContain('request.resource.data.starred.size() <= 2500');
+    expect(rulesContent).toContain('request.resource.data.srs.size() <= 2500');
+    expect(rulesContent).not.toContain('request.resource.data.starred.size() <= 1200');
+    expect(rulesContent).not.toContain('request.resource.data.srs.size() <= 1200');
     expect(rulesContent).toContain('request.resource.data.dailyGoal.target >= 5');
     expect(rulesContent).toContain('request.resource.data.dailyGoal.target <= 200');
     expect(rulesContent).toContain('request.resource.data.updatedAt.size() <= 40');
@@ -233,13 +240,59 @@ describe('Firestore Security Rules: emulator behaviour', () => {
     }
     await assertFails(docRef.set({ ...validPayload(), progress: bigProgress }));
 
-    // Starred > 1200 items
-    const bigStarred = new Array(1201).fill('obst_0');
+    // Starred > 2500 items
+    const bigStarred = new Array(2501).fill('obst_0');
     await assertFails(docRef.set({ ...validPayload(), starred: bigStarred }));
+
+    // SRS > 2500 entries
+    const bigSrs = {};
+    for (let i = 0; i < 2501; i++) {
+      bigSrs[`w_${i}`] = { box: 1 };
+    }
+    await assertFails(docRef.set({ ...validPayload(), srs: bigSrs }));
 
     // updatedAt > 40 chars
     const longTimestamp = '2026-10-09T00:00:00.0000000000000000000000Z';
     await assertFails(docRef.set({ ...validPayload(), updatedAt: longTimestamp }));
+  });
+
+  it('accepts boundary sizes (2500 starred, 2500 srs) and accepts 1201 regression case', async () => {
+    const { assertSucceeds, assertFails } = await import('@firebase/rules-unit-testing');
+    const owner = testEnvOwner.authenticatedContext(TEST_OWNER_UID);
+    const docRef = db(owner).doc(`users/${TEST_OWNER_UID}`);
+
+    // Regression: 1201 starred items (previously rejected by <= 1200 bound) is now accepted
+    const starred1201 = new Array(1201).fill('obst_0');
+    await assertSucceeds(docRef.set({ ...validPayload(), starred: starred1201 }));
+
+    // Boundary case: 2500 starred items accepted
+    const starred2500 = new Array(2500).fill('obst_0');
+    await assertSucceeds(docRef.set({ ...validPayload(), starred: starred2500 }));
+
+    // Boundary case: 2501 starred items rejected
+    const starred2501 = new Array(2501).fill('obst_0');
+    await assertFails(docRef.set({ ...validPayload(), starred: starred2501 }));
+
+    // Regression: 1201 srs entries accepted
+    const srs1201 = {};
+    for (let i = 0; i < 1201; i++) {
+      srs1201[`w_${i}`] = { box: 1 };
+    }
+    await assertSucceeds(docRef.set({ ...validPayload(), srs: srs1201 }));
+
+    // Boundary case: 2500 srs entries accepted
+    const srs2500 = {};
+    for (let i = 0; i < 2500; i++) {
+      srs2500[`w_${i}`] = { box: 1 };
+    }
+    await assertSucceeds(docRef.set({ ...validPayload(), srs: srs2500 }));
+
+    // Boundary case: 2501 srs entries rejected
+    const srs2501 = {};
+    for (let i = 0; i < 2501; i++) {
+      srs2501[`w_${i}`] = { box: 1 };
+    }
+    await assertFails(docRef.set({ ...validPayload(), srs: srs2501 }));
   });
 
   it('rejects dailyGoal outside [5, 200] range', async () => {

@@ -98,6 +98,9 @@ describe('Step 4: Firebase Config & Security Guard Tests', () => {
 
     const rulesContent = fs.readFileSync(rulesPath, 'utf8');
     expect(rulesContent).toContain('ALLOWED_UID_PLACEHOLDER');
+    expect(rulesContent).toContain('request.resource.data.starred.size() <= 2500');
+    expect(rulesContent).toContain('request.resource.data.srs.size() <= 2500');
+    expect(rulesContent).not.toMatch(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
 
     const isOwnerMatch = rulesContent.match(/function\s+isOwner\s*\([^)]*\)\s*\{[\s\S]*?\}/);
     expect(isOwnerMatch).not.toBeNull();
