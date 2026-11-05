@@ -280,4 +280,171 @@ test.describe('Verbs Conjugation & App Keyboard Interaction (Release v1.18)', ()
     const currentScreen = await page.evaluate(() => view.screen);
     expect(currentScreen).toBe('home');
   });
+
+  test('(f) A2 verbs: 169 verbs, conj quiz on regular (holen), separable (abholen), sein (fliegen) with real key events', async ({ page }) => {
+    // 360px viewport
+    await page.setViewportSize({ width: 360, height: 640 });
+    const fileUrl = 'file:///' + path.resolve(__dirname, '..', 'index.html').replace(/\\/g, '/');
+    await page.goto(fileUrl);
+    await page.waitForLoadState('domcontentloaded');
+
+    // 1. Check verbs section has 169 words
+    const verbsCount = await page.evaluate(() => {
+      const cat = CATEGORIES.find(c => c.id === 'verben');
+      return cat ? cat.words.length : 0;
+    });
+    expect(verbsCount).toBe(169);
+
+    // 2. Set up progress with A2 verbs (holen, abholen, fliegen)
+    const setupData = await page.evaluate(async () => {
+      if (typeof resetAllProgress === 'function') await resetAllProgress();
+      const cat = CATEGORIES.find(c => c.id === 'verben');
+      const vHolenIdx = cat.words.findIndex(w => w.id === 'verben.holen');
+      const vAbholenIdx = cat.words.findIndex(w => w.id === 'verben.abholen');
+      const vFliegenIdx = cat.words.findIndex(w => w.id === 'verben.fliegen');
+
+      // Unlock them in written mode so pool >= 3
+      setWordCount('verben', 'written', vHolenIdx, 2);
+      setWordCount('verben', 'written', vAbholenIdx, 2);
+      setWordCount('verben', 'written', vFliegenIdx, 2);
+
+      // Preset holen count to 4 (THRESH.conj - 1) to test daily goal mastery credit
+      setWordCount('verben', 'conj', vHolenIdx, 4);
+
+      return { vHolenIdx, vAbholenIdx, vFliegenIdx };
+    });
+
+    // 3. Test Regular Verb (holen) in Conj Quiz
+    await page.evaluate(({ vHolenIdx }) => {
+      conjState = {
+        sessionIndices: [vHolenIdx],
+        currentIndex: 0,
+        currentStage: 1,
+        presPronounIdx: 1, // du
+        pretPronounIdx: 0, // ich
+        stageResults: [],
+        score: 0,
+        answered: false,
+        runRecorded: false,
+        lastResult: null,
+        done: false
+      };
+      renderConjExercise();
+    }, { vHolenIdx: setupData.vHolenIdx });
+
+    await page.waitForSelector('#conjIn');
+
+    // Stage 1: Type holen
+    await page.keyboard.type('holen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    let s1Ok = await page.evaluate(() => conjState.lastResult && conjState.lastResult.ok);
+    expect(s1Ok).toBe(true);
+
+    // 2nd Enter: advance to stage 2
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 2: Type wrong first
+    await page.keyboard.type('falsch');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    let s2Wrong = await page.evaluate(() => conjState.lastResult && conjState.lastResult.ok);
+    expect(s2Wrong).toBe(false);
+
+    // Advance to Stage 3
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 3: Type holte
+    await page.keyboard.type('holte');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    let s3Ok = await page.evaluate(() => conjState.lastResult && conjState.lastResult.ok);
+    expect(s3Ok).toBe(true);
+
+    // Advance to Stage 4
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 4: Type hat geholt
+    await page.keyboard.type('hat geholt');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    let s4Ok = await page.evaluate(() => conjState.lastResult && conjState.lastResult.ok);
+    expect(s4Ok).toBe(true);
+
+    // 4. Test Separable Verb (abholen): prefix requirement
+    await page.evaluate(({ vAbholenIdx }) => {
+      conjState = {
+        sessionIndices: [vAbholenIdx],
+        currentIndex: 0,
+        currentStage: 1,
+        presPronounIdx: 0, // ich
+        pretPronounIdx: 0, // ich
+        stageResults: [],
+        score: 0,
+        answered: false,
+        runRecorded: false,
+        lastResult: null,
+        done: false
+      };
+      renderConjExercise();
+    }, { vAbholenIdx: setupData.vAbholenIdx });
+
+    await page.waitForSelector('#conjIn');
+    await page.keyboard.type('abholen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Advance to Stage 2
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 2: Type stem only without prefix ('hole') -> rejected with missingPrefix
+    await page.keyboard.type('hole');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    const abholenStemRes = await page.evaluate(() => ({
+      ok: conjState.lastResult.ok,
+      missingPrefix: conjState.lastResult.missingPrefix,
+      hint: conjState.lastResult.hint
+    }));
+    expect(abholenStemRes.ok).toBe(false);
+    expect(abholenStemRes.missingPrefix).toBe(true);
+    expect(abholenStemRes.hint).toContain('ab');
+
+    // 5. Test Sein Verb (fliegen): hat geflogen rejected
+    await page.evaluate(({ vFliegenIdx }) => {
+      conjState = {
+        sessionIndices: [vFliegenIdx],
+        currentIndex: 0,
+        currentStage: 4,
+        presPronounIdx: 0,
+        pretPronounIdx: 0,
+        stageResults: [true, true, true],
+        score: 0,
+        answered: false,
+        runRecorded: false,
+        lastResult: null,
+        done: false
+      };
+      renderConjExercise();
+    }, { vFliegenIdx: setupData.vFliegenIdx });
+
+    await page.waitForSelector('#conjIn');
+    // Wrong aux
+    await page.keyboard.type('hat geflogen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    const fliegenWrong = await page.evaluate(() => conjState.lastResult.ok);
+    expect(fliegenWrong).toBe(false);
+
+    // Verify 360px overflow
+    const overflow = await page.evaluate(() => {
+      return document.documentElement.scrollWidth > 360 || document.body.scrollWidth > 360;
+    });
+    expect(overflow).toBe(false);
+  });
 });

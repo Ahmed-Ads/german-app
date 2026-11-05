@@ -4,7 +4,7 @@
  * Comprehensive Vitest suite for Release v1.17 "الأفعال" (Verbs) Section:
  * 1. Category schema, ID format, and word order from index.html match tools/verbs_batch1.json
  * 2. Non-article word schema: w.a is undefined, no plural field
- * 3. VERB_FORMS integrity: exact 77 keys equal to verben word ids, 6+6 forms, aux haben|sein,
+ * 3. VERB_FORMS integrity: exact 169 keys equal to verben word ids, 6+6 forms, aux haben|sein,
  *    and cryptographic SHA-256 checksum guard
  * 4. renderVerbPanel markup verified for regular (machen), strong (gehen), modal (können),
  *    separable (aufstehen), -ieren (telefonieren), and alternative du-form (essen) verbs
@@ -103,10 +103,10 @@ describe('Task A: Verben Category & Word Data Schema Integrity', () => {
     expect(lastCat.hasArticles).toBe(false);
   });
 
-  it('contains exactly 77 verbs matching verbs_batch1.json order and IDs', () => {
+  it('contains exactly 169 verbs with the first 77 matching verbs_batch1.json order and IDs', () => {
     const verbenCat = CATEGORIES.find(c => c.id === 'verben');
     expect(verbenCat).toBeDefined();
-    expect(verbenCat.words.length).toBe(77);
+    expect(verbenCat.words.length).toBe(169);
 
     const dedupePath = path.join(rootDir, 'tools', 'vocab_changes_sentences_dedupe.json');
     const dedupeEdits = fs.existsSync(dedupePath)
@@ -137,19 +137,19 @@ describe('Task A: Verben Category & Word Data Schema Integrity', () => {
     }
   });
 
-  it('total words across all 31 categories equals 1029', () => {
+  it('total words across all 31 categories equals 1121', () => {
     const totalWords = CATEGORIES.reduce((s, c) => s + c.words.length, 0);
-    expect(totalWords).toBe(1029);
+    expect(totalWords).toBe(1121);
   });
 });
 
 describe('Task A: VERB_FORMS Constant Integrity & Checksum Guard', () => {
-  const EXPECTED_CHECKSUM = 'd6652c064e78cc1ab873d29ef1a6e29c35200576aa43815b71135a0052452d5f';
+  const EXPECTED_CHECKSUM = '475d9b0064f593a35f1041afa30cb6290c36d8f057328311f96f968c8cdeee0b';
 
-  it('VERB_FORMS is defined and contains all 77 verb IDs as keys', () => {
+  it('VERB_FORMS is defined and contains all 169 verb IDs as keys', () => {
     expect(VERB_FORMS).toBeDefined();
     const keys = Object.keys(VERB_FORMS);
-    expect(keys.length).toBe(77);
+    expect(keys.length).toBe(169);
 
     const verbenCat = CATEGORIES.find(c => c.id === 'verben');
     const wordIds = verbenCat.words.map(w => w.id);
@@ -158,7 +158,7 @@ describe('Task A: VERB_FORMS Constant Integrity & Checksum Guard', () => {
 
   it('every VERB_FORMS entry has valid 6+6 forms, aux in haben|sein, and required fields', () => {
     for (const [id, entry] of Object.entries(VERB_FORMS)) {
-      expect(entry.level, `Verb ${id} missing level`).toBe('A1');
+      expect(['A1', 'A2'], `Verb ${id} invalid level`).toContain(entry.level);
       expect(['haben', 'sein']).toContain(entry.aux);
       expect(Array.isArray(entry.pres), `Verb ${id} pres is not an array`).toBe(true);
       expect(entry.pres.length, `Verb ${id} pres must have 6 forms`).toBe(6);
@@ -362,10 +362,10 @@ describe('Task 4: Category Review for Verben ("مراجعة القسم") & Learn
     expect(htmlContent).toContain('${(pluralReady(cat) || !cat.hasArticles) ?');
   });
 
-  it('computes reviewTotalQ as exactly 1 question per word for non-article categories (77 vs 154)', () => {
+  it('computes reviewTotalQ as exactly 1 question per word for non-article categories (169 vs 338)', () => {
     const reviewTotalQ = ctx.reviewTotalQ;
     const queue = verbenCat.words.map((_, i) => ({ catId: 'verben', idx: i }));
-    expect(reviewTotalQ(queue)).toBe(77);
+    expect(reviewTotalQ(queue)).toBe(169);
 
     // Compare with a category with articles (e.g. obst hasArticles: true -> 2 questions per word)
     const obstCat = CATEGORIES.find(c => c.id === 'obst');

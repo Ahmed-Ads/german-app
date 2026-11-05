@@ -132,7 +132,7 @@ describe('Task 1: THRESH, PROGRESS_MODES Wiring & Mastery Isolation', () => {
     // Zero conj progress initially
     const masteredBefore = ctx.computeMasteredCount();
 
-    // Give perfect conj scores (5) to all 77 verbs
+    // Give perfect conj scores (5) to all 169 verbs
     const verbenCat = ctx.CATEGORIES.find(c => c.id === 'verben');
     for (let i = 0; i < verbenCat.words.length; i++) {
       ctx.setWordCount('verben', 'conj', i, 5);
@@ -142,8 +142,8 @@ describe('Task 1: THRESH, PROGRESS_MODES Wiring & Mastery Isolation', () => {
     const masteredAfter = ctx.computeMasteredCount();
     expect(masteredAfter).toBe(masteredBefore);
 
-    // But computeConjMasteredCount reflects the 77 mastered
-    expect(ctx.computeConjMasteredCount()).toBe(77);
+    // But computeConjMasteredCount reflects the 169 mastered
+    expect(ctx.computeConjMasteredCount()).toBe(169);
   });
 });
 
@@ -355,7 +355,7 @@ describe('Task 2C: Verb Synonyms Extraction & Typing Acceptance (Fix 1)', () => 
     ctx = createTestContext();
   });
 
-  it('verbSynonyms finds exactly the five specified pairs on real CATEGORIES and no others', () => {
+  it('verbSynonyms finds exactly the six specified pairs on real CATEGORIES and no others', () => {
     const verbenCat = ctx.CATEGORIES.find(c => c.id === 'verben');
     expect(verbenCat).toBeDefined();
 
@@ -371,13 +371,14 @@ describe('Task 2C: Verb Synonyms Extraction & Typing Acceptance (Fix 1)', () => 
 
     const discoveredPairs = Array.from(pairs.keys()).sort();
     expect(discoveredPairs).toEqual([
+      'anfangen - beginnen',
       'aufmachen - öffnen',
       'fahren - reisen',
       'gefallen - mögen',
       'gehen - laufen',
       'schließen - zumachen'
     ]);
-    expect(discoveredPairs.length).toBe(5);
+    expect(discoveredPairs.length).toBe(6);
   });
 
   it('written exercise accepts synonym infinitives for each of the 5 pairs with isSynonym=true', () => {
@@ -503,7 +504,7 @@ describe('Task 2D: MCQ & Listen Distractor Synonym Exclusion & Fuzz Proof (Fix 1
     }
   });
 
-  it('fuzz proof: across all 77 verbs x 50 seeds, no question contains two correct options', () => {
+  it('fuzz proof: across all 169 verbs x 50 seeds, no question contains two correct options', () => {
     const verbenCat = ctx.CATEGORIES.find(c => c.id === 'verben');
 
     for (let i = 0; i < verbenCat.words.length; i++) {
@@ -535,7 +536,7 @@ describe('Task 2D: MCQ & Listen Distractor Synonym Exclusion & Fuzz Proof (Fix 1
         }
       }
     }
-  });
+  }, 30000);
 });
 
 describe('Task 3: Session Selection Rules & Pool Logic', () => {

@@ -140,3 +140,10 @@
 - **Target Item IDs:** tiere.giraffe,schule.buch,verben.spielen
 - **Previous SHA-256:** `709fe2cac14d73a089fc1d91c74d532beeb44a8654c2cea872721cc75e329a0e`
 - **New SHA-256:** `dd1a2e139128ff3812faa89082605c087832c2393e5343a6245767c349d46a29`
+
+## [2026-11-05 13:57:13] Authorized Baseline Update
+- **Reason:** A2 verbs batch: 92 new verbs appended to the verben category
+- **Source:** Owner-approved review of tools/verbs_batch2.json
+- **Target Item IDs:** verben.*
+- **Previous SHA-256:** `dd1a2e139128ff3812faa89082605c087832c2393e5343a6245767c349d46a29`
+- **New SHA-256:** `8144a1fa30ab76d3b88f5931d008d80f05d981cd4f18a9dca303c2bee605c8d5`

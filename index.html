@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="تطبيق ويب تقدمي (PWA) تفاعلي لمتحدثي العربية لإتقان 1029 كلمة ألمانية وقواعدها مع صيغ الجمع والتكرار المتباعد">
+<meta name="description" content="تطبيق ويب تقدمي (PWA) تفاعلي لمتحدثي العربية لإتقان 1121 كلمة ألمانية وقواعدها مع صيغ الجمع والتكرار المتباعد">
 <meta name="theme-color" content="#171512">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -2128,7 +2128,99 @@ const CATEGORIES = [
     {id:"verben.aussteigen",n:"aussteigen",ar:"ينزل (من مركبة)",note:"فعل منفصل. Perfekt مع sein.",s:"Ich steige am Bahnhof aus.",sar:"أنزل في المحطة."},
     {id:"verben.anfangen",n:"anfangen",ar:"يبدأ",note:"فعل منفصل.",s:"Der Kurs fängt um neun Uhr an.",sar:"يبدأ الدرس في التاسعة."},
     {id:"verben.fernsehen",n:"fernsehen",ar:"يشاهد التلفاز",note:"فعل منفصل: du siehst fern.",s:"Wir sehen am Abend fern.",sar:"نشاهد التلفزيون في المساء."},
-    {id:"verben.kennenlernen",n:"kennenlernen",ar:"يتعرف على",note:"فعل منفصل: Partizip kennengelernt.",s:"Ich lerne neue Freunde kennen.",sar:"أتعرف على أصدقاء جدد."}
+    {id:"verben.kennenlernen",n:"kennenlernen",ar:"يتعرف على",note:"فعل منفصل: Partizip kennengelernt.",s:"Ich lerne neue Freunde kennen.",sar:"أتعرف على أصدقاء جدد."},
+    {id:"verben.bekommen",n:"bekommen",ar:"يحصل على",note:"bekommen تعني \"يحصل على\" وليست \"يصبح\". Partizip: bekommen (بدون ge-).",s:"Ich bekomme heute ein Paket.",sar:"أحصل اليوم على طرد."},
+    {id:"verben.denken",n:"denken",ar:"يفكر",note:"denken an + Akkusativ = يفكر في. فعل مختلط: dachte / gedacht.",s:"Ich denke oft an dich.",sar:"أفكر فيك كثيراً."},
+    {id:"verben.glauben",n:"glauben",ar:"يصدّق / يظن",note:"glauben + Dativ للشخص (ich glaube dir) وAkkusativ للشيء (ich glaube das).",s:"Ich glaube dir nicht.",sar:"لا أصدقك."},
+    {id:"verben.meinen",n:"meinen",ar:"يقصد / يعتقد",note:"meinen = يقصد، وكذلك يعبّر عن الرأي: Ich meine, das ist gut.",s:"Was meinst du damit?",sar:"ماذا تقصد بذلك؟"},
+    {id:"verben.holen",n:"holen",ar:"يجلب",note:"holen = يذهب ويأتي بشيء.",s:"Er holt Wasser aus der Küche.",sar:"هو يجلب الماء من المطبخ."},
+    {id:"verben.zeigen",n:"zeigen",ar:"يُري / يُظهر",note:"zeigen + Dativ (الشخص) + Akkusativ (الشيء).",s:"Er zeigt mir sein Zimmer.",sar:"هو يريني غرفته."},
+    {id:"verben.stellen",n:"stellen",ar:"يضع (واقفاً)",note:"stellen = يضع شيئاً واقفاً. للمسطّح استعمل legen.",s:"Ich stelle die Flasche auf den Tisch.",sar:"أضع الزجاجة واقفةً على الطاولة."},
+    {id:"verben.legen",n:"legen",ar:"يضع (مسطّحاً)",note:"legen = يضع شيئاً مسطّحاً، ويجيب عن السؤال Wohin? مع Akkusativ.",s:"Ich lege das Handy auf den Stuhl.",sar:"أضع الموبايل على الكرسي."},
+    {id:"verben.setzen",n:"setzen",ar:"يُجلس",note:"setzen = يُجلس شخصاً أو شيئاً. وsich setzen = يجلس هو بنفسه.",s:"Ich setze das Baby auf den Teppich.",sar:"أُجلس الطفل الرضيع على السجادة."},
+    {id:"verben.tragen",n:"tragen",ar:"يحمل / يرتدي",note:"tragen = يحمل، وكذلك يرتدي: Sie trägt ein Kleid. ich trage / du trägst / er trägt.",s:"Er trägt eine schwere Tasche.",sar:"هو يحمل حقيبة ثقيلة."},
+    {id:"verben.lachen",n:"lachen",ar:"يضحك",note:"lachen über + Akkusativ = يضحك من.",s:"Wir lachen über den Witz.",sar:"نضحك من النكتة."},
+    {id:"verben.lieben",n:"lieben",ar:"يحب (بعمق)",note:"lieben أقوى من mögen. Partizip: geliebt.",s:"Ich liebe meine Großmutter.",sar:"أحب جدتي."},
+    {id:"verben.hoffen",n:"hoffen",ar:"يأمل",note:"hoffen auf + Akkusativ = يأمل في. وبدون dass يبقى الفعل في المرتبة الثانية بعد الفاصلة.",s:"Ich hoffe, du kommst bald.",sar:"آمل أن تأتي قريباً."},
+    {id:"verben.wuenschen",n:"wünschen",ar:"يتمنى",note:"wünschen + Dativ (الشخص) + Akkusativ (الشيء).",s:"Ich wünsche dir viel Glück.",sar:"أتمنى لك الكثير من الحظ."},
+    {id:"verben.traeumen",n:"träumen",ar:"يحلم",note:"träumen von + Dativ = يحلم بـ.",s:"Das Kind träumt von einem Hund.",sar:"الطفل يحلم بكلب."},
+    {id:"verben.ueben",n:"üben",ar:"يتدرب",note:"üben = يتدرب. Perfekt: hat geübt.",s:"Du übst jeden Tag Klavier.",sar:"أنت تتدرب على البيانو كل يوم."},
+    {id:"verben.zaehlen",n:"zählen",ar:"يعدّ",note:"zählen = يعدّ أرقاماً.",s:"Ich zähle bis zehn.",sar:"أعدّ حتى عشرة."},
+    {id:"verben.reden",n:"reden",ar:"يتحدث",note:"reden über + Akkusativ = يتحدث عن. أخف من sprechen.",s:"Wir reden über das Wetter.",sar:"نتحدث عن الطقس."},
+    {id:"verben.danken",n:"danken",ar:"يشكر",note:"danken + Dativ: ich danke dir. danken für + Akkusativ = يشكر على.",s:"Ich danke dir für die Hilfe.",sar:"أشكرك على المساعدة."},
+    {id:"verben.schenken",n:"schenken",ar:"يُهدي",note:"schenken + Dativ (الشخص) + Akkusativ (الهدية).",s:"Er schenkt seiner Mutter Blumen.",sar:"هو يهدي أمه زهوراً."},
+    {id:"verben.schicken",n:"schicken",ar:"يرسل",note:"schicken + Dativ (الشخص) + Akkusativ (الشيء).",s:"Ich schicke dir eine Nachricht.",sar:"أرسل لك رسالة."},
+    {id:"verben.verkaufen",n:"verkaufen",ar:"يبيع",note:"Partizip: verkauft (بدون ge- لأن ver- بادئة غير منفصلة).",s:"Der Bauer verkauft frisches Obst.",sar:"الفلاح يبيع فاكهة طازجة."},
+    {id:"verben.verdienen",n:"verdienen",ar:"يكسب مالاً / يستحق",note:"verdienen = يكسب مالاً، وكذلك يستحق. Partizip: verdient.",s:"Meine Schwester verdient gut.",sar:"أختي تكسب جيداً."},
+    {id:"verben.versuchen",n:"versuchen",ar:"يحاول",note:"Partizip: versucht (بدون ge-).",s:"Ich versuche es noch einmal.",sar:"أحاول مرة أخرى."},
+    {id:"verben.benutzen",n:"benutzen",ar:"يستخدم",note:"Partizip: benutzt (بدون ge-).",s:"Wir benutzen ein Wörterbuch.",sar:"نستخدم قاموساً."},
+    {id:"verben.erklaeren",n:"erklären",ar:"يشرح",note:"erklären + Dativ + Akkusativ. Partizip: erklärt.",s:"Du erklärst die Regel sehr gut.",sar:"أنت تشرح القاعدة جيداً جداً."},
+    {id:"verben.erzaehlen",n:"erzählen",ar:"يحكي / يروي",note:"erzählen = يروي قصة. Partizip: erzählt.",s:"Opa erzählt eine lange Geschichte.",sar:"الجد يحكي قصة طويلة."},
+    {id:"verben.erleben",n:"erleben",ar:"يعيش (تجربة)",note:"erleben = يمرّ بتجربة. Partizip: erlebt.",s:"Wir erleben viel im Urlaub.",sar:"نعيش الكثير من التجارب في الإجازة."},
+    {id:"verben.erreichen",n:"erreichen",ar:"يصل إلى / يلحق بـ",note:"erreichen + Akkusativ. Partizip: erreicht.",s:"Wir erreichen den Zug pünktlich.",sar:"نلحق بالقطار في موعده."},
+    {id:"verben.vergessen",n:"vergessen",ar:"ينسى",note:"فعل قوي: du vergisst, er vergisst — vergaß — hat vergessen.",s:"Ich vergesse oft meinen Schlüssel.",sar:"أنسى مفتاحي كثيراً."},
+    {id:"verben.verlieren",n:"verlieren",ar:"يخسر / يفقد",note:"فعل قوي: verlor — hat verloren.",s:"Er verliert das Spiel.",sar:"هو يخسر المباراة."},
+    {id:"verben.gewinnen",n:"gewinnen",ar:"يفوز / يكسب",note:"فعل قوي: gewann — hat gewonnen.",s:"Unser Team gewinnt heute.",sar:"فريقنا يفوز اليوم."},
+    {id:"verben.beginnen",n:"beginnen",ar:"يبدأ",note:"فعل قوي: begann — hat begonnen. مثل anfangen.",s:"Der Film beginnt um acht Uhr.",sar:"يبدأ الفيلم الساعة الثامنة."},
+    {id:"verben.entscheiden",n:"entscheiden",ar:"يقرر",note:"فعل قوي: entschied — hat entschieden.",s:"Du entscheidest das allein.",sar:"أنت تقرر هذا وحدك."},
+    {id:"verben.nennen",n:"nennen",ar:"يسمّي",note:"فعل مختلط: nannte — hat genannt.",s:"Wie nennt man das auf Deutsch?",sar:"ماذا يسمّون هذا بالألمانية؟"},
+    {id:"verben.halten",n:"halten",ar:"يمسك / يتوقف",note:"فعل قوي: du hältst, er hält — hielt — hat gehalten.",s:"Der Bus hält vor dem Haus.",sar:"الحافلة تتوقف أمام البيت."},
+    {id:"verben.fallen",n:"fallen",ar:"يسقط",note:"فعل قوي: du fällst, er fällt — fiel — ist gefallen (مع sein). لا تخلطه بـ gefallen (يعجب).",s:"Das Glas fällt auf den Boden.",sar:"الكأس يسقط على الأرض."},
+    {id:"verben.fliegen",n:"fliegen",ar:"يطير / يسافر بالطائرة",note:"فعل قوي: flog — ist geflogen (مع sein).",s:"Wir fliegen morgen nach Kairo.",sar:"نسافر بالطائرة غداً إلى القاهرة."},
+    {id:"verben.werfen",n:"werfen",ar:"يرمي",note:"فعل قوي: du wirfst, er wirft — warf — hat geworfen.",s:"Du wirfst den Ball zu weit.",sar:"أنت ترمي الكرة بعيداً جداً."},
+    {id:"verben.ziehen",n:"ziehen",ar:"يسحب",note:"فعل قوي: zog — hat gezogen.",s:"Das Pferd zieht den Wagen.",sar:"الحصان يجرّ العربة."},
+    {id:"verben.schneiden",n:"schneiden",ar:"يقطع",note:"فعل قوي: schnitt — hat geschnitten.",s:"Ich schneide das Brot mit dem Messer.",sar:"أقطع الخبز بالسكين."},
+    {id:"verben.springen",n:"springen",ar:"يقفز",note:"فعل قوي: sprang — ist gesprungen (مع sein).",s:"Er springt über den kleinen Bach.",sar:"هو يقفز فوق الجدول الصغير."},
+    {id:"verben.sterben",n:"sterben",ar:"يموت",note:"فعل قوي: du stirbst, er stirbt — starb — ist gestorben (مع sein).",s:"Im Winter sterben viele Pflanzen.",sar:"في الشتاء تموت نباتات كثيرة."},
+    {id:"verben.wachsen",n:"wachsen",ar:"ينمو",note:"فعل قوي: du wächst, er wächst — wuchs — ist gewachsen (مع sein).",s:"Mein Sohn wächst sehr schnell.",sar:"ابني ينمو بسرعة كبيرة."},
+    {id:"verben.verbieten",n:"verbieten",ar:"يمنع",note:"فعل قوي: verbot — hat verboten.",s:"Die Schule verbietet Handys im Unterricht.",sar:"المدرسة تمنع الموبايلات في الحصة."},
+    {id:"verben.verlassen",n:"verlassen",ar:"يغادر / يترك المكان",note:"فعل قوي: du verlässt, er verlässt — verließ — hat verlassen.",s:"Wir verlassen das Haus um sieben.",sar:"نغادر البيت في السابعة."},
+    {id:"verben.lassen",n:"lassen",ar:"يترك / يدع",note:"فعل قوي: du lässt, er lässt — ließ — hat gelassen. يأتي أيضاً مع مصدر: Ich lasse mir die Haare schneiden.",s:"Ich lasse den Hund nicht allein.",sar:"لا أترك الكلب وحده."},
+    {id:"verben.riechen",n:"riechen",ar:"تفوح منه رائحة / يشمّ",note:"فعل قوي: roch — hat gerochen. riechen nach = رائحته مثل.",s:"Die Suppe riecht gut.",sar:"الشوربة رائحتها طيبة."},
+    {id:"verben.rennen",n:"rennen",ar:"يركض بسرعة",note:"فعل مختلط: rannte — ist gerannt (مع sein).",s:"Die Kinder rennen durch den Garten.",sar:"الأطفال يركضون عبر الحديقة."},
+    {id:"verben.brennen",n:"brennen",ar:"يحترق / يشتعل",note:"فعل مختلط: brannte — hat gebrannt.",s:"Das Licht brennt noch.",sar:"الضوء ما زال مضاءً."},
+    {id:"verben.leihen",n:"leihen",ar:"يُعير",note:"فعل قوي: lieh — hat geliehen. للاستعارة: Ich leihe mir ein Buch.",s:"Ich leihe dir mein Fahrrad.",sar:"أعيرك دراجتي."},
+    {id:"verben.putzen",n:"putzen",ar:"ينظّف",note:"putzen = ينظّف. Partizip: geputzt.",s:"Ich putze das Bad jeden Samstag.",sar:"أنظف الحمام كل سبت."},
+    {id:"verben.duschen",n:"duschen",ar:"يستحم (دوش)",note:"duschen = يأخذ دشاً. وbaden = يستحم في حوض.",s:"Er duscht jeden Morgen kalt.",sar:"هو يستحم كل صباح بماء بارد."},
+    {id:"verben.baden",n:"baden",ar:"يستحم في حوض / يُحمّم",note:"du badest, er badet (حرف e للنطق). Partizip: gebadet.",s:"Das Baby badet in der Wanne.",sar:"الطفل الرضيع يستحم في الحوض."},
+    {id:"verben.waschen",n:"waschen",ar:"يغسل",note:"فعل قوي: du wäschst, er wäscht — wusch — hat gewaschen.",s:"Meine Mutter wäscht die Kleider.",sar:"أمي تغسل الملابس."},
+    {id:"verben.gehoeren",n:"gehören",ar:"يخص / ملك لـ",note:"gehören + Dativ. Partizip: gehört.",s:"Das Fahrrad gehört meinem Bruder.",sar:"الدراجة تخص أخي."},
+    {id:"verben.fehlen",n:"fehlen",ar:"ينقص / يغيب",note:"fehlen + Dativ: Mir fehlt Zeit = ينقصني الوقت.",s:"Im Heft fehlt eine Seite.",sar:"في الكراسة صفحة ناقصة."},
+    {id:"verben.stimmen",n:"stimmen",ar:"يكون صحيحاً",note:"Das stimmt! = هذا صحيح.",s:"Das stimmt nicht.",sar:"هذا غير صحيح."},
+    {id:"verben.passieren",n:"passieren",ar:"يحدث",note:"Perfekt مع sein: ist passiert.",s:"Was passiert hier?",sar:"ماذا يحدث هنا؟"},
+    {id:"verben.folgen",n:"folgen",ar:"يتبع",note:"folgen + Dativ. Perfekt مع sein: ist gefolgt.",s:"Der Hund folgt dem Kind.",sar:"الكلب يتبع الطفل."},
+    {id:"verben.malen",n:"malen",ar:"يرسم / يلوّن",note:"malen = يرسم بالألوان. Partizip: gemalt.",s:"Die Kinder malen ein Bild.",sar:"الأطفال يرسمون صورة."},
+    {id:"verben.packen",n:"packen",ar:"يحزم",note:"packen = يحزم. Partizip: gepackt.",s:"Wir packen die Koffer.",sar:"نحزم الحقائب."},
+    {id:"verben.parken",n:"parken",ar:"يركن (السيارة)",note:"Partizip: geparkt.",s:"Hier parkt mein Vater das Auto.",sar:"هنا يركن والدي السيارة."},
+    {id:"verben.sparen",n:"sparen",ar:"يدّخر / يوفّر",note:"sparen für + Akkusativ = يدّخر من أجل.",s:"Ich spare Geld für ein Fahrrad.",sar:"أدّخر مالاً لشراء دراجة."},
+    {id:"verben.teilen",n:"teilen",ar:"يقتسم / يتشارك",note:"teilen = يقسم ويتشارك. Partizip: geteilt.",s:"Wir teilen den Kuchen.",sar:"نقتسم الكعكة."},
+    {id:"verben.trainieren",n:"trainieren",ar:"يتدرب (رياضياً)",note:"Partizip: trainiert (بدون ge- لأن الفعل ينتهي بـ -ieren).",s:"Er trainiert dreimal pro Woche.",sar:"هو يتدرب ثلاث مرات في الأسبوع."},
+    {id:"verben.bauen",n:"bauen",ar:"يبني",note:"bauen = يبني. Partizip: gebaut.",s:"Sie bauen ein neues Haus.",sar:"يبنون بيتاً جديداً."},
+    {id:"verben.waehlen",n:"wählen",ar:"يختار / ينتخب",note:"wählen = يختار. Partizip: gewählt.",s:"Du wählst die richtige Antwort.",sar:"أنت تختار الإجابة الصحيحة."},
+    {id:"verben.reparieren",n:"reparieren",ar:"يصلح",note:"Partizip: repariert (بدون ge- لأن الفعل ينتهي بـ -ieren).",s:"Er repariert das Dach selbst.",sar:"هو يصلح السقف بنفسه."},
+    {id:"verben.vermissen",n:"vermissen",ar:"يشتاق إلى",note:"vermissen + Akkusativ. Partizip: vermisst.",s:"Ich vermisse meine Freunde sehr.",sar:"أشتاق إلى أصدقائي كثيراً."},
+    {id:"verben.abholen",n:"abholen",ar:"يأخذ من مكان / يستقبل",note:"فعل منفصل: ich hole ... ab. Partizip: abgeholt.",s:"Ich hole dich am Bahnhof ab.",sar:"آخذك من محطة القطار."},
+    {id:"verben.aufraeumen",n:"aufräumen",ar:"يرتّب",note:"فعل منفصل: wir räumen ... auf. Partizip: aufgeräumt.",s:"Wir räumen das Zimmer auf.",sar:"نرتب الغرفة."},
+    {id:"verben.einladen",n:"einladen",ar:"يدعو",note:"فعل منفصل وقوي: du lädst ... ein — lud ... ein — hat eingeladen.",s:"Ich lade dich zur Party ein.",sar:"أدعوك إلى الحفلة."},
+    {id:"verben.anziehen",n:"anziehen",ar:"يلبس (يضع الثياب)",note:"فعل منفصل وقوي: zog ... an — hat angezogen.",s:"Sie zieht ihrem Sohn die Jacke an.",sar:"هي تلبس ابنها الجاكيت."},
+    {id:"verben.umsteigen",n:"umsteigen",ar:"يغيّر وسيلة النقل",note:"فعل منفصل: Perfekt مع sein: ist umgestiegen.",s:"Wir steigen in Köln um.",sar:"نغيّر القطار في كولن."},
+    {id:"verben.mitnehmen",n:"mitnehmen",ar:"يأخذ معه",note:"فعل منفصل وقوي: du nimmst ... mit — nahm ... mit — hat mitgenommen.",s:"Ich nehme einen Schirm mit.",sar:"آخذ مظلة معي."},
+    {id:"verben.ausgehen",n:"ausgehen",ar:"يخرج (للتنزه أو السهر)",note:"فعل منفصل: Perfekt مع sein: ist ausgegangen.",s:"Am Samstag gehen wir aus.",sar:"يوم السبت نخرج للتنزه."},
+    {id:"verben.vorbereiten",n:"vorbereiten",ar:"يحضّر",note:"فعل منفصل: ich bereite ... vor. Partizip: vorbereitet.",s:"Ich bereite das Essen vor.",sar:"أحضّر الطعام."},
+    {id:"verben.aufhoeren",n:"aufhören",ar:"يتوقف عن",note:"فعل منفصل: Partizip: aufgehört.",s:"Der Regen hört bald auf.",sar:"المطر سيتوقف قريباً."},
+    {id:"verben.zuhoeren",n:"zuhören",ar:"يستمع إلى",note:"فعل منفصل + Dativ: Ich höre dir zu. Partizip: zugehört.",s:"Hörst du mir bitte zu?",sar:"هل تستمع إليّ من فضلك؟"},
+    {id:"verben.aussehen",n:"aussehen",ar:"يبدو",note:"فعل منفصل وقوي: du siehst ... aus — sah ... aus — hat ausgesehen.",s:"Du siehst heute müde aus.",sar:"تبدو متعباً اليوم."},
+    {id:"verben.ansehen",n:"ansehen",ar:"يشاهد / ينظر إلى",note:"فعل منفصل وقوي: du siehst ... an — sah ... an — hat angesehen.",s:"Wir sehen den Film an.",sar:"نشاهد الفيلم."},
+    {id:"verben.einschlafen",n:"einschlafen",ar:"ينام (يغفو)",note:"فعل منفصل وقوي: du schläfst ... ein — schlief ... ein — ist eingeschlafen (مع sein).",s:"Das Kind schläft schnell ein.",sar:"الطفل ينام بسرعة."},
+    {id:"verben.aufwachen",n:"aufwachen",ar:"يصحو من النوم",note:"فعل منفصل: Perfekt مع sein: ist aufgewacht.",s:"Ich wache um sechs Uhr auf.",sar:"أستيقظ في السادسة."},
+    {id:"verben.abwaschen",n:"abwaschen",ar:"يغسل الأطباق",note:"فعل منفصل وقوي: du wäschst ... ab — wusch ... ab — hat abgewaschen.",s:"Nach dem Essen wasche ich ab.",sar:"بعد الأكل أغسل الأطباق."},
+    {id:"verben.mitbringen",n:"mitbringen",ar:"يحضر معه",note:"فعل منفصل ومختلط: brachte ... mit — hat mitgebracht.",s:"Ich bringe Kuchen zur Party mit.",sar:"أحضر كعكة معي إلى الحفلة."},
+    {id:"verben.ausgeben",n:"ausgeben",ar:"ينفق (مالاً)",note:"فعل منفصل وقوي: du gibst ... aus — gab ... aus — hat ausgegeben.",s:"Er gibt zu viel Geld aus.",sar:"هو ينفق مالاً أكثر من اللازم."},
+    {id:"verben.umziehen",n:"umziehen",ar:"ينتقل (إلى سكن جديد)",note:"فعل منفصل وقوي: zog ... um — ist umgezogen (مع sein).",s:"Wir ziehen nächsten Monat um.",sar:"ننتقل إلى سكن جديد الشهر القادم."},
+    {id:"verben.ausmachen",n:"ausmachen",ar:"يُطفئ",note:"فعل منفصل: Partizip: ausgemacht.",s:"Ich mache das Licht aus.",sar:"أُطفئ الضوء."},
+    {id:"verben.anmachen",n:"anmachen",ar:"يُشغّل / يُضيء",note:"فعل منفصل: Partizip: angemacht.",s:"Sie macht das Radio an.",sar:"هي تشغّل الراديو."},
+    {id:"verben.teilnehmen",n:"teilnehmen",ar:"يشارك",note:"فعل منفصل وقوي: nahm ... teil — hat teilgenommen. teilnehmen an + Dativ.",s:"Er nimmt am Kurs teil.",sar:"هو يشارك في الدورة."},
+    {id:"verben.zurueckkommen",n:"zurückkommen",ar:"يعود",note:"فعل منفصل: Perfekt مع sein: ist zurückgekommen.",s:"Wann kommst du zurück?",sar:"متى تعود؟"}
   ]}
 ];
 
@@ -3980,6 +4072,2214 @@ const VERB_FORMS = {
     ],
     "pp": "kennengelernt",
     "perfekt": "hat kennengelernt",
+    "pretDuAlt": null
+  },
+  "verben.bekommen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "bekomme",
+      "bekommst",
+      "bekommt",
+      "bekommen",
+      "bekommt",
+      "bekommen"
+    ],
+    "pret": [
+      "bekam",
+      "bekamst",
+      "bekam",
+      "bekamen",
+      "bekamt",
+      "bekamen"
+    ],
+    "pp": "bekommen",
+    "perfekt": "hat bekommen",
+    "pretDuAlt": null
+  },
+  "verben.denken": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "denke",
+      "denkst",
+      "denkt",
+      "denken",
+      "denkt",
+      "denken"
+    ],
+    "pret": [
+      "dachte",
+      "dachtest",
+      "dachte",
+      "dachten",
+      "dachtet",
+      "dachten"
+    ],
+    "pp": "gedacht",
+    "perfekt": "hat gedacht",
+    "pretDuAlt": null
+  },
+  "verben.glauben": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "glaube",
+      "glaubst",
+      "glaubt",
+      "glauben",
+      "glaubt",
+      "glauben"
+    ],
+    "pret": [
+      "glaubte",
+      "glaubtest",
+      "glaubte",
+      "glaubten",
+      "glaubtet",
+      "glaubten"
+    ],
+    "pp": "geglaubt",
+    "perfekt": "hat geglaubt",
+    "pretDuAlt": null
+  },
+  "verben.meinen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "meine",
+      "meinst",
+      "meint",
+      "meinen",
+      "meint",
+      "meinen"
+    ],
+    "pret": [
+      "meinte",
+      "meintest",
+      "meinte",
+      "meinten",
+      "meintet",
+      "meinten"
+    ],
+    "pp": "gemeint",
+    "perfekt": "hat gemeint",
+    "pretDuAlt": null
+  },
+  "verben.holen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "hole",
+      "holst",
+      "holt",
+      "holen",
+      "holt",
+      "holen"
+    ],
+    "pret": [
+      "holte",
+      "holtest",
+      "holte",
+      "holten",
+      "holtet",
+      "holten"
+    ],
+    "pp": "geholt",
+    "perfekt": "hat geholt",
+    "pretDuAlt": null
+  },
+  "verben.zeigen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "zeige",
+      "zeigst",
+      "zeigt",
+      "zeigen",
+      "zeigt",
+      "zeigen"
+    ],
+    "pret": [
+      "zeigte",
+      "zeigtest",
+      "zeigte",
+      "zeigten",
+      "zeigtet",
+      "zeigten"
+    ],
+    "pp": "gezeigt",
+    "perfekt": "hat gezeigt",
+    "pretDuAlt": null
+  },
+  "verben.stellen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "stelle",
+      "stellst",
+      "stellt",
+      "stellen",
+      "stellt",
+      "stellen"
+    ],
+    "pret": [
+      "stellte",
+      "stelltest",
+      "stellte",
+      "stellten",
+      "stelltet",
+      "stellten"
+    ],
+    "pp": "gestellt",
+    "perfekt": "hat gestellt",
+    "pretDuAlt": null
+  },
+  "verben.legen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "lege",
+      "legst",
+      "legt",
+      "legen",
+      "legt",
+      "legen"
+    ],
+    "pret": [
+      "legte",
+      "legtest",
+      "legte",
+      "legten",
+      "legtet",
+      "legten"
+    ],
+    "pp": "gelegt",
+    "perfekt": "hat gelegt",
+    "pretDuAlt": null
+  },
+  "verben.setzen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "setze",
+      "setzt",
+      "setzt",
+      "setzen",
+      "setzt",
+      "setzen"
+    ],
+    "pret": [
+      "setzte",
+      "setztest",
+      "setzte",
+      "setzten",
+      "setztet",
+      "setzten"
+    ],
+    "pp": "gesetzt",
+    "perfekt": "hat gesetzt",
+    "pretDuAlt": null
+  },
+  "verben.tragen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "trage",
+      "trägst",
+      "trägt",
+      "tragen",
+      "tragt",
+      "tragen"
+    ],
+    "pret": [
+      "trug",
+      "trugst",
+      "trug",
+      "trugen",
+      "trugt",
+      "trugen"
+    ],
+    "pp": "getragen",
+    "perfekt": "hat getragen",
+    "pretDuAlt": null
+  },
+  "verben.lachen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "lache",
+      "lachst",
+      "lacht",
+      "lachen",
+      "lacht",
+      "lachen"
+    ],
+    "pret": [
+      "lachte",
+      "lachtest",
+      "lachte",
+      "lachten",
+      "lachtet",
+      "lachten"
+    ],
+    "pp": "gelacht",
+    "perfekt": "hat gelacht",
+    "pretDuAlt": null
+  },
+  "verben.lieben": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "liebe",
+      "liebst",
+      "liebt",
+      "lieben",
+      "liebt",
+      "lieben"
+    ],
+    "pret": [
+      "liebte",
+      "liebtest",
+      "liebte",
+      "liebten",
+      "liebtet",
+      "liebten"
+    ],
+    "pp": "geliebt",
+    "perfekt": "hat geliebt",
+    "pretDuAlt": null
+  },
+  "verben.hoffen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "hoffe",
+      "hoffst",
+      "hofft",
+      "hoffen",
+      "hofft",
+      "hoffen"
+    ],
+    "pret": [
+      "hoffte",
+      "hofftest",
+      "hoffte",
+      "hofften",
+      "hofftet",
+      "hofften"
+    ],
+    "pp": "gehofft",
+    "perfekt": "hat gehofft",
+    "pretDuAlt": null
+  },
+  "verben.wuenschen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "wünsche",
+      "wünschst",
+      "wünscht",
+      "wünschen",
+      "wünscht",
+      "wünschen"
+    ],
+    "pret": [
+      "wünschte",
+      "wünschtest",
+      "wünschte",
+      "wünschten",
+      "wünschtet",
+      "wünschten"
+    ],
+    "pp": "gewünscht",
+    "perfekt": "hat gewünscht",
+    "pretDuAlt": null
+  },
+  "verben.traeumen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "träume",
+      "träumst",
+      "träumt",
+      "träumen",
+      "träumt",
+      "träumen"
+    ],
+    "pret": [
+      "träumte",
+      "träumtest",
+      "träumte",
+      "träumten",
+      "träumtet",
+      "träumten"
+    ],
+    "pp": "geträumt",
+    "perfekt": "hat geträumt",
+    "pretDuAlt": null
+  },
+  "verben.ueben": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "übe",
+      "übst",
+      "übt",
+      "üben",
+      "übt",
+      "üben"
+    ],
+    "pret": [
+      "übte",
+      "übtest",
+      "übte",
+      "übten",
+      "übtet",
+      "übten"
+    ],
+    "pp": "geübt",
+    "perfekt": "hat geübt",
+    "pretDuAlt": null
+  },
+  "verben.zaehlen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "zähle",
+      "zählst",
+      "zählt",
+      "zählen",
+      "zählt",
+      "zählen"
+    ],
+    "pret": [
+      "zählte",
+      "zähltest",
+      "zählte",
+      "zählten",
+      "zähltet",
+      "zählten"
+    ],
+    "pp": "gezählt",
+    "perfekt": "hat gezählt",
+    "pretDuAlt": null
+  },
+  "verben.reden": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "rede",
+      "redest",
+      "redet",
+      "reden",
+      "redet",
+      "reden"
+    ],
+    "pret": [
+      "redete",
+      "redetest",
+      "redete",
+      "redeten",
+      "redetet",
+      "redeten"
+    ],
+    "pp": "geredet",
+    "perfekt": "hat geredet",
+    "pretDuAlt": null
+  },
+  "verben.danken": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "danke",
+      "dankst",
+      "dankt",
+      "danken",
+      "dankt",
+      "danken"
+    ],
+    "pret": [
+      "dankte",
+      "danktest",
+      "dankte",
+      "dankten",
+      "danktet",
+      "dankten"
+    ],
+    "pp": "gedankt",
+    "perfekt": "hat gedankt",
+    "pretDuAlt": null
+  },
+  "verben.schenken": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "schenke",
+      "schenkst",
+      "schenkt",
+      "schenken",
+      "schenkt",
+      "schenken"
+    ],
+    "pret": [
+      "schenkte",
+      "schenktest",
+      "schenkte",
+      "schenkten",
+      "schenktet",
+      "schenkten"
+    ],
+    "pp": "geschenkt",
+    "perfekt": "hat geschenkt",
+    "pretDuAlt": null
+  },
+  "verben.schicken": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "schicke",
+      "schickst",
+      "schickt",
+      "schicken",
+      "schickt",
+      "schicken"
+    ],
+    "pret": [
+      "schickte",
+      "schicktest",
+      "schickte",
+      "schickten",
+      "schicktet",
+      "schickten"
+    ],
+    "pp": "geschickt",
+    "perfekt": "hat geschickt",
+    "pretDuAlt": null
+  },
+  "verben.verkaufen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verkaufe",
+      "verkaufst",
+      "verkauft",
+      "verkaufen",
+      "verkauft",
+      "verkaufen"
+    ],
+    "pret": [
+      "verkaufte",
+      "verkauftest",
+      "verkaufte",
+      "verkauften",
+      "verkauftet",
+      "verkauften"
+    ],
+    "pp": "verkauft",
+    "perfekt": "hat verkauft",
+    "pretDuAlt": null
+  },
+  "verben.verdienen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verdiene",
+      "verdienst",
+      "verdient",
+      "verdienen",
+      "verdient",
+      "verdienen"
+    ],
+    "pret": [
+      "verdiente",
+      "verdientest",
+      "verdiente",
+      "verdienten",
+      "verdientet",
+      "verdienten"
+    ],
+    "pp": "verdient",
+    "perfekt": "hat verdient",
+    "pretDuAlt": null
+  },
+  "verben.versuchen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "versuche",
+      "versuchst",
+      "versucht",
+      "versuchen",
+      "versucht",
+      "versuchen"
+    ],
+    "pret": [
+      "versuchte",
+      "versuchtest",
+      "versuchte",
+      "versuchten",
+      "versuchtet",
+      "versuchten"
+    ],
+    "pp": "versucht",
+    "perfekt": "hat versucht",
+    "pretDuAlt": null
+  },
+  "verben.benutzen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "benutze",
+      "benutzt",
+      "benutzt",
+      "benutzen",
+      "benutzt",
+      "benutzen"
+    ],
+    "pret": [
+      "benutzte",
+      "benutztest",
+      "benutzte",
+      "benutzten",
+      "benutztet",
+      "benutzten"
+    ],
+    "pp": "benutzt",
+    "perfekt": "hat benutzt",
+    "pretDuAlt": null
+  },
+  "verben.erklaeren": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erkläre",
+      "erklärst",
+      "erklärt",
+      "erklären",
+      "erklärt",
+      "erklären"
+    ],
+    "pret": [
+      "erklärte",
+      "erklärtest",
+      "erklärte",
+      "erklärten",
+      "erklärtet",
+      "erklärten"
+    ],
+    "pp": "erklärt",
+    "perfekt": "hat erklärt",
+    "pretDuAlt": null
+  },
+  "verben.erzaehlen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erzähle",
+      "erzählst",
+      "erzählt",
+      "erzählen",
+      "erzählt",
+      "erzählen"
+    ],
+    "pret": [
+      "erzählte",
+      "erzähltest",
+      "erzählte",
+      "erzählten",
+      "erzähltet",
+      "erzählten"
+    ],
+    "pp": "erzählt",
+    "perfekt": "hat erzählt",
+    "pretDuAlt": null
+  },
+  "verben.erleben": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erlebe",
+      "erlebst",
+      "erlebt",
+      "erleben",
+      "erlebt",
+      "erleben"
+    ],
+    "pret": [
+      "erlebte",
+      "erlebtest",
+      "erlebte",
+      "erlebten",
+      "erlebtet",
+      "erlebten"
+    ],
+    "pp": "erlebt",
+    "perfekt": "hat erlebt",
+    "pretDuAlt": null
+  },
+  "verben.erreichen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erreiche",
+      "erreichst",
+      "erreicht",
+      "erreichen",
+      "erreicht",
+      "erreichen"
+    ],
+    "pret": [
+      "erreichte",
+      "erreichtest",
+      "erreichte",
+      "erreichten",
+      "erreichtet",
+      "erreichten"
+    ],
+    "pp": "erreicht",
+    "perfekt": "hat erreicht",
+    "pretDuAlt": null
+  },
+  "verben.vergessen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "vergesse",
+      "vergisst",
+      "vergisst",
+      "vergessen",
+      "vergesst",
+      "vergessen"
+    ],
+    "pret": [
+      "vergaß",
+      "vergaßest",
+      "vergaß",
+      "vergaßen",
+      "vergaßt",
+      "vergaßen"
+    ],
+    "pp": "vergessen",
+    "perfekt": "hat vergessen",
+    "pretDuAlt": "vergaßt"
+  },
+  "verben.verlieren": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verliere",
+      "verlierst",
+      "verliert",
+      "verlieren",
+      "verliert",
+      "verlieren"
+    ],
+    "pret": [
+      "verlor",
+      "verlorst",
+      "verlor",
+      "verloren",
+      "verlort",
+      "verloren"
+    ],
+    "pp": "verloren",
+    "perfekt": "hat verloren",
+    "pretDuAlt": null
+  },
+  "verben.gewinnen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "gewinne",
+      "gewinnst",
+      "gewinnt",
+      "gewinnen",
+      "gewinnt",
+      "gewinnen"
+    ],
+    "pret": [
+      "gewann",
+      "gewannst",
+      "gewann",
+      "gewannen",
+      "gewannt",
+      "gewannen"
+    ],
+    "pp": "gewonnen",
+    "perfekt": "hat gewonnen",
+    "pretDuAlt": null
+  },
+  "verben.beginnen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "beginne",
+      "beginnst",
+      "beginnt",
+      "beginnen",
+      "beginnt",
+      "beginnen"
+    ],
+    "pret": [
+      "begann",
+      "begannst",
+      "begann",
+      "begannen",
+      "begannt",
+      "begannen"
+    ],
+    "pp": "begonnen",
+    "perfekt": "hat begonnen",
+    "pretDuAlt": null
+  },
+  "verben.entscheiden": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "entscheide",
+      "entscheidest",
+      "entscheidet",
+      "entscheiden",
+      "entscheidet",
+      "entscheiden"
+    ],
+    "pret": [
+      "entschied",
+      "entschiedest",
+      "entschied",
+      "entschieden",
+      "entschiedet",
+      "entschieden"
+    ],
+    "pp": "entschieden",
+    "perfekt": "hat entschieden",
+    "pretDuAlt": null
+  },
+  "verben.nennen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "nenne",
+      "nennst",
+      "nennt",
+      "nennen",
+      "nennt",
+      "nennen"
+    ],
+    "pret": [
+      "nannte",
+      "nanntest",
+      "nannte",
+      "nannten",
+      "nanntet",
+      "nannten"
+    ],
+    "pp": "genannt",
+    "perfekt": "hat genannt",
+    "pretDuAlt": null
+  },
+  "verben.halten": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "halte",
+      "hältst",
+      "hält",
+      "halten",
+      "haltet",
+      "halten"
+    ],
+    "pret": [
+      "hielt",
+      "hieltest",
+      "hielt",
+      "hielten",
+      "hieltet",
+      "hielten"
+    ],
+    "pp": "gehalten",
+    "perfekt": "hat gehalten",
+    "pretDuAlt": null
+  },
+  "verben.fallen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "falle",
+      "fällst",
+      "fällt",
+      "fallen",
+      "fallt",
+      "fallen"
+    ],
+    "pret": [
+      "fiel",
+      "fielst",
+      "fiel",
+      "fielen",
+      "fielt",
+      "fielen"
+    ],
+    "pp": "gefallen",
+    "perfekt": "ist gefallen",
+    "pretDuAlt": null
+  },
+  "verben.fliegen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "fliege",
+      "fliegst",
+      "fliegt",
+      "fliegen",
+      "fliegt",
+      "fliegen"
+    ],
+    "pret": [
+      "flog",
+      "flogst",
+      "flog",
+      "flogen",
+      "flogt",
+      "flogen"
+    ],
+    "pp": "geflogen",
+    "perfekt": "ist geflogen",
+    "pretDuAlt": null
+  },
+  "verben.werfen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "werfe",
+      "wirfst",
+      "wirft",
+      "werfen",
+      "werft",
+      "werfen"
+    ],
+    "pret": [
+      "warf",
+      "warfst",
+      "warf",
+      "warfen",
+      "warft",
+      "warfen"
+    ],
+    "pp": "geworfen",
+    "perfekt": "hat geworfen",
+    "pretDuAlt": null
+  },
+  "verben.ziehen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "ziehe",
+      "ziehst",
+      "zieht",
+      "ziehen",
+      "zieht",
+      "ziehen"
+    ],
+    "pret": [
+      "zog",
+      "zogst",
+      "zog",
+      "zogen",
+      "zogt",
+      "zogen"
+    ],
+    "pp": "gezogen",
+    "perfekt": "hat gezogen",
+    "pretDuAlt": null
+  },
+  "verben.schneiden": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "schneide",
+      "schneidest",
+      "schneidet",
+      "schneiden",
+      "schneidet",
+      "schneiden"
+    ],
+    "pret": [
+      "schnitt",
+      "schnittest",
+      "schnitt",
+      "schnitten",
+      "schnittet",
+      "schnitten"
+    ],
+    "pp": "geschnitten",
+    "perfekt": "hat geschnitten",
+    "pretDuAlt": null
+  },
+  "verben.springen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "springe",
+      "springst",
+      "springt",
+      "springen",
+      "springt",
+      "springen"
+    ],
+    "pret": [
+      "sprang",
+      "sprangst",
+      "sprang",
+      "sprangen",
+      "sprangt",
+      "sprangen"
+    ],
+    "pp": "gesprungen",
+    "perfekt": "ist gesprungen",
+    "pretDuAlt": null
+  },
+  "verben.sterben": {
+    "level": "A2",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "sterbe",
+      "stirbst",
+      "stirbt",
+      "sterben",
+      "sterbt",
+      "sterben"
+    ],
+    "pret": [
+      "starb",
+      "starbst",
+      "starb",
+      "starben",
+      "starbt",
+      "starben"
+    ],
+    "pp": "gestorben",
+    "perfekt": "ist gestorben",
+    "pretDuAlt": null
+  },
+  "verben.wachsen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "wachse",
+      "wächst",
+      "wächst",
+      "wachsen",
+      "wachst",
+      "wachsen"
+    ],
+    "pret": [
+      "wuchs",
+      "wuchsest",
+      "wuchs",
+      "wuchsen",
+      "wuchst",
+      "wuchsen"
+    ],
+    "pp": "gewachsen",
+    "perfekt": "ist gewachsen",
+    "pretDuAlt": "wuchst"
+  },
+  "verben.verbieten": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verbiete",
+      "verbietest",
+      "verbietet",
+      "verbieten",
+      "verbietet",
+      "verbieten"
+    ],
+    "pret": [
+      "verbot",
+      "verbotest",
+      "verbot",
+      "verboten",
+      "verbotet",
+      "verboten"
+    ],
+    "pp": "verboten",
+    "perfekt": "hat verboten",
+    "pretDuAlt": null
+  },
+  "verben.verlassen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verlasse",
+      "verlässt",
+      "verlässt",
+      "verlassen",
+      "verlasst",
+      "verlassen"
+    ],
+    "pret": [
+      "verließ",
+      "verließest",
+      "verließ",
+      "verließen",
+      "verließt",
+      "verließen"
+    ],
+    "pp": "verlassen",
+    "perfekt": "hat verlassen",
+    "pretDuAlt": "verließt"
+  },
+  "verben.lassen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "lasse",
+      "lässt",
+      "lässt",
+      "lassen",
+      "lasst",
+      "lassen"
+    ],
+    "pret": [
+      "ließ",
+      "ließest",
+      "ließ",
+      "ließen",
+      "ließt",
+      "ließen"
+    ],
+    "pp": "gelassen",
+    "perfekt": "hat gelassen",
+    "pretDuAlt": "ließt"
+  },
+  "verben.riechen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "rieche",
+      "riechst",
+      "riecht",
+      "riechen",
+      "riecht",
+      "riechen"
+    ],
+    "pret": [
+      "roch",
+      "rochst",
+      "roch",
+      "rochen",
+      "rocht",
+      "rochen"
+    ],
+    "pp": "gerochen",
+    "perfekt": "hat gerochen",
+    "pretDuAlt": null
+  },
+  "verben.rennen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "renne",
+      "rennst",
+      "rennt",
+      "rennen",
+      "rennt",
+      "rennen"
+    ],
+    "pret": [
+      "rannte",
+      "ranntest",
+      "rannte",
+      "rannten",
+      "ranntet",
+      "rannten"
+    ],
+    "pp": "gerannt",
+    "perfekt": "ist gerannt",
+    "pretDuAlt": null
+  },
+  "verben.brennen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "brenne",
+      "brennst",
+      "brennt",
+      "brennen",
+      "brennt",
+      "brennen"
+    ],
+    "pret": [
+      "brannte",
+      "branntest",
+      "brannte",
+      "brannten",
+      "branntet",
+      "brannten"
+    ],
+    "pp": "gebrannt",
+    "perfekt": "hat gebrannt",
+    "pretDuAlt": null
+  },
+  "verben.leihen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "leihe",
+      "leihst",
+      "leiht",
+      "leihen",
+      "leiht",
+      "leihen"
+    ],
+    "pret": [
+      "lieh",
+      "liehst",
+      "lieh",
+      "liehen",
+      "lieht",
+      "liehen"
+    ],
+    "pp": "geliehen",
+    "perfekt": "hat geliehen",
+    "pretDuAlt": null
+  },
+  "verben.putzen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "putze",
+      "putzt",
+      "putzt",
+      "putzen",
+      "putzt",
+      "putzen"
+    ],
+    "pret": [
+      "putzte",
+      "putztest",
+      "putzte",
+      "putzten",
+      "putztet",
+      "putzten"
+    ],
+    "pp": "geputzt",
+    "perfekt": "hat geputzt",
+    "pretDuAlt": null
+  },
+  "verben.duschen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "dusche",
+      "duschst",
+      "duscht",
+      "duschen",
+      "duscht",
+      "duschen"
+    ],
+    "pret": [
+      "duschte",
+      "duschtest",
+      "duschte",
+      "duschten",
+      "duschtet",
+      "duschten"
+    ],
+    "pp": "geduscht",
+    "perfekt": "hat geduscht",
+    "pretDuAlt": null
+  },
+  "verben.baden": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "bade",
+      "badest",
+      "badet",
+      "baden",
+      "badet",
+      "baden"
+    ],
+    "pret": [
+      "badete",
+      "badetest",
+      "badete",
+      "badeten",
+      "badetet",
+      "badeten"
+    ],
+    "pp": "gebadet",
+    "perfekt": "hat gebadet",
+    "pretDuAlt": null
+  },
+  "verben.waschen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "wasche",
+      "wäschst",
+      "wäscht",
+      "waschen",
+      "wascht",
+      "waschen"
+    ],
+    "pret": [
+      "wusch",
+      "wuschst",
+      "wusch",
+      "wuschen",
+      "wuscht",
+      "wuschen"
+    ],
+    "pp": "gewaschen",
+    "perfekt": "hat gewaschen",
+    "pretDuAlt": null
+  },
+  "verben.gehoeren": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "gehöre",
+      "gehörst",
+      "gehört",
+      "gehören",
+      "gehört",
+      "gehören"
+    ],
+    "pret": [
+      "gehörte",
+      "gehörtest",
+      "gehörte",
+      "gehörten",
+      "gehörtet",
+      "gehörten"
+    ],
+    "pp": "gehört",
+    "perfekt": "hat gehört",
+    "pretDuAlt": null
+  },
+  "verben.fehlen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "fehle",
+      "fehlst",
+      "fehlt",
+      "fehlen",
+      "fehlt",
+      "fehlen"
+    ],
+    "pret": [
+      "fehlte",
+      "fehltest",
+      "fehlte",
+      "fehlten",
+      "fehltet",
+      "fehlten"
+    ],
+    "pp": "gefehlt",
+    "perfekt": "hat gefehlt",
+    "pretDuAlt": null
+  },
+  "verben.stimmen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "stimme",
+      "stimmst",
+      "stimmt",
+      "stimmen",
+      "stimmt",
+      "stimmen"
+    ],
+    "pret": [
+      "stimmte",
+      "stimmtest",
+      "stimmte",
+      "stimmten",
+      "stimmtet",
+      "stimmten"
+    ],
+    "pp": "gestimmt",
+    "perfekt": "hat gestimmt",
+    "pretDuAlt": null
+  },
+  "verben.passieren": {
+    "level": "A2",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "passiere",
+      "passierst",
+      "passiert",
+      "passieren",
+      "passiert",
+      "passieren"
+    ],
+    "pret": [
+      "passierte",
+      "passiertest",
+      "passierte",
+      "passierten",
+      "passiertet",
+      "passierten"
+    ],
+    "pp": "passiert",
+    "perfekt": "ist passiert",
+    "pretDuAlt": null
+  },
+  "verben.folgen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "folge",
+      "folgst",
+      "folgt",
+      "folgen",
+      "folgt",
+      "folgen"
+    ],
+    "pret": [
+      "folgte",
+      "folgtest",
+      "folgte",
+      "folgten",
+      "folgtet",
+      "folgten"
+    ],
+    "pp": "gefolgt",
+    "perfekt": "ist gefolgt",
+    "pretDuAlt": null
+  },
+  "verben.malen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "male",
+      "malst",
+      "malt",
+      "malen",
+      "malt",
+      "malen"
+    ],
+    "pret": [
+      "malte",
+      "maltest",
+      "malte",
+      "malten",
+      "maltet",
+      "malten"
+    ],
+    "pp": "gemalt",
+    "perfekt": "hat gemalt",
+    "pretDuAlt": null
+  },
+  "verben.packen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "packe",
+      "packst",
+      "packt",
+      "packen",
+      "packt",
+      "packen"
+    ],
+    "pret": [
+      "packte",
+      "packtest",
+      "packte",
+      "packten",
+      "packtet",
+      "packten"
+    ],
+    "pp": "gepackt",
+    "perfekt": "hat gepackt",
+    "pretDuAlt": null
+  },
+  "verben.parken": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "parke",
+      "parkst",
+      "parkt",
+      "parken",
+      "parkt",
+      "parken"
+    ],
+    "pret": [
+      "parkte",
+      "parktest",
+      "parkte",
+      "parkten",
+      "parktet",
+      "parkten"
+    ],
+    "pp": "geparkt",
+    "perfekt": "hat geparkt",
+    "pretDuAlt": null
+  },
+  "verben.sparen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "spare",
+      "sparst",
+      "spart",
+      "sparen",
+      "spart",
+      "sparen"
+    ],
+    "pret": [
+      "sparte",
+      "spartest",
+      "sparte",
+      "sparten",
+      "spartet",
+      "sparten"
+    ],
+    "pp": "gespart",
+    "perfekt": "hat gespart",
+    "pretDuAlt": null
+  },
+  "verben.teilen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "teile",
+      "teilst",
+      "teilt",
+      "teilen",
+      "teilt",
+      "teilen"
+    ],
+    "pret": [
+      "teilte",
+      "teiltest",
+      "teilte",
+      "teilten",
+      "teiltet",
+      "teilten"
+    ],
+    "pp": "geteilt",
+    "perfekt": "hat geteilt",
+    "pretDuAlt": null
+  },
+  "verben.trainieren": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "trainiere",
+      "trainierst",
+      "trainiert",
+      "trainieren",
+      "trainiert",
+      "trainieren"
+    ],
+    "pret": [
+      "trainierte",
+      "trainiertest",
+      "trainierte",
+      "trainierten",
+      "trainiertet",
+      "trainierten"
+    ],
+    "pp": "trainiert",
+    "perfekt": "hat trainiert",
+    "pretDuAlt": null
+  },
+  "verben.bauen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "baue",
+      "baust",
+      "baut",
+      "bauen",
+      "baut",
+      "bauen"
+    ],
+    "pret": [
+      "baute",
+      "bautest",
+      "baute",
+      "bauten",
+      "bautet",
+      "bauten"
+    ],
+    "pp": "gebaut",
+    "perfekt": "hat gebaut",
+    "pretDuAlt": null
+  },
+  "verben.waehlen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "wähle",
+      "wählst",
+      "wählt",
+      "wählen",
+      "wählt",
+      "wählen"
+    ],
+    "pret": [
+      "wählte",
+      "wähltest",
+      "wählte",
+      "wählten",
+      "wähltet",
+      "wählten"
+    ],
+    "pp": "gewählt",
+    "perfekt": "hat gewählt",
+    "pretDuAlt": null
+  },
+  "verben.reparieren": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "repariere",
+      "reparierst",
+      "repariert",
+      "reparieren",
+      "repariert",
+      "reparieren"
+    ],
+    "pret": [
+      "reparierte",
+      "repariertest",
+      "reparierte",
+      "reparierten",
+      "repariertet",
+      "reparierten"
+    ],
+    "pp": "repariert",
+    "perfekt": "hat repariert",
+    "pretDuAlt": null
+  },
+  "verben.vermissen": {
+    "level": "A2",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "vermisse",
+      "vermisst",
+      "vermisst",
+      "vermissen",
+      "vermisst",
+      "vermissen"
+    ],
+    "pret": [
+      "vermisste",
+      "vermisstest",
+      "vermisste",
+      "vermissten",
+      "vermisstet",
+      "vermissten"
+    ],
+    "pp": "vermisst",
+    "perfekt": "hat vermisst",
+    "pretDuAlt": null
+  },
+  "verben.abholen": {
+    "level": "A2",
+    "sep": "ab",
+    "aux": "haben",
+    "pres": [
+      "hole ab",
+      "holst ab",
+      "holt ab",
+      "holen ab",
+      "holt ab",
+      "holen ab"
+    ],
+    "pret": [
+      "holte ab",
+      "holtest ab",
+      "holte ab",
+      "holten ab",
+      "holtet ab",
+      "holten ab"
+    ],
+    "pp": "abgeholt",
+    "perfekt": "hat abgeholt",
+    "pretDuAlt": null
+  },
+  "verben.aufraeumen": {
+    "level": "A2",
+    "sep": "auf",
+    "aux": "haben",
+    "pres": [
+      "räume auf",
+      "räumst auf",
+      "räumt auf",
+      "räumen auf",
+      "räumt auf",
+      "räumen auf"
+    ],
+    "pret": [
+      "räumte auf",
+      "räumtest auf",
+      "räumte auf",
+      "räumten auf",
+      "räumtet auf",
+      "räumten auf"
+    ],
+    "pp": "aufgeräumt",
+    "perfekt": "hat aufgeräumt",
+    "pretDuAlt": null
+  },
+  "verben.einladen": {
+    "level": "A2",
+    "sep": "ein",
+    "aux": "haben",
+    "pres": [
+      "lade ein",
+      "lädst ein",
+      "lädt ein",
+      "laden ein",
+      "ladet ein",
+      "laden ein"
+    ],
+    "pret": [
+      "lud ein",
+      "ludest ein",
+      "lud ein",
+      "luden ein",
+      "ludet ein",
+      "luden ein"
+    ],
+    "pp": "eingeladen",
+    "perfekt": "hat eingeladen",
+    "pretDuAlt": null
+  },
+  "verben.anziehen": {
+    "level": "A2",
+    "sep": "an",
+    "aux": "haben",
+    "pres": [
+      "ziehe an",
+      "ziehst an",
+      "zieht an",
+      "ziehen an",
+      "zieht an",
+      "ziehen an"
+    ],
+    "pret": [
+      "zog an",
+      "zogst an",
+      "zog an",
+      "zogen an",
+      "zogt an",
+      "zogen an"
+    ],
+    "pp": "angezogen",
+    "perfekt": "hat angezogen",
+    "pretDuAlt": null
+  },
+  "verben.umsteigen": {
+    "level": "A2",
+    "sep": "um",
+    "aux": "sein",
+    "pres": [
+      "steige um",
+      "steigst um",
+      "steigt um",
+      "steigen um",
+      "steigt um",
+      "steigen um"
+    ],
+    "pret": [
+      "stieg um",
+      "stiegst um",
+      "stieg um",
+      "stiegen um",
+      "stiegt um",
+      "stiegen um"
+    ],
+    "pp": "umgestiegen",
+    "perfekt": "ist umgestiegen",
+    "pretDuAlt": null
+  },
+  "verben.mitnehmen": {
+    "level": "A2",
+    "sep": "mit",
+    "aux": "haben",
+    "pres": [
+      "nehme mit",
+      "nimmst mit",
+      "nimmt mit",
+      "nehmen mit",
+      "nehmt mit",
+      "nehmen mit"
+    ],
+    "pret": [
+      "nahm mit",
+      "nahmst mit",
+      "nahm mit",
+      "nahmen mit",
+      "nahmt mit",
+      "nahmen mit"
+    ],
+    "pp": "mitgenommen",
+    "perfekt": "hat mitgenommen",
+    "pretDuAlt": null
+  },
+  "verben.ausgehen": {
+    "level": "A2",
+    "sep": "aus",
+    "aux": "sein",
+    "pres": [
+      "gehe aus",
+      "gehst aus",
+      "geht aus",
+      "gehen aus",
+      "geht aus",
+      "gehen aus"
+    ],
+    "pret": [
+      "ging aus",
+      "gingst aus",
+      "ging aus",
+      "gingen aus",
+      "gingt aus",
+      "gingen aus"
+    ],
+    "pp": "ausgegangen",
+    "perfekt": "ist ausgegangen",
+    "pretDuAlt": null
+  },
+  "verben.vorbereiten": {
+    "level": "A2",
+    "sep": "vor",
+    "aux": "haben",
+    "pres": [
+      "bereite vor",
+      "bereitest vor",
+      "bereitet vor",
+      "bereiten vor",
+      "bereitet vor",
+      "bereiten vor"
+    ],
+    "pret": [
+      "bereitete vor",
+      "bereitetest vor",
+      "bereitete vor",
+      "bereiteten vor",
+      "bereitetet vor",
+      "bereiteten vor"
+    ],
+    "pp": "vorbereitet",
+    "perfekt": "hat vorbereitet",
+    "pretDuAlt": null
+  },
+  "verben.aufhoeren": {
+    "level": "A2",
+    "sep": "auf",
+    "aux": "haben",
+    "pres": [
+      "höre auf",
+      "hörst auf",
+      "hört auf",
+      "hören auf",
+      "hört auf",
+      "hören auf"
+    ],
+    "pret": [
+      "hörte auf",
+      "hörtest auf",
+      "hörte auf",
+      "hörten auf",
+      "hörtet auf",
+      "hörten auf"
+    ],
+    "pp": "aufgehört",
+    "perfekt": "hat aufgehört",
+    "pretDuAlt": null
+  },
+  "verben.zuhoeren": {
+    "level": "A2",
+    "sep": "zu",
+    "aux": "haben",
+    "pres": [
+      "höre zu",
+      "hörst zu",
+      "hört zu",
+      "hören zu",
+      "hört zu",
+      "hören zu"
+    ],
+    "pret": [
+      "hörte zu",
+      "hörtest zu",
+      "hörte zu",
+      "hörten zu",
+      "hörtet zu",
+      "hörten zu"
+    ],
+    "pp": "zugehört",
+    "perfekt": "hat zugehört",
+    "pretDuAlt": null
+  },
+  "verben.aussehen": {
+    "level": "A2",
+    "sep": "aus",
+    "aux": "haben",
+    "pres": [
+      "sehe aus",
+      "siehst aus",
+      "sieht aus",
+      "sehen aus",
+      "seht aus",
+      "sehen aus"
+    ],
+    "pret": [
+      "sah aus",
+      "sahst aus",
+      "sah aus",
+      "sahen aus",
+      "saht aus",
+      "sahen aus"
+    ],
+    "pp": "ausgesehen",
+    "perfekt": "hat ausgesehen",
+    "pretDuAlt": null
+  },
+  "verben.ansehen": {
+    "level": "A2",
+    "sep": "an",
+    "aux": "haben",
+    "pres": [
+      "sehe an",
+      "siehst an",
+      "sieht an",
+      "sehen an",
+      "seht an",
+      "sehen an"
+    ],
+    "pret": [
+      "sah an",
+      "sahst an",
+      "sah an",
+      "sahen an",
+      "saht an",
+      "sahen an"
+    ],
+    "pp": "angesehen",
+    "perfekt": "hat angesehen",
+    "pretDuAlt": null
+  },
+  "verben.einschlafen": {
+    "level": "A2",
+    "sep": "ein",
+    "aux": "sein",
+    "pres": [
+      "schlafe ein",
+      "schläfst ein",
+      "schläft ein",
+      "schlafen ein",
+      "schlaft ein",
+      "schlafen ein"
+    ],
+    "pret": [
+      "schlief ein",
+      "schliefst ein",
+      "schlief ein",
+      "schliefen ein",
+      "schlieft ein",
+      "schliefen ein"
+    ],
+    "pp": "eingeschlafen",
+    "perfekt": "ist eingeschlafen",
+    "pretDuAlt": null
+  },
+  "verben.aufwachen": {
+    "level": "A2",
+    "sep": "auf",
+    "aux": "sein",
+    "pres": [
+      "wache auf",
+      "wachst auf",
+      "wacht auf",
+      "wachen auf",
+      "wacht auf",
+      "wachen auf"
+    ],
+    "pret": [
+      "wachte auf",
+      "wachtest auf",
+      "wachte auf",
+      "wachten auf",
+      "wachtet auf",
+      "wachten auf"
+    ],
+    "pp": "aufgewacht",
+    "perfekt": "ist aufgewacht",
+    "pretDuAlt": null
+  },
+  "verben.abwaschen": {
+    "level": "A2",
+    "sep": "ab",
+    "aux": "haben",
+    "pres": [
+      "wasche ab",
+      "wäschst ab",
+      "wäscht ab",
+      "waschen ab",
+      "wascht ab",
+      "waschen ab"
+    ],
+    "pret": [
+      "wusch ab",
+      "wuschst ab",
+      "wusch ab",
+      "wuschen ab",
+      "wuscht ab",
+      "wuschen ab"
+    ],
+    "pp": "abgewaschen",
+    "perfekt": "hat abgewaschen",
+    "pretDuAlt": null
+  },
+  "verben.mitbringen": {
+    "level": "A2",
+    "sep": "mit",
+    "aux": "haben",
+    "pres": [
+      "bringe mit",
+      "bringst mit",
+      "bringt mit",
+      "bringen mit",
+      "bringt mit",
+      "bringen mit"
+    ],
+    "pret": [
+      "brachte mit",
+      "brachtest mit",
+      "brachte mit",
+      "brachten mit",
+      "brachtet mit",
+      "brachten mit"
+    ],
+    "pp": "mitgebracht",
+    "perfekt": "hat mitgebracht",
+    "pretDuAlt": null
+  },
+  "verben.ausgeben": {
+    "level": "A2",
+    "sep": "aus",
+    "aux": "haben",
+    "pres": [
+      "gebe aus",
+      "gibst aus",
+      "gibt aus",
+      "geben aus",
+      "gebt aus",
+      "geben aus"
+    ],
+    "pret": [
+      "gab aus",
+      "gabst aus",
+      "gab aus",
+      "gaben aus",
+      "gabt aus",
+      "gaben aus"
+    ],
+    "pp": "ausgegeben",
+    "perfekt": "hat ausgegeben",
+    "pretDuAlt": null
+  },
+  "verben.umziehen": {
+    "level": "A2",
+    "sep": "um",
+    "aux": "sein",
+    "pres": [
+      "ziehe um",
+      "ziehst um",
+      "zieht um",
+      "ziehen um",
+      "zieht um",
+      "ziehen um"
+    ],
+    "pret": [
+      "zog um",
+      "zogst um",
+      "zog um",
+      "zogen um",
+      "zogt um",
+      "zogen um"
+    ],
+    "pp": "umgezogen",
+    "perfekt": "ist umgezogen",
+    "pretDuAlt": null
+  },
+  "verben.ausmachen": {
+    "level": "A2",
+    "sep": "aus",
+    "aux": "haben",
+    "pres": [
+      "mache aus",
+      "machst aus",
+      "macht aus",
+      "machen aus",
+      "macht aus",
+      "machen aus"
+    ],
+    "pret": [
+      "machte aus",
+      "machtest aus",
+      "machte aus",
+      "machten aus",
+      "machtet aus",
+      "machten aus"
+    ],
+    "pp": "ausgemacht",
+    "perfekt": "hat ausgemacht",
+    "pretDuAlt": null
+  },
+  "verben.anmachen": {
+    "level": "A2",
+    "sep": "an",
+    "aux": "haben",
+    "pres": [
+      "mache an",
+      "machst an",
+      "macht an",
+      "machen an",
+      "macht an",
+      "machen an"
+    ],
+    "pret": [
+      "machte an",
+      "machtest an",
+      "machte an",
+      "machten an",
+      "machtet an",
+      "machten an"
+    ],
+    "pp": "angemacht",
+    "perfekt": "hat angemacht",
+    "pretDuAlt": null
+  },
+  "verben.teilnehmen": {
+    "level": "A2",
+    "sep": "teil",
+    "aux": "haben",
+    "pres": [
+      "nehme teil",
+      "nimmst teil",
+      "nimmt teil",
+      "nehmen teil",
+      "nehmt teil",
+      "nehmen teil"
+    ],
+    "pret": [
+      "nahm teil",
+      "nahmst teil",
+      "nahm teil",
+      "nahmen teil",
+      "nahmt teil",
+      "nahmen teil"
+    ],
+    "pp": "teilgenommen",
+    "perfekt": "hat teilgenommen",
+    "pretDuAlt": null
+  },
+  "verben.zurueckkommen": {
+    "level": "A2",
+    "sep": "zurück",
+    "aux": "sein",
+    "pres": [
+      "komme zurück",
+      "kommst zurück",
+      "kommt zurück",
+      "kommen zurück",
+      "kommt zurück",
+      "kommen zurück"
+    ],
+    "pret": [
+      "kam zurück",
+      "kamst zurück",
+      "kam zurück",
+      "kamen zurück",
+      "kamt zurück",
+      "kamen zurück"
+    ],
+    "pp": "zurückgekommen",
+    "perfekt": "ist zurückgekommen",
     "pretDuAlt": null
   }
 };

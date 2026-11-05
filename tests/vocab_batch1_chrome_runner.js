@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', async function() {
     const totalCategories = CATEGORIES.length;
     const totalWords = CATEGORIES.reduce(function(s, c) { return s + (c.words ? c.words.length : 0); }, 0);
     addCheck('Total Categories Count', totalCategories === 31, 'categories=' + totalCategories);
-    addCheck('Total Words Count', totalWords === 1029, 'totalWords=' + totalWords);
+    addCheck('Total Words Count', totalWords === 1121, 'totalWords=' + totalWords);
 
     // 2. Check removed word absent (musik.didgeridoo)
     const musikCat = CATEGORIES.find(function(c) { return c.id === 'musik'; });
@@ -80,9 +80,9 @@ window.addEventListener('DOMContentLoaded', async function() {
 
     const statsScreenActive = view && view.screen === 'stats';
     const appText = document.getElementById('app') ? document.getElementById('app').innerText : '';
-    const statsShows1029 = appText.indexOf('/ 1029') !== -1 || appText.indexOf('1029') !== -1;
-    addCheck('Stats Screen Total Words Match', statsScreenActive && statsShows1029,
-      'statsScreenActive=' + statsScreenActive + ', shows1029=' + statsShows1029);
+    const statsShows1121 = appText.indexOf('/ 1121') !== -1 || appText.indexOf('1121') !== -1;
+    addCheck('Stats Screen Total Words Match', statsScreenActive && statsShows1121,
+      'statsScreenActive=' + statsScreenActive + ', shows1121=' + statsShows1121);
 
     // 5. Check console errors count
     const errCount = window.__CHROME_VOCAB_RESULTS__.consoleErrors.length;

@@ -115,6 +115,8 @@ window.addEventListener('DOMContentLoaded', async function() {
 
     var conjCard = document.querySelector('.mode-btn[data-mode="conj"]');
     addCheck('Verben Mode Picker: Conj Card Exists', Boolean(conjCard), 'conjCard=' + Boolean(conjCard));
+    var verbenCat = CATEGORIES.find(function(c) { return c.id === 'verben'; });
+    addCheck('Verben Words Count = 169', verbenCat && verbenCat.words && verbenCat.words.length === 169, 'words=' + (verbenCat ? verbenCat.words.length : 0));
     var cardText = conjCard ? conjCard.textContent : '';
     addCheck('Verben Mode Picker: Conj Card Arabic Text', cardText.includes('اختبار التصريفات'), 'text=' + cardText);
     check360Overflow('Modes Screen with Conj Card');
@@ -425,6 +427,7 @@ window.addEventListener('DOMContentLoaded', async function() {
     }
 
     var kVerbIdx = 0; // sein
+    setWordCount('verben', 'conj', kVerbIdx, 0);
     var kWord = CATEGORIES.find(function(c) { return c.id === 'verben'; }).words[kVerbIdx];
     var kVf = VERB_FORMS[kWord.id];
     var kStartCount = getWordCount('verben', 'conj', kVerbIdx);
@@ -551,6 +554,201 @@ window.addEventListener('DOMContentLoaded', async function() {
     await sleep(50);
     var nextWInput = document.getElementById('wIn');
     addCheck('Written Mode Keyboard: Second Enter advances to new question', nextWInput && nextWInput.disabled === false, 'nextInputReady=' + Boolean(nextWInput && !nextWInput.disabled));
+
+    // 9c. A2 Verbs Suite: regular verb (holen), separable verb (abholen), sein verb (fliegen)
+    var vHolenIdx = verbenCat.words.findIndex(function(w) { return w.id === 'verben.holen'; });
+    var vAbholenIdx = verbenCat.words.findIndex(function(w) { return w.id === 'verben.abholen'; });
+    var vFliegenIdx = verbenCat.words.findIndex(function(w) { return w.id === 'verben.fliegen'; });
+
+    addCheck('A2 Target Verbs Present in Vocabulary', vHolenIdx !== -1 && vAbholenIdx !== -1 && vFliegenIdx !== -1, 'holen=' + vHolenIdx + ', abholen=' + vAbholenIdx + ', fliegen=' + vFliegenIdx);
+
+    // --- Part A: Regular A2 Verb (holen) ---
+    // Preset count to 4 (THRESH.conj - 1) to test daily goal mastery credit (v1.22 rule)
+    setWordCount('verben', 'conj', vHolenIdx, THRESH.conj - 1);
+    var goalBeforeHolen = getTodayCount();
+
+    conjState = {
+      sessionIndices: [vHolenIdx],
+      currentIndex: 0,
+      currentStage: 1,
+      presPronounIdx: 1, // du
+      pretPronounIdx: 0, // ich
+      stageResults: [],
+      score: 0,
+      answered: false,
+      runRecorded: false,
+      lastResult: null,
+      done: false
+    };
+    renderConjExercise();
+    await sleep(50);
+    check360Overflow('A2 Regular Verb: Stage 1 Prompt');
+
+    // Stage 1 (Infinitive): type correct with real Enter
+    var a2Input = document.getElementById('conjIn');
+    a2Input.value = 'holen';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+    addCheck('A2 Regular (holen) Stage 1: Accepted', conjState.lastResult && conjState.lastResult.ok === true, 'ok=' + (conjState.lastResult ? conjState.lastResult.ok : false));
+
+    // Advance to Stage 2
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+
+    // Stage 2 (Präsens): test wrong rejection first, then correct
+    var wrongPresRes = checkConjAnswer('holstDuFalsch', 'verben.holen', 2, 1);
+    addCheck('A2 Regular (holen) Stage 2: Wrong answer rejected', wrongPresRes.ok === false, 'ok=' + wrongPresRes.ok);
+
+    // Type correct du holst
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'du holst';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+    addCheck('A2 Regular (holen) Stage 2: Correct accepted with pronoun', conjState.lastResult && conjState.lastResult.ok === true, 'ok=' + (conjState.lastResult ? conjState.lastResult.ok : false));
+
+    // Advance to Stage 3
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+
+    // Stage 3 (Präteritum): ich holte
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'holte';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+    addCheck('A2 Regular (holen) Stage 3: Correct accepted', conjState.lastResult && conjState.lastResult.ok === true, 'ok=' + (conjState.lastResult ? conjState.lastResult.ok : false));
+
+    // Advance to Stage 4
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+
+    // Stage 4 (Perfekt): hat geholt
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'hat geholt';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+    addCheck('A2 Regular (holen) Stage 4: Correct accepted', conjState.lastResult && conjState.lastResult.ok === true, 'ok=' + (conjState.lastResult ? conjState.lastResult.ok : false));
+    check360Overflow('A2 Regular Verb: Stage 4 Feedback');
+
+    var goalAfterHolen = getTodayCount();
+    var holenFinalCount = getWordCount('verben', 'conj', vHolenIdx);
+    addCheck('A2 Regular (holen) Mastery: Counter reached threshold 5', holenFinalCount === 5, 'count=' + holenFinalCount);
+    addCheck('A2 Regular (holen) Daily Goal: Incremented by 1 once (v1.22 rule)', goalAfterHolen === goalBeforeHolen + 1, 'before=' + goalBeforeHolen + ', after=' + goalAfterHolen);
+
+    // --- Part B: Separable A2 Verb (abholen) ---
+    // Test prefix requirement and rejection of stem-only
+    var abholenStemOnly = checkConjAnswer('hole', 'verben.abholen', 2, 0); // ich hole (missing ab)
+    addCheck('A2 Separable (abholen): Stem-only rejected with missingPrefix=true', abholenStemOnly.ok === false && abholenStemOnly.missingPrefix === true, 'ok=' + abholenStemOnly.ok + ', missingPrefix=' + abholenStemOnly.missingPrefix);
+    addCheck('A2 Separable (abholen): Arabic hint contains prefix ab', Boolean(abholenStemOnly.hint) && abholenStemOnly.hint.includes('ab'), 'hint=' + abholenStemOnly.hint);
+
+    var abholenCorrectPres = checkConjAnswer('hole ab', 'verben.abholen', 2, 0);
+    addCheck('A2 Separable (abholen): Form with prefix ab accepted', abholenCorrectPres.ok === true, 'ok=' + abholenCorrectPres.ok);
+
+    // Complete 4-stage run on abholen with keyboard
+    conjState = {
+      sessionIndices: [vAbholenIdx],
+      currentIndex: 0,
+      currentStage: 1,
+      presPronounIdx: 0, // ich
+      pretPronounIdx: 2, // er/sie/es
+      stageResults: [],
+      score: 0,
+      answered: false,
+      runRecorded: false,
+      lastResult: null,
+      done: false
+    };
+    renderConjExercise();
+    await sleep(50);
+
+    // Stage 1: abholen
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'abholen';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 2: hole ab
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'hole ab';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 3: holte ab
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'holte ab';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 4: hat abgeholt
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'hat abgeholt';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+
+    addCheck('A2 Separable (abholen): All 4 stages completed successfully', conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean), 'stages=' + conjState.stageResults.join(','));
+
+    // --- Part C: Sein A2 Verb (fliegen) ---
+    // Test that 'hat geflogen' is rejected, and 'ist geflogen' is accepted
+    var fliegenWrongAux = checkConjAnswer('hat geflogen', 'verben.fliegen', 4, 2);
+    addCheck('A2 Sein Verb (fliegen): Wrong aux (hat geflogen) rejected', fliegenWrongAux.ok === false, 'ok=' + fliegenWrongAux.ok);
+
+    var fliegenCorrectAux = checkConjAnswer('ist geflogen', 'verben.fliegen', 4, 2);
+    addCheck('A2 Sein Verb (fliegen): Correct aux (ist geflogen) accepted', fliegenCorrectAux.ok === true, 'ok=' + fliegenCorrectAux.ok);
+
+    // 4 stages on fliegen
+    conjState = {
+      sessionIndices: [vFliegenIdx],
+      currentIndex: 0,
+      currentStage: 1,
+      presPronounIdx: 0, // ich
+      pretPronounIdx: 0, // ich
+      stageResults: [],
+      score: 0,
+      answered: false,
+      runRecorded: false,
+      lastResult: null,
+      done: false
+    };
+    renderConjExercise();
+    await sleep(50);
+
+    // Stage 1: fliegen
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'fliegen';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 2: fliege
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'fliege';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 3: flog
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'flog';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 4: ist geflogen
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    a2Input = document.getElementById('conjIn');
+    a2Input.value = 'ist geflogen';
+    dispatchKey(a2Input, 'Enter', false);
+    await sleep(50);
+
+    addCheck('A2 Sein Verb (fliegen): All 4 stages completed with ist geflogen', conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean), 'stages=' + conjState.stageResults.join(','));
+    check360Overflow('A2 Sein Verb (fliegen): Stage 4 Feedback with Panel');
 
     // 10. Console Errors Check
     var errCount = window.__VERBS_CONJ_RESULTS__.consoleErrors.length;
