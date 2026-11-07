@@ -5,8 +5,8 @@
  * 1. 92 new verbs appended to 'verben', order, IDs, level A2, non-article schema
  * 2. VERB_FORMS complete: 6 pres, 6 pret, pp, perfekt non-empty, sep prefix, aux haben/sein matching JSON
  * 3. Sentence rules: <= 8 whitespace tokens, ends with punctuation, finite verb form, sep prefix, script purity
- * 4. Global uniqueness: covers all 1121 words across all 31 categories with 0 duplicate sentences
- * 5. Synonym computation: verifies exactly 6 pairs across all 169 verbs, with anfangen/beginnen as the only new pair
+ * 4. Global uniqueness: covers all 1215 words across all 31 categories with 0 duplicate sentences
+ * 5. Synonym computation: verifies exactly 6 pairs across all 263 verbs, with anfangen/beginnen as the only new pair
  */
 
 import { describe, it, expect } from 'vitest';
@@ -94,9 +94,9 @@ const LATIN_SCRIPT_REGEX = /[A-Za-zÄÖÜäöüß]/;
 describe('A2 Verbs: Category Integration & Ordering', () => {
   const verbenCat = CATEGORIES.find(c => c.id === 'verben');
 
-  it('contains exactly 169 verbs (77 A1 + 92 A2)', () => {
+  it('contains exactly 263 verbs (77 A1 + 92 A2 + 94 B1)', () => {
     expect(verbenCat).toBeDefined();
-    expect(verbenCat.words.length).toBe(169);
+    expect(verbenCat.words.length).toBe(263);
   });
 
   it('appends the 92 A2 verbs starting at index 77 in exact JSON order', () => {
@@ -225,14 +225,14 @@ describe('A2 Verbs: Sentence Rules & Script Purity', () => {
   });
 });
 
-describe('Global Integrity Guard: Uniqueness Across All 1121 Words', () => {
-  it('contains exactly 31 categories and 1121 words total', () => {
+describe('Global Integrity Guard: Uniqueness Across All 1215 Words', () => {
+  it('contains exactly 31 categories and 1215 words total', () => {
     expect(CATEGORIES.length).toBe(31);
     const totalWords = CATEGORIES.reduce((s, c) => s + c.words.length, 0);
-    expect(totalWords).toBe(1121);
+    expect(totalWords).toBe(1215);
   });
 
-  it('all 1121 word IDs are unique and none in vocab_ids_retired.json', () => {
+  it('all 1215 word IDs are unique and none in vocab_ids_retired.json', () => {
     const allIds = new Set();
     const retiredSet = new Set(retiredIds.map(item => (typeof item === 'string' ? item : item.id)));
 
@@ -243,10 +243,10 @@ describe('Global Integrity Guard: Uniqueness Across All 1121 Words', () => {
         expect(retiredSet.has(w.id), `Active word ${w.id} is in retired set`).toBe(false);
       }
     }
-    expect(allIds.size).toBe(1121);
+    expect(allIds.size).toBe(1215);
   });
 
-  it('all 1121 German example sentences and Arabic translations are globally unique', () => {
+  it('all 1215 German example sentences and Arabic translations are globally unique', () => {
     const deSentences = new Map();
     const arSentences = new Map();
 
@@ -260,13 +260,13 @@ describe('Global Integrity Guard: Uniqueness Across All 1121 Words', () => {
       }
     }
 
-    expect(deSentences.size).toBe(1121);
-    expect(arSentences.size).toBe(1121);
+    expect(deSentences.size).toBe(1215);
+    expect(arSentences.size).toBe(1215);
   });
 });
 
 describe('Synonym Computation & Invariants', () => {
-  it('verbSynonyms across all 169 verbs finds exactly 6 pairs with anfangen/beginnen as the only new pair', () => {
+  it('verbSynonyms across all 263 verbs finds exactly 6 pairs with anfangen/beginnen as the only new pair', () => {
     const verbenCat = CATEGORIES.find(c => c.id === 'verben');
     const pairs = new Map();
 

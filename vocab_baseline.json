@@ -10167,6 +10167,758 @@
         "note": "فعل منفصل: Perfekt مع sein: ist zurückgekommen.",
         "s": "Wann kommst du zurück?",
         "sar": "متى تعود؟"
+      },
+      {
+        "id": "verben.beschreiben",
+        "n": "beschreiben",
+        "ar": "يصف",
+        "note": "فعل قوي: beschrieb — hat beschrieben.",
+        "s": "Du beschreibst das Bild genau.",
+        "sar": "أنت تصف الصورة بدقة."
+      },
+      {
+        "id": "verben.besprechen",
+        "n": "besprechen",
+        "ar": "يتباحث في",
+        "note": "فعل قوي: du besprichst, er bespricht — besprach — hat besprochen.",
+        "s": "Wir besprechen den Plan morgen.",
+        "sar": "نتباحث في الخطة غداً."
+      },
+      {
+        "id": "verben.bestehen",
+        "n": "bestehen",
+        "ar": "ينجح (في امتحان) / يتكوّن من",
+        "note": "فعل قوي: bestand — hat bestanden. bestehen aus + Dativ = يتكوّن من.",
+        "s": "Meine Tochter besteht die Prüfung.",
+        "sar": "ابنتي تنجح في الامتحان."
+      },
+      {
+        "id": "verben.bedeuten",
+        "n": "bedeuten",
+        "ar": "يعني",
+        "note": "bedeuten = يعني (كلمة أو إشارة). Partizip: bedeutet.",
+        "s": "Was bedeutet dieses Wort?",
+        "sar": "ماذا تعني هذه الكلمة؟"
+      },
+      {
+        "id": "verben.behalten",
+        "n": "behalten",
+        "ar": "يحتفظ بـ / يُبقي",
+        "note": "فعل قوي: du behältst, er behält — behielt — hat behalten.",
+        "s": "Er behält immer die Ruhe.",
+        "sar": "هو يحافظ دائماً على هدوئه."
+      },
+      {
+        "id": "verben.benoetigen",
+        "n": "benötigen",
+        "ar": "يحتاج إلى (رسمياً)",
+        "note": "benötigen = يحتاج، وأكثر رسمية من brauchen. Partizip: benötigt.",
+        "s": "Wir benötigen mehr Zeit.",
+        "sar": "نحتاج إلى مزيد من الوقت."
+      },
+      {
+        "id": "verben.beobachten",
+        "n": "beobachten",
+        "ar": "يراقب",
+        "note": "beobachten = يراقب ويلاحظ. Partizip: beobachtet.",
+        "s": "Der Arzt beobachtet den Patienten.",
+        "sar": "الطبيب يراقب المريض."
+      },
+      {
+        "id": "verben.berichten",
+        "n": "berichten",
+        "ar": "يُخبر عن / يروي تقريراً",
+        "note": "berichten über + Akkusativ = يخبر عن. Partizip: berichtet.",
+        "s": "Die Zeitung berichtet über den Unfall.",
+        "sar": "الصحيفة تنشر خبراً عن الحادث."
+      },
+      {
+        "id": "verben.beschliessen",
+        "n": "beschließen",
+        "ar": "يقرر (رسمياً)",
+        "note": "فعل قوي: beschloss — hat beschlossen. أكثر رسمية من entscheiden.",
+        "s": "Wir beschließen, früh zu gehen.",
+        "sar": "نقرر أن نغادر مبكراً."
+      },
+      {
+        "id": "verben.betreten",
+        "n": "betreten",
+        "ar": "يدخل (مكاناً)",
+        "note": "فعل قوي: du betrittst, er betritt — betrat — hat betreten.",
+        "s": "Du betrittst den Raum leise.",
+        "sar": "تدخل الغرفة بهدوء."
+      },
+      {
+        "id": "verben.enthalten",
+        "n": "enthalten",
+        "ar": "يحتوي على",
+        "note": "فعل قوي: du enthältst, er enthält — enthielt — hat enthalten.",
+        "s": "Das Paket enthält drei Bücher.",
+        "sar": "الطرد يحتوي على ثلاثة كتب."
+      },
+      {
+        "id": "verben.entdecken",
+        "n": "entdecken",
+        "ar": "يكتشف",
+        "note": "entdecken = يكتشف. Partizip: entdeckt.",
+        "s": "Die Kinder entdecken eine Höhle.",
+        "sar": "الأطفال يكتشفون كهفاً."
+      },
+      {
+        "id": "verben.erfahren",
+        "n": "erfahren",
+        "ar": "يعلم بخبر",
+        "note": "فعل قوي: du erfährst, er erfährt — erfuhr — hat erfahren.",
+        "s": "Ich erfahre die Nachricht heute.",
+        "sar": "أعلم بالخبر اليوم."
+      },
+      {
+        "id": "verben.erfinden",
+        "n": "erfinden",
+        "ar": "يخترع",
+        "note": "فعل قوي: erfand — hat erfunden.",
+        "s": "Ein Ingenieur erfindet eine Maschine.",
+        "sar": "مهندس يخترع آلة."
+      },
+      {
+        "id": "verben.erhalten",
+        "n": "erhalten",
+        "ar": "يتلقى",
+        "note": "فعل قوي: du erhältst, er erhält — erhielt — hat erhalten. أكثر رسمية من bekommen.",
+        "s": "Ich erhalte morgen einen Brief.",
+        "sar": "أتلقى رسالة غداً."
+      },
+      {
+        "id": "verben.erhoehen",
+        "n": "erhöhen",
+        "ar": "يرفع (سعراً أو عدداً)",
+        "note": "erhöhen = يرفع. Partizip: erhöht.",
+        "s": "Der Laden erhöht die Preise.",
+        "sar": "المتجر يرفع الأسعار."
+      },
+      {
+        "id": "verben.erkennen",
+        "n": "erkennen",
+        "ar": "يتبيّن / يتعرّف من شكله",
+        "note": "فعل مختلط: erkannte — hat erkannt.",
+        "s": "Ich erkenne dich sofort.",
+        "sar": "أتعرّف عليك فوراً."
+      },
+      {
+        "id": "verben.erlauben",
+        "n": "erlauben",
+        "ar": "يسمح بـ",
+        "note": "erlauben + Dativ (الشخص) + Akkusativ (الشيء). Partizip: erlaubt.",
+        "s": "Meine Eltern erlauben das nicht.",
+        "sar": "والداي لا يسمحان بذلك."
+      },
+      {
+        "id": "verben.ermoeglichen",
+        "n": "ermöglichen",
+        "ar": "يتيح",
+        "note": "ermöglichen + Dativ + Akkusativ. Partizip: ermöglicht.",
+        "s": "Das Stipendium ermöglicht ihm das Studium.",
+        "sar": "تتيح له المنحة الدراسة."
+      },
+      {
+        "id": "verben.erwarten",
+        "n": "erwarten",
+        "ar": "يتوقع",
+        "note": "erwarten = يتوقع، وكذلك ينتظر بترقّب. Partizip: erwartet.",
+        "s": "Wir erwarten viele Gäste.",
+        "sar": "نتوقع ضيوفاً كثيرين."
+      },
+      {
+        "id": "verben.geniessen",
+        "n": "genießen",
+        "ar": "يستمتع بـ",
+        "note": "فعل قوي: genoss — hat genossen.",
+        "s": "Ich genieße die Ruhe am Meer.",
+        "sar": "أستمتع بالهدوء عند البحر."
+      },
+      {
+        "id": "verben.gruenden",
+        "n": "gründen",
+        "ar": "يؤسس",
+        "note": "gründen = يؤسس. Partizip: gegründet.",
+        "s": "Sie gründen eine kleine Firma.",
+        "sar": "يؤسسون شركة صغيرة."
+      },
+      {
+        "id": "verben.haengen",
+        "n": "hängen",
+        "ar": "يتدلّى / يكون معلّقاً",
+        "note": "hängen (لازم): hing — hat gehangen. أما المتعدّي (يعلّق شيئاً): hängen — hängte — gehängt.",
+        "s": "Das Bild hängt an der Wand.",
+        "sar": "اللوحة معلقة على الحائط."
+      },
+      {
+        "id": "verben.kritisieren",
+        "n": "kritisieren",
+        "ar": "ينتقد",
+        "note": "Partizip: kritisiert (بدون ge- لأن الفعل ينتهي بـ -ieren).",
+        "s": "Du kritisierst mich zu oft.",
+        "sar": "تنتقدني كثيراً."
+      },
+      {
+        "id": "verben.loesen",
+        "n": "lösen",
+        "ar": "يحلّ (مشكلة)",
+        "note": "lösen = يحلّ مسألة أو مشكلة. Partizip: gelöst.",
+        "s": "Sie löst die Aufgabe schnell.",
+        "sar": "هي تحل التمرين بسرعة."
+      },
+      {
+        "id": "verben.messen",
+        "n": "messen",
+        "ar": "يقيس",
+        "note": "فعل قوي: du misst, er misst — maß — hat gemessen.",
+        "s": "Der Arzt misst die Temperatur.",
+        "sar": "الطبيب يقيس درجة الحرارة."
+      },
+      {
+        "id": "verben.nutzen",
+        "n": "nutzen",
+        "ar": "يستغلّ / ينتفع بـ",
+        "note": "nutzen = يستغلّ. Partizip: genutzt.",
+        "s": "Wir nutzen jede Minute.",
+        "sar": "نستغل كل دقيقة."
+      },
+      {
+        "id": "verben.planen",
+        "n": "planen",
+        "ar": "يخطط",
+        "note": "planen = يخطط. Partizip: geplant.",
+        "s": "Wir planen eine Reise nach Italien.",
+        "sar": "نخطط لرحلة إلى إيطاليا."
+      },
+      {
+        "id": "verben.pruefen",
+        "n": "prüfen",
+        "ar": "يدقّق / يفحص",
+        "note": "prüfen = يدقّق أو يختبر. Partizip: geprüft.",
+        "s": "Er prüft die Rechnung genau.",
+        "sar": "هو يدقق في الفاتورة جيداً."
+      },
+      {
+        "id": "verben.raten",
+        "n": "raten",
+        "ar": "ينصح / يخمّن",
+        "note": "raten + Dativ = ينصح. فعل قوي: du rätst, er rät — riet — hat geraten.",
+        "s": "Ich rate dir, früh zu kommen.",
+        "sar": "أنصحك بأن تأتي مبكراً."
+      },
+      {
+        "id": "verben.reichen",
+        "n": "reichen",
+        "ar": "يكفي / يناول",
+        "note": "reichen = يكفي، وكذلك يناول: Reich mir das Salz. Partizip: gereicht.",
+        "s": "Das Geld reicht nicht.",
+        "sar": "المال لا يكفي."
+      },
+      {
+        "id": "verben.retten",
+        "n": "retten",
+        "ar": "ينقذ",
+        "note": "retten = ينقذ. du rettest, er rettet. Partizip: gerettet.",
+        "s": "Der Feuerwehrmann rettet ein Kind.",
+        "sar": "رجل الإطفاء ينقذ طفلاً."
+      },
+      {
+        "id": "verben.schaffen",
+        "n": "schaffen",
+        "ar": "ينجز / ينجح في",
+        "note": "schaffen (بمعنى ينجز) فعل ضعيف: schaffte — hat geschafft. وبمعنى يخلق فعل قوي: schuf — hat geschaffen.",
+        "s": "Ich schaffe das heute noch.",
+        "sar": "أستطيع إنجاز ذلك اليوم."
+      },
+      {
+        "id": "verben.scheinen",
+        "n": "scheinen",
+        "ar": "يسطع / يبدو أن",
+        "note": "فعل قوي: schien — hat geschienen. scheinen + zu + Infinitiv = يبدو أنه.",
+        "s": "Er scheint müde zu sein.",
+        "sar": "يبدو أنه متعب."
+      },
+      {
+        "id": "verben.schuetzen",
+        "n": "schützen",
+        "ar": "يحمي",
+        "note": "schützen vor + Dativ = يحمي من. Partizip: geschützt.",
+        "s": "Der Helm schützt den Kopf.",
+        "sar": "الخوذة تحمي الرأس."
+      },
+      {
+        "id": "verben.steigen",
+        "n": "steigen",
+        "ar": "يرتفع / يصعد",
+        "note": "فعل قوي: stieg — ist gestiegen (مع sein).",
+        "s": "Die Preise steigen jedes Jahr.",
+        "sar": "الأسعار ترتفع كل عام."
+      },
+      {
+        "id": "verben.stoeren",
+        "n": "stören",
+        "ar": "يزعج",
+        "note": "stören + Akkusativ = يزعج. Partizip: gestört.",
+        "s": "Stört dich die Musik?",
+        "sar": "هل تزعجك الموسيقى؟"
+      },
+      {
+        "id": "verben.streiten",
+        "n": "streiten",
+        "ar": "يتشاجر / يتخاصم",
+        "note": "فعل قوي: stritt — hat gestritten. du streitest, er streitet.",
+        "s": "Die Geschwister streiten oft.",
+        "sar": "الأخوة يتشاجرون كثيراً."
+      },
+      {
+        "id": "verben.treiben",
+        "n": "treiben",
+        "ar": "يمارس (رياضة) / يسوق",
+        "note": "Sport treiben = يمارس الرياضة. فعل قوي: trieb — hat getrieben.",
+        "s": "Er treibt jeden Tag Sport.",
+        "sar": "هو يمارس الرياضة كل يوم."
+      },
+      {
+        "id": "verben.uebernehmen",
+        "n": "übernehmen",
+        "ar": "يتولّى / يتحمّل",
+        "note": "فعل قوي: du übernimmst, er übernimmt — übernahm — hat übernommen.",
+        "s": "Ich übernehme die Kosten.",
+        "sar": "أتحمل التكاليف."
+      },
+      {
+        "id": "verben.ueberraschen",
+        "n": "überraschen",
+        "ar": "يفاجئ",
+        "note": "Partizip: überrascht (بدون ge-). du überraschst.",
+        "s": "Das Geschenk überrascht meine Mutter.",
+        "sar": "الهدية تفاجئ أمي."
+      },
+      {
+        "id": "verben.unterscheiden",
+        "n": "unterscheiden",
+        "ar": "يميّز بين",
+        "note": "فعل قوي: unterschied — hat unterschieden. du unterscheidest.",
+        "s": "Ich unterscheide die beiden Wörter nicht.",
+        "sar": "لا أميّز بين الكلمتين."
+      },
+      {
+        "id": "verben.unterschreiben",
+        "n": "unterschreiben",
+        "ar": "يوقّع",
+        "note": "فعل قوي: unterschrieb — hat unterschrieben.",
+        "s": "Du unterschreibst den Vertrag hier.",
+        "sar": "توقّع العقد هنا."
+      },
+      {
+        "id": "verben.unterstuetzen",
+        "n": "unterstützen",
+        "ar": "يدعم",
+        "note": "Partizip: unterstützt (بدون ge-). du unterstützt.",
+        "s": "Meine Eltern unterstützen mich sehr.",
+        "sar": "والداي يدعمانني كثيراً."
+      },
+      {
+        "id": "verben.untersuchen",
+        "n": "untersuchen",
+        "ar": "يفحص (طبياً أو علمياً)",
+        "note": "untersuchen = يفحص. Partizip: untersucht (بدون ge-).",
+        "s": "Der Arzt untersucht mein Knie.",
+        "sar": "الطبيب يفحص ركبتي."
+      },
+      {
+        "id": "verben.verbinden",
+        "n": "verbinden",
+        "ar": "يربط / يوصّل",
+        "note": "فعل قوي: verband — hat verbunden. du verbindest.",
+        "s": "Eine Brücke verbindet beide Ufer.",
+        "sar": "جسر يربط الضفتين."
+      },
+      {
+        "id": "verben.verbringen",
+        "n": "verbringen",
+        "ar": "يقضي (وقتاً)",
+        "note": "فعل مختلط: verbrachte — hat verbracht.",
+        "s": "Wir verbringen den Sommer am Meer.",
+        "sar": "نقضي الصيف عند البحر."
+      },
+      {
+        "id": "verben.vergleichen",
+        "n": "vergleichen",
+        "ar": "يقارن",
+        "note": "فعل قوي: verglich — hat verglichen. vergleichen mit + Dativ.",
+        "s": "Ich vergleiche die Preise im Internet.",
+        "sar": "أقارن الأسعار على الإنترنت."
+      },
+      {
+        "id": "verben.verlangen",
+        "n": "verlangen",
+        "ar": "يطلب (بإلحاح) / يطالب",
+        "note": "verlangen = يطالب بشيء. Partizip: verlangt.",
+        "s": "Der Verkäufer verlangt zu viel.",
+        "sar": "البائع يطلب مبلغاً كبيراً."
+      },
+      {
+        "id": "verben.verpassen",
+        "n": "verpassen",
+        "ar": "يفوّت",
+        "note": "verpassen = يفوّت (موعداً أو وسيلة نقل). Partizip: verpasst.",
+        "s": "Wir verpassen den Bus.",
+        "sar": "نفوّت الحافلة."
+      },
+      {
+        "id": "verben.verreisen",
+        "n": "verreisen",
+        "ar": "يخرج في سفر",
+        "note": "verreisen = يخرج في سفر (لمدة). Perfekt مع sein: ist verreist.",
+        "s": "Meine Eltern verreisen im Juli.",
+        "sar": "والداي يسافران في يوليو."
+      },
+      {
+        "id": "verben.verschieben",
+        "n": "verschieben",
+        "ar": "يؤجّل / يزيح",
+        "note": "فعل قوي: verschob — hat verschoben.",
+        "s": "Wir verschieben das Treffen auf Montag.",
+        "sar": "نؤجل الاجتماع إلى يوم الإثنين."
+      },
+      {
+        "id": "verben.verschwinden",
+        "n": "verschwinden",
+        "ar": "يختفي",
+        "note": "فعل قوي: verschwand — ist verschwunden (مع sein).",
+        "s": "Die Katze verschwindet im Garten.",
+        "sar": "القطة تختفي في الحديقة."
+      },
+      {
+        "id": "verben.versprechen",
+        "n": "versprechen",
+        "ar": "يعد بـ",
+        "note": "فعل قوي: du versprichst, er verspricht — versprach — hat versprochen.",
+        "s": "Ich verspreche dir nichts.",
+        "sar": "لا أعدك بشيء."
+      },
+      {
+        "id": "verben.zerstoeren",
+        "n": "zerstören",
+        "ar": "يدمّر",
+        "note": "zerstören = يدمّر. Partizip: zerstört (بدون ge-).",
+        "s": "Das Feuer zerstört das Haus.",
+        "sar": "النار تدمّر البيت."
+      },
+      {
+        "id": "verben.begruessen",
+        "n": "begrüßen",
+        "ar": "يرحّب بـ",
+        "note": "begrüßen = يرحّب ويحيّي. Partizip: begrüßt. er begrüßt.",
+        "s": "Wir begrüßen die Gäste an der Tür.",
+        "sar": "نستقبل الضيوف عند الباب."
+      },
+      {
+        "id": "verben.behaupten",
+        "n": "behaupten",
+        "ar": "يزعم / يدّعي",
+        "note": "behaupten = يزعم. Partizip: behauptet.",
+        "s": "Er behauptet, er weiß alles.",
+        "sar": "هو يزعم أنه يعرف كل شيء."
+      },
+      {
+        "id": "verben.bemerken",
+        "n": "bemerken",
+        "ar": "يلاحظ",
+        "note": "bemerken = يلاحظ. Partizip: bemerkt.",
+        "s": "Ich bemerke den Fehler zu spät.",
+        "sar": "ألاحظ الخطأ متأخراً."
+      },
+      {
+        "id": "verben.bestaetigen",
+        "n": "bestätigen",
+        "ar": "يؤكّد (رسمياً)",
+        "note": "bestätigen = يؤكّد. Partizip: bestätigt.",
+        "s": "Das Hotel bestätigt die Buchung.",
+        "sar": "الفندق يؤكد الحجز."
+      },
+      {
+        "id": "verben.diskutieren",
+        "n": "diskutieren",
+        "ar": "يناقش",
+        "note": "diskutieren über + Akkusativ. Partizip: diskutiert.",
+        "s": "Wir diskutieren über das Thema.",
+        "sar": "نتناقش حول الموضوع."
+      },
+      {
+        "id": "verben.empfehlen",
+        "n": "empfehlen",
+        "ar": "يوصي بـ / يرشّح",
+        "note": "فعل قوي: du empfiehlst, er empfiehlt — empfahl — hat empfohlen.",
+        "s": "Ich empfehle dir dieses Restaurant.",
+        "sar": "أنصحك بهذا المطعم."
+      },
+      {
+        "id": "verben.existieren",
+        "n": "existieren",
+        "ar": "يوجد (كياناً)",
+        "note": "Partizip: existiert (بدون ge-).",
+        "s": "Dieses Geschäft existiert nicht mehr.",
+        "sar": "هذا المتجر لم يعد موجوداً."
+      },
+      {
+        "id": "verben.gratulieren",
+        "n": "gratulieren",
+        "ar": "يهنّئ",
+        "note": "gratulieren + Dativ: Ich gratuliere dir. Partizip: gratuliert.",
+        "s": "Wir gratulieren dir zum Geburtstag.",
+        "sar": "نهنئك بعيد ميلادك."
+      },
+      {
+        "id": "verben.informieren",
+        "n": "informieren",
+        "ar": "يُعلم / يُبلغ",
+        "note": "informieren + Akkusativ. Partizip: informiert.",
+        "s": "Der Lehrer informiert die Eltern.",
+        "sar": "المعلم يُعلم أولياء الأمور."
+      },
+      {
+        "id": "verben.kontrollieren",
+        "n": "kontrollieren",
+        "ar": "يتحقق من / يفتّش",
+        "note": "kontrollieren = يتحقق ويفتّش. Partizip: kontrolliert.",
+        "s": "Der Polizist kontrolliert den Ausweis.",
+        "sar": "الشرطي يتحقق من الهوية."
+      },
+      {
+        "id": "verben.mieten",
+        "n": "mieten",
+        "ar": "يستأجر",
+        "note": "mieten = يستأجر. du mietest, er mietet. Partizip: gemietet.",
+        "s": "Wir mieten eine kleine Wohnung.",
+        "sar": "نستأجر شقة صغيرة."
+      },
+      {
+        "id": "verben.organisieren",
+        "n": "organisieren",
+        "ar": "ينظّم",
+        "note": "Partizip: organisiert (بدون ge-).",
+        "s": "Ich organisiere die Party für Samstag.",
+        "sar": "أنظّم الحفلة ليوم السبت."
+      },
+      {
+        "id": "verben.ueberlegen",
+        "n": "überlegen",
+        "ar": "يتروّى / يفكر مليّاً",
+        "note": "Partizip: überlegt (بدون ge-).",
+        "s": "Ich überlege noch, was ich esse.",
+        "sar": "ما زلت أفكر فيما سآكله."
+      },
+      {
+        "id": "verben.widersprechen",
+        "n": "widersprechen",
+        "ar": "يعارض / يناقض",
+        "note": "widersprechen + Dativ. فعل قوي: du widersprichst — widersprach — hat widersprochen.",
+        "s": "Du widersprichst dem Lehrer nie.",
+        "sar": "أنت لا تعارض المعلم أبداً."
+      },
+      {
+        "id": "verben.vorschlagen",
+        "n": "vorschlagen",
+        "ar": "يقترح",
+        "note": "فعل منفصل وقوي: du schlägst ... vor — schlug ... vor — hat vorgeschlagen.",
+        "s": "Ich schlage einen Spaziergang vor.",
+        "sar": "أقترح القيام بنزهة."
+      },
+      {
+        "id": "verben.vorstellen",
+        "n": "vorstellen",
+        "ar": "يقدّم (شخصاً)",
+        "note": "فعل منفصل: ich stelle ... vor. Partizip: vorgestellt.",
+        "s": "Ich stelle dir meinen Freund vor.",
+        "sar": "أقدّم لك صديقي."
+      },
+      {
+        "id": "verben.zunehmen",
+        "n": "zunehmen",
+        "ar": "يزداد",
+        "note": "فعل منفصل وقوي: du nimmst ... zu — nahm ... zu — hat zugenommen.",
+        "s": "Die Zahl der Touristen nimmt zu.",
+        "sar": "عدد السياح يزداد."
+      },
+      {
+        "id": "verben.abnehmen",
+        "n": "abnehmen",
+        "ar": "ينخفض / يقلّ",
+        "note": "فعل منفصل وقوي: nahm ... ab — hat abgenommen.",
+        "s": "Die Temperatur nimmt am Abend ab.",
+        "sar": "درجة الحرارة تنخفض في المساء."
+      },
+      {
+        "id": "verben.absagen",
+        "n": "absagen",
+        "ar": "يلغي (موعداً)",
+        "note": "فعل منفصل: ich sage ... ab. Partizip: abgesagt.",
+        "s": "Ich sage den Termin leider ab.",
+        "sar": "ألغي الموعد للأسف."
+      },
+      {
+        "id": "verben.abschliessen",
+        "n": "abschließen",
+        "ar": "يقفل بالمفتاح / يُنهي",
+        "note": "فعل منفصل وقوي: schloss ... ab — hat abgeschlossen.",
+        "s": "Er schließt die Tür immer ab.",
+        "sar": "هو يقفل الباب بالمفتاح دائماً."
+      },
+      {
+        "id": "verben.anbieten",
+        "n": "anbieten",
+        "ar": "يعرض",
+        "note": "فعل منفصل وقوي: du bietest ... an — bot ... an — hat angeboten.",
+        "s": "Der Kellner bietet uns Tee an.",
+        "sar": "النادل يعرض علينا الشاي."
+      },
+      {
+        "id": "verben.aufgeben",
+        "n": "aufgeben",
+        "ar": "يستسلم / يتخلى عن",
+        "note": "فعل منفصل وقوي: du gibst ... auf — gab ... auf — hat aufgegeben.",
+        "s": "Ich gebe nie auf.",
+        "sar": "لا أستسلم أبداً."
+      },
+      {
+        "id": "verben.aufnehmen",
+        "n": "aufnehmen",
+        "ar": "يسجّل / يضمّ",
+        "note": "فعل منفصل وقوي: du nimmst ... auf — nahm ... auf — hat aufgenommen.",
+        "s": "Wir nehmen ein Lied auf.",
+        "sar": "نسجل أغنية."
+      },
+      {
+        "id": "verben.aufschreiben",
+        "n": "aufschreiben",
+        "ar": "يدوّن",
+        "note": "فعل منفصل وقوي: schrieb ... auf — hat aufgeschrieben.",
+        "s": "Ich schreibe die Adresse auf.",
+        "sar": "أكتب العنوان."
+      },
+      {
+        "id": "verben.ausfuellen",
+        "n": "ausfüllen",
+        "ar": "يملأ (استمارة)",
+        "note": "فعل منفصل: du füllst ... aus. Partizip: ausgefüllt.",
+        "s": "Du füllst das Formular aus.",
+        "sar": "تملأ الاستمارة."
+      },
+      {
+        "id": "verben.ausfallen",
+        "n": "ausfallen",
+        "ar": "يُلغى / يتعطّل",
+        "note": "فعل منفصل وقوي: fiel ... aus — ist ausgefallen (مع sein).",
+        "s": "Der Unterricht fällt heute aus.",
+        "sar": "الحصة تُلغى اليوم."
+      },
+      {
+        "id": "verben.ausprobieren",
+        "n": "ausprobieren",
+        "ar": "يجرّب",
+        "note": "فعل منفصل: Partizip: ausprobiert.",
+        "s": "Ich probiere das neue Rezept aus.",
+        "sar": "أجرّب الوصفة الجديدة."
+      },
+      {
+        "id": "verben.auswaehlen",
+        "n": "auswählen",
+        "ar": "ينتقي",
+        "note": "فعل منفصل: du wählst ... aus. Partizip: ausgewählt.",
+        "s": "Du wählst ein Geschenk aus.",
+        "sar": "تنتقي هدية."
+      },
+      {
+        "id": "verben.einfuehren",
+        "n": "einführen",
+        "ar": "يُدخل (نظاماً) / يطبّق",
+        "note": "فعل منفصل: Partizip: eingeführt.",
+        "s": "Die Schule führt neue Regeln ein.",
+        "sar": "المدرسة تطبّق قواعد جديدة."
+      },
+      {
+        "id": "verben.eingeben",
+        "n": "eingeben",
+        "ar": "يُدخل (بيانات)",
+        "note": "فعل منفصل وقوي: du gibst ... ein — gab ... ein — hat eingegeben.",
+        "s": "Ich gebe das Passwort ein.",
+        "sar": "أُدخل كلمة المرور."
+      },
+      {
+        "id": "verben.mitteilen",
+        "n": "mitteilen",
+        "ar": "يُبلغ بـ",
+        "note": "فعل منفصل: mitteilen + Dativ. Partizip: mitgeteilt.",
+        "s": "Ich teile dir das Ergebnis mit.",
+        "sar": "أبلغك بالنتيجة."
+      },
+      {
+        "id": "verben.nachdenken",
+        "n": "nachdenken",
+        "ar": "يتأمّل",
+        "note": "فعل منفصل ومختلط: dachte ... nach — hat nachgedacht. nachdenken über + Akkusativ.",
+        "s": "Ich denke lange über die Frage nach.",
+        "sar": "أفكر طويلاً في السؤال."
+      },
+      {
+        "id": "verben.vorhaben",
+        "n": "vorhaben",
+        "ar": "ينوي / يخطط للقيام بـ",
+        "note": "فعل منفصل: hatte ... vor — hat vorgehabt.",
+        "s": "Was hast du am Wochenende vor?",
+        "sar": "ماذا تنوي أن تفعل في عطلة الأسبوع؟"
+      },
+      {
+        "id": "verben.zugeben",
+        "n": "zugeben",
+        "ar": "يعترف بـ",
+        "note": "فعل منفصل وقوي: du gibst ... zu — gab ... zu — hat zugegeben.",
+        "s": "Er gibt den Fehler nicht zu.",
+        "sar": "هو لا يعترف بالخطأ."
+      },
+      {
+        "id": "verben.zusammenfassen",
+        "n": "zusammenfassen",
+        "ar": "يلخّص",
+        "note": "فعل منفصل: er fasst ... zusammen. Partizip: zusammengefasst.",
+        "s": "Er fasst den Text kurz zusammen.",
+        "sar": "هو يلخّص النص بإيجاز."
+      },
+      {
+        "id": "verben.zurueckgeben",
+        "n": "zurückgeben",
+        "ar": "يعيد (شيئاً)",
+        "note": "فعل منفصل وقوي: gab ... zurück — hat zurückgegeben.",
+        "s": "Ich gebe dir das Buch zurück.",
+        "sar": "أعيد إليك الكتاب."
+      },
+      {
+        "id": "verben.stattfinden",
+        "n": "stattfinden",
+        "ar": "يُقام",
+        "note": "فعل منفصل وقوي: du findest ... statt — fand ... statt — hat stattgefunden.",
+        "s": "Das Konzert findet im Park statt.",
+        "sar": "تُقام الحفلة في الحديقة."
+      },
+      {
+        "id": "verben.vorkommen",
+        "n": "vorkommen",
+        "ar": "يرد / يوجد",
+        "note": "فعل منفصل وقوي: kam ... vor — ist vorgekommen (مع sein).",
+        "s": "Das Wort kommt oft vor.",
+        "sar": "تتكرر الكلمة كثيراً."
+      },
+      {
+        "id": "verben.herstellen",
+        "n": "herstellen",
+        "ar": "يصنّع / ينتج",
+        "note": "فعل منفصل: er stellt ... her. Partizip: hergestellt.",
+        "s": "Die Firma stellt Möbel her.",
+        "sar": "الشركة تصنّع أثاثاً."
       }
     ]
   }

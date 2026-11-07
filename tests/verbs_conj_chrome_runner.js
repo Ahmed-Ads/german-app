@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', async function() {
     var conjCard = document.querySelector('.mode-btn[data-mode="conj"]');
     addCheck('Verben Mode Picker: Conj Card Exists', Boolean(conjCard), 'conjCard=' + Boolean(conjCard));
     var verbenCat = CATEGORIES.find(function(c) { return c.id === 'verben'; });
-    addCheck('Verben Words Count = 169', verbenCat && verbenCat.words && verbenCat.words.length === 169, 'words=' + (verbenCat ? verbenCat.words.length : 0));
+    addCheck('Verben Words Count = 263', verbenCat && verbenCat.words && verbenCat.words.length === 263, 'words=' + (verbenCat ? verbenCat.words.length : 0));
     var cardText = conjCard ? conjCard.textContent : '';
     addCheck('Verben Mode Picker: Conj Card Arabic Text', cardText.includes('اختبار التصريفات'), 'text=' + cardText);
     check360Overflow('Modes Screen with Conj Card');
@@ -749,6 +749,210 @@ window.addEventListener('DOMContentLoaded', async function() {
 
     addCheck('A2 Sein Verb (fliegen): All 4 stages completed with ist geflogen', conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean), 'stages=' + conjState.stageResults.join(','));
     check360Overflow('A2 Sein Verb (fliegen): Stage 4 Feedback with Panel');
+
+    // 9d. B1 Verbs Suite: inseparable weak without ge- (überlegen), separable + sein (ausfallen), separable strong (vorschlagen)
+    var vUeberlegenIdx = verbenCat.words.findIndex(function(w) { return w.id === 'verben.ueberlegen'; });
+    var vAusfallenIdx = verbenCat.words.findIndex(function(w) { return w.id === 'verben.ausfallen'; });
+    var vVorschlagenIdx = verbenCat.words.findIndex(function(w) { return w.id === 'verben.vorschlagen'; });
+
+    addCheck('B1 Target Verbs Present in Vocabulary', vUeberlegenIdx !== -1 && vAusfallenIdx !== -1 && vVorschlagenIdx !== -1, 'ueberlegen=' + vUeberlegenIdx + ', ausfallen=' + vAusfallenIdx + ', vorschlagen=' + vVorschlagenIdx);
+
+    // --- Part D: B1 Inseparable Weak without ge- (überlegen) ---
+    // Preset count to 4 (THRESH.conj - 1) to test daily goal mastery credit (v1.22 rule)
+    setWordCount('verben', 'conj', vUeberlegenIdx, THRESH.conj - 1);
+    var goalBeforeUeberlegen = getTodayCount();
+
+    conjState = {
+      sessionIndices: [vUeberlegenIdx],
+      currentIndex: 0,
+      currentStage: 1,
+      presPronounIdx: 0, // ich
+      pretPronounIdx: 0, // ich
+      stageResults: [],
+      score: 0,
+      answered: false,
+      runRecorded: false,
+      lastResult: null,
+      done: false
+    };
+    renderConjExercise();
+    await sleep(50);
+    check360Overflow('B1 Inseparable Verb (überlegen): Stage 1 Prompt');
+
+    // Stage 1: überlegen
+    var b1Input = document.getElementById('conjIn');
+    b1Input.value = 'überlegen';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+    addCheck('B1 Inseparable (überlegen) Stage 1: Accepted', conjState.lastResult && conjState.lastResult.ok === true, 'ok=' + (conjState.lastResult ? conjState.lastResult.ok : false));
+
+    // Advance to Stage 2
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+
+    // Stage 2: überlege (ich)
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'überlege';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+    addCheck('B1 Inseparable (überlegen) Stage 2: Correct accepted', conjState.lastResult && conjState.lastResult.ok === true, 'ok=' + (conjState.lastResult ? conjState.lastResult.ok : false));
+
+    // Advance to Stage 3
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+
+    // Stage 3: überlegte (ich)
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'überlegte';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+    addCheck('B1 Inseparable (überlegen) Stage 3: Correct accepted', conjState.lastResult && conjState.lastResult.ok === true, 'ok=' + (conjState.lastResult ? conjState.lastResult.ok : false));
+
+    // Advance to Stage 4
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+
+    // Stage 4: hat überlegt (no ge-)
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'hat überlegt';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+    addCheck('B1 Inseparable (überlegen) Stage 4: Correct accepted with no ge-', conjState.lastResult && conjState.lastResult.ok === true, 'ok=' + (conjState.lastResult ? conjState.lastResult.ok : false));
+    check360Overflow('B1 Inseparable Verb (überlegen): Stage 4 Feedback with Panel');
+
+    var goalAfterUeberlegen = getTodayCount();
+    var ueberlegenFinalCount = getWordCount('verben', 'conj', vUeberlegenIdx);
+    addCheck('B1 Inseparable (überlegen) Mastery: Counter reached threshold 5', ueberlegenFinalCount === 5, 'count=' + ueberlegenFinalCount);
+    addCheck('B1 Inseparable (überlegen) Daily Goal: Incremented by 1 once (v1.22 rule)', goalAfterUeberlegen === goalBeforeUeberlegen + 1, 'before=' + goalBeforeUeberlegen + ', after=' + goalAfterUeberlegen);
+
+    // --- Part E: B1 Separable + Sein (ausfallen) ---
+    // Test prefix requirement: stem-only rejected with missingPrefix=true
+    var ausfallenStemOnly = checkConjAnswer('falle', 'verben.ausfallen', 2, 0);
+    addCheck('B1 Separable Sein (ausfallen): Stem-only rejected with missingPrefix=true', ausfallenStemOnly.ok === false && ausfallenStemOnly.missingPrefix === true, 'ok=' + ausfallenStemOnly.ok);
+
+    // Test wrong aux rejection
+    var ausfallenWrongAux = checkConjAnswer('hat ausgefallen', 'verben.ausfallen', 4, 2);
+    addCheck('B1 Separable Sein (ausfallen): Wrong aux (hat ausgefallen) rejected', ausfallenWrongAux.ok === false, 'ok=' + ausfallenWrongAux.ok);
+
+    // Preset count to 4 (THRESH.conj - 1)
+    setWordCount('verben', 'conj', vAusfallenIdx, THRESH.conj - 1);
+    var goalBeforeAusfallen = getTodayCount();
+
+    conjState = {
+      sessionIndices: [vAusfallenIdx],
+      currentIndex: 0,
+      currentStage: 1,
+      presPronounIdx: 0, // ich
+      pretPronounIdx: 0, // ich
+      stageResults: [],
+      score: 0,
+      answered: false,
+      runRecorded: false,
+      lastResult: null,
+      done: false
+    };
+    renderConjExercise();
+    await sleep(50);
+
+    // Stage 1: ausfallen
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'ausfallen';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 2: falle aus
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'falle aus';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 3: fiel aus
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'fiel aus';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 4: ist ausgefallen
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'ist ausgefallen';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+
+    addCheck('B1 Separable Sein (ausfallen): All 4 stages completed with ist ausgefallen', conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean), 'stages=' + conjState.stageResults.join(','));
+    check360Overflow('B1 Separable Sein Verb (ausfallen): Stage 4 Feedback with Panel');
+
+    var goalAfterAusfallen = getTodayCount();
+    var ausfallenFinalCount = getWordCount('verben', 'conj', vAusfallenIdx);
+    addCheck('B1 Separable Sein (ausfallen) Mastery: Counter reached threshold 5', ausfallenFinalCount === 5, 'count=' + ausfallenFinalCount);
+    addCheck('B1 Separable Sein (ausfallen) Daily Goal: Incremented by 1 once (v1.22 rule)', goalAfterAusfallen === goalBeforeAusfallen + 1, 'before=' + goalBeforeAusfallen + ', after=' + goalAfterAusfallen);
+
+    // --- Part F: B1 Separable Strong (vorschlagen) ---
+    // Test prefix requirement: stem-only rejected with missingPrefix=true
+    var vorschlagenStemOnly = checkConjAnswer('schlage', 'verben.vorschlagen', 2, 0);
+    addCheck('B1 Separable Strong (vorschlagen): Stem-only rejected with missingPrefix=true', vorschlagenStemOnly.ok === false && vorschlagenStemOnly.missingPrefix === true, 'ok=' + vorschlagenStemOnly.ok);
+
+    setWordCount('verben', 'conj', vVorschlagenIdx, THRESH.conj - 1);
+    var goalBeforeVorschlagen = getTodayCount();
+
+    conjState = {
+      sessionIndices: [vVorschlagenIdx],
+      currentIndex: 0,
+      currentStage: 1,
+      presPronounIdx: 0, // ich
+      pretPronounIdx: 0, // ich
+      stageResults: [],
+      score: 0,
+      answered: false,
+      runRecorded: false,
+      lastResult: null,
+      done: false
+    };
+    renderConjExercise();
+    await sleep(50);
+
+    // Stage 1: vorschlagen
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'vorschlagen';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 2: schlage vor
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'schlage vor';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 3: schlug vor
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'schlug vor';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+
+    // Stage 4: hat vorgeschlagen
+    dispatchKey(window, 'Enter', false);
+    await sleep(50);
+    b1Input = document.getElementById('conjIn');
+    b1Input.value = 'hat vorgeschlagen';
+    dispatchKey(b1Input, 'Enter', false);
+    await sleep(50);
+
+    addCheck('B1 Separable Strong (vorschlagen): All 4 stages completed with hat vorgeschlagen', conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean), 'stages=' + conjState.stageResults.join(','));
+    check360Overflow('B1 Separable Strong Verb (vorschlagen): Stage 4 Feedback with Panel');
+
+    var goalAfterVorschlagen = getTodayCount();
+    var vorschlagenFinalCount = getWordCount('verben', 'conj', vVorschlagenIdx);
+    addCheck('B1 Separable Strong (vorschlagen) Mastery: Counter reached threshold 5', vorschlagenFinalCount === 5, 'count=' + vorschlagenFinalCount);
+    addCheck('B1 Separable Strong (vorschlagen) Daily Goal: Incremented by 1 once (v1.22 rule)', goalAfterVorschlagen === goalBeforeVorschlagen + 1, 'before=' + goalBeforeVorschlagen + ', after=' + goalAfterVorschlagen);
 
     // 10. Console Errors Check
     var errCount = window.__VERBS_CONJ_RESULTS__.consoleErrors.length;

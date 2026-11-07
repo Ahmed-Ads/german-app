@@ -2,8 +2,8 @@
  * tests/verbs_chrome_runner.js
  *
  * Real Chrome headless runner for Verbs section (Release v1.17):
- *   - Category 'verben' present with 169 verbs (77 A1 + 92 A2), hasArticles: false
- *   - Total 31 categories, 1121 words
+ *   - Category 'verben' present with 263 verbs (77 A1 + 92 A2 + 94 B1), hasArticles: false
+ *   - Total 31 categories, 1215 words
  *   - Spot assertions for:
  *       * gehen (ging, ist gegangen)
  *       * essen (isst, aß, hat gegessen)
@@ -17,7 +17,7 @@
  *   - Listen mode: answer feedback displays .verb-panel
  *   - Flashcards: front has no article, back displays .verb-panel
  *   - Word list: expandable <details class="wl-verb-details"> with "عرض التصريف"
- *   - Stats: displays 31 categories and 1121 words
+ *   - Stats: displays 31 categories and 1215 words
  *   - 360px viewport: no horizontal overflow across verbs screens
  *   - Zero console errors
  */
@@ -122,11 +122,11 @@ window.addEventListener('DOMContentLoaded', async function() {
     var totalCats = CATEGORIES.length;
     var totalWords = CATEGORIES.reduce(function(acc, c) { return acc + (c.words ? c.words.length : 0); }, 0);
     addCheck('Total Categories Count', totalCats === 31, 'totalCats=' + totalCats);
-    addCheck('Total Words Count', totalWords === 1121, 'totalWords=' + totalWords);
+    addCheck('Total Words Count', totalWords === 1215, 'totalWords=' + totalWords);
 
     var verbenCat = CATEGORIES.find(function(c) { return c.id === 'verben'; });
     addCheck('Verben Category Exists', Boolean(verbenCat), 'verbenCat=' + (verbenCat ? verbenCat.ar : 'missing'));
-    addCheck('Verben Words Count = 169', verbenCat && verbenCat.words && verbenCat.words.length === 169, 'words=' + (verbenCat ? verbenCat.words.length : 0));
+    addCheck('Verben Words Count = 263', verbenCat && verbenCat.words && verbenCat.words.length === 263, 'words=' + (verbenCat ? verbenCat.words.length : 0));
     addCheck('Verben hasArticles === false', verbenCat && verbenCat.hasArticles === false, 'hasArticles=' + (verbenCat ? verbenCat.hasArticles : 'undefined'));
 
     // 2. Spot assertions
@@ -167,9 +167,9 @@ window.addEventListener('DOMContentLoaded', async function() {
     go({ screen: 'exercise', catId: 'verben', mode: 'review' });
     await sleep(50);
     var isCatReview = exState && exState.kind === 'catReview';
-    var totalQIs169 = exState && exState.totalQ === 169;
-    addCheck('Verben Category Review: Initialized with 169 Single-Step Questions',
-      Boolean(isCatReview && totalQIs169),
+    var totalQIs263 = exState && exState.totalQ === 263;
+    addCheck('Verben Category Review: Initialized with 263 Single-Step Questions',
+      Boolean(isCatReview && totalQIs263),
       'isCatReview=' + isCatReview + ', totalQ=' + (exState ? exState.totalQ : 0));
 
     var revOpt = document.querySelector('#qzone .opt');
@@ -302,10 +302,10 @@ window.addEventListener('DOMContentLoaded', async function() {
     await sleep(50);
     var detailsList = Array.from(document.querySelectorAll('.wl-verb-details'));
     var summaryList = Array.from(document.querySelectorAll('.wl-verb-summary'));
-    var detailsHas169 = detailsList.length === 169;
+    var detailsHas263 = detailsList.length === 263;
     var summaryHasText = summaryList.length > 0 && summaryList[0].textContent.includes('عرض التصريف');
-    addCheck('Verben Word List: 169 Expandable Details with "عرض التصريف"',
-      detailsHas169 && summaryHasText,
+    addCheck('Verben Word List: 263 Expandable Details with "عرض التصريف"',
+      detailsHas263 && summaryHasText,
       'detailsCount=' + detailsList.length + ', summaryHasText=' + summaryHasText);
 
     if (detailsList.length > 0) {
@@ -317,7 +317,7 @@ window.addEventListener('DOMContentLoaded', async function() {
     }
     check360Overflow('Wordlist Screen');
 
-    // 10. Stats Screen: 31 categories, 1121 words
+    // 10. Stats Screen: 31 categories, 1215 words
     go({ screen: 'stats' });
     await sleep(80);
     var statRows = document.querySelectorAll('.stat-cat-row');
@@ -325,10 +325,10 @@ window.addEventListener('DOMContentLoaded', async function() {
     var titleText = titleEl ? titleEl.textContent : '';
     var has31InTitle = titleText.includes('31 قسمًا') || titleText.includes('31 قسماً');
     var appText = document.getElementById('app') ? document.getElementById('app').innerText : '';
-    var has1121 = appText.includes('1121');
-    addCheck('Stats Screen: 31 Categories and 1121 Words Displayed',
-      statRows.length === 31 && has31InTitle && has1121,
-      'statRows=' + statRows.length + ', has31InTitle=' + has31InTitle + ', has1121=' + has1121);
+    var has1215 = appText.includes('1215');
+    addCheck('Stats Screen: 31 Categories and 1215 Words Displayed',
+      statRows.length === 31 && has31InTitle && has1215,
+      'statRows=' + statRows.length + ', has31InTitle=' + has31InTitle + ', has1215=' + has1215);
 
     // 11. Zero Console Errors
     var errCount = window.__VERBS_CHROME_RESULTS__.consoleErrors.length;

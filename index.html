@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="تطبيق ويب تقدمي (PWA) تفاعلي لمتحدثي العربية لإتقان 1121 كلمة ألمانية وقواعدها مع صيغ الجمع والتكرار المتباعد">
+<meta name="description" content="تطبيق ويب تقدمي (PWA) تفاعلي لمتحدثي العربية لإتقان 1215 كلمة ألمانية وقواعدها مع صيغ الجمع والتكرار المتباعد">
 <meta name="theme-color" content="#171512">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -2220,7 +2220,101 @@ const CATEGORIES = [
     {id:"verben.ausmachen",n:"ausmachen",ar:"يُطفئ",note:"فعل منفصل: Partizip: ausgemacht.",s:"Ich mache das Licht aus.",sar:"أُطفئ الضوء."},
     {id:"verben.anmachen",n:"anmachen",ar:"يُشغّل / يُضيء",note:"فعل منفصل: Partizip: angemacht.",s:"Sie macht das Radio an.",sar:"هي تشغّل الراديو."},
     {id:"verben.teilnehmen",n:"teilnehmen",ar:"يشارك",note:"فعل منفصل وقوي: nahm ... teil — hat teilgenommen. teilnehmen an + Dativ.",s:"Er nimmt am Kurs teil.",sar:"هو يشارك في الدورة."},
-    {id:"verben.zurueckkommen",n:"zurückkommen",ar:"يعود",note:"فعل منفصل: Perfekt مع sein: ist zurückgekommen.",s:"Wann kommst du zurück?",sar:"متى تعود؟"}
+    {id:"verben.zurueckkommen",n:"zurückkommen",ar:"يعود",note:"فعل منفصل: Perfekt مع sein: ist zurückgekommen.",s:"Wann kommst du zurück?",sar:"متى تعود؟"},
+    {id:"verben.beschreiben",n:"beschreiben",ar:"يصف",note:"فعل قوي: beschrieb — hat beschrieben.",s:"Du beschreibst das Bild genau.",sar:"أنت تصف الصورة بدقة."},
+    {id:"verben.besprechen",n:"besprechen",ar:"يتباحث في",note:"فعل قوي: du besprichst, er bespricht — besprach — hat besprochen.",s:"Wir besprechen den Plan morgen.",sar:"نتباحث في الخطة غداً."},
+    {id:"verben.bestehen",n:"bestehen",ar:"ينجح (في امتحان) / يتكوّن من",note:"فعل قوي: bestand — hat bestanden. bestehen aus + Dativ = يتكوّن من.",s:"Meine Tochter besteht die Prüfung.",sar:"ابنتي تنجح في الامتحان."},
+    {id:"verben.bedeuten",n:"bedeuten",ar:"يعني",note:"bedeuten = يعني (كلمة أو إشارة). Partizip: bedeutet.",s:"Was bedeutet dieses Wort?",sar:"ماذا تعني هذه الكلمة؟"},
+    {id:"verben.behalten",n:"behalten",ar:"يحتفظ بـ / يُبقي",note:"فعل قوي: du behältst, er behält — behielt — hat behalten.",s:"Er behält immer die Ruhe.",sar:"هو يحافظ دائماً على هدوئه."},
+    {id:"verben.benoetigen",n:"benötigen",ar:"يحتاج إلى (رسمياً)",note:"benötigen = يحتاج، وأكثر رسمية من brauchen. Partizip: benötigt.",s:"Wir benötigen mehr Zeit.",sar:"نحتاج إلى مزيد من الوقت."},
+    {id:"verben.beobachten",n:"beobachten",ar:"يراقب",note:"beobachten = يراقب ويلاحظ. Partizip: beobachtet.",s:"Der Arzt beobachtet den Patienten.",sar:"الطبيب يراقب المريض."},
+    {id:"verben.berichten",n:"berichten",ar:"يُخبر عن / يروي تقريراً",note:"berichten über + Akkusativ = يخبر عن. Partizip: berichtet.",s:"Die Zeitung berichtet über den Unfall.",sar:"الصحيفة تنشر خبراً عن الحادث."},
+    {id:"verben.beschliessen",n:"beschließen",ar:"يقرر (رسمياً)",note:"فعل قوي: beschloss — hat beschlossen. أكثر رسمية من entscheiden.",s:"Wir beschließen, früh zu gehen.",sar:"نقرر أن نغادر مبكراً."},
+    {id:"verben.betreten",n:"betreten",ar:"يدخل (مكاناً)",note:"فعل قوي: du betrittst, er betritt — betrat — hat betreten.",s:"Du betrittst den Raum leise.",sar:"تدخل الغرفة بهدوء."},
+    {id:"verben.enthalten",n:"enthalten",ar:"يحتوي على",note:"فعل قوي: du enthältst, er enthält — enthielt — hat enthalten.",s:"Das Paket enthält drei Bücher.",sar:"الطرد يحتوي على ثلاثة كتب."},
+    {id:"verben.entdecken",n:"entdecken",ar:"يكتشف",note:"entdecken = يكتشف. Partizip: entdeckt.",s:"Die Kinder entdecken eine Höhle.",sar:"الأطفال يكتشفون كهفاً."},
+    {id:"verben.erfahren",n:"erfahren",ar:"يعلم بخبر",note:"فعل قوي: du erfährst, er erfährt — erfuhr — hat erfahren.",s:"Ich erfahre die Nachricht heute.",sar:"أعلم بالخبر اليوم."},
+    {id:"verben.erfinden",n:"erfinden",ar:"يخترع",note:"فعل قوي: erfand — hat erfunden.",s:"Ein Ingenieur erfindet eine Maschine.",sar:"مهندس يخترع آلة."},
+    {id:"verben.erhalten",n:"erhalten",ar:"يتلقى",note:"فعل قوي: du erhältst, er erhält — erhielt — hat erhalten. أكثر رسمية من bekommen.",s:"Ich erhalte morgen einen Brief.",sar:"أتلقى رسالة غداً."},
+    {id:"verben.erhoehen",n:"erhöhen",ar:"يرفع (سعراً أو عدداً)",note:"erhöhen = يرفع. Partizip: erhöht.",s:"Der Laden erhöht die Preise.",sar:"المتجر يرفع الأسعار."},
+    {id:"verben.erkennen",n:"erkennen",ar:"يتبيّن / يتعرّف من شكله",note:"فعل مختلط: erkannte — hat erkannt.",s:"Ich erkenne dich sofort.",sar:"أتعرّف عليك فوراً."},
+    {id:"verben.erlauben",n:"erlauben",ar:"يسمح بـ",note:"erlauben + Dativ (الشخص) + Akkusativ (الشيء). Partizip: erlaubt.",s:"Meine Eltern erlauben das nicht.",sar:"والداي لا يسمحان بذلك."},
+    {id:"verben.ermoeglichen",n:"ermöglichen",ar:"يتيح",note:"ermöglichen + Dativ + Akkusativ. Partizip: ermöglicht.",s:"Das Stipendium ermöglicht ihm das Studium.",sar:"تتيح له المنحة الدراسة."},
+    {id:"verben.erwarten",n:"erwarten",ar:"يتوقع",note:"erwarten = يتوقع، وكذلك ينتظر بترقّب. Partizip: erwartet.",s:"Wir erwarten viele Gäste.",sar:"نتوقع ضيوفاً كثيرين."},
+    {id:"verben.geniessen",n:"genießen",ar:"يستمتع بـ",note:"فعل قوي: genoss — hat genossen.",s:"Ich genieße die Ruhe am Meer.",sar:"أستمتع بالهدوء عند البحر."},
+    {id:"verben.gruenden",n:"gründen",ar:"يؤسس",note:"gründen = يؤسس. Partizip: gegründet.",s:"Sie gründen eine kleine Firma.",sar:"يؤسسون شركة صغيرة."},
+    {id:"verben.haengen",n:"hängen",ar:"يتدلّى / يكون معلّقاً",note:"hängen (لازم): hing — hat gehangen. أما المتعدّي (يعلّق شيئاً): hängen — hängte — gehängt.",s:"Das Bild hängt an der Wand.",sar:"اللوحة معلقة على الحائط."},
+    {id:"verben.kritisieren",n:"kritisieren",ar:"ينتقد",note:"Partizip: kritisiert (بدون ge- لأن الفعل ينتهي بـ -ieren).",s:"Du kritisierst mich zu oft.",sar:"تنتقدني كثيراً."},
+    {id:"verben.loesen",n:"lösen",ar:"يحلّ (مشكلة)",note:"lösen = يحلّ مسألة أو مشكلة. Partizip: gelöst.",s:"Sie löst die Aufgabe schnell.",sar:"هي تحل التمرين بسرعة."},
+    {id:"verben.messen",n:"messen",ar:"يقيس",note:"فعل قوي: du misst, er misst — maß — hat gemessen.",s:"Der Arzt misst die Temperatur.",sar:"الطبيب يقيس درجة الحرارة."},
+    {id:"verben.nutzen",n:"nutzen",ar:"يستغلّ / ينتفع بـ",note:"nutzen = يستغلّ. Partizip: genutzt.",s:"Wir nutzen jede Minute.",sar:"نستغل كل دقيقة."},
+    {id:"verben.planen",n:"planen",ar:"يخطط",note:"planen = يخطط. Partizip: geplant.",s:"Wir planen eine Reise nach Italien.",sar:"نخطط لرحلة إلى إيطاليا."},
+    {id:"verben.pruefen",n:"prüfen",ar:"يدقّق / يفحص",note:"prüfen = يدقّق أو يختبر. Partizip: geprüft.",s:"Er prüft die Rechnung genau.",sar:"هو يدقق في الفاتورة جيداً."},
+    {id:"verben.raten",n:"raten",ar:"ينصح / يخمّن",note:"raten + Dativ = ينصح. فعل قوي: du rätst, er rät — riet — hat geraten.",s:"Ich rate dir, früh zu kommen.",sar:"أنصحك بأن تأتي مبكراً."},
+    {id:"verben.reichen",n:"reichen",ar:"يكفي / يناول",note:"reichen = يكفي، وكذلك يناول: Reich mir das Salz. Partizip: gereicht.",s:"Das Geld reicht nicht.",sar:"المال لا يكفي."},
+    {id:"verben.retten",n:"retten",ar:"ينقذ",note:"retten = ينقذ. du rettest, er rettet. Partizip: gerettet.",s:"Der Feuerwehrmann rettet ein Kind.",sar:"رجل الإطفاء ينقذ طفلاً."},
+    {id:"verben.schaffen",n:"schaffen",ar:"ينجز / ينجح في",note:"schaffen (بمعنى ينجز) فعل ضعيف: schaffte — hat geschafft. وبمعنى يخلق فعل قوي: schuf — hat geschaffen.",s:"Ich schaffe das heute noch.",sar:"أستطيع إنجاز ذلك اليوم."},
+    {id:"verben.scheinen",n:"scheinen",ar:"يسطع / يبدو أن",note:"فعل قوي: schien — hat geschienen. scheinen + zu + Infinitiv = يبدو أنه.",s:"Er scheint müde zu sein.",sar:"يبدو أنه متعب."},
+    {id:"verben.schuetzen",n:"schützen",ar:"يحمي",note:"schützen vor + Dativ = يحمي من. Partizip: geschützt.",s:"Der Helm schützt den Kopf.",sar:"الخوذة تحمي الرأس."},
+    {id:"verben.steigen",n:"steigen",ar:"يرتفع / يصعد",note:"فعل قوي: stieg — ist gestiegen (مع sein).",s:"Die Preise steigen jedes Jahr.",sar:"الأسعار ترتفع كل عام."},
+    {id:"verben.stoeren",n:"stören",ar:"يزعج",note:"stören + Akkusativ = يزعج. Partizip: gestört.",s:"Stört dich die Musik?",sar:"هل تزعجك الموسيقى؟"},
+    {id:"verben.streiten",n:"streiten",ar:"يتشاجر / يتخاصم",note:"فعل قوي: stritt — hat gestritten. du streitest, er streitet.",s:"Die Geschwister streiten oft.",sar:"الأخوة يتشاجرون كثيراً."},
+    {id:"verben.treiben",n:"treiben",ar:"يمارس (رياضة) / يسوق",note:"Sport treiben = يمارس الرياضة. فعل قوي: trieb — hat getrieben.",s:"Er treibt jeden Tag Sport.",sar:"هو يمارس الرياضة كل يوم."},
+    {id:"verben.uebernehmen",n:"übernehmen",ar:"يتولّى / يتحمّل",note:"فعل قوي: du übernimmst, er übernimmt — übernahm — hat übernommen.",s:"Ich übernehme die Kosten.",sar:"أتحمل التكاليف."},
+    {id:"verben.ueberraschen",n:"überraschen",ar:"يفاجئ",note:"Partizip: überrascht (بدون ge-). du überraschst.",s:"Das Geschenk überrascht meine Mutter.",sar:"الهدية تفاجئ أمي."},
+    {id:"verben.unterscheiden",n:"unterscheiden",ar:"يميّز بين",note:"فعل قوي: unterschied — hat unterschieden. du unterscheidest.",s:"Ich unterscheide die beiden Wörter nicht.",sar:"لا أميّز بين الكلمتين."},
+    {id:"verben.unterschreiben",n:"unterschreiben",ar:"يوقّع",note:"فعل قوي: unterschrieb — hat unterschrieben.",s:"Du unterschreibst den Vertrag hier.",sar:"توقّع العقد هنا."},
+    {id:"verben.unterstuetzen",n:"unterstützen",ar:"يدعم",note:"Partizip: unterstützt (بدون ge-). du unterstützt.",s:"Meine Eltern unterstützen mich sehr.",sar:"والداي يدعمانني كثيراً."},
+    {id:"verben.untersuchen",n:"untersuchen",ar:"يفحص (طبياً أو علمياً)",note:"untersuchen = يفحص. Partizip: untersucht (بدون ge-).",s:"Der Arzt untersucht mein Knie.",sar:"الطبيب يفحص ركبتي."},
+    {id:"verben.verbinden",n:"verbinden",ar:"يربط / يوصّل",note:"فعل قوي: verband — hat verbunden. du verbindest.",s:"Eine Brücke verbindet beide Ufer.",sar:"جسر يربط الضفتين."},
+    {id:"verben.verbringen",n:"verbringen",ar:"يقضي (وقتاً)",note:"فعل مختلط: verbrachte — hat verbracht.",s:"Wir verbringen den Sommer am Meer.",sar:"نقضي الصيف عند البحر."},
+    {id:"verben.vergleichen",n:"vergleichen",ar:"يقارن",note:"فعل قوي: verglich — hat verglichen. vergleichen mit + Dativ.",s:"Ich vergleiche die Preise im Internet.",sar:"أقارن الأسعار على الإنترنت."},
+    {id:"verben.verlangen",n:"verlangen",ar:"يطلب (بإلحاح) / يطالب",note:"verlangen = يطالب بشيء. Partizip: verlangt.",s:"Der Verkäufer verlangt zu viel.",sar:"البائع يطلب مبلغاً كبيراً."},
+    {id:"verben.verpassen",n:"verpassen",ar:"يفوّت",note:"verpassen = يفوّت (موعداً أو وسيلة نقل). Partizip: verpasst.",s:"Wir verpassen den Bus.",sar:"نفوّت الحافلة."},
+    {id:"verben.verreisen",n:"verreisen",ar:"يخرج في سفر",note:"verreisen = يخرج في سفر (لمدة). Perfekt مع sein: ist verreist.",s:"Meine Eltern verreisen im Juli.",sar:"والداي يسافران في يوليو."},
+    {id:"verben.verschieben",n:"verschieben",ar:"يؤجّل / يزيح",note:"فعل قوي: verschob — hat verschoben.",s:"Wir verschieben das Treffen auf Montag.",sar:"نؤجل الاجتماع إلى يوم الإثنين."},
+    {id:"verben.verschwinden",n:"verschwinden",ar:"يختفي",note:"فعل قوي: verschwand — ist verschwunden (مع sein).",s:"Die Katze verschwindet im Garten.",sar:"القطة تختفي في الحديقة."},
+    {id:"verben.versprechen",n:"versprechen",ar:"يعد بـ",note:"فعل قوي: du versprichst, er verspricht — versprach — hat versprochen.",s:"Ich verspreche dir nichts.",sar:"لا أعدك بشيء."},
+    {id:"verben.zerstoeren",n:"zerstören",ar:"يدمّر",note:"zerstören = يدمّر. Partizip: zerstört (بدون ge-).",s:"Das Feuer zerstört das Haus.",sar:"النار تدمّر البيت."},
+    {id:"verben.begruessen",n:"begrüßen",ar:"يرحّب بـ",note:"begrüßen = يرحّب ويحيّي. Partizip: begrüßt. er begrüßt.",s:"Wir begrüßen die Gäste an der Tür.",sar:"نستقبل الضيوف عند الباب."},
+    {id:"verben.behaupten",n:"behaupten",ar:"يزعم / يدّعي",note:"behaupten = يزعم. Partizip: behauptet.",s:"Er behauptet, er weiß alles.",sar:"هو يزعم أنه يعرف كل شيء."},
+    {id:"verben.bemerken",n:"bemerken",ar:"يلاحظ",note:"bemerken = يلاحظ. Partizip: bemerkt.",s:"Ich bemerke den Fehler zu spät.",sar:"ألاحظ الخطأ متأخراً."},
+    {id:"verben.bestaetigen",n:"bestätigen",ar:"يؤكّد (رسمياً)",note:"bestätigen = يؤكّد. Partizip: bestätigt.",s:"Das Hotel bestätigt die Buchung.",sar:"الفندق يؤكد الحجز."},
+    {id:"verben.diskutieren",n:"diskutieren",ar:"يناقش",note:"diskutieren über + Akkusativ. Partizip: diskutiert.",s:"Wir diskutieren über das Thema.",sar:"نتناقش حول الموضوع."},
+    {id:"verben.empfehlen",n:"empfehlen",ar:"يوصي بـ / يرشّح",note:"فعل قوي: du empfiehlst, er empfiehlt — empfahl — hat empfohlen.",s:"Ich empfehle dir dieses Restaurant.",sar:"أنصحك بهذا المطعم."},
+    {id:"verben.existieren",n:"existieren",ar:"يوجد (كياناً)",note:"Partizip: existiert (بدون ge-).",s:"Dieses Geschäft existiert nicht mehr.",sar:"هذا المتجر لم يعد موجوداً."},
+    {id:"verben.gratulieren",n:"gratulieren",ar:"يهنّئ",note:"gratulieren + Dativ: Ich gratuliere dir. Partizip: gratuliert.",s:"Wir gratulieren dir zum Geburtstag.",sar:"نهنئك بعيد ميلادك."},
+    {id:"verben.informieren",n:"informieren",ar:"يُعلم / يُبلغ",note:"informieren + Akkusativ. Partizip: informiert.",s:"Der Lehrer informiert die Eltern.",sar:"المعلم يُعلم أولياء الأمور."},
+    {id:"verben.kontrollieren",n:"kontrollieren",ar:"يتحقق من / يفتّش",note:"kontrollieren = يتحقق ويفتّش. Partizip: kontrolliert.",s:"Der Polizist kontrolliert den Ausweis.",sar:"الشرطي يتحقق من الهوية."},
+    {id:"verben.mieten",n:"mieten",ar:"يستأجر",note:"mieten = يستأجر. du mietest, er mietet. Partizip: gemietet.",s:"Wir mieten eine kleine Wohnung.",sar:"نستأجر شقة صغيرة."},
+    {id:"verben.organisieren",n:"organisieren",ar:"ينظّم",note:"Partizip: organisiert (بدون ge-).",s:"Ich organisiere die Party für Samstag.",sar:"أنظّم الحفلة ليوم السبت."},
+    {id:"verben.ueberlegen",n:"überlegen",ar:"يتروّى / يفكر مليّاً",note:"Partizip: überlegt (بدون ge-).",s:"Ich überlege noch, was ich esse.",sar:"ما زلت أفكر فيما سآكله."},
+    {id:"verben.widersprechen",n:"widersprechen",ar:"يعارض / يناقض",note:"widersprechen + Dativ. فعل قوي: du widersprichst — widersprach — hat widersprochen.",s:"Du widersprichst dem Lehrer nie.",sar:"أنت لا تعارض المعلم أبداً."},
+    {id:"verben.vorschlagen",n:"vorschlagen",ar:"يقترح",note:"فعل منفصل وقوي: du schlägst ... vor — schlug ... vor — hat vorgeschlagen.",s:"Ich schlage einen Spaziergang vor.",sar:"أقترح القيام بنزهة."},
+    {id:"verben.vorstellen",n:"vorstellen",ar:"يقدّم (شخصاً)",note:"فعل منفصل: ich stelle ... vor. Partizip: vorgestellt.",s:"Ich stelle dir meinen Freund vor.",sar:"أقدّم لك صديقي."},
+    {id:"verben.zunehmen",n:"zunehmen",ar:"يزداد",note:"فعل منفصل وقوي: du nimmst ... zu — nahm ... zu — hat zugenommen.",s:"Die Zahl der Touristen nimmt zu.",sar:"عدد السياح يزداد."},
+    {id:"verben.abnehmen",n:"abnehmen",ar:"ينخفض / يقلّ",note:"فعل منفصل وقوي: nahm ... ab — hat abgenommen.",s:"Die Temperatur nimmt am Abend ab.",sar:"درجة الحرارة تنخفض في المساء."},
+    {id:"verben.absagen",n:"absagen",ar:"يلغي (موعداً)",note:"فعل منفصل: ich sage ... ab. Partizip: abgesagt.",s:"Ich sage den Termin leider ab.",sar:"ألغي الموعد للأسف."},
+    {id:"verben.abschliessen",n:"abschließen",ar:"يقفل بالمفتاح / يُنهي",note:"فعل منفصل وقوي: schloss ... ab — hat abgeschlossen.",s:"Er schließt die Tür immer ab.",sar:"هو يقفل الباب بالمفتاح دائماً."},
+    {id:"verben.anbieten",n:"anbieten",ar:"يعرض",note:"فعل منفصل وقوي: du bietest ... an — bot ... an — hat angeboten.",s:"Der Kellner bietet uns Tee an.",sar:"النادل يعرض علينا الشاي."},
+    {id:"verben.aufgeben",n:"aufgeben",ar:"يستسلم / يتخلى عن",note:"فعل منفصل وقوي: du gibst ... auf — gab ... auf — hat aufgegeben.",s:"Ich gebe nie auf.",sar:"لا أستسلم أبداً."},
+    {id:"verben.aufnehmen",n:"aufnehmen",ar:"يسجّل / يضمّ",note:"فعل منفصل وقوي: du nimmst ... auf — nahm ... auf — hat aufgenommen.",s:"Wir nehmen ein Lied auf.",sar:"نسجل أغنية."},
+    {id:"verben.aufschreiben",n:"aufschreiben",ar:"يدوّن",note:"فعل منفصل وقوي: schrieb ... auf — hat aufgeschrieben.",s:"Ich schreibe die Adresse auf.",sar:"أكتب العنوان."},
+    {id:"verben.ausfuellen",n:"ausfüllen",ar:"يملأ (استمارة)",note:"فعل منفصل: du füllst ... aus. Partizip: ausgefüllt.",s:"Du füllst das Formular aus.",sar:"تملأ الاستمارة."},
+    {id:"verben.ausfallen",n:"ausfallen",ar:"يُلغى / يتعطّل",note:"فعل منفصل وقوي: fiel ... aus — ist ausgefallen (مع sein).",s:"Der Unterricht fällt heute aus.",sar:"الحصة تُلغى اليوم."},
+    {id:"verben.ausprobieren",n:"ausprobieren",ar:"يجرّب",note:"فعل منفصل: Partizip: ausprobiert.",s:"Ich probiere das neue Rezept aus.",sar:"أجرّب الوصفة الجديدة."},
+    {id:"verben.auswaehlen",n:"auswählen",ar:"ينتقي",note:"فعل منفصل: du wählst ... aus. Partizip: ausgewählt.",s:"Du wählst ein Geschenk aus.",sar:"تنتقي هدية."},
+    {id:"verben.einfuehren",n:"einführen",ar:"يُدخل (نظاماً) / يطبّق",note:"فعل منفصل: Partizip: eingeführt.",s:"Die Schule führt neue Regeln ein.",sar:"المدرسة تطبّق قواعد جديدة."},
+    {id:"verben.eingeben",n:"eingeben",ar:"يُدخل (بيانات)",note:"فعل منفصل وقوي: du gibst ... ein — gab ... ein — hat eingegeben.",s:"Ich gebe das Passwort ein.",sar:"أُدخل كلمة المرور."},
+    {id:"verben.mitteilen",n:"mitteilen",ar:"يُبلغ بـ",note:"فعل منفصل: mitteilen + Dativ. Partizip: mitgeteilt.",s:"Ich teile dir das Ergebnis mit.",sar:"أبلغك بالنتيجة."},
+    {id:"verben.nachdenken",n:"nachdenken",ar:"يتأمّل",note:"فعل منفصل ومختلط: dachte ... nach — hat nachgedacht. nachdenken über + Akkusativ.",s:"Ich denke lange über die Frage nach.",sar:"أفكر طويلاً في السؤال."},
+    {id:"verben.vorhaben",n:"vorhaben",ar:"ينوي / يخطط للقيام بـ",note:"فعل منفصل: hatte ... vor — hat vorgehabt.",s:"Was hast du am Wochenende vor?",sar:"ماذا تنوي أن تفعل في عطلة الأسبوع؟"},
+    {id:"verben.zugeben",n:"zugeben",ar:"يعترف بـ",note:"فعل منفصل وقوي: du gibst ... zu — gab ... zu — hat zugegeben.",s:"Er gibt den Fehler nicht zu.",sar:"هو لا يعترف بالخطأ."},
+    {id:"verben.zusammenfassen",n:"zusammenfassen",ar:"يلخّص",note:"فعل منفصل: er fasst ... zusammen. Partizip: zusammengefasst.",s:"Er fasst den Text kurz zusammen.",sar:"هو يلخّص النص بإيجاز."},
+    {id:"verben.zurueckgeben",n:"zurückgeben",ar:"يعيد (شيئاً)",note:"فعل منفصل وقوي: gab ... zurück — hat zurückgegeben.",s:"Ich gebe dir das Buch zurück.",sar:"أعيد إليك الكتاب."},
+    {id:"verben.stattfinden",n:"stattfinden",ar:"يُقام",note:"فعل منفصل وقوي: du findest ... statt — fand ... statt — hat stattgefunden.",s:"Das Konzert findet im Park statt.",sar:"تُقام الحفلة في الحديقة."},
+    {id:"verben.vorkommen",n:"vorkommen",ar:"يرد / يوجد",note:"فعل منفصل وقوي: kam ... vor — ist vorgekommen (مع sein).",s:"Das Wort kommt oft vor.",sar:"تتكرر الكلمة كثيراً."},
+    {id:"verben.herstellen",n:"herstellen",ar:"يصنّع / ينتج",note:"فعل منفصل: er stellt ... her. Partizip: hergestellt.",s:"Die Firma stellt Möbel her.",sar:"الشركة تصنّع أثاثاً."}
   ]}
 ];
 
@@ -6280,6 +6374,2262 @@ const VERB_FORMS = {
     ],
     "pp": "zurückgekommen",
     "perfekt": "ist zurückgekommen",
+    "pretDuAlt": null
+  },
+  "verben.beschreiben": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "beschreibe",
+      "beschreibst",
+      "beschreibt",
+      "beschreiben",
+      "beschreibt",
+      "beschreiben"
+    ],
+    "pret": [
+      "beschrieb",
+      "beschriebst",
+      "beschrieb",
+      "beschrieben",
+      "beschriebt",
+      "beschrieben"
+    ],
+    "pp": "beschrieben",
+    "perfekt": "hat beschrieben",
+    "pretDuAlt": null
+  },
+  "verben.besprechen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "bespreche",
+      "besprichst",
+      "bespricht",
+      "besprechen",
+      "besprecht",
+      "besprechen"
+    ],
+    "pret": [
+      "besprach",
+      "besprachst",
+      "besprach",
+      "besprachen",
+      "bespracht",
+      "besprachen"
+    ],
+    "pp": "besprochen",
+    "perfekt": "hat besprochen",
+    "pretDuAlt": null
+  },
+  "verben.bestehen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "bestehe",
+      "bestehst",
+      "besteht",
+      "bestehen",
+      "besteht",
+      "bestehen"
+    ],
+    "pret": [
+      "bestand",
+      "bestandest",
+      "bestand",
+      "bestanden",
+      "bestandet",
+      "bestanden"
+    ],
+    "pp": "bestanden",
+    "perfekt": "hat bestanden",
+    "pretDuAlt": null
+  },
+  "verben.bedeuten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "bedeute",
+      "bedeutest",
+      "bedeutet",
+      "bedeuten",
+      "bedeutet",
+      "bedeuten"
+    ],
+    "pret": [
+      "bedeutete",
+      "bedeutetest",
+      "bedeutete",
+      "bedeuteten",
+      "bedeutetet",
+      "bedeuteten"
+    ],
+    "pp": "bedeutet",
+    "perfekt": "hat bedeutet",
+    "pretDuAlt": null
+  },
+  "verben.behalten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "behalte",
+      "behältst",
+      "behält",
+      "behalten",
+      "behaltet",
+      "behalten"
+    ],
+    "pret": [
+      "behielt",
+      "behieltest",
+      "behielt",
+      "behielten",
+      "behieltet",
+      "behielten"
+    ],
+    "pp": "behalten",
+    "perfekt": "hat behalten",
+    "pretDuAlt": null
+  },
+  "verben.benoetigen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "benötige",
+      "benötigst",
+      "benötigt",
+      "benötigen",
+      "benötigt",
+      "benötigen"
+    ],
+    "pret": [
+      "benötigte",
+      "benötigtest",
+      "benötigte",
+      "benötigten",
+      "benötigtet",
+      "benötigten"
+    ],
+    "pp": "benötigt",
+    "perfekt": "hat benötigt",
+    "pretDuAlt": null
+  },
+  "verben.beobachten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "beobachte",
+      "beobachtest",
+      "beobachtet",
+      "beobachten",
+      "beobachtet",
+      "beobachten"
+    ],
+    "pret": [
+      "beobachtete",
+      "beobachtetest",
+      "beobachtete",
+      "beobachteten",
+      "beobachtetet",
+      "beobachteten"
+    ],
+    "pp": "beobachtet",
+    "perfekt": "hat beobachtet",
+    "pretDuAlt": null
+  },
+  "verben.berichten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "berichte",
+      "berichtest",
+      "berichtet",
+      "berichten",
+      "berichtet",
+      "berichten"
+    ],
+    "pret": [
+      "berichtete",
+      "berichtetest",
+      "berichtete",
+      "berichteten",
+      "berichtetet",
+      "berichteten"
+    ],
+    "pp": "berichtet",
+    "perfekt": "hat berichtet",
+    "pretDuAlt": null
+  },
+  "verben.beschliessen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "beschließe",
+      "beschließt",
+      "beschließt",
+      "beschließen",
+      "beschließt",
+      "beschließen"
+    ],
+    "pret": [
+      "beschloss",
+      "beschlossest",
+      "beschloss",
+      "beschlossen",
+      "beschlosst",
+      "beschlossen"
+    ],
+    "pp": "beschlossen",
+    "perfekt": "hat beschlossen",
+    "pretDuAlt": "beschlosst"
+  },
+  "verben.betreten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "betrete",
+      "betrittst",
+      "betritt",
+      "betreten",
+      "betretet",
+      "betreten"
+    ],
+    "pret": [
+      "betrat",
+      "betratest",
+      "betrat",
+      "betraten",
+      "betratet",
+      "betraten"
+    ],
+    "pp": "betreten",
+    "perfekt": "hat betreten",
+    "pretDuAlt": null
+  },
+  "verben.enthalten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "enthalte",
+      "enthältst",
+      "enthält",
+      "enthalten",
+      "enthaltet",
+      "enthalten"
+    ],
+    "pret": [
+      "enthielt",
+      "enthieltest",
+      "enthielt",
+      "enthielten",
+      "enthieltet",
+      "enthielten"
+    ],
+    "pp": "enthalten",
+    "perfekt": "hat enthalten",
+    "pretDuAlt": null
+  },
+  "verben.entdecken": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "entdecke",
+      "entdeckst",
+      "entdeckt",
+      "entdecken",
+      "entdeckt",
+      "entdecken"
+    ],
+    "pret": [
+      "entdeckte",
+      "entdecktest",
+      "entdeckte",
+      "entdeckten",
+      "entdecktet",
+      "entdeckten"
+    ],
+    "pp": "entdeckt",
+    "perfekt": "hat entdeckt",
+    "pretDuAlt": null
+  },
+  "verben.erfahren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erfahre",
+      "erfährst",
+      "erfährt",
+      "erfahren",
+      "erfahrt",
+      "erfahren"
+    ],
+    "pret": [
+      "erfuhr",
+      "erfuhrst",
+      "erfuhr",
+      "erfuhren",
+      "erfuhrt",
+      "erfuhren"
+    ],
+    "pp": "erfahren",
+    "perfekt": "hat erfahren",
+    "pretDuAlt": null
+  },
+  "verben.erfinden": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erfinde",
+      "erfindest",
+      "erfindet",
+      "erfinden",
+      "erfindet",
+      "erfinden"
+    ],
+    "pret": [
+      "erfand",
+      "erfandest",
+      "erfand",
+      "erfanden",
+      "erfandet",
+      "erfanden"
+    ],
+    "pp": "erfunden",
+    "perfekt": "hat erfunden",
+    "pretDuAlt": null
+  },
+  "verben.erhalten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erhalte",
+      "erhältst",
+      "erhält",
+      "erhalten",
+      "erhaltet",
+      "erhalten"
+    ],
+    "pret": [
+      "erhielt",
+      "erhieltest",
+      "erhielt",
+      "erhielten",
+      "erhieltet",
+      "erhielten"
+    ],
+    "pp": "erhalten",
+    "perfekt": "hat erhalten",
+    "pretDuAlt": null
+  },
+  "verben.erhoehen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erhöhe",
+      "erhöhst",
+      "erhöht",
+      "erhöhen",
+      "erhöht",
+      "erhöhen"
+    ],
+    "pret": [
+      "erhöhte",
+      "erhöhtest",
+      "erhöhte",
+      "erhöhten",
+      "erhöhtet",
+      "erhöhten"
+    ],
+    "pp": "erhöht",
+    "perfekt": "hat erhöht",
+    "pretDuAlt": null
+  },
+  "verben.erkennen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erkenne",
+      "erkennst",
+      "erkennt",
+      "erkennen",
+      "erkennt",
+      "erkennen"
+    ],
+    "pret": [
+      "erkannte",
+      "erkanntest",
+      "erkannte",
+      "erkannten",
+      "erkanntet",
+      "erkannten"
+    ],
+    "pp": "erkannt",
+    "perfekt": "hat erkannt",
+    "pretDuAlt": null
+  },
+  "verben.erlauben": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erlaube",
+      "erlaubst",
+      "erlaubt",
+      "erlauben",
+      "erlaubt",
+      "erlauben"
+    ],
+    "pret": [
+      "erlaubte",
+      "erlaubtest",
+      "erlaubte",
+      "erlaubten",
+      "erlaubtet",
+      "erlaubten"
+    ],
+    "pp": "erlaubt",
+    "perfekt": "hat erlaubt",
+    "pretDuAlt": null
+  },
+  "verben.ermoeglichen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "ermögliche",
+      "ermöglichst",
+      "ermöglicht",
+      "ermöglichen",
+      "ermöglicht",
+      "ermöglichen"
+    ],
+    "pret": [
+      "ermöglichte",
+      "ermöglichtest",
+      "ermöglichte",
+      "ermöglichten",
+      "ermöglichtet",
+      "ermöglichten"
+    ],
+    "pp": "ermöglicht",
+    "perfekt": "hat ermöglicht",
+    "pretDuAlt": null
+  },
+  "verben.erwarten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "erwarte",
+      "erwartest",
+      "erwartet",
+      "erwarten",
+      "erwartet",
+      "erwarten"
+    ],
+    "pret": [
+      "erwartete",
+      "erwartetest",
+      "erwartete",
+      "erwarteten",
+      "erwartetet",
+      "erwarteten"
+    ],
+    "pp": "erwartet",
+    "perfekt": "hat erwartet",
+    "pretDuAlt": null
+  },
+  "verben.geniessen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "genieße",
+      "genießt",
+      "genießt",
+      "genießen",
+      "genießt",
+      "genießen"
+    ],
+    "pret": [
+      "genoss",
+      "genossest",
+      "genoss",
+      "genossen",
+      "genosst",
+      "genossen"
+    ],
+    "pp": "genossen",
+    "perfekt": "hat genossen",
+    "pretDuAlt": "genosst"
+  },
+  "verben.gruenden": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "gründe",
+      "gründest",
+      "gründet",
+      "gründen",
+      "gründet",
+      "gründen"
+    ],
+    "pret": [
+      "gründete",
+      "gründetest",
+      "gründete",
+      "gründeten",
+      "gründetet",
+      "gründeten"
+    ],
+    "pp": "gegründet",
+    "perfekt": "hat gegründet",
+    "pretDuAlt": null
+  },
+  "verben.haengen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "hänge",
+      "hängst",
+      "hängt",
+      "hängen",
+      "hängt",
+      "hängen"
+    ],
+    "pret": [
+      "hing",
+      "hingst",
+      "hing",
+      "hingen",
+      "hingt",
+      "hingen"
+    ],
+    "pp": "gehangen",
+    "perfekt": "hat gehangen",
+    "pretDuAlt": null
+  },
+  "verben.kritisieren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "kritisiere",
+      "kritisierst",
+      "kritisiert",
+      "kritisieren",
+      "kritisiert",
+      "kritisieren"
+    ],
+    "pret": [
+      "kritisierte",
+      "kritisiertest",
+      "kritisierte",
+      "kritisierten",
+      "kritisiertet",
+      "kritisierten"
+    ],
+    "pp": "kritisiert",
+    "perfekt": "hat kritisiert",
+    "pretDuAlt": null
+  },
+  "verben.loesen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "löse",
+      "löst",
+      "löst",
+      "lösen",
+      "löst",
+      "lösen"
+    ],
+    "pret": [
+      "löste",
+      "löstest",
+      "löste",
+      "lösten",
+      "löstet",
+      "lösten"
+    ],
+    "pp": "gelöst",
+    "perfekt": "hat gelöst",
+    "pretDuAlt": null
+  },
+  "verben.messen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "messe",
+      "misst",
+      "misst",
+      "messen",
+      "messt",
+      "messen"
+    ],
+    "pret": [
+      "maß",
+      "maßest",
+      "maß",
+      "maßen",
+      "maßt",
+      "maßen"
+    ],
+    "pp": "gemessen",
+    "perfekt": "hat gemessen",
+    "pretDuAlt": "maßt"
+  },
+  "verben.nutzen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "nutze",
+      "nutzt",
+      "nutzt",
+      "nutzen",
+      "nutzt",
+      "nutzen"
+    ],
+    "pret": [
+      "nutzte",
+      "nutztest",
+      "nutzte",
+      "nutzten",
+      "nutztet",
+      "nutzten"
+    ],
+    "pp": "genutzt",
+    "perfekt": "hat genutzt",
+    "pretDuAlt": null
+  },
+  "verben.planen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "plane",
+      "planst",
+      "plant",
+      "planen",
+      "plant",
+      "planen"
+    ],
+    "pret": [
+      "plante",
+      "plantest",
+      "plante",
+      "planten",
+      "plantet",
+      "planten"
+    ],
+    "pp": "geplant",
+    "perfekt": "hat geplant",
+    "pretDuAlt": null
+  },
+  "verben.pruefen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "prüfe",
+      "prüfst",
+      "prüft",
+      "prüfen",
+      "prüft",
+      "prüfen"
+    ],
+    "pret": [
+      "prüfte",
+      "prüftest",
+      "prüfte",
+      "prüften",
+      "prüftet",
+      "prüften"
+    ],
+    "pp": "geprüft",
+    "perfekt": "hat geprüft",
+    "pretDuAlt": null
+  },
+  "verben.raten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "rate",
+      "rätst",
+      "rät",
+      "raten",
+      "ratet",
+      "raten"
+    ],
+    "pret": [
+      "riet",
+      "rietest",
+      "riet",
+      "rieten",
+      "rietet",
+      "rieten"
+    ],
+    "pp": "geraten",
+    "perfekt": "hat geraten",
+    "pretDuAlt": null
+  },
+  "verben.reichen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "reiche",
+      "reichst",
+      "reicht",
+      "reichen",
+      "reicht",
+      "reichen"
+    ],
+    "pret": [
+      "reichte",
+      "reichtest",
+      "reichte",
+      "reichten",
+      "reichtet",
+      "reichten"
+    ],
+    "pp": "gereicht",
+    "perfekt": "hat gereicht",
+    "pretDuAlt": null
+  },
+  "verben.retten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "rette",
+      "rettest",
+      "rettet",
+      "retten",
+      "rettet",
+      "retten"
+    ],
+    "pret": [
+      "rettete",
+      "rettetest",
+      "rettete",
+      "retteten",
+      "rettetet",
+      "retteten"
+    ],
+    "pp": "gerettet",
+    "perfekt": "hat gerettet",
+    "pretDuAlt": null
+  },
+  "verben.schaffen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "schaffe",
+      "schaffst",
+      "schafft",
+      "schaffen",
+      "schafft",
+      "schaffen"
+    ],
+    "pret": [
+      "schaffte",
+      "schafftest",
+      "schaffte",
+      "schafften",
+      "schafftet",
+      "schafften"
+    ],
+    "pp": "geschafft",
+    "perfekt": "hat geschafft",
+    "pretDuAlt": null
+  },
+  "verben.scheinen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "scheine",
+      "scheinst",
+      "scheint",
+      "scheinen",
+      "scheint",
+      "scheinen"
+    ],
+    "pret": [
+      "schien",
+      "schienst",
+      "schien",
+      "schienen",
+      "schient",
+      "schienen"
+    ],
+    "pp": "geschienen",
+    "perfekt": "hat geschienen",
+    "pretDuAlt": null
+  },
+  "verben.schuetzen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "schütze",
+      "schützt",
+      "schützt",
+      "schützen",
+      "schützt",
+      "schützen"
+    ],
+    "pret": [
+      "schützte",
+      "schütztest",
+      "schützte",
+      "schützten",
+      "schütztet",
+      "schützten"
+    ],
+    "pp": "geschützt",
+    "perfekt": "hat geschützt",
+    "pretDuAlt": null
+  },
+  "verben.steigen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "steige",
+      "steigst",
+      "steigt",
+      "steigen",
+      "steigt",
+      "steigen"
+    ],
+    "pret": [
+      "stieg",
+      "stiegst",
+      "stieg",
+      "stiegen",
+      "stiegt",
+      "stiegen"
+    ],
+    "pp": "gestiegen",
+    "perfekt": "ist gestiegen",
+    "pretDuAlt": null
+  },
+  "verben.stoeren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "störe",
+      "störst",
+      "stört",
+      "stören",
+      "stört",
+      "stören"
+    ],
+    "pret": [
+      "störte",
+      "störtest",
+      "störte",
+      "störten",
+      "störtet",
+      "störten"
+    ],
+    "pp": "gestört",
+    "perfekt": "hat gestört",
+    "pretDuAlt": null
+  },
+  "verben.streiten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "streite",
+      "streitest",
+      "streitet",
+      "streiten",
+      "streitet",
+      "streiten"
+    ],
+    "pret": [
+      "stritt",
+      "strittest",
+      "stritt",
+      "stritten",
+      "strittet",
+      "stritten"
+    ],
+    "pp": "gestritten",
+    "perfekt": "hat gestritten",
+    "pretDuAlt": null
+  },
+  "verben.treiben": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "treibe",
+      "treibst",
+      "treibt",
+      "treiben",
+      "treibt",
+      "treiben"
+    ],
+    "pret": [
+      "trieb",
+      "triebst",
+      "trieb",
+      "trieben",
+      "triebt",
+      "trieben"
+    ],
+    "pp": "getrieben",
+    "perfekt": "hat getrieben",
+    "pretDuAlt": null
+  },
+  "verben.uebernehmen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "übernehme",
+      "übernimmst",
+      "übernimmt",
+      "übernehmen",
+      "übernehmt",
+      "übernehmen"
+    ],
+    "pret": [
+      "übernahm",
+      "übernahmst",
+      "übernahm",
+      "übernahmen",
+      "übernahmt",
+      "übernahmen"
+    ],
+    "pp": "übernommen",
+    "perfekt": "hat übernommen",
+    "pretDuAlt": null
+  },
+  "verben.ueberraschen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "überrasche",
+      "überraschst",
+      "überrascht",
+      "überraschen",
+      "überrascht",
+      "überraschen"
+    ],
+    "pret": [
+      "überraschte",
+      "überraschtest",
+      "überraschte",
+      "überraschten",
+      "überraschtet",
+      "überraschten"
+    ],
+    "pp": "überrascht",
+    "perfekt": "hat überrascht",
+    "pretDuAlt": null
+  },
+  "verben.unterscheiden": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "unterscheide",
+      "unterscheidest",
+      "unterscheidet",
+      "unterscheiden",
+      "unterscheidet",
+      "unterscheiden"
+    ],
+    "pret": [
+      "unterschied",
+      "unterschiedest",
+      "unterschied",
+      "unterschieden",
+      "unterschiedet",
+      "unterschieden"
+    ],
+    "pp": "unterschieden",
+    "perfekt": "hat unterschieden",
+    "pretDuAlt": null
+  },
+  "verben.unterschreiben": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "unterschreibe",
+      "unterschreibst",
+      "unterschreibt",
+      "unterschreiben",
+      "unterschreibt",
+      "unterschreiben"
+    ],
+    "pret": [
+      "unterschrieb",
+      "unterschriebst",
+      "unterschrieb",
+      "unterschrieben",
+      "unterschriebt",
+      "unterschrieben"
+    ],
+    "pp": "unterschrieben",
+    "perfekt": "hat unterschrieben",
+    "pretDuAlt": null
+  },
+  "verben.unterstuetzen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "unterstütze",
+      "unterstützt",
+      "unterstützt",
+      "unterstützen",
+      "unterstützt",
+      "unterstützen"
+    ],
+    "pret": [
+      "unterstützte",
+      "unterstütztest",
+      "unterstützte",
+      "unterstützten",
+      "unterstütztet",
+      "unterstützten"
+    ],
+    "pp": "unterstützt",
+    "perfekt": "hat unterstützt",
+    "pretDuAlt": null
+  },
+  "verben.untersuchen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "untersuche",
+      "untersuchst",
+      "untersucht",
+      "untersuchen",
+      "untersucht",
+      "untersuchen"
+    ],
+    "pret": [
+      "untersuchte",
+      "untersuchtest",
+      "untersuchte",
+      "untersuchten",
+      "untersuchtet",
+      "untersuchten"
+    ],
+    "pp": "untersucht",
+    "perfekt": "hat untersucht",
+    "pretDuAlt": null
+  },
+  "verben.verbinden": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verbinde",
+      "verbindest",
+      "verbindet",
+      "verbinden",
+      "verbindet",
+      "verbinden"
+    ],
+    "pret": [
+      "verband",
+      "verbandest",
+      "verband",
+      "verbanden",
+      "verbandet",
+      "verbanden"
+    ],
+    "pp": "verbunden",
+    "perfekt": "hat verbunden",
+    "pretDuAlt": null
+  },
+  "verben.verbringen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verbringe",
+      "verbringst",
+      "verbringt",
+      "verbringen",
+      "verbringt",
+      "verbringen"
+    ],
+    "pret": [
+      "verbrachte",
+      "verbrachtest",
+      "verbrachte",
+      "verbrachten",
+      "verbrachtet",
+      "verbrachten"
+    ],
+    "pp": "verbracht",
+    "perfekt": "hat verbracht",
+    "pretDuAlt": null
+  },
+  "verben.vergleichen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "vergleiche",
+      "vergleichst",
+      "vergleicht",
+      "vergleichen",
+      "vergleicht",
+      "vergleichen"
+    ],
+    "pret": [
+      "verglich",
+      "verglichst",
+      "verglich",
+      "verglichen",
+      "verglicht",
+      "verglichen"
+    ],
+    "pp": "verglichen",
+    "perfekt": "hat verglichen",
+    "pretDuAlt": null
+  },
+  "verben.verlangen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verlange",
+      "verlangst",
+      "verlangt",
+      "verlangen",
+      "verlangt",
+      "verlangen"
+    ],
+    "pret": [
+      "verlangte",
+      "verlangtest",
+      "verlangte",
+      "verlangten",
+      "verlangtet",
+      "verlangten"
+    ],
+    "pp": "verlangt",
+    "perfekt": "hat verlangt",
+    "pretDuAlt": null
+  },
+  "verben.verpassen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verpasse",
+      "verpasst",
+      "verpasst",
+      "verpassen",
+      "verpasst",
+      "verpassen"
+    ],
+    "pret": [
+      "verpasste",
+      "verpasstest",
+      "verpasste",
+      "verpassten",
+      "verpasstet",
+      "verpassten"
+    ],
+    "pp": "verpasst",
+    "perfekt": "hat verpasst",
+    "pretDuAlt": null
+  },
+  "verben.verreisen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "verreise",
+      "verreist",
+      "verreist",
+      "verreisen",
+      "verreist",
+      "verreisen"
+    ],
+    "pret": [
+      "verreiste",
+      "verreistest",
+      "verreiste",
+      "verreisten",
+      "verreistet",
+      "verreisten"
+    ],
+    "pp": "verreist",
+    "perfekt": "ist verreist",
+    "pretDuAlt": null
+  },
+  "verben.verschieben": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verschiebe",
+      "verschiebst",
+      "verschiebt",
+      "verschieben",
+      "verschiebt",
+      "verschieben"
+    ],
+    "pret": [
+      "verschob",
+      "verschobst",
+      "verschob",
+      "verschoben",
+      "verschobt",
+      "verschoben"
+    ],
+    "pp": "verschoben",
+    "perfekt": "hat verschoben",
+    "pretDuAlt": null
+  },
+  "verben.verschwinden": {
+    "level": "B1",
+    "sep": null,
+    "aux": "sein",
+    "pres": [
+      "verschwinde",
+      "verschwindest",
+      "verschwindet",
+      "verschwinden",
+      "verschwindet",
+      "verschwinden"
+    ],
+    "pret": [
+      "verschwand",
+      "verschwandest",
+      "verschwand",
+      "verschwanden",
+      "verschwandet",
+      "verschwanden"
+    ],
+    "pp": "verschwunden",
+    "perfekt": "ist verschwunden",
+    "pretDuAlt": null
+  },
+  "verben.versprechen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "verspreche",
+      "versprichst",
+      "verspricht",
+      "versprechen",
+      "versprecht",
+      "versprechen"
+    ],
+    "pret": [
+      "versprach",
+      "versprachst",
+      "versprach",
+      "versprachen",
+      "verspracht",
+      "versprachen"
+    ],
+    "pp": "versprochen",
+    "perfekt": "hat versprochen",
+    "pretDuAlt": null
+  },
+  "verben.zerstoeren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "zerstöre",
+      "zerstörst",
+      "zerstört",
+      "zerstören",
+      "zerstört",
+      "zerstören"
+    ],
+    "pret": [
+      "zerstörte",
+      "zerstörtest",
+      "zerstörte",
+      "zerstörten",
+      "zerstörtet",
+      "zerstörten"
+    ],
+    "pp": "zerstört",
+    "perfekt": "hat zerstört",
+    "pretDuAlt": null
+  },
+  "verben.begruessen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "begrüße",
+      "begrüßt",
+      "begrüßt",
+      "begrüßen",
+      "begrüßt",
+      "begrüßen"
+    ],
+    "pret": [
+      "begrüßte",
+      "begrüßtest",
+      "begrüßte",
+      "begrüßten",
+      "begrüßtet",
+      "begrüßten"
+    ],
+    "pp": "begrüßt",
+    "perfekt": "hat begrüßt",
+    "pretDuAlt": null
+  },
+  "verben.behaupten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "behaupte",
+      "behauptest",
+      "behauptet",
+      "behaupten",
+      "behauptet",
+      "behaupten"
+    ],
+    "pret": [
+      "behauptete",
+      "behauptetest",
+      "behauptete",
+      "behaupteten",
+      "behauptetet",
+      "behaupteten"
+    ],
+    "pp": "behauptet",
+    "perfekt": "hat behauptet",
+    "pretDuAlt": null
+  },
+  "verben.bemerken": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "bemerke",
+      "bemerkst",
+      "bemerkt",
+      "bemerken",
+      "bemerkt",
+      "bemerken"
+    ],
+    "pret": [
+      "bemerkte",
+      "bemerktest",
+      "bemerkte",
+      "bemerkten",
+      "bemerktet",
+      "bemerkten"
+    ],
+    "pp": "bemerkt",
+    "perfekt": "hat bemerkt",
+    "pretDuAlt": null
+  },
+  "verben.bestaetigen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "bestätige",
+      "bestätigst",
+      "bestätigt",
+      "bestätigen",
+      "bestätigt",
+      "bestätigen"
+    ],
+    "pret": [
+      "bestätigte",
+      "bestätigtest",
+      "bestätigte",
+      "bestätigten",
+      "bestätigtet",
+      "bestätigten"
+    ],
+    "pp": "bestätigt",
+    "perfekt": "hat bestätigt",
+    "pretDuAlt": null
+  },
+  "verben.diskutieren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "diskutiere",
+      "diskutierst",
+      "diskutiert",
+      "diskutieren",
+      "diskutiert",
+      "diskutieren"
+    ],
+    "pret": [
+      "diskutierte",
+      "diskutiertest",
+      "diskutierte",
+      "diskutierten",
+      "diskutiertet",
+      "diskutierten"
+    ],
+    "pp": "diskutiert",
+    "perfekt": "hat diskutiert",
+    "pretDuAlt": null
+  },
+  "verben.empfehlen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "empfehle",
+      "empfiehlst",
+      "empfiehlt",
+      "empfehlen",
+      "empfehlt",
+      "empfehlen"
+    ],
+    "pret": [
+      "empfahl",
+      "empfahlst",
+      "empfahl",
+      "empfahlen",
+      "empfahlt",
+      "empfahlen"
+    ],
+    "pp": "empfohlen",
+    "perfekt": "hat empfohlen",
+    "pretDuAlt": null
+  },
+  "verben.existieren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "existiere",
+      "existierst",
+      "existiert",
+      "existieren",
+      "existiert",
+      "existieren"
+    ],
+    "pret": [
+      "existierte",
+      "existiertest",
+      "existierte",
+      "existierten",
+      "existiertet",
+      "existierten"
+    ],
+    "pp": "existiert",
+    "perfekt": "hat existiert",
+    "pretDuAlt": null
+  },
+  "verben.gratulieren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "gratuliere",
+      "gratulierst",
+      "gratuliert",
+      "gratulieren",
+      "gratuliert",
+      "gratulieren"
+    ],
+    "pret": [
+      "gratulierte",
+      "gratuliertest",
+      "gratulierte",
+      "gratulierten",
+      "gratuliertet",
+      "gratulierten"
+    ],
+    "pp": "gratuliert",
+    "perfekt": "hat gratuliert",
+    "pretDuAlt": null
+  },
+  "verben.informieren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "informiere",
+      "informierst",
+      "informiert",
+      "informieren",
+      "informiert",
+      "informieren"
+    ],
+    "pret": [
+      "informierte",
+      "informiertest",
+      "informierte",
+      "informierten",
+      "informiertet",
+      "informierten"
+    ],
+    "pp": "informiert",
+    "perfekt": "hat informiert",
+    "pretDuAlt": null
+  },
+  "verben.kontrollieren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "kontrolliere",
+      "kontrollierst",
+      "kontrolliert",
+      "kontrollieren",
+      "kontrolliert",
+      "kontrollieren"
+    ],
+    "pret": [
+      "kontrollierte",
+      "kontrolliertest",
+      "kontrollierte",
+      "kontrollierten",
+      "kontrolliertet",
+      "kontrollierten"
+    ],
+    "pp": "kontrolliert",
+    "perfekt": "hat kontrolliert",
+    "pretDuAlt": null
+  },
+  "verben.mieten": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "miete",
+      "mietest",
+      "mietet",
+      "mieten",
+      "mietet",
+      "mieten"
+    ],
+    "pret": [
+      "mietete",
+      "mietetest",
+      "mietete",
+      "mieteten",
+      "mietetet",
+      "mieteten"
+    ],
+    "pp": "gemietet",
+    "perfekt": "hat gemietet",
+    "pretDuAlt": null
+  },
+  "verben.organisieren": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "organisiere",
+      "organisierst",
+      "organisiert",
+      "organisieren",
+      "organisiert",
+      "organisieren"
+    ],
+    "pret": [
+      "organisierte",
+      "organisiertest",
+      "organisierte",
+      "organisierten",
+      "organisiertet",
+      "organisierten"
+    ],
+    "pp": "organisiert",
+    "perfekt": "hat organisiert",
+    "pretDuAlt": null
+  },
+  "verben.ueberlegen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "überlege",
+      "überlegst",
+      "überlegt",
+      "überlegen",
+      "überlegt",
+      "überlegen"
+    ],
+    "pret": [
+      "überlegte",
+      "überlegtest",
+      "überlegte",
+      "überlegten",
+      "überlegtet",
+      "überlegten"
+    ],
+    "pp": "überlegt",
+    "perfekt": "hat überlegt",
+    "pretDuAlt": null
+  },
+  "verben.widersprechen": {
+    "level": "B1",
+    "sep": null,
+    "aux": "haben",
+    "pres": [
+      "widerspreche",
+      "widersprichst",
+      "widerspricht",
+      "widersprechen",
+      "widersprecht",
+      "widersprechen"
+    ],
+    "pret": [
+      "widersprach",
+      "widersprachst",
+      "widersprach",
+      "widersprachen",
+      "widerspracht",
+      "widersprachen"
+    ],
+    "pp": "widersprochen",
+    "perfekt": "hat widersprochen",
+    "pretDuAlt": null
+  },
+  "verben.vorschlagen": {
+    "level": "B1",
+    "sep": "vor",
+    "aux": "haben",
+    "pres": [
+      "schlage vor",
+      "schlägst vor",
+      "schlägt vor",
+      "schlagen vor",
+      "schlagt vor",
+      "schlagen vor"
+    ],
+    "pret": [
+      "schlug vor",
+      "schlugst vor",
+      "schlug vor",
+      "schlugen vor",
+      "schlugt vor",
+      "schlugen vor"
+    ],
+    "pp": "vorgeschlagen",
+    "perfekt": "hat vorgeschlagen",
+    "pretDuAlt": null
+  },
+  "verben.vorstellen": {
+    "level": "B1",
+    "sep": "vor",
+    "aux": "haben",
+    "pres": [
+      "stelle vor",
+      "stellst vor",
+      "stellt vor",
+      "stellen vor",
+      "stellt vor",
+      "stellen vor"
+    ],
+    "pret": [
+      "stellte vor",
+      "stelltest vor",
+      "stellte vor",
+      "stellten vor",
+      "stelltet vor",
+      "stellten vor"
+    ],
+    "pp": "vorgestellt",
+    "perfekt": "hat vorgestellt",
+    "pretDuAlt": null
+  },
+  "verben.zunehmen": {
+    "level": "B1",
+    "sep": "zu",
+    "aux": "haben",
+    "pres": [
+      "nehme zu",
+      "nimmst zu",
+      "nimmt zu",
+      "nehmen zu",
+      "nehmt zu",
+      "nehmen zu"
+    ],
+    "pret": [
+      "nahm zu",
+      "nahmst zu",
+      "nahm zu",
+      "nahmen zu",
+      "nahmt zu",
+      "nahmen zu"
+    ],
+    "pp": "zugenommen",
+    "perfekt": "hat zugenommen",
+    "pretDuAlt": null
+  },
+  "verben.abnehmen": {
+    "level": "B1",
+    "sep": "ab",
+    "aux": "haben",
+    "pres": [
+      "nehme ab",
+      "nimmst ab",
+      "nimmt ab",
+      "nehmen ab",
+      "nehmt ab",
+      "nehmen ab"
+    ],
+    "pret": [
+      "nahm ab",
+      "nahmst ab",
+      "nahm ab",
+      "nahmen ab",
+      "nahmt ab",
+      "nahmen ab"
+    ],
+    "pp": "abgenommen",
+    "perfekt": "hat abgenommen",
+    "pretDuAlt": null
+  },
+  "verben.absagen": {
+    "level": "B1",
+    "sep": "ab",
+    "aux": "haben",
+    "pres": [
+      "sage ab",
+      "sagst ab",
+      "sagt ab",
+      "sagen ab",
+      "sagt ab",
+      "sagen ab"
+    ],
+    "pret": [
+      "sagte ab",
+      "sagtest ab",
+      "sagte ab",
+      "sagten ab",
+      "sagtet ab",
+      "sagten ab"
+    ],
+    "pp": "abgesagt",
+    "perfekt": "hat abgesagt",
+    "pretDuAlt": null
+  },
+  "verben.abschliessen": {
+    "level": "B1",
+    "sep": "ab",
+    "aux": "haben",
+    "pres": [
+      "schließe ab",
+      "schließt ab",
+      "schließt ab",
+      "schließen ab",
+      "schließt ab",
+      "schließen ab"
+    ],
+    "pret": [
+      "schloss ab",
+      "schlossest ab",
+      "schloss ab",
+      "schlossen ab",
+      "schlosst ab",
+      "schlossen ab"
+    ],
+    "pp": "abgeschlossen",
+    "perfekt": "hat abgeschlossen",
+    "pretDuAlt": "schlosst ab"
+  },
+  "verben.anbieten": {
+    "level": "B1",
+    "sep": "an",
+    "aux": "haben",
+    "pres": [
+      "biete an",
+      "bietest an",
+      "bietet an",
+      "bieten an",
+      "bietet an",
+      "bieten an"
+    ],
+    "pret": [
+      "bot an",
+      "botest an",
+      "bot an",
+      "boten an",
+      "botet an",
+      "boten an"
+    ],
+    "pp": "angeboten",
+    "perfekt": "hat angeboten",
+    "pretDuAlt": null
+  },
+  "verben.aufgeben": {
+    "level": "B1",
+    "sep": "auf",
+    "aux": "haben",
+    "pres": [
+      "gebe auf",
+      "gibst auf",
+      "gibt auf",
+      "geben auf",
+      "gebt auf",
+      "geben auf"
+    ],
+    "pret": [
+      "gab auf",
+      "gabst auf",
+      "gab auf",
+      "gaben auf",
+      "gabt auf",
+      "gaben auf"
+    ],
+    "pp": "aufgegeben",
+    "perfekt": "hat aufgegeben",
+    "pretDuAlt": null
+  },
+  "verben.aufnehmen": {
+    "level": "B1",
+    "sep": "auf",
+    "aux": "haben",
+    "pres": [
+      "nehme auf",
+      "nimmst auf",
+      "nimmt auf",
+      "nehmen auf",
+      "nehmt auf",
+      "nehmen auf"
+    ],
+    "pret": [
+      "nahm auf",
+      "nahmst auf",
+      "nahm auf",
+      "nahmen auf",
+      "nahmt auf",
+      "nahmen auf"
+    ],
+    "pp": "aufgenommen",
+    "perfekt": "hat aufgenommen",
+    "pretDuAlt": null
+  },
+  "verben.aufschreiben": {
+    "level": "B1",
+    "sep": "auf",
+    "aux": "haben",
+    "pres": [
+      "schreibe auf",
+      "schreibst auf",
+      "schreibt auf",
+      "schreiben auf",
+      "schreibt auf",
+      "schreiben auf"
+    ],
+    "pret": [
+      "schrieb auf",
+      "schriebst auf",
+      "schrieb auf",
+      "schrieben auf",
+      "schriebt auf",
+      "schrieben auf"
+    ],
+    "pp": "aufgeschrieben",
+    "perfekt": "hat aufgeschrieben",
+    "pretDuAlt": null
+  },
+  "verben.ausfuellen": {
+    "level": "B1",
+    "sep": "aus",
+    "aux": "haben",
+    "pres": [
+      "fülle aus",
+      "füllst aus",
+      "füllt aus",
+      "füllen aus",
+      "füllt aus",
+      "füllen aus"
+    ],
+    "pret": [
+      "füllte aus",
+      "fülltest aus",
+      "füllte aus",
+      "füllten aus",
+      "fülltet aus",
+      "füllten aus"
+    ],
+    "pp": "ausgefüllt",
+    "perfekt": "hat ausgefüllt",
+    "pretDuAlt": null
+  },
+  "verben.ausfallen": {
+    "level": "B1",
+    "sep": "aus",
+    "aux": "sein",
+    "pres": [
+      "falle aus",
+      "fällst aus",
+      "fällt aus",
+      "fallen aus",
+      "fallt aus",
+      "fallen aus"
+    ],
+    "pret": [
+      "fiel aus",
+      "fielst aus",
+      "fiel aus",
+      "fielen aus",
+      "fielt aus",
+      "fielen aus"
+    ],
+    "pp": "ausgefallen",
+    "perfekt": "ist ausgefallen",
+    "pretDuAlt": null
+  },
+  "verben.ausprobieren": {
+    "level": "B1",
+    "sep": "aus",
+    "aux": "haben",
+    "pres": [
+      "probiere aus",
+      "probierst aus",
+      "probiert aus",
+      "probieren aus",
+      "probiert aus",
+      "probieren aus"
+    ],
+    "pret": [
+      "probierte aus",
+      "probiertest aus",
+      "probierte aus",
+      "probierten aus",
+      "probiertet aus",
+      "probierten aus"
+    ],
+    "pp": "ausprobiert",
+    "perfekt": "hat ausprobiert",
+    "pretDuAlt": null
+  },
+  "verben.auswaehlen": {
+    "level": "B1",
+    "sep": "aus",
+    "aux": "haben",
+    "pres": [
+      "wähle aus",
+      "wählst aus",
+      "wählt aus",
+      "wählen aus",
+      "wählt aus",
+      "wählen aus"
+    ],
+    "pret": [
+      "wählte aus",
+      "wähltest aus",
+      "wählte aus",
+      "wählten aus",
+      "wähltet aus",
+      "wählten aus"
+    ],
+    "pp": "ausgewählt",
+    "perfekt": "hat ausgewählt",
+    "pretDuAlt": null
+  },
+  "verben.einfuehren": {
+    "level": "B1",
+    "sep": "ein",
+    "aux": "haben",
+    "pres": [
+      "führe ein",
+      "führst ein",
+      "führt ein",
+      "führen ein",
+      "führt ein",
+      "führen ein"
+    ],
+    "pret": [
+      "führte ein",
+      "führtest ein",
+      "führte ein",
+      "führten ein",
+      "führtet ein",
+      "führten ein"
+    ],
+    "pp": "eingeführt",
+    "perfekt": "hat eingeführt",
+    "pretDuAlt": null
+  },
+  "verben.eingeben": {
+    "level": "B1",
+    "sep": "ein",
+    "aux": "haben",
+    "pres": [
+      "gebe ein",
+      "gibst ein",
+      "gibt ein",
+      "geben ein",
+      "gebt ein",
+      "geben ein"
+    ],
+    "pret": [
+      "gab ein",
+      "gabst ein",
+      "gab ein",
+      "gaben ein",
+      "gabt ein",
+      "gaben ein"
+    ],
+    "pp": "eingegeben",
+    "perfekt": "hat eingegeben",
+    "pretDuAlt": null
+  },
+  "verben.mitteilen": {
+    "level": "B1",
+    "sep": "mit",
+    "aux": "haben",
+    "pres": [
+      "teile mit",
+      "teilst mit",
+      "teilt mit",
+      "teilen mit",
+      "teilt mit",
+      "teilen mit"
+    ],
+    "pret": [
+      "teilte mit",
+      "teiltest mit",
+      "teilte mit",
+      "teilten mit",
+      "teiltet mit",
+      "teilten mit"
+    ],
+    "pp": "mitgeteilt",
+    "perfekt": "hat mitgeteilt",
+    "pretDuAlt": null
+  },
+  "verben.nachdenken": {
+    "level": "B1",
+    "sep": "nach",
+    "aux": "haben",
+    "pres": [
+      "denke nach",
+      "denkst nach",
+      "denkt nach",
+      "denken nach",
+      "denkt nach",
+      "denken nach"
+    ],
+    "pret": [
+      "dachte nach",
+      "dachtest nach",
+      "dachte nach",
+      "dachten nach",
+      "dachtet nach",
+      "dachten nach"
+    ],
+    "pp": "nachgedacht",
+    "perfekt": "hat nachgedacht",
+    "pretDuAlt": null
+  },
+  "verben.vorhaben": {
+    "level": "B1",
+    "sep": "vor",
+    "aux": "haben",
+    "pres": [
+      "habe vor",
+      "hast vor",
+      "hat vor",
+      "haben vor",
+      "habt vor",
+      "haben vor"
+    ],
+    "pret": [
+      "hatte vor",
+      "hattest vor",
+      "hatte vor",
+      "hatten vor",
+      "hattet vor",
+      "hatten vor"
+    ],
+    "pp": "vorgehabt",
+    "perfekt": "hat vorgehabt",
+    "pretDuAlt": null
+  },
+  "verben.zugeben": {
+    "level": "B1",
+    "sep": "zu",
+    "aux": "haben",
+    "pres": [
+      "gebe zu",
+      "gibst zu",
+      "gibt zu",
+      "geben zu",
+      "gebt zu",
+      "geben zu"
+    ],
+    "pret": [
+      "gab zu",
+      "gabst zu",
+      "gab zu",
+      "gaben zu",
+      "gabt zu",
+      "gaben zu"
+    ],
+    "pp": "zugegeben",
+    "perfekt": "hat zugegeben",
+    "pretDuAlt": null
+  },
+  "verben.zusammenfassen": {
+    "level": "B1",
+    "sep": "zusammen",
+    "aux": "haben",
+    "pres": [
+      "fasse zusammen",
+      "fasst zusammen",
+      "fasst zusammen",
+      "fassen zusammen",
+      "fasst zusammen",
+      "fassen zusammen"
+    ],
+    "pret": [
+      "fasste zusammen",
+      "fasstest zusammen",
+      "fasste zusammen",
+      "fassten zusammen",
+      "fasstet zusammen",
+      "fassten zusammen"
+    ],
+    "pp": "zusammengefasst",
+    "perfekt": "hat zusammengefasst",
+    "pretDuAlt": null
+  },
+  "verben.zurueckgeben": {
+    "level": "B1",
+    "sep": "zurück",
+    "aux": "haben",
+    "pres": [
+      "gebe zurück",
+      "gibst zurück",
+      "gibt zurück",
+      "geben zurück",
+      "gebt zurück",
+      "geben zurück"
+    ],
+    "pret": [
+      "gab zurück",
+      "gabst zurück",
+      "gab zurück",
+      "gaben zurück",
+      "gabt zurück",
+      "gaben zurück"
+    ],
+    "pp": "zurückgegeben",
+    "perfekt": "hat zurückgegeben",
+    "pretDuAlt": null
+  },
+  "verben.stattfinden": {
+    "level": "B1",
+    "sep": "statt",
+    "aux": "haben",
+    "pres": [
+      "finde statt",
+      "findest statt",
+      "findet statt",
+      "finden statt",
+      "findet statt",
+      "finden statt"
+    ],
+    "pret": [
+      "fand statt",
+      "fandest statt",
+      "fand statt",
+      "fanden statt",
+      "fandet statt",
+      "fanden statt"
+    ],
+    "pp": "stattgefunden",
+    "perfekt": "hat stattgefunden",
+    "pretDuAlt": null
+  },
+  "verben.vorkommen": {
+    "level": "B1",
+    "sep": "vor",
+    "aux": "sein",
+    "pres": [
+      "komme vor",
+      "kommst vor",
+      "kommt vor",
+      "kommen vor",
+      "kommt vor",
+      "kommen vor"
+    ],
+    "pret": [
+      "kam vor",
+      "kamst vor",
+      "kam vor",
+      "kamen vor",
+      "kamt vor",
+      "kamen vor"
+    ],
+    "pp": "vorgekommen",
+    "perfekt": "ist vorgekommen",
+    "pretDuAlt": null
+  },
+  "verben.herstellen": {
+    "level": "B1",
+    "sep": "her",
+    "aux": "haben",
+    "pres": [
+      "stelle her",
+      "stellst her",
+      "stellt her",
+      "stellen her",
+      "stellt her",
+      "stellen her"
+    ],
+    "pret": [
+      "stellte her",
+      "stelltest her",
+      "stellte her",
+      "stellten her",
+      "stelltet her",
+      "stellten her"
+    ],
+    "pp": "hergestellt",
+    "perfekt": "hat hergestellt",
     "pretDuAlt": null
   }
 };

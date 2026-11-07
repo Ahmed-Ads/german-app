@@ -99,18 +99,18 @@ describe('Release v1.26 Sentences Deduplication Quality, Structure & Global Uniq
     expect(spielen.s).toBe('Die Kinder spielen im Park.');
   });
 
-  it('proves global uniqueness: exactly 1092 distinct German and 1092 distinct Arabic sentences across learning words', () => {
+  it('proves global uniqueness: exactly 1186 distinct German and 1186 distinct Arabic sentences across learning words', () => {
     const learningCategories = categories.filter(c => c.id !== 'section-names');
     expect(learningCategories.length).toBe(30);
 
     const learningWords = [];
     learningCategories.forEach(c => learningWords.push(...c.words));
-    expect(learningWords.length).toBe(1092);
+    expect(learningWords.length).toBe(1186);
 
     const germanSentences = new Set(learningWords.map(w => w.s));
     const arabicSentences = new Set(learningWords.map(w => w.sar));
 
-    expect(germanSentences.size).toBe(1092);
-    expect(arabicSentences.size).toBe(1092);
+    expect(germanSentences.size).toBe(1186);
+    expect(arabicSentences.size).toBe(1186);
   });
 });

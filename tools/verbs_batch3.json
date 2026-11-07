@@ -1,0 +1,2822 @@
+[
+ {
+  "id": "verben.beschreiben",
+  "level": "B1",
+  "n": "beschreiben",
+  "ar": "يصف",
+  "s": "Du beschreibst das Bild genau.",
+  "sar": "أنت تصف الصورة بدقة.",
+  "note": "فعل قوي: beschrieb — hat beschrieben.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "beschreibe",
+   "beschreibst",
+   "beschreibt",
+   "beschreiben",
+   "beschreibt",
+   "beschreiben"
+  ],
+  "pret": [
+   "beschrieb",
+   "beschriebst",
+   "beschrieb",
+   "beschrieben",
+   "beschriebt",
+   "beschrieben"
+  ],
+  "pp": "beschrieben",
+  "perfekt": "hat beschrieben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.besprechen",
+  "level": "B1",
+  "n": "besprechen",
+  "ar": "يتباحث في",
+  "s": "Wir besprechen den Plan morgen.",
+  "sar": "نتباحث في الخطة غداً.",
+  "note": "فعل قوي: du besprichst, er bespricht — besprach — hat besprochen.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "bespreche",
+   "besprichst",
+   "bespricht",
+   "besprechen",
+   "besprecht",
+   "besprechen"
+  ],
+  "pret": [
+   "besprach",
+   "besprachst",
+   "besprach",
+   "besprachen",
+   "bespracht",
+   "besprachen"
+  ],
+  "pp": "besprochen",
+  "perfekt": "hat besprochen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.bestehen",
+  "level": "B1",
+  "n": "bestehen",
+  "ar": "ينجح (في امتحان) / يتكوّن من",
+  "s": "Meine Tochter besteht die Prüfung.",
+  "sar": "ابنتي تنجح في الامتحان.",
+  "note": "فعل قوي: bestand — hat bestanden. bestehen aus + Dativ = يتكوّن من.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "bestehe",
+   "bestehst",
+   "besteht",
+   "bestehen",
+   "besteht",
+   "bestehen"
+  ],
+  "pret": [
+   "bestand",
+   "bestandest",
+   "bestand",
+   "bestanden",
+   "bestandet",
+   "bestanden"
+  ],
+  "pp": "bestanden",
+  "perfekt": "hat bestanden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.bedeuten",
+  "level": "B1",
+  "n": "bedeuten",
+  "ar": "يعني",
+  "s": "Was bedeutet dieses Wort?",
+  "sar": "ماذا تعني هذه الكلمة؟",
+  "note": "bedeuten = يعني (كلمة أو إشارة). Partizip: bedeutet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "bedeute",
+   "bedeutest",
+   "bedeutet",
+   "bedeuten",
+   "bedeutet",
+   "bedeuten"
+  ],
+  "pret": [
+   "bedeutete",
+   "bedeutetest",
+   "bedeutete",
+   "bedeuteten",
+   "bedeutetet",
+   "bedeuteten"
+  ],
+  "pp": "bedeutet",
+  "perfekt": "hat bedeutet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.behalten",
+  "level": "B1",
+  "n": "behalten",
+  "ar": "يحتفظ بـ / يُبقي",
+  "s": "Er behält immer die Ruhe.",
+  "sar": "هو يحافظ دائماً على هدوئه.",
+  "note": "فعل قوي: du behältst, er behält — behielt — hat behalten.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "behalte",
+   "behältst",
+   "behält",
+   "behalten",
+   "behaltet",
+   "behalten"
+  ],
+  "pret": [
+   "behielt",
+   "behieltest",
+   "behielt",
+   "behielten",
+   "behieltet",
+   "behielten"
+  ],
+  "pp": "behalten",
+  "perfekt": "hat behalten",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.benoetigen",
+  "level": "B1",
+  "n": "benötigen",
+  "ar": "يحتاج إلى (رسمياً)",
+  "s": "Wir benötigen mehr Zeit.",
+  "sar": "نحتاج إلى مزيد من الوقت.",
+  "note": "benötigen = يحتاج، وأكثر رسمية من brauchen. Partizip: benötigt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "benötige",
+   "benötigst",
+   "benötigt",
+   "benötigen",
+   "benötigt",
+   "benötigen"
+  ],
+  "pret": [
+   "benötigte",
+   "benötigtest",
+   "benötigte",
+   "benötigten",
+   "benötigtet",
+   "benötigten"
+  ],
+  "pp": "benötigt",
+  "perfekt": "hat benötigt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.beobachten",
+  "level": "B1",
+  "n": "beobachten",
+  "ar": "يراقب",
+  "s": "Der Arzt beobachtet den Patienten.",
+  "sar": "الطبيب يراقب المريض.",
+  "note": "beobachten = يراقب ويلاحظ. Partizip: beobachtet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "beobachte",
+   "beobachtest",
+   "beobachtet",
+   "beobachten",
+   "beobachtet",
+   "beobachten"
+  ],
+  "pret": [
+   "beobachtete",
+   "beobachtetest",
+   "beobachtete",
+   "beobachteten",
+   "beobachtetet",
+   "beobachteten"
+  ],
+  "pp": "beobachtet",
+  "perfekt": "hat beobachtet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.berichten",
+  "level": "B1",
+  "n": "berichten",
+  "ar": "يُخبر عن / يروي تقريراً",
+  "s": "Die Zeitung berichtet über den Unfall.",
+  "sar": "الصحيفة تنشر خبراً عن الحادث.",
+  "note": "berichten über + Akkusativ = يخبر عن. Partizip: berichtet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "berichte",
+   "berichtest",
+   "berichtet",
+   "berichten",
+   "berichtet",
+   "berichten"
+  ],
+  "pret": [
+   "berichtete",
+   "berichtetest",
+   "berichtete",
+   "berichteten",
+   "berichtetet",
+   "berichteten"
+  ],
+  "pp": "berichtet",
+  "perfekt": "hat berichtet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.beschliessen",
+  "level": "B1",
+  "n": "beschließen",
+  "ar": "يقرر (رسمياً)",
+  "s": "Wir beschließen, früh zu gehen.",
+  "sar": "نقرر أن نغادر مبكراً.",
+  "note": "فعل قوي: beschloss — hat beschlossen. أكثر رسمية من entscheiden.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "beschließe",
+   "beschließt",
+   "beschließt",
+   "beschließen",
+   "beschließt",
+   "beschließen"
+  ],
+  "pret": [
+   "beschloss",
+   "beschlossest",
+   "beschloss",
+   "beschlossen",
+   "beschlosst",
+   "beschlossen"
+  ],
+  "pp": "beschlossen",
+  "perfekt": "hat beschlossen",
+  "pret_du_alt": "beschlosst"
+ },
+ {
+  "id": "verben.betreten",
+  "level": "B1",
+  "n": "betreten",
+  "ar": "يدخل (مكاناً)",
+  "s": "Du betrittst den Raum leise.",
+  "sar": "تدخل الغرفة بهدوء.",
+  "note": "فعل قوي: du betrittst, er betritt — betrat — hat betreten.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "betrete",
+   "betrittst",
+   "betritt",
+   "betreten",
+   "betretet",
+   "betreten"
+  ],
+  "pret": [
+   "betrat",
+   "betratest",
+   "betrat",
+   "betraten",
+   "betratet",
+   "betraten"
+  ],
+  "pp": "betreten",
+  "perfekt": "hat betreten",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.enthalten",
+  "level": "B1",
+  "n": "enthalten",
+  "ar": "يحتوي على",
+  "s": "Das Paket enthält drei Bücher.",
+  "sar": "الطرد يحتوي على ثلاثة كتب.",
+  "note": "فعل قوي: du enthältst, er enthält — enthielt — hat enthalten.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "enthalte",
+   "enthältst",
+   "enthält",
+   "enthalten",
+   "enthaltet",
+   "enthalten"
+  ],
+  "pret": [
+   "enthielt",
+   "enthieltest",
+   "enthielt",
+   "enthielten",
+   "enthieltet",
+   "enthielten"
+  ],
+  "pp": "enthalten",
+  "perfekt": "hat enthalten",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.entdecken",
+  "level": "B1",
+  "n": "entdecken",
+  "ar": "يكتشف",
+  "s": "Die Kinder entdecken eine Höhle.",
+  "sar": "الأطفال يكتشفون كهفاً.",
+  "note": "entdecken = يكتشف. Partizip: entdeckt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "entdecke",
+   "entdeckst",
+   "entdeckt",
+   "entdecken",
+   "entdeckt",
+   "entdecken"
+  ],
+  "pret": [
+   "entdeckte",
+   "entdecktest",
+   "entdeckte",
+   "entdeckten",
+   "entdecktet",
+   "entdeckten"
+  ],
+  "pp": "entdeckt",
+  "perfekt": "hat entdeckt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.erfahren",
+  "level": "B1",
+  "n": "erfahren",
+  "ar": "يعلم بخبر",
+  "s": "Ich erfahre die Nachricht heute.",
+  "sar": "أعلم بالخبر اليوم.",
+  "note": "فعل قوي: du erfährst, er erfährt — erfuhr — hat erfahren.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "erfahre",
+   "erfährst",
+   "erfährt",
+   "erfahren",
+   "erfahrt",
+   "erfahren"
+  ],
+  "pret": [
+   "erfuhr",
+   "erfuhrst",
+   "erfuhr",
+   "erfuhren",
+   "erfuhrt",
+   "erfuhren"
+  ],
+  "pp": "erfahren",
+  "perfekt": "hat erfahren",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.erfinden",
+  "level": "B1",
+  "n": "erfinden",
+  "ar": "يخترع",
+  "s": "Ein Ingenieur erfindet eine Maschine.",
+  "sar": "مهندس يخترع آلة.",
+  "note": "فعل قوي: erfand — hat erfunden.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "erfinde",
+   "erfindest",
+   "erfindet",
+   "erfinden",
+   "erfindet",
+   "erfinden"
+  ],
+  "pret": [
+   "erfand",
+   "erfandest",
+   "erfand",
+   "erfanden",
+   "erfandet",
+   "erfanden"
+  ],
+  "pp": "erfunden",
+  "perfekt": "hat erfunden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.erhalten",
+  "level": "B1",
+  "n": "erhalten",
+  "ar": "يتلقى",
+  "s": "Ich erhalte morgen einen Brief.",
+  "sar": "أتلقى رسالة غداً.",
+  "note": "فعل قوي: du erhältst, er erhält — erhielt — hat erhalten. أكثر رسمية من bekommen.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "erhalte",
+   "erhältst",
+   "erhält",
+   "erhalten",
+   "erhaltet",
+   "erhalten"
+  ],
+  "pret": [
+   "erhielt",
+   "erhieltest",
+   "erhielt",
+   "erhielten",
+   "erhieltet",
+   "erhielten"
+  ],
+  "pp": "erhalten",
+  "perfekt": "hat erhalten",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.erhoehen",
+  "level": "B1",
+  "n": "erhöhen",
+  "ar": "يرفع (سعراً أو عدداً)",
+  "s": "Der Laden erhöht die Preise.",
+  "sar": "المتجر يرفع الأسعار.",
+  "note": "erhöhen = يرفع. Partizip: erhöht.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "erhöhe",
+   "erhöhst",
+   "erhöht",
+   "erhöhen",
+   "erhöht",
+   "erhöhen"
+  ],
+  "pret": [
+   "erhöhte",
+   "erhöhtest",
+   "erhöhte",
+   "erhöhten",
+   "erhöhtet",
+   "erhöhten"
+  ],
+  "pp": "erhöht",
+  "perfekt": "hat erhöht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.erkennen",
+  "level": "B1",
+  "n": "erkennen",
+  "ar": "يتبيّن / يتعرّف من شكله",
+  "s": "Ich erkenne dich sofort.",
+  "sar": "أتعرّف عليك فوراً.",
+  "note": "فعل مختلط: erkannte — hat erkannt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "erkenne",
+   "erkennst",
+   "erkennt",
+   "erkennen",
+   "erkennt",
+   "erkennen"
+  ],
+  "pret": [
+   "erkannte",
+   "erkanntest",
+   "erkannte",
+   "erkannten",
+   "erkanntet",
+   "erkannten"
+  ],
+  "pp": "erkannt",
+  "perfekt": "hat erkannt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.erlauben",
+  "level": "B1",
+  "n": "erlauben",
+  "ar": "يسمح بـ",
+  "s": "Meine Eltern erlauben das nicht.",
+  "sar": "والداي لا يسمحان بذلك.",
+  "note": "erlauben + Dativ (الشخص) + Akkusativ (الشيء). Partizip: erlaubt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "erlaube",
+   "erlaubst",
+   "erlaubt",
+   "erlauben",
+   "erlaubt",
+   "erlauben"
+  ],
+  "pret": [
+   "erlaubte",
+   "erlaubtest",
+   "erlaubte",
+   "erlaubten",
+   "erlaubtet",
+   "erlaubten"
+  ],
+  "pp": "erlaubt",
+  "perfekt": "hat erlaubt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.ermoeglichen",
+  "level": "B1",
+  "n": "ermöglichen",
+  "ar": "يتيح",
+  "s": "Das Stipendium ermöglicht ihm das Studium.",
+  "sar": "تتيح له المنحة الدراسة.",
+  "note": "ermöglichen + Dativ + Akkusativ. Partizip: ermöglicht.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "ermögliche",
+   "ermöglichst",
+   "ermöglicht",
+   "ermöglichen",
+   "ermöglicht",
+   "ermöglichen"
+  ],
+  "pret": [
+   "ermöglichte",
+   "ermöglichtest",
+   "ermöglichte",
+   "ermöglichten",
+   "ermöglichtet",
+   "ermöglichten"
+  ],
+  "pp": "ermöglicht",
+  "perfekt": "hat ermöglicht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.erwarten",
+  "level": "B1",
+  "n": "erwarten",
+  "ar": "يتوقع",
+  "s": "Wir erwarten viele Gäste.",
+  "sar": "نتوقع ضيوفاً كثيرين.",
+  "note": "erwarten = يتوقع، وكذلك ينتظر بترقّب. Partizip: erwartet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "erwarte",
+   "erwartest",
+   "erwartet",
+   "erwarten",
+   "erwartet",
+   "erwarten"
+  ],
+  "pret": [
+   "erwartete",
+   "erwartetest",
+   "erwartete",
+   "erwarteten",
+   "erwartetet",
+   "erwarteten"
+  ],
+  "pp": "erwartet",
+  "perfekt": "hat erwartet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.geniessen",
+  "level": "B1",
+  "n": "genießen",
+  "ar": "يستمتع بـ",
+  "s": "Ich genieße die Ruhe am Meer.",
+  "sar": "أستمتع بالهدوء عند البحر.",
+  "note": "فعل قوي: genoss — hat genossen.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "genieße",
+   "genießt",
+   "genießt",
+   "genießen",
+   "genießt",
+   "genießen"
+  ],
+  "pret": [
+   "genoss",
+   "genossest",
+   "genoss",
+   "genossen",
+   "genosst",
+   "genossen"
+  ],
+  "pp": "genossen",
+  "perfekt": "hat genossen",
+  "pret_du_alt": "genosst"
+ },
+ {
+  "id": "verben.gruenden",
+  "level": "B1",
+  "n": "gründen",
+  "ar": "يؤسس",
+  "s": "Sie gründen eine kleine Firma.",
+  "sar": "يؤسسون شركة صغيرة.",
+  "note": "gründen = يؤسس. Partizip: gegründet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "gründe",
+   "gründest",
+   "gründet",
+   "gründen",
+   "gründet",
+   "gründen"
+  ],
+  "pret": [
+   "gründete",
+   "gründetest",
+   "gründete",
+   "gründeten",
+   "gründetet",
+   "gründeten"
+  ],
+  "pp": "gegründet",
+  "perfekt": "hat gegründet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.haengen",
+  "level": "B1",
+  "n": "hängen",
+  "ar": "يتدلّى / يكون معلّقاً",
+  "s": "Das Bild hängt an der Wand.",
+  "sar": "اللوحة معلقة على الحائط.",
+  "note": "hängen (لازم): hing — hat gehangen. أما المتعدّي (يعلّق شيئاً): hängen — hängte — gehängt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "hänge",
+   "hängst",
+   "hängt",
+   "hängen",
+   "hängt",
+   "hängen"
+  ],
+  "pret": [
+   "hing",
+   "hingst",
+   "hing",
+   "hingen",
+   "hingt",
+   "hingen"
+  ],
+  "pp": "gehangen",
+  "perfekt": "hat gehangen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.kritisieren",
+  "level": "B1",
+  "n": "kritisieren",
+  "ar": "ينتقد",
+  "s": "Du kritisierst mich zu oft.",
+  "sar": "تنتقدني كثيراً.",
+  "note": "Partizip: kritisiert (بدون ge- لأن الفعل ينتهي بـ -ieren).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "kritisiere",
+   "kritisierst",
+   "kritisiert",
+   "kritisieren",
+   "kritisiert",
+   "kritisieren"
+  ],
+  "pret": [
+   "kritisierte",
+   "kritisiertest",
+   "kritisierte",
+   "kritisierten",
+   "kritisiertet",
+   "kritisierten"
+  ],
+  "pp": "kritisiert",
+  "perfekt": "hat kritisiert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.loesen",
+  "level": "B1",
+  "n": "lösen",
+  "ar": "يحلّ (مشكلة)",
+  "s": "Sie löst die Aufgabe schnell.",
+  "sar": "هي تحل التمرين بسرعة.",
+  "note": "lösen = يحلّ مسألة أو مشكلة. Partizip: gelöst.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "löse",
+   "löst",
+   "löst",
+   "lösen",
+   "löst",
+   "lösen"
+  ],
+  "pret": [
+   "löste",
+   "löstest",
+   "löste",
+   "lösten",
+   "löstet",
+   "lösten"
+  ],
+  "pp": "gelöst",
+  "perfekt": "hat gelöst",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.messen",
+  "level": "B1",
+  "n": "messen",
+  "ar": "يقيس",
+  "s": "Der Arzt misst die Temperatur.",
+  "sar": "الطبيب يقيس درجة الحرارة.",
+  "note": "فعل قوي: du misst, er misst — maß — hat gemessen.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "messe",
+   "misst",
+   "misst",
+   "messen",
+   "messt",
+   "messen"
+  ],
+  "pret": [
+   "maß",
+   "maßest",
+   "maß",
+   "maßen",
+   "maßt",
+   "maßen"
+  ],
+  "pp": "gemessen",
+  "perfekt": "hat gemessen",
+  "pret_du_alt": "maßt"
+ },
+ {
+  "id": "verben.nutzen",
+  "level": "B1",
+  "n": "nutzen",
+  "ar": "يستغلّ / ينتفع بـ",
+  "s": "Wir nutzen jede Minute.",
+  "sar": "نستغل كل دقيقة.",
+  "note": "nutzen = يستغلّ. Partizip: genutzt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "nutze",
+   "nutzt",
+   "nutzt",
+   "nutzen",
+   "nutzt",
+   "nutzen"
+  ],
+  "pret": [
+   "nutzte",
+   "nutztest",
+   "nutzte",
+   "nutzten",
+   "nutztet",
+   "nutzten"
+  ],
+  "pp": "genutzt",
+  "perfekt": "hat genutzt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.planen",
+  "level": "B1",
+  "n": "planen",
+  "ar": "يخطط",
+  "s": "Wir planen eine Reise nach Italien.",
+  "sar": "نخطط لرحلة إلى إيطاليا.",
+  "note": "planen = يخطط. Partizip: geplant.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "plane",
+   "planst",
+   "plant",
+   "planen",
+   "plant",
+   "planen"
+  ],
+  "pret": [
+   "plante",
+   "plantest",
+   "plante",
+   "planten",
+   "plantet",
+   "planten"
+  ],
+  "pp": "geplant",
+  "perfekt": "hat geplant",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.pruefen",
+  "level": "B1",
+  "n": "prüfen",
+  "ar": "يدقّق / يفحص",
+  "s": "Er prüft die Rechnung genau.",
+  "sar": "هو يدقق في الفاتورة جيداً.",
+  "note": "prüfen = يدقّق أو يختبر. Partizip: geprüft.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "prüfe",
+   "prüfst",
+   "prüft",
+   "prüfen",
+   "prüft",
+   "prüfen"
+  ],
+  "pret": [
+   "prüfte",
+   "prüftest",
+   "prüfte",
+   "prüften",
+   "prüftet",
+   "prüften"
+  ],
+  "pp": "geprüft",
+  "perfekt": "hat geprüft",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.raten",
+  "level": "B1",
+  "n": "raten",
+  "ar": "ينصح / يخمّن",
+  "s": "Ich rate dir, früh zu kommen.",
+  "sar": "أنصحك بأن تأتي مبكراً.",
+  "note": "raten + Dativ = ينصح. فعل قوي: du rätst, er rät — riet — hat geraten.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "rate",
+   "rätst",
+   "rät",
+   "raten",
+   "ratet",
+   "raten"
+  ],
+  "pret": [
+   "riet",
+   "rietest",
+   "riet",
+   "rieten",
+   "rietet",
+   "rieten"
+  ],
+  "pp": "geraten",
+  "perfekt": "hat geraten",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.reichen",
+  "level": "B1",
+  "n": "reichen",
+  "ar": "يكفي / يناول",
+  "s": "Das Geld reicht nicht.",
+  "sar": "المال لا يكفي.",
+  "note": "reichen = يكفي، وكذلك يناول: Reich mir das Salz. Partizip: gereicht.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "reiche",
+   "reichst",
+   "reicht",
+   "reichen",
+   "reicht",
+   "reichen"
+  ],
+  "pret": [
+   "reichte",
+   "reichtest",
+   "reichte",
+   "reichten",
+   "reichtet",
+   "reichten"
+  ],
+  "pp": "gereicht",
+  "perfekt": "hat gereicht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.retten",
+  "level": "B1",
+  "n": "retten",
+  "ar": "ينقذ",
+  "s": "Der Feuerwehrmann rettet ein Kind.",
+  "sar": "رجل الإطفاء ينقذ طفلاً.",
+  "note": "retten = ينقذ. du rettest, er rettet. Partizip: gerettet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "rette",
+   "rettest",
+   "rettet",
+   "retten",
+   "rettet",
+   "retten"
+  ],
+  "pret": [
+   "rettete",
+   "rettetest",
+   "rettete",
+   "retteten",
+   "rettetet",
+   "retteten"
+  ],
+  "pp": "gerettet",
+  "perfekt": "hat gerettet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.schaffen",
+  "level": "B1",
+  "n": "schaffen",
+  "ar": "ينجز / ينجح في",
+  "s": "Ich schaffe das heute noch.",
+  "sar": "أستطيع إنجاز ذلك اليوم.",
+  "note": "schaffen (بمعنى ينجز) فعل ضعيف: schaffte — hat geschafft. وبمعنى يخلق فعل قوي: schuf — hat geschaffen.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "schaffe",
+   "schaffst",
+   "schafft",
+   "schaffen",
+   "schafft",
+   "schaffen"
+  ],
+  "pret": [
+   "schaffte",
+   "schafftest",
+   "schaffte",
+   "schafften",
+   "schafftet",
+   "schafften"
+  ],
+  "pp": "geschafft",
+  "perfekt": "hat geschafft",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.scheinen",
+  "level": "B1",
+  "n": "scheinen",
+  "ar": "يسطع / يبدو أن",
+  "s": "Er scheint müde zu sein.",
+  "sar": "يبدو أنه متعب.",
+  "note": "فعل قوي: schien — hat geschienen. scheinen + zu + Infinitiv = يبدو أنه.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "scheine",
+   "scheinst",
+   "scheint",
+   "scheinen",
+   "scheint",
+   "scheinen"
+  ],
+  "pret": [
+   "schien",
+   "schienst",
+   "schien",
+   "schienen",
+   "schient",
+   "schienen"
+  ],
+  "pp": "geschienen",
+  "perfekt": "hat geschienen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.schuetzen",
+  "level": "B1",
+  "n": "schützen",
+  "ar": "يحمي",
+  "s": "Der Helm schützt den Kopf.",
+  "sar": "الخوذة تحمي الرأس.",
+  "note": "schützen vor + Dativ = يحمي من. Partizip: geschützt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "schütze",
+   "schützt",
+   "schützt",
+   "schützen",
+   "schützt",
+   "schützen"
+  ],
+  "pret": [
+   "schützte",
+   "schütztest",
+   "schützte",
+   "schützten",
+   "schütztet",
+   "schützten"
+  ],
+  "pp": "geschützt",
+  "perfekt": "hat geschützt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.steigen",
+  "level": "B1",
+  "n": "steigen",
+  "ar": "يرتفع / يصعد",
+  "s": "Die Preise steigen jedes Jahr.",
+  "sar": "الأسعار ترتفع كل عام.",
+  "note": "فعل قوي: stieg — ist gestiegen (مع sein).",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "steige",
+   "steigst",
+   "steigt",
+   "steigen",
+   "steigt",
+   "steigen"
+  ],
+  "pret": [
+   "stieg",
+   "stiegst",
+   "stieg",
+   "stiegen",
+   "stiegt",
+   "stiegen"
+  ],
+  "pp": "gestiegen",
+  "perfekt": "ist gestiegen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.stoeren",
+  "level": "B1",
+  "n": "stören",
+  "ar": "يزعج",
+  "s": "Stört dich die Musik?",
+  "sar": "هل تزعجك الموسيقى؟",
+  "note": "stören + Akkusativ = يزعج. Partizip: gestört.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "störe",
+   "störst",
+   "stört",
+   "stören",
+   "stört",
+   "stören"
+  ],
+  "pret": [
+   "störte",
+   "störtest",
+   "störte",
+   "störten",
+   "störtet",
+   "störten"
+  ],
+  "pp": "gestört",
+  "perfekt": "hat gestört",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.streiten",
+  "level": "B1",
+  "n": "streiten",
+  "ar": "يتشاجر / يتخاصم",
+  "s": "Die Geschwister streiten oft.",
+  "sar": "الأخوة يتشاجرون كثيراً.",
+  "note": "فعل قوي: stritt — hat gestritten. du streitest, er streitet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "streite",
+   "streitest",
+   "streitet",
+   "streiten",
+   "streitet",
+   "streiten"
+  ],
+  "pret": [
+   "stritt",
+   "strittest",
+   "stritt",
+   "stritten",
+   "strittet",
+   "stritten"
+  ],
+  "pp": "gestritten",
+  "perfekt": "hat gestritten",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.treiben",
+  "level": "B1",
+  "n": "treiben",
+  "ar": "يمارس (رياضة) / يسوق",
+  "s": "Er treibt jeden Tag Sport.",
+  "sar": "هو يمارس الرياضة كل يوم.",
+  "note": "Sport treiben = يمارس الرياضة. فعل قوي: trieb — hat getrieben.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "treibe",
+   "treibst",
+   "treibt",
+   "treiben",
+   "treibt",
+   "treiben"
+  ],
+  "pret": [
+   "trieb",
+   "triebst",
+   "trieb",
+   "trieben",
+   "triebt",
+   "trieben"
+  ],
+  "pp": "getrieben",
+  "perfekt": "hat getrieben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.uebernehmen",
+  "level": "B1",
+  "n": "übernehmen",
+  "ar": "يتولّى / يتحمّل",
+  "s": "Ich übernehme die Kosten.",
+  "sar": "أتحمل التكاليف.",
+  "note": "فعل قوي: du übernimmst, er übernimmt — übernahm — hat übernommen.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "übernehme",
+   "übernimmst",
+   "übernimmt",
+   "übernehmen",
+   "übernehmt",
+   "übernehmen"
+  ],
+  "pret": [
+   "übernahm",
+   "übernahmst",
+   "übernahm",
+   "übernahmen",
+   "übernahmt",
+   "übernahmen"
+  ],
+  "pp": "übernommen",
+  "perfekt": "hat übernommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.ueberraschen",
+  "level": "B1",
+  "n": "überraschen",
+  "ar": "يفاجئ",
+  "s": "Das Geschenk überrascht meine Mutter.",
+  "sar": "الهدية تفاجئ أمي.",
+  "note": "Partizip: überrascht (بدون ge-). du überraschst.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "überrasche",
+   "überraschst",
+   "überrascht",
+   "überraschen",
+   "überrascht",
+   "überraschen"
+  ],
+  "pret": [
+   "überraschte",
+   "überraschtest",
+   "überraschte",
+   "überraschten",
+   "überraschtet",
+   "überraschten"
+  ],
+  "pp": "überrascht",
+  "perfekt": "hat überrascht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.unterscheiden",
+  "level": "B1",
+  "n": "unterscheiden",
+  "ar": "يميّز بين",
+  "s": "Ich unterscheide die beiden Wörter nicht.",
+  "sar": "لا أميّز بين الكلمتين.",
+  "note": "فعل قوي: unterschied — hat unterschieden. du unterscheidest.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "unterscheide",
+   "unterscheidest",
+   "unterscheidet",
+   "unterscheiden",
+   "unterscheidet",
+   "unterscheiden"
+  ],
+  "pret": [
+   "unterschied",
+   "unterschiedest",
+   "unterschied",
+   "unterschieden",
+   "unterschiedet",
+   "unterschieden"
+  ],
+  "pp": "unterschieden",
+  "perfekt": "hat unterschieden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.unterschreiben",
+  "level": "B1",
+  "n": "unterschreiben",
+  "ar": "يوقّع",
+  "s": "Du unterschreibst den Vertrag hier.",
+  "sar": "توقّع العقد هنا.",
+  "note": "فعل قوي: unterschrieb — hat unterschrieben.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "unterschreibe",
+   "unterschreibst",
+   "unterschreibt",
+   "unterschreiben",
+   "unterschreibt",
+   "unterschreiben"
+  ],
+  "pret": [
+   "unterschrieb",
+   "unterschriebst",
+   "unterschrieb",
+   "unterschrieben",
+   "unterschriebt",
+   "unterschrieben"
+  ],
+  "pp": "unterschrieben",
+  "perfekt": "hat unterschrieben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.unterstuetzen",
+  "level": "B1",
+  "n": "unterstützen",
+  "ar": "يدعم",
+  "s": "Meine Eltern unterstützen mich sehr.",
+  "sar": "والداي يدعمانني كثيراً.",
+  "note": "Partizip: unterstützt (بدون ge-). du unterstützt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "unterstütze",
+   "unterstützt",
+   "unterstützt",
+   "unterstützen",
+   "unterstützt",
+   "unterstützen"
+  ],
+  "pret": [
+   "unterstützte",
+   "unterstütztest",
+   "unterstützte",
+   "unterstützten",
+   "unterstütztet",
+   "unterstützten"
+  ],
+  "pp": "unterstützt",
+  "perfekt": "hat unterstützt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.untersuchen",
+  "level": "B1",
+  "n": "untersuchen",
+  "ar": "يفحص (طبياً أو علمياً)",
+  "s": "Der Arzt untersucht mein Knie.",
+  "sar": "الطبيب يفحص ركبتي.",
+  "note": "untersuchen = يفحص. Partizip: untersucht (بدون ge-).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "untersuche",
+   "untersuchst",
+   "untersucht",
+   "untersuchen",
+   "untersucht",
+   "untersuchen"
+  ],
+  "pret": [
+   "untersuchte",
+   "untersuchtest",
+   "untersuchte",
+   "untersuchten",
+   "untersuchtet",
+   "untersuchten"
+  ],
+  "pp": "untersucht",
+  "perfekt": "hat untersucht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.verbinden",
+  "level": "B1",
+  "n": "verbinden",
+  "ar": "يربط / يوصّل",
+  "s": "Eine Brücke verbindet beide Ufer.",
+  "sar": "جسر يربط الضفتين.",
+  "note": "فعل قوي: verband — hat verbunden. du verbindest.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "verbinde",
+   "verbindest",
+   "verbindet",
+   "verbinden",
+   "verbindet",
+   "verbinden"
+  ],
+  "pret": [
+   "verband",
+   "verbandest",
+   "verband",
+   "verbanden",
+   "verbandet",
+   "verbanden"
+  ],
+  "pp": "verbunden",
+  "perfekt": "hat verbunden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.verbringen",
+  "level": "B1",
+  "n": "verbringen",
+  "ar": "يقضي (وقتاً)",
+  "s": "Wir verbringen den Sommer am Meer.",
+  "sar": "نقضي الصيف عند البحر.",
+  "note": "فعل مختلط: verbrachte — hat verbracht.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "verbringe",
+   "verbringst",
+   "verbringt",
+   "verbringen",
+   "verbringt",
+   "verbringen"
+  ],
+  "pret": [
+   "verbrachte",
+   "verbrachtest",
+   "verbrachte",
+   "verbrachten",
+   "verbrachtet",
+   "verbrachten"
+  ],
+  "pp": "verbracht",
+  "perfekt": "hat verbracht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.vergleichen",
+  "level": "B1",
+  "n": "vergleichen",
+  "ar": "يقارن",
+  "s": "Ich vergleiche die Preise im Internet.",
+  "sar": "أقارن الأسعار على الإنترنت.",
+  "note": "فعل قوي: verglich — hat verglichen. vergleichen mit + Dativ.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "vergleiche",
+   "vergleichst",
+   "vergleicht",
+   "vergleichen",
+   "vergleicht",
+   "vergleichen"
+  ],
+  "pret": [
+   "verglich",
+   "verglichst",
+   "verglich",
+   "verglichen",
+   "verglicht",
+   "verglichen"
+  ],
+  "pp": "verglichen",
+  "perfekt": "hat verglichen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.verlangen",
+  "level": "B1",
+  "n": "verlangen",
+  "ar": "يطلب (بإلحاح) / يطالب",
+  "s": "Der Verkäufer verlangt zu viel.",
+  "sar": "البائع يطلب مبلغاً كبيراً.",
+  "note": "verlangen = يطالب بشيء. Partizip: verlangt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "verlange",
+   "verlangst",
+   "verlangt",
+   "verlangen",
+   "verlangt",
+   "verlangen"
+  ],
+  "pret": [
+   "verlangte",
+   "verlangtest",
+   "verlangte",
+   "verlangten",
+   "verlangtet",
+   "verlangten"
+  ],
+  "pp": "verlangt",
+  "perfekt": "hat verlangt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.verpassen",
+  "level": "B1",
+  "n": "verpassen",
+  "ar": "يفوّت",
+  "s": "Wir verpassen den Bus.",
+  "sar": "نفوّت الحافلة.",
+  "note": "verpassen = يفوّت (موعداً أو وسيلة نقل). Partizip: verpasst.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "verpasse",
+   "verpasst",
+   "verpasst",
+   "verpassen",
+   "verpasst",
+   "verpassen"
+  ],
+  "pret": [
+   "verpasste",
+   "verpasstest",
+   "verpasste",
+   "verpassten",
+   "verpasstet",
+   "verpassten"
+  ],
+  "pp": "verpasst",
+  "perfekt": "hat verpasst",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.verreisen",
+  "level": "B1",
+  "n": "verreisen",
+  "ar": "يخرج في سفر",
+  "s": "Meine Eltern verreisen im Juli.",
+  "sar": "والداي يسافران في يوليو.",
+  "note": "verreisen = يخرج في سفر (لمدة). Perfekt مع sein: ist verreist.",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "verreise",
+   "verreist",
+   "verreist",
+   "verreisen",
+   "verreist",
+   "verreisen"
+  ],
+  "pret": [
+   "verreiste",
+   "verreistest",
+   "verreiste",
+   "verreisten",
+   "verreistet",
+   "verreisten"
+  ],
+  "pp": "verreist",
+  "perfekt": "ist verreist",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.verschieben",
+  "level": "B1",
+  "n": "verschieben",
+  "ar": "يؤجّل / يزيح",
+  "s": "Wir verschieben das Treffen auf Montag.",
+  "sar": "نؤجل الاجتماع إلى يوم الإثنين.",
+  "note": "فعل قوي: verschob — hat verschoben.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "verschiebe",
+   "verschiebst",
+   "verschiebt",
+   "verschieben",
+   "verschiebt",
+   "verschieben"
+  ],
+  "pret": [
+   "verschob",
+   "verschobst",
+   "verschob",
+   "verschoben",
+   "verschobt",
+   "verschoben"
+  ],
+  "pp": "verschoben",
+  "perfekt": "hat verschoben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.verschwinden",
+  "level": "B1",
+  "n": "verschwinden",
+  "ar": "يختفي",
+  "s": "Die Katze verschwindet im Garten.",
+  "sar": "القطة تختفي في الحديقة.",
+  "note": "فعل قوي: verschwand — ist verschwunden (مع sein).",
+  "sep": null,
+  "aux": "sein",
+  "pres": [
+   "verschwinde",
+   "verschwindest",
+   "verschwindet",
+   "verschwinden",
+   "verschwindet",
+   "verschwinden"
+  ],
+  "pret": [
+   "verschwand",
+   "verschwandest",
+   "verschwand",
+   "verschwanden",
+   "verschwandet",
+   "verschwanden"
+  ],
+  "pp": "verschwunden",
+  "perfekt": "ist verschwunden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.versprechen",
+  "level": "B1",
+  "n": "versprechen",
+  "ar": "يعد بـ",
+  "s": "Ich verspreche dir nichts.",
+  "sar": "لا أعدك بشيء.",
+  "note": "فعل قوي: du versprichst, er verspricht — versprach — hat versprochen.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "verspreche",
+   "versprichst",
+   "verspricht",
+   "versprechen",
+   "versprecht",
+   "versprechen"
+  ],
+  "pret": [
+   "versprach",
+   "versprachst",
+   "versprach",
+   "versprachen",
+   "verspracht",
+   "versprachen"
+  ],
+  "pp": "versprochen",
+  "perfekt": "hat versprochen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.zerstoeren",
+  "level": "B1",
+  "n": "zerstören",
+  "ar": "يدمّر",
+  "s": "Das Feuer zerstört das Haus.",
+  "sar": "النار تدمّر البيت.",
+  "note": "zerstören = يدمّر. Partizip: zerstört (بدون ge-).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "zerstöre",
+   "zerstörst",
+   "zerstört",
+   "zerstören",
+   "zerstört",
+   "zerstören"
+  ],
+  "pret": [
+   "zerstörte",
+   "zerstörtest",
+   "zerstörte",
+   "zerstörten",
+   "zerstörtet",
+   "zerstörten"
+  ],
+  "pp": "zerstört",
+  "perfekt": "hat zerstört",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.begruessen",
+  "level": "B1",
+  "n": "begrüßen",
+  "ar": "يرحّب بـ",
+  "s": "Wir begrüßen die Gäste an der Tür.",
+  "sar": "نستقبل الضيوف عند الباب.",
+  "note": "begrüßen = يرحّب ويحيّي. Partizip: begrüßt. er begrüßt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "begrüße",
+   "begrüßt",
+   "begrüßt",
+   "begrüßen",
+   "begrüßt",
+   "begrüßen"
+  ],
+  "pret": [
+   "begrüßte",
+   "begrüßtest",
+   "begrüßte",
+   "begrüßten",
+   "begrüßtet",
+   "begrüßten"
+  ],
+  "pp": "begrüßt",
+  "perfekt": "hat begrüßt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.behaupten",
+  "level": "B1",
+  "n": "behaupten",
+  "ar": "يزعم / يدّعي",
+  "s": "Er behauptet, er weiß alles.",
+  "sar": "هو يزعم أنه يعرف كل شيء.",
+  "note": "behaupten = يزعم. Partizip: behauptet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "behaupte",
+   "behauptest",
+   "behauptet",
+   "behaupten",
+   "behauptet",
+   "behaupten"
+  ],
+  "pret": [
+   "behauptete",
+   "behauptetest",
+   "behauptete",
+   "behaupteten",
+   "behauptetet",
+   "behaupteten"
+  ],
+  "pp": "behauptet",
+  "perfekt": "hat behauptet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.bemerken",
+  "level": "B1",
+  "n": "bemerken",
+  "ar": "يلاحظ",
+  "s": "Ich bemerke den Fehler zu spät.",
+  "sar": "ألاحظ الخطأ متأخراً.",
+  "note": "bemerken = يلاحظ. Partizip: bemerkt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "bemerke",
+   "bemerkst",
+   "bemerkt",
+   "bemerken",
+   "bemerkt",
+   "bemerken"
+  ],
+  "pret": [
+   "bemerkte",
+   "bemerktest",
+   "bemerkte",
+   "bemerkten",
+   "bemerktet",
+   "bemerkten"
+  ],
+  "pp": "bemerkt",
+  "perfekt": "hat bemerkt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.bestaetigen",
+  "level": "B1",
+  "n": "bestätigen",
+  "ar": "يؤكّد (رسمياً)",
+  "s": "Das Hotel bestätigt die Buchung.",
+  "sar": "الفندق يؤكد الحجز.",
+  "note": "bestätigen = يؤكّد. Partizip: bestätigt.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "bestätige",
+   "bestätigst",
+   "bestätigt",
+   "bestätigen",
+   "bestätigt",
+   "bestätigen"
+  ],
+  "pret": [
+   "bestätigte",
+   "bestätigtest",
+   "bestätigte",
+   "bestätigten",
+   "bestätigtet",
+   "bestätigten"
+  ],
+  "pp": "bestätigt",
+  "perfekt": "hat bestätigt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.diskutieren",
+  "level": "B1",
+  "n": "diskutieren",
+  "ar": "يناقش",
+  "s": "Wir diskutieren über das Thema.",
+  "sar": "نتناقش حول الموضوع.",
+  "note": "diskutieren über + Akkusativ. Partizip: diskutiert.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "diskutiere",
+   "diskutierst",
+   "diskutiert",
+   "diskutieren",
+   "diskutiert",
+   "diskutieren"
+  ],
+  "pret": [
+   "diskutierte",
+   "diskutiertest",
+   "diskutierte",
+   "diskutierten",
+   "diskutiertet",
+   "diskutierten"
+  ],
+  "pp": "diskutiert",
+  "perfekt": "hat diskutiert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.empfehlen",
+  "level": "B1",
+  "n": "empfehlen",
+  "ar": "يوصي بـ / يرشّح",
+  "s": "Ich empfehle dir dieses Restaurant.",
+  "sar": "أنصحك بهذا المطعم.",
+  "note": "فعل قوي: du empfiehlst, er empfiehlt — empfahl — hat empfohlen.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "empfehle",
+   "empfiehlst",
+   "empfiehlt",
+   "empfehlen",
+   "empfehlt",
+   "empfehlen"
+  ],
+  "pret": [
+   "empfahl",
+   "empfahlst",
+   "empfahl",
+   "empfahlen",
+   "empfahlt",
+   "empfahlen"
+  ],
+  "pp": "empfohlen",
+  "perfekt": "hat empfohlen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.existieren",
+  "level": "B1",
+  "n": "existieren",
+  "ar": "يوجد (كياناً)",
+  "s": "Dieses Geschäft existiert nicht mehr.",
+  "sar": "هذا المتجر لم يعد موجوداً.",
+  "note": "Partizip: existiert (بدون ge-).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "existiere",
+   "existierst",
+   "existiert",
+   "existieren",
+   "existiert",
+   "existieren"
+  ],
+  "pret": [
+   "existierte",
+   "existiertest",
+   "existierte",
+   "existierten",
+   "existiertet",
+   "existierten"
+  ],
+  "pp": "existiert",
+  "perfekt": "hat existiert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.gratulieren",
+  "level": "B1",
+  "n": "gratulieren",
+  "ar": "يهنّئ",
+  "s": "Wir gratulieren dir zum Geburtstag.",
+  "sar": "نهنئك بعيد ميلادك.",
+  "note": "gratulieren + Dativ: Ich gratuliere dir. Partizip: gratuliert.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "gratuliere",
+   "gratulierst",
+   "gratuliert",
+   "gratulieren",
+   "gratuliert",
+   "gratulieren"
+  ],
+  "pret": [
+   "gratulierte",
+   "gratuliertest",
+   "gratulierte",
+   "gratulierten",
+   "gratuliertet",
+   "gratulierten"
+  ],
+  "pp": "gratuliert",
+  "perfekt": "hat gratuliert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.informieren",
+  "level": "B1",
+  "n": "informieren",
+  "ar": "يُعلم / يُبلغ",
+  "s": "Der Lehrer informiert die Eltern.",
+  "sar": "المعلم يُعلم أولياء الأمور.",
+  "note": "informieren + Akkusativ. Partizip: informiert.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "informiere",
+   "informierst",
+   "informiert",
+   "informieren",
+   "informiert",
+   "informieren"
+  ],
+  "pret": [
+   "informierte",
+   "informiertest",
+   "informierte",
+   "informierten",
+   "informiertet",
+   "informierten"
+  ],
+  "pp": "informiert",
+  "perfekt": "hat informiert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.kontrollieren",
+  "level": "B1",
+  "n": "kontrollieren",
+  "ar": "يتحقق من / يفتّش",
+  "s": "Der Polizist kontrolliert den Ausweis.",
+  "sar": "الشرطي يتحقق من الهوية.",
+  "note": "kontrollieren = يتحقق ويفتّش. Partizip: kontrolliert.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "kontrolliere",
+   "kontrollierst",
+   "kontrolliert",
+   "kontrollieren",
+   "kontrolliert",
+   "kontrollieren"
+  ],
+  "pret": [
+   "kontrollierte",
+   "kontrolliertest",
+   "kontrollierte",
+   "kontrollierten",
+   "kontrolliertet",
+   "kontrollierten"
+  ],
+  "pp": "kontrolliert",
+  "perfekt": "hat kontrolliert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.mieten",
+  "level": "B1",
+  "n": "mieten",
+  "ar": "يستأجر",
+  "s": "Wir mieten eine kleine Wohnung.",
+  "sar": "نستأجر شقة صغيرة.",
+  "note": "mieten = يستأجر. du mietest, er mietet. Partizip: gemietet.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "miete",
+   "mietest",
+   "mietet",
+   "mieten",
+   "mietet",
+   "mieten"
+  ],
+  "pret": [
+   "mietete",
+   "mietetest",
+   "mietete",
+   "mieteten",
+   "mietetet",
+   "mieteten"
+  ],
+  "pp": "gemietet",
+  "perfekt": "hat gemietet",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.organisieren",
+  "level": "B1",
+  "n": "organisieren",
+  "ar": "ينظّم",
+  "s": "Ich organisiere die Party für Samstag.",
+  "sar": "أنظّم الحفلة ليوم السبت.",
+  "note": "Partizip: organisiert (بدون ge-).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "organisiere",
+   "organisierst",
+   "organisiert",
+   "organisieren",
+   "organisiert",
+   "organisieren"
+  ],
+  "pret": [
+   "organisierte",
+   "organisiertest",
+   "organisierte",
+   "organisierten",
+   "organisiertet",
+   "organisierten"
+  ],
+  "pp": "organisiert",
+  "perfekt": "hat organisiert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.ueberlegen",
+  "level": "B1",
+  "n": "überlegen",
+  "ar": "يتروّى / يفكر مليّاً",
+  "s": "Ich überlege noch, was ich esse.",
+  "sar": "ما زلت أفكر فيما سآكله.",
+  "note": "Partizip: überlegt (بدون ge-).",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "überlege",
+   "überlegst",
+   "überlegt",
+   "überlegen",
+   "überlegt",
+   "überlegen"
+  ],
+  "pret": [
+   "überlegte",
+   "überlegtest",
+   "überlegte",
+   "überlegten",
+   "überlegtet",
+   "überlegten"
+  ],
+  "pp": "überlegt",
+  "perfekt": "hat überlegt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.widersprechen",
+  "level": "B1",
+  "n": "widersprechen",
+  "ar": "يعارض / يناقض",
+  "s": "Du widersprichst dem Lehrer nie.",
+  "sar": "أنت لا تعارض المعلم أبداً.",
+  "note": "widersprechen + Dativ. فعل قوي: du widersprichst — widersprach — hat widersprochen.",
+  "sep": null,
+  "aux": "haben",
+  "pres": [
+   "widerspreche",
+   "widersprichst",
+   "widerspricht",
+   "widersprechen",
+   "widersprecht",
+   "widersprechen"
+  ],
+  "pret": [
+   "widersprach",
+   "widersprachst",
+   "widersprach",
+   "widersprachen",
+   "widerspracht",
+   "widersprachen"
+  ],
+  "pp": "widersprochen",
+  "perfekt": "hat widersprochen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.vorschlagen",
+  "level": "B1",
+  "n": "vorschlagen",
+  "ar": "يقترح",
+  "s": "Ich schlage einen Spaziergang vor.",
+  "sar": "أقترح القيام بنزهة.",
+  "note": "فعل منفصل وقوي: du schlägst ... vor — schlug ... vor — hat vorgeschlagen.",
+  "sep": "vor",
+  "aux": "haben",
+  "pres": [
+   "schlage vor",
+   "schlägst vor",
+   "schlägt vor",
+   "schlagen vor",
+   "schlagt vor",
+   "schlagen vor"
+  ],
+  "pret": [
+   "schlug vor",
+   "schlugst vor",
+   "schlug vor",
+   "schlugen vor",
+   "schlugt vor",
+   "schlugen vor"
+  ],
+  "pp": "vorgeschlagen",
+  "perfekt": "hat vorgeschlagen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.vorstellen",
+  "level": "B1",
+  "n": "vorstellen",
+  "ar": "يقدّم (شخصاً)",
+  "s": "Ich stelle dir meinen Freund vor.",
+  "sar": "أقدّم لك صديقي.",
+  "note": "فعل منفصل: ich stelle ... vor. Partizip: vorgestellt.",
+  "sep": "vor",
+  "aux": "haben",
+  "pres": [
+   "stelle vor",
+   "stellst vor",
+   "stellt vor",
+   "stellen vor",
+   "stellt vor",
+   "stellen vor"
+  ],
+  "pret": [
+   "stellte vor",
+   "stelltest vor",
+   "stellte vor",
+   "stellten vor",
+   "stelltet vor",
+   "stellten vor"
+  ],
+  "pp": "vorgestellt",
+  "perfekt": "hat vorgestellt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.zunehmen",
+  "level": "B1",
+  "n": "zunehmen",
+  "ar": "يزداد",
+  "s": "Die Zahl der Touristen nimmt zu.",
+  "sar": "عدد السياح يزداد.",
+  "note": "فعل منفصل وقوي: du nimmst ... zu — nahm ... zu — hat zugenommen.",
+  "sep": "zu",
+  "aux": "haben",
+  "pres": [
+   "nehme zu",
+   "nimmst zu",
+   "nimmt zu",
+   "nehmen zu",
+   "nehmt zu",
+   "nehmen zu"
+  ],
+  "pret": [
+   "nahm zu",
+   "nahmst zu",
+   "nahm zu",
+   "nahmen zu",
+   "nahmt zu",
+   "nahmen zu"
+  ],
+  "pp": "zugenommen",
+  "perfekt": "hat zugenommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.abnehmen",
+  "level": "B1",
+  "n": "abnehmen",
+  "ar": "ينخفض / يقلّ",
+  "s": "Die Temperatur nimmt am Abend ab.",
+  "sar": "درجة الحرارة تنخفض في المساء.",
+  "note": "فعل منفصل وقوي: nahm ... ab — hat abgenommen.",
+  "sep": "ab",
+  "aux": "haben",
+  "pres": [
+   "nehme ab",
+   "nimmst ab",
+   "nimmt ab",
+   "nehmen ab",
+   "nehmt ab",
+   "nehmen ab"
+  ],
+  "pret": [
+   "nahm ab",
+   "nahmst ab",
+   "nahm ab",
+   "nahmen ab",
+   "nahmt ab",
+   "nahmen ab"
+  ],
+  "pp": "abgenommen",
+  "perfekt": "hat abgenommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.absagen",
+  "level": "B1",
+  "n": "absagen",
+  "ar": "يلغي (موعداً)",
+  "s": "Ich sage den Termin leider ab.",
+  "sar": "ألغي الموعد للأسف.",
+  "note": "فعل منفصل: ich sage ... ab. Partizip: abgesagt.",
+  "sep": "ab",
+  "aux": "haben",
+  "pres": [
+   "sage ab",
+   "sagst ab",
+   "sagt ab",
+   "sagen ab",
+   "sagt ab",
+   "sagen ab"
+  ],
+  "pret": [
+   "sagte ab",
+   "sagtest ab",
+   "sagte ab",
+   "sagten ab",
+   "sagtet ab",
+   "sagten ab"
+  ],
+  "pp": "abgesagt",
+  "perfekt": "hat abgesagt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.abschliessen",
+  "level": "B1",
+  "n": "abschließen",
+  "ar": "يقفل بالمفتاح / يُنهي",
+  "s": "Er schließt die Tür immer ab.",
+  "sar": "هو يقفل الباب بالمفتاح دائماً.",
+  "note": "فعل منفصل وقوي: schloss ... ab — hat abgeschlossen.",
+  "sep": "ab",
+  "aux": "haben",
+  "pres": [
+   "schließe ab",
+   "schließt ab",
+   "schließt ab",
+   "schließen ab",
+   "schließt ab",
+   "schließen ab"
+  ],
+  "pret": [
+   "schloss ab",
+   "schlossest ab",
+   "schloss ab",
+   "schlossen ab",
+   "schlosst ab",
+   "schlossen ab"
+  ],
+  "pp": "abgeschlossen",
+  "perfekt": "hat abgeschlossen",
+  "pret_du_alt": "schlosst ab"
+ },
+ {
+  "id": "verben.anbieten",
+  "level": "B1",
+  "n": "anbieten",
+  "ar": "يعرض",
+  "s": "Der Kellner bietet uns Tee an.",
+  "sar": "النادل يعرض علينا الشاي.",
+  "note": "فعل منفصل وقوي: du bietest ... an — bot ... an — hat angeboten.",
+  "sep": "an",
+  "aux": "haben",
+  "pres": [
+   "biete an",
+   "bietest an",
+   "bietet an",
+   "bieten an",
+   "bietet an",
+   "bieten an"
+  ],
+  "pret": [
+   "bot an",
+   "botest an",
+   "bot an",
+   "boten an",
+   "botet an",
+   "boten an"
+  ],
+  "pp": "angeboten",
+  "perfekt": "hat angeboten",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.aufgeben",
+  "level": "B1",
+  "n": "aufgeben",
+  "ar": "يستسلم / يتخلى عن",
+  "s": "Ich gebe nie auf.",
+  "sar": "لا أستسلم أبداً.",
+  "note": "فعل منفصل وقوي: du gibst ... auf — gab ... auf — hat aufgegeben.",
+  "sep": "auf",
+  "aux": "haben",
+  "pres": [
+   "gebe auf",
+   "gibst auf",
+   "gibt auf",
+   "geben auf",
+   "gebt auf",
+   "geben auf"
+  ],
+  "pret": [
+   "gab auf",
+   "gabst auf",
+   "gab auf",
+   "gaben auf",
+   "gabt auf",
+   "gaben auf"
+  ],
+  "pp": "aufgegeben",
+  "perfekt": "hat aufgegeben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.aufnehmen",
+  "level": "B1",
+  "n": "aufnehmen",
+  "ar": "يسجّل / يضمّ",
+  "s": "Wir nehmen ein Lied auf.",
+  "sar": "نسجل أغنية.",
+  "note": "فعل منفصل وقوي: du nimmst ... auf — nahm ... auf — hat aufgenommen.",
+  "sep": "auf",
+  "aux": "haben",
+  "pres": [
+   "nehme auf",
+   "nimmst auf",
+   "nimmt auf",
+   "nehmen auf",
+   "nehmt auf",
+   "nehmen auf"
+  ],
+  "pret": [
+   "nahm auf",
+   "nahmst auf",
+   "nahm auf",
+   "nahmen auf",
+   "nahmt auf",
+   "nahmen auf"
+  ],
+  "pp": "aufgenommen",
+  "perfekt": "hat aufgenommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.aufschreiben",
+  "level": "B1",
+  "n": "aufschreiben",
+  "ar": "يدوّن",
+  "s": "Ich schreibe die Adresse auf.",
+  "sar": "أكتب العنوان.",
+  "note": "فعل منفصل وقوي: schrieb ... auf — hat aufgeschrieben.",
+  "sep": "auf",
+  "aux": "haben",
+  "pres": [
+   "schreibe auf",
+   "schreibst auf",
+   "schreibt auf",
+   "schreiben auf",
+   "schreibt auf",
+   "schreiben auf"
+  ],
+  "pret": [
+   "schrieb auf",
+   "schriebst auf",
+   "schrieb auf",
+   "schrieben auf",
+   "schriebt auf",
+   "schrieben auf"
+  ],
+  "pp": "aufgeschrieben",
+  "perfekt": "hat aufgeschrieben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.ausfuellen",
+  "level": "B1",
+  "n": "ausfüllen",
+  "ar": "يملأ (استمارة)",
+  "s": "Du füllst das Formular aus.",
+  "sar": "تملأ الاستمارة.",
+  "note": "فعل منفصل: du füllst ... aus. Partizip: ausgefüllt.",
+  "sep": "aus",
+  "aux": "haben",
+  "pres": [
+   "fülle aus",
+   "füllst aus",
+   "füllt aus",
+   "füllen aus",
+   "füllt aus",
+   "füllen aus"
+  ],
+  "pret": [
+   "füllte aus",
+   "fülltest aus",
+   "füllte aus",
+   "füllten aus",
+   "fülltet aus",
+   "füllten aus"
+  ],
+  "pp": "ausgefüllt",
+  "perfekt": "hat ausgefüllt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.ausfallen",
+  "level": "B1",
+  "n": "ausfallen",
+  "ar": "يُلغى / يتعطّل",
+  "s": "Der Unterricht fällt heute aus.",
+  "sar": "الحصة تُلغى اليوم.",
+  "note": "فعل منفصل وقوي: fiel ... aus — ist ausgefallen (مع sein).",
+  "sep": "aus",
+  "aux": "sein",
+  "pres": [
+   "falle aus",
+   "fällst aus",
+   "fällt aus",
+   "fallen aus",
+   "fallt aus",
+   "fallen aus"
+  ],
+  "pret": [
+   "fiel aus",
+   "fielst aus",
+   "fiel aus",
+   "fielen aus",
+   "fielt aus",
+   "fielen aus"
+  ],
+  "pp": "ausgefallen",
+  "perfekt": "ist ausgefallen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.ausprobieren",
+  "level": "B1",
+  "n": "ausprobieren",
+  "ar": "يجرّب",
+  "s": "Ich probiere das neue Rezept aus.",
+  "sar": "أجرّب الوصفة الجديدة.",
+  "note": "فعل منفصل: Partizip: ausprobiert.",
+  "sep": "aus",
+  "aux": "haben",
+  "pres": [
+   "probiere aus",
+   "probierst aus",
+   "probiert aus",
+   "probieren aus",
+   "probiert aus",
+   "probieren aus"
+  ],
+  "pret": [
+   "probierte aus",
+   "probiertest aus",
+   "probierte aus",
+   "probierten aus",
+   "probiertet aus",
+   "probierten aus"
+  ],
+  "pp": "ausprobiert",
+  "perfekt": "hat ausprobiert",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.auswaehlen",
+  "level": "B1",
+  "n": "auswählen",
+  "ar": "ينتقي",
+  "s": "Du wählst ein Geschenk aus.",
+  "sar": "تنتقي هدية.",
+  "note": "فعل منفصل: du wählst ... aus. Partizip: ausgewählt.",
+  "sep": "aus",
+  "aux": "haben",
+  "pres": [
+   "wähle aus",
+   "wählst aus",
+   "wählt aus",
+   "wählen aus",
+   "wählt aus",
+   "wählen aus"
+  ],
+  "pret": [
+   "wählte aus",
+   "wähltest aus",
+   "wählte aus",
+   "wählten aus",
+   "wähltet aus",
+   "wählten aus"
+  ],
+  "pp": "ausgewählt",
+  "perfekt": "hat ausgewählt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.einfuehren",
+  "level": "B1",
+  "n": "einführen",
+  "ar": "يُدخل (نظاماً) / يطبّق",
+  "s": "Die Schule führt neue Regeln ein.",
+  "sar": "المدرسة تطبّق قواعد جديدة.",
+  "note": "فعل منفصل: Partizip: eingeführt.",
+  "sep": "ein",
+  "aux": "haben",
+  "pres": [
+   "führe ein",
+   "führst ein",
+   "führt ein",
+   "führen ein",
+   "führt ein",
+   "führen ein"
+  ],
+  "pret": [
+   "führte ein",
+   "führtest ein",
+   "führte ein",
+   "führten ein",
+   "führtet ein",
+   "führten ein"
+  ],
+  "pp": "eingeführt",
+  "perfekt": "hat eingeführt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.eingeben",
+  "level": "B1",
+  "n": "eingeben",
+  "ar": "يُدخل (بيانات)",
+  "s": "Ich gebe das Passwort ein.",
+  "sar": "أُدخل كلمة المرور.",
+  "note": "فعل منفصل وقوي: du gibst ... ein — gab ... ein — hat eingegeben.",
+  "sep": "ein",
+  "aux": "haben",
+  "pres": [
+   "gebe ein",
+   "gibst ein",
+   "gibt ein",
+   "geben ein",
+   "gebt ein",
+   "geben ein"
+  ],
+  "pret": [
+   "gab ein",
+   "gabst ein",
+   "gab ein",
+   "gaben ein",
+   "gabt ein",
+   "gaben ein"
+  ],
+  "pp": "eingegeben",
+  "perfekt": "hat eingegeben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.mitteilen",
+  "level": "B1",
+  "n": "mitteilen",
+  "ar": "يُبلغ بـ",
+  "s": "Ich teile dir das Ergebnis mit.",
+  "sar": "أبلغك بالنتيجة.",
+  "note": "فعل منفصل: mitteilen + Dativ. Partizip: mitgeteilt.",
+  "sep": "mit",
+  "aux": "haben",
+  "pres": [
+   "teile mit",
+   "teilst mit",
+   "teilt mit",
+   "teilen mit",
+   "teilt mit",
+   "teilen mit"
+  ],
+  "pret": [
+   "teilte mit",
+   "teiltest mit",
+   "teilte mit",
+   "teilten mit",
+   "teiltet mit",
+   "teilten mit"
+  ],
+  "pp": "mitgeteilt",
+  "perfekt": "hat mitgeteilt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.nachdenken",
+  "level": "B1",
+  "n": "nachdenken",
+  "ar": "يتأمّل",
+  "s": "Ich denke lange über die Frage nach.",
+  "sar": "أفكر طويلاً في السؤال.",
+  "note": "فعل منفصل ومختلط: dachte ... nach — hat nachgedacht. nachdenken über + Akkusativ.",
+  "sep": "nach",
+  "aux": "haben",
+  "pres": [
+   "denke nach",
+   "denkst nach",
+   "denkt nach",
+   "denken nach",
+   "denkt nach",
+   "denken nach"
+  ],
+  "pret": [
+   "dachte nach",
+   "dachtest nach",
+   "dachte nach",
+   "dachten nach",
+   "dachtet nach",
+   "dachten nach"
+  ],
+  "pp": "nachgedacht",
+  "perfekt": "hat nachgedacht",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.vorhaben",
+  "level": "B1",
+  "n": "vorhaben",
+  "ar": "ينوي / يخطط للقيام بـ",
+  "s": "Was hast du am Wochenende vor?",
+  "sar": "ماذا تنوي أن تفعل في عطلة الأسبوع؟",
+  "note": "فعل منفصل: hatte ... vor — hat vorgehabt.",
+  "sep": "vor",
+  "aux": "haben",
+  "pres": [
+   "habe vor",
+   "hast vor",
+   "hat vor",
+   "haben vor",
+   "habt vor",
+   "haben vor"
+  ],
+  "pret": [
+   "hatte vor",
+   "hattest vor",
+   "hatte vor",
+   "hatten vor",
+   "hattet vor",
+   "hatten vor"
+  ],
+  "pp": "vorgehabt",
+  "perfekt": "hat vorgehabt",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.zugeben",
+  "level": "B1",
+  "n": "zugeben",
+  "ar": "يعترف بـ",
+  "s": "Er gibt den Fehler nicht zu.",
+  "sar": "هو لا يعترف بالخطأ.",
+  "note": "فعل منفصل وقوي: du gibst ... zu — gab ... zu — hat zugegeben.",
+  "sep": "zu",
+  "aux": "haben",
+  "pres": [
+   "gebe zu",
+   "gibst zu",
+   "gibt zu",
+   "geben zu",
+   "gebt zu",
+   "geben zu"
+  ],
+  "pret": [
+   "gab zu",
+   "gabst zu",
+   "gab zu",
+   "gaben zu",
+   "gabt zu",
+   "gaben zu"
+  ],
+  "pp": "zugegeben",
+  "perfekt": "hat zugegeben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.zusammenfassen",
+  "level": "B1",
+  "n": "zusammenfassen",
+  "ar": "يلخّص",
+  "s": "Er fasst den Text kurz zusammen.",
+  "sar": "هو يلخّص النص بإيجاز.",
+  "note": "فعل منفصل: er fasst ... zusammen. Partizip: zusammengefasst.",
+  "sep": "zusammen",
+  "aux": "haben",
+  "pres": [
+   "fasse zusammen",
+   "fasst zusammen",
+   "fasst zusammen",
+   "fassen zusammen",
+   "fasst zusammen",
+   "fassen zusammen"
+  ],
+  "pret": [
+   "fasste zusammen",
+   "fasstest zusammen",
+   "fasste zusammen",
+   "fassten zusammen",
+   "fasstet zusammen",
+   "fassten zusammen"
+  ],
+  "pp": "zusammengefasst",
+  "perfekt": "hat zusammengefasst",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.zurueckgeben",
+  "level": "B1",
+  "n": "zurückgeben",
+  "ar": "يعيد (شيئاً)",
+  "s": "Ich gebe dir das Buch zurück.",
+  "sar": "أعيد إليك الكتاب.",
+  "note": "فعل منفصل وقوي: gab ... zurück — hat zurückgegeben.",
+  "sep": "zurück",
+  "aux": "haben",
+  "pres": [
+   "gebe zurück",
+   "gibst zurück",
+   "gibt zurück",
+   "geben zurück",
+   "gebt zurück",
+   "geben zurück"
+  ],
+  "pret": [
+   "gab zurück",
+   "gabst zurück",
+   "gab zurück",
+   "gaben zurück",
+   "gabt zurück",
+   "gaben zurück"
+  ],
+  "pp": "zurückgegeben",
+  "perfekt": "hat zurückgegeben",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.stattfinden",
+  "level": "B1",
+  "n": "stattfinden",
+  "ar": "يُقام",
+  "s": "Das Konzert findet im Park statt.",
+  "sar": "تُقام الحفلة في الحديقة.",
+  "note": "فعل منفصل وقوي: du findest ... statt — fand ... statt — hat stattgefunden.",
+  "sep": "statt",
+  "aux": "haben",
+  "pres": [
+   "finde statt",
+   "findest statt",
+   "findet statt",
+   "finden statt",
+   "findet statt",
+   "finden statt"
+  ],
+  "pret": [
+   "fand statt",
+   "fandest statt",
+   "fand statt",
+   "fanden statt",
+   "fandet statt",
+   "fanden statt"
+  ],
+  "pp": "stattgefunden",
+  "perfekt": "hat stattgefunden",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.vorkommen",
+  "level": "B1",
+  "n": "vorkommen",
+  "ar": "يرد / يوجد",
+  "s": "Das Wort kommt oft vor.",
+  "sar": "تتكرر الكلمة كثيراً.",
+  "note": "فعل منفصل وقوي: kam ... vor — ist vorgekommen (مع sein).",
+  "sep": "vor",
+  "aux": "sein",
+  "pres": [
+   "komme vor",
+   "kommst vor",
+   "kommt vor",
+   "kommen vor",
+   "kommt vor",
+   "kommen vor"
+  ],
+  "pret": [
+   "kam vor",
+   "kamst vor",
+   "kam vor",
+   "kamen vor",
+   "kamt vor",
+   "kamen vor"
+  ],
+  "pp": "vorgekommen",
+  "perfekt": "ist vorgekommen",
+  "pret_du_alt": null
+ },
+ {
+  "id": "verben.herstellen",
+  "level": "B1",
+  "n": "herstellen",
+  "ar": "يصنّع / ينتج",
+  "s": "Die Firma stellt Möbel her.",
+  "sar": "الشركة تصنّع أثاثاً.",
+  "note": "فعل منفصل: er stellt ... her. Partizip: hergestellt.",
+  "sep": "her",
+  "aux": "haben",
+  "pres": [
+   "stelle her",
+   "stellst her",
+   "stellt her",
+   "stellen her",
+   "stellt her",
+   "stellen her"
+  ],
+  "pret": [
+   "stellte her",
+   "stelltest her",
+   "stellte her",
+   "stellten her",
+   "stelltet her",
+   "stellten her"
+  ],
+  "pp": "hergestellt",
+  "perfekt": "hat hergestellt",
+  "pret_du_alt": null
+ }
+]

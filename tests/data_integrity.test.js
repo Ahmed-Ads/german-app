@@ -4,10 +4,10 @@ import fs from 'fs';
 const baseline = JSON.parse(fs.readFileSync('vocab_baseline.json', 'utf8'));
 
 describe('Phase 5 Data Integrity Tests (Permanent CI Guardrails)', () => {
-  it('contains exactly 31 categories and 1121 words', () => {
+  it('contains exactly 31 categories and 1215 words', () => {
     expect(baseline.length).toBe(31);
     const totalWords = baseline.reduce((s, c) => s + c.words.length, 0);
-    expect(totalWords).toBe(1121);
+    expect(totalWords).toBe(1215);
   });
 
   it('validates schema: hasArticles consistency and required fields', () => {

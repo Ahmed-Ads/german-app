@@ -147,3 +147,10 @@
 - **Target Item IDs:** verben.*
 - **Previous SHA-256:** `dd1a2e139128ff3812faa89082605c087832c2393e5343a6245767c349d46a29`
 - **New SHA-256:** `8144a1fa30ab76d3b88f5931d008d80f05d981cd4f18a9dca303c2bee605c8d5`
+
+## [2026-11-07 18:23:34] Authorized Baseline Update
+- **Reason:** B1 verbs batch: 94 new verbs appended to the verben category
+- **Source:** Owner-approved review of tools/verbs_batch3.json
+- **Target Item IDs:** verben.*
+- **Previous SHA-256:** `8144a1fa30ab76d3b88f5931d008d80f05d981cd4f18a9dca303c2bee605c8d5`
+- **New SHA-256:** `d34a3d166c27434a988f0125edfb041a575c72cda806df04322d28bec9b9a945`

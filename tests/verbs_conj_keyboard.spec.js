@@ -281,40 +281,64 @@ test.describe('Verbs Conjugation & App Keyboard Interaction (Release v1.18)', ()
     expect(currentScreen).toBe('home');
   });
 
-  test('(f) A2 verbs: 169 verbs, conj quiz on regular (holen), separable (abholen), sein (fliegen) with real key events', async ({ page }) => {
+  test('(f) Verbs conj quiz: 263 verbs, real key events for abholen (A2 separable), fliegen (A2 sein), überlegen (B1 inseparable), ausfallen (B1 separable+sein), vorschlagen (B1 separable strong)', async ({ page }) => {
     // 360px viewport
     await page.setViewportSize({ width: 360, height: 640 });
     const fileUrl = 'file:///' + path.resolve(__dirname, '..', 'index.html').replace(/\\/g, '/');
     await page.goto(fileUrl);
     await page.waitForLoadState('domcontentloaded');
 
-    // 1. Check verbs section has 169 words
+    // 1. Check verbs section has 263 words
     const verbsCount = await page.evaluate(() => {
       const cat = CATEGORIES.find(c => c.id === 'verben');
       return cat ? cat.words.length : 0;
     });
-    expect(verbsCount).toBe(169);
+    expect(verbsCount).toBe(263);
 
-    // 2. Set up progress with A2 verbs (holen, abholen, fliegen)
+    // 2. Set up progress with target verbs
     const setupData = await page.evaluate(async () => {
       if (typeof resetAllProgress === 'function') await resetAllProgress();
       const cat = CATEGORIES.find(c => c.id === 'verben');
       const vHolenIdx = cat.words.findIndex(w => w.id === 'verben.holen');
       const vAbholenIdx = cat.words.findIndex(w => w.id === 'verben.abholen');
       const vFliegenIdx = cat.words.findIndex(w => w.id === 'verben.fliegen');
+      const vUeberlegenIdx = cat.words.findIndex(w => w.id === 'verben.ueberlegen');
+      const vAusfallenIdx = cat.words.findIndex(w => w.id === 'verben.ausfallen');
+      const vVorschlagenIdx = cat.words.findIndex(w => w.id === 'verben.vorschlagen');
 
       // Unlock them in written mode so pool >= 3
       setWordCount('verben', 'written', vHolenIdx, 2);
       setWordCount('verben', 'written', vAbholenIdx, 2);
       setWordCount('verben', 'written', vFliegenIdx, 2);
+      setWordCount('verben', 'written', vUeberlegenIdx, 2);
+      setWordCount('verben', 'written', vAusfallenIdx, 2);
+      setWordCount('verben', 'written', vVorschlagenIdx, 2);
 
-      // Preset holen count to 4 (THRESH.conj - 1) to test daily goal mastery credit
-      setWordCount('verben', 'conj', vHolenIdx, 4);
-
-      return { vHolenIdx, vAbholenIdx, vFliegenIdx };
+      return { vHolenIdx, vAbholenIdx, vFliegenIdx, vUeberlegenIdx, vAusfallenIdx, vVorschlagenIdx };
     });
 
-    // 3. Test Regular Verb (holen) in Conj Quiz
+    // Helper to start a clean 1-verb session
+    async function startSession(verbIdx) {
+      await page.evaluate(({ idx }) => {
+        conjState = {
+          sessionIndices: [idx],
+          currentIndex: 0,
+          currentStage: 1,
+          presPronounIdx: 0, // ich
+          pretPronounIdx: 0, // ich
+          stageResults: [],
+          score: 0,
+          answered: false,
+          runRecorded: false,
+          lastResult: null,
+          done: false
+        };
+        renderConjExercise();
+      }, { idx: verbIdx });
+      await page.waitForSelector('#conjIn');
+    }
+
+    // 3. Test Regular Verb (holen) in Conj Quiz (with wrong stage 2 attempt)
     await page.evaluate(({ vHolenIdx }) => {
       conjState = {
         sessionIndices: [vHolenIdx],
@@ -374,38 +398,18 @@ test.describe('Verbs Conjugation & App Keyboard Interaction (Release v1.18)', ()
     let s4Ok = await page.evaluate(() => conjState.lastResult && conjState.lastResult.ok);
     expect(s4Ok).toBe(true);
 
-    // 4. Test Separable Verb (abholen): prefix requirement
-    await page.evaluate(({ vAbholenIdx }) => {
-      conjState = {
-        sessionIndices: [vAbholenIdx],
-        currentIndex: 0,
-        currentStage: 1,
-        presPronounIdx: 0, // ich
-        pretPronounIdx: 0, // ich
-        stageResults: [],
-        score: 0,
-        answered: false,
-        runRecorded: false,
-        lastResult: null,
-        done: false
-      };
-      renderConjExercise();
-    }, { vAbholenIdx: setupData.vAbholenIdx });
-
-    await page.waitForSelector('#conjIn');
+    // 4. Test Separable Verb (abholen):
+    // 4a. Negative check: prefix requirement (stem only without prefix rejected)
+    await startSession(setupData.vAbholenIdx);
     await page.keyboard.type('abholen');
     await page.keyboard.press('Enter');
     await page.waitForTimeout(50);
-
-    // Advance to Stage 2
-    await page.keyboard.press('Enter');
+    await page.keyboard.press('Enter'); // advance to Stage 2
     await page.waitForTimeout(50);
 
-    // Stage 2: Type stem only without prefix ('hole') -> rejected with missingPrefix
     await page.keyboard.type('hole');
     await page.keyboard.press('Enter');
     await page.waitForTimeout(50);
-
     const abholenStemRes = await page.evaluate(() => ({
       ok: conjState.lastResult.ok,
       missingPrefix: conjState.lastResult.missingPrefix,
@@ -415,31 +419,277 @@ test.describe('Verbs Conjugation & App Keyboard Interaction (Release v1.18)', ()
     expect(abholenStemRes.missingPrefix).toBe(true);
     expect(abholenStemRes.hint).toContain('ab');
 
-    // 5. Test Sein Verb (fliegen): hat geflogen rejected
-    await page.evaluate(({ vFliegenIdx }) => {
-      conjState = {
-        sessionIndices: [vFliegenIdx],
-        currentIndex: 0,
-        currentStage: 4,
-        presPronounIdx: 0,
-        pretPronounIdx: 0,
-        stageResults: [true, true, true],
-        score: 0,
-        answered: false,
-        runRecorded: false,
-        lastResult: null,
-        done: false
-      };
-      renderConjExercise();
-    }, { vFliegenIdx: setupData.vFliegenIdx });
+    // 4b. POSITIVE full 4-stage path for abholen with real keys + 🎯 mastery threshold crossing
+    await page.evaluate(({ vAbholenIdx }) => {
+      setWordCount('verben', 'conj', vAbholenIdx, 4); // preset threshold - 1
+    }, { vAbholenIdx: setupData.vAbholenIdx });
+    const goalBeforeAbholen = await page.evaluate(() => getTodayCount());
 
+    await startSession(setupData.vAbholenIdx);
+    // Stage 1: abholen
+    await page.keyboard.type('abholen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 2: hole ab
+    await page.keyboard.type('hole ab');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 3: holte ab
+    await page.keyboard.type('holte ab');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 4: hat abgeholt
+    await page.keyboard.type('hat abgeholt');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+
+    const abholenResult = await page.evaluate(({ vAbholenIdx }) => ({
+      allStagesOk: conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean),
+      count: getWordCount('verben', 'conj', vAbholenIdx),
+      todayCount: getTodayCount()
+    }), { vAbholenIdx: setupData.vAbholenIdx });
+    expect(abholenResult.allStagesOk).toBe(true);
+    expect(abholenResult.count).toBe(5);
+    expect(abholenResult.todayCount).toBe(goalBeforeAbholen + 1);
+
+    // 5. Test Sein Verb (fliegen):
+    // 5a. Negative check: wrong aux ('hat geflogen') rejected
+    await startSession(setupData.vFliegenIdx);
+    // Navigate straight to stage 4 for negative test
+    await page.evaluate(() => {
+      conjState.currentStage = 4;
+      renderConjExercise();
+    });
     await page.waitForSelector('#conjIn');
-    // Wrong aux
     await page.keyboard.type('hat geflogen');
     await page.keyboard.press('Enter');
     await page.waitForTimeout(50);
-    const fliegenWrong = await page.evaluate(() => conjState.lastResult.ok);
-    expect(fliegenWrong).toBe(false);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(false);
+
+    // 5b. POSITIVE full 4-stage path for fliegen with real keys + 🎯 mastery threshold crossing
+    await page.evaluate(({ vFliegenIdx }) => {
+      setWordCount('verben', 'conj', vFliegenIdx, 4);
+    }, { vFliegenIdx: setupData.vFliegenIdx });
+    const goalBeforeFliegen = await page.evaluate(() => getTodayCount());
+
+    await startSession(setupData.vFliegenIdx);
+    // Stage 1: fliegen
+    await page.keyboard.type('fliegen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 2: fliege
+    await page.keyboard.type('fliege');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 3: flog
+    await page.keyboard.type('flog');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 4: ist geflogen
+    await page.keyboard.type('ist geflogen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+
+    const fliegenResult = await page.evaluate(({ vFliegenIdx }) => ({
+      allStagesOk: conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean),
+      count: getWordCount('verben', 'conj', vFliegenIdx),
+      todayCount: getTodayCount()
+    }), { vFliegenIdx: setupData.vFliegenIdx });
+    expect(fliegenResult.allStagesOk).toBe(true);
+    expect(fliegenResult.count).toBe(5);
+    expect(fliegenResult.todayCount).toBe(goalBeforeFliegen + 1);
+
+    // 6. Test B1 Inseparable Verb (überlegen):
+    // POSITIVE full 4-stage path (stage 4: 'hat überlegt', no ge-) + 🎯 mastery threshold crossing
+    await page.evaluate(({ vUeberlegenIdx }) => {
+      setWordCount('verben', 'conj', vUeberlegenIdx, 4);
+    }, { vUeberlegenIdx: setupData.vUeberlegenIdx });
+    const goalBeforeUeberlegen = await page.evaluate(() => getTodayCount());
+
+    await startSession(setupData.vUeberlegenIdx);
+    // Stage 1: überlegen
+    await page.keyboard.type('überlegen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 2: überlege
+    await page.keyboard.type('überlege');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 3: überlegte
+    await page.keyboard.type('überlegte');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 4: hat überlegt (inseparable weak without ge-)
+    await page.keyboard.type('hat überlegt');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+
+    const ueberlegenResult = await page.evaluate(({ vUeberlegenIdx }) => ({
+      allStagesOk: conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean),
+      count: getWordCount('verben', 'conj', vUeberlegenIdx),
+      todayCount: getTodayCount()
+    }), { vUeberlegenIdx: setupData.vUeberlegenIdx });
+    expect(ueberlegenResult.allStagesOk).toBe(true);
+    expect(ueberlegenResult.count).toBe(5);
+    expect(ueberlegenResult.todayCount).toBe(goalBeforeUeberlegen + 1);
+
+    // 7. Test B1 Separable + Sein (ausfallen):
+    // 7a. Negative checks
+    await startSession(setupData.vAusfallenIdx);
+    await page.keyboard.type('ausfallen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    await page.keyboard.press('Enter'); // Stage 2
+    await page.waitForTimeout(50);
+    // Stem only without prefix: falle
+    await page.keyboard.type('falle');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.missingPrefix)).toBe(true);
+
+    // 7b. POSITIVE full 4-stage path for ausfallen with real keys + 🎯 mastery threshold crossing
+    await page.evaluate(({ vAusfallenIdx }) => {
+      setWordCount('verben', 'conj', vAusfallenIdx, 4);
+    }, { vAusfallenIdx: setupData.vAusfallenIdx });
+    const goalBeforeAusfallen = await page.evaluate(() => getTodayCount());
+
+    await startSession(setupData.vAusfallenIdx);
+    // Stage 1: ausfallen
+    await page.keyboard.type('ausfallen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 2: falle aus
+    await page.keyboard.type('falle aus');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 3: fiel aus
+    await page.keyboard.type('fiel aus');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 4: ist ausgefallen
+    await page.keyboard.type('ist ausgefallen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+
+    const ausfallenResult = await page.evaluate(({ vAusfallenIdx }) => ({
+      allStagesOk: conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean),
+      count: getWordCount('verben', 'conj', vAusfallenIdx),
+      todayCount: getTodayCount()
+    }), { vAusfallenIdx: setupData.vAusfallenIdx });
+    expect(ausfallenResult.allStagesOk).toBe(true);
+    expect(ausfallenResult.count).toBe(5);
+    expect(ausfallenResult.todayCount).toBe(goalBeforeAusfallen + 1);
+
+    // 8. Test B1 Separable Strong (vorschlagen):
+    // 8a. Negative check
+    await startSession(setupData.vVorschlagenIdx);
+    await page.keyboard.type('vorschlagen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    await page.keyboard.press('Enter'); // Stage 2
+    await page.waitForTimeout(50);
+    await page.keyboard.type('schlage');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.missingPrefix)).toBe(true);
+
+    // 8b. POSITIVE full 4-stage path for vorschlagen with real keys + 🎯 mastery threshold crossing
+    await page.evaluate(({ vVorschlagenIdx }) => {
+      setWordCount('verben', 'conj', vVorschlagenIdx, 4);
+    }, { vVorschlagenIdx: setupData.vVorschlagenIdx });
+    const goalBeforeVorschlagen = await page.evaluate(() => getTodayCount());
+
+    await startSession(setupData.vVorschlagenIdx);
+    // Stage 1: vorschlagen
+    await page.keyboard.type('vorschlagen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 2: schlage vor
+    await page.keyboard.type('schlage vor');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 3: schlug vor
+    await page.keyboard.type('schlug vor');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+
+    // Stage 4: hat vorgeschlagen
+    await page.keyboard.type('hat vorgeschlagen');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => conjState.lastResult.ok)).toBe(true);
+
+    const vorschlagenResult = await page.evaluate(({ vVorschlagenIdx }) => ({
+      allStagesOk: conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean),
+      count: getWordCount('verben', 'conj', vVorschlagenIdx),
+      todayCount: getTodayCount()
+    }), { vVorschlagenIdx: setupData.vVorschlagenIdx });
+    expect(vorschlagenResult.allStagesOk).toBe(true);
+    expect(vorschlagenResult.count).toBe(5);
+    expect(vorschlagenResult.todayCount).toBe(goalBeforeVorschlagen + 1);
 
     // Verify 360px overflow
     const overflow = await page.evaluate(() => {

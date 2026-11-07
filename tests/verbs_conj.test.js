@@ -132,7 +132,7 @@ describe('Task 1: THRESH, PROGRESS_MODES Wiring & Mastery Isolation', () => {
     // Zero conj progress initially
     const masteredBefore = ctx.computeMasteredCount();
 
-    // Give perfect conj scores (5) to all 169 verbs
+    // Give perfect conj scores (5) to all 263 verbs
     const verbenCat = ctx.CATEGORIES.find(c => c.id === 'verben');
     for (let i = 0; i < verbenCat.words.length; i++) {
       ctx.setWordCount('verben', 'conj', i, 5);
@@ -142,8 +142,8 @@ describe('Task 1: THRESH, PROGRESS_MODES Wiring & Mastery Isolation', () => {
     const masteredAfter = ctx.computeMasteredCount();
     expect(masteredAfter).toBe(masteredBefore);
 
-    // But computeConjMasteredCount reflects the 169 mastered
-    expect(ctx.computeConjMasteredCount()).toBe(169);
+    // But computeConjMasteredCount reflects the 263 mastered
+    expect(ctx.computeConjMasteredCount()).toBe(263);
   });
 });
 
@@ -504,7 +504,7 @@ describe('Task 2D: MCQ & Listen Distractor Synonym Exclusion & Fuzz Proof (Fix 1
     }
   });
 
-  it('fuzz proof: across all 169 verbs x 50 seeds, no question contains two correct options', () => {
+  it('fuzz proof: across all 263 verbs x 50 seeds, no question contains two correct options', () => {
     const verbenCat = ctx.CATEGORIES.find(c => c.id === 'verben');
 
     for (let i = 0; i < verbenCat.words.length; i++) {
