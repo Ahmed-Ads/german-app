@@ -1,0 +1,940 @@
+{
+ "version": 1,
+ "categories": [
+  {
+   "id": "gesundheit",
+   "de": "Gesundheit",
+   "ar": "الصحة والطبيب",
+   "hasArticles": true,
+   "words": [
+    {
+     "id": "gesundheit.gesundheit",
+     "a": "die",
+     "n": "Gesundheit",
+     "pl": null,
+     "ar": "الصحة",
+     "note": "اسم لا يُجمع. ويقول الألمان Gesundheit! لمن يعطس.",
+     "s": "Gesundheit ist sehr wichtig.",
+     "sar": "الصحة مهمة جداً."
+    },
+    {
+     "id": "gesundheit.krankheit",
+     "a": "die",
+     "n": "Krankheit",
+     "pl": "die Krankheiten",
+     "ar": "المرض",
+     "s": "Eine Krankheit kann gefährlich sein.",
+     "sar": "المرض قد يكون خطيراً."
+    },
+    {
+     "id": "gesundheit.fieber",
+     "a": "das",
+     "n": "Fieber",
+     "pl": null,
+     "ar": "الحمّى (ارتفاع الحرارة)",
+     "note": "اسم لا يُجمع عادةً.",
+     "s": "Das Kind hat hohes Fieber.",
+     "sar": "الطفل عنده حمى شديدة."
+    },
+    {
+     "id": "gesundheit.husten",
+     "a": "der",
+     "n": "Husten",
+     "pl": null,
+     "ar": "السعال",
+     "note": "اسم لا يُجمع عادةً.",
+     "s": "Ich habe seit Montag Husten.",
+     "sar": "عندي سعال منذ يوم الإثنين."
+    },
+    {
+     "id": "gesundheit.erkaeltung",
+     "a": "die",
+     "n": "Erkältung",
+     "pl": "die Erkältungen",
+     "ar": "نزلة برد",
+     "s": "Im Winter bekomme ich oft eine Erkältung.",
+     "sar": "في الشتاء أصاب كثيراً بنزلة برد."
+    },
+    {
+     "id": "gesundheit.schnupfen",
+     "a": "der",
+     "n": "Schnupfen",
+     "pl": null,
+     "ar": "زكام",
+     "note": "اسم لا يُجمع عادةً.",
+     "s": "Mit Schnupfen kann ich nicht riechen.",
+     "sar": "مع الزكام لا أستطيع الشم."
+    },
+    {
+     "id": "gesundheit.grippe",
+     "a": "die",
+     "n": "Grippe",
+     "pl": null,
+     "ar": "الإنفلونزا",
+     "note": "اسم لا يُجمع عادةً.",
+     "s": "Meine Schwester hat die Grippe.",
+     "sar": "أختي مصابة بالإنفلونزا."
+    },
+    {
+     "id": "gesundheit.allergie",
+     "a": "die",
+     "n": "Allergie",
+     "pl": "die Allergien",
+     "ar": "حساسية",
+     "s": "Er hat eine Allergie gegen Nüsse.",
+     "sar": "هو عنده حساسية من المكسرات."
+    },
+    {
+     "id": "gesundheit.schmerz",
+     "a": "der",
+     "n": "Schmerz",
+     "pl": "die Schmerzen",
+     "ar": "ألم",
+     "note": "يُستعمل غالباً بصيغة الجمع: Ich habe Schmerzen.",
+     "s": "Der Schmerz im Rücken ist stark.",
+     "sar": "الألم في الظهر قوي."
+    },
+    {
+     "id": "gesundheit.tablette",
+     "a": "die",
+     "n": "Tablette",
+     "pl": "die Tabletten",
+     "ar": "حبة دواء (قرص)",
+     "s": "Ich nehme zweimal täglich eine Tablette.",
+     "sar": "آخذ حبة دواء مرتين يومياً."
+    },
+    {
+     "id": "gesundheit.medikament",
+     "a": "das",
+     "n": "Medikament",
+     "pl": "die Medikamente",
+     "ar": "دواء",
+     "s": "Das Medikament hilft gegen Schmerzen.",
+     "sar": "الدواء يساعد ضد الألم."
+    },
+    {
+     "id": "gesundheit.medizin",
+     "a": "die",
+     "n": "Medizin",
+     "pl": null,
+     "ar": "الطب",
+     "note": "Medizin = علم الطب، وتُستعمل أيضاً بمعنى دواء.",
+     "s": "Meine Tochter studiert Medizin.",
+     "sar": "ابنتي تدرس الطب."
+    },
+    {
+     "id": "gesundheit.rezept",
+     "a": "das",
+     "n": "Rezept",
+     "pl": "die Rezepte",
+     "ar": "وصفة طبية",
+     "note": "Rezept تعني أيضاً وصفة طعام.",
+     "s": "Der Arzt schreibt mir ein Rezept.",
+     "sar": "الطبيب يكتب لي وصفة طبية."
+    },
+    {
+     "id": "gesundheit.pflaster",
+     "a": "das",
+     "n": "Pflaster",
+     "pl": "die Pflaster",
+     "ar": "لاصق جروح (بلاستر)",
+     "note": "الجمع مثل المفرد: das Pflaster، die Pflaster.",
+     "s": "Ich klebe ein Pflaster auf die Wunde.",
+     "sar": "ألصق بلاستراً على الجرح."
+    },
+    {
+     "id": "gesundheit.verband",
+     "a": "der",
+     "n": "Verband",
+     "pl": "die Verbände",
+     "ar": "ضمادة",
+     "s": "Der Arzt legt einen Verband an.",
+     "sar": "الطبيب يضع ضمادة."
+    },
+    {
+     "id": "gesundheit.salbe",
+     "a": "die",
+     "n": "Salbe",
+     "pl": "die Salben",
+     "ar": "مرهم",
+     "s": "Ich trage die Salbe zweimal täglich auf.",
+     "sar": "أضع المرهم مرتين يومياً."
+    },
+    {
+     "id": "gesundheit.spritze",
+     "a": "die",
+     "n": "Spritze",
+     "pl": "die Spritzen",
+     "ar": "حقنة",
+     "s": "Vor der Spritze habe ich Angst.",
+     "sar": "أخاف من الحقنة."
+    },
+    {
+     "id": "gesundheit.impfung",
+     "a": "die",
+     "n": "Impfung",
+     "pl": "die Impfungen",
+     "ar": "تطعيم",
+     "s": "Die Impfung schützt vor Krankheiten.",
+     "sar": "التطعيم يحمي من الأمراض."
+    },
+    {
+     "id": "gesundheit.termin",
+     "a": "der",
+     "n": "Termin",
+     "pl": "die Termine",
+     "ar": "موعد",
+     "note": "Termin = موعد رسمي (طبيب، دائرة). أما موعد اللقاء بين الأصدقاء فيُقال Verabredung.",
+     "s": "Ich habe morgen einen Termin beim Arzt.",
+     "sar": "عندي غداً موعد عند الطبيب."
+    },
+    {
+     "id": "gesundheit.praxis",
+     "a": "die",
+     "n": "Praxis",
+     "pl": "die Praxen",
+     "ar": "عيادة",
+     "s": "Die Praxis ist von acht bis zwölf geöffnet.",
+     "sar": "العيادة مفتوحة من الثامنة حتى الثانية عشرة."
+    },
+    {
+     "id": "gesundheit.untersuchung",
+     "a": "die",
+     "n": "Untersuchung",
+     "pl": "die Untersuchungen",
+     "ar": "فحص",
+     "s": "Die Untersuchung dauert zehn Minuten.",
+     "sar": "يستغرق الفحص عشر دقائق."
+    },
+    {
+     "id": "gesundheit.roentgenbild",
+     "a": "das",
+     "n": "Röntgenbild",
+     "pl": "die Röntgenbilder",
+     "ar": "صورة أشعة",
+     "s": "Das Röntgenbild zeigt einen gebrochenen Arm.",
+     "sar": "تُظهر صورة الأشعة ذراعاً مكسورة."
+    },
+    {
+     "id": "gesundheit.operation",
+     "a": "die",
+     "n": "Operation",
+     "pl": "die Operationen",
+     "ar": "عملية جراحية",
+     "s": "Nach der Operation bleibt er im Bett.",
+     "sar": "بعد العملية يبقى في السرير."
+    },
+    {
+     "id": "gesundheit.patient",
+     "a": "der",
+     "n": "Patient",
+     "pl": "die Patienten",
+     "ar": "مريض",
+     "note": "n-Deklination: den Patienten، dem Patienten.",
+     "s": "Der Patient wartet im Wartezimmer.",
+     "sar": "المريض ينتظر في غرفة الانتظار."
+    },
+    {
+     "id": "gesundheit.behandlung",
+     "a": "die",
+     "n": "Behandlung",
+     "pl": "die Behandlungen",
+     "ar": "علاج (معالجة)",
+     "s": "Die Behandlung dauert zwei Wochen.",
+     "sar": "يستمر العلاج أسبوعين."
+    },
+    {
+     "id": "gesundheit.diagnose",
+     "a": "die",
+     "n": "Diagnose",
+     "pl": "die Diagnosen",
+     "ar": "تشخيص",
+     "s": "Die Diagnose überrascht mich nicht.",
+     "sar": "التشخيص لا يفاجئني."
+    },
+    {
+     "id": "gesundheit.symptom",
+     "a": "das",
+     "n": "Symptom",
+     "pl": "die Symptome",
+     "ar": "عَرَض (مرضي)",
+     "s": "Fieber ist ein typisches Symptom.",
+     "sar": "الحمّى عرض نموذجي."
+    },
+    {
+     "id": "gesundheit.wunde",
+     "a": "die",
+     "n": "Wunde",
+     "pl": "die Wunden",
+     "ar": "جرح",
+     "s": "Die Wunde blutet nicht mehr.",
+     "sar": "الجرح لم يعد ينزف."
+    },
+    {
+     "id": "gesundheit.unfall",
+     "a": "der",
+     "n": "Unfall",
+     "pl": "die Unfälle",
+     "ar": "حادث",
+     "s": "Auf der Autobahn gab es einen Unfall.",
+     "sar": "وقع حادث على الطريق السريع."
+    },
+    {
+     "id": "gesundheit.notfall",
+     "a": "der",
+     "n": "Notfall",
+     "pl": "die Notfälle",
+     "ar": "حالة طارئة",
+     "s": "Im Notfall rufe ich den Krankenwagen.",
+     "sar": "في الحالة الطارئة أتصل بسيارة الإسعاف."
+    },
+    {
+     "id": "gesundheit.notarzt",
+     "a": "der",
+     "n": "Notarzt",
+     "pl": "die Notärzte",
+     "ar": "طبيب الطوارئ",
+     "s": "Der Notarzt kommt in fünf Minuten.",
+     "sar": "يصل طبيب الطوارئ خلال خمس دقائق."
+    },
+    {
+     "id": "gesundheit.krankenversicherung",
+     "a": "die",
+     "n": "Krankenversicherung",
+     "pl": "die Krankenversicherungen",
+     "ar": "التأمين الصحي",
+     "s": "Ohne Krankenversicherung ist alles teuer.",
+     "sar": "بدون تأمين صحي كل شيء غالٍ."
+    },
+    {
+     "id": "gesundheit.krankenkasse",
+     "a": "die",
+     "n": "Krankenkasse",
+     "pl": "die Krankenkassen",
+     "ar": "صندوق التأمين الصحي",
+     "s": "Die Krankenkasse bezahlt die Behandlung.",
+     "sar": "صندوق التأمين الصحي يدفع تكلفة العلاج."
+    },
+    {
+     "id": "gesundheit.blutdruck",
+     "a": "der",
+     "n": "Blutdruck",
+     "pl": null,
+     "ar": "ضغط الدم",
+     "note": "اسم لا يُجمع عادةً.",
+     "s": "Der Arzt misst meinen Blutdruck.",
+     "sar": "الطبيب يقيس ضغط دمي."
+    },
+    {
+     "id": "gesundheit.puls",
+     "a": "der",
+     "n": "Puls",
+     "pl": null,
+     "ar": "النبض",
+     "note": "اسم لا يُجمع عادةً.",
+     "s": "Mein Puls ist schnell.",
+     "sar": "نبضي سريع."
+    },
+    {
+     "id": "gesundheit.ernaehrung",
+     "a": "die",
+     "n": "Ernährung",
+     "pl": null,
+     "ar": "التغذية",
+     "note": "اسم لا يُجمع.",
+     "s": "Gesunde Ernährung ist wichtig für alle.",
+     "sar": "التغذية الصحية مهمة للجميع."
+    },
+    {
+     "id": "gesundheit.schlaf",
+     "a": "der",
+     "n": "Schlaf",
+     "pl": null,
+     "ar": "النوم",
+     "note": "اسم لا يُجمع.",
+     "s": "Ich brauche mehr Schlaf.",
+     "sar": "أحتاج إلى مزيد من النوم."
+    },
+    {
+     "id": "gesundheit.erholung",
+     "a": "die",
+     "n": "Erholung",
+     "pl": null,
+     "ar": "الراحة والاستجمام",
+     "note": "اسم لا يُجمع.",
+     "s": "Nach der Arbeit brauche ich Erholung.",
+     "sar": "أحتاج إلى استجمام بعد العمل."
+    },
+    {
+     "id": "gesundheit.stress",
+     "a": "der",
+     "n": "Stress",
+     "pl": null,
+     "ar": "ضغط نفسي (توتر)",
+     "note": "اسم لا يُجمع.",
+     "s": "Bei der Arbeit habe ich viel Stress.",
+     "sar": "عندي الكثير من الضغط في العمل."
+    },
+    {
+     "id": "gesundheit.gewicht",
+     "a": "das",
+     "n": "Gewicht",
+     "pl": "die Gewichte",
+     "ar": "وزن",
+     "s": "Das Gewicht des Pakets beträgt zwei Kilo.",
+     "sar": "وزن الطرد كيلوان."
+    },
+    {
+     "id": "gesundheit.brille",
+     "a": "die",
+     "n": "Brille",
+     "pl": "die Brillen",
+     "ar": "نظارة طبية",
+     "note": "Brille = نظارة طبية. أما الشمسية ففي قسم الملابس: Sonnenbrille.",
+     "s": "Ohne Brille sehe ich schlecht.",
+     "sar": "بدون النظارة أرى بشكل سيئ."
+    },
+    {
+     "id": "gesundheit.maske",
+     "a": "die",
+     "n": "Maske",
+     "pl": "die Masken",
+     "ar": "كمامة / قناع",
+     "s": "Im Zug tragen viele eine Maske.",
+     "sar": "في القطار يضع كثيرون كمامة."
+    },
+    {
+     "id": "gesundheit.vorsorge",
+     "a": "die",
+     "n": "Vorsorge",
+     "pl": null,
+     "ar": "الوقاية (الفحص الوقائي)",
+     "note": "اسم لا يُجمع.",
+     "s": "Vorsorge ist besser als Behandlung.",
+     "sar": "الوقاية خير من العلاج."
+    },
+    {
+     "id": "gesundheit.sprechstunde",
+     "a": "die",
+     "n": "Sprechstunde",
+     "pl": "die Sprechstunden",
+     "ar": "ساعات استقبال المرضى",
+     "s": "Die Sprechstunde beginnt um neun Uhr.",
+     "sar": "تبدأ ساعات الاستقبال في التاسعة."
+    },
+    {
+     "id": "gesundheit.nebenwirkung",
+     "a": "die",
+     "n": "Nebenwirkung",
+     "pl": "die Nebenwirkungen",
+     "ar": "أثر جانبي",
+     "s": "Dieses Medikament hat kaum Nebenwirkungen.",
+     "sar": "هذا الدواء ليس له تقريباً آثار جانبية."
+    },
+    {
+     "id": "gesundheit.wartezimmer",
+     "a": "das",
+     "n": "Wartezimmer",
+     "pl": "die Wartezimmer",
+     "ar": "غرفة الانتظار",
+     "note": "الجمع مثل المفرد: das Wartezimmer، die Wartezimmer.",
+     "s": "Im Wartezimmer sitzen viele Leute.",
+     "sar": "في غرفة الانتظار يجلس أناس كثيرون."
+    }
+   ],
+   "levels": [
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "B1",
+    "A2",
+    "A2",
+    "B1",
+    "B1",
+    "A2",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "A2",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2"
+   ]
+  },
+  {
+   "id": "einkaufen",
+   "de": "Einkaufen & Geld",
+   "ar": "التسوق والمال",
+   "hasArticles": true,
+   "words": [
+    {
+     "id": "einkaufen.geld",
+     "a": "das",
+     "n": "Geld",
+     "pl": null,
+     "ar": "المال",
+     "note": "اسم لا يُجمع عادةً.",
+     "s": "Ich habe kein Geld dabei.",
+     "sar": "ليس معي مال."
+    },
+    {
+     "id": "einkaufen.euro",
+     "a": "der",
+     "n": "Euro",
+     "pl": "die Euro",
+     "ar": "يورو",
+     "note": "بعد الأرقام لا تضاف s: fünf Euro.",
+     "s": "Das kostet fünf Euro.",
+     "sar": "هذا يكلف خمسة يورو."
+    },
+    {
+     "id": "einkaufen.cent",
+     "a": "der",
+     "n": "Cent",
+     "pl": "die Cent",
+     "ar": "سنت",
+     "note": "بعد الأرقام لا تضاف s: fünfzig Cent.",
+     "s": "Ein Brötchen kostet fünfzig Cent.",
+     "sar": "الخبزة الصغيرة تكلف خمسين سنتاً."
+    },
+    {
+     "id": "einkaufen.muenze",
+     "a": "die",
+     "n": "Münze",
+     "pl": "die Münzen",
+     "ar": "عملة معدنية",
+     "s": "Ich habe nur noch eine Münze.",
+     "sar": "ليس معي إلا عملة معدنية واحدة."
+    },
+    {
+     "id": "einkaufen.geldschein",
+     "a": "der",
+     "n": "Geldschein",
+     "pl": "die Geldscheine",
+     "ar": "ورقة نقدية",
+     "note": "يُقال أيضاً: der Schein.",
+     "s": "Ein Geldschein liegt auf dem Boden.",
+     "sar": "ورقة نقدية على الأرض."
+    },
+    {
+     "id": "einkaufen.bargeld",
+     "a": "das",
+     "n": "Bargeld",
+     "pl": null,
+     "ar": "نقد (كاش)",
+     "note": "اسم لا يُجمع.",
+     "s": "Hier zahle ich nur mit Bargeld.",
+     "sar": "هنا أدفع نقداً فقط."
+    },
+    {
+     "id": "einkaufen.kreditkarte",
+     "a": "die",
+     "n": "Kreditkarte",
+     "pl": "die Kreditkarten",
+     "ar": "بطاقة ائتمان",
+     "s": "Kann ich mit Kreditkarte bezahlen?",
+     "sar": "هل أستطيع الدفع ببطاقة الائتمان؟"
+    },
+    {
+     "id": "einkaufen.konto",
+     "a": "das",
+     "n": "Konto",
+     "pl": "die Konten",
+     "ar": "حساب بنكي",
+     "s": "Ich habe ein Konto bei dieser Bank.",
+     "sar": "عندي حساب في هذا البنك."
+    },
+    {
+     "id": "einkaufen.geldautomat",
+     "a": "der",
+     "n": "Geldautomat",
+     "pl": "die Geldautomaten",
+     "ar": "ماكينة صرف آلي",
+     "note": "n-Deklination: den Geldautomaten.",
+     "s": "Der Geldautomat ist neben der Bank.",
+     "sar": "ماكينة الصرف بجانب البنك."
+    },
+    {
+     "id": "einkaufen.ueberweisung",
+     "a": "die",
+     "n": "Überweisung",
+     "pl": "die Überweisungen",
+     "ar": "حوالة بنكية",
+     "s": "Ich bezahle die Miete per Überweisung.",
+     "sar": "أدفع الإيجار بحوالة بنكية."
+    },
+    {
+     "id": "einkaufen.rechnung",
+     "a": "die",
+     "n": "Rechnung",
+     "pl": "die Rechnungen",
+     "ar": "فاتورة / حساب",
+     "note": "في المطعم: Die Rechnung, bitte! = الحساب من فضلك.",
+     "s": "Die Rechnung bitte!",
+     "sar": "الحساب من فضلك!"
+    },
+    {
+     "id": "einkaufen.quittung",
+     "a": "die",
+     "n": "Quittung",
+     "pl": "die Quittungen",
+     "ar": "إيصال",
+     "s": "Brauchen Sie eine Quittung?",
+     "sar": "هل تحتاج إلى إيصال؟"
+    },
+    {
+     "id": "einkaufen.kassenzettel",
+     "a": "der",
+     "n": "Kassenzettel",
+     "pl": "die Kassenzettel",
+     "ar": "إيصال الشراء من الصندوق",
+     "note": "الجمع مثل المفرد.",
+     "s": "Den Kassenzettel muss man aufbewahren.",
+     "sar": "يجب الاحتفاظ بإيصال الشراء."
+    },
+    {
+     "id": "einkaufen.preis",
+     "a": "der",
+     "n": "Preis",
+     "pl": "die Preise",
+     "ar": "سعر",
+     "s": "Der Preis ist zu hoch.",
+     "sar": "السعر مرتفع جداً."
+    },
+    {
+     "id": "einkaufen.angebot",
+     "a": "das",
+     "n": "Angebot",
+     "pl": "die Angebote",
+     "ar": "عرض (تخفيض)",
+     "s": "Heute gibt es ein gutes Angebot.",
+     "sar": "اليوم يوجد عرض جيد."
+    },
+    {
+     "id": "einkaufen.rabatt",
+     "a": "der",
+     "n": "Rabatt",
+     "pl": "die Rabatte",
+     "ar": "خصم",
+     "s": "Ich bekomme zehn Prozent Rabatt.",
+     "sar": "أحصل على خصم عشرة بالمئة."
+    },
+    {
+     "id": "einkaufen.ermaessigung",
+     "a": "die",
+     "n": "Ermäßigung",
+     "pl": "die Ermäßigungen",
+     "ar": "تخفيض (للطلاب مثلاً)",
+     "s": "Studenten bekommen eine Ermäßigung.",
+     "sar": "الطلاب يحصلون على تخفيض."
+    },
+    {
+     "id": "einkaufen.kasse",
+     "a": "die",
+     "n": "Kasse",
+     "pl": "die Kassen",
+     "ar": "صندوق الدفع",
+     "s": "Die Kasse ist dort hinten.",
+     "sar": "صندوق الدفع هناك في الخلف."
+    },
+    {
+     "id": "einkaufen.kunde",
+     "a": "der",
+     "n": "Kunde",
+     "pl": "die Kunden",
+     "ar": "زبون",
+     "note": "n-Deklination: den Kunden، dem Kunden.",
+     "s": "Der Kunde wartet an der Kasse.",
+     "sar": "الزبون ينتظر عند الصندوق."
+    },
+    {
+     "id": "einkaufen.einkaufswagen",
+     "a": "der",
+     "n": "Einkaufswagen",
+     "pl": "die Einkaufswagen",
+     "ar": "عربة التسوق",
+     "note": "الجمع مثل المفرد.",
+     "s": "Der Einkaufswagen ist voll.",
+     "sar": "عربة التسوق ممتلئة."
+    },
+    {
+     "id": "einkaufen.einkaufstasche",
+     "a": "die",
+     "n": "Einkaufstasche",
+     "pl": "die Einkaufstaschen",
+     "ar": "حقيبة تسوق",
+     "s": "Ich nehme eine Einkaufstasche mit.",
+     "sar": "آخذ حقيبة تسوق معي."
+    },
+    {
+     "id": "einkaufen.einkaufszettel",
+     "a": "der",
+     "n": "Einkaufszettel",
+     "pl": "die Einkaufszettel",
+     "ar": "قائمة المشتريات",
+     "note": "الجمع مثل المفرد.",
+     "s": "Auf dem Einkaufszettel steht Milch.",
+     "sar": "على قائمة المشتريات حليب."
+    },
+    {
+     "id": "einkaufen.kaufhaus",
+     "a": "das",
+     "n": "Kaufhaus",
+     "pl": "die Kaufhäuser",
+     "ar": "متجر متعدد الأقسام",
+     "s": "Im Kaufhaus gibt es alles.",
+     "sar": "في المتجر الكبير يوجد كل شيء."
+    },
+    {
+     "id": "einkaufen.ware",
+     "a": "die",
+     "n": "Ware",
+     "pl": "die Waren",
+     "ar": "بضاعة",
+     "s": "Die Ware kommt morgen an.",
+     "sar": "تصل البضاعة غداً."
+    },
+    {
+     "id": "einkaufen.schnaeppchen",
+     "a": "das",
+     "n": "Schnäppchen",
+     "pl": "die Schnäppchen",
+     "ar": "صفقة رابحة",
+     "note": "الجمع مثل المفرد.",
+     "s": "Das ist ein echtes Schnäppchen!",
+     "sar": "هذه صفقة رابحة حقاً!"
+    },
+    {
+     "id": "einkaufen.garantie",
+     "a": "die",
+     "n": "Garantie",
+     "pl": "die Garantien",
+     "ar": "ضمان",
+     "s": "Auf das Handy gibt es Garantie.",
+     "sar": "على الموبايل يوجد ضمان."
+    },
+    {
+     "id": "einkaufen.zahlung",
+     "a": "die",
+     "n": "Zahlung",
+     "pl": "die Zahlungen",
+     "ar": "دفعة (عملية دفع)",
+     "s": "Die Zahlung ist heute fällig.",
+     "sar": "موعد الدفع اليوم."
+    },
+    {
+     "id": "einkaufen.steuer",
+     "a": "die",
+     "n": "Steuer",
+     "pl": "die Steuern",
+     "ar": "ضريبة",
+     "s": "Die Steuer ist im Preis enthalten.",
+     "sar": "الضريبة مشمولة في السعر."
+    },
+    {
+     "id": "einkaufen.miete",
+     "a": "die",
+     "n": "Miete",
+     "pl": "die Mieten",
+     "ar": "إيجار",
+     "s": "Die Miete ist zu teuer.",
+     "sar": "الإيجار غالٍ جداً."
+    },
+    {
+     "id": "einkaufen.trinkgeld",
+     "a": "das",
+     "n": "Trinkgeld",
+     "pl": "die Trinkgelder",
+     "ar": "إكرامية",
+     "s": "Ich gebe dem Kellner Trinkgeld.",
+     "sar": "أعطي النادل إكرامية."
+    },
+    {
+     "id": "einkaufen.wechselgeld",
+     "a": "das",
+     "n": "Wechselgeld",
+     "pl": null,
+     "ar": "باقي المبلغ (الفكة)",
+     "note": "اسم لا يُجمع.",
+     "s": "Hier ist Ihr Wechselgeld.",
+     "sar": "هذا باقي مبلغك."
+    },
+    {
+     "id": "einkaufen.tuete",
+     "a": "die",
+     "n": "Tüte",
+     "pl": "die Tüten",
+     "ar": "كيس",
+     "s": "Möchten Sie eine Tüte?",
+     "sar": "هل تريد كيساً؟"
+    },
+    {
+     "id": "einkaufen.verpackung",
+     "a": "die",
+     "n": "Verpackung",
+     "pl": "die Verpackungen",
+     "ar": "تغليف",
+     "s": "Die Verpackung ist aus Papier.",
+     "sar": "التغليف من الورق."
+    },
+    {
+     "id": "einkaufen.gutschein",
+     "a": "der",
+     "n": "Gutschein",
+     "pl": "die Gutscheine",
+     "ar": "قسيمة شرائية",
+     "s": "Ich schenke ihm einen Gutschein.",
+     "sar": "أهديه قسيمة شرائية."
+    },
+    {
+     "id": "einkaufen.umtausch",
+     "a": "der",
+     "n": "Umtausch",
+     "pl": null,
+     "ar": "استبدال (بضاعة)",
+     "note": "اسم لا يُجمع.",
+     "s": "Ein Umtausch ist nur mit Quittung möglich.",
+     "sar": "الاستبدال ممكن فقط مع الإيصال."
+    },
+    {
+     "id": "einkaufen.reklamation",
+     "a": "die",
+     "n": "Reklamation",
+     "pl": "die Reklamationen",
+     "ar": "شكوى عن بضاعة",
+     "s": "Ich schreibe eine Reklamation an die Firma.",
+     "sar": "أكتب شكوى إلى الشركة."
+    },
+    {
+     "id": "einkaufen.lieferung",
+     "a": "die",
+     "n": "Lieferung",
+     "pl": "die Lieferungen",
+     "ar": "توصيل",
+     "s": "Die Lieferung dauert drei Tage.",
+     "sar": "يستغرق التوصيل ثلاثة أيام."
+    },
+    {
+     "id": "einkaufen.bestellung",
+     "a": "die",
+     "n": "Bestellung",
+     "pl": "die Bestellungen",
+     "ar": "طلب (شراء)",
+     "s": "Meine Bestellung ist noch nicht da.",
+     "sar": "طلبي لم يصل بعد."
+    },
+    {
+     "id": "einkaufen.warenkorb",
+     "a": "der",
+     "n": "Warenkorb",
+     "pl": "die Warenkörbe",
+     "ar": "سلة المشتريات",
+     "s": "Ich lege das Buch in den Warenkorb.",
+     "sar": "أضع الكتاب في سلة المشتريات."
+    },
+    {
+     "id": "einkaufen.sparkasse",
+     "a": "die",
+     "n": "Sparkasse",
+     "pl": "die Sparkassen",
+     "ar": "صندوق الادخار (بنك)",
+     "s": "Die Sparkasse ist in der Stadtmitte.",
+     "sar": "صندوق الادخار في وسط المدينة."
+    },
+    {
+     "id": "einkaufen.kredit",
+     "a": "der",
+     "n": "Kredit",
+     "pl": "die Kredite",
+     "ar": "قرض",
+     "s": "Wir nehmen einen Kredit für das Haus.",
+     "sar": "نأخذ قرضاً من أجل البيت."
+    },
+    {
+     "id": "einkaufen.geldbeutel",
+     "a": "der",
+     "n": "Geldbeutel",
+     "pl": "die Geldbeutel",
+     "ar": "محفظة نقود",
+     "note": "الجمع مثل المفرد.",
+     "s": "Ich habe meinen Geldbeutel verloren.",
+     "sar": "فقدتُ محفظة نقودي."
+    }
+   ],
+   "levels": [
+    "A1",
+    "A1",
+    "A1",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "A1",
+    "A2",
+    "B1",
+    "B1",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2"
+   ]
+  }
+ ]
+}

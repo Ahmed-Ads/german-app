@@ -475,4 +475,161 @@ describe('6. Cross-Device Legacy Cloud Scenario with Real Classes (Item 6)', () 
     expect(stateA.starred).toEqual(stateB.starred);
     expect(stateA.srs).toEqual(stateB.srs);
   });
+
+  describe('6. Category Additions Sync Compatibility (Task 2e Simulations)', () => {
+    // Old client categories from tag v1.29-verbs-b1 (31 categories, without gesundheit/einkaufen)
+    const oldCategories = CATEGORIES.slice(0, 31);
+    const newCategories = CATEGORIES; // 33 categories
+
+    it('Simulation 1: Old client receiving cloud document with new categories rejects with validation error, preserves cloud and local data, and does not retry loop', async () => {
+      // Cloud document written by NEW client that contains progress, starred, and srs for gesundheit
+      const cloudStore = new Map();
+      const newCloudDoc = {
+        schemaVersion: 1,
+        dataVersion: 15,
+        updatedAt: '2026-11-10T02:00:00.000Z',
+        progress: {
+          gesundheit: {
+            mcq: { unlocked: 5, counts: { 'gesundheit.gesundheit': 3 } }
+          },
+          obst: {
+            mcq: { unlocked: 5, counts: { 'obst.apfel': 2 } }
+          }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 5, totalCorrect: 5 },
+        starred: ['gesundheit.gesundheit', 'obst.apfel'],
+        srs: {
+          'gesundheit.gesundheit': { box: 1, lastDate: '2026-11-10', nextDate: '2026-11-11' }
+        },
+        dailyGoal: { target: 20, lastDate: '2026-11-10' }
+      };
+      cloudStore.set('test-user-123', JSON.parse(JSON.stringify(newCloudDoc)));
+
+      // 1. Direct validation check: validateCloudDocument fails on unknown category
+      const validation = SyncMergePolicy.validateCloudDocument(newCloudDoc, oldCategories);
+      expect(validation.valid).toBe(false);
+      expect(validation.error).toContain('القسم «gesundheit» في التقدم غير معروف في التطبيق.');
+
+      // 2. Old client SyncManager behaviour simulation
+      const localStateOld = {
+        progress: {
+          obst: { mcq: { unlocked: 3, counts: { 'obst.apfel': 1 } } }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 1, totalCorrect: 1 },
+        starred: ['obst.apfel'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-10' }
+      };
+      const initialLocalCopy = JSON.parse(JSON.stringify(localStateOld));
+
+      const adapter = new MemorySyncAdapter({ store: cloudStore });
+
+      globalThis.CATEGORIES = oldCategories;
+      globalThis.confirm = () => true;
+      globalThis.exportBackup = () => '{}';
+
+      const smOld = new SyncManager({
+        adapter,
+        policy: SyncMergePolicy,
+        localStateProvider: {
+          getLocalData: () => localStateOld,
+          applyLocalData: (d) => { Object.assign(localStateOld, d); }
+        }
+      });
+
+      smOld.init();
+      await smOld.signIn();
+
+      // Verify SyncManager enters ERROR state and records the error message
+      expect(smOld.state).toBe(STATES.ERROR);
+      expect(smOld.lastError).toContain('القسم «gesundheit» في التقدم غير معروف في التطبيق.');
+
+      // Calling syncNow() also encounters the validation error and stays in ERROR state
+      await smOld.syncNow();
+      expect(smOld.state).toBe(STATES.ERROR);
+      expect(smOld.lastError).toContain('القسم «gesundheit» في التقدم غير معروف في التطبيق.');
+
+      // Verify error is classified as non-transient (auto-retry suppressed)
+      expect(smOld._lastFlushErrorType).toBe('non-transient');
+      expect(smOld.debounceTimer).toBeNull();
+
+      // Verify CLOUD data was NOT overwritten or deleted
+      expect(cloudStore.get('test-user-123')).toEqual(newCloudDoc);
+
+      // Verify LOCAL data was NOT overwritten or deleted
+      expect(localStateOld).toEqual(initialLocalCopy);
+    });
+
+    it('Simulation 2: New client receiving old cloud document (31 categories) validates, merges cleanly without emulator, and preserves new local categories', async () => {
+      // Cloud document written by OLD client (only 31 categories, no gesundheit or einkaufen)
+      const cloudStore = new Map();
+      const oldCloudDoc = {
+        schemaVersion: 1,
+        dataVersion: 15,
+        updatedAt: '2026-11-09T10:00:00.000Z',
+        progress: {
+          obst: {
+            mcq: { unlocked: 5, counts: { 'obst.apfel': 3 } }
+          }
+        },
+        stats: { current: 3, longest: 5, totalAnswered: 20, totalCorrect: 18 },
+        starred: ['obst.apfel'],
+        srs: {
+          'obst.apfel': { box: 2, lastDate: '2026-11-09', nextDate: '2026-11-12' }
+        },
+        dailyGoal: { target: 20, lastDate: '2026-11-09' }
+      };
+      cloudStore.set('test-user-123', JSON.parse(JSON.stringify(oldCloudDoc)));
+
+      // 1. Direct validation check: validateCloudDocument passes
+      const validation = SyncMergePolicy.validateCloudDocument(oldCloudDoc, newCategories);
+      expect(validation.valid).toBe(true);
+      expect(validation.error).toBeUndefined();
+
+      // 2. New client SyncManager with local progress in new category 'einkaufen'
+      const localStateNew = {
+        progress: {
+          einkaufen: {
+            mcq: { unlocked: 5, counts: { 'einkaufen.geld': 2 } }
+          }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 2, totalCorrect: 2 },
+        starred: ['einkaufen.geld'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-10' }
+      };
+
+      const adapter = new MemorySyncAdapter({ store: cloudStore });
+
+      globalThis.CATEGORIES = newCategories;
+      globalThis.confirm = () => true;
+      globalThis.exportBackup = () => '{}';
+
+      const smNew = new SyncManager({
+        adapter,
+        policy: SyncMergePolicy,
+        localStateProvider: {
+          getLocalData: () => localStateNew,
+          applyLocalData: (d) => { Object.assign(localStateNew, d); }
+        }
+      });
+
+      smNew.init();
+      await smNew.signIn();
+
+      // Sync succeeds
+      expect(smNew.state).toBe(STATES.SYNCED);
+
+      // Both old cloud progress (obst) and new local progress (einkaufen) are preserved and merged
+      expect(localStateNew.progress.obst.mcq.counts['obst.apfel']).toBe(3);
+      expect(localStateNew.progress.einkaufen.mcq.counts['einkaufen.geld']).toBe(2);
+      expect(localStateNew.starred).toContain('obst.apfel');
+      expect(localStateNew.starred).toContain('einkaufen.geld');
+
+      // Merged document updated in cloud
+      const cloudAfter = cloudStore.get('test-user-123');
+      expect(cloudAfter.progress.obst.mcq.counts['obst.apfel']).toBe(3);
+      expect(cloudAfter.progress.einkaufen.mcq.counts['einkaufen.geld']).toBe(2);
+    });
+  });
 });

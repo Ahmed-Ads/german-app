@@ -154,3 +154,10 @@
 - **Target Item IDs:** verben.*
 - **Previous SHA-256:** `8144a1fa30ab76d3b88f5931d008d80f05d981cd4f18a9dca303c2bee605c8d5`
 - **New SHA-256:** `d34a3d166c27434a988f0125edfb041a575c72cda806df04322d28bec9b9a945`
+
+## [2026-11-10 05:37:49] Authorized Baseline Update
+- **Reason:** New categories: gesundheit (46) and einkaufen (42), 88 words
+- **Source:** Owner-approved tools/words_batch5.json
+- **Target Item IDs:** gesundheit.*,einkaufen.*
+- **Previous SHA-256:** `d34a3d166c27434a988f0125edfb041a575c72cda806df04322d28bec9b9a945`
+- **New SHA-256:** `3997584f3d925b1ee88db7e9096c08d88bcd9630a43401902f9d1379cf7da5ae`

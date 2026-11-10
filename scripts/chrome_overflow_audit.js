@@ -31,7 +31,11 @@ const screens = [
   { key: 'verbs_conj_feedback', name: 'Verbs Conj Feedback (Panel)' },
   { key: 'verbs_conj_synonym', name: 'Verbs Conj Synonym Note' },
   { key: 'verbs_written_synonym', name: 'Verbs Written Synonym Note' },
-  { key: 'verbs_conj_done', name: 'Verbs Conj Done Screen' }
+  { key: 'verbs_conj_done', name: 'Verbs Conj Done Screen' },
+  { key: 'gesundheit_modes', name: 'Gesundheit Modes' },
+  { key: 'gesundheit_wordlist', name: 'Gesundheit Wordlist' },
+  { key: 'einkaufen_modes', name: 'Einkaufen Modes' },
+  { key: 'einkaufen_wordlist', name: 'Einkaufen Wordlist' }
 ];
 
 const screensDir = path.resolve(__dirname, '..', 'audit', 'windows_results', 'screens');
@@ -283,6 +287,18 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
     await auditScreen('verbs_conj_done');
 
+    // 20. Gesundheit Modes & Wordlist
+    win.go({ screen: 'modes', catId: 'gesundheit' });
+    await auditScreen('gesundheit_modes');
+    win.go({ screen: 'wordlist', catId: 'gesundheit' });
+    await auditScreen('gesundheit_wordlist');
+
+    // 21. Einkaufen Modes & Wordlist
+    win.go({ screen: 'modes', catId: 'einkaufen' });
+    await auditScreen('einkaufen_modes');
+    win.go({ screen: 'wordlist', catId: 'einkaufen' });
+    await auditScreen('einkaufen_wordlist');
+
   } catch(e) {
     results.error = e.message;
   }
@@ -302,7 +318,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const fileUrl = toFileUrl(tempFilePath, CHROME_PATH);
-    const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --allow-file-access-from-files --disable-web-security --window-size=${Math.max(w, 550)},900 --virtual-time-budget=14000 --dump-dom "${fileUrl}"`;
+    const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --allow-file-access-from-files --disable-web-security --window-size=${Math.max(w, 550)},900 --virtual-time-budget=18000 --dump-dom "${fileUrl}"`;
     const out = execSync(cmd, { encoding: 'utf8', maxBuffer: 15 * 1024 * 1024 });
     const m = out.match(/<div id="audit-output">([\s\S]*?)<\/div>/);
     if (m) {

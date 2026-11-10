@@ -6,7 +6,7 @@
  * 2. VERB_FORMS complete: 6 pres, 6 pret, pp, perfekt non-empty, sep prefix, aux haben/sein matching JSON
  * 3. Participles of inseparable verbs (überlegen, überraschen, unterstützen, untersuchen) carry no ge-
  * 4. Sentence rules: <= 8 whitespace tokens, ends with punctuation, finite verb form, sep prefix, script purity
- * 5. Global uniqueness: covers all 1215 words across all 31 categories with 0 duplicate sentences
+ * 5. Global uniqueness: covers all 1303 words across all 33 categories with 0 duplicate sentences
  * 6. Synonym computation: verifies exactly 6 pairs across all 263 verbs, with anfangen/beginnen as the only new pair
  */
 
@@ -259,14 +259,14 @@ describe('B1 Verbs: Example Sentences & Linguistic Rules', () => {
   });
 });
 
-describe('Global Integrity Guard: Uniqueness Across All 1215 Words', () => {
-  it('contains exactly 31 categories and 1215 words total', () => {
-    expect(CATEGORIES.length).toBe(31);
+describe('Global Integrity Guard: Uniqueness Across All 1303 Words', () => {
+  it('contains exactly 33 categories and 1303 words total', () => {
+    expect(CATEGORIES.length).toBe(33);
     const totalWords = CATEGORIES.reduce((s, c) => s + c.words.length, 0);
-    expect(totalWords).toBe(1215);
+    expect(totalWords).toBe(1303);
   });
 
-  it('all 1215 word IDs are unique and none in vocab_ids_retired.json', () => {
+  it('all 1303 word IDs are unique and none in vocab_ids_retired.json', () => {
     const allIds = new Set();
     const retiredSet = new Set(retiredIds.map(item => (typeof item === 'string' ? item : item.id)));
 
@@ -277,10 +277,10 @@ describe('Global Integrity Guard: Uniqueness Across All 1215 Words', () => {
         expect(retiredSet.has(w.id), `Active word ${w.id} is in retired set`).toBe(false);
       }
     }
-    expect(allIds.size).toBe(1215);
+    expect(allIds.size).toBe(1303);
   });
 
-  it('all 1215 German example sentences and Arabic translations are globally unique', () => {
+  it('all 1303 German example sentences and Arabic translations are globally unique', () => {
     const deSentences = new Map();
     const arSentences = new Map();
 
@@ -294,8 +294,8 @@ describe('Global Integrity Guard: Uniqueness Across All 1215 Words', () => {
       }
     }
 
-    expect(deSentences.size).toBe(1215);
-    expect(arSentences.size).toBe(1215);
+    expect(deSentences.size).toBe(1303);
+    expect(arSentences.size).toBe(1303);
   });
 });
 

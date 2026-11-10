@@ -94,13 +94,13 @@ const renderVerbPanel = ctx.window.renderVerbPanel;
 const searchVocabulary = ctx.window.searchVocabulary;
 
 describe('Task A: Verben Category & Word Data Schema Integrity', () => {
-  it('contains exactly 31 categories with verben as the last category', () => {
-    expect(CATEGORIES.length).toBe(31);
-    const lastCat = CATEGORIES[30];
-    expect(lastCat.id).toBe('verben');
-    expect(lastCat.ar).toBe('الأفعال');
-    expect(lastCat.de).toBe('Verben');
-    expect(lastCat.hasArticles).toBe(false);
+  it('contains exactly 33 categories with verben at index 30', () => {
+    expect(CATEGORIES.length).toBe(33);
+    const verbenCat = CATEGORIES[30];
+    expect(verbenCat.id).toBe('verben');
+    expect(verbenCat.ar).toBe('الأفعال');
+    expect(verbenCat.de).toBe('Verben');
+    expect(verbenCat.hasArticles).toBe(false);
   });
 
   it('contains exactly 263 verbs with the first 77 matching verbs_batch1.json order and IDs', () => {
@@ -137,9 +137,9 @@ describe('Task A: Verben Category & Word Data Schema Integrity', () => {
     }
   });
 
-  it('total words across all 31 categories equals 1215', () => {
+  it('total words across all 33 categories equals 1303', () => {
     const totalWords = CATEGORIES.reduce((s, c) => s + c.words.length, 0);
-    expect(totalWords).toBe(1215);
+    expect(totalWords).toBe(1303);
   });
 });
 
@@ -318,8 +318,8 @@ describe('Task A & Rule 3: apply_verbs_batch1.js Idempotency Guard', () => {
   it('runs cleanly on a fresh temporary HTML copy without verben', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-apply-'));
     const tmpHtmlPath = path.join(tmpDir, `temp_test_apply_${Date.now()}.html`);
-    // Create copy without verben
-    const pristineHtml = htmlContent.replace(/,\s*\{\s*id\s*:\s*['"]verben['"][\s\S]*?\n\s*\]\s*\}/, '')
+    // Create copy without verben and subsequent new categories
+    const pristineHtml = htmlContent.replace(/,\s*\{\s*id\s*:\s*['"]verben['"][\s\S]*?\n\s*\]\s*\}\s*\n\s*\]\s*;/, '\n];')
       .replace(/\/\* Conjugation data for verbs[\s\S]*?window\.VERB_FORMS\s*=\s*VERB_FORMS;\s*\}/, '');
     fs.writeFileSync(tmpHtmlPath, pristineHtml, 'utf8');
 
