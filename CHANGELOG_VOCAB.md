@@ -161,3 +161,10 @@
 - **Target Item IDs:** gesundheit.*,einkaufen.*
 - **Previous SHA-256:** `d34a3d166c27434a988f0125edfb041a575c72cda806df04322d28bec9b9a945`
 - **New SHA-256:** `3997584f3d925b1ee88db7e9096c08d88bcd9630a43401902f9d1379cf7da5ae`
+
+## [2026-11-10 16:39:58] Authorized Baseline Update
+- **Reason:** New categories: reisen (36) and arbeit (42), 78 words
+- **Source:** Owner-approved tools/words_batch6.json
+- **Target Item IDs:** reisen.*,arbeit.*
+- **Previous SHA-256:** `3997584f3d925b1ee88db7e9096c08d88bcd9630a43401902f9d1379cf7da5ae`
+- **New SHA-256:** `2b64f6c6f68a002b348da6df7f6b8254d8126e80a2c6369c2e38b12633f061d6`

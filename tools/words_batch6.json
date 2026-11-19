@@ -1,0 +1,824 @@
+{
+ "version": 1,
+ "categories": [
+  {
+   "id": "reisen",
+   "de": "Reisen & Hotel",
+   "ar": "السفر والفندق",
+   "hasArticles": true,
+   "words": [
+    {
+     "id": "reisen.reise",
+     "a": "die",
+     "n": "Reise",
+     "pl": "die Reisen",
+     "ar": "رحلة",
+     "s": "Die Reise nach Wien dauert zwei Stunden.",
+     "sar": "تستغرق الرحلة إلى فيينا ساعتين."
+    },
+    {
+     "id": "reisen.urlaub",
+     "a": "der",
+     "n": "Urlaub",
+     "pl": null,
+     "ar": "إجازة",
+     "note": "اسم لا يُجمع عادةً.",
+     "s": "Nächste Woche beginnt mein Urlaub.",
+     "sar": "تبدأ إجازتي الأسبوع القادم."
+    },
+    {
+     "id": "reisen.flug",
+     "a": "der",
+     "n": "Flug",
+     "pl": "die Flüge",
+     "ar": "رحلة جوية",
+     "s": "Unser Flug startet um zehn Uhr.",
+     "sar": "تقلع رحلتنا في العاشرة."
+    },
+    {
+     "id": "reisen.ticket",
+     "a": "das",
+     "n": "Ticket",
+     "pl": "die Tickets",
+     "ar": "تذكرة",
+     "s": "Ich buche das Ticket im Internet.",
+     "sar": "أحجز التذكرة عبر الإنترنت."
+    },
+    {
+     "id": "reisen.reisepass",
+     "a": "der",
+     "n": "Reisepass",
+     "pl": "die Reisepässe",
+     "ar": "جواز سفر",
+     "s": "Ohne Reisepass darf man nicht fliegen.",
+     "sar": "بدون جواز سفر لا يُسمح بالسفر جواً."
+    },
+    {
+     "id": "reisen.gepaeck",
+     "a": "das",
+     "n": "Gepäck",
+     "pl": null,
+     "ar": "أمتعة",
+     "note": "اسم لا يُجمع.",
+     "s": "Mein Gepäck ist sehr schwer.",
+     "sar": "أمتعتي ثقيلة جداً."
+    },
+    {
+     "id": "reisen.koffer",
+     "a": "der",
+     "n": "Koffer",
+     "pl": "die Koffer",
+     "ar": "حقيبة سفر",
+     "note": "الجمع مثل المفرد.",
+     "s": "Der Koffer ist zu groß.",
+     "sar": "حقيبة السفر كبيرة جداً."
+    },
+    {
+     "id": "reisen.reisetasche",
+     "a": "die",
+     "n": "Reisetasche",
+     "pl": "die Reisetaschen",
+     "ar": "شنطة سفر",
+     "s": "Ich packe die Reisetasche heute Abend.",
+     "sar": "أحزم شنطة السفر هذا المساء."
+    },
+    {
+     "id": "reisen.einzelzimmer",
+     "a": "das",
+     "n": "Einzelzimmer",
+     "pl": "die Einzelzimmer",
+     "ar": "غرفة فردية",
+     "note": "الجمع مثل المفرد.",
+     "s": "Ich suche ein Einzelzimmer für zwei Nächte.",
+     "sar": "أبحث عن غرفة فردية لليلتين."
+    },
+    {
+     "id": "reisen.doppelzimmer",
+     "a": "das",
+     "n": "Doppelzimmer",
+     "pl": "die Doppelzimmer",
+     "ar": "غرفة مزدوجة",
+     "note": "الجمع مثل المفرد.",
+     "s": "Das Doppelzimmer hat einen Balkon.",
+     "sar": "الغرفة المزدوجة فيها شرفة."
+    },
+    {
+     "id": "reisen.rezeption",
+     "a": "die",
+     "n": "Rezeption",
+     "pl": "die Rezeptionen",
+     "ar": "الاستقبال (في الفندق)",
+     "s": "An der Rezeption bekommt man den Schlüssel.",
+     "sar": "من الاستقبال يحصل المرء على المفتاح."
+    },
+    {
+     "id": "reisen.reservierung",
+     "a": "die",
+     "n": "Reservierung",
+     "pl": "die Reservierungen",
+     "ar": "حجز",
+     "s": "Ich habe eine Reservierung auf den Namen Ali.",
+     "sar": "عندي حجز باسم علي."
+    },
+    {
+     "id": "reisen.buchung",
+     "a": "die",
+     "n": "Buchung",
+     "pl": "die Buchungen",
+     "ar": "حجز (إلكتروني)",
+     "s": "Die Buchung ist leider nicht möglich.",
+     "sar": "الحجز غير ممكن للأسف."
+    },
+    {
+     "id": "reisen.uebernachtung",
+     "a": "die",
+     "n": "Übernachtung",
+     "pl": "die Übernachtungen",
+     "ar": "مبيت",
+     "s": "Eine Übernachtung kostet achtzig Euro.",
+     "sar": "المبيت ليلة واحدة يكلف ثمانين يورو."
+    },
+    {
+     "id": "reisen.gast",
+     "a": "der",
+     "n": "Gast",
+     "pl": "die Gäste",
+     "ar": "ضيف",
+     "s": "Jeder Gast bekommt ein Frühstück.",
+     "sar": "كل ضيف يحصل على فطور."
+    },
+    {
+     "id": "reisen.jugendherberge",
+     "a": "die",
+     "n": "Jugendherberge",
+     "pl": "die Jugendherbergen",
+     "ar": "نزل الشباب",
+     "s": "Die Jugendherberge ist günstig und sauber.",
+     "sar": "نزل الشباب رخيص ونظيف."
+    },
+    {
+     "id": "reisen.campingplatz",
+     "a": "der",
+     "n": "Campingplatz",
+     "pl": "die Campingplätze",
+     "ar": "موقع تخييم",
+     "s": "Auf dem Campingplatz stehen viele Zelte.",
+     "sar": "في موقع التخييم توجد خيام كثيرة."
+    },
+    {
+     "id": "reisen.zelt",
+     "a": "das",
+     "n": "Zelt",
+     "pl": "die Zelte",
+     "ar": "خيمة",
+     "s": "Wir bauen das Zelt am See auf.",
+     "sar": "ننصب الخيمة عند البحيرة."
+    },
+    {
+     "id": "reisen.insel",
+     "a": "die",
+     "n": "Insel",
+     "pl": "die Inseln",
+     "ar": "جزيرة",
+     "s": "Die Insel ist nur mit dem Schiff erreichbar.",
+     "sar": "الجزيرة لا يمكن بلوغها إلا بالسفينة."
+    },
+    {
+     "id": "reisen.sehenswuerdigkeit",
+     "a": "die",
+     "n": "Sehenswürdigkeit",
+     "pl": "die Sehenswürdigkeiten",
+     "ar": "معلم سياحي",
+     "s": "Die Stadt hat viele Sehenswürdigkeiten.",
+     "sar": "المدينة فيها معالم سياحية كثيرة."
+    },
+    {
+     "id": "reisen.stadtplan",
+     "a": "der",
+     "n": "Stadtplan",
+     "pl": "die Stadtpläne",
+     "ar": "خريطة المدينة",
+     "s": "Ich suche den Weg auf dem Stadtplan.",
+     "sar": "أبحث عن الطريق على خريطة المدينة."
+    },
+    {
+     "id": "reisen.landkarte",
+     "a": "die",
+     "n": "Landkarte",
+     "pl": "die Landkarten",
+     "ar": "خريطة جغرافية",
+     "s": "An der Wand hängt eine Landkarte.",
+     "sar": "على الجدار خريطة جغرافية."
+    },
+    {
+     "id": "reisen.reisefuehrer",
+     "a": "der",
+     "n": "Reiseführer",
+     "pl": "die Reiseführer",
+     "ar": "دليل سياحي (كتاب أو شخص)",
+     "note": "الجمع مثل المفرد.",
+     "s": "Der Reiseführer empfiehlt ein kleines Restaurant.",
+     "sar": "الدليل السياحي يوصي بمطعم صغير."
+    },
+    {
+     "id": "reisen.ausflug",
+     "a": "der",
+     "n": "Ausflug",
+     "pl": "die Ausflüge",
+     "ar": "رحلة قصيرة",
+     "s": "Am Sonntag machen wir einen Ausflug.",
+     "sar": "نقوم يوم الأحد برحلة قصيرة."
+    },
+    {
+     "id": "reisen.rundfahrt",
+     "a": "die",
+     "n": "Rundfahrt",
+     "pl": "die Rundfahrten",
+     "ar": "جولة بالحافلة",
+     "s": "Wir buchen eine Rundfahrt durch die Stadt.",
+     "sar": "نحجز جولة بالحافلة في المدينة."
+    },
+    {
+     "id": "reisen.ankunft",
+     "a": "die",
+     "n": "Ankunft",
+     "pl": "die Ankünfte",
+     "ar": "وصول",
+     "s": "Die Ankunft ist um zwanzig Uhr.",
+     "sar": "الوصول في الثامنة مساءً."
+    },
+    {
+     "id": "reisen.abfahrt",
+     "a": "die",
+     "n": "Abfahrt",
+     "pl": "die Abfahrten",
+     "ar": "مغادرة (موعد الانطلاق)",
+     "s": "Die Abfahrt ist um sieben Uhr.",
+     "sar": "موعد المغادرة الساعة السابعة."
+    },
+    {
+     "id": "reisen.verspaetung",
+     "a": "die",
+     "n": "Verspätung",
+     "pl": "die Verspätungen",
+     "ar": "تأخير",
+     "s": "Der Zug hat zehn Minuten Verspätung.",
+     "sar": "القطار متأخر عشر دقائق."
+    },
+    {
+     "id": "reisen.zoll",
+     "a": "der",
+     "n": "Zoll",
+     "pl": null,
+     "ar": "الجمارك",
+     "note": "اسم لا يُجمع بهذا المعنى.",
+     "s": "Am Zoll muss man den Koffer öffnen.",
+     "sar": "عند الجمارك يجب فتح الحقيبة."
+    },
+    {
+     "id": "reisen.waehrung",
+     "a": "die",
+     "n": "Währung",
+     "pl": "die Währungen",
+     "ar": "عملة",
+     "s": "Die Währung in Ägypten heißt Pfund.",
+     "sar": "العملة في مصر اسمها الجنيه."
+    },
+    {
+     "id": "reisen.souvenir",
+     "a": "das",
+     "n": "Souvenir",
+     "pl": "die Souvenirs",
+     "ar": "تذكار",
+     "s": "Ich kaufe ein Souvenir für meine Mutter.",
+     "sar": "أشتري تذكاراً لأمي."
+    },
+    {
+     "id": "reisen.postkarte",
+     "a": "die",
+     "n": "Postkarte",
+     "pl": "die Postkarten",
+     "ar": "بطاقة بريدية",
+     "s": "Ich schreibe dir eine Postkarte.",
+     "sar": "أكتب لك بطاقة بريدية."
+    },
+    {
+     "id": "reisen.sonnencreme",
+     "a": "die",
+     "n": "Sonnencreme",
+     "pl": "die Sonnencremes",
+     "ar": "كريم واقٍ من الشمس",
+     "s": "Vergiss die Sonnencreme nicht!",
+     "sar": "لا تنسَ كريم الشمس!"
+    },
+    {
+     "id": "reisen.passkontrolle",
+     "a": "die",
+     "n": "Passkontrolle",
+     "pl": "die Passkontrollen",
+     "ar": "مراقبة الجوازات",
+     "s": "Vor der Passkontrolle stehen viele Leute.",
+     "sar": "أمام مراقبة الجوازات يقف أناس كثيرون."
+    },
+    {
+     "id": "reisen.stornierung",
+     "a": "die",
+     "n": "Stornierung",
+     "pl": "die Stornierungen",
+     "ar": "إلغاء الحجز",
+     "s": "Eine Stornierung ist bis morgen kostenlos.",
+     "sar": "إلغاء الحجز مجاني حتى الغد."
+    },
+    {
+     "id": "reisen.badetuch",
+     "a": "das",
+     "n": "Badetuch",
+     "pl": "die Badetücher",
+     "ar": "منشفة شاطئ",
+     "s": "Ich nehme ein großes Badetuch mit.",
+     "sar": "آخذ منشفة كبيرة معي."
+    }
+   ],
+   "levels": [
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A1",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "A2",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "A2",
+    "A2",
+    "B1",
+    "A2",
+    "B1",
+    "A2",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "A2",
+    "B1",
+    "B1",
+    "A2"
+   ]
+  },
+  {
+   "id": "arbeit",
+   "de": "Arbeit & Büro",
+   "ar": "العمل والمكتب",
+   "hasArticles": true,
+   "words": [
+    {
+     "id": "arbeit.arbeit",
+     "a": "die",
+     "n": "Arbeit",
+     "pl": null,
+     "ar": "عمل (شغل)",
+     "note": "بمعنى الوظيفة لا تُجمع. وبمعنى الواجب أو البحث تُجمع: die Arbeiten.",
+     "s": "Die Arbeit macht mir Spaß.",
+     "sar": "العمل يسعدني."
+    },
+    {
+     "id": "arbeit.job",
+     "a": "der",
+     "n": "Job",
+     "pl": "die Jobs",
+     "ar": "وظيفة (عمل مؤقت)",
+     "s": "Mein Bruder sucht einen neuen Job.",
+     "sar": "أخي يبحث عن عمل جديد."
+    },
+    {
+     "id": "arbeit.stelle",
+     "a": "die",
+     "n": "Stelle",
+     "pl": "die Stellen",
+     "ar": "وظيفة شاغرة",
+     "s": "Die Firma hat zwei freie Stellen.",
+     "sar": "الشركة عندها وظيفتان شاغرتان."
+    },
+    {
+     "id": "arbeit.bewerbung",
+     "a": "die",
+     "n": "Bewerbung",
+     "pl": "die Bewerbungen",
+     "ar": "طلب توظيف",
+     "s": "Ich schreibe heute meine Bewerbung.",
+     "sar": "أكتب طلب توظيفي اليوم."
+    },
+    {
+     "id": "arbeit.lebenslauf",
+     "a": "der",
+     "n": "Lebenslauf",
+     "pl": "die Lebensläufe",
+     "ar": "السيرة الذاتية",
+     "s": "Mein Lebenslauf ist nur eine Seite lang.",
+     "sar": "سيرتي الذاتية صفحة واحدة فقط."
+    },
+    {
+     "id": "arbeit.vorstellungsgespraech",
+     "a": "das",
+     "n": "Vorstellungsgespräch",
+     "pl": "die Vorstellungsgespräche",
+     "ar": "مقابلة عمل",
+     "s": "Morgen habe ich ein Vorstellungsgespräch.",
+     "sar": "غداً عندي مقابلة عمل."
+    },
+    {
+     "id": "arbeit.chef",
+     "a": "der",
+     "n": "Chef",
+     "pl": "die Chefs",
+     "ar": "المدير / رئيس العمل",
+     "s": "Mein Chef ist heute nicht da.",
+     "sar": "مديري ليس هنا اليوم."
+    },
+    {
+     "id": "arbeit.kollege",
+     "a": "der",
+     "n": "Kollege",
+     "pl": "die Kollegen",
+     "ar": "زميل عمل",
+     "note": "n-Deklination: den Kollegen، dem Kollegen.",
+     "s": "Ein Kollege hilft mir mit dem Computer.",
+     "sar": "زميل يساعدني في الحاسوب."
+    },
+    {
+     "id": "arbeit.mitarbeiter",
+     "a": "der",
+     "n": "Mitarbeiter",
+     "pl": "die Mitarbeiter",
+     "ar": "موظف",
+     "note": "الجمع مثل المفرد.",
+     "s": "Die Firma hat zwanzig Mitarbeiter.",
+     "sar": "الشركة فيها عشرون موظفاً."
+    },
+    {
+     "id": "arbeit.firma",
+     "a": "die",
+     "n": "Firma",
+     "pl": "die Firmen",
+     "ar": "شركة",
+     "s": "Ich arbeite seit zwei Jahren in dieser Firma.",
+     "sar": "أعمل في هذه الشركة منذ عامين."
+    },
+    {
+     "id": "arbeit.unternehmen",
+     "a": "das",
+     "n": "Unternehmen",
+     "pl": "die Unternehmen",
+     "ar": "مؤسسة (شركة كبيرة)",
+     "note": "الجمع مثل المفرد.",
+     "s": "Das Unternehmen sucht neue Mitarbeiter.",
+     "sar": "تبحث المؤسسة عن موظفين جدد."
+    },
+    {
+     "id": "arbeit.schreibtisch",
+     "a": "der",
+     "n": "Schreibtisch",
+     "pl": "die Schreibtische",
+     "ar": "طاولة المكتب",
+     "s": "Auf dem Schreibtisch liegen viele Papiere.",
+     "sar": "على طاولة المكتب أوراق كثيرة."
+    },
+    {
+     "id": "arbeit.besprechung",
+     "a": "die",
+     "n": "Besprechung",
+     "pl": "die Besprechungen",
+     "ar": "اجتماع",
+     "s": "Die Besprechung beginnt in zehn Minuten.",
+     "sar": "يبدأ الاجتماع بعد عشر دقائق."
+    },
+    {
+     "id": "arbeit.sitzung",
+     "a": "die",
+     "n": "Sitzung",
+     "pl": "die Sitzungen",
+     "ar": "جلسة (اجتماع رسمي)",
+     "s": "Die Sitzung dauert den ganzen Tag.",
+     "sar": "تستمر الجلسة طوال اليوم."
+    },
+    {
+     "id": "arbeit.gehalt",
+     "a": "das",
+     "n": "Gehalt",
+     "pl": "die Gehälter",
+     "ar": "راتب شهري",
+     "s": "Das Gehalt kommt am Ende des Monats.",
+     "sar": "يصل الراتب في نهاية الشهر."
+    },
+    {
+     "id": "arbeit.lohn",
+     "a": "der",
+     "n": "Lohn",
+     "pl": "die Löhne",
+     "ar": "أجر",
+     "s": "Der Lohn wird jede Woche bezahlt.",
+     "sar": "يُدفع الأجر كل أسبوع."
+    },
+    {
+     "id": "arbeit.vertrag",
+     "a": "der",
+     "n": "Vertrag",
+     "pl": "die Verträge",
+     "ar": "عقد",
+     "s": "Der Vertrag gilt für zwei Jahre.",
+     "sar": "العقد ساري لمدة سنتين."
+    },
+    {
+     "id": "arbeit.kuendigung",
+     "a": "die",
+     "n": "Kündigung",
+     "pl": "die Kündigungen",
+     "ar": "إنهاء عقد العمل (استقالة أو فصل)",
+     "s": "Er schreibt seine Kündigung per Brief.",
+     "sar": "هو يكتب خطاب إنهاء عقده بالبريد."
+    },
+    {
+     "id": "arbeit.feierabend",
+     "a": "der",
+     "n": "Feierabend",
+     "pl": null,
+     "ar": "نهاية يوم العمل",
+     "note": "اسم لا يُجمع.",
+     "s": "Nach Feierabend gehe ich zum Sport.",
+     "sar": "بعد انتهاء العمل أذهب إلى الرياضة."
+    },
+    {
+     "id": "arbeit.schicht",
+     "a": "die",
+     "n": "Schicht",
+     "pl": "die Schichten",
+     "ar": "وردية عمل",
+     "s": "Meine Schicht endet um zwei Uhr.",
+     "sar": "تنتهي ورديتي في الثانية."
+    },
+    {
+     "id": "arbeit.teilzeit",
+     "a": "die",
+     "n": "Teilzeit",
+     "pl": null,
+     "ar": "دوام جزئي",
+     "note": "اسم لا يُجمع.",
+     "s": "Sie arbeitet nur in Teilzeit.",
+     "sar": "هي تعمل بدوام جزئي فقط."
+    },
+    {
+     "id": "arbeit.vollzeit",
+     "a": "die",
+     "n": "Vollzeit",
+     "pl": null,
+     "ar": "دوام كامل",
+     "note": "اسم لا يُجمع.",
+     "s": "Er arbeitet in Vollzeit bei der Bank.",
+     "sar": "هو يعمل بدوام كامل في البنك."
+    },
+    {
+     "id": "arbeit.praktikum",
+     "a": "das",
+     "n": "Praktikum",
+     "pl": "die Praktika",
+     "ar": "تدريب عملي",
+     "note": "الجمع: die Praktika (وأحياناً Praktikums).",
+     "s": "Ich mache ein Praktikum im Krankenhaus.",
+     "sar": "أقوم بتدريب عملي في المستشفى."
+    },
+    {
+     "id": "arbeit.ausbildung",
+     "a": "die",
+     "n": "Ausbildung",
+     "pl": "die Ausbildungen",
+     "ar": "تأهيل مهني (تدريب مهني)",
+     "s": "Nach der Schule beginnt seine Ausbildung.",
+     "sar": "بعد المدرسة يبدأ تأهيله المهني."
+    },
+    {
+     "id": "arbeit.erfahrung",
+     "a": "die",
+     "n": "Erfahrung",
+     "pl": "die Erfahrungen",
+     "ar": "خبرة",
+     "s": "Sie hat viel Erfahrung mit Kindern.",
+     "sar": "عندها خبرة كبيرة مع الأطفال."
+    },
+    {
+     "id": "arbeit.projekt",
+     "a": "das",
+     "n": "Projekt",
+     "pl": "die Projekte",
+     "ar": "مشروع",
+     "s": "Unser Projekt ist fast fertig.",
+     "sar": "مشروعنا شبه منتهٍ."
+    },
+    {
+     "id": "arbeit.bericht",
+     "a": "der",
+     "n": "Bericht",
+     "pl": "die Berichte",
+     "ar": "تقرير",
+     "s": "Ich schreibe einen Bericht für den Chef.",
+     "sar": "أكتب تقريراً للمدير."
+    },
+    {
+     "id": "arbeit.praesentation",
+     "a": "die",
+     "n": "Präsentation",
+     "pl": "die Präsentationen",
+     "ar": "عرض تقديمي",
+     "s": "Morgen halte ich eine Präsentation.",
+     "sar": "غداً ألقي عرضاً تقديمياً."
+    },
+    {
+     "id": "arbeit.e-mail",
+     "a": "die",
+     "n": "E-Mail",
+     "pl": "die E-Mails",
+     "ar": "بريد إلكتروني (رسالة)",
+     "s": "Ich sende dir gleich eine E-Mail.",
+     "sar": "أرسل لك رسالة إلكترونية حالاً."
+    },
+    {
+     "id": "arbeit.akte",
+     "a": "die",
+     "n": "Akte",
+     "pl": "die Akten",
+     "ar": "ملف (أوراق رسمية)",
+     "s": "Die Akte liegt im Schrank.",
+     "sar": "الملف موجود في الخزانة."
+    },
+    {
+     "id": "arbeit.unterschrift",
+     "a": "die",
+     "n": "Unterschrift",
+     "pl": "die Unterschriften",
+     "ar": "توقيع",
+     "s": "Hier fehlt noch Ihre Unterschrift.",
+     "sar": "هنا ما زال ينقص توقيعك."
+    },
+    {
+     "id": "arbeit.stempel",
+     "a": "der",
+     "n": "Stempel",
+     "pl": "die Stempel",
+     "ar": "ختم",
+     "note": "الجمع مثل المفرد.",
+     "s": "Das Dokument braucht einen Stempel.",
+     "sar": "المستند يحتاج إلى ختم."
+    },
+    {
+     "id": "arbeit.kopie",
+     "a": "die",
+     "n": "Kopie",
+     "pl": "die Kopien",
+     "ar": "نسخة (مصورة)",
+     "s": "Ich mache zwei Kopien vom Brief.",
+     "sar": "أصوّر نسختين من الرسالة."
+    },
+    {
+     "id": "arbeit.kopierer",
+     "a": "der",
+     "n": "Kopierer",
+     "pl": "die Kopierer",
+     "ar": "آلة تصوير مستندات",
+     "note": "الجمع مثل المفرد.",
+     "s": "Der Kopierer ist wieder kaputt.",
+     "sar": "آلة التصوير معطلة مجدداً."
+    },
+    {
+     "id": "arbeit.arbeitsplatz",
+     "a": "der",
+     "n": "Arbeitsplatz",
+     "pl": "die Arbeitsplätze",
+     "ar": "مكان العمل / وظيفة",
+     "s": "Mein Arbeitsplatz ist am Fenster.",
+     "sar": "مكان عملي عند النافذة."
+    },
+    {
+     "id": "arbeit.arbeitgeber",
+     "a": "der",
+     "n": "Arbeitgeber",
+     "pl": "die Arbeitgeber",
+     "ar": "صاحب العمل",
+     "note": "الجمع مثل المفرد.",
+     "s": "Mein Arbeitgeber zahlt gut.",
+     "sar": "صاحب عملي يدفع جيداً."
+    },
+    {
+     "id": "arbeit.arbeitnehmer",
+     "a": "der",
+     "n": "Arbeitnehmer",
+     "pl": "die Arbeitnehmer",
+     "ar": "عامل (موظف لدى صاحب عمل)",
+     "note": "الجمع مثل المفرد.",
+     "s": "Ein Arbeitnehmer hat Anspruch auf Urlaub.",
+     "sar": "للموظف الحق في الإجازة."
+    },
+    {
+     "id": "arbeit.auftrag",
+     "a": "der",
+     "n": "Auftrag",
+     "pl": "die Aufträge",
+     "ar": "طلبية / مهمة",
+     "s": "Die Firma bekommt einen großen Auftrag.",
+     "sar": "الشركة تحصل على طلبية كبيرة."
+    },
+    {
+     "id": "arbeit.frist",
+     "a": "die",
+     "n": "Frist",
+     "pl": "die Fristen",
+     "ar": "مهلة (موعد نهائي)",
+     "s": "Die Frist endet am Freitag.",
+     "sar": "تنتهي المهلة يوم الجمعة."
+    },
+    {
+     "id": "arbeit.erfolg",
+     "a": "der",
+     "n": "Erfolg",
+     "pl": "die Erfolge",
+     "ar": "نجاح",
+     "s": "Ich wünsche dir viel Erfolg!",
+     "sar": "أتمنى لك الكثير من النجاح!"
+    },
+    {
+     "id": "arbeit.karriere",
+     "a": "die",
+     "n": "Karriere",
+     "pl": "die Karrieren",
+     "ar": "مسار مهني",
+     "s": "Sie macht Karriere in einer Bank.",
+     "sar": "هي تتقدم في مسارها المهني في بنك."
+    },
+    {
+     "id": "arbeit.verhandlung",
+     "a": "die",
+     "n": "Verhandlung",
+     "pl": "die Verhandlungen",
+     "ar": "مفاوضات",
+     "s": "Die Verhandlung war sehr schwierig.",
+     "sar": "كانت المفاوضات صعبة جداً."
+    }
+   ],
+   "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "A2",
+    "B1",
+    "A2",
+    "B1",
+    "A1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "B1",
+    "A2",
+    "B1",
+    "B1"
+   ]
+  }
+ ]
+}

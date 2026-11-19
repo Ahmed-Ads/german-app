@@ -479,7 +479,9 @@ describe('6. Cross-Device Legacy Cloud Scenario with Real Classes (Item 6)', () 
   describe('6. Category Additions Sync Compatibility (Task 2e Simulations)', () => {
     // Old client categories from tag v1.29-verbs-b1 (31 categories, without gesundheit/einkaufen)
     const oldCategories = CATEGORIES.slice(0, 31);
-    const newCategories = CATEGORIES; // 33 categories
+    // Old client categories from tag v1.30-new-words-1 (33 categories, without reisen/arbeit)
+    const oldCategories33 = CATEGORIES.slice(0, 33);
+    const newCategories = CATEGORIES; // 35 categories
 
     it('Simulation 1: Old client receiving cloud document with new categories rejects with validation error, preserves cloud and local data, and does not retry loop', async () => {
       // Cloud document written by NEW client that contains progress, starred, and srs for gesundheit
@@ -630,6 +632,135 @@ describe('6. Cross-Device Legacy Cloud Scenario with Real Classes (Item 6)', () 
       const cloudAfter = cloudStore.get('test-user-123');
       expect(cloudAfter.progress.obst.mcq.counts['obst.apfel']).toBe(3);
       expect(cloudAfter.progress.einkaufen.mcq.counts['einkaufen.geld']).toBe(2);
+    });
+
+    it('Simulation 3: Old client (v1.30, 33 categories) receiving cloud document with reisen / arbeit rejects with validation error and preserves data', async () => {
+      const cloudStore = new Map();
+      const newCloudDoc = {
+        schemaVersion: 1,
+        dataVersion: 16,
+        updatedAt: '2026-11-10T12:00:00.000Z',
+        progress: {
+          reisen: {
+            mcq: { unlocked: 5, counts: { 'reisen.koffer': 4 } }
+          },
+          arbeit: {
+            written: { unlocked: 5, counts: { 'arbeit.firma': 3 } }
+          },
+          obst: {
+            mcq: { unlocked: 5, counts: { 'obst.apfel': 2 } }
+          }
+        },
+        stats: { current: 2, longest: 2, totalAnswered: 9, totalCorrect: 9 },
+        starred: ['reisen.koffer', 'arbeit.firma', 'obst.apfel'],
+        srs: {
+          'reisen.koffer': { box: 1, lastDate: '2026-11-10', nextDate: '2026-11-11' }
+        },
+        dailyGoal: { target: 20, lastDate: '2026-11-10' }
+      };
+      cloudStore.set('test-user-123', JSON.parse(JSON.stringify(newCloudDoc)));
+
+      // 1. Direct validation check against 33 categories
+      const validation = SyncMergePolicy.validateCloudDocument(newCloudDoc, oldCategories33);
+      expect(validation.valid).toBe(false);
+      expect(validation.error).toContain('القسم «reisen» في التقدم غير معروف في التطبيق.');
+
+      // 2. 33-cat client SyncManager simulation
+      const localState33 = {
+        progress: {
+          gesundheit: { mcq: { unlocked: 5, counts: { 'gesundheit.gesundheit': 2 } } }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 2, totalCorrect: 2 },
+        starred: ['gesundheit.gesundheit'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-10' }
+      };
+      const initialLocalCopy = JSON.parse(JSON.stringify(localState33));
+
+      const adapter = new MemorySyncAdapter({ store: cloudStore });
+
+      globalThis.CATEGORIES = oldCategories33;
+      globalThis.confirm = () => true;
+      globalThis.exportBackup = () => '{}';
+
+      const sm33 = new SyncManager({
+        adapter,
+        policy: SyncMergePolicy,
+        localStateProvider: {
+          getLocalData: () => localState33,
+          applyLocalData: (d) => { Object.assign(localState33, d); }
+        }
+      });
+
+      sm33.init();
+      await sm33.signIn();
+
+      expect(sm33.state).toBe(STATES.ERROR);
+      expect(sm33.lastError).toContain('القسم «reisen» في التقدم غير معروف في التطبيق.');
+      expect(cloudStore.get('test-user-123')).toEqual(newCloudDoc);
+      expect(localState33).toEqual(initialLocalCopy);
+    });
+
+    it('Simulation 4: New client (35 categories) receiving 33-cat cloud document merges reisen and arbeit progress seamlessly', async () => {
+      const cloudStore = new Map();
+      const cloudDoc33 = {
+        schemaVersion: 1,
+        dataVersion: 16,
+        updatedAt: '2026-11-10T10:00:00.000Z',
+        progress: {
+          gesundheit: { mcq: { unlocked: 5, counts: { 'gesundheit.gesundheit': 3 } } }
+        },
+        stats: { current: 2, longest: 4, totalAnswered: 15, totalCorrect: 14 },
+        starred: ['gesundheit.gesundheit'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-10' }
+      };
+      cloudStore.set('test-user-123', JSON.parse(JSON.stringify(cloudDoc33)));
+
+      const validation = SyncMergePolicy.validateCloudDocument(cloudDoc33, newCategories);
+      expect(validation.valid).toBe(true);
+
+      const localStateNew = {
+        progress: {
+          reisen: { mcq: { unlocked: 5, counts: { 'reisen.koffer': 2 } } },
+          arbeit: { mcq: { unlocked: 5, counts: { 'arbeit.firma': 3 } } }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 5, totalCorrect: 5 },
+        starred: ['reisen.koffer', 'arbeit.firma'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-10' }
+      };
+
+      const adapter = new MemorySyncAdapter({ store: cloudStore });
+
+      globalThis.CATEGORIES = newCategories;
+      globalThis.confirm = () => true;
+      globalThis.exportBackup = () => '{}';
+
+      const smNew = new SyncManager({
+        adapter,
+        policy: SyncMergePolicy,
+        localStateProvider: {
+          getLocalData: () => localStateNew,
+          applyLocalData: (d) => { Object.assign(localStateNew, d); }
+        }
+      });
+
+      smNew.init();
+      await smNew.signIn();
+
+      expect(smNew.state).toBe(STATES.SYNCED);
+      expect(localStateNew.progress.gesundheit.mcq.counts['gesundheit.gesundheit']).toBe(3);
+      expect(localStateNew.progress.reisen.mcq.counts['reisen.koffer']).toBe(2);
+      expect(localStateNew.progress.arbeit.mcq.counts['arbeit.firma']).toBe(3);
+      expect(localStateNew.starred).toContain('gesundheit.gesundheit');
+      expect(localStateNew.starred).toContain('reisen.koffer');
+      expect(localStateNew.starred).toContain('arbeit.firma');
+
+      const cloudAfter = cloudStore.get('test-user-123');
+      expect(cloudAfter.progress.gesundheit.mcq.counts['gesundheit.gesundheit']).toBe(3);
+      expect(cloudAfter.progress.reisen.mcq.counts['reisen.koffer']).toBe(2);
+      expect(cloudAfter.progress.arbeit.mcq.counts['arbeit.firma']).toBe(3);
     });
   });
 });

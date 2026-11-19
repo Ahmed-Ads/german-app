@@ -13,14 +13,14 @@ test.describe('New Categories Real Keyboard Interaction & Rules (Task 6d)', () =
     await page.waitForLoadState('domcontentloaded');
   });
 
-  test('1. Home screen shows 33 category cards without overflow at 360px viewport', async ({ page }) => {
+  test('1. Home screen shows 35 category cards without overflow at 360px viewport', async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 740 });
     await page.waitForSelector('#app');
 
     const cardCount = await page.evaluate(() => {
       return document.querySelectorAll('.cat-card[data-cat]').length;
     });
-    expect(cardCount).toBe(33);
+    expect(cardCount).toBe(35);
 
     // Verify both new categories are present in the DOM
     const hasGesundheit = await page.evaluate(() => {

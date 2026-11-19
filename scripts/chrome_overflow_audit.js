@@ -35,7 +35,11 @@ const screens = [
   { key: 'gesundheit_modes', name: 'Gesundheit Modes' },
   { key: 'gesundheit_wordlist', name: 'Gesundheit Wordlist' },
   { key: 'einkaufen_modes', name: 'Einkaufen Modes' },
-  { key: 'einkaufen_wordlist', name: 'Einkaufen Wordlist' }
+  { key: 'einkaufen_wordlist', name: 'Einkaufen Wordlist' },
+  { key: 'reisen_modes', name: 'Reisen Modes' },
+  { key: 'reisen_wordlist', name: 'Reisen Wordlist' },
+  { key: 'arbeit_modes', name: 'Arbeit Modes' },
+  { key: 'arbeit_wordlist', name: 'Arbeit Wordlist' }
 ];
 
 const screensDir = path.resolve(__dirname, '..', 'audit', 'windows_results', 'screens');
@@ -299,6 +303,18 @@ window.addEventListener('DOMContentLoaded', async () => {
     win.go({ screen: 'wordlist', catId: 'einkaufen' });
     await auditScreen('einkaufen_wordlist');
 
+    // 22. Reisen Modes & Wordlist
+    win.go({ screen: 'modes', catId: 'reisen' });
+    await auditScreen('reisen_modes');
+    win.go({ screen: 'wordlist', catId: 'reisen' });
+    await auditScreen('reisen_wordlist');
+
+    // 23. Arbeit Modes & Wordlist
+    win.go({ screen: 'modes', catId: 'arbeit' });
+    await auditScreen('arbeit_modes');
+    win.go({ screen: 'wordlist', catId: 'arbeit' });
+    await auditScreen('arbeit_wordlist');
+
   } catch(e) {
     results.error = e.message;
   }
@@ -318,7 +334,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const fileUrl = toFileUrl(tempFilePath, CHROME_PATH);
-    const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --allow-file-access-from-files --disable-web-security --window-size=${Math.max(w, 550)},900 --virtual-time-budget=18000 --dump-dom "${fileUrl}"`;
+    const cmd = `"${CHROME_PATH}" --headless --no-sandbox --disable-gpu --allow-file-access-from-files --disable-web-security --window-size=${Math.max(w, 550)},900 --virtual-time-budget=22000 --dump-dom "${fileUrl}"`;
     const out = execSync(cmd, { encoding: 'utf8', maxBuffer: 15 * 1024 * 1024 });
     const m = out.match(/<div id="audit-output">([\s\S]*?)<\/div>/);
     if (m) {
