@@ -1,0 +1,848 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "restaurant",
+      "de": "Restaurant & Essen",
+      "ar": "المطعم والأكل",
+      "hasArticles": true,
+      "levels": [
+        "A1",
+        "A2",
+        "A2",
+        "A2",
+        "A2",
+        "A1",
+        "A2",
+        "A2",
+        "A2",
+        "B1",
+        "A1",
+        "B1",
+        "B1",
+        "B1",
+        "A2",
+        "A1",
+        "A1",
+        "A2",
+        "A2",
+        "A1",
+        "A1",
+        "A1",
+        "B1",
+        "A2",
+        "B1",
+        "A2",
+        "A1",
+        "A2",
+        "A2",
+        "A2",
+        "A1",
+        "A2",
+        "B1",
+        "B1",
+        "B1",
+        "B1",
+        "B1",
+        "A2",
+        "B1",
+        "B1"
+      ],
+      "words": [
+        {
+          "id": "restaurant.speisekarte",
+          "a": "die",
+          "n": "Speisekarte",
+          "pl": "die Speisekarten",
+          "ar": "قائمة الطعام (منيو)",
+          "s": "Die Speisekarte liegt auf dem Tisch.",
+          "sar": "قائمة الطعام على الطاولة."
+        },
+        {
+          "id": "restaurant.menue",
+          "a": "das",
+          "n": "Menü",
+          "pl": "die Menüs",
+          "ar": "وجبة كاملة (منيو)",
+          "note": "وجبة بسعر ثابت: مقبلات وطبق رئيسي وحلوى.",
+          "s": "Das Menü kostet zwölf Euro.",
+          "sar": "الوجبة الكاملة تكلف اثني عشر يورو."
+        },
+        {
+          "id": "restaurant.vorspeise",
+          "a": "die",
+          "n": "Vorspeise",
+          "pl": "die Vorspeisen",
+          "ar": "مقبلات",
+          "s": "Als Vorspeise nehme ich eine Suppe.",
+          "sar": "آخذ حساءً كمقبلات."
+        },
+        {
+          "id": "restaurant.hauptgericht",
+          "a": "das",
+          "n": "Hauptgericht",
+          "pl": "die Hauptgerichte",
+          "ar": "طبق رئيسي",
+          "s": "Das Hauptgericht ist heute Fisch.",
+          "sar": "الطبق الرئيسي اليوم سمك."
+        },
+        {
+          "id": "restaurant.nachtisch",
+          "a": "der",
+          "n": "Nachtisch",
+          "pl": null,
+          "ar": "حلوى (تحلية)",
+          "note": "لا يُجمع عادةً.",
+          "s": "Zum Nachtisch gibt es Eis.",
+          "sar": "للتحلية يوجد آيس كريم."
+        },
+        {
+          "id": "restaurant.suppe",
+          "a": "die",
+          "n": "Suppe",
+          "pl": "die Suppen",
+          "ar": "شوربة (حساء)",
+          "s": "Die Suppe ist heiß und lecker.",
+          "sar": "الشوربة ساخنة ولذيذة."
+        },
+        {
+          "id": "restaurant.bedienung",
+          "a": "die",
+          "n": "Bedienung",
+          "pl": null,
+          "ar": "خدمة (نادل أو نادلة)",
+          "note": "تعني الخدمة أو الشخص الذي يخدم الزبائن.",
+          "s": "Die Bedienung ist sehr freundlich.",
+          "sar": "الخدمة هنا لطيفة جداً."
+        },
+        {
+          "id": "restaurant.portion",
+          "a": "die",
+          "n": "Portion",
+          "pl": "die Portionen",
+          "ar": "حصة (طبق)",
+          "s": "Die Portion ist sehr groß.",
+          "sar": "الحصة كبيرة جداً."
+        },
+        {
+          "id": "restaurant.serviette",
+          "a": "die",
+          "n": "Serviette",
+          "pl": "die Servietten",
+          "ar": "منديل ورقي",
+          "s": "Ich brauche noch eine Serviette.",
+          "sar": "أحتاج إلى منديل آخر."
+        },
+        {
+          "id": "restaurant.strohhalm",
+          "a": "der",
+          "n": "Strohhalm",
+          "pl": "die Strohhalme",
+          "ar": "ماصة (شفاطة)",
+          "s": "Das Kind trinkt mit einem Strohhalm.",
+          "sar": "الطفل يشرب بماصة."
+        },
+        {
+          "id": "restaurant.flasche",
+          "a": "die",
+          "n": "Flasche",
+          "pl": "die Flaschen",
+          "ar": "زجاجة (قزازة)",
+          "s": "Eine Flasche Wasser, bitte.",
+          "sar": "زجاجة ماء من فضلك."
+        },
+        {
+          "id": "restaurant.kanne",
+          "a": "die",
+          "n": "Kanne",
+          "pl": "die Kannen",
+          "ar": "إبريق",
+          "s": "Wir bestellen eine Kanne Tee.",
+          "sar": "نطلب إبريق شاي."
+        },
+        {
+          "id": "restaurant.tablett",
+          "a": "das",
+          "n": "Tablett",
+          "pl": "die Tabletts",
+          "ar": "صينية",
+          "s": "Der Kellner trägt ein Tablett.",
+          "sar": "النادل يحمل صينية."
+        },
+        {
+          "id": "restaurant.tischdecke",
+          "a": "die",
+          "n": "Tischdecke",
+          "pl": "die Tischdecken",
+          "ar": "مفرش طاولة (مفرش سفرة)",
+          "s": "Die Tischdecke ist weiß und sauber.",
+          "sar": "مفرش الطاولة أبيض ونظيف."
+        },
+        {
+          "id": "restaurant.besteck",
+          "a": "das",
+          "n": "Besteck",
+          "pl": null,
+          "ar": "أدوات الأكل (سكين وشوكة)",
+          "note": "اسم جمعي للملاعق والشوك والسكاكين.",
+          "s": "Das Besteck liegt neben dem Teller.",
+          "sar": "أدوات الأكل بجانب الطبق."
+        },
+        {
+          "id": "restaurant.hunger",
+          "a": "der",
+          "n": "Hunger",
+          "pl": null,
+          "ar": "جوع",
+          "note": "لا يُجمع.",
+          "s": "Ich habe großen Hunger.",
+          "sar": "أشعر بجوع شديد."
+        },
+        {
+          "id": "restaurant.durst",
+          "a": "der",
+          "n": "Durst",
+          "pl": null,
+          "ar": "عطش",
+          "note": "لا يُجمع.",
+          "s": "Ich habe Durst und trinke Wasser.",
+          "sar": "أشعر بالعطش وأشرب ماءً."
+        },
+        {
+          "id": "restaurant.appetit",
+          "a": "der",
+          "n": "Appetit",
+          "pl": null,
+          "ar": "شهية",
+          "note": "تقول Guten Appetit! للتمني بالهنا والشفا.",
+          "s": "Heute habe ich keinen Appetit.",
+          "sar": "ليست لدي شهية اليوم."
+        },
+        {
+          "id": "restaurant.geschmack",
+          "a": "der",
+          "n": "Geschmack",
+          "pl": null,
+          "ar": "طعم (مذاق)",
+          "note": "لا يُجمع عادةً.",
+          "s": "Der Geschmack der Suppe ist wunderbar.",
+          "sar": "طعم الشوربة رائع."
+        },
+        {
+          "id": "restaurant.fruehstueck",
+          "a": "das",
+          "n": "Frühstück",
+          "pl": null,
+          "ar": "فطور (إفطار)",
+          "note": "لا يُجمع عادةً.",
+          "s": "Zum Frühstück esse ich Brot.",
+          "sar": "أتناول الخبز على الفطور."
+        },
+        {
+          "id": "restaurant.mittagessen",
+          "a": "das",
+          "n": "Mittagessen",
+          "pl": null,
+          "ar": "غداء",
+          "note": "لا يُجمع عادةً.",
+          "s": "Das Mittagessen ist um eins fertig.",
+          "sar": "الغداء جاهز في الواحدة."
+        },
+        {
+          "id": "restaurant.abendessen",
+          "a": "das",
+          "n": "Abendessen",
+          "pl": null,
+          "ar": "عشاء",
+          "note": "لا يُجمع عادةً.",
+          "s": "Nach dem Abendessen sehen wir fern.",
+          "sar": "بعد العشاء نشاهد التلفزيون."
+        },
+        {
+          "id": "restaurant.weinkarte",
+          "a": "die",
+          "n": "Weinkarte",
+          "pl": "die Weinkarten",
+          "ar": "قائمة النبيذ",
+          "s": "Die Weinkarte ist sehr lang.",
+          "sar": "قائمة النبيذ طويلة جداً."
+        },
+        {
+          "id": "restaurant.mahlzeit",
+          "a": "die",
+          "n": "Mahlzeit",
+          "pl": "die Mahlzeiten",
+          "ar": "وجبة",
+          "note": "يقال Mahlzeit! أيضاً كتحية وقت الغداء.",
+          "s": "Drei Mahlzeiten am Tag sind gesund.",
+          "sar": "ثلاث وجبات في اليوم مفيدة."
+        },
+        {
+          "id": "restaurant.beilage",
+          "a": "die",
+          "n": "Beilage",
+          "pl": "die Beilagen",
+          "ar": "طبق جانبي",
+          "s": "Als Beilage gibt es Reis.",
+          "sar": "يوجد أرز كطبق جانبي."
+        },
+        {
+          "id": "restaurant.sosse",
+          "a": "die",
+          "n": "Soße",
+          "pl": "die Soßen",
+          "ar": "صلصة",
+          "s": "Die Soße ist mir zu scharf.",
+          "sar": "الصلصة حارة جداً بالنسبة لي."
+        },
+        {
+          "id": "restaurant.pizza",
+          "a": "die",
+          "n": "Pizza",
+          "pl": "die Pizzen",
+          "ar": "بيتزا",
+          "s": "Wir essen heute Abend Pizza.",
+          "sar": "نأكل البيتزا هذا المساء."
+        },
+        {
+          "id": "restaurant.burger",
+          "a": "der",
+          "n": "Burger",
+          "pl": "die Burger",
+          "ar": "برجر (همبرجر)",
+          "note": "الجمع مثل المفرد.",
+          "s": "Mein Sohn bestellt einen Burger.",
+          "sar": "ابني يطلب برجر."
+        },
+        {
+          "id": "restaurant.pommes",
+          "a": "die",
+          "n": "Pommes",
+          "pl": null,
+          "ar": "بطاطس مقلية",
+          "note": "تُستعمل بصيغة الجمع فقط (Pommes frites).",
+          "s": "Die Pommes sind knusprig und heiß.",
+          "sar": "البطاطس المقلية مقرمشة وساخنة."
+        },
+        {
+          "id": "restaurant.sandwich",
+          "a": "das",
+          "n": "Sandwich",
+          "pl": "die Sandwiches",
+          "ar": "ساندويتش",
+          "s": "Ich nehme ein Sandwich mit Käse.",
+          "sar": "آخذ ساندويتش بالجبن."
+        },
+        {
+          "id": "restaurant.broetchen",
+          "a": "das",
+          "n": "Brötchen",
+          "pl": "die Brötchen",
+          "ar": "رغيف صغير (عيش فينو)",
+          "note": "الجمع مثل المفرد.",
+          "s": "Das Brötchen ist noch ganz frisch.",
+          "sar": "الرغيف الصغير لا يزال طازجاً."
+        },
+        {
+          "id": "restaurant.caf",
+          "a": "das",
+          "n": "Café",
+          "pl": "die Cafés",
+          "ar": "مقهى (كافيه)",
+          "s": "Wir trinken Kaffee im Café.",
+          "sar": "نشرب القهوة في المقهى."
+        },
+        {
+          "id": "restaurant.imbiss",
+          "a": "der",
+          "n": "Imbiss",
+          "pl": "die Imbisse",
+          "ar": "كشك وجبات سريعة",
+          "s": "Am Imbiss kaufe ich eine Wurst.",
+          "sar": "أشتري نقانق من كشك الوجبات السريعة."
+        },
+        {
+          "id": "restaurant.bar",
+          "a": "die",
+          "n": "Bar",
+          "pl": "die Bars",
+          "ar": "بار",
+          "s": "Die Bar schließt um zwei Uhr.",
+          "sar": "البار يغلق في الثانية."
+        },
+        {
+          "id": "restaurant.stammgast",
+          "a": "der",
+          "n": "Stammgast",
+          "pl": "die Stammgäste",
+          "ar": "زبون دائم",
+          "s": "Der Stammgast kommt jeden Abend.",
+          "sar": "الزبون الدائم يأتي كل مساء."
+        },
+        {
+          "id": "restaurant.gedeck",
+          "a": "das",
+          "n": "Gedeck",
+          "pl": "die Gedecke",
+          "ar": "طقم مائدة",
+          "s": "Wir brauchen ein Gedeck für fünf Personen.",
+          "sar": "نحتاج إلى طقم مائدة لخمسة أشخاص."
+        },
+        {
+          "id": "restaurant.spezialitaet",
+          "a": "die",
+          "n": "Spezialität",
+          "pl": "die Spezialitäten",
+          "ar": "طبق مميز (تخصص)",
+          "s": "Diese Spezialität kommt aus Bayern.",
+          "sar": "هذا الطبق المميز من بافاريا."
+        },
+        {
+          "id": "restaurant.vegetarier",
+          "a": "der",
+          "n": "Vegetarier",
+          "pl": "die Vegetarier",
+          "ar": "نباتي",
+          "note": "المؤنث: Vegetarierin.",
+          "s": "Mein Bruder ist Vegetarier.",
+          "sar": "أخي نباتي."
+        },
+        {
+          "id": "restaurant.tagesgericht",
+          "a": "das",
+          "n": "Tagesgericht",
+          "pl": "die Tagesgerichte",
+          "ar": "طبق اليوم",
+          "s": "Das Tagesgericht kostet nur acht Euro.",
+          "sar": "طبق اليوم يكلف ثمانية يورو فقط."
+        },
+        {
+          "id": "restaurant.zutat",
+          "a": "die",
+          "n": "Zutat",
+          "pl": "die Zutaten",
+          "ar": "مكوّن",
+          "s": "Für den Kuchen brauche ich vier Zutaten.",
+          "sar": "أحتاج إلى أربعة مكونات للكعكة."
+        }
+      ]
+    },
+    {
+      "id": "behoerden",
+      "de": "Behörden & Ämter",
+      "ar": "الجهات الحكومية والمكاتب",
+      "hasArticles": true,
+      "levels": [
+        "A2",
+        "B1",
+        "B1",
+        "A2",
+        "A2",
+        "B1",
+        "A1",
+        "A2",
+        "B1",
+        "B1",
+        "A2",
+        "B1",
+        "B1",
+        "B1",
+        "B1",
+        "B1",
+        "B1",
+        "B1",
+        "B1",
+        "B1",
+        "A2",
+        "B1",
+        "A2",
+        "A1",
+        "A1",
+        "A1",
+        "A1",
+        "A2",
+        "A2",
+        "B1",
+        "A2",
+        "B1",
+        "B1",
+        "B1",
+        "A1",
+        "B1",
+        "B1",
+        "B1",
+        "B1",
+        "A2"
+      ],
+      "words": [
+        {
+          "id": "behoerden.behoerde",
+          "a": "die",
+          "n": "Behörde",
+          "pl": "die Behörden",
+          "ar": "جهة حكومية (سلطة)",
+          "s": "Die Behörde ist heute geschlossen.",
+          "sar": "الجهة الحكومية مغلقة اليوم."
+        },
+        {
+          "id": "behoerden.amt",
+          "a": "das",
+          "n": "Amt",
+          "pl": "die Ämter",
+          "ar": "دائرة حكومية (مصلحة)",
+          "s": "Ich muss heute zum Amt gehen.",
+          "sar": "يجب أن أذهب إلى الدائرة الحكومية اليوم."
+        },
+        {
+          "id": "behoerden.antrag",
+          "a": "der",
+          "n": "Antrag",
+          "pl": "die Anträge",
+          "ar": "طلب (استمارة طلب)",
+          "s": "Ich stelle einen Antrag beim Amt.",
+          "sar": "أقدم طلباً لدى الدائرة الحكومية."
+        },
+        {
+          "id": "behoerden.formular",
+          "a": "das",
+          "n": "Formular",
+          "pl": "die Formulare",
+          "ar": "استمارة (نموذج)",
+          "s": "Ich fülle das Formular am Schalter aus.",
+          "sar": "أملأ الاستمارة عند الشباك."
+        },
+        {
+          "id": "behoerden.ausweis",
+          "a": "der",
+          "n": "Ausweis",
+          "pl": "die Ausweise",
+          "ar": "بطاقة هوية (ثبوتية)",
+          "s": "Ich zeige meinen Ausweis am Eingang.",
+          "sar": "أُظهر بطاقة هويتي عند المدخل."
+        },
+        {
+          "id": "behoerden.personalausweis",
+          "a": "der",
+          "n": "Personalausweis",
+          "pl": "die Personalausweise",
+          "ar": "بطاقة الهوية الوطنية",
+          "s": "Mein Personalausweis ist noch gültig.",
+          "sar": "بطاقة هويتي الوطنية لا تزال سارية."
+        },
+        {
+          "id": "behoerden.adresse",
+          "a": "die",
+          "n": "Adresse",
+          "pl": "die Adressen",
+          "ar": "عنوان",
+          "s": "Meine Adresse steht auf dem Brief.",
+          "sar": "عنواني مكتوب على الرسالة."
+        },
+        {
+          "id": "behoerden.anmeldung",
+          "a": "die",
+          "n": "Anmeldung",
+          "pl": "die Anmeldungen",
+          "ar": "تسجيل (تسجيل إقامة)",
+          "note": "في السياق الرسمي: تسجيل السكن لدى المكتب.",
+          "s": "Die Anmeldung dauert nur zehn Minuten.",
+          "sar": "التسجيل يستغرق عشر دقائق فقط."
+        },
+        {
+          "id": "behoerden.abmeldung",
+          "a": "die",
+          "n": "Abmeldung",
+          "pl": "die Abmeldungen",
+          "ar": "إلغاء تسجيل",
+          "s": "Nach dem Umzug brauche ich eine Abmeldung.",
+          "sar": "بعد الانتقال أحتاج إلى إلغاء التسجيل."
+        },
+        {
+          "id": "behoerden.aufenthaltserlaubnis",
+          "a": "die",
+          "n": "Aufenthaltserlaubnis",
+          "pl": "die Aufenthaltserlaubnisse",
+          "ar": "تصريح إقامة",
+          "s": "Meine Aufenthaltserlaubnis gilt zwei Jahre.",
+          "sar": "تصريح إقامتي ساري لمدة عامين."
+        },
+        {
+          "id": "behoerden.visum",
+          "a": "das",
+          "n": "Visum",
+          "pl": "die Visa",
+          "ar": "تأشيرة (فيزا)",
+          "s": "Für die Reise brauche ich ein Visum.",
+          "sar": "أحتاج إلى تأشيرة للسفر."
+        },
+        {
+          "id": "behoerden.staatsangehoerigkeit",
+          "a": "die",
+          "n": "Staatsangehörigkeit",
+          "pl": "die Staatsangehörigkeiten",
+          "ar": "جنسية",
+          "s": "Seine Staatsangehörigkeit steht im Pass.",
+          "sar": "جنسيته مكتوبة في جواز السفر."
+        },
+        {
+          "id": "behoerden.geburtsurkunde",
+          "a": "die",
+          "n": "Geburtsurkunde",
+          "pl": "die Geburtsurkunden",
+          "ar": "شهادة ميلاد",
+          "s": "Für den Antrag brauche ich die Geburtsurkunde.",
+          "sar": "أحتاج إلى شهادة الميلاد للطلب."
+        },
+        {
+          "id": "behoerden.bescheinigung",
+          "a": "die",
+          "n": "Bescheinigung",
+          "pl": "die Bescheinigungen",
+          "ar": "إفادة (شهادة رسمية)",
+          "s": "Die Bescheinigung bekommen Sie am Schalter.",
+          "sar": "تحصل على الإفادة من الشباك."
+        },
+        {
+          "id": "behoerden.bescheid",
+          "a": "der",
+          "n": "Bescheid",
+          "pl": "die Bescheide",
+          "ar": "قرار رسمي (إشعار)",
+          "s": "Der Bescheid kommt per Post.",
+          "sar": "القرار الرسمي يصل بالبريد."
+        },
+        {
+          "id": "behoerden.genehmigung",
+          "a": "die",
+          "n": "Genehmigung",
+          "pl": "die Genehmigungen",
+          "ar": "ترخيص (موافقة رسمية)",
+          "s": "Ohne Genehmigung darf man hier nicht bauen.",
+          "sar": "بدون ترخيص لا يجوز البناء هنا."
+        },
+        {
+          "id": "behoerden.gebuehr",
+          "a": "die",
+          "n": "Gebühr",
+          "pl": "die Gebühren",
+          "ar": "رسم",
+          "s": "Die Gebühr beträgt zwanzig Euro.",
+          "sar": "الرسم عشرون يورو."
+        },
+        {
+          "id": "behoerden.wartenummer",
+          "a": "die",
+          "n": "Wartenummer",
+          "pl": "die Wartenummern",
+          "ar": "رقم انتظار (دور)",
+          "s": "Ich ziehe eine Wartenummer am Eingang.",
+          "sar": "آخذ رقم انتظار عند المدخل."
+        },
+        {
+          "id": "behoerden.sachbearbeiter",
+          "a": "der",
+          "n": "Sachbearbeiter",
+          "pl": "die Sachbearbeiter",
+          "ar": "موظف مختص",
+          "note": "المؤنث: Sachbearbeiterin، والجمع مثل المفرد.",
+          "s": "Der Sachbearbeiter prüft meine Unterlagen.",
+          "sar": "الموظف المختص يراجع مستنداتي."
+        },
+        {
+          "id": "behoerden.warteschlange",
+          "a": "die",
+          "n": "Warteschlange",
+          "pl": "die Warteschlangen",
+          "ar": "طابور (صف انتظار)",
+          "s": "Die Warteschlange vor dem Amt ist lang.",
+          "sar": "الطابور أمام الدائرة طويل."
+        },
+        {
+          "id": "behoerden.oeffnungszeiten",
+          "a": "die",
+          "n": "Öffnungszeiten",
+          "pl": null,
+          "ar": "مواعيد العمل (ساعات الدوام)",
+          "note": "تُستعمل بصيغة الجمع فقط.",
+          "s": "Die Öffnungszeiten stehen an der Tür.",
+          "sar": "مواعيد العمل مكتوبة على الباب."
+        },
+        {
+          "id": "behoerden.unterlagen",
+          "a": "die",
+          "n": "Unterlagen",
+          "pl": null,
+          "ar": "مستندات (أوراق)",
+          "note": "تُستعمل بصيغة الجمع فقط.",
+          "s": "Ich habe alle Unterlagen dabei.",
+          "sar": "معي كل المستندات."
+        },
+        {
+          "id": "behoerden.dokument",
+          "a": "das",
+          "n": "Dokument",
+          "pl": "die Dokumente",
+          "ar": "مستند (وثيقة)",
+          "s": "Das Dokument liegt auf dem Schreibtisch.",
+          "sar": "المستند على المكتب."
+        },
+        {
+          "id": "behoerden.name",
+          "a": "der",
+          "n": "Name",
+          "pl": "die Namen",
+          "ar": "اسم",
+          "s": "Mein Name steht auf der Liste.",
+          "sar": "اسمي مكتوب في القائمة."
+        },
+        {
+          "id": "behoerden.vorname",
+          "a": "der",
+          "n": "Vorname",
+          "pl": "die Vornamen",
+          "ar": "اسم شخصي (الاسم الأول)",
+          "s": "Mein Vorname ist leicht zu schreiben.",
+          "sar": "اسمي الأول سهل الكتابة."
+        },
+        {
+          "id": "behoerden.nachname",
+          "a": "der",
+          "n": "Nachname",
+          "pl": "die Nachnamen",
+          "ar": "اسم العائلة (اللقب)",
+          "s": "Der Nachname steht in der zweiten Zeile.",
+          "sar": "اسم العائلة في السطر الثاني."
+        },
+        {
+          "id": "behoerden.geburtsdatum",
+          "a": "das",
+          "n": "Geburtsdatum",
+          "pl": "die Geburtsdaten",
+          "ar": "تاريخ ميلاد",
+          "s": "Das Geburtsdatum steht auf dem Ausweis.",
+          "sar": "تاريخ الميلاد مكتوب على بطاقة الهوية."
+        },
+        {
+          "id": "behoerden.geburtsort",
+          "a": "der",
+          "n": "Geburtsort",
+          "pl": "die Geburtsorte",
+          "ar": "مكان الميلاد",
+          "s": "Sein Geburtsort ist eine kleine Stadt.",
+          "sar": "مكان ميلاده مدينة صغيرة."
+        },
+        {
+          "id": "behoerden.wohnort",
+          "a": "der",
+          "n": "Wohnort",
+          "pl": "die Wohnorte",
+          "ar": "مكان السكن",
+          "s": "Ihr Wohnort liegt in der Nähe.",
+          "sar": "مكان سكنها قريب."
+        },
+        {
+          "id": "behoerden.gesetz",
+          "a": "das",
+          "n": "Gesetz",
+          "pl": "die Gesetze",
+          "ar": "قانون",
+          "s": "Das Gesetz gilt für alle Menschen.",
+          "sar": "القانون ينطبق على جميع الناس."
+        },
+        {
+          "id": "behoerden.regel",
+          "a": "die",
+          "n": "Regel",
+          "pl": "die Regeln",
+          "ar": "قاعدة (قانون داخلي)",
+          "s": "Im Park gelten klare Regeln.",
+          "sar": "توجد قواعد واضحة في الحديقة العامة."
+        },
+        {
+          "id": "behoerden.verbot",
+          "a": "das",
+          "n": "Verbot",
+          "pl": "die Verbote",
+          "ar": "حظر (منع)",
+          "s": "Hier gilt ein Verbot für Autos.",
+          "sar": "يسري هنا حظر على السيارات."
+        },
+        {
+          "id": "behoerden.strafe",
+          "a": "die",
+          "n": "Strafe",
+          "pl": "die Strafen",
+          "ar": "عقوبة (غرامة)",
+          "s": "Die Strafe ist sehr hoch.",
+          "sar": "العقوبة مرتفعة جداً."
+        },
+        {
+          "id": "behoerden.bussgeld",
+          "a": "das",
+          "n": "Bußgeld",
+          "pl": "die Bußgelder",
+          "ar": "غرامة مالية",
+          "s": "Er zahlt ein Bußgeld von fünfzig Euro.",
+          "sar": "يدفع غرامة مالية قدرها خمسون يورو."
+        },
+        {
+          "id": "behoerden.polizei",
+          "a": "die",
+          "n": "Polizei",
+          "pl": null,
+          "ar": "شرطة (بوليس)",
+          "note": "لا تُجمع.",
+          "s": "Die Polizei kommt sofort zum Unfall.",
+          "sar": "الشرطة تصل فوراً إلى الحادث."
+        },
+        {
+          "id": "behoerden.ordnungsamt",
+          "a": "das",
+          "n": "Ordnungsamt",
+          "pl": "die Ordnungsämter",
+          "ar": "مكتب النظام العام",
+          "note": "إدارة بلدية تراقب النظام والمخالفات.",
+          "s": "Das Ordnungsamt kontrolliert die Parkplätze.",
+          "sar": "مكتب النظام العام يراقب مواقف السيارات."
+        },
+        {
+          "id": "behoerden.finanzamt",
+          "a": "das",
+          "n": "Finanzamt",
+          "pl": "die Finanzämter",
+          "ar": "مصلحة الضرائب",
+          "s": "Das Finanzamt schickt mir einen Brief.",
+          "sar": "مصلحة الضرائب ترسل لي رسالة."
+        },
+        {
+          "id": "behoerden.einwohnermeldeamt",
+          "a": "das",
+          "n": "Einwohnermeldeamt",
+          "pl": "die Einwohnermeldeämter",
+          "ar": "مكتب تسجيل السكان",
+          "s": "Das Einwohnermeldeamt öffnet um acht Uhr.",
+          "sar": "مكتب تسجيل السكان يفتح في الثامنة."
+        },
+        {
+          "id": "behoerden.kindergeld",
+          "a": "das",
+          "n": "Kindergeld",
+          "pl": null,
+          "ar": "إعانة الأطفال",
+          "note": "لا يُجمع.",
+          "s": "Eltern bekommen Kindergeld für ihre Kinder.",
+          "sar": "يحصل الآباء على إعانة الأطفال لأولادهم."
+        },
+        {
+          "id": "behoerden.versicherung",
+          "a": "die",
+          "n": "Versicherung",
+          "pl": "die Versicherungen",
+          "ar": "تأمين",
+          "s": "Ich habe eine Versicherung für mein Auto.",
+          "sar": "لدي تأمين لسيارتي."
+        }
+      ]
+    }
+  ]
+}

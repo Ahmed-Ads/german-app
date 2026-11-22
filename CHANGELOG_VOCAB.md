@@ -175,3 +175,10 @@
 - **Target Item IDs:** natur.*,freizeit.*
 - **Previous SHA-256:** `2b64f6c6f68a002b348da6df7f6b8254d8126e80a2c6369c2e38b12633f061d6`
 - **New SHA-256:** `6175494747eead771264dd54f18ade0f7495ca9669ceba42729d4c1023fae8dd`
+
+## [2026-11-22 16:29:44] Authorized Baseline Update
+- **Reason:** New categories restaurant (40) and behoerden (40), 80 words
+- **Source:** Owner-approved tools/words_batch8.json
+- **Target Item IDs:** restaurant.*,behoerden.*
+- **Previous SHA-256:** `6175494747eead771264dd54f18ade0f7495ca9669ceba42729d4c1023fae8dd`
+- **New SHA-256:** `d5d1fb47ba78c533595ab65ea4d4713cb8120c1691e238c5553c7cb0de8f0b89`

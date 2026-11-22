@@ -54,8 +54,8 @@ describe('Stable Word IDs: Specification & Integrity (Item 1 & 3)', () => {
 
     const totalWordsExpected = CATEGORIES.reduce((s, c) => s + c.words.length, 0);
     expect(totalWords).toBe(totalWordsExpected);
-    expect(totalWords).toBe(1461);
-    expect(allIds.size).toBe(1461);
+    expect(totalWords).toBe(1541);
+    expect(allIds.size).toBe(1541);
   });
 
   it('no active word ID is in vocab_ids_retired.json', () => {

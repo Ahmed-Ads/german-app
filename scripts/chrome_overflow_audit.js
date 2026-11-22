@@ -43,7 +43,11 @@ const screens = [
   { key: 'natur_modes', name: 'Natur Modes' },
   { key: 'natur_wordlist', name: 'Natur Wordlist' },
   { key: 'freizeit_modes', name: 'Freizeit Modes' },
-  { key: 'freizeit_wordlist', name: 'Freizeit Wordlist' }
+  { key: 'freizeit_wordlist', name: 'Freizeit Wordlist' },
+  { key: 'restaurant_modes', name: 'Restaurant Modes' },
+  { key: 'restaurant_wordlist', name: 'Restaurant Wordlist' },
+  { key: 'behoerden_modes', name: 'Behoerden Modes' },
+  { key: 'behoerden_wordlist', name: 'Behoerden Wordlist' }
 ];
 
 const screensDir = path.resolve(__dirname, '..', 'audit', 'windows_results', 'screens');
@@ -330,6 +334,18 @@ window.addEventListener('DOMContentLoaded', async () => {
     await auditScreen('freizeit_modes');
     win.go({ screen: 'wordlist', catId: 'freizeit' });
     await auditScreen('freizeit_wordlist');
+
+    // 26. Restaurant Modes & Wordlist
+    win.go({ screen: 'modes', catId: 'restaurant' });
+    await auditScreen('restaurant_modes');
+    win.go({ screen: 'wordlist', catId: 'restaurant' });
+    await auditScreen('restaurant_wordlist');
+
+    // 27. Behörden Modes & Wordlist
+    win.go({ screen: 'modes', catId: 'behoerden' });
+    await auditScreen('behoerden_modes');
+    win.go({ screen: 'wordlist', catId: 'behoerden' });
+    await auditScreen('behoerden_wordlist');
 
   } catch(e) {
     results.error = e.message;

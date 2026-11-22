@@ -3,7 +3,7 @@
  * Standalone End-to-End Offline PWA & Service Worker Test Runner
  * Uses Playwright's core library directly.
  * Validates:
- *  (a) Home renders exactly 37 distinct categories (.cat-card[data-cat])
+ *  (a) Home renders exactly 39 distinct categories (.cat-card[data-cat])
  *  (b) Interactive offline exercise (open category, answer MCQ question)
  *  (c) Feedback appears
  *  (d) Progress persists after another offline reload
@@ -178,14 +178,14 @@ async function run() {
       throw new Error('Main #app container is not visible after offline reload.');
     }
 
-    // (a) Verify exactly 37 distinct categories (.cat-card[data-cat])
+    // (a) Verify exactly 39 distinct categories (.cat-card[data-cat])
     const catCards = page.locator('.cat-card[data-cat]');
     const cardCount = await catCards.count();
     const catIds = await catCards.evaluateAll(cards => cards.map(c => c.getAttribute('data-cat')));
     const distinctIds = Array.from(new Set(catIds));
     console.log(`✓ Category cards rendered offline: ${cardCount} cards, ${distinctIds.length} distinct category IDs`);
-    if (cardCount !== 37 || distinctIds.length !== 37) {
-      throw new Error(`Expected 37 category cards and 37 distinct IDs, found: ${cardCount} cards, ${distinctIds.length} distinct IDs`);
+    if (cardCount !== 39 || distinctIds.length !== 39) {
+      throw new Error(`Expected 39 category cards and 39 distinct IDs, found: ${cardCount} cards, ${distinctIds.length} distinct IDs`);
     }
 
     // (b) Open category obst and answer one question
@@ -248,8 +248,8 @@ async function run() {
     const indexUrl = new URL('index.html', appUrl).href;
     await page.goto(indexUrl, { waitUntil: 'networkidle', timeout: 30000 });
     const directCatCount = await page.locator('.cat-card[data-cat]').count();
-    if (directCatCount !== 37) {
-      throw new Error(`Direct offline navigation to /index.html rendered ${directCatCount} category cards, expected 37`);
+    if (directCatCount !== 39) {
+      throw new Error(`Direct offline navigation to /index.html rendered ${directCatCount} category cards, expected 39`);
     }
     console.log('✓ Direct offline navigation to /index.html served from Service Worker cache');
 
@@ -258,8 +258,8 @@ async function run() {
     }
 
     console.log('========================================================');
-    console.log('[PASS] Service worker served app offline with 37 categories and local fonts');
-    console.log(`Offline: cards found 37 distinct ids / expected 37`);
+    console.log('[PASS] Service worker served app offline with 39 categories and local fonts');
+    console.log(`Offline: cards found 39 distinct ids / expected 39`);
     console.log(`Offline requests: served by SW ${offlineRequests.length} / network 0`);
     console.log('========================================================');
 

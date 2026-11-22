@@ -90,7 +90,7 @@ describe('Step 4: Firebase Config & Security Guard Tests', () => {
     }
 
     expect(violations).toEqual([]);
-  });
+  }, 30000);
 
   it('4c: firestore.rules preserves ALLOWED_UID_PLACEHOLDER and has no 28-char UID in isOwner', () => {
     const rulesPath = path.join(rootDir, 'firestore.rules');

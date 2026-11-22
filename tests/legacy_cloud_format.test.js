@@ -483,7 +483,9 @@ describe('6. Cross-Device Legacy Cloud Scenario with Real Classes (Item 6)', () 
     const oldCategories33 = CATEGORIES.slice(0, 33);
     // Old client categories from tag v1.31-new-words-2 (35 categories, without natur/freizeit)
     const oldCategories35 = CATEGORIES.slice(0, 35);
-    const newCategories = CATEGORIES; // 37 categories
+    // Old client categories from tag v1.32-new-words-3 (37 categories, without restaurant/behoerden)
+    const oldCategories37 = CATEGORIES.slice(0, 37);
+    const newCategories = CATEGORIES; // 39 categories
 
     it('Simulation 1: Old client receiving cloud document with new categories rejects with validation error, preserves cloud and local data, and does not retry loop', async () => {
       // Cloud document written by NEW client that contains progress, starred, and srs for gesundheit
@@ -892,6 +894,195 @@ describe('6. Cross-Device Legacy Cloud Scenario with Real Classes (Item 6)', () 
       expect(cloudAfter.progress.reisen.mcq.counts['reisen.koffer']).toBe(3);
       expect(cloudAfter.progress.natur.mcq.counts['natur.baum']).toBe(2);
       expect(cloudAfter.progress.freizeit.mcq.counts['freizeit.hobby']).toBe(3);
+    });
+
+    it('Simulation 7: Old client (v1.32, 37 categories) receiving cloud document with restaurant / behoerden rejects with validation error and preserves data', async () => {
+      const cloudStore = new Map();
+      const newCloudDoc = {
+        schemaVersion: 1,
+        dataVersion: 18,
+        updatedAt: '2026-11-22T14:00:00.000Z',
+        progress: {
+          restaurant: {
+            mcq: { unlocked: 5, counts: { 'restaurant.speisekarte': 4 } }
+          },
+          behoerden: {
+            written: { unlocked: 5, counts: { 'behoerden.amt': 3 } }
+          },
+          natur: {
+            mcq: { unlocked: 5, counts: { 'natur.baum': 2 } }
+          }
+        },
+        stats: { current: 3, longest: 3, totalAnswered: 9, totalCorrect: 9 },
+        starred: ['restaurant.speisekarte', 'behoerden.amt', 'natur.baum'],
+        srs: {
+          'restaurant.speisekarte': { box: 1, lastDate: '2026-11-22', nextDate: '2026-11-23' }
+        },
+        dailyGoal: { target: 20, lastDate: '2026-11-22' }
+      };
+      cloudStore.set('test-user-123', JSON.parse(JSON.stringify(newCloudDoc)));
+
+      // 1. Direct validation check against 37 categories
+      const validation = SyncMergePolicy.validateCloudDocument(newCloudDoc, oldCategories37);
+      expect(validation.valid).toBe(false);
+      expect(validation.error).toContain('القسم «restaurant» في التقدم غير معروف في التطبيق.');
+
+      // 2. 37-cat client SyncManager simulation
+      const localState37 = {
+        progress: {
+          natur: { mcq: { unlocked: 5, counts: { 'natur.baum': 2 } } }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 2, totalCorrect: 2 },
+        starred: ['natur.baum'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-22' }
+      };
+      const initialLocalCopy = JSON.parse(JSON.stringify(localState37));
+
+      const adapter = new MemorySyncAdapter({ store: cloudStore });
+
+      globalThis.CATEGORIES = oldCategories37;
+      globalThis.confirm = () => true;
+      globalThis.exportBackup = () => '{}';
+
+      const sm37 = new SyncManager({
+        adapter,
+        policy: SyncMergePolicy,
+        localStateProvider: {
+          getLocalData: () => localState37,
+          applyLocalData: (d) => { Object.assign(localState37, d); }
+        }
+      });
+
+      sm37.init();
+      await sm37.signIn();
+
+      expect(sm37.state).toBe(STATES.ERROR);
+      expect(sm37.lastError).toContain('القسم «restaurant» في التقدم غير معروف في التطبيق.');
+      expect(cloudStore.get('test-user-123')).toEqual(newCloudDoc);
+      expect(localState37).toEqual(initialLocalCopy);
+    });
+
+    it('Simulation 8: Old client (v1.31, 35 categories) receiving cloud document with restaurant / behoerden rejects with validation error and preserves data', async () => {
+      const cloudStore = new Map();
+      const newCloudDoc = {
+        schemaVersion: 1,
+        dataVersion: 18,
+        updatedAt: '2026-11-22T14:00:00.000Z',
+        progress: {
+          restaurant: {
+            mcq: { unlocked: 5, counts: { 'restaurant.speisekarte': 4 } }
+          }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 4, totalCorrect: 4 },
+        starred: ['restaurant.speisekarte'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-22' }
+      };
+      cloudStore.set('test-user-123', JSON.parse(JSON.stringify(newCloudDoc)));
+
+      const validation = SyncMergePolicy.validateCloudDocument(newCloudDoc, oldCategories35);
+      expect(validation.valid).toBe(false);
+      expect(validation.error).toContain('القسم «restaurant» في التقدم غير معروف في التطبيق.');
+
+      const localState35 = {
+        progress: {
+          reisen: { mcq: { unlocked: 5, counts: { 'reisen.koffer': 2 } } }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 2, totalCorrect: 2 },
+        starred: ['reisen.koffer'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-22' }
+      };
+      const initialLocalCopy = JSON.parse(JSON.stringify(localState35));
+      const adapter = new MemorySyncAdapter({ store: cloudStore });
+
+      globalThis.CATEGORIES = oldCategories35;
+      globalThis.confirm = () => true;
+      globalThis.exportBackup = () => '{}';
+
+      const sm35 = new SyncManager({
+        adapter,
+        policy: SyncMergePolicy,
+        localStateProvider: {
+          getLocalData: () => localState35,
+          applyLocalData: (d) => { Object.assign(localState35, d); }
+        }
+      });
+
+      sm35.init();
+      await sm35.signIn();
+
+      expect(sm35.state).toBe(STATES.ERROR);
+      expect(sm35.lastError).toContain('القسم «restaurant» في التقدم غير معروف في التطبيق.');
+      expect(cloudStore.get('test-user-123')).toEqual(newCloudDoc);
+      expect(localState35).toEqual(initialLocalCopy);
+    });
+
+    it('Simulation 9: New client (39 categories) receiving 37-cat cloud document merges restaurant and behoerden progress seamlessly', async () => {
+      const cloudStore = new Map();
+      const cloudDoc37 = {
+        schemaVersion: 1,
+        dataVersion: 18,
+        updatedAt: '2026-11-22T10:00:00.000Z',
+        progress: {
+          natur: { mcq: { unlocked: 5, counts: { 'natur.baum': 3 } } },
+          freizeit: { mcq: { unlocked: 5, counts: { 'freizeit.hobby': 2 } } }
+        },
+        stats: { current: 2, longest: 2, totalAnswered: 5, totalCorrect: 5 },
+        starred: ['natur.baum', 'freizeit.hobby'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-22' }
+      };
+      cloudStore.set('test-user-123', JSON.parse(JSON.stringify(cloudDoc37)));
+
+      const validation = SyncMergePolicy.validateCloudDocument(cloudDoc37, newCategories);
+      expect(validation.valid).toBe(true);
+
+      const localStateNew = {
+        progress: {
+          restaurant: { mcq: { unlocked: 5, counts: { 'restaurant.speisekarte': 2 } } },
+          behoerden: { mcq: { unlocked: 5, counts: { 'behoerden.amt': 3 } } }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 5, totalCorrect: 5 },
+        starred: ['restaurant.speisekarte', 'behoerden.amt'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-22' }
+      };
+
+      const adapter = new MemorySyncAdapter({ store: cloudStore });
+
+      globalThis.CATEGORIES = newCategories;
+      globalThis.confirm = () => true;
+      globalThis.exportBackup = () => '{}';
+
+      const smNew = new SyncManager({
+        adapter,
+        policy: SyncMergePolicy,
+        localStateProvider: {
+          getLocalData: () => localStateNew,
+          applyLocalData: (d) => { Object.assign(localStateNew, d); }
+        }
+      });
+
+      smNew.init();
+      await smNew.signIn();
+
+      expect(smNew.state).toBe(STATES.SYNCED);
+      expect(localStateNew.progress.natur.mcq.counts['natur.baum']).toBe(3);
+      expect(localStateNew.progress.freizeit.mcq.counts['freizeit.hobby']).toBe(2);
+      expect(localStateNew.progress.restaurant.mcq.counts['restaurant.speisekarte']).toBe(2);
+      expect(localStateNew.progress.behoerden.mcq.counts['behoerden.amt']).toBe(3);
+      expect(localStateNew.starred).toContain('natur.baum');
+      expect(localStateNew.starred).toContain('freizeit.hobby');
+      expect(localStateNew.starred).toContain('restaurant.speisekarte');
+      expect(localStateNew.starred).toContain('behoerden.amt');
+
+      const cloudAfter = cloudStore.get('test-user-123');
+      expect(cloudAfter.progress.natur.mcq.counts['natur.baum']).toBe(3);
+      expect(cloudAfter.progress.freizeit.mcq.counts['freizeit.hobby']).toBe(2);
+      expect(cloudAfter.progress.restaurant.mcq.counts['restaurant.speisekarte']).toBe(2);
+      expect(cloudAfter.progress.behoerden.mcq.counts['behoerden.amt']).toBe(3);
     });
   });
 });
