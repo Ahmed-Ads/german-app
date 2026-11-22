@@ -11258,6 +11258,23 @@ function computeConjMasteredCount(){
 
 let conjState = null;
 
+function newConjState(sessionIndices){
+  return {
+    sessionIndices,
+    currentIndex: 0,
+    currentStage: 1,
+    presPronounIdx: Math.floor(Math.random() * 6),
+    pretPronounIdx: Math.floor(Math.random() * 6),
+    stageResults: [],
+    score: 0,
+    answered: false,
+    runRecorded: false,
+    lastResult: null,
+    done: false,
+    missed: []
+  };
+}
+
 function renderConjExercise(){
   const cat = CATEGORIES.find(c => c.id === 'verben');
   if(!cat) return;
@@ -11287,19 +11304,7 @@ function renderConjExercise(){
 
   if(!conjState || !conjState.sessionIndices || conjState.sessionIndices.length === 0){
     const sessionIndices = selectConjSession(pool, i => getWordCount('verben', 'conj', i), 10);
-    conjState = {
-      sessionIndices,
-      currentIndex: 0,
-      currentStage: 1,
-      presPronounIdx: Math.floor(Math.random() * 6),
-      pretPronounIdx: Math.floor(Math.random() * 6),
-      stageResults: [],
-      score: 0,
-      answered: false,
-      runRecorded: false,
-      lastResult: null,
-      done: false
-    };
+    conjState = newConjState(sessionIndices);
   }
 
   if(conjState.done){
@@ -11307,6 +11312,21 @@ function renderConjExercise(){
     const score = conjState.score;
     const pct = totalVerbs > 0 ? Math.round((score / totalVerbs) * 100) : 0;
     const mastered = computeConjMasteredCount();
+    const missedList = Array.isArray(conjState.missed) ? conjState.missed : [];
+    const STAGE_NAMES = ['المصدر', 'المضارع', 'الماضي البسيط', 'الماضي التام'];
+    const missedHtml = missedList.length ? `
+        <div style="margin-top:22px;text-align:right;">
+          <h3 style="font-size:16px;margin-bottom:10px;">أفعال تحتاج مراجعة (${missedList.length})</h3>
+          ${missedList.map(m => {
+            const mw = cat.words[m.verbIdx];
+            const wrong = m.stages.map((ok, i) => ok ? null : STAGE_NAMES[i]).filter(Boolean);
+            return `<details style="margin-bottom:8px;border:1px solid #e5e1d8;border-radius:10px;padding:8px 12px;">
+              <summary style="cursor:pointer;font-weight:700;"><span class="de" lang="de" dir="ltr">${escapeHtml(mw.n)}</span> · ${escapeHtml(mw.ar)}</summary>
+              <div class="fbnote">أخطأتَ في: ${wrong.join('، ')}</div>
+              ${renderVerbPanel(mw.id)}
+            </details>`;
+          }).join('')}
+        </div>` : '';
     app.innerHTML = `
       ${headerHtml(true, 'رجوع لأوضاع القسم')}
       <div class="done-card">
@@ -11316,7 +11336,9 @@ function renderConjExercise(){
         <div class="done-meta" style="margin-top:14px;font-size:14.5px;color:#42403b;line-height:1.5;">
           <b>${mastered}</b> / <b>${cat.words.length}</b> فعلاً أتقنتَ تصريفه حتى الآن
         </div>
+        ${missedHtml}
         <div class="done-actions" style="margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          ${missedList.length ? '<button class="primary-btn" id="conjRetryMissedBtn" style="padding:12px 24px;font-size:15px;font-weight:700;">تدرّب على الأفعال الخاطئة</button>' : ''}
           <button class="primary-btn" id="conjNewRoundBtn" style="padding:12px 24px;font-size:15px;font-weight:700;">جولة جديدة</button>
           <button class="backbtn" id="conjBackModesBtn" style="padding:12px 20px;font-size:15px;">رجوع لأوضاع القسم</button>
         </div>
@@ -11324,6 +11346,13 @@ function renderConjExercise(){
     `;
     document.getElementById('backBtn').addEventListener('click', () => { conjState = null; goBack({ screen: 'modes', catId: 'verben' }); });
     document.getElementById('conjBackModesBtn').addEventListener('click', () => { conjState = null; goBack({ screen: 'modes', catId: 'verben' }); });
+    const retryBtn = document.getElementById('conjRetryMissedBtn');
+    if(retryBtn){
+      retryBtn.addEventListener('click', () => {
+        conjState = newConjState(missedList.map(m => m.verbIdx));
+        renderConjExercise();
+      });
+    }
     document.getElementById('conjNewRoundBtn').addEventListener('click', () => {
       conjState = null;
       renderConjExercise();
@@ -11417,6 +11446,7 @@ function renderConjExercise(){
       conjState.runRecorded = true;
       const allOk = conjState.stageResults.length === 4 && conjState.stageResults.every(Boolean);
       if(allOk) conjState.score++;
+      else conjState.missed.push({ verbIdx, stages: conjState.stageResults.slice() });
       applyResult('verben', 'conj', verbIdx, allOk);
     }
 
