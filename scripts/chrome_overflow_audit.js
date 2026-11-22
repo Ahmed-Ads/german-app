@@ -47,7 +47,9 @@ const screens = [
   { key: 'restaurant_modes', name: 'Restaurant Modes' },
   { key: 'restaurant_wordlist', name: 'Restaurant Wordlist' },
   { key: 'behoerden_modes', name: 'Behoerden Modes' },
-  { key: 'behoerden_wordlist', name: 'Behoerden Wordlist' }
+  { key: 'behoerden_wordlist', name: 'Behoerden Wordlist' },
+  { key: 'gegensaetze_modes', name: 'Gegensaetze Modes' },
+  { key: 'gegensaetze_wordlist', name: 'Gegensaetze Wordlist' }
 ];
 
 const screensDir = path.resolve(__dirname, '..', 'audit', 'windows_results', 'screens');
@@ -346,6 +348,12 @@ window.addEventListener('DOMContentLoaded', async () => {
     await auditScreen('behoerden_modes');
     win.go({ screen: 'wordlist', catId: 'behoerden' });
     await auditScreen('behoerden_wordlist');
+
+    // 28. Gegensätze Modes & Wordlist
+    win.go({ screen: 'modes', catId: 'gegensaetze' });
+    await auditScreen('gegensaetze_modes');
+    win.go({ screen: 'wordlist', catId: 'gegensaetze' });
+    await auditScreen('gegensaetze_wordlist');
 
   } catch(e) {
     results.error = e.message;

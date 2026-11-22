@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="تطبيق ويب تقدمي (PWA) تفاعلي لمتحدثي العربية لإتقان 1541 كلمة ألمانية وقواعدها مع صيغ الجمع والتكرار المتباعد">
+<meta name="description" content="تطبيق ويب تقدمي (PWA) تفاعلي لمتحدثي العربية لإتقان 1601 كلمة ألمانية وقواعدها مع صيغ الجمع والتكرار المتباعد">
 <meta name="theme-color" content="#171512">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -2657,6 +2657,68 @@ const CATEGORIES = [
     {id:'behoerden.einwohnermeldeamt',a:'das',n:'Einwohnermeldeamt',ar:'مكتب تسجيل السكان',pl:'die Einwohnermeldeämter',s:'Das Einwohnermeldeamt öffnet um acht Uhr.',sar:'مكتب تسجيل السكان يفتح في الثامنة.'},
     {id:'behoerden.kindergeld',a:'das',n:'Kindergeld',ar:'إعانة الأطفال',note:'لا يُجمع.',pl:null,s:'Eltern bekommen Kindergeld für ihre Kinder.',sar:'يحصل الآباء على إعانة الأطفال لأولادهم.'},
     {id:'behoerden.versicherung',a:'die',n:'Versicherung',ar:'تأمين',pl:'die Versicherungen',s:'Ich habe eine Versicherung für mein Auto.',sar:'لدي تأمين لسيارتي.'}
+  ]},
+  { id:'gegensaetze', ar:'الأضداد', de:'Gegensätze', hasArticles:false, words:[
+    {id:'gegensaetze.gross',n:'groß',ar:'كبير',note:'عكسها: klein',s:'Das Haus ist sehr groß.',sar:'البيت كبير جداً.'},
+    {id:'gegensaetze.klein',n:'klein',ar:'صغير',note:'عكسها: groß',s:'Meine Wohnung ist leider klein.',sar:'شقتي صغيرة للأسف.'},
+    {id:'gegensaetze.lang',n:'lang',ar:'طويل',note:'عكسها: kurz',s:'Der Weg zum Bahnhof ist lang.',sar:'الطريق إلى المحطة طويل.'},
+    {id:'gegensaetze.kurz',n:'kurz',ar:'قصير',note:'عكسها: lang',s:'Die Pause ist heute sehr kurz.',sar:'الاستراحة قصيرة جداً اليوم.'},
+    {id:'gegensaetze.alt',n:'alt',ar:'قديم (كبير في السن)',note:'عكسها: neu؛ تعني قديم أو كبير في السن.',s:'Unser Auto ist schon sehr alt.',sar:'سيارتنا قديمة جداً بالفعل.'},
+    {id:'gegensaetze.neu',n:'neu',ar:'جديد',note:'عكسها: alt',s:'Mein Handy ist ganz neu.',sar:'هاتفي جديد تماماً.'},
+    {id:'gegensaetze.heiss',n:'heiß',ar:'ساخن (سخن)',note:'عكسها: kalt',s:'Im Sommer ist es oft heiß.',sar:'في الصيف يكون الجو حاراً غالباً.'},
+    {id:'gegensaetze.kalt',n:'kalt',ar:'بارد (ساقع)',note:'عكسها: heiß',s:'Das Wasser im See ist kalt.',sar:'ماء البحيرة بارد.'},
+    {id:'gegensaetze.schnell',n:'schnell',ar:'سريع',note:'عكسها: langsam',s:'Der Zug fährt sehr schnell.',sar:'القطار يسير بسرعة كبيرة.'},
+    {id:'gegensaetze.langsam',n:'langsam',ar:'بطيء',note:'عكسها: schnell',s:'Mein Großvater geht sehr langsam.',sar:'جدي يمشي ببطء شديد.'},
+    {id:'gegensaetze.gut',n:'gut',ar:'جيد (كويس)',note:'عكسها: schlecht',s:'Das Essen schmeckt heute gut.',sar:'الأكل طعمه جيد اليوم.'},
+    {id:'gegensaetze.schlecht',n:'schlecht',ar:'سيئ (وحش)',note:'عكسها: gut',s:'Das Wetter ist heute schlecht.',sar:'الطقس سيئ اليوم.'},
+    {id:'gegensaetze.schoen',n:'schön',ar:'جميل (حلو)',note:'عكسها: hässlich',s:'Die Blumen im Garten sind schön.',sar:'الزهور في الحديقة جميلة.'},
+    {id:'gegensaetze.haesslich',n:'hässlich',ar:'قبيح',note:'عكسها: schön',s:'Die Farbe der Wand ist hässlich.',sar:'لون الجدار قبيح.'},
+    {id:'gegensaetze.teuer',n:'teuer',ar:'غالٍ',note:'عكسها: billig',s:'Das Hotel in der Stadt ist teuer.',sar:'الفندق في المدينة غالٍ.'},
+    {id:'gegensaetze.billig',n:'billig',ar:'رخيص',note:'عكسها: teuer',s:'Die Äpfel sind heute billig.',sar:'التفاح رخيص اليوم.'},
+    {id:'gegensaetze.leicht',n:'leicht',ar:'خفيف (سهل)',note:'عكسها: schwer؛ تعني خفيف أو سهل.',s:'Der Koffer ist heute leicht.',sar:'الحقيبة خفيفة اليوم.'},
+    {id:'gegensaetze.schwer',n:'schwer',ar:'ثقيل (صعب)',note:'عكسها: leicht؛ تعني ثقيل أو صعب.',s:'Die Tasche ist viel zu schwer.',sar:'الحقيبة ثقيلة جداً.'},
+    {id:'gegensaetze.hell',n:'hell',ar:'مضيء (فاتح)',note:'عكسها: dunkel',s:'Das Zimmer ist hell und freundlich.',sar:'الغرفة مضيئة ولطيفة.'},
+    {id:'gegensaetze.dunkel',n:'dunkel',ar:'مظلم (غامق)',note:'عكسها: hell',s:'Im Winter wird es früh dunkel.',sar:'في الشتاء يحل الظلام مبكراً.'},
+    {id:'gegensaetze.laut',n:'laut',ar:'صاخب (عالي الصوت)',note:'عكسها: leise',s:'Die Musik ist mir zu laut.',sar:'الموسيقى عالية جداً بالنسبة لي.'},
+    {id:'gegensaetze.leise',n:'leise',ar:'منخفض الصوت (خافت)',note:'عكسها: laut',s:'Er spricht sehr leise.',sar:'يتحدث بصوت منخفض جداً.'},
+    {id:'gegensaetze.voll',n:'voll',ar:'ممتلئ (مليان)',note:'عكسها: leer',s:'Der Bus ist heute sehr voll.',sar:'الحافلة ممتلئة جداً اليوم.'},
+    {id:'gegensaetze.leer',n:'leer',ar:'فارغ',note:'عكسها: voll',s:'Die Flasche ist schon leer.',sar:'الزجاجة فارغة بالفعل.'},
+    {id:'gegensaetze.dick',n:'dick',ar:'سميك (تخين)',note:'عكسها: dünn',s:'Das Buch ist sehr dick.',sar:'الكتاب سميك جداً.'},
+    {id:'gegensaetze.duenn',n:'dünn',ar:'رقيق (رفيع)',note:'عكسها: dick',s:'Die Jacke ist zu dünn.',sar:'السترة رقيقة جداً.'},
+    {id:'gegensaetze.breit',n:'breit',ar:'عريض',note:'عكسها: schmal',s:'Die Straße vor dem Haus ist breit.',sar:'الشارع أمام البيت عريض.'},
+    {id:'gegensaetze.schmal',n:'schmal',ar:'ضيق',note:'عكسها: breit',s:'Der Weg zum Fluss ist schmal.',sar:'الطريق إلى النهر ضيق.'},
+    {id:'gegensaetze.hoch',n:'hoch',ar:'مرتفع (عالٍ)',note:'عكسها: niedrig',s:'Der Turm ist sehr hoch.',sar:'البرج عالٍ جداً.'},
+    {id:'gegensaetze.niedrig',n:'niedrig',ar:'منخفض',note:'عكسها: hoch',s:'Der Tisch ist zu niedrig.',sar:'الطاولة منخفضة جداً.'},
+    {id:'gegensaetze.nah',n:'nah',ar:'قريب',note:'عكسها: weit',s:'Die Schule ist ganz nah.',sar:'المدرسة قريبة جداً.'},
+    {id:'gegensaetze.weit',n:'weit',ar:'بعيد',note:'عكسها: nah',s:'Der Flughafen ist sehr weit.',sar:'المطار بعيد جداً.'},
+    {id:'gegensaetze.frueh',n:'früh',ar:'مبكر',note:'عكسها: spät',s:'Ich stehe morgens sehr früh auf.',sar:'أستيقظ مبكراً جداً في الصباح.'},
+    {id:'gegensaetze.spaet',n:'spät',ar:'متأخر',note:'عكسها: früh',s:'Der Film endet heute spät.',sar:'الفيلم ينتهي متأخراً اليوم.'},
+    {id:'gegensaetze.richtig',n:'richtig',ar:'صحيح',note:'عكسها: falsch',s:'Ja, die Antwort ist richtig.',sar:'نعم، الإجابة صحيحة.'},
+    {id:'gegensaetze.falsch',n:'falsch',ar:'خاطئ (غلط)',note:'عكسها: richtig',s:'Das Wort ist leider falsch.',sar:'الكلمة خاطئة للأسف.'},
+    {id:'gegensaetze.sauber',n:'sauber',ar:'نظيف',note:'عكسها: schmutzig',s:'Das Bad ist wieder sauber.',sar:'الحمام نظيف من جديد.'},
+    {id:'gegensaetze.schmutzig',n:'schmutzig',ar:'متسخ (وسخ)',note:'عكسها: sauber',s:'Die Schuhe sind sehr schmutzig.',sar:'الأحذية متسخة جداً.'},
+    {id:'gegensaetze.freundlich',n:'freundlich',ar:'لطيف (ودود)',note:'عكسها: unfreundlich',s:'Meine Nachbarin ist immer freundlich.',sar:'جارتي لطيفة دائماً.'},
+    {id:'gegensaetze.unfreundlich',n:'unfreundlich',ar:'غير ودود (جافّ)',note:'عكسها: freundlich',s:'Der Verkäufer ist heute unfreundlich.',sar:'البائع غير ودود اليوم.'},
+    {id:'gegensaetze.stark',n:'stark',ar:'قوي',note:'عكسها: schwach',s:'Mein Vater ist wirklich stark.',sar:'أبي قوي حقاً.'},
+    {id:'gegensaetze.schwach',n:'schwach',ar:'ضعيف',note:'عكسها: stark',s:'Nach der Krankheit ist er schwach.',sar:'بعد المرض هو ضعيف.'},
+    {id:'gegensaetze.gesund',n:'gesund',ar:'سليم (صحي)',note:'عكسها: krank',s:'Obst und Gemüse sind gesund.',sar:'الفاكهة والخضروات صحية.'},
+    {id:'gegensaetze.krank',n:'krank',ar:'مريض',note:'عكسها: gesund',s:'Mein Sohn ist heute krank.',sar:'ابني مريض اليوم.'},
+    {id:'gegensaetze.offen',n:'offen',ar:'مفتوح',note:'عكسها: geschlossen',s:'Das Fenster ist offen.',sar:'النافذة مفتوحة.'},
+    {id:'gegensaetze.geschlossen',n:'geschlossen',ar:'مغلق (مقفول)',note:'عكسها: offen',s:'Das Museum ist montags geschlossen.',sar:'المتحف مغلق أيام الاثنين.'},
+    {id:'gegensaetze.nass',n:'nass',ar:'مبلل (مبلول)',note:'عكسها: trocken',s:'Meine Haare sind noch nass.',sar:'شعري ما زال مبللاً.'},
+    {id:'gegensaetze.trocken',n:'trocken',ar:'جاف',note:'عكسها: nass',s:'Die Wäsche ist schon trocken.',sar:'الغسيل جاف بالفعل.'},
+    {id:'gegensaetze.hungrig',n:'hungrig',ar:'جائع (جعان)',note:'عكسها: satt',s:'Die Kinder sind sehr hungrig.',sar:'الأطفال جائعون جداً.'},
+    {id:'gegensaetze.satt',n:'satt',ar:'شبعان',note:'عكسها: hungrig',s:'Danke, ich bin schon satt.',sar:'شكراً، أنا شبعان بالفعل.'},
+    {id:'gegensaetze.interessant',n:'interessant',ar:'مثير للاهتمام (شيّق)',note:'عكسها: langweilig',s:'Das Buch ist sehr interessant.',sar:'الكتاب مثير للاهتمام جداً.'},
+    {id:'gegensaetze.langweilig',n:'langweilig',ar:'ممل',note:'عكسها: interessant',s:'Der Film ist ziemlich langweilig.',sar:'الفيلم ممل جداً.'},
+    {id:'gegensaetze.hier',n:'hier',ar:'هنا',note:'عكسها: dort',s:'Mein Büro ist hier im Haus.',sar:'مكتبي هنا في المبنى.'},
+    {id:'gegensaetze.dort',n:'dort',ar:'هناك',note:'عكسها: hier',s:'Der Supermarkt ist dort drüben.',sar:'السوبرماركت هناك.'},
+    {id:'gegensaetze.oben',n:'oben',ar:'فوق (في الأعلى)',note:'عكسها: unten',s:'Mein Zimmer ist oben.',sar:'غرفتي في الأعلى.'},
+    {id:'gegensaetze.unten',n:'unten',ar:'تحت (في الأسفل)',note:'عكسها: oben',s:'Die Küche ist unten im Haus.',sar:'المطبخ في الأسفل في البيت.'},
+    {id:'gegensaetze.links',n:'links',ar:'يسار',note:'عكسها: rechts',s:'Der Eingang ist links.',sar:'المدخل على اليسار.'},
+    {id:'gegensaetze.rechts',n:'rechts',ar:'يمين',note:'عكسها: links',s:'Die Haltestelle ist rechts.',sar:'المحطة على اليمين.'},
+    {id:'gegensaetze.immer',n:'immer',ar:'دائماً',note:'عكسها: nie',s:'Ich trinke immer Tee zum Frühstück.',sar:'أشرب الشاي دائماً مع الفطور.'},
+    {id:'gegensaetze.nie',n:'nie',ar:'أبداً',note:'عكسها: immer',s:'Meine Großmutter trinkt nie Kaffee.',sar:'جدتي لا تشرب القهوة أبداً.'}
   ]}
 ];
 

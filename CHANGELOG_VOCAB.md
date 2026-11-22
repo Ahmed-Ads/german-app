@@ -182,3 +182,10 @@
 - **Target Item IDs:** restaurant.*,behoerden.*
 - **Previous SHA-256:** `6175494747eead771264dd54f18ade0f7495ca9669ceba42729d4c1023fae8dd`
 - **New SHA-256:** `d5d1fb47ba78c533595ab65ea4d4713cb8120c1691e238c5553c7cb0de8f0b89`
+
+## [2026-11-22 22:06:20] Authorized Baseline Update
+- **Reason:** New category gegensaetze (60), 60 words
+- **Source:** Owner-approved tools/words_batch9.json
+- **Target Item IDs:** gegensaetze.*
+- **Previous SHA-256:** `d5d1fb47ba78c533595ab65ea4d4713cb8120c1691e238c5553c7cb0de8f0b89`
+- **New SHA-256:** `aaa98009565438932d7a6a86e6284fcf4d5c632de8f6f4f6bc54fcca2c42478a`

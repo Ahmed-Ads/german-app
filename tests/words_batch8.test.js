@@ -7,7 +7,7 @@
  * 2. Word schema: article in der/die/das, Arabic gloss, pl null or 'die ...'
  * 3. Exact match for plural-less words with tools/words_batch8.json
  * 4. Sentence rules: <= 8 whitespace tokens, ends with punctuation, contains noun or plural, script purity
- * 5. Global uniqueness: covers all 1541 words across all 39 categories with 0 duplicate sentences
+ * 5. Global uniqueness: covers all 1601 words across all 40 categories with 0 duplicate sentences
  */
 
 import { describe, it, expect } from 'vitest';
@@ -84,8 +84,8 @@ const windowCtx = createTestContext();
 const CATEGORIES = windowCtx.CATEGORIES;
 
 describe('Words Batch 8: Category & Word Schema Integrity', () => {
-  it('contains exactly 39 categories with restaurant and behoerden appended after freizeit', () => {
-    expect(CATEGORIES.length).toBe(39);
+  it('contains exactly 40 categories with restaurant and behoerden appended after freizeit', () => {
+    expect(CATEGORIES.length).toBe(40);
     expect(CATEGORIES[30].id).toBe('verben');
     expect(CATEGORIES[31].id).toBe('gesundheit');
     expect(CATEGORIES[32].id).toBe('einkaufen');
@@ -214,14 +214,14 @@ describe('Words Batch 8: Linguistic & Sentence Rules', () => {
   });
 });
 
-describe('Words Batch 8: Global Uniqueness & Integrity Across All 1541 Words', () => {
-  it('contains exactly 39 categories and 1541 words total', () => {
-    expect(CATEGORIES.length).toBe(39);
+describe('Words Batch 8: Global Uniqueness & Integrity Across All 1601 Words', () => {
+  it('contains exactly 40 categories and 1601 words total', () => {
+    expect(CATEGORIES.length).toBe(40);
     const totalWords = CATEGORIES.reduce((s, c) => s + c.words.length, 0);
-    expect(totalWords).toBe(1541);
+    expect(totalWords).toBe(1601);
   });
 
-  it('all 1541 word IDs are unique and none in vocab_ids_retired.json', () => {
+  it('all 1601 word IDs are unique and none in vocab_ids_retired.json', () => {
     const allIds = new Set();
     const retiredSet = new Set(retiredIds.map(item => (typeof item === 'string' ? item : item.id)));
 
@@ -232,10 +232,10 @@ describe('Words Batch 8: Global Uniqueness & Integrity Across All 1541 Words', (
         expect(retiredSet.has(w.id), `Active word ${w.id} is in retired set`).toBe(false);
       }
     }
-    expect(allIds.size).toBe(1541);
+    expect(allIds.size).toBe(1601);
   });
 
-  it('all 1541 German example sentences and Arabic translations are globally unique', () => {
+  it('all 1601 German example sentences and Arabic translations are globally unique', () => {
     const deSentences = new Map();
     const arSentences = new Map();
 
@@ -249,7 +249,7 @@ describe('Words Batch 8: Global Uniqueness & Integrity Across All 1541 Words', (
       }
     }
 
-    expect(deSentences.size).toBe(1541);
-    expect(arSentences.size).toBe(1541);
+    expect(deSentences.size).toBe(1601);
+    expect(arSentences.size).toBe(1601);
   });
 });

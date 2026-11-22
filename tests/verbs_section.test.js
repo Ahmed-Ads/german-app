@@ -94,8 +94,8 @@ const renderVerbPanel = ctx.window.renderVerbPanel;
 const searchVocabulary = ctx.window.searchVocabulary;
 
 describe('Task A: Verben Category & Word Data Schema Integrity', () => {
-  it('contains exactly 39 categories with verben at index 30', () => {
-    expect(CATEGORIES.length).toBe(39);
+  it('contains exactly 40 categories with verben at index 30', () => {
+    expect(CATEGORIES.length).toBe(40);
     const verbenCat = CATEGORIES[30];
     expect(verbenCat.id).toBe('verben');
     expect(verbenCat.ar).toBe('الأفعال');
@@ -137,9 +137,9 @@ describe('Task A: Verben Category & Word Data Schema Integrity', () => {
     }
   });
 
-  it('total words across all 39 categories equals 1541', () => {
+  it('total words across all 40 categories equals 1601', () => {
     const totalWords = CATEGORIES.reduce((s, c) => s + c.words.length, 0);
-    expect(totalWords).toBe(1541);
+    expect(totalWords).toBe(1601);
   });
 });
 
