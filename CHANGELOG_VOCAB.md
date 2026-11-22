@@ -168,3 +168,10 @@
 - **Target Item IDs:** reisen.*,arbeit.*
 - **Previous SHA-256:** `3997584f3d925b1ee88db7e9096c08d88bcd9630a43401902f9d1379cf7da5ae`
 - **New SHA-256:** `2b64f6c6f68a002b348da6df7f6b8254d8126e80a2c6369c2e38b12633f061d6`
+
+## [2026-11-22 00:38:44] Authorized Baseline Update
+- **Reason:** New categories natur (40) and freizeit (40), 80 words
+- **Source:** Owner-approved tools/words_batch7.json
+- **Target Item IDs:** natur.*,freizeit.*
+- **Previous SHA-256:** `2b64f6c6f68a002b348da6df7f6b8254d8126e80a2c6369c2e38b12633f061d6`
+- **New SHA-256:** `6175494747eead771264dd54f18ade0f7495ca9669ceba42729d4c1023fae8dd`

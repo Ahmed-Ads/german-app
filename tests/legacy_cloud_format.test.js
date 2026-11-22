@@ -481,7 +481,9 @@ describe('6. Cross-Device Legacy Cloud Scenario with Real Classes (Item 6)', () 
     const oldCategories = CATEGORIES.slice(0, 31);
     // Old client categories from tag v1.30-new-words-1 (33 categories, without reisen/arbeit)
     const oldCategories33 = CATEGORIES.slice(0, 33);
-    const newCategories = CATEGORIES; // 35 categories
+    // Old client categories from tag v1.31-new-words-2 (35 categories, without natur/freizeit)
+    const oldCategories35 = CATEGORIES.slice(0, 35);
+    const newCategories = CATEGORIES; // 37 categories
 
     it('Simulation 1: Old client receiving cloud document with new categories rejects with validation error, preserves cloud and local data, and does not retry loop', async () => {
       // Cloud document written by NEW client that contains progress, starred, and srs for gesundheit
@@ -761,6 +763,135 @@ describe('6. Cross-Device Legacy Cloud Scenario with Real Classes (Item 6)', () 
       expect(cloudAfter.progress.gesundheit.mcq.counts['gesundheit.gesundheit']).toBe(3);
       expect(cloudAfter.progress.reisen.mcq.counts['reisen.koffer']).toBe(2);
       expect(cloudAfter.progress.arbeit.mcq.counts['arbeit.firma']).toBe(3);
+    });
+
+    it('Simulation 5: Old client (v1.31, 35 categories) receiving cloud document with natur / freizeit rejects with validation error and preserves data', async () => {
+      const cloudStore = new Map();
+      const newCloudDoc = {
+        schemaVersion: 1,
+        dataVersion: 17,
+        updatedAt: '2026-11-20T12:00:00.000Z',
+        progress: {
+          natur: {
+            mcq: { unlocked: 5, counts: { 'natur.baum': 4 } }
+          },
+          freizeit: {
+            written: { unlocked: 5, counts: { 'freizeit.hobby': 3 } }
+          },
+          reisen: {
+            mcq: { unlocked: 5, counts: { 'reisen.koffer': 2 } }
+          }
+        },
+        stats: { current: 2, longest: 2, totalAnswered: 9, totalCorrect: 9 },
+        starred: ['natur.baum', 'freizeit.hobby', 'reisen.koffer'],
+        srs: {
+          'natur.baum': { box: 1, lastDate: '2026-11-20', nextDate: '2026-11-21' }
+        },
+        dailyGoal: { target: 20, lastDate: '2026-11-20' }
+      };
+      cloudStore.set('test-user-123', JSON.parse(JSON.stringify(newCloudDoc)));
+
+      // 1. Direct validation check against 35 categories
+      const validation = SyncMergePolicy.validateCloudDocument(newCloudDoc, oldCategories35);
+      expect(validation.valid).toBe(false);
+      expect(validation.error).toContain('القسم «natur» في التقدم غير معروف في التطبيق.');
+
+      // 2. 35-cat client SyncManager simulation
+      const localState35 = {
+        progress: {
+          reisen: { mcq: { unlocked: 5, counts: { 'reisen.koffer': 2 } } }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 2, totalCorrect: 2 },
+        starred: ['reisen.koffer'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-20' }
+      };
+      const initialLocalCopy = JSON.parse(JSON.stringify(localState35));
+
+      const adapter = new MemorySyncAdapter({ store: cloudStore });
+
+      globalThis.CATEGORIES = oldCategories35;
+      globalThis.confirm = () => true;
+      globalThis.exportBackup = () => '{}';
+
+      const sm35 = new SyncManager({
+        adapter,
+        policy: SyncMergePolicy,
+        localStateProvider: {
+          getLocalData: () => localState35,
+          applyLocalData: (d) => { Object.assign(localState35, d); }
+        }
+      });
+
+      sm35.init();
+      await sm35.signIn();
+
+      expect(sm35.state).toBe(STATES.ERROR);
+      expect(sm35.lastError).toContain('القسم «natur» في التقدم غير معروف في التطبيق.');
+      expect(cloudStore.get('test-user-123')).toEqual(newCloudDoc);
+      expect(localState35).toEqual(initialLocalCopy);
+    });
+
+    it('Simulation 6: New client (37 categories) receiving 35-cat cloud document merges natur and freizeit progress seamlessly', async () => {
+      const cloudStore = new Map();
+      const cloudDoc35 = {
+        schemaVersion: 1,
+        dataVersion: 17,
+        updatedAt: '2026-11-20T10:00:00.000Z',
+        progress: {
+          reisen: { mcq: { unlocked: 5, counts: { 'reisen.koffer': 3 } } }
+        },
+        stats: { current: 2, longest: 2, totalAnswered: 3, totalCorrect: 3 },
+        starred: ['reisen.koffer'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-20' }
+      };
+      cloudStore.set('test-user-123', JSON.parse(JSON.stringify(cloudDoc35)));
+
+      const validation = SyncMergePolicy.validateCloudDocument(cloudDoc35, newCategories);
+      expect(validation.valid).toBe(true);
+
+      const localStateNew = {
+        progress: {
+          natur: { mcq: { unlocked: 5, counts: { 'natur.baum': 2 } } },
+          freizeit: { mcq: { unlocked: 5, counts: { 'freizeit.hobby': 3 } } }
+        },
+        stats: { current: 1, longest: 1, totalAnswered: 5, totalCorrect: 5 },
+        starred: ['natur.baum', 'freizeit.hobby'],
+        srs: {},
+        dailyGoal: { target: 20, lastDate: '2026-11-20' }
+      };
+
+      const adapter = new MemorySyncAdapter({ store: cloudStore });
+
+      globalThis.CATEGORIES = newCategories;
+      globalThis.confirm = () => true;
+      globalThis.exportBackup = () => '{}';
+
+      const smNew = new SyncManager({
+        adapter,
+        policy: SyncMergePolicy,
+        localStateProvider: {
+          getLocalData: () => localStateNew,
+          applyLocalData: (d) => { Object.assign(localStateNew, d); }
+        }
+      });
+
+      smNew.init();
+      await smNew.signIn();
+
+      expect(smNew.state).toBe(STATES.SYNCED);
+      expect(localStateNew.progress.reisen.mcq.counts['reisen.koffer']).toBe(3);
+      expect(localStateNew.progress.natur.mcq.counts['natur.baum']).toBe(2);
+      expect(localStateNew.progress.freizeit.mcq.counts['freizeit.hobby']).toBe(3);
+      expect(localStateNew.starred).toContain('reisen.koffer');
+      expect(localStateNew.starred).toContain('natur.baum');
+      expect(localStateNew.starred).toContain('freizeit.hobby');
+
+      const cloudAfter = cloudStore.get('test-user-123');
+      expect(cloudAfter.progress.reisen.mcq.counts['reisen.koffer']).toBe(3);
+      expect(cloudAfter.progress.natur.mcq.counts['natur.baum']).toBe(2);
+      expect(cloudAfter.progress.freizeit.mcq.counts['freizeit.hobby']).toBe(3);
     });
   });
 });

@@ -31,6 +31,13 @@ import {
   EXPECTED_WORD_COUNT as BATCH6_EXPECTED_WORD_COUNT,
   EXPECTED_CATEGORIES as BATCH6_EXPECTED_CATEGORIES
 } from '../tools/apply_words_batch6.js';
+import {
+  applyWordsBatch7,
+  EXPECTED_BASE_HASH as BATCH7_EXPECTED_BASE_HASH,
+  EXPECTED_NEW_HASH as BATCH7_EXPECTED_NEW_HASH,
+  EXPECTED_WORD_COUNT as BATCH7_EXPECTED_WORD_COUNT,
+  EXPECTED_CATEGORIES as BATCH7_EXPECTED_CATEGORIES
+} from '../tools/apply_words_batch7.js';
 
 describe('scripts/apply_vocab_changes.js unit tests', () => {
   const rootDir = path.resolve(__dirname, '..');
@@ -47,6 +54,16 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
   const verbsBatch3Path = path.join(rootDir, 'tools', 'verbs_batch3.json');
   const wordsBatch5Path = path.join(rootDir, 'tools', 'words_batch5.json');
   const wordsBatch6Path = path.join(rootDir, 'tools', 'words_batch6.json');
+  const wordsBatch7Path = path.join(rootDir, 'tools', 'words_batch7.json');
+
+  const batch7Json = JSON.parse(fs.readFileSync(wordsBatch7Path, 'utf8'));
+  const batch7CatIds = batch7Json.categories.map(c => c.id);
+
+  function removeBatch7Categories(html) {
+    const firstCatId = batch7CatIds[0];
+    const regex = new RegExp(`,\\s*\\n\\s*\\{\\s*id\\s*:\\s*['"]` + firstCatId + `['"][\\s\\S]*?\\n\\s*\\]\\s*\\}\\s*\\n\\s*\\]\\s*;`);
+    return html.replace(regex, '\n];');
+  }
 
   const batch6Json = JSON.parse(fs.readFileSync(wordsBatch6Path, 'utf8'));
   const batch6CatIds = batch6Json.categories.map(c => c.id);
@@ -96,6 +113,9 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
 
   function revertEdits(html, changesJsonPath) {
     let res = html;
+    if (res.includes(`id:'${batch7CatIds[0]}'`) || res.includes(`id:"${batch7CatIds[0]}"`)) {
+      res = removeBatch7Categories(res);
+    }
     if (res.includes(`id:'${batch6CatIds[0]}'`) || res.includes(`id:"${batch6CatIds[0]}"`)) {
       res = removeBatch6Categories(res);
     }
@@ -862,7 +882,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       expect(res.alreadyApplied).toBe(true);
       expect(res.applied).toBe(false);
       expect(res.wordCount).toBe(EXPECTED_VERB_COUNT);
-      expect(res.newHash).toBe(BATCH6_EXPECTED_NEW_HASH);
+      expect(res.newHash).toBe(BATCH7_EXPECTED_NEW_HASH);
       expect(res.verbFormsChecksum).toBe('c2d747185f9f66d27921f0320124098d2ad0ab65a308e3c15d7a3c295e0cfe72');
     });
 
@@ -871,7 +891,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 2 (first remove batch 6, then batch 5, then batch 3, then batch 2)
-        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
+        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -915,7 +935,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // A base copy that is modified so its hash does not match EXPECTED_BASE_HASH
-        let baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
+        let baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -934,7 +954,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-b2-guard-id-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
+        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -958,7 +978,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-b2-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
+        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -994,7 +1014,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       expect(res.alreadyApplied).toBe(true);
       expect(res.applied).toBe(false);
       expect(res.wordCount).toBe(BATCH3_EXPECTED_VERB_COUNT);
-      expect(res.newHash).toBe(BATCH6_EXPECTED_NEW_HASH);
+      expect(res.newHash).toBe(BATCH7_EXPECTED_NEW_HASH);
       expect(res.verbFormsChecksum).toBe('c2d747185f9f66d27921f0320124098d2ad0ab65a308e3c15d7a3c295e0cfe72');
     });
 
@@ -1003,7 +1023,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 3 (first remove batch 6, then batch 5, then batch 3)
-        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
+        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -1047,7 +1067,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // A base copy that is modified so its hash does not match BATCH3_EXPECTED_BASE_HASH
-        let baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
+        let baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1066,7 +1086,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-b3-guard-id-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
+        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1090,7 +1110,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-b3-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
+        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1128,7 +1148,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       expect(res.categoryCount).toBe(2);
       expect(res.wordCount).toBe(BATCH5_EXPECTED_WORD_COUNT);
       expect(res.baseHash).toBe(BATCH5_EXPECTED_BASE_HASH);
-      expect(res.newHash).toBe(BATCH6_EXPECTED_NEW_HASH);
+      expect(res.newHash).toBe(BATCH7_EXPECTED_NEW_HASH);
       expect(res.verbFormsChecksum).toBe('c2d747185f9f66d27921f0320124098d2ad0ab65a308e3c15d7a3c295e0cfe72');
     });
 
@@ -1137,7 +1157,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 5 (first remove batch 6, then batch 5)
-        const baseHtml = removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        const baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -1187,7 +1207,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b5-guard-hash-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        let baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1206,7 +1226,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b5-guard-cat-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        let baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         // Introduce category collision: rename an existing category to gesundheit
         baseHtml = baseHtml.replace("id:'obst'", "id:'gesundheit'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1226,7 +1246,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b5-guard-word-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        let baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         // Introduce word collision: rename an existing word to gesundheit.gesundheit
         baseHtml = baseHtml.replace("id:'obst.apfel'", "id:'gesundheit.gesundheit'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1246,7 +1266,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b5-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch5Categories(removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        const baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1285,7 +1305,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       expect(res.categoryCount).toBe(2);
       expect(res.wordCount).toBe(BATCH6_EXPECTED_WORD_COUNT);
       expect(res.baseHash).toBe(BATCH6_EXPECTED_BASE_HASH);
-      expect(res.newHash).toBe(BATCH6_EXPECTED_NEW_HASH);
+      expect(res.newHash).toBe(BATCH7_EXPECTED_NEW_HASH);
       expect(res.verbFormsChecksum).toBe('c2d747185f9f66d27921f0320124098d2ad0ab65a308e3c15d7a3c295e0cfe72');
     });
 
@@ -1294,7 +1314,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 6 (remove batch 6)
-        const baseHtml = removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        const baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -1344,7 +1364,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b6-guard-hash-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1363,7 +1383,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b6-guard-cat-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
         // Introduce category collision: rename an existing category to reisen
         baseHtml = baseHtml.replace("id:'obst'", "id:'reisen'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1383,7 +1403,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b6-guard-word-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
         // Introduce word collision: rename an existing word to reisen.koffer
         baseHtml = baseHtml.replace("id:'obst.apfel'", "id:'reisen.koffer'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1403,7 +1423,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b6-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch6Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        const baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1433,4 +1453,161 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       }
     });
   });
+  describe('tools/apply_words_batch7.js integration tests', () => {
+    it('reports tools/words_batch7.json as already applied on current index.html (idempotent)', () => {
+      const res = applyWordsBatch7(indexHtmlPath, wordsBatch7Path, { dryRun: true });
+      expect(res.alreadyApplied).toBe(true);
+      expect(res.applied).toBe(false);
+      expect(res.categoryCount).toBe(2);
+      expect(res.wordCount).toBe(BATCH7_EXPECTED_WORD_COUNT);
+      expect(res.baseHash).toBe(BATCH7_EXPECTED_BASE_HASH);
+      expect(res.newHash).toBe(BATCH7_EXPECTED_NEW_HASH);
+      expect(res.verbFormsChecksum).toBe('c2d747185f9f66d27921f0320124098d2ad0ab65a308e3c15d7a3c295e0cfe72');
+    });
+
+    it('applies words batch 7 on a reconstructed base copy proving exactly 2 new categories / 80 new words, correct hashes, and second run is no-op', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b7-apply-'));
+      try {
+        const tempHtml = path.join(tmpDir, 'index.html');
+        // Reconstruct base HTML before batch 7 (remove batch 7)
+        const baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        fs.writeFileSync(tempHtml, baseHtml, 'utf8');
+
+        // Verify base copy has base canonical hash
+        const baseCats = extractCategoriesFromHtml(baseHtml);
+        const baseHash = computeCanonicalHash(baseCats);
+        expect(baseHash).toBe(BATCH7_EXPECTED_BASE_HASH);
+        expect(baseHash).toBe('2b64f6c6f68a002b348da6df7f6b8254d8126e80a2c6369c2e38b12633f061d6');
+        expect(baseCats.length).toBe(35);
+        const baseWordCount = baseCats.reduce((s, c) => s + c.words.length, 0);
+        expect(baseWordCount).toBe(1381);
+
+        // First run: apply batch 7
+        const res1 = applyWordsBatch7(tempHtml, wordsBatch7Path, { dryRun: false });
+        expect(res1.applied).toBe(true);
+        expect(res1.alreadyApplied).toBe(false);
+        expect(res1.categoryCount).toBe(2);
+        expect(res1.wordCount).toBe(80);
+        expect(res1.baseHash).toBe(BATCH7_EXPECTED_BASE_HASH);
+        expect(res1.newHash).toBe(BATCH7_EXPECTED_NEW_HASH);
+        expect(res1.verbFormsChecksum).toBe('c2d747185f9f66d27921f0320124098d2ad0ab65a308e3c15d7a3c295e0cfe72');
+
+        // Verify updated HTML state
+        const appliedCats = extractCategoriesFromHtml(fs.readFileSync(tempHtml, 'utf8'));
+        expect(appliedCats.length).toBe(37);
+        const appliedWordCount = appliedCats.reduce((s, c) => s + c.words.length, 0);
+        expect(appliedWordCount).toBe(1461);
+        expect(appliedWordCount - baseWordCount).toBe(80);
+        expect(appliedCats[35].id).toBe('natur');
+        expect(appliedCats[35].words.length).toBe(40);
+        expect(appliedCats[36].id).toBe('freizeit');
+        expect(appliedCats[36].words.length).toBe(40);
+
+        // Second run: idempotent no-op
+        const contentBefore = fs.readFileSync(tempHtml, 'utf8');
+        const res2 = applyWordsBatch7(tempHtml, wordsBatch7Path, { dryRun: false });
+        const contentAfter = fs.readFileSync(tempHtml, 'utf8');
+
+        expect(res2.alreadyApplied).toBe(true);
+        expect(res2.applied).toBe(false);
+        expect(contentAfter).toBe(contentBefore);
+      } finally {
+        fs.rmSync(tmpDir, { recursive: true, force: true });
+      }
+    });
+
+    it('error guards: aborts when base hash does not match', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b7-guard-hash-'));
+      try {
+        const tempHtml = path.join(tmpDir, 'index.html');
+        let baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
+        fs.writeFileSync(tempHtml, baseHtml, 'utf8');
+        const origContent = fs.readFileSync(tempHtml, 'utf8');
+
+        expect(() => {
+          applyWordsBatch7(tempHtml, wordsBatch7Path, { dryRun: false });
+        }).toThrow(/Base vocabulary hash mismatch/);
+
+        expect(fs.readFileSync(tempHtml, 'utf8')).toBe(origContent);
+      } finally {
+        fs.rmSync(tmpDir, { recursive: true, force: true });
+      }
+    });
+
+    it('error guards: aborts when a batch 7 category id already exists in vocabulary', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b7-guard-cat-'));
+      try {
+        const tempHtml = path.join(tmpDir, 'index.html');
+        let baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        // Introduce category collision: rename an existing category to natur
+        baseHtml = baseHtml.replace("id:'obst'", "id:'natur'");
+        fs.writeFileSync(tempHtml, baseHtml, 'utf8');
+        const origContent = fs.readFileSync(tempHtml, 'utf8');
+
+        expect(() => {
+          applyWordsBatch7(tempHtml, wordsBatch7Path, { dryRun: false });
+        }).toThrow("ID collision or partial batch 7 application: category 'natur' or word 'none' already exists in vocabulary (1/2 cats, 0/80 words present). Aborting.");
+
+        expect(fs.readFileSync(tempHtml, 'utf8')).toBe(origContent);
+      } finally {
+        fs.rmSync(tmpDir, { recursive: true, force: true });
+      }
+    });
+
+    it('error guards: aborts when a batch 7 word id already exists in vocabulary', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b7-guard-word-'));
+      try {
+        const tempHtml = path.join(tmpDir, 'index.html');
+        let baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        // Introduce word collision: rename an existing word to natur.baum
+        baseHtml = baseHtml.replace("id:'obst.apfel'", "id:'natur.baum'");
+        fs.writeFileSync(tempHtml, baseHtml, 'utf8');
+        const origContent = fs.readFileSync(tempHtml, 'utf8');
+
+        expect(() => {
+          applyWordsBatch7(tempHtml, wordsBatch7Path, { dryRun: false });
+        }).toThrow("ID collision or partial batch 7 application: category 'none' or word 'natur.baum' already exists in vocabulary (0/2 cats, 1/80 words present). Aborting.");
+
+        expect(fs.readFileSync(tempHtml, 'utf8')).toBe(origContent);
+      } finally {
+        fs.rmSync(tmpDir, { recursive: true, force: true });
+      }
+    });
+
+    it('error guards: aborts when batch 7 JSON is tampered (invalid count or missing category)', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b7-guard-tamper-'));
+      try {
+        const tempHtml = path.join(tmpDir, 'index.html');
+        const baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        fs.writeFileSync(tempHtml, baseHtml, 'utf8');
+        const origContent = fs.readFileSync(tempHtml, 'utf8');
+
+        // Tampered JSON: 1 category instead of 2
+        const tamperedJsonPath = path.join(tmpDir, 'tampered_cat.json');
+        const batch7Data = JSON.parse(fs.readFileSync(wordsBatch7Path, 'utf8'));
+        batch7Data.categories = [batch7Data.categories[0]];
+        fs.writeFileSync(tamperedJsonPath, JSON.stringify(batch7Data, null, 2), 'utf8');
+
+        expect(() => {
+          applyWordsBatch7(tempHtml, tamperedJsonPath, { dryRun: false });
+        }).toThrow(/Expected exactly 2 categories in batch 7/);
+
+        // Tampered JSON: word count mismatch in category
+        const badWordCountJsonPath = path.join(tmpDir, 'bad_word_count.json');
+        const batch7DataBadWords = JSON.parse(fs.readFileSync(wordsBatch7Path, 'utf8'));
+        batch7DataBadWords.categories[0].words = batch7DataBadWords.categories[0].words.slice(0, 39); // 39 instead of 40
+        fs.writeFileSync(badWordCountJsonPath, JSON.stringify(batch7DataBadWords, null, 2), 'utf8');
+
+        expect(() => {
+          applyWordsBatch7(tempHtml, badWordCountJsonPath, { dryRun: false });
+        }).toThrow(/expected 40 words/i);
+
+        expect(fs.readFileSync(tempHtml, 'utf8')).toBe(origContent);
+      } finally {
+        fs.rmSync(tmpDir, { recursive: true, force: true });
+      }
+    });
+  });
+
 });

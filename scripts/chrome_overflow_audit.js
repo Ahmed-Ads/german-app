@@ -39,7 +39,11 @@ const screens = [
   { key: 'reisen_modes', name: 'Reisen Modes' },
   { key: 'reisen_wordlist', name: 'Reisen Wordlist' },
   { key: 'arbeit_modes', name: 'Arbeit Modes' },
-  { key: 'arbeit_wordlist', name: 'Arbeit Wordlist' }
+  { key: 'arbeit_wordlist', name: 'Arbeit Wordlist' },
+  { key: 'natur_modes', name: 'Natur Modes' },
+  { key: 'natur_wordlist', name: 'Natur Wordlist' },
+  { key: 'freizeit_modes', name: 'Freizeit Modes' },
+  { key: 'freizeit_wordlist', name: 'Freizeit Wordlist' }
 ];
 
 const screensDir = path.resolve(__dirname, '..', 'audit', 'windows_results', 'screens');
@@ -314,6 +318,18 @@ window.addEventListener('DOMContentLoaded', async () => {
     await auditScreen('arbeit_modes');
     win.go({ screen: 'wordlist', catId: 'arbeit' });
     await auditScreen('arbeit_wordlist');
+
+    // 24. Natur Modes & Wordlist
+    win.go({ screen: 'modes', catId: 'natur' });
+    await auditScreen('natur_modes');
+    win.go({ screen: 'wordlist', catId: 'natur' });
+    await auditScreen('natur_wordlist');
+
+    // 25. Freizeit Modes & Wordlist
+    win.go({ screen: 'modes', catId: 'freizeit' });
+    await auditScreen('freizeit_modes');
+    win.go({ screen: 'wordlist', catId: 'freizeit' });
+    await auditScreen('freizeit_wordlist');
 
   } catch(e) {
     results.error = e.message;
