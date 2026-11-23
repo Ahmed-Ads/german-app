@@ -10476,15 +10476,26 @@ function addDaysToStr(dateStr, numDays){
   d.setDate(d.getDate() + numDays);
   return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
 }
-function updateSrs(catId, target, ok){
+function updateSrs(catId, target, ok, mode){
+  // Recognition-only successes (multiple choice, or the self-rated flashcard "I know it") can
+  // bring a new or lapsed word into box 1 but never push it further: only typed recall,
+  // listening, article/plural/conjugation practice can advance a word to the longer intervals.
+  // (kept inside the function so the function stays self-contained)
+  const recognitionModes = ['mcq', 'flashcard'];
   const wid = resolveWordId(catId, target);
   if(!wid) return;
   const now = todayStr();
   const rec = srsStore[wid] || { box: 0, lastDate: now, nextDate: now };
   if(ok){
-    rec.box = Math.min((rec.box || 0) + 1, SRS_INTERVALS.length - 1);
+    if(recognitionModes.includes(mode)){
+      if((rec.box || 0) >= 1) return;
+      rec.box = 1;
+    } else {
+      rec.box = Math.min((rec.box || 0) + 1, SRS_INTERVALS.length - 1);
+    }
   } else {
-    rec.box = 0;
+    // a miss moves the word back one box (not all the way to the start)
+    rec.box = Math.max((rec.box || 0) - 1, 0);
   }
   const interval = SRS_INTERVALS[rec.box];
   rec.lastDate = now;
@@ -13338,7 +13349,7 @@ function renderFlashcards(){
     exState.known++;
     recordActivity(true, item.catId, item.idx);
     refreshGoalDisplay();
-    updateSrs(item.catId, item.idx, true);
+    updateSrs(item.catId, item.idx, true, 'flashcard');
     exState.pos++;
     renderFlashcards();
   });
@@ -13347,7 +13358,7 @@ function renderFlashcards(){
     exState.repeated++;
     recordActivity(false, item.catId, item.idx);
     refreshGoalDisplay();
-    updateSrs(item.catId, item.idx, false);
+    updateSrs(item.catId, item.idx, false, 'flashcard');
     exState.pos++;
     renderFlashcards();
   });
@@ -13472,7 +13483,9 @@ function renderSrsReviewStep(){
     <div id="qzone"></div>
   `;
   document.getElementById('backBtn').addEventListener('click', ()=> goBack({screen:'home'}));
-  renderQuestion(realCat, 'mcq', item.idx, w);
+  // new or lapsed words (box 1) are reviewed by multiple choice; words already in box 2 or
+  // higher are reviewed by typing, because retrieval from memory is what sets the next interval
+  renderQuestion(realCat, item.box >= 2 ? 'written' : 'mcq', item.idx, w);
 }
 
 function renderStarredReviewStep(){
@@ -13813,7 +13826,7 @@ function applyResult(catId, mode, idx, ok){
     throw new Error(`Unknown progress mode: ${mode}`);
   }
   if(exState && (exState.kind === 'globalStep' || exState.kind === 'diffStep' || exState.kind === 'srsStep' || exState.kind === 'starStep')) exState.lastOk = ok;
-  updateSrs(catId, idx, ok);
+  updateSrs(catId, idx, ok, mode);
   recordActivity(ok);
   refreshGoalDisplay();
   const th = threshFor(mode);
