@@ -40,7 +40,7 @@ BASELINE_PATH = os.path.join(SCRIPT_DIR, 'vocab_baseline.json')
 CHANGELOG_PATH = os.path.join(SCRIPT_DIR, 'CHANGELOG_VOCAB.md')
 
 TARGET_FILES = [
-    os.path.join(SCRIPT_DIR, 'index.html')
+    os.path.join(SCRIPT_DIR, 'data', 'categories.js')
 ]
 
 def compute_canonical_hash(categories):
@@ -50,8 +50,9 @@ def compute_canonical_hash(categories):
 
 def extract_vocab_from_html(html_path):
     """
-    Extracts the CATEGORIES array from HTML using a real JavaScript VM runner (Node.js).
-    Invokes scripts/extract_categories_ast.js via list-form subprocess.
+    Extracts the CATEGORIES array from the vocabulary data file using a real
+    JavaScript VM runner (Node.js). Invokes scripts/extract_categories_ast.js
+    via list-form subprocess.
     """
     if not os.path.exists(html_path):
         return None, [f"File does not exist: {html_path}"]
@@ -236,7 +237,7 @@ def update_baseline_cmd(args, baseline):
     print("  ⚠️ تحديث قاعدة البيانات المرجعية الرسمية (Deliberate Baseline Update)")
     print("=" * 70)
 
-    # Extract latest from primary source (index.html)
+    # Extract latest from primary source (data/categories.js)
     primary_html = TARGET_FILES[0]
     extracted, errors = extract_vocab_from_html(primary_html)
     if errors or not extracted:

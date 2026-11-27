@@ -32,7 +32,8 @@ const retiredIds = JSON.parse(fs.readFileSync(retiredPath, 'utf8'));
 function createTestContext() {
   const scripts = [...htmlContent.matchAll(/<script(?![^>]*src=)(?:[^>]*)>([\s\S]*?)<\/script>/gi)];
   if (scripts.length < 2) throw new Error('Could not find main script in index.html');
-  const mainScript = scripts[1][1].replace(/\ninit\(\);/g, '\n// init();');
+  const categoriesSource = fs.readFileSync(path.join(rootDir, 'data', 'categories.js'), 'utf8');
+  const mainScript = (categoriesSource + '\n' + scripts[1][1]).replace(/\ninit\(\);/g, '\n// init();');
 
   const sandbox = {
     console,

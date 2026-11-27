@@ -56,6 +56,20 @@ import {
 describe('scripts/apply_vocab_changes.js unit tests', () => {
   const rootDir = path.resolve(__dirname, '..');
   const indexHtmlPath = path.join(rootDir, 'index.html');
+  const categoriesPath = path.join(rootDir, 'data', 'categories.js');
+  const categoriesSource = fs.readFileSync(categoriesPath, 'utf8');
+
+  // The batch tools accept both the current split layout (index.html +
+  // data/categories.js) and the historical self-contained layout. These tests
+  // rebuild self-contained base documents, so the split vocabulary is inlined
+  // back into the main application script before reverting edits.
+  function inlineCategories(html) {
+    if (html.includes('const CATEGORIES = [')) return html;
+    const marker = html.lastIndexOf('<script>');
+    if (marker === -1) throw new Error('Could not find main <script> tag in index.html');
+    const insertAt = marker + '<script>'.length;
+    return html.slice(0, insertAt) + '\n' + categoriesSource + html.slice(insertAt);
+  }
   const batch1Path = path.join(rootDir, 'docs', 'vocab_changes_batch1.json');
   const sentencesBatch1Path = path.join(rootDir, 'tools', 'vocab_changes_sentences_batch1.json');
   const sentencesBatch2Path = path.join(rootDir, 'tools', 'vocab_changes_sentences_batch2.json');
@@ -222,7 +236,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-p4-check-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
-      const baseHtml = revertEdits(fs.readFileSync(indexHtmlPath, 'utf8'), sentencesDedupePath);
+      const baseHtml = revertEdits(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')), sentencesDedupePath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
       const res = applyVocabChanges({
@@ -241,7 +255,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vocab-b3a-check-'));
     try {
       const tempHtml = path.join(tmpDir, 'index.html');
-      const baseHtml = revertEdits(fs.readFileSync(indexHtmlPath, 'utf8'), sentencesDedupePath);
+      const baseHtml = revertEdits(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')), sentencesDedupePath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
       const res = applyVocabChanges({
@@ -293,7 +307,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const changesData = JSON.parse(fs.readFileSync(sentencesBatch2Path, 'utf8'));
 
       // Reconstruct batch 2 base HTML by reverting dedupe, 4, 3b, 3a, pilot 4, and batch 2 edits
-      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      let baseHtml = inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'));
       baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       baseHtml = revertEdits(baseHtml, sentencesBatch3bPath);
@@ -382,7 +396,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const changesData = JSON.parse(fs.readFileSync(sentencesPilot4Path, 'utf8'));
 
       // Construct base HTML by reverting dedupe, 4, 3b, 3a, and pilot 4 values
-      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      let baseHtml = inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'));
       baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       baseHtml = revertEdits(baseHtml, sentencesBatch3bPath);
@@ -470,7 +484,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const changesData = JSON.parse(fs.readFileSync(sentencesBatch3aPath, 'utf8'));
 
       // Construct base HTML by reverting dedupe, 4, 3b and 3a values
-      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      let baseHtml = inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'));
       baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       baseHtml = revertEdits(baseHtml, sentencesBatch3bPath);
@@ -557,7 +571,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const changesData = JSON.parse(fs.readFileSync(sentencesBatch3bPath, 'utf8'));
 
       // Construct base HTML by reverting dedupe, 4 and 3b values
-      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      let baseHtml = inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'));
       baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       baseHtml = revertEdits(baseHtml, sentencesBatch3bPath);
@@ -643,7 +657,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const changesData = JSON.parse(fs.readFileSync(sentencesBatch4Path, 'utf8'));
 
       // Construct base HTML by reverting dedupe and batch 4 values
-      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      let baseHtml = inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'));
       baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       baseHtml = revertEdits(baseHtml, sentencesBatch4Path);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -728,7 +742,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const changesData = JSON.parse(fs.readFileSync(sentencesDedupePath, 'utf8'));
 
       // Construct base HTML by reverting dedupe values
-      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      let baseHtml = inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'));
       baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
@@ -812,7 +826,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const changesData = JSON.parse(fs.readFileSync(sentencesDedupePath, 'utf8'));
 
       // Construct base HTML
-      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      let baseHtml = inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'));
       baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
       const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -845,7 +859,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const changesData = JSON.parse(fs.readFileSync(sentencesDedupePath, 'utf8'));
 
       // Construct base HTML
-      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      let baseHtml = inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'));
       baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
       const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -875,7 +889,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const changesData = JSON.parse(fs.readFileSync(sentencesDedupePath, 'utf8'));
 
       // Construct base HTML
-      let baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+      let baseHtml = inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'));
       baseHtml = revertEdits(baseHtml, sentencesDedupePath);
       fs.writeFileSync(tempHtml, baseHtml, 'utf8');
       const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -939,7 +953,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 2 (first remove batch 6, then batch 5, then batch 3, then batch 2)
-        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
+        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')))))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -983,7 +997,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // A base copy that is modified so its hash does not match EXPECTED_BASE_HASH
-        let baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
+        let baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')))))));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1002,7 +1016,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-b2-guard-id-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
+        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')))))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1026,7 +1040,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-b2-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
+        const baseHtml = removeBatch2Verbs(removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')))))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1071,7 +1085,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 3 (first remove batch 6, then batch 5, then batch 3)
-        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
+        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -1115,7 +1129,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // A base copy that is modified so its hash does not match BATCH3_EXPECTED_BASE_HASH
-        let baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
+        let baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1134,7 +1148,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-b3-guard-id-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
+        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1158,7 +1172,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-b3-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')))));
+        const baseHtml = removeBatch3Verbs(removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'))))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1205,7 +1219,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 5 (first remove batch 6, then batch 5)
-        const baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
+        const baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -1255,7 +1269,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b5-guard-hash-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
+        let baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')))));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1274,7 +1288,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b5-guard-cat-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
+        let baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')))));
         // Introduce category collision: rename an existing category to gesundheit
         baseHtml = baseHtml.replace("id:'obst'", "id:'gesundheit'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1294,7 +1308,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b5-guard-word-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
+        let baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')))));
         // Introduce word collision: rename an existing word to gesundheit.gesundheit
         baseHtml = baseHtml.replace("id:'obst.apfel'", "id:'gesundheit.gesundheit'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1314,7 +1328,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b5-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'))));
+        const baseHtml = removeBatch5Categories(removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1362,7 +1376,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 6 (remove batch 6)
-        const baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        const baseHtml = removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -1412,7 +1426,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b6-guard-hash-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        let baseHtml = removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1431,7 +1445,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b6-guard-cat-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        let baseHtml = removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         // Introduce category collision: rename an existing category to reisen
         baseHtml = baseHtml.replace("id:'obst'", "id:'reisen'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1451,7 +1465,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b6-guard-word-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        let baseHtml = removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         // Introduce word collision: rename an existing word to reisen.koffer
         baseHtml = baseHtml.replace("id:'obst.apfel'", "id:'reisen.koffer'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1471,7 +1485,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b6-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch6Categories(removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8')));
+        const baseHtml = removeBatch6Categories(removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8'))));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1518,7 +1532,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 7 (remove batch 7)
-        const baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        const baseHtml = removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -1568,7 +1582,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b7-guard-hash-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1587,7 +1601,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b7-guard-cat-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         // Introduce category collision: rename an existing category to natur
         baseHtml = baseHtml.replace("id:'obst'", "id:'natur'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1607,7 +1621,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b7-guard-word-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         // Introduce word collision: rename an existing word to natur.baum
         baseHtml = baseHtml.replace("id:'obst.apfel'", "id:'natur.baum'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1627,7 +1641,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b7-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch7Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        const baseHtml = removeBatch7Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1675,7 +1689,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 8 (remove batch 8)
-        const baseHtml = removeBatch8Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        const baseHtml = removeBatch8Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -1725,7 +1739,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b8-guard-hash-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch8Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch8Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1744,7 +1758,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b8-guard-cat-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch8Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch8Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         // Introduce category collision: rename an existing category to restaurant
         baseHtml = baseHtml.replace("id:'obst'", "id:'restaurant'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1764,7 +1778,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b8-guard-word-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch8Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch8Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         // Introduce word collision: rename an existing word to restaurant.speisekarte
         baseHtml = baseHtml.replace("id:'obst.apfel'", "id:'restaurant.speisekarte'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1784,7 +1798,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b8-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch8Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        const baseHtml = removeBatch8Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 
@@ -1832,7 +1846,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
         // Reconstruct base HTML before batch 9 (remove batch 9)
-        const baseHtml = removeBatch9Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        const baseHtml = removeBatch9Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
 
         // Verify base copy has base canonical hash
@@ -1881,7 +1895,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b9-guard-hash-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch9Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch9Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         baseHtml = baseHtml.replace("id:'obst.apfel',a:'der',n:'Apfel'", "id:'obst.apfel',a:'der',n:'ApfelX'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
@@ -1900,7 +1914,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b9-guard-cat-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch9Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch9Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         // Introduce category collision: rename an existing category to gegensaetze
         baseHtml = baseHtml.replace("id:'obst'", "id:'gegensaetze'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1920,7 +1934,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b9-guard-word-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        let baseHtml = removeBatch9Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        let baseHtml = removeBatch9Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         // Introduce word collision: rename an existing word to gegensaetze.gross
         baseHtml = baseHtml.replace("id:'obst.apfel'", "id:'gegensaetze.gross'");
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
@@ -1940,7 +1954,7 @@ describe('scripts/apply_vocab_changes.js unit tests', () => {
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'words-b9-guard-tamper-'));
       try {
         const tempHtml = path.join(tmpDir, 'index.html');
-        const baseHtml = removeBatch9Categories(fs.readFileSync(indexHtmlPath, 'utf8'));
+        const baseHtml = removeBatch9Categories(inlineCategories(fs.readFileSync(indexHtmlPath, 'utf8')));
         fs.writeFileSync(tempHtml, baseHtml, 'utf8');
         const origContent = fs.readFileSync(tempHtml, 'utf8');
 

@@ -27,6 +27,7 @@ import { extractFunction } from './extract_written.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const html = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8');
+const stylesCss = fs.readFileSync(path.resolve(__dirname, '../styles.css'), 'utf8');
 
 // Build a minimal sandbox that can run the extracted code with fake DOM
 function buildSandbox() {
@@ -176,7 +177,7 @@ describe('TASK 1 — Star Button: SVG markup and aria-pressed', () => {
   });
 
   it('unstarred and starred star buttons render visually different markup (CSS classes differ)', () => {
-    const css = html.match(/<style[\s\S]*?<\/style>/)?.[0] ?? '';
+    const css = stylesCss;
     expect(css).toContain('.star-btn .st-outline');
     expect(css).toContain('.star-btn.starred .st-outline');
     expect(css).toMatch(/\.star-btn\s+\.st-outline\s*\{[^}]*display\s*:\s*block/);
@@ -237,7 +238,7 @@ describe('TASK 1 — Star Button: SVG markup and aria-pressed', () => {
   });
 
   it('dark mode CSS is present for star outline color', () => {
-    const css = html.match(/<style[\s\S]*?<\/style>/)?.[0] ?? '';
+    const css = stylesCss;
     expect(css).toMatch(/@media\s*\(prefers-color-scheme:\s*dark\)[\s\S]*?\.star-btn/);
   });
 });
@@ -301,7 +302,7 @@ describe('TASK 2 — Skip button handler & toast dismiss safety', () => {
   });
 
   it('CSS for skip-word-btn is defined with min-height >= 40px', () => {
-    const css = html.match(/<style[\s\S]*?<\/style>/)?.[0] ?? '';
+    const css = stylesCss;
     expect(css).toContain('.skip-word-btn');
     expect(css).toMatch(/min-height\s*:\s*40px/);
   });

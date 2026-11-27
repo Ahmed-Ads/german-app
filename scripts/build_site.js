@@ -5,9 +5,11 @@
  * 
  * Copies ONLY:
  *  - index.html
+ *  - styles.css
  *  - sw.js
  *  - manifest.json
  *  - _headers
+ *  - data/categories.js
  *  - icons/
  *  - fonts/
  * 
@@ -51,7 +53,7 @@ function buildSite(customSiteDir = null) {
   fs.mkdirSync(targetDir, { recursive: true });
 
   // 2. Specific files to copy
-  const filesToCopy = ['index.html', 'sw.js', 'manifest.json', '_headers', 'firebase-config.js'];
+  const filesToCopy = ['index.html', 'styles.css', 'sw.js', 'manifest.json', '_headers', 'firebase-config.js'];
   for (const file of filesToCopy) {
     const srcPath = path.join(rootDir, file);
     const destPath = path.join(targetDir, file);
@@ -63,8 +65,9 @@ function buildSite(customSiteDir = null) {
     console.log(`  ✓ Copied: ${file} -> ${file}`);
   }
 
-  // 3. Sync modules and vendor bundle
+  // 3. Sync modules, vocabulary data, and vendor bundle
   const syncFiles = [
+    { src: 'data/categories.js', dest: 'data/categories.js' },
     { src: 'sync/legacy_index_ids.js', dest: 'sync/legacy_index_ids.js' },
     { src: 'sync/merge_policy.js', dest: 'sync/merge_policy.js' },
     { src: 'sync/firebase_adapter.js', dest: 'sync/firebase_adapter.js' },

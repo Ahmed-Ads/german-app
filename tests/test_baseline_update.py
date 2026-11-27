@@ -19,7 +19,8 @@ def test_baseline_update():
 
     with tempfile.TemporaryDirectory() as temp_dir:
         # Copy required files
-        shutil.copy2(os.path.join(repo_root, 'index.html'), os.path.join(temp_dir, 'index.html'))
+        os.makedirs(os.path.join(temp_dir, 'data'), exist_ok=True)
+        shutil.copy2(os.path.join(repo_root, 'data', 'categories.js'), os.path.join(temp_dir, 'data', 'categories.js'))
         shutil.copy2(os.path.join(repo_root, 'vocab_baseline.json'), os.path.join(temp_dir, 'vocab_baseline.json'))
         shutil.copy2(os.path.join(repo_root, 'CHANGELOG_VOCAB.md'), os.path.join(temp_dir, 'CHANGELOG_VOCAB.md'))
         shutil.copy2(os.path.join(repo_root, 'verify_vocab.py'), os.path.join(temp_dir, 'verify_vocab.py'))
@@ -40,16 +41,16 @@ def test_baseline_update():
         import hashlib
         old_hash = hashlib.sha256(old_canonical.encode('utf-8')).hexdigest()
 
-        # Mutate a sentence in index.html
-        with open(os.path.join(temp_dir, 'index.html'), 'r', encoding='utf-8') as f:
+        # Mutate a sentence in data/categories.js
+        with open(os.path.join(temp_dir, 'data', 'categories.js'), 'r', encoding='utf-8') as f:
             html = f.read()
 
         target_str = "s:'Ich esse jeden Tag einen Apfel.'"
         replacement_str = "s:'Ich esse jeden Tag einen besonders leckeren Apfel.'"
-        assert target_str in html, f"Target string not found in index.html"
+        assert target_str in html, f"Target string not found in data/categories.js"
         mutated_html = html.replace(target_str, replacement_str, 1)
 
-        with open(os.path.join(temp_dir, 'index.html'), 'w', encoding='utf-8') as f:
+        with open(os.path.join(temp_dir, 'data', 'categories.js'), 'w', encoding='utf-8') as f:
             f.write(mutated_html)
 
         # Run verify_vocab.py --update-baseline

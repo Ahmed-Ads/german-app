@@ -72,6 +72,8 @@ describe('Site Build & Distribution Integrity (site/)', () => {
     expect(fs.existsSync(path.join(tempSiteDir, 'sw.js')), 'Missing site/sw.js').toBe(true);
     expect(fs.existsSync(path.join(tempSiteDir, 'index.html')), 'Missing site/index.html').toBe(true);
     expect(fs.existsSync(path.join(tempSiteDir, 'manifest.json')), 'Missing site/manifest.json').toBe(true);
+    expect(fs.existsSync(path.join(tempSiteDir, 'styles.css')), 'Missing site/styles.css').toBe(true);
+    expect(fs.existsSync(path.join(tempSiteDir, 'data', 'categories.js')), 'Missing site/data/categories.js').toBe(true);
   });
 
   it('contains zero forbidden directories or files (tests, audit, scripts, proof, node_modules, .bak, .git, etc.)', () => {
@@ -91,10 +93,12 @@ describe('Site Build & Distribution Integrity (site/)', () => {
     const actualFiles = getAllFiles(tempSiteDir);
     const allowedFiles = new Set([
       'index.html',
+      'styles.css',
       'sw.js',
       'manifest.json',
       '_headers',
       'firebase-config.js',
+      'data/categories.js',
       'sync/legacy_index_ids.js',
       'sync/merge_policy.js',
       'sync/firebase_adapter.js',

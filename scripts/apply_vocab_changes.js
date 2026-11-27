@@ -4,7 +4,7 @@
  * ---------------------------------
  * Applies owner-approved vocabulary review described by a changes JSON file
  * (default docs/vocab_changes_batch1.json, or custom e.g. tools/vocab_changes_sentences_batch1.json)
- * to the CATEGORIES data in index.html.
+ * to the CATEGORIES data in data/categories.js (or, for legacy fixtures, inline in index.html).
  *
  * Rules:
  * 1. Structured, exact edit (never a blind global replace).
@@ -23,8 +23,11 @@ const path = require('path');
 const vm = require('vm');
 const crypto = require('crypto');
 
+const { resolveCategoriesSource } = require('./vocab_source.js');
+
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DEFAULT_HTML_PATH = path.join(ROOT_DIR, 'index.html');
+const DEFAULT_CATEGORIES_PATH = path.join(ROOT_DIR, 'data', 'categories.js');
 const DEFAULT_CHANGES_PATH = path.join(ROOT_DIR, 'docs', 'vocab_changes_batch1.json');
 
 function escapeRegExp(string) {
@@ -34,7 +37,7 @@ function escapeRegExp(string) {
 function extractCategoriesFromHtml(html) {
   const declPattern = /const\s+CATEGORIES\s*=\s*\[/;
   const match = declPattern.exec(html);
-  if (!match) throw new Error("Could not find 'const CATEGORIES = [' in HTML");
+  if (!match) throw new Error("Could not find 'const CATEGORIES = [' in the vocabulary source");
 
   const arrayStartIndex = match.index + match[0].length - 1;
   let depth = 0;
@@ -122,7 +125,7 @@ function checkInlineScriptsSyntax(html) {
   });
 }
 
-function applyVocabChanges({ htmlPath = DEFAULT_HTML_PATH, changesPath = DEFAULT_CHANGES_PATH, dryRun = false } = {}) {
+function applyVocabChanges({ htmlPath = DEFAULT_HTML_PATH, categoriesPath = DEFAULT_CATEGORIES_PATH, changesPath = DEFAULT_CHANGES_PATH, dryRun = false } = {}) {
   if (!fs.existsSync(changesPath)) {
     throw new Error(`Changes file not found: ${changesPath}`);
   }
@@ -132,10 +135,11 @@ function applyVocabChanges({ htmlPath = DEFAULT_HTML_PATH, changesPath = DEFAULT
 
   const changes = JSON.parse(fs.readFileSync(changesPath, 'utf8'));
   const keepCategories = new Set(changes.keep_untouched_categories || ['section-names']);
-  const rawHtml = fs.readFileSync(htmlPath, 'utf8').replace(/\r\n/g, '\n');
+  const { mode, sourceText, sourcePath } = resolveCategoriesSource(htmlPath, categoriesPath);
+  const rawSource = sourceText.replace(/\r\n/g, '\n');
 
   // Extract current categories
-  const currentCategories = extractCategoriesFromHtml(rawHtml);
+  const currentCategories = extractCategoriesFromHtml(rawSource);
   const currentWordsMap = new Map();
   for (const cat of currentCategories) {
     for (const w of cat.words) {
@@ -231,7 +235,7 @@ function applyVocabChanges({ htmlPath = DEFAULT_HTML_PATH, changesPath = DEFAULT
   }
 
   if (errors.length > 0) {
-    const msg = `CRITICAL VALIDATION FAILURE: ${errors.length} error(s) found! Refusing to modify ${path.basename(htmlPath)}.\n` +
+    const msg = `CRITICAL VALIDATION FAILURE: ${errors.length} error(s) found! Refusing to modify ${path.basename(sourcePath)}.\n` +
       errors.map(err => "  - " + err).join('\n');
     const err = new Error(msg);
     err.validationErrors = errors;
@@ -246,7 +250,7 @@ function applyVocabChanges({ htmlPath = DEFAULT_HTML_PATH, changesPath = DEFAULT
     editMap.get(e.id).push(e);
   }
 
-  const lines = rawHtml.split('\n');
+  const lines = rawSource.split('\n');
   const newLines = [];
   let inCategories = false;
   let catWordIndices = [];
@@ -354,7 +358,11 @@ function applyVocabChanges({ htmlPath = DEFAULT_HTML_PATH, changesPath = DEFAULT
   const transformedHtml = newLines.join('\n');
 
   // 5. Post-Transformation Integrity Verification
-  checkInlineScriptsSyntax(transformedHtml);
+  if (mode === 'inline') {
+    checkInlineScriptsSyntax(transformedHtml);
+  } else {
+    new vm.Script(transformedHtml, { filename: sourcePath });
+  }
 
   const updatedCategories = extractCategoriesFromHtml(transformedHtml);
   const expectedCategoryCount = currentCategories.length;
@@ -419,7 +427,7 @@ function applyVocabChanges({ htmlPath = DEFAULT_HTML_PATH, changesPath = DEFAULT
   if (dryRun) {
     // Do not write to disk
   } else {
-    fs.writeFileSync(htmlPath, transformedHtml, 'utf8');
+    fs.writeFileSync(sourcePath, transformedHtml, 'utf8');
   }
 
   return {
@@ -443,6 +451,7 @@ function main() {
   try {
     const res = applyVocabChanges({
       htmlPath: DEFAULT_HTML_PATH,
+      categoriesPath: DEFAULT_CATEGORIES_PATH,
       changesPath,
       dryRun
     });
@@ -456,7 +465,7 @@ function main() {
     if (res.dryRun) {
       console.log("Dry run: no changes written to disk.");
     } else {
-      console.log(`Successfully updated ${DEFAULT_HTML_PATH}`);
+      console.log(`Successfully updated ${DEFAULT_CATEGORIES_PATH}`);
     }
     process.exit(0);
   } catch (err) {

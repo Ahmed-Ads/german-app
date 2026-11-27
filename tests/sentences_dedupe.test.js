@@ -5,11 +5,11 @@ import { extractCategoriesFromHtml } from '../scripts/apply_vocab_changes.js';
 
 describe('Release v1.26 Sentences Deduplication Quality, Structure & Global Uniqueness', () => {
   const rootDir = path.resolve(__dirname, '..');
-  const indexHtmlPath = path.join(rootDir, 'index.html');
+  const categoriesPath = path.join(rootDir, 'data', 'categories.js');
   const changesPath = path.join(rootDir, 'tools', 'vocab_changes_sentences_dedupe.json');
 
   const changes = JSON.parse(fs.readFileSync(changesPath, 'utf8'));
-  const html = fs.readFileSync(indexHtmlPath, 'utf8');
+  const html = fs.readFileSync(categoriesPath, 'utf8');
   const categories = extractCategoriesFromHtml(html);
 
   const allWords = [];
@@ -87,7 +87,7 @@ describe('Release v1.26 Sentences Deduplication Quality, Structure & Global Uniq
     }
   });
 
-  it('verifies all 3 words in index.html match the dedupe values (s and sar)', () => {
+  it('verifies all 3 words in data/categories.js match the dedupe values (s and sar)', () => {
     for (const e of changes.edit) {
       const w = wordMap.get(e.id);
       expect(w).toBeDefined();

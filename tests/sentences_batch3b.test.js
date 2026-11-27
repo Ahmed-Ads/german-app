@@ -5,11 +5,11 @@ import { extractCategoriesFromHtml } from '../scripts/apply_vocab_changes.js';
 
 describe('Release v1.24 Sentences Batch 3b Quality & Structure Checks', () => {
   const rootDir = path.resolve(__dirname, '..');
-  const indexHtmlPath = path.join(rootDir, 'index.html');
+  const categoriesPath = path.join(rootDir, 'data', 'categories.js');
   const changesPath = path.join(rootDir, 'tools', 'vocab_changes_sentences_batch3b.json');
 
   const changes = JSON.parse(fs.readFileSync(changesPath, 'utf8'));
-  const html = fs.readFileSync(indexHtmlPath, 'utf8');
+  const html = fs.readFileSync(categoriesPath, 'utf8');
   const categories = extractCategoriesFromHtml(html);
 
   const targetCategoryIds = ['werkzeuge', 'sport', 'musik', 'technik'];
@@ -119,7 +119,7 @@ describe('Release v1.24 Sentences Batch 3b Quality & Structure Checks', () => {
     expect(arabicSentences.size).toBe(125);
   });
 
-  it('verifies all 125 words in index.html match the new sentence values (s and sar)', () => {
+  it('verifies all 125 words in data/categories.js match the new sentence values (s and sar)', () => {
     for (const e of changes.edit) {
       const w = wordMap.get(e.id);
       expect(w).toBeDefined();

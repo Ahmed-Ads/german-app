@@ -23,6 +23,8 @@ const path = require('path');
 const vm = require('vm');
 const crypto = require('crypto');
 
+const { resolveCategoriesSource } = require('../scripts/vocab_source.js');
+
 const EXPECTED_BASE_HASH = '3997584f3d925b1ee88db7e9096c08d88bcd9630a43401902f9d1379cf7da5ae';
 const EXPECTED_NEW_HASH = '2b64f6c6f68a002b348da6df7f6b8254d8126e80a2c6369c2e38b12633f061d6';
 const EXPECTED_VERB_FORMS_CHECKSUM = 'c2d747185f9f66d27921f0320124098d2ad0ab65a308e3c15d7a3c295e0cfe72';
@@ -53,7 +55,7 @@ function computeCanonicalHash(categories) {
   return crypto.createHash('sha256').update(Buffer.from(cjson, 'utf8')).digest('hex');
 }
 
-function extractCategoriesAndVerbForms(htmlContent) {
+function extractCategoriesAndVerbForms(htmlContent, categoriesSource) {
   const scripts = [...htmlContent.matchAll(/<script(?![^>]*src=)(?:[^>]*)>([\s\S]*?)<\/script>/gi)];
   if (scripts.length < 2) {
     throw new Error('Could not find main application script in HTML');
@@ -102,7 +104,7 @@ function extractCategoriesAndVerbForms(htmlContent) {
   sandbox.window.document = sandbox.document;
 
   vm.createContext(sandbox);
-  vm.runInContext(mainScript, sandbox);
+  vm.runInContext((categoriesSource ? categoriesSource + '\n' : '') + mainScript, sandbox);
 
   return {
     categories: sandbox.window.CATEGORIES,
@@ -221,13 +223,13 @@ function applyWordsBatch6(htmlPath, jsonPath, options = {}) {
     throw new Error(`Words JSON file not found: ${jsonPath}`);
   }
 
-  const html = fs.readFileSync(htmlPath, 'utf8');
+  const { html, mode, sourceText, sourcePath, categoriesSource } = resolveCategoriesSource(htmlPath, options.categoriesPath);
   const batchData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
   const retiredPath = path.join(path.dirname(htmlPath), 'vocab_ids_retired.json');
   validateBatch6(batchData, retiredPath);
 
-  const { categories, verbForms } = extractCategoriesAndVerbForms(html);
+  const { categories, verbForms } = extractCategoriesAndVerbForms(html, categoriesSource);
 
   // Check VERB_FORMS checksum
   const vfCanonical = JSON.stringify(verbForms);
@@ -311,22 +313,29 @@ function applyWordsBatch6(htmlPath, jsonPath, options = {}) {
 
   // Locate the closing of 'einkaufen' category and the end of CATEGORIES array
   const einkaufenEndRegex = /(\n\s*\{\s*id\s*:\s*['"]einkaufen['"][\s\S]*?\n\s*\]\s*\})(\s*\n\s*\]\s*;)/;
-  const match = html.match(einkaufenEndRegex);
+  const match = sourceText.match(einkaufenEndRegex);
   if (!match) {
     throw new Error("Could not locate the closing of 'einkaufen' category at the end of CATEGORIES");
   }
 
   const updatedCategoriesSection = `${match[1]},\n${serializedCategories}\n];`;
-  const transformedHtml = html.replace(einkaufenEndRegex, updatedCategoriesSection);
+  const transformedHtml = sourceText.replace(einkaufenEndRegex, updatedCategoriesSection);
 
-  // Verify inline scripts syntax
-  const scriptMatches = [...transformedHtml.matchAll(/<script(?![^>]*src=)(?:[^>]*)>([\s\S]*?)<\/script>/gi)];
-  scriptMatches.forEach((sm, i) => {
-    new vm.Script(sm[1], { filename: `transformed-inline-script-${i}.js` });
-  });
+  // Verify syntax of the transformed source
+  if (mode === 'inline') {
+    const scriptMatches = [...transformedHtml.matchAll(/<script(?![^>]*src=)(?:[^>]*)>([\s\S]*?)<\/script>/gi)];
+    scriptMatches.forEach((sm, i) => {
+      new vm.Script(sm[1], { filename: `transformed-inline-script-${i}.js` });
+    });
+  } else {
+    new vm.Script(transformedHtml, { filename: sourcePath });
+  }
 
   // Verify updated categories and compute new hash
-  const updatedState = extractCategoriesAndVerbForms(transformedHtml);
+  const updatedState = extractCategoriesAndVerbForms(
+    mode === 'inline' ? transformedHtml : html,
+    mode === 'inline' ? null : transformedHtml
+  );
   if (updatedState.categories.length !== 35) {
     throw new Error(`Verification failed: categories count is ${updatedState.categories.length}, expected 35`);
   }
@@ -354,7 +363,7 @@ function applyWordsBatch6(htmlPath, jsonPath, options = {}) {
   }
 
   if (!dryRun) {
-    fs.writeFileSync(htmlPath, transformedHtml, 'utf8');
+    fs.writeFileSync(sourcePath, transformedHtml, 'utf8');
   }
 
   return {

@@ -2,12 +2,13 @@
 /**
  * scripts/extract_categories_ast.js
  * ---------------------------------
- * Robust JavaScript AST / VM extractor for CATEGORIES array in HTML files.
+ * Robust JavaScript AST / VM extractor for the CATEGORIES array.
  * Uses balanced bracket matching respecting string literals, escapes, and comments.
  * Outputs normalized JSON to stdout.
  *
  * Usage:
- *   node scripts/extract_categories_ast.js <path-to-html-file>
+ *   node scripts/extract_categories_ast.js <path-to-categories-js-file>
+ *   (defaults to data/categories.js)
  */
 
 const fs = require('fs');
@@ -15,14 +16,14 @@ const path = require('path');
 const vm = require('vm');
 
 function main() {
-  const targetPath = process.argv[2] || path.join(__dirname, '..', 'index.html');
+  const targetPath = process.argv[2] || path.join(__dirname, '..', 'data', 'categories.js');
 
   if (!fs.existsSync(targetPath)) {
     process.stderr.write(`CRITICAL: File does not exist: ${targetPath}\n`);
     process.exit(1);
   }
 
-  // Read HTML file as UTF-8 and normalize CRLF to LF
+  // Read the data file as UTF-8 and normalize CRLF to LF
   const html = fs.readFileSync(targetPath, 'utf8').replace(/\r\n/g, '\n');
 
   const declPattern = /const\s+CATEGORIES\s*=\s*\[/;

@@ -31,12 +31,25 @@ const jsonPath = path.join(rootDir, 'tools', 'verbs_batch1.json');
 
 const htmlContent = fs.readFileSync(htmlPath, 'utf8');
 const expectedVerbsJson = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+const categoriesFileSource = fs.readFileSync(path.join(rootDir, 'data', 'categories.js'), 'utf8');
+
+// The batch tools accept both the split layout (index.html + data/categories.js)
+// and the historical self-contained layout. This helper rebuilds a
+// self-contained document so the pre-verben base can be reconstructed in text.
+function inlineCategories(html) {
+  if (html.includes('const CATEGORIES = [')) return html;
+  const marker = html.lastIndexOf('<script>');
+  if (marker === -1) throw new Error('Could not find main <script> tag in index.html');
+  const insertAt = marker + '<script>'.length;
+  return html.slice(0, insertAt) + '\n' + categoriesFileSource + html.slice(insertAt);
+}
 
 // Extract CATEGORIES, VERB_FORMS, renderVerbPanel, and searchVocabulary directly from index.html
 function createTestContext() {
   const scripts = [...htmlContent.matchAll(/<script(?![^>]*src=)(?:[^>]*)>([\s\S]*?)<\/script>/gi)];
   if (scripts.length < 2) throw new Error('Could not find main script in index.html');
-  const mainScript = scripts[1][1].replace(/\ninit\(\);/g, '\n// init();');
+  const categoriesSource = fs.readFileSync(path.join(rootDir, 'data', 'categories.js'), 'utf8');
+  const mainScript = (categoriesSource + '\n' + scripts[1][1]).replace(/\ninit\(\);/g, '\n// init();');
 
   const sandbox = {
     console,
@@ -319,7 +332,7 @@ describe('Task A & Rule 3: apply_verbs_batch1.js Idempotency Guard', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'verbs-apply-'));
     const tmpHtmlPath = path.join(tmpDir, `temp_test_apply_${Date.now()}.html`);
     // Create copy without verben and subsequent new categories
-    const pristineHtml = htmlContent.replace(/,\s*\{\s*id\s*:\s*['"]verben['"][\s\S]*?\n\s*\]\s*\}\s*\n\s*\]\s*;/, '\n];')
+    const pristineHtml = inlineCategories(htmlContent).replace(/,\s*\{\s*id\s*:\s*['"]verben['"][\s\S]*?\n\s*\]\s*\}\s*\n\s*\]\s*;/, '\n];')
       .replace(/\/\* Conjugation data for verbs[\s\S]*?window\.VERB_FORMS\s*=\s*VERB_FORMS;\s*\}/, '');
     fs.writeFileSync(tmpHtmlPath, pristineHtml, 'utf8');
 

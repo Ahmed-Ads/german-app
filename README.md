@@ -10,9 +10,12 @@
 
 ```text
 German_App/
-├── index.html                 # التطبيق الأساسي (الواجهة، المنطق، المفردات، إدارة الصوت)
+├── index.html                 # التطبيق الأساسي (الواجهة، المنطق، إدارة الصوت)
+├── styles.css                 # كافة أنماط التصميم (CSS) المستخرجة من index.html
+├── data/
+│   └── categories.js          # قاعدة بيانات المفردات (CATEGORIES) المستخرجة من index.html
 ├── manifest.json              # ملف تعريف تطبيق الويب التقدمي (PWA)
-├── sw.js                      # خادم الخدمة (Service Worker v11) لإدارة الكاش والعمل Offline
+├── sw.js                      # خادم الخدمة (Service Worker v25) لإدارة الكاش والعمل Offline
 ├── _headers                   # إعدادات ترويسات الاستضافة لمنع كاش sw.js و manifest.json على Cloudflare Pages
 ├── vocab_baseline.json        # قاعدة البيانات المرجعية المعتمدة للمفردات (SHA-256)
 ├── verify_vocab.py            # أداة التحقق التشفيري الصارم من سلامة 1601 مفردة
@@ -139,7 +142,7 @@ German_App/
    ```
    أو قم بتشغيل فحص ويندوز الشامل عبر النقر المزدوج على `Run_Windows_Checks.bat`.
 2. **ترقية إصدار الكاش (Bump CACHE_NAME):**
-   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً إلى `deutsch-lernen-v24`).
+   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً إلى `deutsch-lernen-v25`).
    - اختبار `tests/sw_static_check.test.js` يتحقق من اسم الكاش تلقائياً.
    - إن غيّرت أي ملف مخزّن مؤقتاً (مثل `sync/*.js` أو الخطوط أو الأيقونات) دون ترقية `CACHE_NAME` سيفشل اختبار `tests/sw_cache_version.test.js` ويخبرك بالخطوة المطلوبة. بعد الترقية شغّل:
      ```bash
@@ -161,13 +164,13 @@ German_App/
 ## 🛠️ 4. أين تعدّل ماذا؟ (Where to Change What)
 
 - **تعديل المفردات الألمانية (Vocabulary):**
-  - **تنبيه صارم (Rule R1):** لا تعدل الكلمات اعتباطياً. أي تعديل في المفردات داخل `index.html` يتطلب توثيقاً بمصادر لغوية معتمدة (Duden/DWDS)، وتحديثاً متعمداً لقاعدة المرجع عبر:
+  - **تنبيه صارم (Rule R1):** لا تعدل الكلمات اعتباطياً. أي تعديل في المفردات داخل `data/categories.js` يتطلب توثيقاً بمصادر لغوية معتمدة (Duden/DWDS)، وتحديثاً متعمداً لقاعدة المرجع عبر:
     ```bash
     python verify_vocab.py --update-baseline --reason "سبب التعديل" --source "المصدر اللغوي" --ids "المعرف"
     ```
     سيتم تسجيل الهاش الجديد تلقائياً في `CHANGELOG_VOCAB.md`.
 - **تعديل التصميم والألوان والأنماط (CSS):**
-  - يتم التعديل داخل قسم `<style>` في `index.html`. لا يتطلب تغيير الكاش لأن أنماط CSS تستخدم استراتيجية *Stale-While-Revalidate* وتتحدث فورياً في الخلفية.
+  - يتم التعديل داخل ملف `styles.css` (المحمّل من `index.html` عبر `<link rel="stylesheet">`). لا يتطلب تغيير الكاش لأن أنماط CSS تستخدم استراتيجية *Stale-While-Revalidate* وتتحدث فورياً في الخلفية.
 - **تعديل منطق التطبيق والواجهة (JavaScript):**
   - يتم داخل قسم `<script>` في `index.html`. بعد التعديل، يجب ترقية `CACHE_NAME` في `sw.js` ليحصل المستخدمون على التحديث.
 - **تعديل وترقية Service Worker (الكاش والعمل Offline):**

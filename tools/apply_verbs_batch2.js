@@ -21,6 +21,8 @@ const path = require('path');
 const vm = require('vm');
 const crypto = require('crypto');
 
+const { resolveCategoriesSource } = require('../scripts/vocab_source.js');
+
 const EXPECTED_BASE_HASH = 'dd1a2e139128ff3812faa89082605c087832c2393e5343a6245767c349d46a29';
 const EXPECTED_VERB_COUNT = 92;
 
@@ -44,7 +46,7 @@ function computeCanonicalHash(categories) {
   return crypto.createHash('sha256').update(Buffer.from(cjson, 'utf8')).digest('hex');
 }
 
-function extractCategoriesAndVerbForms(htmlContent) {
+function extractCategoriesAndVerbForms(htmlContent, categoriesSource) {
   const scripts = [...htmlContent.matchAll(/<script(?![^>]*src=)(?:[^>]*)>([\s\S]*?)<\/script>/gi)];
   if (scripts.length < 2) {
     throw new Error('Could not find main application script in HTML');
@@ -93,7 +95,7 @@ function extractCategoriesAndVerbForms(htmlContent) {
   sandbox.window.document = sandbox.document;
 
   vm.createContext(sandbox);
-  vm.runInContext(mainScript, sandbox);
+  vm.runInContext((categoriesSource ? categoriesSource + '\n' : '') + mainScript, sandbox);
 
   return {
     categories: sandbox.window.CATEGORIES,
@@ -166,10 +168,10 @@ function applyVerbsBatch2(htmlPath, jsonPath, options = {}) {
   const verbs = JSON.parse(rawJson);
   validateBatch2(verbs, retiredPath);
 
-  let html = fs.readFileSync(htmlPath, 'utf8');
+  const { html, mode, sourceText, sourcePath, categoriesSource } = resolveCategoriesSource(htmlPath, options.categoriesPath);
 
   // Extract current runtime state
-  const { categories, verbForms } = extractCategoriesAndVerbForms(html);
+  const { categories, verbForms } = extractCategoriesAndVerbForms(html, categoriesSource);
 
   const verbenCat = categories.find(c => c.id === 'verben');
   if (!verbenCat) {
@@ -253,17 +255,17 @@ function applyVerbsBatch2(htmlPath, jsonPath, options = {}) {
 
   // Locate the last word of verben (verben.kennenlernen) and the closing of the verben category
   const lastVerbRegex = /(\{\s*id\s*:\s*['"]verben\.kennenlernen['"][\s\S]*?\})(\s*\n\s*\]\s*\})/m;
-  const lastVerbMatch = html.match(lastVerbRegex);
+  const lastVerbMatch = sourceText.match(lastVerbRegex);
   if (!lastVerbMatch) {
     throw new Error("Could not locate the closing of 'verben' category after 'verben.kennenlernen'");
   }
 
   const updatedVerbenCategory = `${lastVerbMatch[1]},\n${wordsLines}${lastVerbMatch[2]}`;
-  let transformedHtml = html.replace(lastVerbRegex, updatedVerbenCategory);
+  let transformedSource = sourceText.replace(lastVerbRegex, updatedVerbenCategory);
 
   // 2. Build updated VERB_FORMS
   const vfRegex = /(const\s+VERB_FORMS\s*=\s*)(\{[\s\S]*?\n\});/;
-  const vfMatch = transformedHtml.match(vfRegex);
+  const vfMatch = html.match(vfRegex);
   if (!vfMatch) {
     throw new Error('Could not locate const VERB_FORMS in HTML');
   }
@@ -284,16 +286,26 @@ function applyVerbsBatch2(htmlPath, jsonPath, options = {}) {
   });
 
   const newVfJson = JSON.stringify(updatedVf, null, 2);
-  transformedHtml = transformedHtml.replace(vfRegex, `${vfMatch[1]}${newVfJson};`);
+  let transformedHtml = (mode === 'inline' ? transformedSource : html).replace(vfRegex, `${vfMatch[1]}${newVfJson};`);
+  if (mode === 'inline') {
+    transformedSource = transformedHtml;
+  }
 
-  // Verify inline scripts syntax
-  const scriptMatches = [...transformedHtml.matchAll(/<script(?![^>]*src=)(?:[^>]*)>([\s\S]*?)<\/script>/gi)];
-  scriptMatches.forEach((sm, i) => {
-    new vm.Script(sm[1], { filename: `transformed-inline-script-${i}.js` });
-  });
+  // Verify syntax of the transformed source
+  if (mode === 'inline') {
+    const scriptMatches = [...transformedHtml.matchAll(/<script(?![^>]*src=)(?:[^>]*)>([\s\S]*?)<\/script>/gi)];
+    scriptMatches.forEach((sm, i) => {
+      new vm.Script(sm[1], { filename: `transformed-inline-script-${i}.js` });
+    });
+  } else {
+    new vm.Script(transformedSource, { filename: sourcePath });
+  }
 
   // Verify updated categories and compute new hash
-  const updatedState = extractCategoriesAndVerbForms(transformedHtml);
+  const updatedState = extractCategoriesAndVerbForms(
+    mode === 'inline' ? transformedHtml : html,
+    mode === 'inline' ? null : transformedSource
+  );
   const updatedCat = updatedState.categories.find(c => c.id === 'verben');
   if (!updatedCat || updatedCat.words.length !== 169) {
     throw new Error(`Verification failed: verben category length is ${updatedCat ? updatedCat.words.length : 0}, expected 169`);
@@ -307,7 +319,12 @@ function applyVerbsBatch2(htmlPath, jsonPath, options = {}) {
   const newVfChecksum = crypto.createHash('sha256').update(newVfCanonical).digest('hex');
 
   if (!dryRun) {
-    fs.writeFileSync(htmlPath, transformedHtml, 'utf8');
+    if (mode === 'inline') {
+      fs.writeFileSync(htmlPath, transformedHtml, 'utf8');
+    } else {
+      fs.writeFileSync(sourcePath, transformedSource, 'utf8');
+      fs.writeFileSync(htmlPath, transformedHtml, 'utf8');
+    }
   }
 
   return {

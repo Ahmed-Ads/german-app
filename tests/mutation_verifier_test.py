@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Automated Mutation Testing Suite for verify_vocab.py (Phase 3)
-Mutates a temporary copy of index.html in every field type:
+Mutates a temporary copy of data/categories.js in every field type:
 - German spelling (1 char)
 - Article modification
 - Arabic translation (1 char)
@@ -39,7 +39,7 @@ if hasattr(sys.stderr, 'reconfigure'):
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(SCRIPT_DIR)
 VERIFIER_PATH = os.path.join(ROOT_DIR, 'verify_vocab.py')
-INDEX_PATH = os.path.join(ROOT_DIR, 'index.html')
+INDEX_PATH = os.path.join(ROOT_DIR, 'data', 'categories.js')
 
 with open(INDEX_PATH, 'r', encoding='utf-8') as f:
     original_html = f.read().replace('\r\n', '\n')
@@ -49,7 +49,7 @@ failed_count = 0
 
 def run_mutation_test(name, mutated_content, expected_err_keyword):
     global passed_count, failed_count
-    with tempfile.NamedTemporaryFile('w', encoding='utf-8', suffix='.html', delete=False) as tf:
+    with tempfile.NamedTemporaryFile('w', encoding='utf-8', suffix='.js', delete=False) as tf:
         tf.write(mutated_content)
         tpath = tf.name
 

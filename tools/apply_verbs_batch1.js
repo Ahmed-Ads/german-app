@@ -16,7 +16,9 @@
 const fs = require('fs');
 const path = require('path');
 
-function applyVerbsBatch1(htmlPath, jsonPath) {
+const { resolveCategoriesSource } = require('../scripts/vocab_source.js');
+
+function applyVerbsBatch1(htmlPath, jsonPath, options = {}) {
   if (!fs.existsSync(htmlPath)) {
     throw new Error(`Target HTML file not found: ${htmlPath}`);
   }
@@ -31,10 +33,10 @@ function applyVerbsBatch1(htmlPath, jsonPath) {
     throw new Error(`Expected exactly 77 verbs in ${jsonPath}, found ${verbs ? verbs.length : 0}`);
   }
 
-  let html = fs.readFileSync(htmlPath, 'utf8');
+  const { html, mode, sourceText, sourcePath } = resolveCategoriesSource(htmlPath, options.categoriesPath);
 
   // Check idempotency: refuse to run if already applied
-  if (/id\s*:\s*['"]verben['"]/.test(html) || /const\s+VERB_FORMS\s*=/.test(html)) {
+  if (/id\s*:\s*['"]verben['"]/.test(sourceText) || /const\s+VERB_FORMS\s*=/.test(html)) {
     throw new Error(`Category 'verben' or VERB_FORMS already exists in ${htmlPath}. Refusing to run twice.`);
   }
 
@@ -72,9 +74,9 @@ function applyVerbsBatch1(htmlPath, jsonPath) {
   // 3. Find end of CATEGORIES array
   // We locate the closing bracket of section-names and the CATEGORIES array
   const categoryEndRegex = /(\n\s*\{\s*id\s*:\s*['"]section-names['"][\s\S]*?\n\s*\]\s*\})(\n\s*\]\s*;)/;
-  const match = html.match(categoryEndRegex);
+  const match = sourceText.match(categoryEndRegex);
   if (!match) {
-    throw new Error("Could not find the closing bracket of CATEGORIES after 'section-names' in " + htmlPath);
+    throw new Error("Could not find the closing bracket of CATEGORIES after 'section-names' in " + sourcePath);
   }
 
   // Format category words JSON
@@ -93,10 +95,25 @@ function applyVerbsBatch1(htmlPath, jsonPath) {
     `if(typeof window !== 'undefined'){ window.VERB_FORMS = VERB_FORMS; }\n`;
 
   // Replace
-  const replacement = match[1] + categorySnippet + match[2] + verbFormsSnippet;
-  html = html.replace(categoryEndRegex, replacement);
+  let updatedSource;
+  let updatedHtml;
+  if (mode === 'inline') {
+    const replacement = match[1] + categorySnippet + match[2] + verbFormsSnippet;
+    updatedSource = sourceText.replace(categoryEndRegex, replacement);
+    updatedHtml = updatedSource;
+  } else {
+    updatedSource = sourceText.replace(categoryEndRegex, match[1] + categorySnippet + match[2]);
+    const scriptEnd = html.lastIndexOf('</script>');
+    if (scriptEnd === -1) {
+      throw new Error('Could not locate the main script closing tag in ' + htmlPath);
+    }
+    updatedHtml = html.slice(0, scriptEnd) + verbFormsSnippet + html.slice(scriptEnd);
+  }
 
-  fs.writeFileSync(htmlPath, html, 'utf8');
+  fs.writeFileSync(sourcePath, updatedSource, 'utf8');
+  if (mode !== 'inline') {
+    fs.writeFileSync(htmlPath, updatedHtml, 'utf8');
+  }
   return { applied: true, wordCount: words.length };
 }
 

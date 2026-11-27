@@ -5,11 +5,11 @@ import { extractCategoriesFromHtml } from '../scripts/apply_vocab_changes.js';
 
 describe('Release v1.21 Sentences Pilot 4 Quality & Structure Checks', () => {
   const rootDir = path.resolve(__dirname, '..');
-  const indexHtmlPath = path.join(rootDir, 'index.html');
+  const categoriesPath = path.join(rootDir, 'data', 'categories.js');
   const changesPath = path.join(rootDir, 'tools', 'vocab_changes_sentences_pilot4.json');
 
   const changes = JSON.parse(fs.readFileSync(changesPath, 'utf8'));
-  const html = fs.readFileSync(indexHtmlPath, 'utf8');
+  const html = fs.readFileSync(categoriesPath, 'utf8');
   const categories = extractCategoriesFromHtml(html);
 
   const targetCategoryIds = ['obst', 'gemuese', 'tiere', 'kleidung'];
@@ -125,7 +125,7 @@ describe('Release v1.21 Sentences Pilot 4 Quality & Structure Checks', () => {
     ? new Set(JSON.parse(fs.readFileSync(dedupePath, 'utf8')).edit.map(e => e.id))
     : new Set();
 
-  it('verifies all 161 words in index.html match the new sentence values (s and sar) unless superseded', () => {
+  it('verifies all 161 words in data/categories.js match the new sentence values (s and sar) unless superseded', () => {
     for (const e of changes.edit) {
       if (supersededIds.has(e.id)) continue;
       const w = wordMap.get(e.id);
