@@ -142,7 +142,7 @@ German_App/
    ```
    أو قم بتشغيل فحص ويندوز الشامل عبر النقر المزدوج على `Run_Windows_Checks.bat`.
 2. **ترقية إصدار الكاش (Bump CACHE_NAME):**
-   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً إلى `deutsch-lernen-v25`).
+   - افتح ملف `sw.js` وقم بزيادة رقم الإصدار في `CACHE_NAME` (مثلاً إلى `deutsch-lernen-v26`).
    - اختبار `tests/sw_static_check.test.js` يتحقق من اسم الكاش تلقائياً.
    - إن غيّرت أي ملف مخزّن مؤقتاً (مثل `sync/*.js` أو الخطوط أو الأيقونات) دون ترقية `CACHE_NAME` سيفشل اختبار `tests/sw_cache_version.test.js` ويخبرك بالخطوة المطلوبة. بعد الترقية شغّل:
      ```bash
